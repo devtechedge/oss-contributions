@@ -743,6 +743,16 @@
       "issue": 2700,
       "do_not_duplicate": true,
       "summary": "Correct Account modal titleId."
+    },
+    {
+      "repo": "Wilfred/difftastic",
+      "number": 1063,
+      "status": "open",
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 1060,
+      "do_not_duplicate": true,
+      "summary": "Diff Dockerfile heredoc bodies: bump tree-sitter-containerfile to 0.9.2 and add heredoc_content to atom_nodes."
     }
   ],
   "issues": [
