@@ -1486,6 +1486,60 @@
       "do_not_duplicate": true,
       "note": "Catastrophic backtracking in Tads3Lexer._comment_single: the [^\\\\\\n] and \\\\+[\\w\\W] alternatives both match backslashes, so a run of N backslashes after // splits 2**(N-1) ways on an unterminated comment. Reporter router0mail, filed 2026-09-13, empty timeline and no competing TADS PR at GO time 2026-09-14; sibling open PRs #3288/#3228 cover other lexers only.",
       "last_checked": "2026-09-14"
+    },
+    {
+      "do_not_duplicate": false,
+      "related_prs": [],
+      "repo": "wxt-dev/wxt",
+      "note": "GO candidate (scan 2026-09-14): maintainer-filed by aklinker1 (WXT author) with a concrete API shape (InlineConfig.targetBrowserMap default map + ResolvedConfig.actualBrowser union chromium|firefox|safari) = pre-agreed design, implement exactly that shape. Filed 2026-08-08, 0 comments, unassigned, timeline has zero cross-references, 50-PR open sweep clean, linked design discussion in merged PR #2581 review thread. Repo pushed 2026-09-12, pnpm monorepo, no AI ban/CLA/auto-close bots. Handed to implementation agent 2026-09-14.",
+      "status": "open",
+      "number": 2588,
+      "last_checked": "2026-09-14"
+    },
+    {
+      "do_not_duplicate": false,
+      "related_prs": [],
+      "repo": "steveukx/git-js",
+      "note": "GO candidate (scan 2026-09-14): console.warn 'Invalid value supplied for custom binary' fires on every simpleGit() construction even when unsafe.allowUnsafeCustomBinary is opted in; reporter-preferred fix is to skip the warn when opted in and keep the throw otherwise. Filed 2026-08-19, 0 comments, unassigned, timeline clean, 27-PR open sweep clean, reporter has no PRs. Caution: dormant open PR #1187 (derekm, untouched since 2026-08-02) proposes removing the character allowlist entirely, which would moot the warning; do not adopt that design, re-check #1187 movement before claiming. No CONTRIBUTING.md, no AI ban found. Handed to implementation agent 2026-09-14.",
+      "status": "open",
+      "number": 1190,
+      "last_checked": "2026-09-14"
+    },
+    {
+      "do_not_duplicate": true,
+      "related_prs": [],
+      "repo": "wxt-dev/wxt",
+      "note": "UNOWNED-FIX/STOP 2026-09-14: tmp@0.2.5 GHSA-ph9p-34f9-6g65 pin bump; the owning package web-ext-run is maintained in sibling repo wxt-dev/web-ext-run, which is dormant (pushed 2025-09-03) and already has open PR #8 (2026-05-28) covering the tmp/uuid advisory bump, unmerged 3.5 months. The fix is not owned by wxt-dev/wxt and the sibling's merge throughput is near zero. Do not implement against wxt.",
+      "status": "open",
+      "number": 2597,
+      "last_checked": "2026-09-14"
+    },
+    {
+      "do_not_duplicate": true,
+      "related_prs": [],
+      "repo": "psf/requests",
+      "note": "SOFT-CLAIMED 2026-09-14: OpenSSL 4 removed auto SKID/AKID, test certs in tests/certs fail VERIFY_X509_STRICT on Python 3.13+; fix is regenerating test certs with explicit extensions. Timeline clean, no PR, but LeonxLJX commented 'I'd like to take this one' (assoc NONE). Do not race; re-check after ~7 days and take only if no PR appears.",
+      "status": "open",
+      "number": 7617,
+      "last_checked": "2026-09-14"
+    },
+    {
+      "do_not_duplicate": true,
+      "related_prs": [],
+      "repo": "Textualize/rich",
+      "note": "POLICY GATE 2026-09-14: Live blocks never refresh after first run in Jupyter (issue #4207, filed 2026-08-13, 0 comments, unassigned, no competing PR) is a bounded fix in rich/live.py + rich/jupyter.py, but rich AI_POLICY.md requires a linked issue where a maintainer approved the solution before an AI-assisted PR; issue is Needs-triage with zero maintainer engagement, and repo review throughput is low (50 open PRs, pushed_at 2026-06-23 borderline). Revisit only if a maintainer approves the approach in-issue.",
+      "status": "open",
+      "number": 4207,
+      "last_checked": "2026-09-14"
+    },
+    {
+      "do_not_duplicate": false,
+      "related_prs": [],
+      "repo": "redis/redis-py",
+      "note": "BACKUP (scan 2026-09-14): CLIENT LIST buffers the whole reply causing multi-GB RSS at tens of thousands of clients; reporter sketches opt-in client_list_iter() streaming on the pure-Python parser path. Filed 2026-09-13 by fcostaoliveira (author_association NONE, not repo staff on GitHub), 0 comments, unassigned, timeline clean, 50-PR sweep clean, reporter has no PRs. CONTRIBUTING explicitly welcomes AI-assisted contributions. DESIGN GATE: new public API surface with zero maintainer engagement, so comment-and-wait per SKILL section 5 before any code; do not code through the gate. Take only after a maintainer blesses the API shape.",
+      "status": "open",
+      "number": 4326,
+      "last_checked": "2026-09-14"
     }
   ],
   "closed_attempts": [
@@ -1983,6 +2037,26 @@
         3314
       ],
       "focus": "Python syntax highlighter; RedOS/regex-hardening fixes in individual lexers are the lane (merged precedent #3110 MySQL, siblings #3288/#3228). Maintainer merges outside PRs in periodic batches, review latency of weeks is normal. No CONTRIBUTING.md, no DCO/signing, no auto-close bots; first-contribution workflow runs sit in action_required. CI: tox pytest -W error (pin pytest ~=8.2), ruff 0.15.2 check env, regexlint env, mapfiles env; lexer fixes need --update-goldens for examplefiles goldens."
+    },
+    "wxt-dev/wxt": {
+      "focus": "Browser extension build framework; config resolution and browser targeting.",
+      "contributions": []
+    },
+    "steveukx/git-js": {
+      "focus": "Node.js Git wrapper; binary validation and warning noise.",
+      "contributions": []
+    },
+    "psf/requests": {
+      "focus": "Python HTTP client; test-infra certs under OpenSSL 4. Soft-claimed issue tracked.",
+      "contributions": []
+    },
+    "Textualize/rich": {
+      "focus": "Python terminal rendering; Jupyter Live refresh. AI-policy approval gate pending.",
+      "contributions": []
+    },
+    "redis/redis-py": {
+      "focus": "Python Redis client; streaming parser path. Backup behind design gate.",
+      "contributions": []
     }
   }
 }
