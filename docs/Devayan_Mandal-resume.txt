@@ -1,58 +1,68 @@
 DEVAYAN MANDAL
-Full Stack & AI Engineer - Open to Remote Work
+Full Stack AI Native / Forward Deployed AI Engineer & Open Source Contributor - Open to Remote Work
 devayanmandal@gmail.com
 linkedin.com/in/dev-ma | github.com/devtechedge
 
 PROFESSIONAL SUMMARY
-Full Stack & AI Engineer with 10 years of remote, self-directed production work. Built 30+ original architectures across autonomous multi-agent systems, MCP integrations, RL evaluation environments, and high-throughput web platforms, all shipped and running live. Merged 5 upstream PRs into Recharts, Biome (Rust), Better Auth, thirdweb, and Anza (Solana Kit). Certified across frontier agent stacks (Anthropic MCP, OpenAI Agents, LangChain), with an AI-native daily workflow across frontier models. Owns problems end to end: architecture, implementation, deployment, observability, and iteration with the people using the system.
+
+Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed production work. Built 30+ production-grade systems across autonomous multi-agent platforms, MCP integrations, deterministic RL evaluation, real-time observability, and high-throughput web applications. Merged 10 upstream pull requests across TypeScript, JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, and Anza Kit. Specializes in explicit state machines, bounded autonomy, verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and production-grade developer tooling, with end-to-end ownership from architecture through deployment, observability, testing, and upstream delivery.
 
 TECHNICAL SKILLS
+
 Languages: Python, TypeScript, JavaScript, Rust, SQL, R, Bash
-AI & Agents: LangGraph, LangChain, LangSmith, Model Context Protocol (MCP), multi-agent orchestration, supervisor routing, Reflexion loops, human-in-the-loop gates, hybrid RAG, RLVR environments, prompt engineering, Ollama
-Frontend: React 19, Next.js 16, TanStack Start/Router/Query, Tailwind v4, Vite, Framer Motion, Expo
-Backend & Data: FastAPI, Node.js, Drizzle ORM, PostgreSQL (pgvector), Neon, Supabase, SQLite, Stripe
-Cloud & DevOps: Vercel, AWS, Microsoft Azure, GitHub Actions CI/CD, serverless, cron pipelines, OpenTelemetry-style tracing, Vitest, pytest
-Web3: ethers.js, wagmi, viem, Safe Protocol Kit, RainbowKit, AppKit, Base L2, Foundry
-Practices: Six Sigma DMAIC, deterministic evaluation, AST-sandboxed grading, Git, changesets
+AI & Agents: LangGraph, LangChain, LangServe, LangSmith, Model Context Protocol (MCP), multi-agent orchestration, supervisor routing, Reflexion loops, human-in-the-loop gates, hybrid RAG, RLVR environments, deterministic evaluation, prompt engineering, Ollama, Gemini, OpenAI-compatible providers
+Frontend: React 19, Next.js 16, TanStack Start/Router/Query, Tailwind v4, Vite, Framer Motion, Expo, Three.js, React Three Fiber, HTML5 Canvas, SVG
+Backend & Data: FastAPI, Node.js, Drizzle ORM, Prisma, SQLAlchemy, PostgreSQL (pgvector), Neon, Supabase, SQLite, Pydantic, Zod, Stripe
+Realtime & Observability: SSE, WebSockets, Socket.io, replayable traces, OpenTelemetry-shaped tracing, LangSmith evaluation pipelines
+Cloud & DevOps: Vercel, AWS, Microsoft Azure, GitHub Actions CI/CD, serverless, scheduled pipelines, Vitest, pytest, Playwright, Biome
+Web3 & Blockchain: Solidity, OpenZeppelin, Foundry, viem, wagmi, ethers.js, Safe Protocol Kit, RainbowKit, Reown AppKit, Base L2, blockchain and wallet infrastructure
+Practices: Six Sigma DMAIC, bounded autonomy, retrieval-bounded generation, AST-sandboxed grading, cost-aware routing, threat-model documentation, Git, Changesets
 
 PROFESSIONAL EXPERIENCE
 
 LATTICE AI LABS
-Full Stack & AI Engineer | January 2016 - Present | Remote
+Full Stack AI Native / Forward Deployed AI Engineer | January 2016 - Present | Remote
 
-- Architected and shipped 30+ production-grade systems across 50 open-source repositories: multi-agent platforms, RL evaluation environments, real-time observability tools, and high-throughput web apps.
+- Architected and shipped 30+ production-grade systems across a broad portfolio of public engineering repositories spanning autonomous agents, RL evaluation environments, real-time observability, and high-throughput web applications.
 - Built AEGIS, an enterprise AI ops cortex where a LangGraph supervisor routes 6 specialist agents across 7 agentic loops, with hybrid RAG, human-in-the-loop gates, LangSmith evaluation gates, and a live SSE dashboard. Live: aegis-agent-api.vercel.app/ui
-- Built Synthesis, an autonomous research platform running cyclic Reflexion workflows (Plan, Research, Synthesize, Critique, Finalize) on a StateGraph executor with HITL approval gates, and AAROP, an inspectable 6-phase reasoning engine with cost-aware model routing, circuit breakers, and 99% Python test coverage. Live: synthesis-gold.vercel.app | aarop.vercel.app
-- Authored 3 official RLVR environments on the Prime Intellect Environments Hub (calendar-math, meeting-slot, unit-fix) using deterministic UTC sweep-line solvers and AST-sandboxed execution graders, removing LLM-as-judge variance. Live: app.primeintellect.ai/dashboard/environments/devtechedge/calendar-math | app.primeintellect.ai/dashboard/environments/devtechedge/meeting-slot
-- Implemented MCP servers and clients across Stdio and StreamableHTTP/SSE transports with client-side sampling and roots-based security boundaries; shipped a WebMCP entry for the OpenAI WebMCP Challenge 2026.
-- Engineered Cadence, a framework-free healthcare agent with 5-layer clinical memory (session, episodic, semantic, knowledge, insights) on Ollama and SQLite, producing consent-scoped clinician briefs. Live: cadence-healthcare.vercel.app
-- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across 50 employer ATS boards (Greenhouse, Ashby, Lever) on TanStack Start, React 19, and Neon Postgres, with a public JSON API, an Expo iOS/Android client, and a GitHub Actions crawl pipeline running 4x daily. Live: jobrow.vercel.app
-- Shipped Lattice, a live Web3 job board for blockchain, crypto, and DeFi roles read from employer ATS boards (Coinbase, Binance, Ripple), with same-day close detection when a board drops a posting. Live: lattice-devtechedge1.vercel.app
-- Built a real-time chaos engineering platform with self-healing microservices, animated SVG topology, automated fault injection, and sub-second WebSocket telemetry, plus CollabSpace multiplayer whiteboards on Supabase Realtime; wired replayable OTel-shaped traces and LangSmith eval pipelines through the agent systems. Live: chaos-simulation.vercel.app
-- Delivered Pulsar, a Base L2 GPU marketplace with Foundry smart contracts; RegTrace-AI, a MiCA/VARA compliance copilot with source-traced citations and hallucination flags; Smart Waitlist, a viral referral waitlist with Stripe; and AstraMart.
-- Operate a serverless daily AI news agent on GitHub Actions that pulls six public feeds (HN, arXiv cs.AI, Reddit r/MachineLearning, Google AI Blog, OpenAI News, Hugging Face), dedupes against in-repo memory, summarizes with Gemini, and delivers one Telegram executive brief at zero infrastructure cost.
-- Work AI-native across the full stack: Grok 4.6 (Build v1.0.13 harness), ChatGPT 5.6 Sol/Terra/Luna (Codex harness), DeepSeek v4 Flash and Pro (DeepSeek harness), GLM 5.3 (Z.ai GLM harness), and Qwen 3.8 Max and Gemini 3.8 Flash high-thinking for text and vision - a daily multi-model workflow that multiplies productivity on everything above.
+- Built Synthesis, an autonomous research platform running cyclic Reflexion workflows (Plan, Research, Synthesize, Critique, Finalize) on a StateGraph executor with HITL approval gates, and AAROP, an inspectable 6-phase reasoning engine with cost-aware model routing, circuit breakers, RAG memory, replayable traces, and 99% Python test coverage. Live: synthesis-gold.vercel.app | aarop.vercel.app
+- Built Veritas, a LangGraph research agent with SSE streaming, grounded demo mode, external retrieval when configured, and explicit separation between deterministic demo execution and live model/retrieval execution. Live: veritas-engine-woad.vercel.app
+- Authored 3 official RLVR environments on the Prime Intellect Environments Hub (calendar-math, meeting-slot, unit-fix) using deterministic UTC sweep-line solvers and AST-sandboxed execution graders, removing LLM-as-judge variance.
+- Implemented MCP servers and clients across Stdio and StreamableHTTP/SSE transports with client-side sampling and roots-based security boundaries; shipped HoldSlot, a WebMCP implementation for the OpenAI WebMCP Challenge 2026.
+- Engineered Cadence, a framework-free healthcare agent with 5-layer clinical memory (session, episodic, semantic, knowledge, insights) using Ollama and SQLite, producing consent-scoped clinician briefs. Live: cadence-healthcare.vercel.app
+- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer ATS boards (Greenhouse, Ashby, Lever) on TanStack Start, React 19, and Neon Postgres, with a public JSON API, Expo iOS/Android client, and GitHub Actions crawl pipeline running 4x daily. Live: jobrow.vercel.app
+- Shipped Lattice, a live Web3 job platform for blockchain, crypto, and DeFi roles with same-day close detection from employer ATS boards. Live: lattice-devtechedge1.vercel.app
+- Built a real-time chaos engineering platform with self-healing microservices, animated SVG topology, automated fault injection, and sub-second WebSocket telemetry, plus CollabSpace multiplayer whiteboards on Supabase Realtime; wired replayable OTel-shaped traces and LangSmith evaluation pipelines through the agent systems. Live: chaos-simulation.vercel.app
+- Delivered Pulsar, a Base L2 GPU marketplace with Foundry smart contracts; RegTrace-AI, a MiCA/VARA compliance copilot with source-traced citations and hallucination flags; Smart Waitlist with Stripe-backed referral flows; and AstraMart.
+- Operate a serverless daily AI news agent on GitHub Actions that pulls six public feeds, dedupes against in-repo memory, summarizes with Gemini, and delivers one Telegram executive brief at zero infrastructure cost.
+- Work AI-native across the full stack using frontier coding and reasoning models through dedicated development harnesses, with emphasis on rapid iteration, test-driven validation, repository-specific contribution policies, and reproducible upstream delivery.
 
 SPECTRAL QUANTITATIVE TRADING
 Quantitative Crypto Trader & Derivatives Strategist | September 2016 - Present | Remote
 
-- Manage diversified proprietary capital across tier-1 exchanges (Binance, Coinbase, Bitget, MEXC) and on-chain protocols (Hyperliquid, Uniswap v3, Aave, GMX).
+- Manage diversified proprietary capital across tier-1 exchanges including Binance, Coinbase, Bitget, and MEXC, and on-chain protocols including Hyperliquid, Uniswap v3, Aave, and GMX.
 - Built and ran automated grid, DCA, and Martingale bots on Pionex and Binance to capture spread and volatility in ranging markets.
-- Executed delta-neutral basis and funding-rate arbitrage between spot and perpetuals, plus concentrated liquidity and lending-loop strategies on-chain.
-- Applied TWAP/VWAP execution on illiquid pairs, with VaR limits, drawdown caps, and Sharpe-ratio optimization governing position sizing.
+- Executed delta-neutral basis and funding-rate arbitrage between spot and perpetuals, plus concentrated-liquidity and lending-loop strategies on-chain.
+- Applied TWAP/VWAP execution on illiquid pairs, with VaR limits, drawdown caps, and Sharpe-ratio optimization governing position sizing and portfolio risk.
 
-PROJECTS & OPEN SOURCE CONTRIBUTIONS
+OPEN SOURCE CONTRIBUTIONS
 
 Merged upstream:
 - recharts/recharts #7805 (TypeScript) - removed tabIndex={-1} from z-index portal SVG <g> layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage asserting no layer carries a tabindex attribute. Merged Sep 2026. github.com/recharts/recharts/pull/7805
+- pnpm/pnpm #14753 (Rust/TypeScript) - fixed lockfile:false being ignored when automatic package-manager switching downloaded the configured engine; added unit and filesystem-backed regression coverage across Rust and TypeScript paths. Merged Sep 2026. github.com/pnpm/pnpm/pull/14753
+- pnpm/pnpm #14754 (Rust) - fixed non-recursive pattern runs with --no-bail so matching scripts continue executing and failures are aggregated correctly; added concurrent and sequential regression tests. Merged Sep 2026. github.com/pnpm/pnpm/pull/14754
+- pnpm/pnpm #14756 (Rust/TypeScript) - preserved existing dependency range operators and npm:/jsr: protocol prefixes during pnpm update, including prerelease and exact-version handling. Merged Sep 2026. github.com/pnpm/pnpm/pull/14756
+- brianc/node-postgres #3772 (JavaScript) - stopped Connection.sync() from incorrectly setting the internal _ending flag, preventing false suppression of subsequent socket errors; added unit coverage for Sync vs disconnect semantics. Merged Sep 2026. github.com/brianc/node-postgres/pull/3772
+- SQLMesh/sqlmesh #6040 (Python) - moved ModelTest.create_test() off concurrent worker threads to eliminate a time_machine/ttl_cache race in sqlmesh test; verified the focused race regression repeatedly. Merged Sep 2026. github.com/SQLMesh/sqlmesh/pull/6040
 - biomejs/biome #11667 (Rust) - ported the unicorn better-dom-traversing rule into Biome's nursery linter; +1,972 lines across 17 files and 7 commits, released to 13 packages via changeset. Merged Sep 2026. github.com/biomejs/biome/pull/11667
+- better-auth/better-auth #11208 (TypeScript) - added regression coverage locking the /phone-number/verify OpenAPI requestBody after a Zod .and(z.record()) intersection; tests only, no production generator changes. Merged Sep 2026. github.com/better-auth/better-auth/pull/11208
 - thirdweb-dev/js #8938 (TypeScript) - fixed useTokenQuery error handling so 401/429/timeout failures rethrow instead of rendering a false "Token Not Supported" state in CheckoutWidget; added tests and a patch changeset. Merged Sep 2026. github.com/thirdweb-dev/js/pull/8938
-- better-auth/better-auth #11208 (TypeScript) - regression test locking the /phone-number/verify OpenAPI requestBody after a Zod .and(z.record()) intersection (closes #8122); +53 lines, 1 file. Merged Sep 2026. github.com/better-auth/better-auth/pull/11208
-- anza-xyz/kit #2032 (TypeScript) - restored number predicates in the getPatternMatchCodec docs examples (fixes #1810). Merged Sep 2026. github.com/anza-xyz/kit/pull/2032
+- anza-xyz/kit #2032 (TypeScript) - restored number predicates in the getPatternMatchCodec advanced guide to match current codec typing. Merged Sep 2026. github.com/anza-xyz/kit/pull/2032
 
-Notable open PRs (12 in total): LangGraph.js #2803 (CVE-2026-71433 port, multi-tenant namespace leak), Drizzle ORM #6258 (drizzle-kit M2M junction detection), TanStack Router #8285 (malformed JSON handling), wagmi #5240 (reconnect stranding), RainbowKit #2701 / #2703 (accessible names, missing wallet app link), Safe Protocol Kit #1426 (nonce = 0 dropped by truthiness), ethers.js #5186 (EIP-7702 raw yParity), Stellar SDK #1715 (RPC timestamp coercion), Reown AppKit #5763 / #5766 / #5767 (modal accessibility, on-ramp parameters, CAIP namespaces). Full ledgers: github.com/devtechedge/non-web3-oss-contributions | github.com/devtechedge/web3-oss-contributions
+Active upstream engineering spans AI infrastructure, developer tooling, package management, frameworks, accessibility, concurrency, portability, security, SDKs, wallets, and blockchain infrastructure. Canonical ledger: github.com/devtechedge/oss-contributions
 
 CERTIFICATIONS
+
 - Model Context Protocol: Advanced Topics - Anthropic, 2026
 - AI Fluency for Builders - Anthropic (with CodePath), 2026
 - Agents and Workflows - OpenAI Academy, 2026
@@ -64,6 +74,7 @@ CERTIFICATIONS
 - Six Sigma Green Belt - Kennesaw State University (Coursera), 2020
 
 EDUCATION
+
 UNIVERSITY OF MUMBAI
 Bachelor of Engineering (B.E.), Chemical Engineering (First Class) | [Graduation Year]
-Quantitative core in process dynamics, transport phenomena, mathematical modeling, and optimization; moved into software engineering through computational simulation work.
+Quantitative core in process dynamics, transport phenomena, mathematical modeling, and optimization; transitioned into software engineering through computational and systems-oriented work.
