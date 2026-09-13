@@ -813,6 +813,19 @@
       "branch": "citation-validator",
       "commit": "7456faa",
       "summary": "Fresh uncontested implementation of issue #1 (good first issue + help wanted, filed 2026-09-13 by the repo owner with a public 9-case fixture manifest, VERIFIER_CONTRACT.md and a black-box verify_acceptance.py). Added signalpost_citation_validator package (stdlib only): validate_envelope/validate_input library plus CLI python3 -m signalpost_citation_validator --input --snapshot-root --output. Implements exact contract: unique evidence IDs, available-claim citations, evidence existence, http/https URLs without credentials, timezone-aware ISO 8601 timestamps, 64-hex digests, relative snapshot paths resolved inside root (absolute/.. /symlink-escape rejected, resolved-path check not prefix), 20 MB default size limit, SHA-256 byte comparison, only cited files read, no network, deterministic findings sorted by line/claim/evidence/code, citations_checked as distinct cited IDs, both *_verified flags always false, empty_input fails closed, malformed JSON line is a finding. 50 new tests + 5 existing pass on 3.11 and 3.12; verifier passed twice with identical output. Claim comment posted on issue #1 before PR. No CI configured in repo (no checks reported)."
+    },
+    {
+      "repo": "steveukx/git-js",
+      "number": 1194,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 1190,
+      "do_not_duplicate": true,
+      "branch": "fix/allow-unsafe-custom-binary-no-warn",
+      "commit": "2179c19",
+      "summary": "Minimal fix for issue #1190 (console.warn on every simpleGit() construction even with unsafe.allowUnsafeCustomBinary opted in): custom-binary.plugin.ts now throws only when the flag is absent and never warns on the opted-in path; throw path byte-identical. Two unit tests in plugin.binary.spec.ts (no warn + command queued when opted in; throw without flag, no warn), proven fail-before/pass-after by stashing src only (1 failed untouched, 22 pass after). Changeset added (simple-git: patch). Repo is a yarn 4 monorepo, jest 29. Local CI replication green where runnable: yarn install/build/build:pkg, biome lint rules on changed files, full unit suite. Pre-existing red on base commit on this Windows box (identical counts with and without the fix): 6 integration suites (19 tests) and test:consumer argv-parser ESM resolution; biome formatter CRLF noise from core.autocrlf. GitHub Actions CI + Lint runs action_required pending first-contribution maintainer approval; Snyk passed. Caution: open PR #1187 (derekm, stale since 2026-08-02) proposes dropping the allowlist entirely; our PR is the minimal independently mergeable option and does not adopt that design."
     }
   ],
   "issues": [
@@ -1564,6 +1577,17 @@
       "status": "open",
       "number": 1,
       "last_checked": "2026-09-14"
+    },
+    {
+      "do_not_duplicate": true,
+      "related_prs": [
+        1194
+      ],
+      "repo": "steveukx/git-js",
+      "note": "Claimed and implemented 2026-09-14: console.warn noise on every simpleGit() construction when unsafe.allowUnsafeCustomBinary is set (filed 2026-08-19 by wayneleee with repro, root cause, and three ranked fix shapes). Re-verified at claim: open, 0 comments, no assignee, no labels, zero cross-referenced timeline events, open-PR sweep clean except stale #1187. Reporter's preferred shape one implemented (no warn when flag true). No CONTRIBUTING/CLA/DCO/PR template; no auto-close bot in .github/workflows. Submission-path probe passed (No commits between proves PR creation endpoint works for the account).",
+      "status": "open",
+      "number": 1190,
+      "last_checked": "2026-09-14"
     }
   ],
   "closed_attempts": [
@@ -2067,8 +2091,10 @@
       "contributions": []
     },
     "steveukx/git-js": {
-      "focus": "Node.js Git wrapper; binary validation and warning noise.",
-      "contributions": []
+      "contributions": [
+        1194
+      ],
+      "focus": "Node.js git wrapper; developer tooling. Yarn 4 monorepo, jest, changesets. Watch open PR #1187 (allowlist removal, stale since 2026-08-02) which would moot custom-binary validation work."
     },
     "psf/requests": {
       "focus": "Python HTTP client; test-infra certs under OpenSSL 4. Soft-claimed issue tracked.",
