@@ -800,6 +800,19 @@
       "branch": "fix/tads3-comment-backtracking",
       "commit": "0ba7802",
       "summary": "One-character fix in _comment_single: \\\\+[\\w\\W] -> \\\\[\\w\\W] makes the alternatives disjoint and matching linear (n=40: 19.7s -> 0.013s). Adds tests/test_int_fiction.py RedOS regression (tests/test_lisp.py style) plus three tests/snippets/tads3/ comment-backslash-run snippets; refreshed tads3_example.t golden where #define lines after backslash-terminated // comments are now Comment.Preproc instead of swallowed by the comment. Local CI replication green: pytest -W error (5334 passed), ruff, check_sources, analyse_text, token refs, regexlint; mapfiles untouched. Workflow run action_required pending first-contribution approval; maintainer merges in periodic batches."
+    },
+    {
+      "repo": "builderr-ai/signalpost-citation-validator",
+      "number": 2,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 1,
+      "do_not_duplicate": true,
+      "branch": "citation-validator",
+      "commit": "7456faa",
+      "summary": "Fresh uncontested implementation of issue #1 (good first issue + help wanted, filed 2026-09-13 by the repo owner with a public 9-case fixture manifest, VERIFIER_CONTRACT.md and a black-box verify_acceptance.py). Added signalpost_citation_validator package (stdlib only): validate_envelope/validate_input library plus CLI python3 -m signalpost_citation_validator --input --snapshot-root --output. Implements exact contract: unique evidence IDs, available-claim citations, evidence existence, http/https URLs without credentials, timezone-aware ISO 8601 timestamps, 64-hex digests, relative snapshot paths resolved inside root (absolute/.. /symlink-escape rejected, resolved-path check not prefix), 20 MB default size limit, SHA-256 byte comparison, only cited files read, no network, deterministic findings sorted by line/claim/evidence/code, citations_checked as distinct cited IDs, both *_verified flags always false, empty_input fails closed, malformed JSON line is a finding. 50 new tests + 5 existing pass on 3.11 and 3.12; verifier passed twice with identical output. Claim comment posted on issue #1 before PR. No CI configured in repo (no checks reported)."
     }
   ],
   "issues": [
@@ -1539,6 +1552,17 @@
       "note": "BACKUP (scan 2026-09-14): CLIENT LIST buffers the whole reply causing multi-GB RSS at tens of thousands of clients; reporter sketches opt-in client_list_iter() streaming on the pure-Python parser path. Filed 2026-09-13 by fcostaoliveira (author_association NONE, not repo staff on GitHub), 0 comments, unassigned, timeline clean, 50-PR sweep clean, reporter has no PRs. CONTRIBUTING explicitly welcomes AI-assisted contributions. DESIGN GATE: new public API surface with zero maintainer engagement, so comment-and-wait per SKILL section 5 before any code; do not code through the gate. Take only after a maintainer blesses the API shape.",
       "status": "open",
       "number": 4326,
+      "last_checked": "2026-09-14"
+    },
+    {
+      "do_not_duplicate": true,
+      "related_prs": [
+        2
+      ],
+      "repo": "builderr-ai/signalpost-citation-validator",
+      "note": "Claimed and implemented 2026-09-14: byte-linkage citation validator per the public issue contract. Issue fresh (2026-09-13), unassigned, timeline clean, zero competing PRs at claim and at PR open. Maintainer explicitly invites comment-then-PR workflow in CONTRIBUTING.md; no CLA, MIT, no signing convention in history (unsigned commit). Submission-path probe passed (No commits between validation error proves PR creation endpoint works for the account).",
+      "status": "open",
+      "number": 1,
       "last_checked": "2026-09-14"
     }
   ],
