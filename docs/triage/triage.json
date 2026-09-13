@@ -55,6 +55,17 @@
   },
   "pull_requests": [
     {
+      "repo": "pypa/hatch",
+      "number": 2422,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 2420,
+      "do_not_duplicate": true,
+      "summary": "Docs: replace the German word 'verboten' with 'forbidden' in docs/how-to/config/dynamic-metadata.md L17, fixing #2420. One-word change on branch docs/2420-verboten-to-forbidden, commit ce047bcd (SSH-signed, GitHub reports verified). Base is master (repo default; there is no main branch). First-contribution workflow runs sit in action_required pending maintainer approval. AI disclosure included per docs/community/contributing.md."
+    },
+    {
       "repo": "brianc/node-postgres",
       "number": 3772,
       "status": "merged",
@@ -1195,9 +1206,11 @@
     },
     {
       "do_not_duplicate": true,
-      "related_prs": [],
+      "related_prs": [
+        2422
+      ],
       "repo": "pypa/hatch",
-      "note": "SELECTED 2026-09-14 as primary target for GLM 5.3 flash agent implementation; implementation brief delivered to user. Verified verboten still on main at docs/how-to/config/dynamic-metadata.md L17, no competitor, no xrefs.",
+      "note": "IMPLEMENTED 2026-09-14: PR #2422 opened by devtechedge on branch docs/2420-verboten-to-forbidden (commit ce047bcd, SSH-signed and GitHub-verified). One-word docs fix: verboten -> forbidden at docs/how-to/config/dynamic-metadata.md L17. Preflight re-verified immediately before opening: issue open, unassigned, 0 comments, no cross-references, no competing PR. Base branch is master (repo default; there is no main branch). The repo AI-disclosure policy lives at docs/community/contributing.md and the disclosure is included in the PR body. All workflow runs sit in action_required pending maintainer approval (first contribution). No babysitting: status changes arrive through the user GitHub emails.",
       "status": "open",
       "number": 2420,
       "last_checked": "2026-09-14"
@@ -1685,8 +1698,10 @@
       "contributions": []
     },
     "pypa/hatch": {
-      "focus": "Python packaging; docs hygiene fix #2420 selected 2026-09-14.",
-      "contributions": []
+      "focus": "Python packaging; docs hygiene.",
+      "contributions": [
+        2422
+      ]
     },
     "honojs/hono": {
       "focus": "TypeScript web framework; router and accepts fixes race within hours.",
