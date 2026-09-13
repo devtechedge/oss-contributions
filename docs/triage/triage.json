@@ -1977,6 +1977,12 @@
     "sqlfluff/sqlfluff": {
       "focus": "SQL linter; fresh dialect/grammar issues raced next day.",
       "contributions": []
+    },
+    "pygments/pygments": {
+      "contributions": [
+        3314
+      ],
+      "focus": "Python syntax highlighter; RedOS/regex-hardening fixes in individual lexers are the lane (merged precedent #3110 MySQL, siblings #3288/#3228). Maintainer merges outside PRs in periodic batches, review latency of weeks is normal. No CONTRIBUTING.md, no DCO/signing, no auto-close bots; first-contribution workflow runs sit in action_required. CI: tox pytest -W error (pin pytest ~=8.2), ruff 0.15.2 check env, regexlint env, mapfiles env; lexer fixes need --update-goldens for examplefiles goldens."
     }
   }
 }
