@@ -774,6 +774,19 @@
       "issue": 3932,
       "do_not_duplicate": true,
       "summary": "chDB Arrow interop: tests for nw.from_arrow over chdb.query DataStore/ArrowTable output (nulls, unsigned ints, strings, nested list/struct, empty, row order) plus a chDB example and materialization note in the docs/ecosystem.md PyCapsule section. chdb dep added to core group with sys_platform != win32 marker; test module omitted from Windows coverage like ibis_test.py. First-contribution CI runs sit in action_required."
+    },
+    {
+      "repo": "mkdocstrings/python",
+      "number": 342,
+      "status": "open",
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 341,
+      "do_not_duplicate": true,
+      "branch": "fix/inherited-relative-crossrefs",
+      "commit": "70996f3",
+      "mergeable_state": "unstable",
+      "summary": "AutorefsHook.expand_identifier anchors leading-dot relative crossrefs on docstring.parent (the defining object) when reachable, fixing wrong-target expansion for inherited members; regression test with cross-module griffe modules plus a non-inherited control. 13 CI failures are pre-existing on main at base commit 8125b0d (all lowest-direct legs and several highest legs, test_api_matches_inventory inventory snapshot and PyAssertionError); all quality checks pass."
     }
   ],
   "issues": [
@@ -1441,6 +1454,17 @@
       "status": "open",
       "number": 1334,
       "last_checked": "2026-09-14"
+    },
+    {
+      "repo": "mkdocstrings/python",
+      "number": 341,
+      "status": "open",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "related_prs": [
+        342
+      ],
+      "note": "Relative cross-references in inherited members expand against the inheriting class; fixed by PR #342 anchoring the dot-walk on docstring.parent."
     }
   ],
   "closed_attempts": [
