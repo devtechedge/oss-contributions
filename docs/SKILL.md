@@ -25,7 +25,7 @@ Learned patterns (scan triage, implementation gotchas, repo-specific no-gos) liv
 | Targeting | Rank all candidates together using the same eligibility, fit, scope, maintainer, freshness, validation, and merge-potential criteria |
 | Account | The user's OSS account, typically `@devtechedge` |
 
-Upstream PR work is recorded on the unified ledger README. Work in the user's own repositories is never listed on the ledger.
+Upstream PR work is recorded on the unified ledger repo. The README lists merged pull requests only; open, closed, no-go, and all other attempt state lives in docs/triage/triage.json. Work in the user's own repositories is never listed on the ledger.
 
 ## 2. Permissions and approvals
 
