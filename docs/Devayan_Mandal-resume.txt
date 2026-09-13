@@ -4,7 +4,7 @@ devayanmandal@gmail.com
 linkedin.com/in/dev-ma | github.com/devtechedge
 
 PROFESSIONAL SUMMARY
-Full Stack & AI Engineer with 10 years of remote, self-directed production work. Built 30+ original architectures across autonomous multi-agent systems, MCP integrations, RL evaluation environments, and high-throughput web platforms, all shipped and running live. Merged 4 upstream PRs into Biome (Rust), Better Auth, thirdweb, and Anza (Solana Kit). Certified across frontier agent stacks (Anthropic MCP, OpenAI Agents, LangChain), with an AI-native daily workflow across frontier models. Owns problems end to end: architecture, implementation, deployment, observability, and iteration with the people using the system.
+Full Stack & AI Engineer with 10 years of remote, self-directed production work. Built 30+ original architectures across autonomous multi-agent systems, MCP integrations, RL evaluation environments, and high-throughput web platforms, all shipped and running live. Merged 5 upstream PRs into Recharts, Biome (Rust), Better Auth, thirdweb, and Anza (Solana Kit). Certified across frontier agent stacks (Anthropic MCP, OpenAI Agents, LangChain), with an AI-native daily workflow across frontier models. Owns problems end to end: architecture, implementation, deployment, observability, and iteration with the people using the system.
 
 TECHNICAL SKILLS
 Languages: Python, TypeScript, JavaScript, Rust, SQL, R, Bash
@@ -44,6 +44,7 @@ Quantitative Crypto Trader & Derivatives Strategist | September 2016 - Present |
 PROJECTS & OPEN SOURCE CONTRIBUTIONS
 
 Merged upstream:
+- recharts/recharts #7805 (TypeScript) - removed tabIndex={-1} from z-index portal SVG <g> layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage asserting no layer carries a tabindex attribute. Merged Sep 2026. github.com/recharts/recharts/pull/7805
 - biomejs/biome #11667 (Rust) - ported the unicorn better-dom-traversing rule into Biome's nursery linter; +1,972 lines across 17 files and 7 commits, released to 13 packages via changeset. Merged Sep 2026. github.com/biomejs/biome/pull/11667
 - thirdweb-dev/js #8938 (TypeScript) - fixed useTokenQuery error handling so 401/429/timeout failures rethrow instead of rendering a false "Token Not Supported" state in CheckoutWidget; added tests and a patch changeset. Merged Sep 2026. github.com/thirdweb-dev/js/pull/8938
 - better-auth/better-auth #11208 (TypeScript) - regression test locking the /phone-number/verify OpenAPI requestBody after a Zod .and(z.record()) intersection (closes #8122); +53 lines, 1 file. Merged Sep 2026. github.com/better-auth/better-auth/pull/11208
