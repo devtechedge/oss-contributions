@@ -787,6 +787,19 @@
       "commit": "70996f3",
       "mergeable_state": "unstable",
       "summary": "AutorefsHook.expand_identifier anchors leading-dot relative crossrefs on docstring.parent (the defining object) when reachable, fixing wrong-target expansion for inherited members; regression test with cross-module griffe modules plus a non-inherited control. 13 CI failures are pre-existing on main at base commit 8125b0d (all lowest-direct legs and several highest legs, test_api_matches_inventory inventory snapshot and PyAssertionError); all quality checks pass."
+    },
+    {
+      "repo": "pygments/pygments",
+      "number": 3314,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 3311,
+      "do_not_duplicate": true,
+      "branch": "fix/tads3-comment-backtracking",
+      "commit": "0ba7802",
+      "summary": "One-character fix in _comment_single: \\\\+[\\w\\W] -> \\\\[\\w\\W] makes the alternatives disjoint and matching linear (n=40: 19.7s -> 0.013s). Adds tests/test_int_fiction.py RedOS regression (tests/test_lisp.py style) plus three tests/snippets/tads3/ comment-backslash-run snippets; refreshed tads3_example.t golden where #define lines after backslash-terminated // comments are now Comment.Preproc instead of swallowed by the comment. Local CI replication green: pytest -W error (5334 passed), ruff, check_sources, analyse_text, token refs, regexlint; mapfiles untouched. Workflow run action_required pending first-contribution approval; maintainer merges in periodic batches."
     }
   ],
   "issues": [
@@ -1465,6 +1478,14 @@
         342
       ],
       "note": "Relative cross-references in inherited members expand against the inheriting class; fixed by PR #342 anchoring the dot-walk on docstring.parent."
+    },
+    {
+      "repo": "pygments/pygments",
+      "number": 3311,
+      "status": "open",
+      "do_not_duplicate": true,
+      "note": "Catastrophic backtracking in Tads3Lexer._comment_single: the [^\\\\\\n] and \\\\+[\\w\\W] alternatives both match backslashes, so a run of N backslashes after // splits 2**(N-1) ways on an unterminated comment. Reporter router0mail, filed 2026-09-13, empty timeline and no competing TADS PR at GO time 2026-09-14; sibling open PRs #3288/#3228 cover other lexers only.",
+      "last_checked": "2026-09-14"
     }
   ],
   "closed_attempts": [
