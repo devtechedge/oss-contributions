@@ -1,10 +1,1091 @@
 # Complete Repository Portfolio for @devtechedge
 
-Total Repositories: 92
+Total Repositories: 97
 
 ---
 
-## 1. just
+## 1. oss-contributions
+- **URL:** https://github.com/devtechedge/oss-contributions
+- **Language:** Not specified
+- **Topics:** tanstack, typescript, javascript, oss, vitest, better-auth, biome, drizzle, rust, blockchain, ethereum, rainbowkit, safe, stellar, ethers, solana, thirdweb, wagmi, walletconnect, web3
+- **Description:** Public ledger of upstream open-source contributions across Web3 and non-Web3 projects. 10 merged contributions across Recharts, pnpm, node-postgres, Biome, SQLMesh, Better Auth, Anza Kit, and thirdweb, spanning TypeScript, Rust, Python, developer tooling, frameworks, databases, concurrency, portability, security, accessibility, and testing.
+
+### README.md
+
+# ⚙️ OSS contributions
+
+Public ledger of **upstream open-source contributions**.
+
+![Merged](https://img.shields.io/badge/merged-10-brightgreen?logo=git&logoColor=white) ![License](https://img.shields.io/github/license/devtechedge/oss-contributions) ![Last commit](https://img.shields.io/github/last-commit/devtechedge/oss-contributions) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![Rust](https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white) ![TanStack](https://img.shields.io/badge/TanStack-FF4154?logo=tanstack&logoColor=white) ![Web3](https://img.shields.io/badge/Web3-000000?logo=web3.js&logoColor=white)
+
+**Latest update:** 14 Sep 2026
+
+This repository serves as the canonical record of upstream contribution activity: identifying worthwhile issues, tracking claims and active pull requests, preserving implementation and review outcomes, and maintaining an auditable history of merged, closed, and declined work.
+
+## ✅ Merged pull requests
+
+| Repo | PR | What | Merged |
+| --- | --- | --- | --- |
+| <img src="https://github.com/recharts.png?size=40" width="18" /> [recharts/recharts](https://github.com/recharts/recharts) | [#7805](https://github.com/recharts/recharts/pull/7805) | Removed `tabIndex={-1}` from z-index portal `<g>` layers so empty SVG groups are not pointer-focusable, preventing WebKit geometry-traced focus rings; added regression coverage asserting no rendered layer carries a `tabindex` attribute. | 13 Sep 2026 |
+| <img src="https://github.com/brianc.png?size=40" width="18" /> [brianc/node-postgres](https://github.com/brianc/node-postgres) | [#3772](https://github.com/brianc/node-postgres/pull/3772) | `Connection.sync()` no longer permanently sets `_ending`, so later `ECONNRESET` / `EPIPE` errors are not swallowed. Regression and integration coverage protects the behavior. | 11 Sep 2026 |
+| <img src="https://github.com/pnpm.png?size=40" width="18" /> [pnpm/pnpm](https://github.com/pnpm/pnpm) | [#14753](https://github.com/pnpm/pnpm/pull/14753) | `lockfile: false` is respected with `devEngines.packageManager.onFail: download`; package-manager download/switch still works without project lockfile synchronization. | 10 Sep 2026 |
+| <img src="https://github.com/pnpm.png?size=40" width="18" /> [pnpm/pnpm](https://github.com/pnpm/pnpm) | [#14756](https://github.com/pnpm/pnpm/pull/14756) | `pnpm update pkg@x.y.z` preserves existing `^` / `~` range operators and supported `npm:` / `jsr:` prefixes. | 10 Sep 2026 |
+| <img src="https://github.com/pnpm.png?size=40" width="18" /> [pnpm/pnpm](https://github.com/pnpm/pnpm) | [#14754](https://github.com/pnpm/pnpm/pull/14754) | Non-recursive `pnpm run "/pattern/" --no-bail` no longer terminates sibling scripts after the first failure. | 10 Sep 2026 |
+| <img src="https://github.com/SQLMesh.png?size=40" width="18" /> [SQLMesh/sqlmesh](https://github.com/SQLMesh/sqlmesh) | [#6040](https://github.com/SQLMesh/sqlmesh/pull/6040) | `ModelTest.create_test()` runs on the calling thread, eliminating a race around shared `execution_time` / `time_machine` state. | 10 Sep 2026 |
+| <img src="https://github.com/better-auth.png?size=40" width="18" /> [better-auth/better-auth](https://github.com/better-auth/better-auth) | [#11208](https://github.com/better-auth/better-auth/pull/11208) | Regression coverage locks the `/phone-number/verify` OpenAPI `requestBody` contract after a Zod intersection issue. | 9 Sep 2026 |
+| <img src="https://github.com/biomejs.png?size=40" width="18" /> [biomejs/biome](https://github.com/biomejs/biome) | [#11667](https://github.com/biomejs/biome/pull/11667) | Added the `useBetterDomTraversing` nursery lint rule, ported from `eslint-plugin-unicorn`, with fixtures and release integration. | 8 Sep 2026 |
+| <img src="https://github.com/anza-xyz.png?size=40" width="18" /> [anza-xyz/kit](https://github.com/anza-xyz/kit) | [#2032](https://github.com/anza-xyz/kit/pull/2032) | Restored `number` predicates in the `getPatternMatchCodec` documentation examples so they match the actual codec typing. | 9 Sep 2026 |
+| <img src="https://github.com/thirdweb-dev.png?size=40" width="18" /> [thirdweb-dev/js](https://github.com/thirdweb-dev/js/pull/8938) | [#8938](https://github.com/thirdweb-dev/js/pull/8938) | Genuine `useTokenQuery` request failures are rethrown instead of being converted into `Token Not Supported`; added regression tests and changeset. | 7 Sep 2026 |
+
+## 🔀 Open pull requests
+
+The repository currently tracks active upstream contributions across application libraries, infrastructure, frameworks, developer tooling, testing, security, accessibility, wallets, SDKs, and blockchain-related software. These contributions are maintained directly in their respective upstream repositories, and this ledger records the substantive work and its current state.
+
+## 🧭 Engineering focus
+
+TypeScript · JavaScript · Python · Rust · frameworks · developer tooling · infrastructure · concurrency · portability · security · accessibility · testing · wallets · SDKs · blockchain infrastructure
+
+## 📄 License
+
+MIT
+
+
+---
+
+## 2. pytest-env
+- **URL:** https://github.com/devtechedge/pytest-env
+- **Language:** Python
+- **Topics:** None
+- **Description:** pytest plugin to set environment variables in pytest.ini or pyproject.toml file
+
+### README.md
+
+# pytest-env
+
+[![PyPI](https://img.shields.io/pypi/v/pytest-env?style=flat-square)](https://pypi.org/project/pytest-env/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/pytest-env.svg)](https://pypi.org/project/pytest-env/)
+[![check](https://github.com/pytest-dev/pytest-env/actions/workflows/check.yaml/badge.svg)](https://github.com/pytest-dev/pytest-env/actions/workflows/check.yaml)
+[![Downloads](https://static.pepy.tech/badge/pytest-env/month)](https://pepy.tech/project/pytest-env)
+
+A `pytest` plugin that sets environment variables from `pyproject.toml`, `pytest.toml`, `.pytest.toml`, or `pytest.ini`
+configuration files. It can also load variables from `.env` files.
+
+<!-- mdformat-toc start --slug=github --no-anchors --maxlevel=6 --minlevel=2 -->
+
+- [Installation](#installation)
+- [Quick start](#quick-start)
+- [How-to guides](#how-to-guides)
+  - [Load variables from `.env` files](#load-variables-from-env-files)
+  - [Control variable behavior](#control-variable-behavior)
+  - [Set different environments for test suites](#set-different-environments-for-test-suites)
+- [Reference](#reference)
+  - [TOML configuration format](#toml-configuration-format)
+  - [INI configuration format](#ini-configuration-format)
+  - [`.env` file format](#env-file-format)
+  - [CLI options](#cli-options)
+    - [`--envfile PATH`](#--envfile-path)
+    - [`--pytest-env-verbose`](#--pytest-env-verbose)
+- [Explanation](#explanation)
+  - [Precedence](#precedence)
+  - [File discovery](#file-discovery)
+  - [Choosing a configuration format](#choosing-a-configuration-format)
+
+<!-- mdformat-toc end -->
+
+## Installation
+
+```shell
+pip install pytest-env
+```
+
+## Quick start
+
+Add environment variables to your `pyproject.toml`:
+
+```toml
+[tool.pytest_env]
+DATABASE_URL = "postgresql://localhost/test_db"
+DEBUG = "true"
+```
+
+Run your tests. The environment variables are now available:
+
+```python
+import os
+
+
+def test_database_connection():
+    assert os.environ["DATABASE_URL"] == "postgresql://localhost/test_db"
+    assert os.environ["DEBUG"] == "true"
+```
+
+To see exactly what pytest-env sets, pass `--pytest-env-verbose`:
+
+```
+$ pytest --pytest-env-verbose
+pytest-env:
+  SET   DATABASE_URL=postgresql://localhost/test_db  (from /project/pyproject.toml)
+  SET   DEBUG=true                                   (from /project/pyproject.toml)
+```
+
+## How-to guides
+
+### Load variables from `.env` files
+
+Specify `.env` files in your configuration:
+
+```toml
+[tool.pytest_env]
+env_files = [".env", ".env.test"]
+```
+
+Create your `.env` file:
+
+```shell
+DATABASE_URL=postgres://localhost/mydb
+SECRET_KEY='my-secret-key'
+DEBUG="true"
+```
+
+Files are loaded before inline variables, so inline configuration takes precedence. To switch `.env` files at runtime
+without changing configuration, use the `--envfile` CLI option:
+
+```shell
+pytest --envfile .env.local           # ignore configured env_files, load only this file
+pytest --envfile +.env.override       # load configured env_files first, then this file on top
+```
+
+To keep existing environment variables (including with `--envfile`), set `env_files_skip_if_set = true`:
+
+```toml
+[tool.pytest_env]
+env_files = [".env", ".env.test"]
+env_files_skip_if_set = true
+```
+
+```ini
+[pytest]
+env_files =
+    .env
+    .env.test
+env_files_skip_if_set = true
+```
+
+### Control variable behavior
+
+Variables set as plain values are assigned directly. For more control, use inline tables with the `transform`,
+`skip_if_set`, and `unset` keys:
+
+```toml
+[tool.pytest_env]
+SIMPLE = "value"
+RUN_PATH = { value = "/run/path/{USER}", transform = true }
+HOME = { value = "~/tmp", skip_if_set = true }
+TEMP_VAR = { unset = true }
+```
+
+`transform` expands `{VAR}` placeholders using existing environment variables. `skip_if_set` leaves the variable
+unchanged when it already exists. For `.env` files, use `env_files_skip_if_set = true`. `unset` removes it entirely
+(different from setting to empty string).
+
+### Set different environments for test suites
+
+Create a subdirectory config to override parent settings:
+
+```
+project/
+├── pyproject.toml          # [tool.pytest_env] DB_HOST = "prod-db"
+└── tests_integration/
+    ├── pytest.toml          # [pytest_env] DB_HOST = "test-db"
+    └── test_api.py
+```
+
+Running `pytest tests_integration/` uses the subdirectory configuration. The plugin walks up the directory tree and
+stops at the first file containing a `pytest_env` section, so subdirectory configs naturally override parent configs.
+
+## Reference
+
+### TOML configuration format
+
+Define environment variables under `[tool.pytest_env]` in `pyproject.toml`, or `[pytest_env]` in `pytest.toml` /
+`.pytest.toml`:
+
+```toml
+[tool.pytest_env]
+SIMPLE_VAR = "value"
+NUMBER_VAR = 42
+EXPANDED = { value = "{HOME}/path", transform = true }
+CONDITIONAL = { value = "default", skip_if_set = true }
+REMOVED = { unset = true }
+```
+
+Each key is the environment variable name. Values can be plain values (cast to string) or inline tables with the
+following keys:
+
+| Key           | Type   | Description                                                                  |
+| ------------- | ------ | ---------------------------------------------------------------------------- |
+| `value`       | string | The value to set.                                                            |
+| `transform`   | bool   | Expand `{VAR}` references in the value using existing environment variables. |
+| `skip_if_set` | bool   | Only set the variable if it is not already defined.                          |
+| `unset`       | bool   | Remove the variable from the environment (ignores `value`).                  |
+
+### INI configuration format
+
+Define environment variables as line-separated `KEY=VALUE` entries:
+
+```ini
+# pytest.ini
+[pytest]
+env =
+    HOME=~/tmp
+    RUN_ENV=test
+    D:CONDITIONAL=value
+    R:RAW_VALUE={USER}
+    U:REMOVED_VAR
+```
+
+```toml
+# pyproject.toml (INI-style)
+[tool.pytest]
+env = [
+  "HOME=~/tmp",
+  "RUN_ENV=test",
+]
+```
+
+Prefix flags modify behavior. Flags are case-insensitive and can be combined in any order (e.g., `R:D:KEY=VALUE`):
+
+| Flag | Description                                                          |
+| ---- | -------------------------------------------------------------------- |
+| `D:` | Default -- only set if the variable is not already defined.          |
+| `R:` | Raw -- skip `{VAR}` expansion (INI expands by default, unlike TOML). |
+| `U:` | Unset -- remove the variable from the environment entirely.          |
+
+In INI format variable expansion is enabled by default. In TOML format it requires `transform = true`.
+
+### `.env` file format
+
+Specify `.env` files using the `env_files` configuration option:
+
+```toml
+[tool.pytest_env]
+env_files = [".env", ".env.test"]
+```
+
+```ini
+[pytest]
+env_files =
+    .env
+    .env.test
+```
+
+Files are parsed by [python-dotenv](https://github.com/theskumar/python-dotenv) and support `KEY=VALUE` lines, `#`
+comments, `export` prefix, quoted values with escape sequences in double quotes, and `${VAR:-default}` expansion.
+
+Example `.env` file:
+
+```shell
+DATABASE_URL=postgres://localhost/mydb
+export SECRET_KEY='my-secret-key'
+DEBUG="true"
+MESSAGE="hello\nworld"
+API_KEY=${FALLBACK_KEY:-default_key}
+```
+
+Missing `.env` files from configuration are silently skipped. Paths are resolved relative to the project root.
+
+### CLI options
+
+#### `--envfile PATH`
+
+Override or extend configuration-based `env_files` at runtime.
+
+**Override mode** (`--envfile PATH`): loads only the specified file, ignoring all `env_files` from configuration.
+
+**Extend mode** (`--envfile +PATH`): loads configuration files first in their normal order, then loads the CLI file.
+Variables from the CLI file override those from configuration files.
+
+Unlike configuration-based `env_files`, CLI-specified files must exist. Missing files raise `FileNotFoundError`. Paths
+are resolved relative to the project root.
+
+#### `--pytest-env-verbose`
+
+Print all environment variable assignments in the test session header. Each line shows the action (`SET`, `SKIP`, or
+`UNSET`), the variable name with its final value, and the source file:
+
+```
+pytest-env:
+  SET   DATABASE_URL=postgres://localhost/test  (from /path/to/.env)
+  SET   DEBUG=true                              (from /path/to/pyproject.toml)
+  SKIP  HOME=/Users/me                         (from /path/to/pyproject.toml)
+  UNSET TEMP_VAR                               (from /path/to/pyproject.toml)
+```
+
+Useful for debugging when multiple env files, inline configuration, and CLI options interact.
+
+## Explanation
+
+### Precedence
+
+When multiple sources define the same variable, precedence applies in this order (highest to lowest):
+
+1. Inline variables in configuration files (TOML or INI format).
+1. Variables from `.env` files loaded via `env_files`. When using `--envfile`, CLI files take precedence over
+   configuration-based `env_files`.
+1. Variables already present in the environment (preserved when `skip_if_set = true`, `D:` flag is used, or
+   `env_files_skip_if_set = true`).
+
+When multiple configuration formats are present, TOML native format (`[pytest_env]` / `[tool.pytest_env]`) takes
+precedence over INI format. Among TOML files, the first file with a `pytest_env` section wins, checked in order:
+`pytest.toml`, `.pytest.toml`, `pyproject.toml`. If no TOML file contains `pytest_env`, the plugin falls back to
+INI-style `env` configuration.
+
+### File discovery
+
+The plugin walks up the directory tree starting from pytest's resolved configuration directory. For each directory, it
+checks `pytest.toml`, `.pytest.toml`, and `pyproject.toml` in order, stopping at the first file containing a
+`pytest_env` section. This means subdirectory configurations take precedence over parent configurations, allowing
+different settings for integration tests versus unit tests.
+
+### Choosing a configuration format
+
+**TOML native format** (`[pytest_env]`) is best when you need fine-grained control over expansion and conditional
+setting, or when your configuration uses multiple inline tables. Variable expansion requires explicit
+`transform = true`.
+
+**INI format** (`env` key) is best for simple `KEY=VALUE` pairs with minimal syntax. Variable expansion is on by default
+(use `R:` to disable). Both formats are fully supported and can coexist -- TOML takes precedence if both are present.
+
+**`.env` files** work well when you have many variables that would clutter your config file, want to share environment
+configuration with other tools (Docker, shell scripts), or need different files for different environments. **Inline
+configuration** is better for a small number of test-specific variables that should be version-controlled, or when you
+need `transform`, `skip_if_set`, or `unset`. You can combine both -- inline variables always take precedence over `.env`
+files.
+
+
+---
+
+## 3. ai-news-agent
+- **URL:** https://github.com/devtechedge/ai-news-agent
+- **Language:** Python
+- **Topics:** ai-agent, cron, feedparser, gemini, github-actions, google-gemini, llm, news-aggregator, python, rss, serverless, telegram-bot
+- **Description:** Serverless daily AI news agent. GitHub Actions at 19:30 UTC fetches HN, arXiv cs.AI, Reddit r/MachineLearning, Google AI Blog, OpenAI News, and Hugging Face RSS, dedupes in-repo memory, summarizes with Gemini, and sends one Telegram executive brief. Python 3.11. No public web UI. Fork, add three Actions secrets, and the next run is yours.
+
+### README.md
+
+# <img src="docs/favicon.svg" width="36" height="36" alt="" /> AI News Agent
+
+Serverless daily AI digest — GitHub Actions pulls public RSS, Gemini writes the brief, Telegram delivers it.
+
+[![Live run](https://img.shields.io/badge/Live%20run-GitHub%20Actions-black?logo=githubactions&logoColor=white)](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)
+[![Daily agent](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml/badge.svg)](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)
+[![CI](https://github.com/devtechedge/ai-news-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/ai-news-agent/actions/workflows/ci.yml)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+---
+
+## Live Demo
+
+**[Daily workflow on GitHub Actions](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)** — scheduled 19:30 UTC, plus manual `workflow_dispatch`.
+
+> **Status:** This is a real scheduled backend, not a client-side mock. There is **no public web UI**. Gemini reads public RSS and writes one short daily brief of the important developments, sent to a **private Telegram chat**. Fork the repo, add three Actions secrets, and the next run is yours. `memory.json` in this public copy stores article hashes only.
+
+---
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/social-preview.jpg" alt="AI News Agent" width="800">
+</p>
+
+| Pipeline | Telegram brief (sample layout) |
+|----------|--------------------------------|
+| ![Pipeline](docs/screenshots/01-pipeline.png) | ![Telegram brief](docs/screenshots/02-telegram-brief.png) |
+
+| Schedule + memory |
+|-------------------|
+| ![Schedule](docs/screenshots/03-schedule-memory.png) |
+
+---
+
+## Features
+
+- **Zero laptop, zero bill** — GitHub Actions + Gemini free tier + Telegram Bot API
+- **Six public feeds** — HN (AI query), arXiv cs.AI, Reddit r/MachineLearning, Google AI Blog, OpenAI News, Hugging Face Blog
+- **In-repo memory** — MD5 of `title|link|source` in `memory.json` so reruns skip duplicates
+- **Important-only brief** — Gemini keeps models, launches, landmark research, policy, and big deals; skips recaps and noise
+- **One Telegram message** — hard-capped under the Bot API length limit, never split into a thread
+- **Rate-limit safe** — one Gemini call per run, 10 RPM cap, exponential backoff on 429, 50-article candidate ceiling
+- **Fail-closed** — a Gemini or Telegram miss does **not** commit empty memory and does **not** report success
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Runtime | Python 3.11 on GitHub Actions |
+| Feeds | `feedparser` + `requests` |
+| Summarizer | `google-genai` · `gemini-3.6-flash` · thinking level `high` |
+| Delivery | Telegram Bot API (plain text) |
+| Memory | `memory.json` committed back to `main` |
+| CI | GitHub Actions (`compileall` + pytest) |
+| License | MIT |
+
+---
+
+## Quick Start
+
+```bash
+git clone https://github.com/devtechedge/ai-news-agent.git
+cd ai-news-agent
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements-dev.txt
+python -m pytest
+```
+
+### Run locally (optional)
+
+```bash
+export GEMINI_API_KEY=...
+export TELEGRAM_BOT_TOKEN=...
+export TELEGRAM_CHAT_ID=...
+python agent.py
+# Telegram-only smoke:
+TEST_TELEGRAM_ONLY=true python agent.py
+```
+
+### Wire the daily job
+
+1. Create a Telegram bot via [@BotFather](https://t.me/BotFather) and note the token + chat id.
+2. Create a Gemini key in [Google AI Studio](https://aistudio.google.com/app/apikey).
+3. Repo **Settings → Secrets and variables → Actions** — add `GEMINI_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+4. **Actions → Daily AI News Agent → Run workflow**. Cron is `30 19 * * *` (19:30 UTC).
+
+Schedule, feeds, and RPM caps live in `.github/workflows/daily_news.yml` and `agent.py`.
+
+---
+
+## How it works
+
+```
+RSS feeds ──► filter / dedupe ──► Gemini (one brief) ──► one Telegram message
+                    │                                        │
+                    └──────── memory.json ◄──── commit ──────┘
+```
+
+Memory is written only after a non-empty summary **and** a successful Telegram send. CI never calls Gemini.
+
+Threat model: [`SECURITY.md`](SECURITY.md).
+
+---
+
+## License
+
+MIT. See [LICENSE](LICENSE).
+
+
+---
+
+## 4. hatch
+- **URL:** https://github.com/devtechedge/hatch
+- **Language:** Python
+- **Topics:** None
+- **Description:** Modern, extensible Python project management
+
+### README.md
+
+# Hatch
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/pypa/hatch/master/docs/assets/images/logo.svg" alt="Hatch logo" width="500" role="img">
+
+| | |
+| --- | --- |
+| CI/CD | [![CI - Test](https://github.com/pypa/hatch/actions/workflows/test.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/test.yml) [![CD - Build Hatch](https://github.com/pypa/hatch/actions/workflows/build-hatch.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/build-hatch.yml) [![CD - Build Hatchling](https://github.com/pypa/hatch/actions/workflows/build-hatchling.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/build-hatchling.yml) |
+| Docs | [![Docs - Release](https://github.com/pypa/hatch/actions/workflows/docs-release.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/docs-release.yml) [![Docs - Dev](https://github.com/pypa/hatch/actions/workflows/docs-dev.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/docs-dev.yml) |
+| Package | [![PyPI - Version](https://img.shields.io/pypi/v/hatch.svg?logo=pypi&label=PyPI&logoColor=gold)](https://pypi.org/project/hatch/) [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/hatch.svg?logo=python&label=Python&logoColor=gold)](https://pypi.org/project/hatch/) [![PyPI - Installs](https://img.shields.io/pypi/dm/hatchling.svg?color=blue&label=Installs&logo=pypi&logoColor=gold)](https://pypi.org/project/hatch/) [![Release - Downloads](https://img.shields.io/github/downloads/pypa/hatch/total?label=Downloads)](https://github.com/pypa/hatch/releases) |
+| Meta | [![Hatch project](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/pypa/hatch/master/docs/assets/badge/v0.json)](https://github.com/pypa/hatch) [![linting - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![types - Mypy](https://img.shields.io/badge/types-Mypy-blue.svg)](https://github.com/python/mypy) [![License - MIT](https://img.shields.io/badge/license-MIT-9400d3.svg)](https://spdx.org/licenses/) [![GitHub Sponsors](https://img.shields.io/github/sponsors/ofek?logo=GitHub%20Sponsors&style=social)](https://github.com/sponsors/ofek) |
+
+</div>
+
+-----
+
+Hatch is a modern, extensible Python project manager.
+
+## Features
+
+- Standardized [build system](https://hatch.pypa.io/latest/config/build/#build-system) with reproducible builds by default
+- Robust [environment management](https://hatch.pypa.io/latest/environment/) with support for custom scripts and UV
+- Configurable [Python distribution management](https://hatch.pypa.io/latest/tutorials/python/manage/)
+- [Test execution](https://hatch.pypa.io/latest/tutorials/testing/overview/) with known best practices
+- [Static analysis](https://hatch.pypa.io/latest/config/static-analysis/) with sane defaults
+- Built-in Python [script runner](https://hatch.pypa.io/latest/how-to/run/python-scripts/)
+- Easy [publishing](https://hatch.pypa.io/latest/publish/) to PyPI or other indices
+- [Version](https://hatch.pypa.io/latest/version/) management
+- Best practice [project generation](https://hatch.pypa.io/latest/config/project-templates/)
+- Responsive [CLI](https://hatch.pypa.io/latest/cli/about/), ~2-3x [faster](https://github.com/pypa/hatch/actions/workflows/cli.yml) than equivalent tools
+
+See the [Why Hatch?](https://hatch.pypa.io/latest/why/) page for more information.
+
+## Documentation
+
+The [documentation](https://hatch.pypa.io/) is made with [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) and is hosted by [GitHub Pages](https://docs.github.com/en/pages).
+
+## License
+
+Hatch is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+
+
+---
+
+## 5. devtechedge
+- **URL:** https://github.com/devtechedge/devtechedge
+- **Language:** Not specified
+- **Topics:** None
+- **Description:** GitHub profile landing for Devayan Mandal (DevTechEdge): AI/ML and full-stack work across agentic systems, marketplaces, and polished Next.js demos. Index of public repos with live Vercel and GitHub Pages links. Python, TypeScript, React, Next.js, LangGraph, Postgres, Supabase. Portfolio README onlyΓÇöno app, no API keys, no backend. Account home. v1
+
+### README.md
+
+# Hi, I'm Dev 👋
+
+### Full Stack AI Native Engineer · Open Source Contributor
+
+I build production-grade AI and full-stack systems and contribute fixes upstream across AI, developer tooling, distributed systems, and Web3 infrastructure.
+
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178B9?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)](https://langchain.com)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Docker](https://img.shields.io/badge/Docker-2496DB?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF6E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)](https://claude.ai)
+[![ChatGPT 5.6](https://img.shields.io/badge/ChatGPT_5.6-74AA9C?style=for-the-badge&logo=openai&logoColor=white)](https://chatgpt.com)
+[![Grok 4.6](https://img.shields.io/badge/Grok_4.6-111111?style=for-the-badge&logo=x&logoColor=white)](https://x.ai/)
+[![GLM 5.3](https://img.shields.io/badge/GLM_5.3-4C6FFF?style=for-the-badge&logo=zhipu&logoColor=white)](https://z.ai/)
+[![Kimi K3](https://img.shields.io/badge/Kimi_K3-111111?style=for-the-badge&logo=moonshot&logoColor=white)](https://www.moonshot.ai/)
+
+---
+
+## 🌍 Open Source Engineering
+
+**[OSS Contributions](https://github.com/devtechedge/oss-contributions)** tracks my upstream open-source contributions across developer tooling, databases, infrastructure, SDKs, and Web3, with clear provenance.
+
+### Merged:
+
+<img src="https://github.com/anza-xyz.png?size=48" width="32" height="32" alt="Anza" align="left" /> **[Anza Kit #2032](https://github.com/anza-xyz/kit/pull/2032)** — corrected the `getPatternMatchCodec` advanced guide to match current codec typing.
+
+<img src="https://github.com/better-auth.png?size=48" width="32" height="32" alt="Better Auth" align="left" /> **[Better Auth #11208](https://github.com/better-auth/better-auth/pull/11208)** — added regression coverage for missing OpenAPI `requestBody` generation after a Zod intersection.
+
+<img src="https://github.com/biomejs.png?size=48" width="32" height="32" alt="Biome" align="left" /> **[Biome #11667](https://github.com/biomejs/biome/pull/11667)** — added the `useBetterDomTraversing` nursery lint rule with safe transformations where semantics permit.
+
+<img src="https://cdn.simpleicons.org/node.js/339933" width="32" height="32" alt="Node.js" /> **[node-postgres #3772](https://github.com/brianc/node-postgres/pull/3772)** — fixed `Connection.sync()` incorrectly setting the internal `_ending` flag, preventing false suppression of subsequent socket errors.
+
+<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14754](https://github.com/pnpm/pnpm/pull/14754)** — fixed non-recursive pattern runs with `--no-bail` so matching scripts continue executing and failures are aggregated correctly.
+
+<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14756](https://github.com/pnpm/pnpm/pull/14756)** — preserved existing dependency range operators and protocol prefixes during `pnpm update`.
+
+<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14753](https://github.com/pnpm/pnpm/pull/14753)** — fixed `lockfile: false` being ignored during automatic package-manager switching.
+
+<img src="https://github.com/SQLMesh.png?size=48" width="32" height="32" alt="SQLMesh" align="left" /> **[SQLMesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040)** — fixed a concurrency race in `sqlmesh test` involving `time_machine` and worker threads.
+
+<img src="https://github.com/thirdweb-dev.png?size=48" width="32" height="32" alt="thirdweb" align="left" /> **[thirdweb JS #8938](https://github.com/thirdweb-dev/js/pull/8938)** — fixed `useTokenQuery` collapsing real token lookup failures into `unsupported_token` instead of using the existing error/retry path.
+
+---
+
+## 🚀 Flagship Architectures & Projects
+
+- 🔬 **[Synthesis](https://synthesis-gold.vercel.app/)** — autonomous multi-agent research with planning, research, synthesis, critique, HITL gates, RAG, Reflexion, and live SSE agent graphs ([repo](https://github.com/devtechedge/synthesis)).
+- 💼 **[Jobrow](https://jobrow.vercel.app)** — live register of still-open US tech roles sourced from employer ATS boards, with search, filters, closed-role tracking, and a public JSON API ([repo](https://github.com/devtechedge/job-board)).
+- ⛓️ **[Lattice](https://lattice-devtechedge1.vercel.app)** — Web3 jobs platform aggregating blockchain and crypto roles with salary observatory, talent directory, gigs, and hiring intelligence ([repo](https://github.com/devtechedge/lattice)).
+- 🪐 **[Pulsar](https://devtechedge.github.io/pulsar/)** — decentralized AI compute protocol interface with Base smart contracts, staking flows, wallet connectivity, 3D visualization, tokenomics, and Foundry-tested contracts ([repo](https://github.com/devtechedge/pulsar)).
+- 🧠 **[AAROP](https://aarop.vercel.app)** — explicit Perceive → Plan → Act → Observe → Reflect → Adapt loop with self-verification, bounded autonomy, and replayable traces ([repo](https://github.com/devtechedge/aarop)).
+- ⚖️ **[RegTrace](https://regtrace-ai.vercel.app)** — HITL Web3 compliance copilot mapping packs onto MiCA/VARA with retrieval-bounded findings and article citations ([repo](https://github.com/devtechedge/regulatory_compliance)).
+- 🏥 **[Cadence](https://cadence-healthcare.vercel.app/)** — deep-memory healthcare agent lab with layered patient memory, journey stages, and consent-scoped clinician briefs ([repo](https://github.com/devtechedge/healthcare-deep-memory-agents)).
+- 🔎 **[Veritas](https://veritas-engine-woad.vercel.app)** — LangGraph research agent with SSE streaming, grounded demo mode, and external retrieval when configured ([repo](https://github.com/devtechedge/veritas-engine)).
+- 🔥 **[Chaos Simulator](https://chaos-simulation.vercel.app)** — real-time chaos engineering dashboard with fault injection, self-healing services, animated service topology, scenario orchestration, telemetry, and recovery analysis ([repo](https://github.com/devtechedge/chaos-simulator)).
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Tooling, Frameworks & Architecture |
+| :--- | :--- |
+| **AI systems & agents** | Python, LangGraph, LangChain, LangServe, FastAPI, explicit agentic state machines, multi-agent supervisors, HITL interrupts, bounded autonomy, Reflexion / critique loops, tool-use / ReAct, durable checkpoints |
+| **RAG, memory & evaluation** | Hybrid RAG, pgvector, BM25, TF-IDF, JSONB embeddings, cosine retrieval, sentence-transformers, long-term memory, retrieval-bounded generation, eval gates, LLM-as-judge, LangSmith |
+| **LLMs, tools & integrations** | Gemini, OpenAI-compatible providers, Groq, Ollama / local LLMs, Tavily, Telegram Bot API, MCP-oriented tool buses, Google Workspace integrations |
+| **Frontend & product** | TypeScript, React, Next.js, TanStack Start, Vite, Tailwind CSS, shadcn/ui, Lucide, Motion / Framer Motion, Recharts, Three.js, React Three Fiber, HTML5 Canvas, SVG |
+| **Data, auth & backend** | PostgreSQL, Supabase, Neon, PGLite, SQLite, Prisma, Drizzle ORM, SQLAlchemy, Pydantic, Zod, Better Auth, REST, Server Actions, API routes |
+| **Realtime & observability** | SSE, WebSockets, Socket.io, replayable traces, structured telemetry, OpenTelemetry-shaped tracing, live/demo provider switching |
+| **Web3 & smart contracts** | Solidity, OpenZeppelin, Foundry, Base, viem, wagmi, RainbowKit, ethers.js, wallet SDKs, blockchain / wallet infrastructure |
+| **Infrastructure & testing** | Node.js, Bun, Express, Docker, Vercel, GitHub Actions, Vitest, pytest, Playwright, TypeScript compiler, Biome, security hardening and threat-model documentation |
+
+---
+
+## 🎯 Engineering Philosophy
+
+Bounded, observable AI systems with validated retrieval, explicit state, cost-aware routing, and human oversight.  
+Improve infrastructure upstream, with reproducible engineering and strict OSS provenance.
+
+---
+
+## 🌐 Connect With Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dev-ma/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/devtechedge)
+
+---
+
+
+---
+
+## 6. pydantic-ai
+- **URL:** https://github.com/devtechedge/pydantic-ai
+- **Language:** Python
+- **Topics:** None
+- **Description:** How Python does AI. Agents, realtime voice, image generation, embeddings. Every model, every interface, typed end to end.
+
+### README.md
+
+<div align="center">
+  <a href="https://pydantic.dev/docs/ai/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://pydantic.dev/docs/ai/img/pydantic-ai-dark.svg">
+      <img src="https://pydantic.dev/docs/ai/img/pydantic-ai-light.svg" alt="Pydantic AI">
+    </picture>
+  </a>
+</div>
+<div align="center">
+  <h3>How Python does AI</h3>
+</div>
+<div align="center">
+  <a href="https://github.com/pydantic/pydantic-ai/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://github.com/pydantic/pydantic-ai/actions/workflows/ci.yml/badge.svg?event=push" alt="CI"></a>
+  <a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/pydantic/pydantic-ai"><img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Coverage"></a>
+  <a href="https://pypi.python.org/pypi/pydantic-ai"><img src="https://img.shields.io/pypi/v/pydantic-ai.svg" alt="PyPI"></a>
+  <a href="https://github.com/pydantic/pydantic-ai"><img src="https://img.shields.io/pypi/pyversions/pydantic-ai.svg" alt="versions"></a>
+  <a href="https://github.com/pydantic/pydantic-ai/blob/main/LICENSE"><img src="https://img.shields.io/github/license/pydantic/pydantic-ai.svg?v" alt="license"></a>
+  <a href="https://logfire.pydantic.dev/docs/join-slack/"><img src="https://img.shields.io/badge/Slack-Join%20Slack-4A154B?logo=slack" alt="Join Slack" /></a>
+</div>
+<p align="center">
+  Agents, realtime voice, image generation, embeddings. Every model, every interface, typed end to end.
+</p>
+
+---
+
+**Pydantic AI** is the Python AI SDK: a typed, [extensible](https://pydantic.dev/docs/ai/guides/extensibility/) agent loop with [every model](https://pydantic.dev/docs/ai/models/overview/) a string swap away. The same agent [runs everywhere you need it](https://pydantic.dev/docs/ai/overview/interfaces/): behind a [web frontend](https://pydantic.dev/docs/ai/integrations/ui/overview/), in the [terminal](https://pydantic.dev/docs/ai/integrations/cli/), on a [voice call](https://pydantic.dev/docs/ai/realtime/overview/), on a [durable background queue](https://pydantic.dev/docs/ai/capabilities/durable_execution/overview/), or as a plain object you call [`run()`](https://pydantic.dev/docs/ai/core-concepts/agent/#running-agents) on. [Image generation](https://pydantic.dev/docs/ai/guides/image-generation/) and [embeddings](https://pydantic.dev/docs/ai/guides/embeddings/) come in the same box.
+
+**[Pydantic AI Harness](https://github.com/pydantic/pydantic-ai-harness)** has everything an agent needs for complex, long-running work, snapped on as [capabilities](https://pydantic.dev/docs/ai/capabilities/overview/), from [memory](https://pydantic.dev/docs/ai/harness/memory/), [sub-agents](https://pydantic.dev/docs/ai/harness/subagents/), and [context management](https://pydantic.dev/docs/ai/harness/compaction/) to a complete [coding agent](https://pydantic.dev/docs/ai/harness/coder/).
+
+View the complete documentation at [pydantic.dev/docs/ai](https://pydantic.dev/docs/ai/).
+
+## What are you building?
+
+From simple typed data extraction to complex, long-running multi-agent collaboration, Pydantic AI and [Pydantic AI Harness](https://github.com/pydantic/pydantic-ai-harness) have got you covered.
+
+### Coding agent
+
+A complete coding agent in your terminal: workspace-rooted [file access](https://pydantic.dev/docs/ai/harness/filesystem/), allowlisted [shell](https://pydantic.dev/docs/ai/harness/shell/), [repo orientation](https://pydantic.dev/docs/ai/harness/repo-context/), [planning](https://pydantic.dev/docs/ai/harness/planning/), and [context management](https://pydantic.dev/docs/ai/harness/compaction/) that survives long sessions. Here with [web search](https://pydantic.dev/docs/ai/capabilities/web-search/) and a second-opinion [advisor](https://pydantic.dev/docs/ai/harness/advisor/) snapped on alongside:
+
+```bash
+uv add pydantic-ai pydantic-ai-harness
+```
+
+```python
+from pydantic_ai import Agent
+from pydantic_ai.capabilities import WebSearch
+from pydantic_ai_harness import Advisor, Coder
+
+agent = Agent(
+    'anthropic:claude-fable-5',
+    capabilities=[
+        Coder(),  # files, shell, repo context, planning, sub-agents, context management
+        WebSearch(),  # look up docs and error messages on the web
+        Advisor('openai:gpt-5.6-sol'),  # a second opinion from another model when stuck
+    ],
+)
+agent.to_cli_sync()
+```
+
+[`Coder`](https://pydantic.dev/docs/ai/harness/coder/) is a regular [combined capability](https://pydantic.dev/docs/ai/capabilities/custom/#composition-and-middleware-semantics), not a black box: use it whole, or use the blocks it bundles directly; the two are equivalent:
+
+```python
+capabilities = [
+    FileSystem('.'), Shell(cwd='.'), RepoContext(), Planning(), SubAgents(...),
+    ClearToolResults(), WarnNearLimits(), ToolOutputLimits(),
+]
+```
+
+Run the file and you're chatting with the agent in your terminal. To try it before writing any code, run the exported [`coder_agent`](https://pydantic.dev/docs/ai/harness/coder/) with [`clai`](https://pydantic.dev/docs/ai/integrations/cli/#custom-agents) (the Pydantic AI CLI), via [`uvx`](https://docs.astral.sh/uv/guides/tools/):
+
+```bash
+uvx --with pydantic-ai-harness clai -a pydantic_ai_harness.coder:coder_agent -m anthropic:claude-fable-5
+```
+
+**Build this →** [Coder](https://pydantic.dev/docs/ai/harness/coder/), from the [Harness](https://pydantic.dev/docs/ai/harness/)
+
+### Data extraction
+
+Give the agent an [output type](https://pydantic.dev/docs/ai/core-concepts/output/) and [tools](https://pydantic.dev/docs/ai/tools-toolsets/tools/), and every run comes back validated and typed:
+
+```bash
+uv add pydantic-ai
+```
+
+```python
+from typing import Literal
+
+from pydantic import BaseModel, Field
+
+from pydantic_ai import Agent, RunContext
+
+
+class Sentiment(BaseModel):
+    label: Literal['positive', 'negative', 'neutral']
+    score: float = Field(ge=-1, le=1)
+
+
+agent = Agent('openai:gpt-5.6-sol', output_type=Sentiment)
+
+
+@agent.tool
+def recent_reviews(ctx: RunContext[None], product: str) -> list[str]:
+    """Fetch recent review snippets for a product."""
+    return ['The new release fixed everything I complained about!']
+
+
+result = agent.run_sync('How are people feeling about the Extract app?')
+print(result.output)
+#> label='positive' score=0.9
+```
+
+The [`@agent.tool`](https://pydantic.dev/docs/ai/tools-toolsets/tools/) function receives a [`RunContext`](https://pydantic.dev/docs/ai/core-concepts/dependencies/) that carries your dependencies in; the rest of its signature and its docstring become the tool schema, arguments are validated before your code runs, and the run is guaranteed to return a `Sentiment`, so your IDE, type checker, and the LLM all agree on the returned type.
+
+**Build this →** [Agents](https://pydantic.dev/docs/ai/core-concepts/agent/), [Function Tools](https://pydantic.dev/docs/ai/tools-toolsets/tools/), and [Structured Output](https://pydantic.dev/docs/ai/core-concepts/output/)
+
+### Durable workflow
+
+Attach [`TemporalDurability`](https://pydantic.dev/docs/ai/capabilities/durable_execution/temporal/) and the same agent runs inside a [Temporal](https://pydantic.dev/docs/ai/capabilities/durable_execution/temporal/) workflow under [durable execution](https://pydantic.dev/docs/ai/capabilities/durable_execution/overview/): every model and tool call becomes a durable activity, so a run working through a background queue survives restarts, failures, and long waits:
+
+```bash
+uv add "pydantic-ai[temporal]"
+```
+
+```python
+from temporalio import workflow
+
+from pydantic_ai import Agent
+from pydantic_ai.capabilities import WebFetch, WebSearch
+from pydantic_ai.durable_exec.temporal import PydanticAIWorkflow, TemporalDurability
+
+agent = Agent(
+    'openai:gpt-5.6-sol',
+    instructions='Research the topic and write a structured brief.',
+    name='researcher',
+    capabilities=[WebSearch(), WebFetch(), TemporalDurability()],
+)
+
+
+@workflow.defn
+class ResearchWorkflow(PydanticAIWorkflow):
+    __pydantic_ai_agents__ = [agent]
+
+    @workflow.run
+    async def run(self, topic: str) -> str:
+        result = await agent.run(f'Write a brief on: {topic}')
+        return result.output
+```
+
+[DBOS](https://pydantic.dev/docs/ai/capabilities/durable_execution/dbos/) and [Prefect](https://pydantic.dev/docs/ai/capabilities/durable_execution/prefect/) attach the same way, first-party and co-maintained, with [Restate, Kitaru, and Airflow](https://pydantic.dev/docs/ai/capabilities/durable_execution/overview/) integrations besides.
+
+**Build this →** [Durable Execution](https://pydantic.dev/docs/ai/capabilities/durable_execution/overview/)
+
+### Realtime voice
+
+Put the same agent on a live voice session, [tools](https://pydantic.dev/docs/ai/realtime/tools/) and [capabilities](https://pydantic.dev/docs/ai/realtime/capabilities/) included:
+
+```bash
+uv add "pydantic-ai[openai-realtime]"
+```
+
+```python
+import asyncio
+
+from pydantic_ai import Agent
+from pydantic_ai.capabilities import MCP
+
+agent = Agent(
+    instructions='You are a helpful voice assistant.',
+    capabilities=[MCP('https://internal.example.com/mcp')],  # capabilities work in voice too
+)
+
+@agent.tool_plain
+def order_status(order_id: str) -> str:
+    """Look up the status of an order."""
+    return f'Order {order_id}: shipped, arriving Thursday.'
+
+async with agent.realtime('openai:gpt-realtime-2.1').session() as session:
+    microphone = asyncio.create_task(session.send_audio(microphone_chunks()))  # your microphone → the model
+    speaker = asyncio.create_task(play_audio(session.stream_audio()))  # model audio → your speaker
+    async for part in session.stream_transcripts():
+        print(f'{part.speaker}: {part.transcript}')
+```
+
+The model calls your tools mid-conversation while it keeps talking, and every session is [instrumented](https://pydantic.dev/docs/ai/integrations/logfire/); voice is just another frontend, on OpenAI Realtime, Gemini Live, Azure, and xAI Grok Voice.
+
+**Build this →** [Realtime Voice](https://pydantic.dev/docs/ai/realtime/overview/)
+
+### Image generation
+
+Generate an image with a dedicated image model, no agent run required:
+
+```bash
+uv add pydantic-ai
+```
+
+```python
+from pathlib import Path
+
+from pydantic_ai import ImageGenerator
+
+generator = ImageGenerator('openai:gpt-image-2')
+result = generator.generate_sync('A minimalist logo for a coffee shop called Extract.')
+Path('logo.png').write_bytes(result.image.data)
+```
+
+That [standalone image API](https://pydantic.dev/docs/ai/guides/image-generation/) is for when your application decides; when an agent run decides, there is [provider-native generation](https://pydantic.dev/docs/ai/tools-toolsets/native-tools/#image-generation-tool) with `output_type=BinaryImage` for a typed image [output](https://pydantic.dev/docs/ai/core-concepts/output/#image-output), and the [`ImageGeneration` capability](https://pydantic.dev/docs/ai/capabilities/image-generation/) with its fallbacks for models that generate no images of their own.
+
+**Build this →** [Image Generation](https://pydantic.dev/docs/ai/guides/image-generation/)
+
+## Why Pydantic AI
+
+- **Any model, one Python API.** [Virtually every model and provider](https://pydantic.dev/docs/ai/models/overview/) (OpenAI, Anthropic, Google, Bedrock, Azure AI Foundry, Groq, Mistral, xAI, Ollama, and dozens more), swappable with a string, or through the [Pydantic AI Gateway](https://pydantic.dev/docs/ai/overview/gateway/): one key for all of them, with failover and cost monitoring built in. No flagship feature is locked to one vendor.
+
+- **Typed end to end.** [Structured outputs](https://pydantic.dev/docs/ai/core-concepts/output/), typed [dependency injection](https://pydantic.dev/docs/ai/core-concepts/dependencies/), [typed tools](https://pydantic.dev/docs/ai/tools-toolsets/tools/): your IDE, type checker, and coding agent all know what your agent returns, moving whole classes of errors from runtime to write-time. When plain control flow isn't enough, [Pydantic Graph](https://pydantic.dev/docs/ai/graph/graph/) brings the same typing to graph-based workflows.
+
+- **Measured, not vibes.** OpenTelemetry-native [instrumentation](https://pydantic.dev/docs/ai/integrations/logfire/) works with any OTel backend; one line lights up [Pydantic Logfire](https://pydantic.dev/logfire/llm-observability?utm_source=github&utm_medium=readme&utm_campaign=pydantic-ai) for real-time debugging, tracing, and cost tracking backed by [genai-prices](https://github.com/pydantic/genai-prices). [Pydantic Evals](https://pydantic.dev/docs/ai/evals/evals/) tests agent behavior the way pytest tests code.
+
+- **Batteries, composably.** One primitive, the [capability](https://pydantic.dev/docs/ai/capabilities/overview/), bundles [tools](https://pydantic.dev/docs/ai/tools-toolsets/tools/), [instructions](https://pydantic.dev/docs/ai/core-concepts/agent/#instructions), [hooks](https://pydantic.dev/docs/ai/core-concepts/hooks/), and [model settings](https://pydantic.dev/docs/ai/core-concepts/agent/#model-run-settings) into reusable units. Core ships fundamentals like [MCP](https://pydantic.dev/docs/ai/capabilities/mcp/) and [web search](https://pydantic.dev/docs/ai/capabilities/web-search/), the [Harness](https://github.com/pydantic/pydantic-ai-harness) ships everything else, and complete agents like [Coder](https://pydantic.dev/docs/ai/harness/coder/) and [Researcher](https://pydantic.dev/docs/ai/harness/researcher/) are just capabilities composed: they come apart the way they went together. Or skip code entirely with [YAML/JSON agent specs](https://pydantic.dev/docs/ai/core-concepts/agent-spec/).
+
+- **[Every interface](https://pydantic.dev/docs/ai/overview/interfaces/).** One agent definition runs as a [CLI](https://pydantic.dev/docs/ai/integrations/cli/), a [built-in web chat](https://pydantic.dev/docs/ai/guides/web/), or [realtime speech](https://pydantic.dev/docs/ai/realtime/overview/) (OpenAI Realtime, Gemini Live, Azure, xAI Grok Voice); [UI event streams](https://pydantic.dev/docs/ai/integrations/ui/overview/) (AG-UI, Vercel AI) connect it to your own frontend or anything else; and [ACP](https://pydantic.dev/docs/ai/harness/acp/) *(experimental)* serves it as an editor agent.
+
+- **Durable execution.** First-party, co-maintained [durable execution](https://pydantic.dev/docs/ai/capabilities/durable_execution/overview/) on Temporal, DBOS, Prefect, and Restate, plus external SDK integrations for Kitaru and Airflow. Agents survive restarts and run for days on the engine you already operate, with [human-in-the-loop approval](https://pydantic.dev/docs/ai/tools-toolsets/deferred-tools/#human-in-the-loop-tool-approval) built in.
+
+Built by the [Pydantic](https://docs.pydantic.dev) team: [Pydantic Validation](https://pydantic.dev/docs/) is the validation layer of the OpenAI SDK, the Anthropic SDK, the Google ADK, LangChain, and most of the AI ecosystem (and the foundation FastAPI was built on). Pydantic AI brings that same feeling to agents.
+
+## Putting it together: a bank support agent
+
+A typed support agent showing several features working together: [dependency injection](https://pydantic.dev/docs/ai/core-concepts/dependencies/), [function tools](https://pydantic.dev/docs/ai/tools-toolsets/tools/), [structured output](https://pydantic.dev/docs/ai/core-concepts/output/), a reusable [capability](https://pydantic.dev/docs/ai/capabilities/overview/) bundling the customer context, and an [on-demand capability](https://pydantic.dev/docs/ai/capabilities/on-demand/) the model loads only when the conversation calls for it:
+
+```python
+from dataclasses import dataclass
+
+from pydantic import BaseModel, Field
+
+from pydantic_ai import Agent, Capability, RunContext
+
+from bank_database import DatabaseConn
+
+
+@dataclass
+class SupportDependencies:  # inject any client: DB pools, HTTP APIs, user info
+    customer_id: int
+    db: DatabaseConn
+
+
+class SupportOutput(BaseModel):
+    support_advice: str = Field(description='Advice returned to the customer')
+    block_card: bool = Field(description="Whether to block the customer's card")
+    risk: int = Field(description='Risk level of query', ge=0, le=10)
+
+
+customer_context = Capability[SupportDependencies](  # a reusable unit of tools + instructions
+    id='customer-context',
+    description="Who the customer is and what's on their account.",
+)
+
+
+@customer_context.instructions
+async def add_customer_name(ctx: RunContext[SupportDependencies]) -> str:
+    customer_name = await ctx.deps.db.customer_name(id=ctx.deps.customer_id)
+    return f"The customer's name is {customer_name!r}"
+
+
+@customer_context.tool  # signature and docstring become the tool schema the LLM sees
+async def customer_balance(
+    ctx: RunContext[SupportDependencies], include_pending: bool
+) -> float:
+    """Returns the customer's current account balance."""
+    return await ctx.deps.db.customer_balance(
+        id=ctx.deps.customer_id,
+        include_pending=include_pending,
+    )
+
+
+refunds = Capability[SupportDependencies](  # deferred: loads on demand, like a skill
+    id='refunds',
+    description='Refund eligibility and refund status.',
+    defer_loading=True,
+)
+
+
+@refunds.tool
+async def refund_status(ctx: RunContext[SupportDependencies]) -> str:
+    """Look up the refund status for the customer's most recent charge."""
+    return await ctx.deps.db.refund_status(id=ctx.deps.customer_id)
+
+
+support_agent = Agent(
+    'openai:gpt-5.6-sol',
+    deps_type=SupportDependencies,
+    output_type=SupportOutput,  # the run returns a validated SupportOutput, typed as such
+    instructions=(
+        'You are a support agent in our bank, give the '
+        'customer support and judge the risk level of their query.'
+    ),
+    capabilities=[customer_context, refunds],
+)
+
+
+...  # in a real use case: more tools, longer instructions
+
+
+async def main():
+    deps = SupportDependencies(customer_id=123, db=DatabaseConn())
+    result = await support_agent.run('What is my balance?', deps=deps)
+    print(result.output)
+    """
+    support_advice='Hello John, your current account balance, including pending transactions, is $123.45.' block_card=False risk=1
+    """
+
+    result = await support_agent.run('I just lost my card!', deps=deps)
+    print(result.output)
+    """
+    support_advice="I'm sorry to hear that, John. We are temporarily blocking your card to prevent unauthorized transactions." block_card=True risk=8
+    """
+
+    result = await support_agent.run(  # the model loads `refunds` on demand, then answers
+        'Was I refunded for the duplicate charge on my last statement?', deps=deps
+    )
+    print(result.output)
+    """
+    support_advice='Good news, John: the duplicate charge on your last statement was refunded on 2026-05-01.' block_card=False risk=1
+    """
+```
+
+For the annotated walkthrough and Logfire tracing, see the [same example in the docs](https://pydantic.dev/docs/ai/overview/#putting-it-together-a-bank-support-agent).
+
+## Next Steps
+
+- [Install Pydantic AI](https://pydantic.dev/docs/ai/overview/install/) and put your own coding agent to work: install the [Pydantic AI skill](https://pydantic.dev/docs/ai/overview/coding-agent-skills/), point it at the [examples](https://pydantic.dev/docs/ai/examples/setup/) and the [Harness index](https://pydantic.dev/docs/ai/harness/), and tell it what you'd like to build. No API key needed to start (there's a built-in [`'test'` model](https://pydantic.dev/docs/ai/guides/testing/#unit-testing-with-testmodel)).
+- Read the [docs](https://pydantic.dev/docs/ai/core-concepts/agent/) and the [API reference](https://pydantic.dev/docs/ai/api/pydantic-ai/agent/).
+- Give your agent its batteries: [Pydantic AI Harness](https://github.com/pydantic/pydantic-ai-harness).
+- Join [Slack](https://logfire.pydantic.dev/docs/join-slack/) or file an issue on [GitHub](https://github.com/pydantic/pydantic-ai/issues).
+
+## Part of the Pydantic Stack
+
+Everything you need to ship production-grade AI agents:
+
+- [Pydantic AI](https://pydantic.dev/pydantic-ai?utm_source=github&utm_medium=readme&utm_campaign=pydantic-ai): the type-safe AI SDK
+- [Pydantic AI Harness](https://github.com/pydantic/pydantic-ai-harness): the official capability library and harness, from single capabilities to complete agents
+- [Pydantic Logfire](https://pydantic.dev/logfire?utm_source=github&utm_medium=readme&utm_campaign=pydantic-ai): AI-first, full-stack observability
+- [Logfire AI Gateway](https://pydantic.dev/ai-gateway?utm_source=github&utm_medium=readme&utm_campaign=pydantic-ai): unified LLM proxy
+- [Pydantic Evals](https://pydantic.dev/docs/ai/evals/evals/): evaluate any Python function, agents included, with [production evals on Logfire](https://pydantic.dev/logfire/evals?utm_source=github&utm_medium=readme&utm_campaign=pydantic-ai)
+- [Pydantic Graph](https://pydantic.dev/docs/ai/graph/graph/): typed graph control flow
+- [genai-prices](https://github.com/pydantic/genai-prices): model pricing data, kept current
+
+
+---
+
+## 7. rspress
+- **URL:** https://github.com/devtechedge/rspress
+- **Language:** TypeScript
+- **Topics:** None
+- **Description:** ≡ƒªÇ A fast Rsbuild-based static site generator.
+
+### README.md
+
+<picture>
+  <img alt="Rspress Banner" src="https://assets.rspack.rs/rspress/rspress-banner.png">
+</picture>
+
+# Rspress
+
+A fast Rsbuild-based static site generator.
+
+<p>
+  <a href="https://discord.gg/mkVw5zPAtf"><img src="https://img.shields.io/badge/chat-discord-blue?logo=discord&colorA=564341&colorB=EDED91" alt="discord channel" /></a>
+  <a href="https://npmjs.com/package/@rspress/core?activeTab=readme"><img src="https://img.shields.io/npm/v/@rspress/core?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>
+  <a href="https://npmcharts.com/compare/@rspress/core?minimal=true"><img src="https://img.shields.io/npm/dm/@rspress/core.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="downloads" /></a>
+  <a href="https://github.com/web-infra-dev/rspress/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@rspress/core?style=flat-square&colorA=564341&colorB=EDED91" alt="license" /></a>
+  <a href="https://deepwiki.com/web-infra-dev/rspress"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki" /></a>
+</p>
+
+## 🔥 Features
+
+- **🚀 Fast Startup**: Based on Rsbuild and MDX compiler, the build speed is extremely fast, bringing you the ultimate development experience.
+- **📚 MDX Support**: MDX is a powerful way to write content, allowing you to use React components in Markdown.
+- **📦 Built-in Full Text Search**: Automatically generates a full-text search index for you during building process, providing out-of-the-box full-text search capabilities.
+- **🌈 Static Site Generation**: In production, it automatically builds into static HTML files, which can be easily deployed anywhere.
+- **🔌 Providing Plugin System**: Providing a plugin system, you can customize the build process and theme according to your needs.
+- **📝 Component Document**: Support multi ways to preview your component demo.
+
+## 📚 Getting started
+
+Go to the [Quick start](https://rspress.rs/guide/start/getting-started.html) to get started.
+
+## 🦀 Rstack
+
+Rspress is part of Rstack, the fast, unified JavaScript toolchain for developers and agents.
+
+| Name                                                  | Description              | Version                                                                                                                                                                          |
+| ----------------------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Rspack](https://github.com/web-infra-dev/rspack)     | Bundler                  | <a href="https://npmjs.com/package/@rspack/core"><img src="https://img.shields.io/npm/v/@rspack/core?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>     |
+| [Rsbuild](https://github.com/web-infra-dev/rsbuild)   | Build tool               | <a href="https://npmjs.com/package/@rsbuild/core"><img src="https://img.shields.io/npm/v/@rsbuild/core?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>   |
+| [Rslib](https://github.com/web-infra-dev/rslib)       | Library development tool | <a href="https://npmjs.com/package/@rslib/core"><img src="https://img.shields.io/npm/v/@rslib/core?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>       |
+| [Rspress](https://github.com/web-infra-dev/rspress)   | Static site generator    | <a href="https://npmjs.com/package/@rspress/core"><img src="https://img.shields.io/npm/v/@rspress/core?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>   |
+| [Rsdoctor](https://github.com/web-infra-dev/rsdoctor) | Build analyzer           | <a href="https://npmjs.com/package/@rsdoctor/core"><img src="https://img.shields.io/npm/v/@rsdoctor/core?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a> |
+| [Rstest](https://github.com/web-infra-dev/rstest)     | Testing framework        | <a href="https://npmjs.com/package/@rstest/core"><img src="https://img.shields.io/npm/v/@rstest/core?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>     |
+| [Rslint](https://github.com/web-infra-dev/rslint)     | Linter                   | <a href="https://npmjs.com/package/@rslint/core"><img src="https://img.shields.io/npm/v/@rslint/core?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>     |
+
+## 🤝 Contribution
+
+Please read the [contributing guide](./CONTRIBUTING.md) and let's build Rspress together.
+
+If you have any questions, you can open an issue or go to [Discord](https://discord.com/invite/Cq6HweJM26) to communicate with us.
+
+### Contributors
+
+<a href="https://github.com/web-infra-dev/rspress/graphs/contributors" target="_blank">
+  <img src="https://contrib.rocks/image?repo=web-infra-dev/rspress&columns=24">
+</a>
+
+### Code of conduct
+
+This repo has adopted the ByteDance Open Source Code of Conduct. Please check [Code of Conduct](./CODE_OF_CONDUCT.md) for more details.
+
+## 🧑‍💻 Community
+
+Come and chat with us on [Discord](https://discord.gg/XsaKEEk4mW)! The Rstack team and users are active there, and we're always looking for contributions.
+
+## 🌟 Quality
+
+Rspress uses [Web Infra QoS](https://web-infra-qos.pages.dev/?product=rspress) to observe the trend of key metrics, such as bundle size, compile speed and install size.
+
+## 📖 License
+
+Rspress is licensed under the [MIT License](./LICENSE).
+
+
+---
+
+## 8. just
 - **URL:** https://github.com/devtechedge/just
 - **Language:** Rust
 - **Topics:** None
@@ -5958,62 +7039,7 @@ your computational endeavors!
 
 ---
 
-## 2. oss-contributions
-- **URL:** https://github.com/devtechedge/oss-contributions
-- **Language:** Not specified
-- **Topics:** opensource, pull-requests, tanstack, tanstack-router, tanstack-start, typescript, contributions, javascript, oss, vite, vitest, better-auth, biome, drizzle, langgraph, rust
-- **Description:** Public ledger of upstream open-source contributions across Web3 and non-Web3 projects. 9 merged contributions across pnpm, node-postgres, Biome, SQLMesh, Better Auth, anza-xyz/kit, and thirdweb, spanning TypeScript, Rust, Python, developer tooling, frameworks, databases, concurrency, portability, security, accessibility, and testing. Own-repo work 
-
-### README.md
-
-# ⚙️ OSS contributions
-
-Public ledger of **upstream open-source contributions** by [@devtechedge](https://github.com/devtechedge).
-
-This repository is now the **single unified contribution ledger** for both Web3 and non-Web3 OSS work. It records substantive contributions to established projects across TypeScript, JavaScript, Rust, Python, developer tooling, frameworks, infrastructure, testing, concurrency, portability, security, accessibility, wallets, SDKs, blockchain infrastructure, and reliability.
-
-![Upstream PRs](https://img.shields.io/badge/upstream%20PRs-70-black?logo=git&logoColor=white) ![Open PRs](https://img.shields.io/badge/open%20PRs-56-blue?logo=github&logoColor=white) ![Merged](https://img.shields.io/badge/merged-9-brightgreen?logo=git&logoColor=white) ![Closed not merged](https://img.shields.io/badge/closed%20not%20merged-5-red?logo=github&logoColor=white)
-
-## 📊 Current snapshot
-
-**Latest update:** 13 Sep 2026
-
-The former separate Web3 and non-Web3 ledgers are now consolidated here. Future scans, issue claims, PRs, reviews, merges, closures, and no-go decisions use this repository as the single operational record.
-
-## ✅ Merged pull requests
-
-| Repo | PR | What | Merged |
-| --- | --- | --- | --- |
-| <img src="https://github.com/brianc.png?size=40" width="18" /> [brianc/node-postgres](https://github.com/brianc/node-postgres) | [#3772](https://github.com/brianc/node-postgres/pull/3772) | `Connection.sync()` no longer permanently sets `_ending`, so later `ECONNRESET` / `EPIPE` errors are not swallowed. Regression and integration coverage protects the behavior. | 11 Sep 2026 |
-| <img src="https://github.com/pnpm.png?size=40" width="18" /> [pnpm/pnpm](https://github.com/pnpm/pnpm) | [#14753](https://github.com/pnpm/pnpm/pull/14753) | `lockfile: false` is respected with `devEngines.packageManager.onFail: download`; package-manager download/switch still works without project lockfile synchronization. | 10 Sep 2026 |
-| <img src="https://github.com/pnpm.png?size=40" width="18" /> [pnpm/pnpm](https://github.com/pnpm/pnpm) | [#14756](https://github.com/pnpm/pnpm/pull/14756) | `pnpm update pkg@x.y.z` preserves existing `^` / `~` range operators and supported `npm:` / `jsr:` prefixes. | 10 Sep 2026 |
-| <img src="https://github.com/pnpm.png?size=40" width="18" /> [pnpm/pnpm](https://github.com/pnpm/pnpm) | [#14754](https://github.com/pnpm/pnpm/pull/14754) | Non-recursive `pnpm run "/pattern/" --no-bail` no longer terminates sibling scripts after the first failure. | 10 Sep 2026 |
-| <img src="https://github.com/SQLMesh.png?size=40" width="18" /> [SQLMesh/sqlmesh](https://github.com/SQLMesh/sqlmesh) | [#6040](https://github.com/SQLMesh/sqlmesh/pull/6040) | `ModelTest.create_test()` runs on the calling thread, eliminating a race around shared `execution_time` / `time_machine` state. | 10 Sep 2026 |
-| <img src="https://github.com/better-auth.png?size=40" width="18" /> [better-auth/better-auth](https://github.com/better-auth/better-auth) | [#11208](https://github.com/better-auth/better-auth/pull/11208) | Regression coverage locks the `/phone-number/verify` OpenAPI `requestBody` contract after a Zod intersection issue. | 9 Sep 2026 |
-| <img src="https://github.com/biomejs.png?size=40" width="18" /> [biomejs/biome](https://github.com/biomejs/biome) | [#11667](https://github.com/biomejs/biome/pull/11667) | Added the `useBetterDomTraversing` nursery lint rule, ported from `eslint-plugin-unicorn`, with fixtures and release integration. | 8 Sep 2026 |
-| <img src="https://github.com/anza-xyz.png?size=40" width="18" /> [anza-xyz/kit](https://github.com/anza-xyz/kit) | [#2032](https://github.com/anza-xyz/kit/pull/2032) | Restored `number` predicates in the `getPatternMatchCodec` documentation examples so they match the actual codec typing. | 9 Sep 2026 |
-| <img src="https://github.com/thirdweb-dev.png?size=40" width="18" /> [thirdweb-dev/js](https://github.com/thirdweb-dev/js) | [#8938](https://github.com/thirdweb-dev/js/pull/8938) | Genuine `useTokenQuery` request failures are rethrown instead of being converted into `Token Not Supported`; added regression tests and changeset. | 7 Sep 2026 |
-
-## 🔀 Open pull requests
-
-The repository currently tracks active upstream contributions across application libraries, infrastructure, frameworks, developer tooling, testing, security, accessibility, wallets, SDKs, and blockchain-related software. These contributions are maintained directly in their respective upstream repositories, and this ledger records the substantive work and its current state.
-
-## 🧭 Engineering focus
-
-TypeScript · JavaScript · Python · Rust · frameworks · developer tooling · infrastructure · concurrency · portability · security · accessibility · testing · wallets · SDKs · blockchain infrastructure
-
-## 📚 Unified workflow
-
-There is now one queue, one canonical triage record, and one contribution ledger for all OSS targets. **Web3 and non-Web3 are not separate operational lanes.** Selection is based on upstream quality, contribution eligibility, fit, bounded scope, reproducibility, maintainer posture, and merge potential.
-
-## 📄 License
-
-MIT
-
-
----
-
-## 3. maturin
+## 9. maturin
 - **URL:** https://github.com/devtechedge/maturin
 - **Language:** Rust
 - **Topics:** None
@@ -6303,130 +7329,7 @@ at your option.
 
 ---
 
-## 4. ai-news-agent
-- **URL:** https://github.com/devtechedge/ai-news-agent
-- **Language:** Python
-- **Topics:** ai-agent, cron, feedparser, gemini, github-actions, google-gemini, llm, news-aggregator, python, rss, serverless, telegram-bot
-- **Description:** Serverless daily AI news agent. GitHub Actions at 19:30 UTC fetches HN, arXiv cs.AI, Reddit r/MachineLearning, Google AI Blog, OpenAI News, and Hugging Face RSS, dedupes in-repo memory, summarizes with Gemini, and sends one Telegram executive brief. Python 3.11. No public web UI. Fork, add three Actions secrets, and the next run is yours.
-
-### README.md
-
-# <img src="docs/favicon.svg" width="36" height="36" alt="" /> AI News Agent
-
-Serverless daily AI digest — GitHub Actions pulls public RSS, Gemini writes the brief, Telegram delivers it.
-
-[![Live run](https://img.shields.io/badge/Live%20run-GitHub%20Actions-black?logo=githubactions&logoColor=white)](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)
-[![Daily agent](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml/badge.svg)](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)
-[![CI](https://github.com/devtechedge/ai-news-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/ai-news-agent/actions/workflows/ci.yml)
-[![Python 3.11](https://img.shields.io/badge/python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
----
-
-## Live Demo
-
-**[Daily workflow on GitHub Actions](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)** — scheduled 19:30 UTC, plus manual `workflow_dispatch`.
-
-> **Status:** This is a real scheduled backend, not a client-side mock. There is **no public web UI**. Gemini reads public RSS and writes one short daily brief of the important developments, sent to a **private Telegram chat**. Fork the repo, add three Actions secrets, and the next run is yours. `memory.json` in this public copy stores article hashes only.
-
----
-
-## Screenshots
-
-<p align="center">
-  <img src="docs/social-preview.jpg" alt="AI News Agent" width="800">
-</p>
-
-| Pipeline | Telegram brief (sample layout) |
-|----------|--------------------------------|
-| ![Pipeline](docs/screenshots/01-pipeline.png) | ![Telegram brief](docs/screenshots/02-telegram-brief.png) |
-
-| Schedule + memory |
-|-------------------|
-| ![Schedule](docs/screenshots/03-schedule-memory.png) |
-
----
-
-## Features
-
-- **Zero laptop, zero bill** — GitHub Actions + Gemini free tier + Telegram Bot API
-- **Six public feeds** — HN (AI query), arXiv cs.AI, Reddit r/MachineLearning, Google AI Blog, OpenAI News, Hugging Face Blog
-- **In-repo memory** — MD5 of `title|link|source` in `memory.json` so reruns skip duplicates
-- **Important-only brief** — Gemini keeps models, launches, landmark research, policy, and big deals; skips recaps and noise
-- **One Telegram message** — hard-capped under the Bot API length limit, never split into a thread
-- **Rate-limit safe** — one Gemini call per run, 10 RPM cap, exponential backoff on 429, 50-article candidate ceiling
-- **Fail-closed** — a Gemini or Telegram miss does **not** commit empty memory and does **not** report success
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| Runtime | Python 3.11 on GitHub Actions |
-| Feeds | `feedparser` + `requests` |
-| Summarizer | `google-genai` · `gemini-3.6-flash` · thinking level `high` |
-| Delivery | Telegram Bot API (plain text) |
-| Memory | `memory.json` committed back to `main` |
-| CI | GitHub Actions (`compileall` + pytest) |
-| License | MIT |
-
----
-
-## Quick Start
-
-```bash
-git clone https://github.com/devtechedge/ai-news-agent.git
-cd ai-news-agent
-python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements-dev.txt
-python -m pytest
-```
-
-### Run locally (optional)
-
-```bash
-export GEMINI_API_KEY=...
-export TELEGRAM_BOT_TOKEN=...
-export TELEGRAM_CHAT_ID=...
-python agent.py
-# Telegram-only smoke:
-TEST_TELEGRAM_ONLY=true python agent.py
-```
-
-### Wire the daily job
-
-1. Create a Telegram bot via [@BotFather](https://t.me/BotFather) and note the token + chat id.
-2. Create a Gemini key in [Google AI Studio](https://aistudio.google.com/app/apikey).
-3. Repo **Settings → Secrets and variables → Actions** — add `GEMINI_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
-4. **Actions → Daily AI News Agent → Run workflow**. Cron is `30 19 * * *` (19:30 UTC).
-
-Schedule, feeds, and RPM caps live in `.github/workflows/daily_news.yml` and `agent.py`.
-
----
-
-## How it works
-
-```
-RSS feeds ──► filter / dedupe ──► Gemini (one brief) ──► one Telegram message
-                    │                                        │
-                    └──────── memory.json ◄──── commit ──────┘
-```
-
-Memory is written only after a non-empty summary **and** a successful Telegram send. CI never calls Gemini.
-
-Threat model: [`SECURITY.md`](SECURITY.md).
-
----
-
-## License
-
-MIT. See [LICENSE](LICENSE).
-
-
----
-
-## 5. recharts
+## 10. recharts
 - **URL:** https://github.com/devtechedge/recharts
 - **Language:** TypeScript
 - **Topics:** None
@@ -6536,7 +7439,7 @@ Copyright (c) 2015-2026 Recharts Group.
 
 ---
 
-## 6. pnpm
+## 11. pnpm
 - **URL:** https://github.com/devtechedge/pnpm
 - **Language:** Rust
 - **Topics:** None
@@ -6818,7 +7721,7 @@ Benchmarks on an app with lots of dependencies:
 
 ---
 
-## 7. ratatui
+## 12. ratatui
 - **URL:** https://github.com/devtechedge/ratatui
 - **Language:** Rust
 - **Topics:** None
@@ -7012,7 +7915,7 @@ This project is licensed under the [MIT License][License].
 
 ---
 
-## 8. sqlmesh
+## 13. sqlmesh
 - **URL:** https://github.com/devtechedge/sqlmesh
 - **Language:** Python
 - **Topics:** None
@@ -7217,7 +8120,7 @@ This project is licensed under the [Apache License 2.0](LICENSE). Documentation 
 
 ---
 
-## 9. akri
+## 14. akri
 - **URL:** https://github.com/devtechedge/akri
 - **Language:** Rust
 - **Topics:** None
@@ -7322,7 +8225,7 @@ This project is released under the [Apache 2.0 license](./LICENSE).
 
 ---
 
-## 10. agave-sdk
+## 15. agave-sdk
 - **URL:** https://github.com/devtechedge/agave-sdk
 - **Language:** Rust
 - **Topics:** None
@@ -7347,7 +8250,7 @@ Licensed under the [Apache License 2.0](LICENSE).
 
 ---
 
-## 11. v5-token-pricing
+## 16. v5-token-pricing
 - **URL:** https://github.com/devtechedge/v5-token-pricing
 - **Language:** TypeScript
 - **Topics:** None
@@ -7568,7 +8471,7 @@ Runtime dependencies: `@across-protocol/constants` (token symbols) and global
 
 ---
 
-## 12. safe-wallet-monorepo
+## 17. safe-wallet-monorepo
 - **URL:** https://github.com/devtechedge/safe-wallet-monorepo
 - **Language:** TypeScript
 - **Topics:** None
@@ -7833,7 +8736,7 @@ If you have any questions or run into issues, feel free to open a discussion or 
 
 ---
 
-## 13. stellar-docs
+## 18. stellar-docs
 - **URL:** https://github.com/devtechedge/stellar-docs
 - **Language:** MDX
 - **Topics:** None
@@ -8116,7 +9019,7 @@ export const CODE_LANGS = {
 
 ---
 
-## 14. kit
+## 19. kit
 - **URL:** https://github.com/devtechedge/kit
 - **Language:** TypeScript
 - **Topics:** None
@@ -9616,7 +10519,7 @@ We’re grateful that you have read this far. If you are interested in migrating
 
 ---
 
-## 15. viem
+## 20. viem
 - **URL:** https://github.com/devtechedge/viem
 - **Language:** TypeScript
 - **Topics:** None
@@ -9858,7 +10761,7 @@ If you're interested in contributing, please read the [contributing docs](/.gith
 
 ---
 
-## 16. wormhole-connect
+## 21. wormhole-connect
 - **URL:** https://github.com/devtechedge/wormhole-connect
 - **Language:** TypeScript
 - **Topics:** None
@@ -10143,7 +11046,222 @@ Wormhole Connect is an NPM package that interacts with the Wormhole protocol. Yo
 
 ---
 
-## 17. next.js
+## 22. difftastic
+- **URL:** https://github.com/devtechedge/difftastic
+- **Language:** Rust
+- **Topics:** None
+- **Description:** a structural diff that understands syntax ≡ƒƒÑ≡ƒƒ⌐
+
+### README.md
+
+<p align="center">
+  <a href="#readme"><img src="img/logo.png" alt="it's difftastic!"/></a>
+  <br>
+  <a href="https://difftastic.wilfred.me.uk/introduction.html"><img src="https://img.shields.io/badge/manual-en-brightgreen?style=plastic" alt="English manual"></a>
+  <a href="https://difftastic.wilfred.me.uk/zh-CN/"><img src="https://img.shields.io/badge/manual-zh--CN-brightgreen?style=plastic" alt="Chinese manual"></a>
+  <a href="https://crates.io/crates/difftastic"><img src="https://img.shields.io/crates/v/difftastic.svg?style=plastic" alt="crates.io"></a>
+  <a href="https://codecov.io/gh/Wilfred/difftastic"><img src="https://img.shields.io/codecov/c/github/Wilfred/difftastic?style=plastic&token=dZzAZtQT2S" alt="codecov.io"></a>
+</p>
+
+Difftastic is a structural diff tool that compares files based on
+their syntax.
+
+**For installation instructions, see
+[Installation](https://difftastic.wilfred.me.uk/installation.html) in
+[the manual](https://difftastic.wilfred.me.uk/).**
+
+## Examples
+
+![Screenshot of difftastic and Rust](img/wrap_expr.png)
+
+^ Difftastic understands exactly which pieces of syntax have changed,
+and can highlight them in context.
+
+![Screenshot of difftastic and HTML](img/html.png)
+
+^ Difftastic understands when whitespace matters, and when it's just
+an indentation change.
+
+![Screenshot of difftastic and JS](img/reformat.png)
+
+^ Difftastic is not line-oriented. If you reformat your code and it's
+now split over multiple lines, difftastic will show you what's
+actually changed.
+
+![Screenshot of difftastic and git](img/git.png)
+
+^ Difftastic is compatible with git (see [the configuration
+instructions](https://difftastic.wilfred.me.uk/git.html)), as well as
+many other version control systems.
+
+## Languages Supported
+
+Difftastic supports over 30 programming languages, see [the
+manual](https://difftastic.wilfred.me.uk/languages_supported.html) for the full list.
+
+If a file has an unrecognised extension, difftastic uses a
+line-oriented diff with word highlighting.
+
+## Known Issues
+
+Performance. Difftastic scales relatively poorly on files with a large
+number of changes, and can use a lot of memory.
+
+Display. Difftastic has a side-by-side display which usually works well, but can
+be confusing.
+
+Robustness. Difftastic regularly has releases that fix crashes.
+
+## Non-goals
+
+Patching. Difftastic output is intended for human consumption, and it
+does not generate patches that you can apply later. Use `diff` if you
+need a patch.
+
+(Patch files are also line-oriented, which is too limited for
+difftastic. Difftastic might find additions and removals on the same
+line, and it tracks the relationship between line numbers in the old
+and new file.)
+
+Merging. AST merging is a hard problem that difftastic does not
+address. You might be interested in the [mergiraf
+tool](https://mergiraf.org/) ("merge giraffe"), which does do AST
+merging.
+
+## FAQ
+
+### Can I use difftastic with git?
+
+You can! The difftastic manual [includes instructions for git
+usage](https://difftastic.wilfred.me.uk/git.html). You can also use it
+[with mercurial](https://difftastic.wilfred.me.uk/mercurial.html).
+
+If you're an Emacs user, check out [this blog
+post](https://tsdh.org/posts/2022-08-01-difftastic-diffing-with-magit.html)
+showing one way to use difftastic with magit, as well as
+[difftastic.el](https://github.com/pkryger/difftastic.el).
+
+### Does difftastic integrate with my favourite tool?
+
+Probably not. Difftastic is young. Consider writing a plugin for your
+favourite tool, and I will link it in the README!
+
+### What about parse errors?
+
+By default, difftastic falls back to a line-oriented diff whenever
+parse errors are encountered.
+
+This is a conservative choice to ensure that difftastic never claims
+that two syntactically different files are the same.
+
+Parse errors can occur if the file uses language features that the
+parser does not understand, if the language relies on a preprocessor
+before parsing (e.g. C++), or if the file has genuine syntactic
+mistakes.
+
+In practice, difftastic virtually always produces a good result when
+there are a few minor parse errors. Consider allowing a small number
+of parse errors when using difftastic.
+
+```
+$ export DFT_PARSE_ERROR_LIMIT=20
+$ difft foo1.c foo2.c
+```
+
+### Can difftastic help me with merge conflicts?
+
+Yes! As of version 0.50 (released 2023-08-16), difftastic understands merge conflict markers
+(i.e. `<<<<<<<`, `=======` and `>>>>>>>`).
+
+Pass your file with conflicts as a single argument to
+difftastic. Difftastic will construct the two conflicting files and
+diff those.
+
+```
+$ difft file_with_conflicts.js
+```
+
+### Can difftastic do merges?
+
+No. AST merging is a hard problem that difftastic does not address.
+
+AST diffing is a lossy process from the perspective of a text
+diff. Difftastic will ignore whitespace that isn't syntactically
+significant, but merging requires tracking whitespace.
+
+The [mergiraf](https://mergiraf.org/) tool does offer merges based on
+a tree-sitter AST however.
+
+### Can difftastic ignore reordering?
+
+No. Difftastic always considers order to be important, so diffing
+e.g. `set(1, 2)` and `set(2, 1)` will show changes.
+
+If you're diffing JSON, consider sorting the keys before passing them
+to difftastic.
+
+```
+$ difft <(jq --sort-keys < file_1.json) <(jq --sort-keys < file_2.json)
+```
+
+See also [Tricky Cases: Unordered Data
+Types](https://difftastic.wilfred.me.uk/tricky_cases.html#unordered-data-types)
+in the manual.
+
+### Can I use difftastic to check for syntactic changes without diffing?
+
+Yes. Difftastic can check if the two files have the same AST, without
+calculating a diff. This is much faster than normal diffing, and
+useful for building tools that check for changes.
+
+For example:
+
+```
+$ difft --check-only --exit-code before.js after.js
+```
+
+This will set the exit code to 0 if there are no syntactic changes, or
+1 if there are changes found.
+
+### Why aren't colours appearing in my terminal?
+
+Difftastic uses ANSI bright colours by default, but some terminal
+themes show bright colours as grey. Solarized is a popular theme that
+does this.
+
+If you're a Solarized user, use `export DFT_BACKGROUND=light` to
+disable bright colours, or try a different terminal colour scheme.
+
+### How does it work?
+
+Difftastic treats structural diffing as a graph problem, and uses
+Dijkstra's algorithm.
+
+My [blog
+post](https://www.wilfred.me.uk/blog/2022/09/06/difftastic-the-fantastic-diff/)
+describes the design, and there is also an [internals section in the
+manual](https://difftastic.wilfred.me.uk/diffing.html).
+
+## Translation
+
++ [Chinese](./translation/zh-CN/README-zh-CN.md)
+
+## License
+
+Difftastic is open source under the MIT license, see LICENSE for more
+details.
+
+This repository also includes tree-sitter parsers by other authors in
+the `vendored_parsers/` directory. These are a mix of the MIT license and the
+Apache license. See `vendored_parsers/*/LICENSE` for more details.
+
+Files in `sample_files/` are also under the MIT license unless stated
+otherwise in their headers.
+
+
+---
+
+## 23. next.js
 - **URL:** https://github.com/devtechedge/next.js
 - **Language:** JavaScript
 - **Topics:** None
@@ -10204,7 +11322,7 @@ To participate in our Open Source Software Bug Bounty program, please email [res
 
 ---
 
-## 18. freighter
+## 24. freighter
 - **URL:** https://github.com/devtechedge/freighter
 - **Language:** TypeScript
 - **Topics:** None
@@ -10392,7 +11510,7 @@ This will instruct the git hook to use the .nvmrc found in this repo.
 
 ---
 
-## 19. wallet-core
+## 25. wallet-core
 - **URL:** https://github.com/devtechedge/wallet-core
 - **Language:** C++
 - **Topics:** None
@@ -10546,7 +11664,7 @@ Trust Wallet Core is available under the Apache 2.0 license. See the [LICENSE](L
 
 ---
 
-## 20. program-examples
+## 26. program-examples
 - **URL:** https://github.com/devtechedge/program-examples
 - **Language:** TypeScript
 - **Topics:** None
@@ -10919,7 +12037,7 @@ A provably-fair gacha / loot-box game — the on-chain mechanic behind RWA pack 
 
 ---
 
-## 21. safe-docs
+## 27. safe-docs
 - **URL:** https://github.com/devtechedge/safe-docs
 - **Language:** MDX
 - **Topics:** None
@@ -11011,7 +12129,7 @@ Contributions are more than welcome! Please open an issue or create a pull reque
 
 ---
 
-## 22. ruff
+## 28. ruff
 - **URL:** https://github.com/devtechedge/ruff
 - **Language:** Rust
 - **Topics:** None
@@ -11477,7 +12595,7 @@ This repository is licensed under the [MIT License](https://github.com/astral-sh
 
 ---
 
-## 23. crawlee
+## 29. crawlee
 - **URL:** https://github.com/devtechedge/crawlee
 - **Language:** TypeScript
 - **Topics:** None
@@ -11642,7 +12760,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE.md](htt
 
 ---
 
-## 24. better-auth
+## 30. better-auth
 - **URL:** https://github.com/devtechedge/better-auth
 - **Language:** TypeScript
 - **Topics:** None
@@ -11695,7 +12813,7 @@ All reports will be promptly addressed, and you'll be credited accordingly.
 
 ---
 
-## 25. bdk
+## 31. bdk
 - **URL:** https://github.com/devtechedge/bdk
 - **Language:** Rust
 - **Topics:** None
@@ -11794,122 +12912,7 @@ conditions.
 
 ---
 
-## 26. devtechedge
-- **URL:** https://github.com/devtechedge/devtechedge
-- **Language:** Not specified
-- **Topics:** None
-- **Description:** GitHub profile landing for Devayan Mandal (DevTechEdge): AI/ML and full-stack work across agentic systems, marketplaces, and polished Next.js demos. Index of public repos with live Vercel and GitHub Pages links. Python, TypeScript, React, Next.js, LangGraph, Postgres, Supabase. Portfolio README onlyΓÇöno app, no API keys, no backend. Account home. v1
-
-### README.md
-
-# Hi, I'm Dev 👋
-
-### Full Stack AI Native Engineer · Open Source Contributor
-
-I build production-grade AI and full-stack systems, while contributing fixes upstream to the infrastructure I build on.
-
-My work spans multi-agent systems, RAG, HITL workflows, observability, developer tooling, distributed systems, and Web3 infrastructure.
-
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)](https://langchain.com)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
-[![Supabase](https://img.shields.io/badge/Supabase-3ECF66?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
-[![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)](https://claude.ai)
-[![ChatGPT](https://img.shields.io/badge/ChatGPT-74AA9C?style=for-the-badge&logo=openai&logoColor=white)](https://chatgpt.com)
-[![Grok](https://img.shields.io/badge/Grok-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.ai)
-
----
-
-## 🌍 Open Source Engineering
-
-### Contribution ledgers
-
-- 🧩 **[Non-Web3 OSS Contributions](https://github.com/devtechedge/non-web3-oss-contributions)** - upstream fixes across AI, developer tooling, databases, runtimes, and JS/Python infrastructure.
-- ⛓️ **[Web3 OSS Contributions](https://github.com/devtechedge/web3-oss-contributions)** - upstream fixes across wallets, SDKs, blockchain tooling, and Web3 infrastructure.
-
-### Merged upstream contributions
-
-#### Non-Web3
-
-- ✅ **[node-postgres #3772](https://github.com/brianc/node-postgres/pull/3772)** - stopped `Connection.sync()` from setting the internal `_ending` flag, since the extended-query Sync message is a protocol barrier rather than a disconnect. The flag had silenced genuine `ECONNRESET` / `EPIPE` socket errors for the rest of the connection lifetime after the first parameterized query, with recovery depending only on the async close path under `pipeline: true`.
-- ✅ **[pnpm #14754](https://github.com/pnpm/pnpm/pull/14754)** - fixed `pnpm run "/pattern/" --no-bail` so one failing matched script no longer cancels its siblings. Non-recursive pattern runs now continue all selected scripts and report the aggregate failure correctly.
-- ✅ **[pnpm #14756](https://github.com/pnpm/pnpm/pull/14756)** - fixed `pnpm update <name>@<version>` dropping the dependency's existing `^` or `~` range operator. Updates now preserve the manifest's range style and correctly retain `npm:` / `jsr:` prefixes, including prerelease ranges.
-- ✅ **[pnpm #14753](https://github.com/pnpm/pnpm/pull/14753)** - fixed `lockfile: false` being ignored when `devEngines.packageManager.onFail` was `download`. Automatic package-manager switching now works without creating or updating a project `pnpm-lock.yaml`, with persistence moved to the global environment when appropriate.
-- ✅ **[Better Auth #11208](https://github.com/better-auth/better-auth/pull/11208)** - added regression coverage for `/phone-number/verify` OpenAPI `requestBody` generation after a Zod intersection had caused the request body to disappear from generated specs. The runtime was unaffected; the fix locks in the expected generated contract.
-- ✅ **[SQLMesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040)** - fixed a concurrency race in `sqlmesh test` where `ModelTest.create_test()` ran on worker threads while `time_machine` was being started or stopped, causing intermittent `IndexError` failures. Test creation now happens before work is submitted to the pool.
-- ✅ **[Biome #11667](https://github.com/biomejs/biome/pull/11667)** - added the `useBetterDomTraversing` nursery lint rule, ported from ESLint Unicorn, to flag unnecessary DOM traversal patterns and provide safe transformations where semantics permit.
-
-#### Web3
-
-- ✅ **[thirdweb JS #8938](https://github.com/thirdweb-dev/js/pull/8938)** - fixed `useTokenQuery` swallowing real token lookup failures and incorrectly turning 401, 429, timeout, and other unexpected errors into `unsupported_token`. Genuine failures now reach the existing error and retry path.
-- ✅ **[Anza Kit #2032](https://github.com/anza-xyz/kit/pull/2032)** - corrected the `getPatternMatchCodec` advanced guide to use `number` predicates, matching the current codec typing after the related narrowing fix landed.
-
-### Selected upstream ecosystems
-
-**Non-Web3:** pnpm · Biome · SQLMesh · LangGraph.js · Drizzle ORM · CrewAI · node-postgres · TanStack Router · Better Auth · LiveKit Agents · Jinja · Undici · TypeScript-ESLint · Vitest
-
-**Web3:** Safe · Stellar · Wagmi · RainbowKit · ethers.js · Coinbase Wallet SDK · MetaMask SDK · Reown AppKit · Across Protocol · viem · Solana Web3.js · Ambire
-
----
-
-## 🚀 Flagship Architectures & Projects
-
-- 🔬 **[Synthesis](https://synthesis-gold.vercel.app/)** - Autonomous multi-agent research: plan → research → synthesize → critique → finalize, with HITL gates, RAG, Reflexion, and live SSE agent graphs ([repo](https://github.com/devtechedge/synthesis)).
-- 💼 **[Jobrow](https://jobrow.vercel.app)** - Live register of still-open US tech roles sourced directly from employer ATS boards, with search, filters, company boards, closed-role tracking, and a public JSON API ([repo](https://github.com/devtechedge/job-board)).
-- ⛓️ **[Lattice](https://lattice-devtechedge1.vercel.app)** - Live Web3 jobs platform aggregating blockchain and crypto roles from employer ATS boards, with salary observatory, talent directory, gigs, and hiring intelligence ([repo](https://github.com/devtechedge/lattice)).
-- 🪐 **[Pulsar](https://devtechedge.github.io/pulsar/)** - Decentralized AI compute protocol interface with Base smart contracts, staking flows, wallet connectivity, 3D visualization, tokenomics, and Foundry-tested contracts ([repo](https://github.com/devtechedge/pulsar)).
-- 🧠 **[AAROP](https://aarop.vercel.app)** - Explicit Perceive → Plan → Act → Observe → Reflect → Adapt loop with self-verification, bounded autonomy, and replayable traces ([repo](https://github.com/devtechedge/aarop)).
-- ⚖️ **[RegTrace](https://regtrace-ai.vercel.app)** - HITL Web3 compliance copilot mapping packs onto MiCA/VARA with retrieval-bounded findings and article citations ([repo](https://github.com/devtechedge/regulatory_compliance)).
-- 🏥 **[Cadence](https://cadence-healthcare.vercel.app/)** - Deep-memory healthcare agent lab: multi-layer patient memory, journey stages, consent-scoped clinician briefs ([repo](https://github.com/devtechedge/healthcare-deep-memory-agents)).
-- 🔎 **[Veritas](https://veritas-engine-woad.vercel.app)** - LangGraph research agent with SSE streaming, Gemini + Tavily when keyed, grounded demo mode otherwise ([repo](https://github.com/devtechedge/veritas-engine)).
-- 🔥 **[Chaos Simulator](https://chaos-simulation.vercel.app)** - Real-time chaos engineering dashboard with fault injection, self-healing services, animated service topology, scenario orchestration, live telemetry, and recovery analysis ([repo](https://github.com/devtechedge/chaos-simulator)).
-
----
-
-## 🛠️ Tech Stack
-
-| Category | Tooling, Frameworks & Architecture |
-| :--- | :--- |
-| **AI systems & agents** | Python, LangGraph, LangChain, LangServe, FastAPI, explicit agentic state machines, multi-agent supervisors, HITL interrupts, bounded autonomy, Reflexion / critique loops, tool-use / ReAct, durable checkpoints |
-| **RAG, memory & evaluation** | Hybrid RAG, pgvector, BM25, TF-IDF, JSONB embeddings, cosine retrieval, sentence-transformers, long-term memory, retrieval-bounded generation, eval gates, LLM-as-judge, LangSmith |
-| **LLMs, tools & integrations** | Gemini, OpenAI-compatible providers, Groq, Ollama / local LLMs, Tavily, Telegram Bot API, MCP-oriented tool buses, Google Workspace integrations |
-| **Frontend & product** | TypeScript, React, Next.js, TanStack Start, Vite, Tailwind CSS, shadcn/ui, Lucide, Motion / Framer Motion, Recharts, Three.js, React Three Fiber, HTML5 Canvas, SVG |
-| **Data, auth & backend** | PostgreSQL, Supabase, Neon, PGLite, SQLite, Prisma, Drizzle ORM, SQLAlchemy, Pydantic, Zod, Better Auth, REST, Server Actions, API routes |
-| **Realtime, streaming & observability** | SSE, WebSockets, Socket.io, replayable traces, structured telemetry, OpenTelemetry-shaped tracing, live/demo provider switching |
-| **Web3 & smart contracts** | Solidity, OpenZeppelin, Foundry, Base, viem, wagmi, RainbowKit, ethers.js, wallet SDKs, blockchain / wallet infrastructure |
-| **Mobile, runtime & infrastructure** | Expo / React Native, Node.js, Bun, Express, Docker, Vercel, GitHub Actions, GitHub-hosted automation |
-| **Testing & developer tooling** | Vitest, pytest, Playwright, TypeScript compiler, ESLint / Biome, CI test gates, visual regression, security hardening and threat-model documentation |
-
----
-
-## 🎯 Engineering Philosophy
-
-- **Bounded autonomy:** explicit state, validation, cost-aware routing, and HITL for irreversible actions.
-- **Retrieval-bounded truth:** citation-backed RAG with hallucination checks.
-- **Observable, upstream, production-ready:** inspectable traces, upstream fixes, and tested full-stack systems.
-- **Ship the full stack:** production-style TypeScript/React surfaces with Python/FastAPI where it fits.
-
----
-
-## 🌐 Connect With Me
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dev-ma/)
-[![X / Twitter](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/DevTechEdge)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/devtechedge)
-
----
-
-
----
-
-## 27. sdk-1
+## 32. sdk-1
 - **URL:** https://github.com/devtechedge/sdk-1
 - **Language:** TypeScript
 - **Topics:** None
@@ -12096,7 +13099,7 @@ See https://github.com/tkhq/dart-sdk/tree/main/examples/flutter-demo-app for the
 
 ---
 
-## 28. toolkit
+## 33. toolkit
 - **URL:** https://github.com/devtechedge/toolkit
 - **Language:** TypeScript
 - **Topics:** None
@@ -12202,7 +13205,7 @@ await client.executeSwapQuote({
 
 ---
 
-## 29. node-postgres
+## 34. node-postgres
 - **URL:** https://github.com/devtechedge/node-postgres
 - **Language:** JavaScript
 - **Topics:** None
@@ -12335,7 +13338,7 @@ THE SOFTWARE.
 
 ---
 
-## 30. interceptors
+## 35. interceptors
 - **URL:** https://github.com/devtechedge/interceptors
 - **Language:** TypeScript
 - **Topics:** None
@@ -13031,7 +14034,7 @@ The following libraries were used as an inspiration to write this low-level API:
 
 ---
 
-## 31. krusty-kms
+## 36. krusty-kms
 - **URL:** https://github.com/devtechedge/krusty-kms
 - **Language:** Rust
 - **Topics:** None
@@ -13186,7 +14189,7 @@ MIT OR Apache-2.0
 
 ---
 
-## 32. agents
+## 37. agents
 - **URL:** https://github.com/devtechedge/agents
 - **Language:** Python
 - **Topics:** None
@@ -13599,7 +14602,7 @@ uv run --active pdoc --skip-errors --html --output-dir=docs livekit
 
 ---
 
-## 33. jinja
+## 38. jinja
 - **URL:** https://github.com/devtechedge/jinja
 - **Language:** Python
 - **Topics:** None
@@ -13670,7 +14673,7 @@ questions, and making PRs.
 
 ---
 
-## 34. undici
+## 39. undici
 - **URL:** https://github.com/devtechedge/undici
 - **Language:** JavaScript
 - **Topics:** None
@@ -14479,7 +15482,7 @@ MIT
 
 ---
 
-## 35. typescript-eslint
+## 40. typescript-eslint
 - **URL:** https://github.com/devtechedge/typescript-eslint
 - **Language:** TypeScript
 - **Topics:** None
@@ -14538,7 +15541,7 @@ typescript-eslint inherits is licensed under a permissive MIT license.
 
 ---
 
-## 36. starlette
+## 41. starlette
 - **URL:** https://github.com/devtechedge/starlette
 - **Language:** Python
 - **Topics:** None
@@ -14693,7 +15696,7 @@ in isolation.
 
 ---
 
-## 37. js-stellar-sdk
+## 42. js-stellar-sdk
 - **URL:** https://github.com/devtechedge/js-stellar-sdk
 - **Language:** TypeScript
 - **Topics:** None
@@ -15259,7 +16262,7 @@ for details.
 
 ---
 
-## 38. safe-core-sdk
+## 43. safe-core-sdk
 - **URL:** https://github.com/devtechedge/safe-core-sdk
 - **Language:** TypeScript
 - **Topics:** None
@@ -15324,7 +16327,7 @@ This library is released under [MIT](https://github.com/safe-global/safe-core-sd
 
 ---
 
-## 39. coinbase-wallet-sdk
+## 44. coinbase-wallet-sdk
 - **URL:** https://github.com/devtechedge/coinbase-wallet-sdk
 - **Language:** TypeScript
 - **Topics:** None
@@ -15471,7 +16474,7 @@ This library is released under [MIT](https://github.com/safe-global/safe-core-sd
 
 ---
 
-## 40. router
+## 45. router
 - **URL:** https://github.com/devtechedge/router
 - **Language:** TypeScript
 - **Topics:** None
@@ -15686,7 +16689,7 @@ We're looking for TanStack Router & Start Partners to join our mission! Partner 
 
 ---
 
-## 41. miniapps
+## 46. miniapps
 - **URL:** https://github.com/devtechedge/miniapps
 - **Language:** TypeScript
 - **Topics:** None
@@ -15754,7 +16757,7 @@ Contributions are greatly appreciated! If you're interested in contributing to t
 
 ---
 
-## 42. alchemy-sdk-js
+## 47. alchemy-sdk-js
 - **URL:** https://github.com/devtechedge/alchemy-sdk-js
 - **Language:** TypeScript
 - **Topics:** None
@@ -16216,7 +17219,7 @@ our [Discord](https://discord.com/invite/alchemyplatform) channel for the SDK.
 
 ---
 
-## 43. metamask-sdk-1
+## 48. metamask-sdk-1
 - **URL:** https://github.com/devtechedge/metamask-sdk-1
 - **Language:** TypeScript
 - **Topics:** None
@@ -16297,7 +17300,7 @@ optimization workshop.
 
 ---
 
-## 44. sdk
+## 49. sdk
 - **URL:** https://github.com/devtechedge/sdk
 - **Language:** TypeScript
 - **Topics:** None
@@ -16425,7 +17428,7 @@ For vanilla CSS, you can include it at the root directory and add it to the `fil
 
 ---
 
-## 45. metamask-sdk-empty-placeholder
+## 50. metamask-sdk-empty-placeholder
 - **URL:** https://github.com/devtechedge/metamask-sdk-empty-placeholder
 - **Language:** Not specified
 - **Topics:** None
@@ -16437,7 +17440,7 @@ For vanilla CSS, you can include it at the root directory and add it to the `fil
 
 ---
 
-## 46. crewAI
+## 51. crewAI
 - **URL:** https://github.com/devtechedge/crewAI
 - **Language:** Python
 - **Topics:** None
@@ -17190,7 +18193,7 @@ A: Yes, CrewAI fully supports human-in-the-loop workflows, allowing seamless col
 
 ---
 
-## 47. extension
+## 52. extension
 - **URL:** https://github.com/devtechedge/extension
 - **Language:** TypeScript
 - **Topics:** None
@@ -17699,7 +18702,7 @@ We've migrated from Puppeteer to Playwright (./e2e-playwright-tests/). Documenta
 
 ---
 
-## 48. remix
+## 53. remix
 - **URL:** https://github.com/devtechedge/remix
 - **Language:** TypeScript
 - **Topics:** None
@@ -17846,7 +18849,7 @@ See [LICENSE](https://github.com/remix-run/remix/blob/main/LICENSE)
 
 ---
 
-## 49. nest
+## 54. nest
 - **URL:** https://github.com/devtechedge/nest
 - **Language:** TypeScript
 - **Topics:** None
@@ -17985,7 +18988,7 @@ Nest is [MIT licensed](LICENSE).
 
 ---
 
-## 50. dotnet-stellar-sdk
+## 55. dotnet-stellar-sdk
 - **URL:** https://github.com/devtechedge/dotnet-stellar-sdk
 - **Language:** C#
 - **Topics:** None
@@ -18201,7 +19204,7 @@ the [LICENSE](https://github.com/Beans-BV/dotnet-stellar-sdk/blob/master/LICENSE
 
 ---
 
-## 51. biome
+## 56. biome
 - **URL:** https://github.com/devtechedge/biome
 - **Language:** Rust
 - **Topics:** None
@@ -18417,7 +19420,7 @@ Biome offers [enterprise support](https://biomejs.dev/enterprise), where Core Co
 
 ---
 
-## 52. job-board
+## 57. job-board
 - **URL:** https://github.com/devtechedge/job-board
 - **Language:** TypeScript
 - **Topics:** ats, greenhouse, job-board, postgres, tanstack, typescript, vercel, ashby, job-search, lever, public-api, react
@@ -18617,7 +19620,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 53. vitest
+## 58. vitest
 - **URL:** https://github.com/devtechedge/vitest
 - **Language:** TypeScript
 - **Topics:** None
@@ -18741,7 +19744,7 @@ See [Contributing Guide](https://github.com/vitest-dev/vitest/blob/main/CONTRIBU
 
 ---
 
-## 54. langgraphjs
+## 59. langgraphjs
 - **URL:** https://github.com/devtechedge/langgraphjs
 - **Language:** TypeScript
 - **Topics:** None
@@ -18817,7 +19820,7 @@ LangGraph is inspired by [Pregel](https://research.google/pubs/pub37252/) and [A
 
 ---
 
-## 55. drizzle-orm
+## 60. drizzle-orm
 - **URL:** https://github.com/devtechedge/drizzle-orm
 - **Language:** TypeScript
 - **Topics:** None
@@ -18873,7 +19876,7 @@ Check out the full documentation on [the website](https://orm.drizzle.team/docs/
 
 ---
 
-## 56. appkit
+## 61. appkit
 - **URL:** https://github.com/devtechedge/appkit
 - **Language:** TypeScript
 - **Topics:** None
@@ -18941,7 +19944,7 @@ This SDK is provided under the **[Reown AppKit] Community License** (“Communit
 
 ---
 
-## 57. js
+## 62. js
 - **URL:** https://github.com/devtechedge/js
 - **Language:** TypeScript
 - **Topics:** None
@@ -19137,7 +20140,7 @@ If you believe you have found a security vulnerability in any of our packages, w
 
 ---
 
-## 58. rainbowkit
+## 63. rainbowkit
 - **URL:** https://github.com/devtechedge/rainbowkit
 - **Language:** MDX
 - **Topics:** None
@@ -19234,7 +20237,7 @@ See [LICENSE](/LICENSE) for more information.
 
 ---
 
-## 59. wagmi
+## 64. wagmi
 - **URL:** https://github.com/devtechedge/wagmi
 - **Language:** TypeScript
 - **Topics:** None
@@ -19446,7 +20449,7 @@ If you find Wagmi useful or use it for work, please consider [sponsoring Wagmi](
 
 ---
 
-## 60. ethers.js
+## 65. ethers.js
 - **URL:** https://github.com/devtechedge/ethers.js
 - **Language:** TypeScript
 - **Topics:** None
@@ -19598,7 +20601,7 @@ MIT License (including **all** dependencies).
 
 ---
 
-## 61. solana-web3.js
+## 66. solana-web3.js
 - **URL:** https://github.com/devtechedge/solana-web3.js
 - **Language:** TypeScript
 - **Topics:** None
@@ -19755,7 +20758,7 @@ software.
 
 ---
 
-## 62. regulatory_compliance
+## 67. regulatory_compliance
 - **URL:** https://github.com/devtechedge/regulatory_compliance
 - **Language:** Python
 - **Topics:** compliance, fastapi, hitl, mica, nextjs, rag, vara, web3, docker, postgresql, typescript, vasp
@@ -19889,7 +20892,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 63. veritas-engine
+## 68. veritas-engine
 - **URL:** https://github.com/devtechedge/veritas-engine
 - **Language:** TypeScript
 - **Topics:** ai-research-agent, gemini-api, langchain, langgraph-js, multi-agent-systems, nextjs, tavily-api, typescript, serverless-agent, portfolio, sse, vercel
@@ -20012,7 +21015,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 64. luxe-tracker
+## 69. luxe-tracker
 - **URL:** https://github.com/devtechedge/luxe-tracker
 - **Language:** TypeScript
 - **Topics:** arbitrage, client-side, dashboard, editorial-ui, fashion-tech, luxury-retail, nextjs, portfolio, recharts, tailwindcss, typescript, price-disparity
@@ -20121,7 +21124,7 @@ Brand names and prices are synthetic and used for demonstration only. Trademarks
 
 ---
 
-## 65. aarop
+## 70. aarop
 - **URL:** https://github.com/devtechedge/aarop
 - **Language:** TypeScript
 - **Topics:** agentic-ai, ai-agents, llm, machine-learning, multi-agent-systems, nextjs, orchestration, python, agentic-loop, observability, state-machine, typescript, vercel
@@ -20277,7 +21280,7 @@ MIT © 2026 Devayan Mandal — see [`LICENSE`](LICENSE).
 
 ---
 
-## 66. notion-clone
+## 71. notion-clone
 - **URL:** https://github.com/devtechedge/notion-clone
 - **Language:** HTML
 - **Topics:** nextjs, pixel-perfect, react, typescript, visual-regression, animation, app-router, component-architecture, css, frontend-architecture, frontend-engineering, frontend-testing, github-actions, html, lighthouse, playwright, rendering, responsive-design, ui-engineering, web-performance
@@ -20609,7 +21612,7 @@ Repository: [github.com/devtechedge/notion-clone](https://github.com/devtechedge
 
 ---
 
-## 67. polygot
+## 72. polygot
 - **URL:** https://github.com/devtechedge/polygot
 - **Language:** TypeScript
 - **Topics:** ai, gemini, language-learning, nextjs, portfolio, pronunciation, react, roleplay, spanish, speech-recognition, typescript, vercel
@@ -20715,7 +21718,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 68. calendar-math
+## 73. calendar-math
 - **URL:** https://github.com/devtechedge/calendar-math
 - **Language:** Python
 - **Topics:** calendar, evaluation, python, reinforcement-learning, rl, rlvr, verifiers, llm-evaluation, prime-intellect
@@ -20856,7 +21859,7 @@ MIT
 
 ---
 
-## 69. meeting-slot
+## 74. meeting-slot
 - **URL:** https://github.com/devtechedge/meeting-slot
 - **Language:** Python
 - **Topics:** calendar, evaluation, llm-evaluation, prime-intellect, python, reinforcement-learning, rl, rlvr, scheduling, timezone, tool-use, verifiers
@@ -21008,7 +22011,7 @@ MIT
 
 ---
 
-## 70. pulsar
+## 75. pulsar
 - **URL:** https://github.com/devtechedge/pulsar
 - **Language:** TypeScript
 - **Topics:** base-chain, decentralized-ai, erc20, foundry, framer-motion, nextjs, rainbowkit, recharts, solidity, staking, typescript, web3
@@ -21105,7 +22108,7 @@ MIT — see [LICENSE](./LICENSE).
 
 ---
 
-## 71. obsidian
+## 76. obsidian
 - **URL:** https://github.com/devtechedge/obsidian
 - **Language:** HTML
 - **Topics:** creative-coding, frontend, generative-art, github-pages, lenis, no-build, portfolio, react, single-file, tailwindcss, threejs, web-audio
@@ -21202,7 +22205,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-## 72. blockchain_expert
+## 77. blockchain_expert
 - **URL:** https://github.com/devtechedge/blockchain_expert
 - **Language:** TypeScript
 - **Topics:** agents, hitl, llm, mcp, nextjs, security, smart-contracts, solidity, static-analysis, swc, typescript, web3
@@ -21310,7 +22313,7 @@ after review without changing the live site’s required env hygiene.
 
 ---
 
-## 73. synthesis
+## 78. synthesis
 - **URL:** https://github.com/devtechedge/synthesis
 - **Language:** TypeScript
 - **Topics:** agentic, drizzle, hitl, langgraph, multi-agent, nextjs, observability, postgres, rag, react, sse, typescript
@@ -21508,7 +22511,7 @@ Built as a senior-portfolio demonstration of agentic-loop engineering.
 
 ---
 
-## 74. lattice
+## 79. lattice
 - **URL:** https://github.com/devtechedge/lattice
 - **Language:** TypeScript
 - **Topics:** blockchain, crypto, freelance, job-board, react, salaries, tailwindcss, talent, tanstack, typescript, vercel, web3
@@ -21639,7 +22642,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 75. zenith-canvas
+## 80. zenith-canvas
 - **URL:** https://github.com/devtechedge/zenith-canvas
 - **Language:** TypeScript
 - **Topics:** canvas, interactive, neo-brutalist, nextjs, productivity, react, tailwindcss, web-audio-api, localstorage, playwright, portfolio, typescript
@@ -21732,7 +22735,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 76. pulse-work
+## 81. pulse-work
 - **URL:** https://github.com/devtechedge/pulse-work
 - **Language:** TypeScript
 - **Topics:** block-editor, dark-mode, focus-timer, kanban, nextjs, notion-clone, portfolio, productivity, react, tailwindcss, typescript, workspace
@@ -21837,7 +22840,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 77. aether-flow
+## 82. aether-flow
 - **URL:** https://github.com/devtechedge/aether-flow
 - **Language:** TypeScript
 - **Topics:** canvas, flowchart, gemini, local-first, portfolio, react, state-machine, tailwindcss, typescript, visual-programming, vite, workflow
@@ -21950,7 +22953,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 78. chaos-simulator
+## 83. chaos-simulator
 - **URL:** https://github.com/devtechedge/chaos-simulator
 - **Language:** TypeScript
 - **Topics:** bun, chaos-engineering, dashboard, framer-motion, full-stack, microservices, nextjs, observability, realtime, recharts, self-healing, socket-io, typescript
@@ -22093,7 +23096,7 @@ MIT License. See [LICENSE](LICENSE).
 
 ---
 
-## 79. collabspace-express
+## 84. collabspace-express
 - **URL:** https://github.com/devtechedge/collabspace-express
 - **Language:** TypeScript
 - **Topics:** canvas, collaborative-whiteboard, express, prisma, react, socketio, typescript, vite, websocket, multiplayer, realtime, vercel
@@ -22244,7 +23247,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 80. collabspace
+## 85. collabspace
 - **URL:** https://github.com/devtechedge/collabspace
 - **Language:** TypeScript
 - **Topics:** collaborative-whiteboard, framer-motion, infinite-canvas, multiplayer, presence, react, realtime, supabase, typescript, vercel, vite, websocket-alternative
@@ -22354,7 +23357,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-## 81. aegis_vercel
+## 86. aegis_vercel
 - **URL:** https://github.com/devtechedge/aegis_vercel
 - **Language:** Python
 - **Topics:** fastapi, langchain, langgraph, python, serverless, vercel, ai-agents, langserve, langsmith, multi-agent, pgvector, rag, autonomous-agents, hitl, human-in-the-loop, mermaid, sre, sse, streaming
@@ -22539,7 +23542,7 @@ MIT License — Built with LangChain, LangGraph, LangSmith
 
 ---
 
-## 82. healthcare-deep-memory-agents
+## 87. healthcare-deep-memory-agents
 - **URL:** https://github.com/devtechedge/healthcare-deep-memory-agents
 - **Language:** Python
 - **Topics:** ai-agents, clinical-memory, consent, deep-memory, groq, healthcare, ollama, patient-journey, python, sentence-transformers, sqlite, vertical-agents
@@ -22703,7 +23706,7 @@ MIT (code). Any medical content you add keeps its original license.
 
 ---
 
-## 83. nexus-bazaar
+## 88. nexus-bazaar
 - **URL:** https://github.com/devtechedge/nexus-bazaar
 - **Language:** TypeScript
 - **Topics:** b2b, checkout, ecommerce, local-first, marketplace, multi-role, portfolio, react, spa, tailwindcss, typescript, vite
@@ -22824,7 +23827,7 @@ after review without changing the live site’s required env hygiene.
 
 ---
 
-## 84. holdslot
+## 89. holdslot
 - **URL:** https://github.com/devtechedge/holdslot
 - **Language:** JavaScript
 - **Topics:** hackathon, openai, webmcp
@@ -22893,7 +23896,7 @@ after review without changing the live site’s required env hygiene.
 
 ---
 
-## 85. wanderlodge
+## 90. wanderlodge
 - **URL:** https://github.com/devtechedge/wanderlodge
 - **Language:** TypeScript
 - **Topics:** airbnb-clone, dark-mode, gemini, lodging, marketplace, nextjs, peer-to-peer, portfolio, react, tailwindcss, travel, typescript
@@ -23006,7 +24009,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 86. vivid-pulse
+## 91. vivid-pulse
 - **URL:** https://github.com/devtechedge/vivid-pulse
 - **Language:** TypeScript
 - **Topics:** app-router, dark-theme, instagram-clone, nextjs, playwright, portfolio, react, social-network, tailwindcss, typescript, vercel, vitest
@@ -23116,7 +24119,7 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-## 87. smart-waitlist
+## 92. smart-waitlist
 - **URL:** https://github.com/devtechedge/smart-waitlist
 - **Language:** TypeScript
 - **Topics:** drizzle-orm, full-stack, nextjs, referral-system, saas, server-actions, shadcn-ui, stripe, supabase, tailwindcss, typescript, waitlist
@@ -23208,7 +24211,7 @@ MIT. See [LICENSE](LICENSE) for details.
 
 ---
 
-## 88. unit-fix
+## 93. unit-fix
 - **URL:** https://github.com/devtechedge/unit-fix
 - **Language:** Python
 - **Topics:** None
@@ -23362,7 +24365,7 @@ MIT
 
 ---
 
-## 89. astra-marketplace
+## 94. astra-marketplace
 - **URL:** https://github.com/devtechedge/astra-marketplace
 - **Language:** TypeScript
 - **Topics:** ecommerce, marketplace, nextjs, postgresql, prisma, react, tailwindcss, typescript, admin-dashboard, full-stack, portfolio, seller-portal
@@ -23478,7 +24481,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-## 90. github-repo-presentation
+## 95. github-repo-presentation
 - **URL:** https://github.com/devtechedge/github-repo-presentation
 - **Language:** Not specified
 - **Topics:** None
@@ -23516,7 +24519,7 @@ Keep this repository private. Do not copy the zip into public product repos.
 
 ---
 
-## 91. alephium-web3
+## 96. alephium-web3
 - **URL:** https://github.com/devtechedge/alephium-web3
 - **Language:** TypeScript
 - **Topics:** None
@@ -23718,7 +24721,7 @@ Runs Vitest across all packages. The root `vitest.config.ts` configures test dis
 
 ---
 
-## 92. cuer
+## 97. cuer
 - **URL:** https://github.com/devtechedge/cuer
 - **Language:** TypeScript
 - **Topics:** None
