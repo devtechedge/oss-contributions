@@ -36,6 +36,7 @@ Companion to `SKILL.md`. Read on demand during scans and before implementing. Ev
 
 - Implement: check for an AI-contribution policy outside the repo root before writing PR copy. pypa/hatch has no CONTRIBUTING.md, but `docs/community/contributing.md` (added May 2026 via PR #2272, closing the AI-policy issue #2218) requires disclosing all AI usage plus the extent. Search docs/ and closed issues for AI-policy traces before assuming a repo has no rule; a false or missing disclosure is an account-integrity risk, not a style nit. Same repo: the default branch is `master` (there is no `main`), and first-time contributor workflow runs sit in `action_required` until a maintainer approves them.
 - PR copy: GitHub-flavored Markdown consumes a leading `-` or `+` as a list marker, so a before/after pair written as `- old` / `+ new` renders as two identical bullets. Put the pair in a fenced diff block instead (pypa/hatch #2422).
+- General: before acting on a local lint/format failure, run the same check on the pristine upstream file; if it fails there too, the local invocation (version, plugin, or config drift from the pinned pre-commit env) is the problem, not the diff. Case (pytest-env #262, 14 Sep 2026): `uvx mdformat --check README.md` failed on upstream main's own README identically, so no reformat was attempted; pre-commit.ci on the PR was the authoritative check and passed first try. Reformatting to satisfy a drifted local tool would have produced drive-by diff noise across the whole file.
 
 ## Dated snapshots
 
