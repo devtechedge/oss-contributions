@@ -1,6 +1,6 @@
 ---
 name: oss
-description: Use when scanning, claiming, opening, babysitting, or tracker-updating upstream OSS PRs, or when editing the user's own unified OSS ledger (README, badges, About). Covers serial shipping, shared voice, comment approval, commit signing, maintainer-only watches, and ledger upkeep.
+description: Use when scanning, claiming, opening, or tracker-updating upstream OSS PRs, or when editing the user's own unified OSS ledger (README, badges, About). Covers serial shipping, shared voice, comment approval, commit signing, and ledger upkeep.
 ---
 
 # OSS PR Playbook
@@ -46,9 +46,9 @@ Upstream PR work is recorded on the unified ledger README. Work in the user's ow
 
 ## 4. Cadence and API hygiene
 
-1. Open one new PR at a time. A second may run only with explicit user permission. Complete the full cycle per PR - claim, implement, test, open, ledger update, babysit - before hunting the next target. Follow-up pushes to an existing open PR (human review, actionable bot P1) are fine while the next hunt is queued.
-2. Run one agent session per PR lifecycle (hunt, ship, babysit) and retire it when the PR merges or closes, after the ledger update and the post-run retrospective (section 8). The SKILL.md playbook and tracker files carry the persistent state, so every fresh session stays small and bounded. Use long-running threads only for meta-discussion, never for PR work.
-3. Keep GitHub API volume low; GitHub support warned the account about request volume (Sep 2026). One consolidated call over several narrow ones, reuse data already fetched instead of refetching, no `--paginate` on large collections, no parallel API fan-out, poll at most every 60 seconds while waiting on CI, and prefer event-driven watches (section 7). Check `gh api rate_limit` before heavy scans and stop well before the limit.
+1. Open one new PR at a time. A second may run only with explicit user permission. Complete the full cycle per PR - claim, implement, test, open, ledger update - before hunting the next target. Follow-up pushes to an existing open PR (human review, actionable bot P1) are fine while the next hunt is queued.
+2. Run one agent session per PR lifecycle (hunt, ship) and retire it once the PR is open, the ledger is updated, and the post-run retrospective (section 8) is done. No session stays open to watch the PR: the user gets GitHub email notifications for maintainer activity and relays what needs action. The SKILL.md playbook and tracker files carry the persistent state, so every fresh session stays small and bounded. Use long-running threads only for meta-discussion, never for PR work.
+3. Keep GitHub API volume low; GitHub support warned the account about request volume (Sep 2026). One consolidated call over several narrow ones, reuse data already fetched instead of refetching, no `--paginate` on large collections, no parallel API fan-out, and poll at most every 60 seconds while waiting on CI. Check `gh api rate_limit` before heavy scans and stop well before the limit.
 4. On `resource_exhausted`: stop parallel work, wait, then resume serially. If GitHub is the blocker, check `gh api rate_limit` separately. Do not thrash retries.
 5. Stuck handling: if a step stays blocked for a long time - a hung command, a command that never returns, repeated identical failures, a wait that outlives any plausible runtime - assume something on the other end has failed: a dropped connection, a missing password, passphrase, or key, or a tool waiting on input that will never come. Stop hitting the wall. Report what is blocked and the evidence, then either move on to other queued work and revisit the blocker later, or ask the user a clarification question if only they can unblock it (credentials, auth, interactive prompts). Do not burn the session looping on one blocking step.
 
@@ -105,20 +105,18 @@ Scan mechanics (when asked to scan for N targets):
 10. All GitHub Actions and CI checks must be green before a PR is reported done. After each push, wait for checks to settle and confirm every check passes (or is non-actionable per step 9). A red check caused by your own change is actionable: read the failed job log, fix, push, confirm green. Never report a PR as done without confirming its checks passed; when a maintainer must manually approve the workflow run (`action_required`), say so explicitly instead of claiming green.
 11. Report the PR URL, plus the scoreboard when batching.
 
-## 7. Babysitting and auto-close (maintainer responses only)
+## 7. Maintainer responses (user-driven; no babysitting)
 
-Default for every new PR unless the user overrides. Prefer event-driven listeners over cron to save tokens.
+No babysitting: never set up a watch, cron job, event listener, or polling loop on a PR, old or new. GitHub already emails the user for every maintainer review, comment, and merge, and that email is the trigger. Standing watches burn background tokens for signal the user already has.
 
-- Wake on: `review-approved`, `review-changes-requested`, `review-commented`, `pr-comment`, `inline-review-comment`, plus `pr-merged` / `pr-closed` when the ledger needs terminal-state updates.
-- Stay quiet on: CI runs, pushes, `review-requested`, and thread-resolve noise.
-- Bots are no-ops: CodeRabbit, Greptile, Copilot, Vercel, Changeset, Dependabot, Qodo, github-actions, CLA assistant, and `*[bot]` accounts generally. A bot comment may still be worth surfacing to the user, but do not act on it.
-- Act only on human maintainer or collaborator responses on your PRs: tell the user, and if a safe fix is clear, push it and reply in the approved voice, through the comment approval gate.
+- When the user relays PR activity (an email, a comment, a review), act on it then: read the current PR state once, and treat bots as no-ops - CodeRabbit, Greptile, Copilot, Vercel, Changeset, Dependabot, Qodo, github-actions, CLA assistant, and `*[bot]` accounts generally. A bot comment may be worth surfacing to the user, but never act on it.
+- Act only on human maintainer or collaborator responses: if a safe fix is clear, push it to the same branch while the change stays within the PR's scope, and reply in the approved voice through the comment approval gate.
 - "Please sign your commit" asks (e.g. Safe repos): check `gh api repos/OWNER/REPO/pulls/N/commits` for `.commit.verification`. If `verified: true` with reason `valid`, the ask is already satisfied; update the ledger status and wait for merge, no reply needed. If not signed, only the user can re-sign locally with their key; the agent prepares the branch, the user signs and pushes.
-- Auto-close: if a PR is auto-closed shortly after opening, mark it Closed (not merged) when writing the ledger, delete the babysit, never refile that issue from the same account, and never reply to the auto-close bot. Prefer quieter mid-size repositories when auto-closes keep happening.
+- Auto-close: if a PR is auto-closed shortly after opening, mark it Closed (not merged) when writing the ledger, never refile that issue from the same account, and never reply to the auto-close bot. Prefer quieter mid-size repositories when auto-closes keep happening.
 
 ## 8. Post-run retrospective (mandatory before retiring a PR session)
 
-Every completed PR run - merged, closed, no-go, or abandoned - ends with a retrospective before the session retires (see section 4.2). Do not skip it on a bad outcome; a closed PR that yields no learned pattern is a wasted run.
+Every PR run ends with a retrospective when the session's active work is done - after the PR is opened and the ledger updated, or on a no-go, a closure the user reports, or an abandonment (see section 4.2). Do not skip it on a bad outcome; a closed PR that yields no learned pattern is a wasted run.
 
 1. Revisit the full run end to end: the scan/claim decision, the gates you checked, the implementation, test and lint loop, the submission path, PR copy, and the terminal outcome. Walk the actual commands and outputs, not your memory of the plan.
 2. Extract what generalized. A finding is worth recording when it would change behavior on a future PR in a different repo, not just this one: a new hard gate, a repo-policy surprise that dodged the existing checks, a toolchain or typechecker pitfall, a faster fail-before loop, a repo convention worth mirroring. Anything repo-specific and point-in-time goes to the triage tracker instead.
