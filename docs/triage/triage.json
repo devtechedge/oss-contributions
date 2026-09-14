@@ -55,6 +55,17 @@
   },
   "pull_requests": [
     {
+      "repo": "wxt-dev/wxt",
+      "number": 2622,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 2588,
+      "do_not_duplicate": true,
+      "summary": "Implements the maintainer-proposed API from #2588: InlineConfig#targetBrowserMap (default map: chrome/edge/brave/opera/chromium->chromium, firefox->firefox, safari/ios->safari; unknown labels resolve to themselves), ResolvedConfig#actualBrowser typed 'chromium'|'firefox'|'safari', and manifest.ts build-time checks plus the default manifest version switched to actualBrowser while output dir, import.meta.env constants, zip names, and launching stay keyed off the raw browser label. Branch fix/actual-browser-resolution, commit a332c76, fail-before/pass-after proven (12 new assertions). Local verification: bun run check green at root, packages/wxt vitest suite 559 passed plus e2e 113 passed (one unrelated flaky e2e passes on re-run). All workflow runs (Validate, pkg.pr.new, Check PR Title) action_required pending first-time contributor approval; title follows conventional commits."
+    },
+    {
       "repo": "toml-rs/toml",
       "number": 1219,
       "status": "open",
@@ -1528,12 +1539,15 @@
     },
     {
       "do_not_duplicate": false,
-      "related_prs": [],
+      "related_prs": [
+        2622
+      ],
       "repo": "wxt-dev/wxt",
-      "note": "GO candidate (scan 2026-09-14): maintainer-filed by aklinker1 (WXT author) with a concrete API shape (InlineConfig.targetBrowserMap default map + ResolvedConfig.actualBrowser union chromium|firefox|safari) = pre-agreed design, implement exactly that shape. Filed 2026-08-08, 0 comments, unassigned, timeline has zero cross-references, 50-PR open sweep clean, linked design discussion in merged PR #2581 review thread. Repo pushed 2026-09-12, pnpm monorepo, no AI ban/CLA/auto-close bots. Handed to implementation agent 2026-09-14.",
+      "note": "GO candidate implemented same day: PR #2622 opened 2026-09-14 carrying Fixes #2588. Maintainer-filed by aklinker1 with a concrete API shape = pre-agreed design; re-verified pre-implementation (0 comments, unassigned, timeline clean, 50-PR sweep clean, discussion r3727922886 read).",
       "status": "open",
       "number": 2588,
-      "last_checked": "2026-09-14"
+      "last_checked": "2026-09-14",
+      "attempted": true
     },
     {
       "do_not_duplicate": false,
@@ -2100,8 +2114,10 @@
       "focus": "Python syntax highlighter; RedOS/regex-hardening fixes in individual lexers are the lane (merged precedent #3110 MySQL, siblings #3288/#3228). Maintainer merges outside PRs in periodic batches, review latency of weeks is normal. No CONTRIBUTING.md, no DCO/signing, no auto-close bots; first-contribution workflow runs sit in action_required. CI: tox pytest -W error (pin pytest ~=8.2), ruff 0.15.2 check env, regexlint env, mapfiles env; lexer fixes need --update-goldens for examplefiles goldens."
     },
     "wxt-dev/wxt": {
-      "focus": "Browser extension build framework; config resolution and browser targeting.",
-      "contributions": []
+      "focus": "Browser extension build framework; config resolution and browser targeting. Bun+pnpm monorepo, vitest, no changesets, conventional PR titles enforced by commitlint workflow. First-contribution workflow runs sit in action_required.",
+      "contributions": [
+        2622
+      ]
     },
     "steveukx/git-js": {
       "contributions": [
