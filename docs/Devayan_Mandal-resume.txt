@@ -5,7 +5,7 @@ linkedin.com/in/dev-ma | github.com/devtechedge
 
 PROFESSIONAL SUMMARY
 
-Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed production work. Built 30+ production-grade systems across autonomous multi-agent platforms, MCP integrations, deterministic RL evaluation, real-time observability, and high-throughput web applications. Merged 10 upstream pull requests across TypeScript, JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, and Anza Kit. Specializes in explicit state machines, bounded autonomy, verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and production-grade developer tooling, with end-to-end ownership from architecture through deployment, observability, testing, and upstream delivery.
+Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed production work. Built 30+ production-grade systems across autonomous multi-agent platforms, MCP integrations, deterministic RL evaluation, real-time observability, and high-throughput web applications. Merged 11 upstream pull requests across TypeScript, JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy, verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and production-grade developer tooling, with end-to-end ownership from architecture through deployment, observability, testing, and upstream delivery.
 
 TECHNICAL SKILLS
 
@@ -58,6 +58,7 @@ Merged upstream:
 - better-auth/better-auth #11208 (TypeScript) - added regression coverage locking the /phone-number/verify OpenAPI requestBody after a Zod .and(z.record()) intersection; tests only, no production generator changes. Merged Sep 2026. github.com/better-auth/better-auth/pull/11208
 - thirdweb-dev/js #8938 (TypeScript) - fixed useTokenQuery error handling so 401/429/timeout failures rethrow instead of rendering a false "Token Not Supported" state in CheckoutWidget; added tests and a patch changeset. Merged Sep 2026. github.com/thirdweb-dev/js/pull/8938
 - anza-xyz/kit #2032 (TypeScript) - restored number predicates in the getPatternMatchCodec advanced guide to match current codec typing. Merged Sep 2026. github.com/anza-xyz/kit/pull/2032
+- web-infra-dev/rspress #3678 (TypeScript) - fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678
 
 Active upstream engineering spans AI infrastructure, developer tooling, package management, frameworks, accessibility, concurrency, portability, security, SDKs, wallets, and blockchain infrastructure. Canonical ledger: github.com/devtechedge/oss-contributions
 
