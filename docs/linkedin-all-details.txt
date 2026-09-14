@@ -11,7 +11,7 @@ My engineering focus is bounded autonomy: explicit state machines over opaque pr
 
 I have built and shipped 30+ production-grade systems spanning autonomous agents, MCP integrations, RLVR evaluation environments, real-time telemetry, developer tooling, Web3 infrastructure, and high-throughput web applications. I own the full lifecycle from architecture and implementation through testing, deployment, observability, iteration, and upstream contribution.
 
-I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 20 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 13 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 WHAT I BUILD & ARCHITECT
 
@@ -36,10 +36,10 @@ OPEN SOURCE
 
 Canonical ledger: https://github.com/devtechedge/oss-contributions
 
-20 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
+13 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
 
 <<<LEDGER:LINKEDIN_LIST>>>
-• pytest-dev/pytest-env #262 — document [pytest] env configuration in pytest.toml / .pytest.toml
+• pytest-dev/pytest-env #262 — documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section.
 • pnpm/pnpm #14863 — fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage.
 • web-infra-dev/rspress #3678 — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix.
 • recharts/recharts #7805 — removed tabIndex={-1} from z-index portal SVG layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage.
@@ -52,13 +52,6 @@ Canonical ledger: https://github.com/devtechedge/oss-contributions
 • better-auth/better-auth #11208 — added regression coverage preserving the /phone-number/verify OpenAPI requestBody after a Zod intersection.
 • biomejs/biome #11667 — ported unicorn better-dom-traversing into Biome's nursery linter in Rust; +1,972 lines across 17 files and 7 commits, distributed through a changeset.
 • thirdweb-dev/js #8938 — fixed useTokenQuery so genuine 401/429/timeout failures rethrow instead of becoming a false Token Not Supported state.
-• devtechedge/regulatory_compliance #4 — allow localhost API in CSP connect-src for e2e
-• devtechedge/regulatory_compliance #3 — restore full data/ seed tree for backend + e2e
-• devtechedge/veritas-engine #3 — drop CSP that broke next-dev Playwright e2e
-• devtechedge/luxe-tracker #7 — actually remove double comma after typescript block
-• devtechedge/aarop #2 — drop CSP that broke next-dev Playwright e2e
-• devtechedge/notion-clone #2 — convert next.config.ts to next.config.mjs for Next 14
-• devtechedge/regulatory_compliance #2 — array.from for Set + restore data/frameworks seed
 <<<END:LEDGER:LINKEDIN_LIST>>>
 
 Active upstream engineering spans AI infrastructure, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.
@@ -152,12 +145,12 @@ DESCRIPTION
 
 Independent upstream contributor working across mature AI, developer-tooling, package-management, framework, SDK, and blockchain repositories. Maintains a canonical public ledger at https://github.com/devtechedge/oss-contributions.
 
-20 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+13 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 Representative work:
 
 <<<LEDGER:LINKEDIN_REP>>>
-• pytest-env — document [pytest] env configuration in pytest.toml / .pytest.toml
+• pytest-env — documented native [pytest] env configuration for pytest.toml / .pytest.toml, closing a gap in the plugin README.
 • pnpm — fixed lockfile:false handling during automatic engine switching; corrected --no-bail semantics for pattern script runs; preserved dependency range prefixes and protocol prefixes during updates; fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by using the Unix fallback for default_store_dir.
 • Rspress — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; merged in #3678.
 • Recharts — fixed pointer-focus behavior in z-index portal SVG groups and added regression coverage for WebKit focus-ring behavior.
@@ -167,11 +160,6 @@ Representative work:
 • Better Auth — locked OpenAPI requestBody regression coverage for /phone-number/verify.
 • Biome — ported the unicorn better-dom-traversing AST rule into the Rust nursery linter with tests and a release changeset.
 • thirdweb — corrected CheckoutWidget token-query error propagation for 401, 429, and timeout failures.
-• regulatory_compliance — array.from for Set + restore data/frameworks seed
-• veritas-engine — drop CSP that broke next-dev Playwright e2e
-• luxe-tracker — actually remove double comma after typescript block
-• aarop — drop CSP that broke next-dev Playwright e2e
-• notion-clone — convert next.config.ts to next.config.mjs for Next 14
 <<<END:LEDGER:LINKEDIN_REP>>>
 
 Active contribution areas include AI runtimes, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.

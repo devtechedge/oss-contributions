@@ -183,6 +183,7 @@ function defaultDisplayName(repo) {
     "web-infra-dev/rspress": "Rspress",
     "SQLMesh/sqlmesh": "SQLMesh",
     "thirdweb-dev/js": "thirdweb JS",
+    "pytest-dev/pytest-env": "pytest-env",
   };
   return known[repo] || repo.split("/")[1];
 }
@@ -596,6 +597,9 @@ function addRepoContribution(triage, repo, number) {
 
 async function reconcileOne(triage, pubs, ref, { summary } = {}) {
   const { owner, repoName, repo, number } = typeof ref === "string" ? parsePrRef(ref) : ref;
+  if (owner === AUTHOR) {
+    return { facts: { repo, number, merged: false, author: AUTHOR }, created: false, skipped: "own-repo" };
+  }
   const facts = await fetchPull(owner, repoName, number);
   if (facts.author && facts.author !== AUTHOR) {
     throw new Error(`${repo}#${number} author is @${facts.author}, not @${AUTHOR}`);
@@ -686,7 +690,7 @@ async function reconcileTrackedOpen(triage, pubs) {
 async function discoverRecentMerged(triage, pubs) {
   if (!token()) return [];
   const since = new Date(Date.now() - 14 * 24 * 3600 * 1000).toISOString().slice(0, 10);
-  const q = encodeURIComponent(`author:${AUTHOR} is:pr is:merged updated:>=${since}`);
+  const q = encodeURIComponent(`author:${AUTHOR} is:pr is:merged updated:>=${since} -user:${AUTHOR}`);
   let data;
   try {
     data = await gh(`/search/issues?q=${q}&per_page=20`);
@@ -700,6 +704,7 @@ async function discoverRecentMerged(triage, pubs) {
     const number = item.number;
     const already = (triage.pull_requests || []).find((p) => p.repo === repo && p.number === number && p.status === "merged");
     if (already) continue;
+    if (repo.startsWith(`${AUTHOR}/`)) continue;
     const [owner, repoName] = repo.split("/");
     await reconcileOne(triage, pubs, { owner, repoName, repo, number });
     found.push(prKey(repo, number));
@@ -730,6 +735,7 @@ async function main() {
   if (!args.publishOnly) {
     for (const ref of args.prs) {
       const result = await reconcileOne(triage, pubs, ref, { summary: args.summary });
+      if (result.skipped) continue;
       report.merged.push(prKey(result.facts.repo, result.facts.number));
       if (result.created) report.createdPubs.push(prKey(result.facts.repo, result.facts.number));
     }

@@ -55,90 +55,6 @@
   },
   "pull_requests": [
     {
-      "repo": "devtechedge/regulatory_compliance",
-      "number": 2,
-      "status": "merged",
-      "last_checked": "2026-09-14",
-      "do_not_duplicate": true,
-      "merged": "2026-09-06",
-      "merge_commit": "fa3eca9e2baed6097b8fead2c9bf573d319ec380",
-      "merged_at": "2026-09-06T03:57:30Z",
-      "issue": null,
-      "summary": "fix(ci): Array.from for Set + restore data/frameworks seed. Merge commit fa3eca9."
-    },
-    {
-      "repo": "devtechedge/notion-clone",
-      "number": 2,
-      "status": "merged",
-      "last_checked": "2026-09-14",
-      "do_not_duplicate": true,
-      "merged": "2026-09-06",
-      "merge_commit": "764de3c352fa7466431170ffe48ffd3c05382ef0",
-      "merged_at": "2026-09-06T03:57:33Z",
-      "issue": null,
-      "summary": "fix(ci): convert next.config.ts to next.config.mjs for Next 14. Merge commit 764de3c."
-    },
-    {
-      "repo": "devtechedge/aarop",
-      "number": 2,
-      "status": "merged",
-      "last_checked": "2026-09-14",
-      "do_not_duplicate": true,
-      "merged": "2026-09-06",
-      "merge_commit": "32a0437a710e542b20fd7897aa35e490a6a678f8",
-      "merged_at": "2026-09-06T03:57:36Z",
-      "issue": null,
-      "summary": "fix(ci): drop CSP that broke next-dev Playwright e2e. Merge commit 32a0437."
-    },
-    {
-      "repo": "devtechedge/luxe-tracker",
-      "number": 7,
-      "status": "merged",
-      "last_checked": "2026-09-14",
-      "do_not_duplicate": true,
-      "merged": "2026-09-06",
-      "merge_commit": "f0229682252066353a13404853884d4a9b70bb64",
-      "merged_at": "2026-09-06T03:58:23Z",
-      "issue": null,
-      "summary": "fix(ci): actually remove double comma after typescript block. Merge commit f022968."
-    },
-    {
-      "repo": "devtechedge/veritas-engine",
-      "number": 3,
-      "status": "merged",
-      "last_checked": "2026-09-14",
-      "do_not_duplicate": true,
-      "merged": "2026-09-06",
-      "merge_commit": "7fee044407bb4a20e39f14ebee10d8c5da548797",
-      "merged_at": "2026-09-06T04:06:40Z",
-      "issue": null,
-      "summary": "fix(ci): drop CSP that broke next-dev Playwright e2e. Merge commit 7fee044."
-    },
-    {
-      "repo": "devtechedge/regulatory_compliance",
-      "number": 3,
-      "status": "merged",
-      "last_checked": "2026-09-14",
-      "do_not_duplicate": true,
-      "merged": "2026-09-06",
-      "merge_commit": "dfe677b0fcfd6eabd0bffb768f1e7290863565aa",
-      "merged_at": "2026-09-06T04:06:55Z",
-      "issue": null,
-      "summary": "fix(ci): restore full data/ seed tree for backend + e2e. Merge commit dfe677b."
-    },
-    {
-      "repo": "devtechedge/regulatory_compliance",
-      "number": 4,
-      "status": "merged",
-      "last_checked": "2026-09-14",
-      "do_not_duplicate": true,
-      "merged": "2026-09-06",
-      "merge_commit": "8411e7b8c4a86d3e9465a08a21eaf5294db215d3",
-      "merged_at": "2026-09-06T04:14:27Z",
-      "issue": null,
-      "summary": "fix(ci): allow localhost API in CSP connect-src for e2e. Merge commit 8411e7b."
-    },
-    {
       "repo": "pytest-dev/pytest-env",
       "number": 262,
       "status": "merged",
@@ -2475,38 +2391,6 @@
     "pytest-dev/pytest-env": {
       "contributions": [
         262
-      ],
-      "focus": ""
-    },
-    "devtechedge/regulatory_compliance": {
-      "contributions": [
-        4,
-        3,
-        2
-      ],
-      "focus": ""
-    },
-    "devtechedge/veritas-engine": {
-      "contributions": [
-        3
-      ],
-      "focus": ""
-    },
-    "devtechedge/luxe-tracker": {
-      "contributions": [
-        7
-      ],
-      "focus": ""
-    },
-    "devtechedge/aarop": {
-      "contributions": [
-        2
-      ],
-      "focus": ""
-    },
-    "devtechedge/notion-clone": {
-      "contributions": [
-        2
       ],
       "focus": ""
     }
