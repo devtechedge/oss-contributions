@@ -826,6 +826,19 @@
       "branch": "fix/allow-unsafe-custom-binary-no-warn",
       "commit": "2179c19",
       "summary": "Minimal fix for issue #1190 (console.warn on every simpleGit() construction even with unsafe.allowUnsafeCustomBinary opted in): custom-binary.plugin.ts now throws only when the flag is absent and never warns on the opted-in path; throw path byte-identical. Two unit tests in plugin.binary.spec.ts (no warn + command queued when opted in; throw without flag, no warn), proven fail-before/pass-after by stashing src only (1 failed untouched, 22 pass after). Changeset added (simple-git: patch). Repo is a yarn 4 monorepo, jest 29. Local CI replication green where runnable: yarn install/build/build:pkg, biome lint rules on changed files, full unit suite. Pre-existing red on base commit on this Windows box (identical counts with and without the fix): 6 integration suites (19 tests) and test:consumer argv-parser ESM resolution; biome formatter CRLF noise from core.autocrlf. GitHub Actions CI + Lint runs action_required pending first-contribution maintainer approval; Snyk passed. Caution: open PR #1187 (derekm, stale since 2026-08-02) proposes dropping the allowlist entirely; our PR is the minimal independently mergeable option and does not adopt that design."
+    },
+    {
+      "repo": "leo-aa88/reviewgate",
+      "number": 144,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 143,
+      "do_not_duplicate": true,
+      "branch": "feat/code-comment-verbosity-143",
+      "commit": "8e74aaa",
+      "summary": "Implements issue #143 (configurable excessive code-comment verbosity checks): new pure core module code_comments.py emits oversized_comment_block / excessive_comment_lines / comment_heavy_diff warnings from the ADDED lines of ChangedFile.patch only (deleted lines never counted, context terminates blocks), reusing the categorizer's source+human_authored eligibility. Conservative lexical scanner tracks strings/block comments/Python triple-quoted strings, so docstrings and string content (url='https://...', pattern='#...') are never counted; trailing comments uncounted in MVP. New policy.code_comments config block (warn<=fail validation, issue #143 defaults, disabled => no warnings/stats); 4 comment stats keys merged into report.stats when enabled; no label mapping; existing 10.13 aggregation untouched. 67 new tests; ruff clean; purity guard green; feasible local suite 809 passed / 12 skipped (hosted-App tests unrunnable: no psycopg wheels on Windows ARM64; 5 pre-existing test_action_metadata failures reproduce on unmodified main). CI runs action_required pending first-contribution maintainer approval - reported as such, not green."
     }
   ],
   "issues": [
@@ -2107,6 +2120,12 @@
     "redis/redis-py": {
       "focus": "Python Redis client; streaming parser path. Backup behind design gate.",
       "contributions": []
+    },
+    "leo-aa88/reviewgate": {
+      "contributions": [
+        144
+      ],
+      "focus": "Deterministic PR reviewability gate: pure Python engine (AST-enforced purity boundary), GitHub Action, hosted App."
     }
   }
 }
