@@ -73,11 +73,13 @@ Upstream PR work is recorded on the unified ledger repo. The README lists merged
 
 - Professional, respectful, and concise. Lead with what changed and why; no performative filler.
 - Never use em dashes in maintainer-facing text. Use a normal hyphen `-` or split the sentence.
-- Never use emojis in PR comments, issue replies, reviews, or any maintainer-facing text. Plain text only, no exceptions (no 🙏, 👍, 🎉, etc.). This rule governs upstream interaction only - the user's own ledger README deliberately uses emojis and logos.
+- Sound human, not generated. Warmth and a little personality belong in replies to maintainers and co-authors; the technical substance stays technical. Read a draft aloud, and if it sounds like a template, rewrite it before posting.
+- Emojis are allowed and encouraged in moderation when replying to people: one or two per comment, varied and relevant to what is actually being said. **Never 🙏 or prayer hands** - that overuse is why emojis were banned outright once before. Do not stack emoji runs, and do not open or close with an emoji every time.
+- Vary the opening across a batch. When several comments go to the same maintainer, they must not share an opening line or follow the same template. This applies to thank-you notes too: three notes all opening "Thanks for merging, @X." read as templated even when each one is sincere.
 - Keep comments short-paragraphed: one to two sentences per paragraph with a blank line between them. No wall-of-text blocks in issues, PRs, or reviews.
 - Prefer `Fixes #N` / `Closes #N` when the change fully resolves the issue.
 - Informal tone is reserved for private chat with the user; all public text follows this section.
-- Enforcement: a local PreToolUse hook (`~/.zcode/hooks/voice-gate.mjs`, registered in `~/.zcode/cli/config.json`) hard-blocks any `gh pr comment` / `gh issue comment` tool call whose inline body contains emojis or em/en dashes. If it fires, strip the offending characters and retry; never bypass or work around it. Inline `--body` text is checked; bodies passed via `--body-file` are not, so apply the same rules manually there.
+- Enforcement note: some machines carry a PreToolUse hook (`~/.zcode/hooks/voice-gate.mjs`, registered in `~/.zcode/cli/config.json`) that hard-blocks `gh pr comment` / `gh issue comment` calls whose inline body contains emojis or em/en dashes. That hook predates this section and is stricter than it. If it fires on an emoji this section now permits, update the hook rather than stripping the voice back out. Bodies passed via `--body-file` are not checked, so this section still applies manually there.
 
 ## 4. Cadence and API hygiene
 
