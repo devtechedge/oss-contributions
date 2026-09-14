@@ -55,6 +55,18 @@
   },
   "pull_requests": [
     {
+      "repo": "pnpm/pnpm",
+      "number": 14863,
+      "status": "merged",
+      "merged": "2026-09-14",
+      "merged_at": "2026-09-14T12:48:06Z",
+      "merge_commit": "fcce4e8b6b373206013f3eb3e94f504bee399917",
+      "last_checked": "2026-09-14",
+      "issue": 14859,
+      "do_not_duplicate": true,
+      "summary": "Fixes #14859: default_store_dir now treats every non-Windows platform as Unix, so FreeBSD/NetBSD resolve to ~/.local/share/pnpm/store instead of panicking. store_dir_for_os helper plus freebsd/netbsd/macos/linux tests and a patch changeset. Merge commit fcce4e8."
+    },
+    {
       "repo": "web-infra-dev/rspress",
       "number": 3678,
       "status": "merged",
@@ -214,13 +226,14 @@
     {
       "repo": "recharts/recharts",
       "number": 7805,
-      "status": "open",
-      "mergeable": true,
-      "opened": "2026-09-13",
-      "last_checked": "2026-09-13",
+      "status": "merged",
+      "last_checked": "2026-09-14",
       "issue": 7799,
       "do_not_duplicate": true,
-      "summary": "Z-index portal layer <g> elements no longer carry tabindex=\"-1\", preventing pointer focus on empty SVG layer groups and WebKit geometry-traced focus rings. Regression asserts rendered layer groups have no tabindex attribute."
+      "summary": "Z-index portal layer <g> elements no longer carry tabindex=\"-1\", preventing pointer focus on empty SVG layer groups and WebKit geometry-traced focus rings. Regression asserts rendered layer groups have no tabindex attribute.",
+      "merged": "2026-09-13",
+      "merged_at": "2026-09-13T15:46:46Z",
+      "merge_commit": "543958bbf7608574c8c09d0df287dbbbc5ae6d9b"
     },
     {
       "repo": "PyO3/maturin",
@@ -888,6 +901,18 @@
   ],
   "issues": [
     {
+      "repo": "pnpm/pnpm",
+      "number": 14859,
+      "status": "closed",
+      "attempted": true,
+      "related_prs": [
+        14863
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-14",
+      "note": "FreeBSD/non-Windows default_store_dir panic at crates/config/src/defaults.rs. Fixed by merged PR #14863 (commit fcce4e8) on 2026-09-14."
+    },
+    {
       "repo": "ssf0409/tracelens",
       "number": 134,
       "status": "open",
@@ -902,13 +927,14 @@
     {
       "repo": "recharts/recharts",
       "number": 7799,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         7805
       ],
       "do_not_duplicate": true,
-      "note": "Pointer focus on z-index portal layer groups in WebKit; PR #7805 removes tabindex from portal <g> elements and adds a regression assertion."
+      "note": "Pointer focus on z-index portal layer groups in WebKit; PR #7805 merged 2026-09-13 (commit 543958b).",
+      "last_checked": "2026-09-14"
     },
     {
       "repo": "vercel/next.js",
@@ -1985,7 +2011,8 @@
       "contributions": [
         14753,
         14756,
-        14754
+        14754,
+        14863
       ],
       "focus": "JavaScript package manager; package-manager switching, manifests, scripts, and lockfiles."
     },

@@ -26,3 +26,7 @@ The goal is to reduce context switching and evaluate every OSS opportunity on th
 - Repository-level contribution history and focus areas.
 
 This directory is operational rather than portfolio-facing. The root `README.md` remains the public unified contribution ledger.
+
+## Publication cascade
+
+`triage.json` remains the operational record. Curated public copy lives in `publications.json` in this directory. After an upstream merge, run the **Sync merged OSS** workflow rather than editing README, resume, LinkedIn, or the profile README by hand. Details: [`docs/SYNC.md`](../SYNC.md).

@@ -81,3 +81,8 @@ Companion to `SKILL.md`. Read on demand during scans and before implementing. Ev
 Point-in-time counts, rotting by design. The source of truth is the tracker named with each snapshot; update it there, not here.
 
 - Saturation snapshot 12 Sep 2026 (source of truth at snapshot time: the former web3 ledger's `docs/scan-notes.md`, now consolidated into the canonical triage memory): stellar/js-stellar-sdk 6, across-protocol/toolkit 4, safe-core-sdk 4, reown-com/appkit 3, stellar/stellar-docs 4.
+
+## Ledger publication
+
+- A merged PR can sit in the public README while triage.json still lists it as open if the merge cascade did not run (recharts #7805, 13 Sep 2026: README showed merged, triage status remained open). GitHub merge state is the fact; the reconciler in `scripts/sync-merged-oss.mjs` must treat it as source of truth and repair every publication target rather than trusting any one document.
+- Never hand-edit README, resume, LinkedIn source, profile README, or repository About after a merge. Trigger the Sync merged OSS workflow with optional `pr=owner/repo#number`. Curated prose lives in `docs/triage/publications.json` with `curated: true` and is not overwritten.

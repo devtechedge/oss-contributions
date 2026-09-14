@@ -1,0 +1,78 @@
+name: Sync merged OSS
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "Optional PR to force-reconcile (owner/repo#number), e.g. pnpm/pnpm#14863"
+        required: false
+        type: string
+      summary:
+        description: "Optional curated summary for a new publication record"
+        required: false
+        type: string
+      dry_run:
+        description: "Print the plan without writing"
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    - cron: "17 * * * *"
+  repository_dispatch:
+    types: [upstream-merged]
+
+concurrency:
+  group: sync-merged-oss
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  metadata: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Reconcile and publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_PR: ${{ github.event.inputs.pr || github.event.client_payload.pr || '' }}
+          INPUT_SUMMARY: ${{ github.event.inputs.summary || github.event.client_payload.summary || '' }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+          ARGS=(--update-about)
+          if [ -n "${INPUT_PR}" ]; then
+            ARGS+=(--pr "${INPUT_PR}")
+          fi
+          if [ -n "${INPUT_SUMMARY}" ]; then
+            ARGS+=(--summary "${INPUT_SUMMARY}")
+          fi
+          if [ "${INPUT_DRY_RUN}" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+          node scripts/sync-merged-oss.mjs "${ARGS[@]}"
+
+      - name: Commit ledger if changed
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md docs/triage/triage.json docs/triage/publications.json \
+            docs/Devayan_Mandal-resume.txt docs/linkedin-all-details.txt \
+            docs/generated || true
+          if git diff --cached --quiet; then
+            echo "No ledger file changes"
+            exit 0
+          fi
+          git commit -m "chore(ledger): sync merged OSS publications"
+          git push

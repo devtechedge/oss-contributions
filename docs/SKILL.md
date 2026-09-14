@@ -174,3 +174,25 @@ The ledger exists in exactly one place: `oss-contributions` on GitHub. The local
 - Keep all records in the same arrays and schema. Do not create separate domain-specific queue files - on GitHub or on disk.
 - Preserve existing field names and conventions. Update only affected records and keep dates/state accurate.
 - Historical portfolio documents are informational and must not override canonical triage state.
+
+## 13. Merge cascade (do not hand-edit publication targets)
+
+When an upstream PR merges, do not independently edit README, resume, LinkedIn source, profile README, or the repository About text. Trigger the ledger workflow instead.
+
+One-click: Actions → **Sync merged OSS** → Run workflow. Optional input `pr` is `owner/repo#number` (example: `pnpm/pnpm#14863`). Optional input `summary` is curated impact copy, used only when creating a new publication record.
+
+The workflow:
+
+1. Treats GitHub merge state as fact
+2. Updates `docs/triage/triage.json` (status, merge date, merge commit, last_checked, issue closure, repo contribution list)
+3. Upserts `docs/triage/publications.json` without overwriting `curated: true` copy
+4. Regenerates README, resume.txt, linkedin-all-details.txt, and `docs/generated/`
+5. Updates repository About description
+6. Validates merged counts across every publication target
+7. Commits only when something actually changed
+
+Canonical operational record: `docs/triage/triage.json`
+Canonical publication copy: `docs/triage/publications.json`
+Human-only: GitHub profile bio, PATTERNS.md (unless a new generalizable lesson exists), social preview, `docs/all_repos.md`.
+
+See `docs/SYNC.md`.

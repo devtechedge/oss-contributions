@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
+  "last_updated": "2026-09-14",
+  "merged_count": 12,
+  "sort": {
+    "ledger": "merged_at desc, repo asc, number desc",
+    "profile": "display_name asc, number asc"
+  },
+  "repos": {
+    "pnpm/pnpm": {
+      "linkedin_representative": "pnpm — fixed lockfile:false handling during automatic engine switching; corrected --no-bail semantics for pattern script runs; preserved dependency range prefixes and protocol prefixes during updates; fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by using the Unix fallback for default_store_dir."
+    },
+    "recharts/recharts": {
+      "linkedin_representative": "Recharts — fixed pointer-focus behavior in z-index portal SVG groups and added regression coverage for WebKit focus-ring behavior."
+    },
+    "brianc/node-postgres": {
+      "linkedin_representative": "node-postgres — corrected Connection.sync() ending semantics so subsequent socket errors are not suppressed incorrectly."
+    },
+    "SQLMesh/sqlmesh": {
+      "linkedin_representative": "SQLMesh — removed a concurrent test-construction race involving time_machine and ttl_cache."
+    },
+    "biomejs/biome": {
+      "linkedin_representative": "Biome — ported the unicorn better-dom-traversing AST rule into the Rust nursery linter with tests and a release changeset."
+    },
+    "better-auth/better-auth": {
+      "linkedin_representative": "Better Auth — locked OpenAPI requestBody regression coverage for /phone-number/verify."
+    },
+    "thirdweb-dev/js": {
+      "linkedin_representative": "thirdweb — corrected CheckoutWidget token-query error propagation for 401, 429, and timeout failures."
+    },
+    "anza-xyz/kit": {
+      "linkedin_representative": "Anza Kit — restored correct numeric predicates in an advanced codec documentation example."
+    },
+    "web-infra-dev/rspress": {
+      "linkedin_representative": "Rspress — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; merged in #3678."
+    }
+  },
+  "records": [
+    {
+      "id": "pnpm/pnpm#14863",
+      "repo": "pnpm/pnpm",
+      "number": 14863,
+      "merged": "2026-09-14",
+      "merged_at": "2026-09-14T12:48:06Z",
+      "merge_commit": "fcce4e8b6b373206013f3eb3e94f504bee399917",
+      "issue": 14859,
+      "url": "https://github.com/pnpm/pnpm/pull/14863",
+      "languages": [
+        "Rust",
+        "TypeScript"
+      ],
+      "org": "pnpm",
+      "display_name": "pnpm",
+      "profile_title": "pnpm #14863",
+      "ledger_logo": "https://github.com/pnpm.png?size=40",
+      "profile_logo": "https://github.com/pnpm.png?size=48",
+      "profile_logo_alt": "pnpm",
+      "ledger_what": "Fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage.",
+      "resume_bullet": "pnpm/pnpm #14863 (Rust/TypeScript) - fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage. Merged Sep 2026. github.com/pnpm/pnpm/pull/14863",
+      "linkedin_bullet": "pnpm/pnpm #14863 — fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage.",
+      "profile_line": "fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path, with platform-specific regression coverage.",
+      "curated": true
+    },
+    {
+      "id": "web-infra-dev/rspress#3678",
+      "repo": "web-infra-dev/rspress",
+      "number": 3678,
+      "merged": "2026-09-14",
+      "merged_at": "2026-09-14T00:00:00Z",
+      "issue": 3658,
+      "url": "https://github.com/web-infra-dev/rspress/pull/3678",
+      "languages": [
+        "TypeScript"
+      ],
+      "org": "web-infra-dev",
+      "display_name": "Rspress",
+      "profile_title": "Rspress #3678",
+      "ledger_logo": "https://github.com/web-infra-dev.png?size=40",
+      "profile_logo": "https://github.com/web-infra-dev.png?size=48",
+      "profile_logo_alt": "Rspress",
+      "ledger_what": "Awaited FlexSearch `addAsync()` indexing before search initialization completes, preventing early queries from incorrectly returning no results on larger sites; focused change preserves existing behavior.",
+      "resume_bullet": "web-infra-dev/rspress #3678 (TypeScript) - fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678",
+      "linkedin_bullet": "web-infra-dev/rspress #3678 — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix.",
+      "profile_line": "fixed search initialization racing ahead of asynchronous FlexSearch indexing by awaiting all `addAsync()` operations before initialization resolves, preventing early queries from incorrectly returning no results on larger sites.",
+      "profile_block": "<img src=\"https://github.com/web-infra-dev.png?size=48\" width=\"32\" height=\"32\" alt=\"Rspress\" align=\"left\" /> **[Rspress #3678](https://github.com/web-infra-dev/rspress/pull/3678)** — fixed search initialization racing ahead of asynchronous FlexSearch indexing by awaiting all `addAsync()` operations before initialization resolves, preventing early queries from incorrectly returning no results on larger sites.",
+      "curated": true
+    },
+    {
+      "id": "recharts/recharts#7805",
+      "repo": "recharts/recharts",
+      "number": 7805,
+      "merged": "2026-09-13",
+      "merged_at": "2026-09-13T15:46:46Z",
+      "merge_commit": "543958bbf7608574c8c09d0df287dbbbc5ae6d9b",
+      "issue": 7799,
+      "url": "https://github.com/recharts/recharts/pull/7805",
+      "languages": [
+        "TypeScript"
+      ],
+      "org": "recharts",
+      "display_name": "Recharts",
+      "profile_title": "Recharts #7805",
+      "ledger_logo": "https://github.com/recharts.png?size=40",
+      "profile_logo": "https://github.com/recharts.png?size=48",
+      "profile_logo_alt": "Recharts",
+      "ledger_what": "Removed `tabIndex={-1}` from z-index portal `<g>` layers so empty SVG groups are not pointer-focusable, preventing WebKit geometry-traced focus rings; added regression coverage asserting no rendered layer carries a `tabindex` attribute.",
+      "resume_bullet": "recharts/recharts #7805 (TypeScript) - removed tabIndex={-1} from z-index portal SVG <g> layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage asserting no layer carries a tabindex attribute. Merged Sep 2026. github.com/recharts/recharts/pull/7805",
+      "linkedin_bullet": "recharts/recharts #7805 — removed tabIndex={-1} from z-index portal SVG layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage.",
+      "profile_line": "removed `tabIndex={-1}` from z-index portal SVG `<g>` layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage asserting no layer carries a `tabindex` attribute.",
+      "curated": true
+    },
+    {
+      "id": "brianc/node-postgres#3772",
+      "repo": "brianc/node-postgres",
+      "number": 3772,
+      "merged": "2026-09-11",
+      "url": "https://github.com/brianc/node-postgres/pull/3772",
+      "languages": [
+        "JavaScript"
+      ],
+      "org": "brianc",
+      "display_name": "node-postgres",
+      "profile_title": "node-postgres #3772",
+      "ledger_logo": "https://github.com/brianc.png?size=40",
+      "profile_logo": "https://cdn.simpleicons.org/node.js/339933",
+      "profile_logo_alt": "Node.js",
+      "profile_align": false,
+      "ledger_what": "`Connection.sync()` no longer permanently sets `_ending`, so later `ECONNRESET` / `EPIPE` errors are not swallowed. Regression and integration coverage protects the behavior.",
+      "resume_bullet": "brianc/node-postgres #3772 (JavaScript) - stopped Connection.sync() from incorrectly setting the internal _ending flag, preventing false suppression of subsequent socket errors; added unit coverage for Sync vs disconnect semantics. Merged Sep 2026. github.com/brianc/node-postgres/pull/3772",
+      "linkedin_bullet": "brianc/node-postgres #3772 — stopped Connection.sync() from incorrectly setting the internal _ending flag; added unit coverage for Sync versus disconnect semantics.",
+      "profile_line": "fixed `Connection.sync()` incorrectly setting the internal `_ending` flag, preventing false suppression of subsequent socket errors.",
+      "profile_block": "<img src=\"https://cdn.simpleicons.org/node.js/339933\" width=\"32\" height=\"32\" alt=\"Node.js\" /> **[node-postgres #3772](https://github.com/brianc/node-postgres/pull/3772)** — fixed `Connection.sync()` incorrectly setting the internal `_ending` flag, preventing false suppression of subsequent socket errors.",
+      "curated": true
+    },
+    {
+      "id": "pnpm/pnpm#14753",
+      "repo": "pnpm/pnpm",
+      "number": 14753,
+      "merged": "2026-09-10",
+      "url": "https://github.com/pnpm/pnpm/pull/14753",
+      "languages": [
+        "Rust",
+        "TypeScript"
+      ],
+      "org": "pnpm",
+      "display_name": "pnpm",
+      "profile_title": "pnpm #14753",
+      "ledger_logo": "https://github.com/pnpm.png?size=40",
+      "profile_logo": "https://github.com/pnpm.png?size=48",
+      "profile_logo_alt": "pnpm",
+      "ledger_what": "`lockfile: false` is respected with `devEngines.packageManager.onFail: download`; package-manager download/switch still works without project lockfile synchronization.",
+      "resume_bullet": "pnpm/pnpm #14753 (Rust/TypeScript) - fixed lockfile:false being ignored when automatic package-manager switching downloaded the configured engine; added unit and filesystem-backed regression coverage across Rust and TypeScript paths. Merged Sep 2026. github.com/pnpm/pnpm/pull/14753",
+      "linkedin_bullet": "pnpm/pnpm #14753 — fixed lockfile:false being ignored during automatic package-manager switching; added Rust and TypeScript regression coverage.",
+      "profile_line": "fixed `lockfile: false` being ignored during automatic package-manager switching.",
+      "profile_block": "<img src=\"https://github.com/pnpm.png?size=48\" width=\"32\" height=\"32\" alt=\"pnpm\" align=\"left\" /> **[pnpm #14753](https://github.com/pnpm/pnpm/pull/14753)** — fixed `lockfile: false` being ignored during automatic package-manager switching.",
+      "curated": true
+    },
+    {
+      "id": "pnpm/pnpm#14756",
+      "repo": "pnpm/pnpm",
+      "number": 14756,
+      "merged": "2026-09-10",
+      "url": "https://github.com/pnpm/pnpm/pull/14756",
+      "languages": [
+        "Rust",
+        "TypeScript"
+      ],
+      "org": "pnpm",
+      "display_name": "pnpm",
+      "profile_title": "pnpm #14756",
+      "ledger_logo": "https://github.com/pnpm.png?size=40",
+      "profile_logo": "https://github.com/pnpm.png?size=48",
+      "profile_logo_alt": "pnpm",
+      "ledger_what": "`pnpm update pkg@x.y.z` preserves existing `^` / `~` range operators and supported `npm:` / `jsr:` prefixes.",
+      "resume_bullet": "pnpm/pnpm #14756 (Rust/TypeScript) - preserved existing dependency range operators and npm:/jsr: protocol prefixes during pnpm update, including prerelease and exact-version handling. Merged Sep 2026. github.com/pnpm/pnpm/pull/14756",
+      "linkedin_bullet": "pnpm/pnpm #14756 — preserved dependency range operators and npm:/jsr: protocol prefixes during pnpm update, including prerelease and exact-version handling.",
+      "profile_line": "preserved existing dependency range operators and protocol prefixes during `pnpm update`.",
+      "profile_block": "<img src=\"https://github.com/pnpm.png?size=48\" width=\"32\" height=\"32\" alt=\"pnpm\" align=\"left\" /> **[pnpm #14756](https://github.com/pnpm/pnpm/pull/14756)** — preserved existing dependency range operators and protocol prefixes during `pnpm update`.",
+      "curated": true
+    },
+    {
+      "id": "pnpm/pnpm#14754",
+      "repo": "pnpm/pnpm",
+      "number": 14754,
+      "merged": "2026-09-10",
+      "url": "https://github.com/pnpm/pnpm/pull/14754",
+      "languages": [
+        "Rust"
+      ],
+      "org": "pnpm",
+      "display_name": "pnpm",
+      "profile_title": "pnpm #14754",
+      "ledger_logo": "https://github.com/pnpm.png?size=40",
+      "profile_logo": "https://github.com/pnpm.png?size=48",
+      "profile_logo_alt": "pnpm",
+      "ledger_what": "Non-recursive `pnpm run \"/pattern/\" --no-bail` no longer terminates sibling scripts after the first failure.",
+      "resume_bullet": "pnpm/pnpm #14754 (Rust) - fixed non-recursive pattern runs with --no-bail so matching scripts continue executing and failures are aggregated correctly; added concurrent and sequential regression tests. Merged Sep 2026. github.com/pnpm/pnpm/pull/14754",
+      "linkedin_bullet": "pnpm/pnpm #14754 — fixed non-recursive pattern script runs honoring --no-bail; added concurrent and sequential regression coverage.",
+      "profile_line": "fixed non-recursive pattern runs with `--no-bail` so matching scripts continue executing and failures are aggregated correctly.",
+      "profile_block": "<img src=\"https://github.com/pnpm.png?size=48\" width=\"32\" height=\"32\" alt=\"pnpm\" align=\"left\" /> **[pnpm #14754](https://github.com/pnpm/pnpm/pull/14754)** — fixed non-recursive pattern runs with `--no-bail` so matching scripts continue executing and failures are aggregated correctly.",
+      "curated": true
+    },
+    {
+      "id": "SQLMesh/sqlmesh#6040",
+      "repo": "SQLMesh/sqlmesh",
+      "number": 6040,
+      "merged": "2026-09-10",
+      "url": "https://github.com/SQLMesh/sqlmesh/pull/6040",
+      "languages": [
+        "Python"
+      ],
+      "org": "SQLMesh",
+      "display_name": "SQLMesh",
+      "profile_title": "SQLMesh #6040",
+      "ledger_logo": "https://github.com/SQLMesh.png?size=40",
+      "profile_logo": "https://github.com/SQLMesh.png?size=48",
+      "profile_logo_alt": "SQLMesh",
+      "ledger_what": "`ModelTest.create_test()` runs on the calling thread, eliminating a race around shared `execution_time` / `time_machine` state.",
+      "resume_bullet": "SQLMesh/sqlmesh #6040 (Python) - moved ModelTest.create_test() off concurrent worker threads to eliminate a time_machine/ttl_cache race in sqlmesh test; verified the focused race regression repeatedly. Merged Sep 2026. github.com/SQLMesh/sqlmesh/pull/6040",
+      "linkedin_bullet": "SQLMesh/sqlmesh #6040 — moved ModelTest.create_test() off concurrent worker threads to eliminate a time_machine/ttl_cache race in sqlmesh tests.",
+      "profile_line": "fixed a concurrency race in `sqlmesh test` involving `time_machine` and worker threads.",
+      "profile_block": "<img src=\"https://github.com/SQLMesh.png?size=48\" width=\"32\" height=\"32\" alt=\"SQLMesh\" align=\"left\" /> **[SQLMesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040)** — fixed a concurrency race in `sqlmesh test` involving `time_machine` and worker threads.",
+      "curated": true
+    },
+    {
+      "id": "better-auth/better-auth#11208",
+      "repo": "better-auth/better-auth",
+      "number": 11208,
+      "merged": "2026-09-09",
+      "url": "https://github.com/better-auth/better-auth/pull/11208",
+      "languages": [
+        "TypeScript"
+      ],
+      "org": "better-auth",
+      "display_name": "Better Auth",
+      "profile_title": "Better Auth #11208",
+      "ledger_logo": "https://github.com/better-auth.png?size=40",
+      "profile_logo": "https://github.com/better-auth.png?size=48",
+      "profile_logo_alt": "Better Auth",
+      "ledger_what": "Regression coverage locks the `/phone-number/verify` OpenAPI `requestBody` contract after a Zod intersection issue.",
+      "resume_bullet": "better-auth/better-auth #11208 (TypeScript) - added regression coverage locking the /phone-number/verify OpenAPI requestBody after a Zod .and(z.record()) intersection; tests only, no production generator changes. Merged Sep 2026. github.com/better-auth/better-auth/pull/11208",
+      "linkedin_bullet": "better-auth/better-auth #11208 — added regression coverage preserving the /phone-number/verify OpenAPI requestBody after a Zod intersection.",
+      "profile_line": "added regression coverage for missing OpenAPI `requestBody` generation after a Zod intersection.",
+      "profile_block": "<img src=\"https://github.com/better-auth.png?size=48\" width=\"32\" height=\"32\" alt=\"Better Auth\" align=\"left\" /> **[Better Auth #11208](https://github.com/better-auth/better-auth/pull/11208)** — added regression coverage for missing OpenAPI `requestBody` generation after a Zod intersection.",
+      "curated": true
+    },
+    {
+      "id": "anza-xyz/kit#2032",
+      "repo": "anza-xyz/kit",
+      "number": 2032,
+      "merged": "2026-09-09",
+      "issue": 1810,
+      "url": "https://github.com/anza-xyz/kit/pull/2032",
+      "languages": [
+        "TypeScript"
+      ],
+      "org": "anza-xyz",
+      "display_name": "Anza Kit",
+      "profile_title": "Anza Kit #2032",
+      "ledger_logo": "https://github.com/anza-xyz.png?size=40",
+      "profile_logo": "https://github.com/anza-xyz.png?size=48",
+      "profile_logo_alt": "Anza",
+      "ledger_what": "Restored `number` predicates in the `getPatternMatchCodec` documentation examples so they match the actual codec typing.",
+      "resume_bullet": "anza-xyz/kit #2032 (TypeScript) - restored number predicates in the getPatternMatchCodec advanced guide to match current codec typing. Merged Sep 2026. github.com/anza-xyz/kit/pull/2032",
+      "linkedin_bullet": "anza-xyz/kit #2032 — restored number predicates in the getPatternMatchCodec advanced guide to match current codec typing.",
+      "profile_line": "corrected the `getPatternMatchCodec` advanced guide to match current codec typing.",
+      "profile_block": "<img src=\"https://github.com/anza-xyz.png?size=48\" width=\"32\" height=\"32\" alt=\"Anza\" align=\"left\" /> **[Anza Kit #2032](https://github.com/anza-xyz/kit/pull/2032)** — corrected the `getPatternMatchCodec` advanced guide to match current codec typing.",
+      "curated": true
+    },
+    {
+      "id": "biomejs/biome#11667",
+      "repo": "biomejs/biome",
+      "number": 11667,
+      "merged": "2026-09-08",
+      "url": "https://github.com/biomejs/biome/pull/11667",
+      "languages": [
+        "Rust"
+      ],
+      "org": "biomejs",
+      "display_name": "Biome",
+      "profile_title": "Biome #11667",
+      "ledger_logo": "https://github.com/biomejs.png?size=40",
+      "profile_logo": "https://github.com/biomejs.png?size=48",
+      "profile_logo_alt": "Biome",
+      "ledger_what": "Added the `useBetterDomTraversing` nursery lint rule, ported from `eslint-plugin-unicorn`, with fixtures and release integration.",
+      "resume_bullet": "biomejs/biome #11667 (Rust) - ported the unicorn better-dom-traversing rule into Biome's nursery linter; +1,972 lines across 17 files and 7 commits, released to 13 packages via changeset. Merged Sep 2026. github.com/biomejs/biome/pull/11667",
+      "linkedin_bullet": "biomejs/biome #11667 — ported unicorn better-dom-traversing into Biome's nursery linter in Rust; +1,972 lines across 17 files and 7 commits, distributed through a changeset.",
+      "profile_line": "added the `useBetterDomTraversing` nursery lint rule with safe transformations where semantics permit.",
+      "profile_block": "<img src=\"https://github.com/biomejs.png?size=48\" width=\"32\" height=\"32\" alt=\"Biome\" align=\"left\" /> **[Biome #11667](https://github.com/biomejs/biome/pull/11667)** — added the `useBetterDomTraversing` nursery lint rule with safe transformations where semantics permit.",
+      "curated": true
+    },
+    {
+      "id": "thirdweb-dev/js#8938",
+      "repo": "thirdweb-dev/js",
+      "number": 8938,
+      "merged": "2026-09-07",
+      "issue": 8937,
+      "url": "https://github.com/thirdweb-dev/js/pull/8938",
+      "languages": [
+        "TypeScript"
+      ],
+      "org": "thirdweb-dev",
+      "display_name": "thirdweb JS",
+      "profile_title": "thirdweb JS #8938",
+      "ledger_logo": "https://github.com/thirdweb-dev.png?size=40",
+      "profile_logo": "https://github.com/thirdweb-dev.png?size=48",
+      "profile_logo_alt": "thirdweb",
+      "ledger_what": "Genuine `useTokenQuery` request failures are rethrown instead of being converted into `Token Not Supported`; added regression tests and changeset.",
+      "resume_bullet": "thirdweb-dev/js #8938 (TypeScript) - fixed useTokenQuery error handling so 401/429/timeout failures rethrow instead of rendering a false \"Token Not Supported\" state in CheckoutWidget; added tests and a patch changeset. Merged Sep 2026. github.com/thirdweb-dev/js/pull/8938",
+      "linkedin_bullet": "thirdweb-dev/js #8938 — fixed useTokenQuery so genuine 401/429/timeout failures rethrow instead of becoming a false Token Not Supported state.",
+      "profile_line": "fixed `useTokenQuery` collapsing real token lookup failures into `unsupported_token` instead of using the existing error/retry path.",
+      "profile_block": "<img src=\"https://github.com/thirdweb-dev.png?size=48\" width=\"32\" height=\"32\" alt=\"thirdweb\" align=\"left\" /> **[thirdweb JS #8938](https://github.com/thirdweb-dev/js/pull/8938)** — fixed `useTokenQuery` collapsing real token lookup failures into `unsupported_token` instead of using the existing error/retry path.",
+      "curated": true
+    }
+  ]
+}
