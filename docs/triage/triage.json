@@ -572,12 +572,14 @@
     {
       "repo": "stellar/stellar-docs",
       "number": 2849,
-      "status": "open",
-      "opened": "2026-09-12",
+      "status": "merged",
       "last_checked": "2026-09-14",
       "issue": 2768,
       "do_not_duplicate": true,
-      "summary": "Improve XDR unwrap error-handling documentation."
+      "summary": "Improve XDR unwrap error-handling documentation.",
+      "merged": "2026-09-14",
+      "merge_commit": "41919839b9cfc38ebf80a393d461f5644169de98",
+      "merged_at": "2026-09-14T20:33:10Z"
     },
     {
       "repo": "tkhq/sdk",
@@ -916,6 +918,18 @@
     }
   ],
   "issues": [
+    {
+      "repo": "stellar/stellar-docs",
+      "number": 2768,
+      "status": "closed",
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-14",
+      "related_prs": [
+        2849
+      ],
+      "note": "Closed by merged PR #2849 (4191983)."
+    },
     {
       "repo": "stellar/stellar-docs",
       "number": 2773,

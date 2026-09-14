@@ -5,7 +5,7 @@ linkedin.com/in/dev-ma | github.com/devtechedge
 
 PROFESSIONAL SUMMARY
 
-Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed production work. Built 30+ production-grade systems across autonomous multi-agent platforms, MCP integrations, deterministic RL evaluation, real-time observability, and high-throughput web applications. Merged 15 upstream pull requests across TypeScript, JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy, verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and production-grade developer tooling, with end-to-end ownership from architecture through deployment, observability, testing, and upstream delivery.
+Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed production work. Built 30+ production-grade systems across autonomous multi-agent platforms, MCP integrations, deterministic RL evaluation, real-time observability, and high-throughput web applications. Merged 16 upstream pull requests across TypeScript, JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy, verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and production-grade developer tooling, with end-to-end ownership from architecture through deployment, observability, testing, and upstream delivery.
 
 TECHNICAL SKILLS
 
@@ -49,6 +49,7 @@ OPEN SOURCE CONTRIBUTIONS
 
 Merged upstream:
 <<<LEDGER:MERGED_LIST>>>
+- stellar/stellar-docs #2849 (TypeScript) - handle malformed XDR in the address conversion example Merged Sep 2026. github.com/stellar/stellar-docs/pull/2849
 - stellar/stellar-docs #2853 (TypeScript) - reconcile memo framing in pooled accounts guide intro Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853
 - stellar/stellar-docs #2851 (TypeScript) - qualify Freighter HTTPS requirement for localhost Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851
 - pytest-dev/pytest-env #262 (Python) - documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section. Merged Sep 2026. github.com/pytest-dev/pytest-env/pull/262

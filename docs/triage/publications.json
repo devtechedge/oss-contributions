@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-14",
-  "merged_count": 15,
+  "merged_count": 16,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -382,6 +382,28 @@
       "resume_bullet": "stellar/stellar-docs #2851 (TypeScript) - qualify Freighter HTTPS requirement for localhost Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851",
       "linkedin_bullet": "stellar/stellar-docs #2851 — qualify Freighter HTTPS requirement for localhost",
       "profile_line": "qualify Freighter HTTPS requirement for localhost",
+      "curated": false
+    },
+    {
+      "id": "stellar/stellar-docs#2849",
+      "repo": "stellar/stellar-docs",
+      "number": 2849,
+      "merged": true,
+      "merged_at": "2026-09-14T20:33:10Z",
+      "merge_commit": "41919839b9cfc38ebf80a393d461f5644169de98",
+      "issue": 2768,
+      "url": "https://github.com/stellar/stellar-docs/pull/2849",
+      "languages": [],
+      "org": "stellar",
+      "display_name": "stellar-docs",
+      "profile_title": "stellar-docs #2849",
+      "ledger_logo": "https://github.com/stellar.png?size=40",
+      "profile_logo": "https://github.com/stellar.png?size=48",
+      "profile_logo_alt": "stellar-docs",
+      "ledger_what": "Handle malformed XDR in the address conversion example",
+      "resume_bullet": "stellar/stellar-docs #2849 (TypeScript) - handle malformed XDR in the address conversion example Merged Sep 2026. github.com/stellar/stellar-docs/pull/2849",
+      "linkedin_bullet": "stellar/stellar-docs #2849 — handle malformed XDR in the address conversion example",
+      "profile_line": "handle malformed XDR in the address conversion example",
       "curated": false
     }
   ]

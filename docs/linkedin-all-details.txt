@@ -11,7 +11,7 @@ My engineering focus is bounded autonomy: explicit state machines over opaque pr
 
 I have built and shipped 30+ production-grade systems spanning autonomous agents, MCP integrations, RLVR evaluation environments, real-time telemetry, developer tooling, Web3 infrastructure, and high-throughput web applications. I own the full lifecycle from architecture and implementation through testing, deployment, observability, iteration, and upstream contribution.
 
-I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 15 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 16 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 WHAT I BUILD & ARCHITECT
 
@@ -36,9 +36,10 @@ OPEN SOURCE
 
 Canonical ledger: https://github.com/devtechedge/oss-contributions
 
-15 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
+16 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
 
 <<<LEDGER:LINKEDIN_LIST>>>
+• stellar/stellar-docs #2849 — handle malformed XDR in the address conversion example
 • stellar/stellar-docs #2853 — reconcile memo framing in pooled accounts guide intro
 • stellar/stellar-docs #2851 — qualify Freighter HTTPS requirement for localhost
 • pytest-dev/pytest-env #262 — documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section.
@@ -147,7 +148,7 @@ DESCRIPTION
 
 Independent upstream contributor working across mature AI, developer-tooling, package-management, framework, SDK, and blockchain repositories. Maintains a canonical public ledger at https://github.com/devtechedge/oss-contributions.
 
-15 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+16 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 Representative work:
 

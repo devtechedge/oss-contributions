@@ -23,6 +23,8 @@
 
 <img src="https://github.com/SQLMesh.png?size=48" width="32" height="32" alt="SQLMesh" align="left" /> **[SQLMesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040)** — fixed a concurrency race in `sqlmesh test` involving `time_machine` and worker threads.
 
+<img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="stellar-docs" align="left" /> **[stellar-docs #2849](https://github.com/stellar/stellar-docs/pull/2849)** — handle malformed XDR in the address conversion example
+
 <img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="stellar-docs" align="left" /> **[stellar-docs #2851](https://github.com/stellar/stellar-docs/pull/2851)** — qualify Freighter HTTPS requirement for localhost
 
 <img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="stellar-docs" align="left" /> **[stellar-docs #2853](https://github.com/stellar/stellar-docs/pull/2853)** — reconcile memo framing in pooled accounts guide intro
