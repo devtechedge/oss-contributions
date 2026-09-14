@@ -47,7 +47,7 @@ Upstream PR work is recorded on the unified ledger repo. The README lists merged
 ## 4. Cadence and API hygiene
 
 1. Open one new PR at a time. A second may run only with explicit user permission. Complete the full cycle per PR - claim, implement, test, open, ledger update - before hunting the next target. Follow-up pushes to an existing open PR (human review, actionable bot P1) are fine while the next hunt is queued.
-2. Run one agent session per PR lifecycle (hunt, ship) and retire it once the PR is open, the ledger is updated, and the post-run retrospective (section 8) is done. No session stays open to watch the PR: the user gets GitHub email notifications for maintainer activity and relays what needs action. The SKILL.md playbook and tracker files carry the persistent state, so every fresh session stays small and bounded. Use long-running threads only for meta-discussion, never for PR work.
+2. Run one agent session per PR lifecycle (hunt, ship) and retire it once the PR is open, the ledger is updated, and the post-run retrospective (section 8) is done. No session stays open to watch the PR: the user gets GitHub email notifications for maintainer activity and relays what needs action. The SKILL.md playbook and the GitHub ledger (`docs/triage/triage.json` in `oss-contributions`) carry the persistent state, so every fresh session stays small and bounded. Use long-running threads only for meta-discussion, never for PR work.
 3. Keep GitHub API volume low; GitHub support warned the account about request volume (Sep 2026). One consolidated call over several narrow ones, reuse data already fetched instead of refetching, no `--paginate` on large collections, no parallel API fan-out, and poll at most every 60 seconds while waiting on CI. Check `gh api rate_limit` before heavy scans and stop well before the limit.
 4. On `resource_exhausted`: stop parallel work, wait, then resume serially. If GitHub is the blocker, check `gh api rate_limit` separately. Do not thrash retries.
 5. Stuck handling: if a step stays blocked for a long time - a hung command, a command that never returns, repeated identical failures, a wait that outlives any plausible runtime - assume something on the other end has failed: a dropped connection, a missing password, passphrase, or key, or a tool waiting on input that will never come. Stop hitting the wall. Report what is blocked and the evidence, then either move on to other queued work and revisit the blocker later, or ask the user a clarification question if only they can unblock it (credentials, auth, interactive prompts). Do not burn the session looping on one blocking step.
@@ -125,7 +125,7 @@ Every PR run ends with a retrospective when the session's active work is done - 
    - If a lesson invalidates or tightens a hard gate in section 5 or a shipping step in section 6, edit this SKILL.md too - the gate text should name the failure mode it encodes.
    - Repo-specific facts (no-gos, saturation, gate evidence, branch names worth preserving) go to the canonical `docs/triage/triage.json` in the ledger repo, never to PATTERNS.md.
    - Keep entries terse and dated where rot is possible; every pattern is a hypothesis to re-verify, not a permanent truth.
-4. Sync the ledger mirrors: after editing SKILL.md or PATTERNS.md, push the updated copies to `docs/SKILL.md` / `docs/PATTERNS.md` in `oss-contributions` (see section 10) so portable agent context stays accurate.
+4. Sync the ledger mirrors: after editing SKILL.md or PATTERNS.md, push the updated copies to `docs/SKILL.md` / `docs/PATTERNS.md` in `oss-contributions` (see sections 10 and 11; temp payloads deleted the same turn, nothing else written locally) so portable agent context stays accurate.
 5. Only then retire the session. The next PR run starts from the updated playbook.
 
 ## 9. Email triage (OSS inbox)
@@ -142,11 +142,23 @@ The user's own unified ledger repo is `oss-contributions`; its README is the pub
 
 **How to write:** prefer direct GitHub CLI/API writes (`gh api` contents PUT / edit endpoints) for spot edits - do not clone-edit-push when a direct write does the same job faster. The user pulls via GitHub Desktop when needed. For whole-file transformations (styling sweeps across every table row), a scripted local rewrite is acceptable: `git pull --ff-only` first, re-read the file after any fetch, push the same turn, and rebase on origin if the push is rejected.
 
+**Temp payload hygiene (hard rule):** `gh api --input body.json` is the correct way to pass large PUT bodies, but the payload file is disposable. Write it under the OS temp directory (`$TMPDIR`/`%TEMP%`), never in the user's workspace, and delete it in the same turn it is used. At session end the workspace must contain zero ledger-related files: no `triage_*.json`, no `*_body.json`, no `patterns_*.md`, no `.triage-tmp/` dirs. A leftover payload or snapshot in the workspace is a cleanup miss, not a checkpoint.
+
 **Skill mirror:** the canonical playbook is `~/.agents/skills/oss/SKILL.md` plus its companion `PATTERNS.md`; never edit the copies in the ledger repo directly. The ledger repo carries mirrors at `docs/SKILL.md` and `docs/PATTERNS.md`, which exist for portable agent context.
 
-## 11. Unified ledger schema discipline
+## 11. Single source of truth: the GitHub repo, not the local disk
 
-- Canonical triage memory is `docs/triage/triage.json`.
-- Keep all records in the same arrays and schema. Do not create separate domain-specific queue files.
+The ledger exists in exactly one place: `oss-contributions` on GitHub. The local machine is a workspace, not a mirror. This section exists because past sessions accumulated `triage_snapshot.json`, `triage_latest.json`, `triage_latest2.json`, `triage_final.json`, `triage_2588.json`, `triage_body.json`, `patterns_body.json`, and `patterns_mirror.md` in the working folder - parallel stale copies of state that already lived on GitHub. That is a defect, never a pattern.
+
+- **Read state from GitHub.** To read triage or ledger state, fetch `docs/triage/triage.json` (and `docs/SKILL.md` / `docs/PATTERNS.md` when relevant) directly: `gh api repos/devtechedge/oss-contributions/contents/<path>` and decode. Do not assume a local copy is current - every local copy ever created has gone stale within a session.
+- **Write state to GitHub.** After every meaningful outcome (section 1 table), construct the updated JSON from the fetched current content and PUT it to GitHub in the same turn. One PUT per file with the final content; no intermediate local saves on the way.
+- **Never create local ledger files.** No snapshots, no date-stamped copies, no `_latest`/`_final`/`_backup` variants, no local working copies "just for this session", no copies of `triage.json` or the PATTERNS/SKILL mirrors anywhere in the user's workspace. If you need to inspect or transform the JSON, do it in memory (or in a temp file under the OS temp directory, deleted the same turn). Workspace-root scratch files like `words.csv`, `scan_*.txt`, `touched_repos.txt` from a PR's local verification work go to that PR's temp workspace and are deleted before session end, never left at the workspace root.
+- **Stale-copy rule:** if a local `triage_*.json` is encountered, treat it as a fossil. The remote file is truth; never restore, merge from, or push a local copy over the remote. If it differs, the local one is old.
+- **Skill mirrors:** the canonical playbook is `~/.agents/skills/oss/SKILL.md` + `PATTERNS.md`. After editing either, PUT the updated copy to `docs/SKILL.md` / `docs/PATTERNS.md` in `oss-contributions` (temp payload deleted same turn). That push is the sync - there is no other sync step, and no third copy is created anywhere.
+
+## 12. Unified ledger schema discipline
+
+- Canonical triage memory is `docs/triage/triage.json` in `oss-contributions`, and only there (see section 11).
+- Keep all records in the same arrays and schema. Do not create separate domain-specific queue files - on GitHub or on disk.
 - Preserve existing field names and conventions. Update only affected records and keep dates/state accurate.
 - Historical portfolio documents are informational and must not override canonical triage state.
