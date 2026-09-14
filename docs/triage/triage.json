@@ -55,6 +55,19 @@
   },
   "pull_requests": [
     {
+      "repo": "ssf0409/tracelens",
+      "number": 140,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 134,
+      "do_not_duplicate": true,
+      "branch": "fix/134-markdown-table-escaping",
+      "commit": "0412997",
+      "summary": "Fixes #134: private _md_cell escapes pipes, newlines, and a leading < in Markdown per-task and baseline-gate tables. Tests live in test_generator.py (unescaped-pipe split, header skipped). CHANGELOG [Unreleased] ### Fixed. Plan comment posted 00:18Z. Local fail-before/pass-after proven. CI: lint, typecheck, core 3.11/3.12/3.13, journey, datasets, llm, examples-smoke, build green. claude-review red is the known fork-PR failure (#57/#137), non-actionable."
+    },
+    {
       "repo": "andreafrancia/trash-cli",
       "number": 416,
       "status": "open",
@@ -864,6 +877,18 @@
     }
   ],
   "issues": [
+    {
+      "repo": "ssf0409/tracelens",
+      "number": 134,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        140
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-14",
+      "note": "Maintainer-filed Markdown table-cell escaping bug. Assigned to devtechedge. Plan comment posted. PR #140 open."
+    },
     {
       "repo": "recharts/recharts",
       "number": 7799,
@@ -2296,6 +2321,12 @@
         144
       ],
       "focus": "Deterministic PR reviewability gate: pure Python engine (AST-enforced purity boundary), GitHub Action, hosted App."
+    },
+    "ssf0409/tracelens": {
+      "focus": "AI-agent eval/regression framework; report rendering.",
+      "contributions": [
+        140
+      ]
     }
   }
 }
