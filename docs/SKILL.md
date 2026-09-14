@@ -13,7 +13,7 @@ Core goals, in priority order:
 2. A credible human voice with maintainers
 3. One well-run PR at a time beats a spray of contested ones
 
-Learned patterns (scan triage, implementation gotchas, repo-specific no-gos) live in `PATTERNS.md` next to this file. Read it during scans and before implementing. Every pattern there is a lesson from a past PR or scan: re-verify it against current repo state, never assume it still holds.
+Learned patterns (scan triage, implementation gotchas, repo-specific no-gos) live in `PATTERNS.md` next to this file, or in `references/PATTERNS.md` when this skill is packaged for Grok. Read it during scans and before implementing. Every pattern there is a lesson from a past PR or scan: re-verify it against current repo state, never assume it still holds.
 
 ## 1. Unified OSS workflow
 
@@ -145,6 +145,17 @@ The user's own unified ledger repo is `oss-contributions`; its README is the pub
 **Temp payload hygiene (hard rule):** `gh api --input body.json` is the correct way to pass large PUT bodies, but the payload file is disposable. Write it under the OS temp directory (`$TMPDIR`/`%TEMP%`), never in the user's workspace, and delete it in the same turn it is used. At session end the workspace must contain zero ledger-related files: no `triage_*.json`, no `*_body.json`, no `patterns_*.md`, no `.triage-tmp/` dirs. A leftover payload or snapshot in the workspace is a cleanup miss, not a checkpoint.
 
 **Skill mirror:** the canonical playbook is `~/.agents/skills/oss/SKILL.md` plus its companion `PATTERNS.md`; never edit the copies in the ledger repo directly. The ledger repo carries mirrors at `docs/SKILL.md` and `docs/PATTERNS.md`, which exist for portable agent context.
+
+**Grok packaging:** grok.com Skills import requires YAML frontmatter (`name` + `description`) and rejects a companion file uploaded on its own. Do not upload `PATTERNS.md` as a skill. Package the pair as a zip whose top folder matches `name:`:
+
+```
+oss/
+  SKILL.md
+  references/PATTERNS.md
+```
+
+zcode keeps `PATTERNS.md` beside `SKILL.md`. Grok loads the same file from `references/` on demand. The ledger mirrors stay side-by-side at `docs/SKILL.md` and `docs/PATTERNS.md`.
+
 
 ## 11. Single source of truth: the GitHub repo, not the local disk
 
