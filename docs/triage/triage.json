@@ -866,14 +866,14 @@
       "repo": "leo-aa88/reviewgate",
       "number": 144,
       "status": "open",
-      "mergeable": true,
+      "mergeable": false,
       "opened": "2026-09-14",
       "last_checked": "2026-09-14",
       "issue": 143,
       "do_not_duplicate": true,
       "branch": "feat/code-comment-verbosity-143",
-      "commit": "8e74aaa",
-      "summary": "Implements issue #143 (configurable excessive code-comment verbosity checks): new pure core module code_comments.py emits oversized_comment_block / excessive_comment_lines / comment_heavy_diff warnings from the ADDED lines of ChangedFile.patch only (deleted lines never counted, context terminates blocks), reusing the categorizer's source+human_authored eligibility. Conservative lexical scanner tracks strings/block comments/Python triple-quoted strings, so docstrings and string content (url='https://...', pattern='#...') are never counted; trailing comments uncounted in MVP. New policy.code_comments config block (warn<=fail validation, issue #143 defaults, disabled => no warnings/stats); 4 comment stats keys merged into report.stats when enabled; no label mapping; existing 10.13 aggregation untouched. 67 new tests; ruff clean; purity guard green; feasible local suite 809 passed / 12 skipped (hosted-App tests unrunnable: no psycopg wheels on Windows ARM64; 5 pre-existing test_action_metadata failures reproduce on unmodified main). CI runs action_required pending first-contribution maintainer approval - reported as such, not green."
+      "commit": "b1ace51",
+      "summary": "Implements issue #143 (configurable excessive code-comment verbosity checks). Maintainer leo-aa88 requested changes on 8e74aaa (review 5193516019, three blocking items: context discarded from lexer state, multiline strings not carried, per-file block warnings double-counting in 10.13). Follow-up b1ace51: context scanned not tallied, hunk gaps reset state, JS/Go backticks and shell quotes/heredocs carry across lines, one oversized_comment_block per PR for the max block. Reviewer reproductions locked in tests/test_code_comments.py (107 passed). CI still action_required pending first-contribution maintainer approval."
     }
   ],
   "issues": [
