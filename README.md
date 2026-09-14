@@ -32,7 +32,7 @@ This repository serves as the canonical record of upstream contribution activity
 <!-- ledger:merged-table:end -->
 ## 🔀 Open pull requests
 
-The repository currently tracks active upstream contributions across application libraries, infrastructure, frameworks, developer tooling, testing, security, accessibility, wallets, SDKs, and blockchain-related software. These contributions are maintained directly in their respective upstream repositories, and this ledger records the substantive work and its current state.
+Open work is not enumerated here. Contributions are reviewed upstream on their own timelines, and a long-running PR says more about the upstream queue than about the change. This ledger lists merged contributions only; work in flight is visible on my GitHub profile and in each upstream repository.
 
 ## 🧭 Engineering focus
 
