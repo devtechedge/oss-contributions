@@ -881,8 +881,8 @@
       "issue": 1,
       "do_not_duplicate": true,
       "branch": "citation-validator",
-      "commit": "7456faa",
-      "summary": "Fresh uncontested implementation of issue #1 (good first issue + help wanted, filed 2026-09-13 by the repo owner with a public 9-case fixture manifest, VERIFIER_CONTRACT.md and a black-box verify_acceptance.py). Added signalpost_citation_validator package (stdlib only): validate_envelope/validate_input library plus CLI python3 -m signalpost_citation_validator --input --snapshot-root --output. Implements exact contract: unique evidence IDs, available-claim citations, evidence existence, http/https URLs without credentials, timezone-aware ISO 8601 timestamps, 64-hex digests, relative snapshot paths resolved inside root (absolute/.. /symlink-escape rejected, resolved-path check not prefix), 20 MB default size limit, SHA-256 byte comparison, only cited files read, no network, deterministic findings sorted by line/claim/evidence/code, citations_checked as distinct cited IDs, both *_verified flags always false, empty_input fails closed, malformed JSON line is a finding. 50 new tests + 5 existing pass on 3.11 and 3.12; verifier passed twice with identical output. Claim comment posted on issue #1 before PR. No CI configured in repo (no checks reported)."
+      "commit": "28cd2a0",
+      "summary": "Implements issue #1 (public 9-case fixture pack). stdlib-only signalpost_citation_validator: validate_envelope/validate_input plus CLI python3 -m signalpost_citation_validator --input --snapshot-root --output. Maintainer (sohamsinha2018) reviewed 2026-09-14 12:23Z: asked NUL snapshot_path to become a finding, reject ASCII control/whitespace in source_url, and require positive-int max_file_size. Follow-up 71a7a41 addressed those. Second follow-up 28cd2a0 (2026-09-14 16:03Z) converts remaining same-class crashes before the hidden-suite rerun: invalid URL ports (ValueError on urlsplit.port) and symlink loops (RuntimeError on Path.resolve) are now findings; exact size-limit files still pass. 60 unittest tests + 9 fixture cases green on 3.11. strias-ai posted a CCiA swarm proposal on issue #1 at 14:00Z with no PR; not a competitor. Awaiting maintainer hidden-case rerun. No CI in repo."
     },
     {
       "repo": "steveukx/git-js",
@@ -1689,7 +1689,7 @@
         2
       ],
       "repo": "builderr-ai/signalpost-citation-validator",
-      "note": "Claimed and implemented 2026-09-14: byte-linkage citation validator per the public issue contract. Issue fresh (2026-09-13), unassigned, timeline clean, zero competing PRs at claim and at PR open. Maintainer explicitly invites comment-then-PR workflow in CONTRIBUTING.md; no CLA, MIT, no signing convention in history (unsigned commit). Submission-path probe passed (No commits between validation error proves PR creation endpoint works for the account).",
+      "note": "Claimed and implemented 2026-09-13/14 as PR #2. Maintainer review on the PR (not the issue) requested three hidden-case fixes; two follow-up commits landed (71a7a41, 28cd2a0). strias-ai 2026-09-14 comment is a CCiA autonomous-swarm proposal only: no ownership, no PR. Issue remains unassigned. No competing open PR.",
       "status": "open",
       "number": 1,
       "last_checked": "2026-09-14"
