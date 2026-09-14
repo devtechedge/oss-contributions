@@ -55,6 +55,17 @@
   },
   "pull_requests": [
     {
+      "repo": "andreafrancia/trash-cli",
+      "number": 416,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 414,
+      "do_not_duplicate": true,
+      "summary": "Fixes #414 crash-consistency: Janitor.trash_file_in now reserves the trashinfo name, moves the file into files/ first, then writes info/NAME.trashinfo; persist() split into reserve_name+persist with backup-copy rename on ENAMETOOLONG truncation; try_trash no longer compensates (no trashinfo exists yet). Regression tests in test_put_crash_consistency.py (crash injection at fs boundary) fail on master and pass with fix; 2 tests in test_put_unwritable_trash_dir.py updated from old metadata-first invariant (documented in PR body). mypy clean. Branch trash-put-move-before-trashinfo; CI action_required (first-time contributor, maintainer approval needed)."
+    },
+    {
       "repo": "wxt-dev/wxt",
       "number": 2622,
       "status": "open",
