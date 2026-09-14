@@ -872,8 +872,8 @@
       "issue": 143,
       "do_not_duplicate": true,
       "branch": "feat/code-comment-verbosity-143",
-      "commit": "b1ace51",
-      "summary": "Implements issue #143 (configurable excessive code-comment verbosity checks). Maintainer leo-aa88 requested changes on 8e74aaa (review 5193516019, three blocking items: context discarded from lexer state, multiline strings not carried, per-file block warnings double-counting in 10.13). Follow-up b1ace51: context scanned not tallied, hunk gaps reset state, JS/Go backticks and shell quotes/heredocs carry across lines, one oversized_comment_block per PR for the max block. Reviewer reproductions locked in tests/test_code_comments.py (107 passed). CI still action_required pending first-contribution maintainer approval."
+      "commit": "b623ff5",
+      "summary": "Implements issue #143 (configurable excessive code-comment verbosity checks). Maintainer leo-aa88 requested changes twice: 5193516019 on 8e74aaa (context discarded, multiline strings not carried, per-file block warnings) resolved in b1ace51; 5193702832 on b1ace51 (unknown hunk reset-to-normal is fail-open, advertised C-family/JSX suffixes lack multiline string support, length-only filename pairing). Follow-up b623ff5: skip hunks whose new-file start > 1; drop Java/C/C++/C#/Rust/JSX/TSX until modeled; require file.filename == row.filename. Reviewer reproductions locked (mid-file docstring hunk, rust raw string, filename mismatch). Locally 117 passed in test_code_comments.py plus test_core_purity.py; ruff check src tests clean. CI still action_required pending first-contribution maintainer approval. Merge blocked on requested changes until leo re-reviews."
     }
   ],
   "issues": [
