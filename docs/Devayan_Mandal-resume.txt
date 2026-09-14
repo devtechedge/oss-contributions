@@ -49,9 +49,9 @@ OPEN SOURCE CONTRIBUTIONS
 
 Merged upstream:
 <<<LEDGER:MERGED_LIST>>>
-- stellar/stellar-docs #2849 (TypeScript) - handle malformed XDR in the address conversion example Merged Sep 2026. github.com/stellar/stellar-docs/pull/2849
-- stellar/stellar-docs #2853 (TypeScript) - reconcile memo framing in pooled accounts guide intro Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853
-- stellar/stellar-docs #2851 (TypeScript) - qualify Freighter HTTPS requirement for localhost Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851
+- stellar/stellar-docs #2849 (TypeScript) - reworked the address conversion example to propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and documented that untrusted XDR must be handled rather than panicking. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2849
+- stellar/stellar-docs #2853 (TypeScript) - reconciled memo framing in the pooled accounts guide so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853
+- stellar/stellar-docs #2851 (TypeScript) - qualified the Freighter HTTPS requirement, noting that `http://localhost` is already a Potentially Trustworthy origin under W3C Secure Contexts so loopback needs no TLS. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851
 - pytest-dev/pytest-env #262 (Python) - documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section. Merged Sep 2026. github.com/pytest-dev/pytest-env/pull/262
 - pnpm/pnpm #14863 (Rust/TypeScript) - fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage. Merged Sep 2026. github.com/pnpm/pnpm/pull/14863
 - web-infra-dev/rspress #3678 (TypeScript) - fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678

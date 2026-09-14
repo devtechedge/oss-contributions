@@ -23,11 +23,11 @@
 
 <img src="https://github.com/SQLMesh.png?size=48" width="32" height="32" alt="SQLMesh" align="left" /> **[SQLMesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040)** — fixed a concurrency race in `sqlmesh test` involving `time_machine` and worker threads.
 
-<img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="stellar-docs" align="left" /> **[stellar-docs #2849](https://github.com/stellar/stellar-docs/pull/2849)** — handle malformed XDR in the address conversion example
+<img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="Stellar" align="left" /> **[stellar-docs #2849](https://github.com/stellar/stellar-docs/pull/2849)** — reworked the Soroban address conversion example to propagate the fallible `Result<Address, ConversionError>` from `Address::from_xdr()` instead of calling `.unwrap()`, which panics on malformed XDR, and noted that contracts consuming XDR from untrusted sources must handle the error instead of aborting.
 
-<img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="stellar-docs" align="left" /> **[stellar-docs #2851](https://github.com/stellar/stellar-docs/pull/2851)** — qualify Freighter HTTPS requirement for localhost
+<img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="Stellar" align="left" /> **[stellar-docs #2851](https://github.com/stellar/stellar-docs/pull/2851)** — qualified the dapp frontend guide's blanket claim that Freighter requires HTTPS; `http://localhost` and `http://127.0.0.1` are already Potentially Trustworthy origins under the W3C Secure Contexts specification, so plain HTTP on loopback satisfies the requirement and local development needs no TLS.
 
-<img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="stellar-docs" align="left" /> **[stellar-docs #2853](https://github.com/stellar/stellar-docs/pull/2853)** — reconcile memo framing in pooled accounts guide intro
+<img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="Stellar" align="left" /> **[stellar-docs #2853](https://github.com/stellar/stellar-docs/pull/2853)** — reconciled contradictory memo guidance in the pooled accounts guide: the intro framed memos as obsolete while later sections still required supporting them, so memos now read as the legacy mechanism still in active use and muxed accounts as preferred going forward.
 
 <img src="https://github.com/thirdweb-dev.png?size=48" width="32" height="32" alt="thirdweb" align="left" /> **[thirdweb JS #8938](https://github.com/thirdweb-dev/js/pull/8938)** — fixed `useTokenQuery` collapsing real token lookup failures into `unsupported_token` instead of using the existing error/retry path.
 <!-- ledger:profile-merged:end -->
