@@ -62,6 +62,8 @@ Companion to `SKILL.md`. Read on demand during scans and before implementing. Ev
 - Implement: pin the local venv to the repo's own test-dep versions (tox.ini `deps`) before interpreting any failure. Pygments pins `pytest ~= 8.2`; pytest 9 broke test collection outright under CI's `-W error` (PytestRemovedIn10Warning), which looks like a broken checkout but is only tool drift.
 - Implement: when a test fixture's payload IS the adversarial content (backslash runs, dot runs - the run length is the whole point), verify the written bytes with `cat -A` before generating goldens; an off-by-one in the run length silently tests the wrong parity.
 
+- Implement (14 Sep 2026, reviewgate #144): repos that run many heuristics over one input envelope make engine-level tests of a SINGLE heuristic noisy - every other always-on heuristic (missing tests for source, weak body, linked issue) also fires on synthetic PRs and shifts the aggregated verdict. Shared fixture helpers should carry an issue reference, a long body, and a companion test file so unrelated heuristics stay silent; assert filtered warning subsets, not whole warning lists. Related: a test-helper that silently auto-raises the other side of a cross-field validation (warn<=fail) makes validation tests vacuous - construct the model directly for validation cases; comment-scanner tests must use the marker of the file extension's language (`.go` does not treat `#` as a comment); and when rewriting a private helper's error message, grep tests for `pytest.raises(match=...)` on the old wording first.
+
 ## Dated snapshots
 
 Point-in-time counts, rotting by design. The source of truth is the tracker named with each snapshot; update it there, not here.
