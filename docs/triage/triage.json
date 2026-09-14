@@ -1615,6 +1615,16 @@
       "status": "open",
       "number": 1190,
       "last_checked": "2026-09-14"
+    },
+    {
+      "repo": "ssf0409/tracelens",
+      "number": 134,
+      "status": "claimed",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "related_prs": [],
+      "branch": "fix/issue-134-markdown-cell-escaping",
+      "note": "Claimed 2026-09-14 with approved one-line plan comment (issue comment 5657324836, 2026-09-14T00:18Z) per CONTRIBUTING claim rule (plan + 24h or thumbs-up). Maintainer-filed (OWNER ssf0409) markdown table escaping issue with full root cause and acceptance criteria. Re-verified at claim: open, unassigned, 0 comments, only timeline cross-ref is tracking #55, open-PR queue clean (#110 unrelated). Fix implemented on fork branch devtechedge:fix/issue-134-markdown-cell-escaping (commit 0412997, pushed): private _md_cell helper (pipe escape, newline collapse, leading-< neutralize) applied to every cell in render_markdown per-task table and _gate_section_md gate table, 2 regression tests in test_generator.py, CHANGELOG [Unreleased] entry. Gate green locally: uv lock --check, ruff, mypy strict, pytest 1171 passed cov 94.98 percent; 2 pre-existing Windows-only failures identical on main 0ada75c (cli e2e scaffold, CSV loader regex), path-separator related. PR body ready at Desktop/PRs/pr-134-body.md. OPEN PR after 24h window ends 2026-09-15T00:18Z or maintainer thumbs-up, whichever first."
     }
   ],
   "closed_attempts": [
