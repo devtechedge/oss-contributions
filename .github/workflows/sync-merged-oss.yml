@@ -27,7 +27,6 @@ concurrency:
 
 permissions:
   contents: write
-  metadata: write
 
 jobs:
   sync:
