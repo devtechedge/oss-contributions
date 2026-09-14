@@ -15,6 +15,40 @@ Core goals, in priority order:
 
 Learned patterns (scan triage, implementation gotchas, repo-specific no-gos) live in `PATTERNS.md` next to this file, or in `references/PATTERNS.md` when this skill is packaged for Grok. Read it during scans and before implementing. Every pattern there is a lesson from a past PR or scan: re-verify it against current repo state, never assume it still holds.
 
+## 0. Canonical location and cross-platform sync
+
+This playbook is used from several agent platforms (WorkBuddy, grok.com, zcode, Codex/ChatGPT). Only one copy counts, and it lives in the ledger repo:
+
+- `devtechedge/oss-contributions` → `docs/SKILL.md`
+- `devtechedge/oss-contributions` → `docs/PATTERNS.md`
+
+Raw URLs (no auth, no API quota):
+
+```
+https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/SKILL.md
+https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/PATTERNS.md
+```
+
+1. **Edit only the GitHub copies.** Local mirrors (`~/.agents/skills/oss/`, a Grok upload, a Codex project file) are derivatives. A change made to a derivative is lost on the next sync.
+2. **Refetch at the start of every PR session.** If the copy you are reading did not come from those URLs during this session, fetch them and follow what comes back. Working from a stale mirror is a real failure mode, not a hypothetical: a session on an older copy did not know section 13 existed and hand-edited publication targets.
+3. Raw is a CDN cache. It can briefly serve a stale or empty body right after a push, so a fetch that comes back empty must be retried against the contents API. Never proceed on an empty or truncated file.
+4. After editing either file, push to `docs/` in the same turn (section 8.4) and let the propagator rebuild the local mirrors.
+
+Platform notes:
+
+- **WorkBuddy / zcode**: run `~/.agents/skills/oss/sync-from-github.py` (or `.sh`) after any push. It rewrites canonical and rebuilds the Grok zip.
+- **grok.com**: upload `dist/oss.zip` produced by that script (`oss/SKILL.md` + `oss/references/PATTERNS.md`). Re-upload after every change; Grok snapshots the upload and will not see later edits.
+- **Codex / ChatGPT**: store the bootstrap snippet in project or memory instructions so it fetches both URLs before starting work.
+
+Bootstrap snippet for any platform:
+
+```
+Before any upstream OSS PR work, fetch and follow:
+https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/SKILL.md
+https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/PATTERNS.md
+These are the single source of truth and override any local or previously uploaded copy.
+```
+
 ## 1. Unified OSS workflow
 
 | | **Unified OSS ledger** |
@@ -194,5 +228,26 @@ The workflow:
 Canonical operational record: `docs/triage/triage.json`
 Canonical publication copy: `docs/triage/publications.json`
 Human-only: GitHub profile bio, PATTERNS.md (unless a new generalizable lesson exists), social preview, `docs/all_repos.md`.
+
+## 14. Publication copy quality (merged entries must explain the change)
+
+Every merged PR gets real impact prose, never a one-line restatement of its title. A reader of the README, resume, or profile should be able to tell what changed and why it mattered without opening the PR.
+
+- Write the change in concrete technical terms: name the function, flag, config key, or API surface touched, then the observable consequence. Example: "`Connection.sync()` no longer permanently sets `_ending`, so later `ECONNRESET` errors surface" beats "fix sync ending flag".
+- One to three sentences, starting with what changed. No em dashes or emojis in this copy.
+- **Set `curated: true` when writing it.** A record left at `curated: false` keeps whatever title-derived stub the reconciler generated, and no later run will improve it. Check the `curated` flag on every newly merged record as part of the merge cascade.
+- Fill all four prose fields consistently: `ledger_what` (sentence case, README), `profile_line` (lowercase first letter, profile block), `resume_bullet`, `linkedin_bullet`.
+- `profile_logo_alt` must not repeat the visible title. Alt text is what renders when the avatar fails to load, so `alt="stellar-docs"` beside a `stellar-docs #2849` heading reads as one run-on string. Use the org or product name (`Stellar`).
+
+## 15. Gratitude to maintainers after a merge
+
+When a human maintainer merges one of our PRs, send a short thank-you note on the PR thread. Maintainers are volunteers reviewing unpaid work, and a specific note is worth more than silence.
+
+- Goes through the **comment approval gate** (section 2): draft the full text, get explicit approval in that turn, then post verbatim.
+- Address the maintainer by handle. Name the specific thing the change or the review taught us, so the note cannot read as a template.
+- Three or four sentences. No em dashes, no emojis, no ask, no follow-up question, no residue of the submission. Do not request anything.
+- One note per merged PR, posted once. Never bump a merged thread a second time.
+- Skip it when the merge came from a bot, an auto-merge queue, or was self-merged.
+- When several merges land at once, post the notes across separate turns rather than in one burst; a sudden cluster of comments on old threads reads as automation.
 
 See `docs/SYNC.md`.
