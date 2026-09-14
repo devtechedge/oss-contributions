@@ -55,6 +55,16 @@
   },
   "pull_requests": [
     {
+      "repo": "web-infra-dev/rspress",
+      "number": 3678,
+      "status": "merged",
+      "merged": "2026-09-14",
+      "last_checked": "2026-09-14",
+      "issue": 3658,
+      "do_not_duplicate": true,
+      "summary": "Fixes #3658: LocalProvider.init() now awaits FlexSearch addAsync() indexing across the three indexes before initialization resolves, preventing early searches from incorrectly showing no results on larger sites. One-file focused change, +7/-3. Merge commit 26f6cd4."
+    },
+    {
       "repo": "ssf0409/tracelens",
       "number": 140,
       "status": "open",
@@ -1115,13 +1125,15 @@
     {
       "repo": "web-infra-dev/rspress",
       "number": 3658,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         3678
       ],
       "do_not_duplicate": true,
-      "note": "LocalProvider.init() does not await FlexSearch addAsync, so the first search query can show 'No matching results'. PR 3678 opened 2026-09-13 as devtechedge:fix/local-provider-await-add-async: collect addAsync promises and await Promise.all in init, plus LocalProvider.test.ts regression (mock flexsearch, assert init waits for all adds, proven fail-before/pass-after). Scoped verification green locally; awaiting upstream CI (first contribution may sit in action_required). Fixes #3658."
+      "note": "Closed as completed after PR #3678 merged. LocalProvider.init() now awaits all three FlexSearch addAsync() calls before search initialization resolves, eliminating the early-search no-results race on larger sites.",
+      "closed": "2026-09-14",
+      "last_checked": "2026-09-14"
     },
     {
       "do_not_duplicate": true,
@@ -2327,6 +2339,12 @@
       "contributions": [
         140
       ]
+    },
+    "web-infra-dev/rspress": {
+      "contributions": [
+        3678
+      ],
+      "focus": "Rspress documentation site generator; search initialization and FlexSearch behavior."
     }
   }
 }
