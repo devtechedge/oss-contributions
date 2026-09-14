@@ -468,22 +468,26 @@
     {
       "repo": "stellar/stellar-docs",
       "number": 2853,
-      "status": "open",
-      "opened": "2026-09-12",
+      "status": "merged",
       "last_checked": "2026-09-14",
       "issue": 2769,
       "do_not_duplicate": true,
-      "summary": "Rework pooled-accounts memo framing so introduction and instructions are consistent."
+      "summary": "Rework pooled-accounts memo framing so introduction and instructions are consistent.",
+      "merged": "2026-09-14",
+      "merge_commit": "525c722ceaeb4b839f46d03c2503cb61a019f4d9",
+      "merged_at": "2026-09-14T20:15:24Z"
     },
     {
       "repo": "stellar/stellar-docs",
       "number": 2851,
-      "status": "open",
-      "opened": "2026-09-12",
+      "status": "merged",
       "last_checked": "2026-09-14",
       "issue": 2773,
       "do_not_duplicate": true,
-      "summary": "Document frontend Freighter HTTPS requirement."
+      "summary": "Document frontend Freighter HTTPS requirement.",
+      "merged": "2026-09-14",
+      "merge_commit": "29728e1f15890151859d340ba5c8a8fad24ec6b1",
+      "merged_at": "2026-09-14T20:11:32Z"
     },
     {
       "repo": "stellar/freighter",
@@ -913,6 +917,18 @@
   ],
   "issues": [
     {
+      "repo": "stellar/stellar-docs",
+      "number": 2773,
+      "status": "closed",
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-14",
+      "related_prs": [
+        2851
+      ],
+      "note": "Closed by merged PR #2851."
+    },
+    {
       "repo": "pnpm/pnpm",
       "number": 14859,
       "status": "closed",
@@ -1104,12 +1120,14 @@
     {
       "repo": "stellar/stellar-docs",
       "number": 2769,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         2853
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-14",
+      "note": "Closed by merged PR #2853."
     },
     {
       "repo": "drips-network/app",

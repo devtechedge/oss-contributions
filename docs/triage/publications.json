@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-14",
-  "merged_count": 13,
+  "merged_count": 15,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -339,6 +339,50 @@
       "linkedin_bullet": "pytest-dev/pytest-env #262 — documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section.",
       "profile_line": "documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section.",
       "curated": true
+    },
+    {
+      "id": "stellar/stellar-docs#2853",
+      "repo": "stellar/stellar-docs",
+      "number": 2853,
+      "merged": true,
+      "merged_at": "2026-09-14T20:15:24Z",
+      "merge_commit": "525c722ceaeb4b839f46d03c2503cb61a019f4d9",
+      "issue": 2769,
+      "url": "https://github.com/stellar/stellar-docs/pull/2853",
+      "languages": [],
+      "org": "stellar",
+      "display_name": "stellar-docs",
+      "profile_title": "stellar-docs #2853",
+      "ledger_logo": "https://github.com/stellar.png?size=40",
+      "profile_logo": "https://github.com/stellar.png?size=48",
+      "profile_logo_alt": "stellar-docs",
+      "ledger_what": "Reconcile memo framing in pooled accounts guide intro",
+      "resume_bullet": "stellar/stellar-docs #2853 (TypeScript) - reconcile memo framing in pooled accounts guide intro Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853",
+      "linkedin_bullet": "stellar/stellar-docs #2853 — reconcile memo framing in pooled accounts guide intro",
+      "profile_line": "reconcile memo framing in pooled accounts guide intro",
+      "curated": false
+    },
+    {
+      "id": "stellar/stellar-docs#2851",
+      "repo": "stellar/stellar-docs",
+      "number": 2851,
+      "merged": true,
+      "merged_at": "2026-09-14T20:11:32Z",
+      "merge_commit": "29728e1f15890151859d340ba5c8a8fad24ec6b1",
+      "issue": 2773,
+      "url": "https://github.com/stellar/stellar-docs/pull/2851",
+      "languages": [],
+      "org": "stellar",
+      "display_name": "stellar-docs",
+      "profile_title": "stellar-docs #2851",
+      "ledger_logo": "https://github.com/stellar.png?size=40",
+      "profile_logo": "https://github.com/stellar.png?size=48",
+      "profile_logo_alt": "stellar-docs",
+      "ledger_what": "Qualify Freighter HTTPS requirement for localhost",
+      "resume_bullet": "stellar/stellar-docs #2851 (TypeScript) - qualify Freighter HTTPS requirement for localhost Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851",
+      "linkedin_bullet": "stellar/stellar-docs #2851 — qualify Freighter HTTPS requirement for localhost",
+      "profile_line": "qualify Freighter HTTPS requirement for localhost",
+      "curated": false
     }
   ]
 }

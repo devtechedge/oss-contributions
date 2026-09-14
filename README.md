@@ -2,7 +2,7 @@
 
 Public ledger of **upstream open-source contributions**.
 
-![Merged](https://img.shields.io/badge/merged-13-brightgreen?logo=git&logoColor=white) ![License](https://img.shields.io/github/license/devtechedge/oss-contributions) ![Last commit](https://img.shields.io/github/last-commit/devtechedge/oss-contributions) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![Rust](https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white) ![TanStack](https://img.shields.io/badge/TanStack-FF4154?logo=tanstack&logoColor=white) ![Web3](https://img.shields.io/badge/Web3-000000?logo=web3.js&logoColor=white)
+![Merged](https://img.shields.io/badge/merged-15-brightgreen?logo=git&logoColor=white) ![License](https://img.shields.io/github/license/devtechedge/oss-contributions) ![Last commit](https://img.shields.io/github/last-commit/devtechedge/oss-contributions) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![Rust](https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white) ![TanStack](https://img.shields.io/badge/TanStack-FF4154?logo=tanstack&logoColor=white) ![Web3](https://img.shields.io/badge/Web3-000000?logo=web3.js&logoColor=white)
 
 **Latest update:** 14 Sep 2026
 
@@ -13,6 +13,8 @@ This repository serves as the canonical record of upstream contribution activity
 <!-- ledger:merged-table:start -->
 | Repo | PR | What | Merged |
 | --- | --- | --- | --- |
+| <img src="https://github.com/stellar.png?size=40" width="18" /> [stellar/stellar-docs](https://github.com/stellar/stellar-docs) | [#2853](https://github.com/stellar/stellar-docs/pull/2853) | Reconcile memo framing in pooled accounts guide intro | 14 Sep 2026 |
+| <img src="https://github.com/stellar.png?size=40" width="18" /> [stellar/stellar-docs](https://github.com/stellar/stellar-docs) | [#2851](https://github.com/stellar/stellar-docs/pull/2851) | Qualify Freighter HTTPS requirement for localhost | 14 Sep 2026 |
 | <img src="https://github.com/pytest-dev.png?size=40" width="18" /> [pytest-dev/pytest-env](https://github.com/pytest-dev/pytest-env) | [#262](https://github.com/pytest-dev/pytest-env/pull/262) | Documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section. | 14 Sep 2026 |
 | <img src="https://github.com/pnpm.png?size=40" width="18" /> [pnpm/pnpm](https://github.com/pnpm/pnpm) | [#14863](https://github.com/pnpm/pnpm/pull/14863) | Fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage. | 14 Sep 2026 |
 | <img src="https://github.com/web-infra-dev.png?size=40" width="18" /> [web-infra-dev/rspress](https://github.com/web-infra-dev/rspress) | [#3678](https://github.com/web-infra-dev/rspress/pull/3678) | Awaited FlexSearch `addAsync()` indexing before search initialization completes, preventing early queries from incorrectly returning no results on larger sites; focused change preserves existing behavior. | 14 Sep 2026 |
