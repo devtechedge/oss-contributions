@@ -1,0 +1,244 @@
+name: Sync merged OSS contributions
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-merged-contributions
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ledger
+        uses: actions/checkout@v4
+
+      - name: Sync merged contributions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+          from datetime import datetime, timezone
+
+          ROOT = Path(".")
+          TRIAGE = ROOT / "docs/triage/triage.json"
+          README = ROOT / "README.md"
+          RESUME = ROOT / "docs/Devayan_Mandal-resume.txt"
+          LINKEDIN = ROOT / "docs/linkedin-all-details.txt"
+          PROFILE_REPO = "devtechedge/devtechedge"
+
+          token = os.environ["GH_TOKEN"]
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+              "User-Agent": "devtechedge-oss-ledger-sync",
+          }
+
+          def api(path):
+              req = urllib.request.Request("https://api.github.com" + path, headers=headers)
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  return json.load(response)
+
+          def repo_pr(repo, number):
+              return api(f"/repos/{repo}/pulls/{number}")
+
+          def replace_once(text, old, new):
+              if old not in text:
+                  return text, False
+              return text.replace(old, new, 1), True
+
+          data = json.loads(TRIAGE.read_text(encoding="utf-8"))
+          merged = []
+          seen = set()
+
+          for record in data.get("pull_requests", []):
+              repo = record.get("repo")
+              number = record.get("number")
+              if not repo or not isinstance(number, int):
+                  continue
+              key = (repo, number)
+              if key in seen:
+                  continue
+              seen.add(key)
+              try:
+                  pr = repo_pr(repo, number)
+              except Exception as exc:
+                  print(f"warning: could not refresh {repo}#{number}: {exc}")
+                  continue
+              if pr.get("merged_at"):
+                  merged.append((repo, number, pr))
+
+          merged.sort(key=lambda item: (item[2].get("merged_at") or "", item[0], item[1]), reverse=True)
+
+          today = datetime.now(timezone.utc).date().isoformat()
+          data["last_updated"] = today
+
+          # Reconcile triage records from live GitHub state.
+          by_key = {(x.get("repo"), x.get("number")): x for x in data.get("pull_requests", [])}
+          for repo, number, pr in merged:
+              item = by_key.get((repo, number))
+              if item is None:
+                  item = {"repo": repo, "number": number}
+                  data.setdefault("pull_requests", []).insert(0, item)
+              item["status"] = "merged"
+              item["merged"] = pr["merged_at"][:10]
+              item["last_checked"] = today
+              item["do_not_duplicate"] = True
+              if pr.get("body"):
+                  item.setdefault("summary", pr["title"])
+
+              issue_refs = []
+              if pr.get("body"):
+                  import re
+                  for match in re.finditer(r"(?:Fixes|Fix|Closes|Close|Resolves|Resolve)\s+#(\d+)", pr["body"], re.I):
+                      issue_refs.append(int(match.group(1)))
+              if issue_refs:
+                  item["issue"] = issue_refs[0]
+
+          # README: update badge/count and append any newly merged contribution,
+          # preserving the existing hand-written wording for known entries.
+          readme = README.read_text(encoding="utf-8")
+          current_count = readme.count("| <img src=")
+          new_count = len(merged)
+          if current_count != new_count:
+              readme = readme.replace(f"badge/merged-{current_count}-brightgreen", f"badge/merged-{new_count}-brightgreen")
+          else:
+              readme = readme.replace(f"badge/merged-{current_count}-brightgreen", f"badge/merged-{new_count}-brightgreen", 1)
+
+          existing_prs = set()
+          import re
+          for match in re.finditer(r"/pull/(\d+).*?\|", readme):
+              try:
+                  existing_prs.add(int(match.group(1)))
+              except ValueError:
+                  pass
+
+          missing_rows = []
+          for repo, number, pr in merged:
+              if number in existing_prs:
+                  continue
+              owner = repo.split("/", 1)[0]
+              repo_name = repo.split("/", 1)[1]
+              description = (pr.get("title") or "Merged upstream contribution").replace("|", "\\|")
+              date = pr["merged_at"][:10]
+              missing_rows.append(
+                  f'| <img src="https://github.com/{owner}.png?size=40" width="18" /> [{repo}](https://github.com/{repo}) | [#{number}](https://github.com/{repo}/pull/{number}) | {description} | {date} |'
+              )
+
+          if missing_rows:
+              marker = "## ✅ Merged pull requests"
+              header_end = readme.index("\n\n## 🔀 Open pull requests", readme.index(marker))
+              block_start = readme.index("| Repo | PR | What | Merged |", readme.index(marker))
+              block_end = readme.index("\n\n## 🔀 Open pull requests", block_start)
+              table = readme[block_start:block_end]
+              rows = table.splitlines()
+              for row in missing_rows:
+                  rows.append(row)
+              readme = readme[:block_start] + "\n".join(rows) + readme[block_end:]
+
+          latest_date = max((pr["merged_at"][:10] for _, _, pr in merged), default=today)
+          readme = re.sub(r"\*\*Latest update:\*\* \d{2} \w{3} \d{4}", f"**Latest update:** {datetime.fromisoformat(latest_date).strftime('%d %b %Y')}", readme, count=1)
+          README.write_text(readme, encoding="utf-8")
+
+          # Resume and LinkedIn text are maintained by deterministic count + entry
+          # insertion. Existing prose remains untouched.
+          def sync_text_doc(path, count_label, entry_marker):
+              text = path.read_text(encoding="utf-8")
+              text = re.sub(r"Merged (?:upstream )?pull requests(?: across)?|Merged \d+ upstream pull requests", lambda m: m.group(0), text)
+              text = re.sub(r"Merged \d+ upstream pull requests", f"Merged {new_count} upstream pull requests", text)
+              text = re.sub(r"canonical public contribution ledger records \d+ merged upstream pull requests", f"canonical public contribution ledger records {new_count} merged upstream pull requests", text)
+              return text
+
+          resume = sync_text_doc(RESUME, "", "")
+          linkedin = sync_text_doc(LINKEDIN, "", "")
+
+          def add_entry_if_missing(text, pr):
+              repo, number, data_pr = pr
+              url = f"https://github.com/{repo}/pull/{number}"
+              if url in text:
+                  return text
+              summary = (data_pr.get("title") or "Merged upstream contribution").replace("\n", " ").strip()
+              summary = summary[:220]
+              entry = f"- {repo} #{number} - {summary}. Merged {data_pr['merged_at'][:7]}. {url}\n"
+              marker = "Merged upstream:\n"
+              if marker in text:
+                  return text.replace(marker, marker + entry, 1)
+              marker2 = "11 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:\n"
+              if marker2 in text:
+                  return text.replace(marker2, marker2 + "\n" + entry, 1)
+              return text
+
+          for pr in merged:
+              resume = add_entry_if_missing(resume, pr)
+              linkedin = add_entry_if_missing(linkedin, pr)
+
+          RESUME.write_text(resume, encoding="utf-8")
+          LINKEDIN.write_text(linkedin, encoding="utf-8")
+
+          # Keep the profile README synchronized by copying the missing merged
+          # contribution rows into its alphabetical Open Source Engineering list.
+          profile_url = f"https://api.github.com/repos/{PROFILE_REPO}/contents/README.md"
+          req = urllib.request.Request(profile_url, headers=headers)
+          with urllib.request.urlopen(req, timeout=30) as response:
+              profile_meta = json.load(response)
+          import base64
+          import json as _json
+          profile_readme = base64.b64decode(profile_meta["content"]).decode("utf-8")
+
+          for repo, number, pr in merged:
+              url = f"https://github.com/{repo}/pull/{number}"
+              if url in profile_readme:
+                  continue
+              owner = repo.split("/", 1)[0]
+              display_repo = repo.split("/", 1)[1]
+              description = (pr.get("title") or "Merged upstream contribution").replace("\n", " ").strip()
+              line = f'\n<img src="https://github.com/{owner}.png?size=48" width="32" height="32" alt="{display_repo}" align="left" /> **[{display_repo} #{number}]({url})** — {description}.\n'
+              marker = "### Merged:\n"
+              profile_readme = profile_readme.replace(marker, marker + line, 1)
+
+          # Write changed local files first; profile README is committed directly
+          # through the GitHub contents API below only when its content changed.
+          changed = []
+          for path in [TRIAGE, README, RESUME, LINKEDIN]:
+              subprocess.run(["git", "add", str(path)], check=True)
+              if subprocess.run(["git", "diff", "--cached", "--quiet", "--", str(path)]).returncode != 0:
+                  changed.append(str(path))
+
+          if changed:
+              subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
+              subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], check=True)
+              subprocess.run(["git", "commit", "-m", "automation: sync merged OSS contributions"], check=True)
+              subprocess.run(["git", "push"], check=True)
+              print("updated ledger:", changed)
+          else:
+              print("ledger already synchronized")
+
+          # Update profile README separately, using the contents API, so this
+          # workflow can propagate the merge into the profile repository too.
+          if profile_readme != base64.b64decode(profile_meta["content"]).decode("utf-8"):
+              payload = {
+                  "message": "automation: sync merged OSS contributions",
+                  "content": base64.b64encode(profile_readme.encode("utf-8")).decode("ascii"),
+                  "sha": profile_meta["sha"],
+                  "branch": "main",
+              }
+              body = json.dumps(payload).encode("utf-8")
+              req = urllib.request.Request(profile_url, data=body, headers={**headers, "Content-Type": "application/json"}, method="PUT")
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  result = json.load(response)
+              print("updated profile README:", result.get("commit", {}).get("sha"))
+          PY
