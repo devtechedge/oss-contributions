@@ -1775,6 +1775,13 @@
       "checked": "2026-09-13",
       "do_not_duplicate": true,
       "reason": "Assignment-gated repository: github-actions bot auto-closes any PR whose linked issue is not assigned to the PR author. Bot-filed issues like #8292 cannot be claimed. PR #8308 (ToolSearchMatch extra='allow' roundtrip fix) was closed within an hour despite green checks. Do not refile this issue or similar bot-filed roundtrip-sweep issues in this repo."
+    },
+    {
+      "repo": "atomantic/critical-mass",
+      "issue": 568,
+      "checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "reason": "Maintainer-only self-dispatch pipeline: all 100 recent merged PRs authored by OWNER (zero external PRs ever opened or merged), and the issue already carries the selectively applied in-progress label meaning the owner executor agent is on it. Fix (simpleDcaEnabled gate on legacy /api/trade and /api/sync) is real and well-specified but races a guaranteed duplicate close. Revisit only if a future maintainer signal invites outside PRs."
     }
   ],
   "repositories": {
