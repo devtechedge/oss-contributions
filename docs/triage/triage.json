@@ -55,6 +55,102 @@
   },
   "pull_requests": [
     {
+      "repo": "devtechedge/regulatory_compliance",
+      "number": 2,
+      "status": "merged",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "merged": "2026-09-06",
+      "merge_commit": "fa3eca9e2baed6097b8fead2c9bf573d319ec380",
+      "merged_at": "2026-09-06T03:57:30Z",
+      "issue": null,
+      "summary": "fix(ci): Array.from for Set + restore data/frameworks seed. Merge commit fa3eca9."
+    },
+    {
+      "repo": "devtechedge/notion-clone",
+      "number": 2,
+      "status": "merged",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "merged": "2026-09-06",
+      "merge_commit": "764de3c352fa7466431170ffe48ffd3c05382ef0",
+      "merged_at": "2026-09-06T03:57:33Z",
+      "issue": null,
+      "summary": "fix(ci): convert next.config.ts to next.config.mjs for Next 14. Merge commit 764de3c."
+    },
+    {
+      "repo": "devtechedge/aarop",
+      "number": 2,
+      "status": "merged",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "merged": "2026-09-06",
+      "merge_commit": "32a0437a710e542b20fd7897aa35e490a6a678f8",
+      "merged_at": "2026-09-06T03:57:36Z",
+      "issue": null,
+      "summary": "fix(ci): drop CSP that broke next-dev Playwright e2e. Merge commit 32a0437."
+    },
+    {
+      "repo": "devtechedge/luxe-tracker",
+      "number": 7,
+      "status": "merged",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "merged": "2026-09-06",
+      "merge_commit": "f0229682252066353a13404853884d4a9b70bb64",
+      "merged_at": "2026-09-06T03:58:23Z",
+      "issue": null,
+      "summary": "fix(ci): actually remove double comma after typescript block. Merge commit f022968."
+    },
+    {
+      "repo": "devtechedge/veritas-engine",
+      "number": 3,
+      "status": "merged",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "merged": "2026-09-06",
+      "merge_commit": "7fee044407bb4a20e39f14ebee10d8c5da548797",
+      "merged_at": "2026-09-06T04:06:40Z",
+      "issue": null,
+      "summary": "fix(ci): drop CSP that broke next-dev Playwright e2e. Merge commit 7fee044."
+    },
+    {
+      "repo": "devtechedge/regulatory_compliance",
+      "number": 3,
+      "status": "merged",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "merged": "2026-09-06",
+      "merge_commit": "dfe677b0fcfd6eabd0bffb768f1e7290863565aa",
+      "merged_at": "2026-09-06T04:06:55Z",
+      "issue": null,
+      "summary": "fix(ci): restore full data/ seed tree for backend + e2e. Merge commit dfe677b."
+    },
+    {
+      "repo": "devtechedge/regulatory_compliance",
+      "number": 4,
+      "status": "merged",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "merged": "2026-09-06",
+      "merge_commit": "8411e7b8c4a86d3e9465a08a21eaf5294db215d3",
+      "merged_at": "2026-09-06T04:14:27Z",
+      "issue": null,
+      "summary": "fix(ci): allow localhost API in CSP connect-src for e2e. Merge commit 8411e7b."
+    },
+    {
+      "repo": "pytest-dev/pytest-env",
+      "number": 262,
+      "status": "merged",
+      "last_checked": "2026-09-14",
+      "do_not_duplicate": true,
+      "merged": "2026-09-14",
+      "merge_commit": "e8c1b8758e67e28bb2137962caa82e1004483108",
+      "merged_at": "2026-09-14T13:56:53Z",
+      "issue": 261,
+      "summary": "Document [pytest] env configuration in pytest.toml / .pytest.toml. Merge commit e8c1b87."
+    },
+    {
       "repo": "pnpm/pnpm",
       "number": 14863,
       "status": "merged",
@@ -241,7 +337,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-13",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 3301,
       "do_not_duplicate": true,
       "summary": "find_all_windows() lossy-decodes py --list-paths and conda info -e stdout with String::from_utf8_lossy instead of str::from_utf8().unwrap() panicking on non-UTF-8 bytes from localized Windows codepages; undecodable lines fail the existing regex/skip logic. Regression test covers the decode contract."
@@ -252,7 +348,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2767,
       "do_not_duplicate": true,
       "summary": "portable-atomic feature forwards to ratatui-widgets; Block shadow switches Arc import for no_std targets without atomic pointers."
@@ -263,7 +359,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 6058,
       "do_not_duplicate": true,
       "summary": "create_external_models quotes case-sensitive column names so generated external_models.yaml round-trips correctly."
@@ -274,7 +370,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 849,
       "do_not_duplicate": true,
       "summary": "Config device plugin reports used virtual slots as Unhealthy so kubelet avoids slots still held during reclaim grace period."
@@ -285,7 +381,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 98417,
       "competing_prs": [
         98556
@@ -299,7 +395,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 27324,
       "requested_reviewers": [
         "ntBre"
@@ -313,7 +409,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-11",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 11192,
       "requested_reviewers": [
         "Bekacru"
@@ -327,7 +423,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 7351,
       "do_not_duplicate": true,
       "summary": "Async CancelledError now emits TaskFailedEvent before re-raise so execution spans pop and retained Task/Agent/Crew graphs can GC."
@@ -338,7 +434,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 7191,
       "do_not_duplicate": true,
       "summary": "Public SpeechHandle.hold_interruptions() context manager plus less severe realtime log path."
@@ -349,7 +445,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 7198,
       "last_updated": "2026-09-11",
       "do_not_duplicate": true,
@@ -361,7 +457,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 8309,
       "do_not_duplicate": true,
       "summary": "Fix retain-then-strip search middleware so Link/buildLocation without search omits stripped defaults."
@@ -372,7 +468,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 11160,
       "requested_reviewers": [
         "Bekacru"
@@ -386,7 +482,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-08",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2721,
       "do_not_duplicate": true,
       "summary": "JS port of CVE-2026-71433: stop namespace sibling leakage in search for InMemory and Postgres stores."
@@ -397,7 +493,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-08",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 6253,
       "do_not_duplicate": true,
       "summary": "drizzle-kit pull no longer treats every two-FK domain table as a many-to-many junction."
@@ -408,7 +504,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-07",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 8237,
       "do_not_duplicate": true,
       "summary": "Malformed JSON server-function payloads return 400 instead of unhandled 500."
@@ -418,7 +514,7 @@
       "number": 101,
       "status": "open",
       "opened": "2026-09-13",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 89,
       "do_not_duplicate": true,
       "summary": "Clippy hardening issue."
@@ -428,7 +524,7 @@
       "number": 8699,
       "status": "open",
       "opened": "2026-09-13",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 8642,
       "do_not_duplicate": true,
       "summary": "Queue recovery log window/range cap fix."
@@ -438,7 +534,7 @@
       "number": 2051,
       "status": "open",
       "opened": "2026-09-13",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1839,
       "do_not_duplicate": true,
       "summary": "Wallet plugin documentation correction."
@@ -448,7 +544,7 @@
       "number": 4042,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 4040,
       "do_not_duplicate": true,
       "summary": "Normalize and clarify per-token balance-fetch error messaging after RPC fallback."
@@ -458,7 +554,7 @@
       "number": 2853,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2769,
       "do_not_duplicate": true,
       "summary": "Rework pooled-accounts memo framing so introduction and instructions are consistent."
@@ -468,7 +564,7 @@
       "number": 2851,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2773,
       "do_not_duplicate": true,
       "summary": "Document frontend Freighter HTTPS requirement."
@@ -478,7 +574,7 @@
       "number": 3009,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2905,
       "do_not_duplicate": true,
       "summary": "Skip Blockaid scan when there is no scannable list."
@@ -488,7 +584,7 @@
       "number": 4868,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 4795,
       "do_not_duplicate": true,
       "summary": "Propagate Cardano buildTx errors instead of swallowing them."
@@ -498,7 +594,7 @@
       "number": 4867,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 4841,
       "do_not_duplicate": true,
       "summary": "Zeroize TWData before into_vec for Rust memory hygiene."
@@ -508,7 +604,7 @@
       "number": 905,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 825,
       "do_not_duplicate": true,
       "summary": "Correct safe1_1 versus SAFE_2_3_ADDRESS signature-guide typo."
@@ -518,7 +614,7 @@
       "number": 904,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 828,
       "do_not_duplicate": true,
       "summary": "Clarify zkSync EVM exception in signature documentation."
@@ -528,7 +624,7 @@
       "number": 732,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 671,
       "do_not_duplicate": true,
       "summary": "Add pda-rent-payer caution to documentation."
@@ -538,7 +634,7 @@
       "number": 731,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 725,
       "do_not_duplicate": true,
       "summary": "Document token-fundraiser teardown behavior."
@@ -548,7 +644,7 @@
       "number": 2850,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2772,
       "do_not_duplicate": true,
       "summary": "Document core manual-close flag."
@@ -558,7 +654,7 @@
       "number": 2849,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2768,
       "do_not_duplicate": true,
       "summary": "Improve XDR unwrap error-handling documentation."
@@ -568,7 +664,7 @@
       "number": 1519,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1501,
       "do_not_duplicate": true,
       "summary": "Update TypeScript samples to current exports."
@@ -578,7 +674,7 @@
       "number": 275,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 266,
       "do_not_duplicate": true,
       "summary": "Guard percentageString decimal handling with BigInt."
@@ -588,7 +684,7 @@
       "number": 274,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 267,
       "do_not_duplicate": true,
       "summary": "Correct executeSwapQuote documentation."
@@ -598,7 +694,7 @@
       "number": 1725,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1674,
       "do_not_duplicate": true,
       "summary": "Migration sidebar documentation fix."
@@ -608,7 +704,7 @@
       "number": 1432,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 938,
       "do_not_duplicate": true,
       "summary": "Add disposable private-key tests."
@@ -618,7 +714,7 @@
       "number": 626,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 590,
       "do_not_duplicate": true,
       "summary": "Validate openUrl HTTPS requirement."
@@ -628,7 +724,7 @@
       "number": 8687,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 8672,
       "do_not_duplicate": true,
       "summary": "Co-signer address handling fix."
@@ -638,7 +734,7 @@
       "number": 1910,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1909,
       "do_not_duplicate": true,
       "summary": "WalletLink accessibility improvement."
@@ -648,7 +744,7 @@
       "number": 273,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 271,
       "do_not_duplicate": true,
       "summary": "Add timeout handling to waitForFill."
@@ -658,7 +754,7 @@
       "number": 272,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 268,
       "do_not_duplicate": true,
       "summary": "Handle undefined parseFillLogs output."
@@ -668,7 +764,7 @@
       "number": 902,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 826,
       "do_not_duplicate": true,
       "summary": "Correct contract filename in documentation."
@@ -678,7 +774,7 @@
       "number": 1431,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1424,
       "do_not_duplicate": true,
       "summary": "Fix generateHash byte-versus-character length handling."
@@ -688,7 +784,7 @@
       "number": 1401,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": null,
       "do_not_duplicate": true,
       "summary": "Gate React Native async-storage require."
@@ -698,7 +794,7 @@
       "number": 1430,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1182,
       "do_not_duplicate": true,
       "summary": "Correct MultiSend documentation."
@@ -708,7 +804,7 @@
       "number": 1533,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1449,
       "do_not_duplicate": true,
       "summary": "Correct relayerFeeDetails discount handling."
@@ -718,7 +814,7 @@
       "number": 1723,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1685,
       "do_not_duplicate": true,
       "summary": "Optional-null rewrite and Jest CJS documentation fixes."
@@ -728,7 +824,7 @@
       "number": 29,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 23,
       "do_not_duplicate": true,
       "summary": "Surface RPC forwarding errors."
@@ -738,7 +834,7 @@
       "number": 1426,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 1425,
       "do_not_duplicate": true,
       "summary": "Preserve nonce value 0."
@@ -748,7 +844,7 @@
       "number": 5767,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 5552,
       "do_not_duplicate": true,
       "summary": "Preserve non-EVM aliases in createNamespaces."
@@ -758,7 +854,7 @@
       "number": 5240,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 5233,
       "do_not_duplicate": true,
       "summary": "Avoid reconnect remaining stuck after rejecting isAuthorized."
@@ -768,7 +864,7 @@
       "number": 5766,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 5752,
       "do_not_duplicate": true,
       "summary": "Pass Meld onramp countryCode correctly."
@@ -778,7 +874,7 @@
       "number": 2703,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2574,
       "do_not_duplicate": true,
       "summary": "Fix mobile connect GET/store link flow."
@@ -788,7 +884,7 @@
       "number": 5186,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 5091,
       "do_not_duplicate": true,
       "summary": "Correct Signature._yParity handling."
@@ -798,7 +894,7 @@
       "number": 5763,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": null,
       "do_not_duplicate": true,
       "summary": "Improve modal accessible names."
@@ -808,7 +904,7 @@
       "number": 2701,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-14",
       "issue": 2700,
       "do_not_duplicate": true,
       "summary": "Correct Account modal titleId."
@@ -910,7 +1006,7 @@
       ],
       "do_not_duplicate": true,
       "last_checked": "2026-09-14",
-      "note": "FreeBSD/non-Windows default_store_dir panic at crates/config/src/defaults.rs. Fixed by merged PR #14863 (commit fcce4e8) on 2026-09-14."
+      "note": "Closed by merged PR #14863 (fcce4e8)."
     },
     {
       "repo": "ssf0409/tracelens",
@@ -1406,13 +1502,16 @@
       "last_checked": "2026-09-14"
     },
     {
-      "do_not_duplicate": false,
-      "related_prs": [],
+      "do_not_duplicate": true,
+      "related_prs": [
+        262
+      ],
       "repo": "pytest-dev/pytest-env",
-      "note": "PRIMARY GO candidate: document pytest-native [pytest] env table in pytest.toml/.pytest.toml (README-only docs fix, ~10 lines). Filed 2026-09-12, 0 comments, no labels, no assignee, clean timeline, repo has 0 open PRs, pushed 2026-09-08. Maintainer gaborbernat merged outside README-adjacent PR #260 on 2026-09-08. No CONTRIBUTING.md, workflows check.yaml/release.yaml only, no auto-close bots. Unglamorous docs lane = low race; move fast. IN PROGRESS by parallel GLM session (user-confirmed) as of 2026-09-14.",
-      "status": "open",
+      "note": "Closed by merged PR #262 (e8c1b87).",
+      "status": "closed",
       "number": 261,
-      "last_checked": "2026-09-14"
+      "last_checked": "2026-09-14",
+      "attempted": true
     },
     {
       "do_not_duplicate": false,
@@ -2372,6 +2471,44 @@
         3678
       ],
       "focus": "Rspress documentation site generator; search initialization and FlexSearch behavior."
+    },
+    "pytest-dev/pytest-env": {
+      "contributions": [
+        262
+      ],
+      "focus": ""
+    },
+    "devtechedge/regulatory_compliance": {
+      "contributions": [
+        4,
+        3,
+        2
+      ],
+      "focus": ""
+    },
+    "devtechedge/veritas-engine": {
+      "contributions": [
+        3
+      ],
+      "focus": ""
+    },
+    "devtechedge/luxe-tracker": {
+      "contributions": [
+        7
+      ],
+      "focus": ""
+    },
+    "devtechedge/aarop": {
+      "contributions": [
+        2
+      ],
+      "focus": ""
+    },
+    "devtechedge/notion-clone": {
+      "contributions": [
+        2
+      ],
+      "focus": ""
     }
   }
 }

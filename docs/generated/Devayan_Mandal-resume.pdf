@@ -23,7 +23,7 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed) Tj T*
 (production work. Built 30+ production-grade systems across autonomous multi-agent) Tj T*
 (platforms, MCP integrations, deterministic RL evaluation, real-time observability, and) Tj T*
-(high-throughput web applications. Merged 12 upstream pull requests across TypeScript,) Tj T*
+(high-throughput web applications. Merged 20 upstream pull requests across TypeScript,) Tj T*
 (JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth,) Tj T*
 (thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy,) Tj T*
 (verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and) Tj T*
@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5125 >>
+<< /Length 5116 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
@@ -126,6 +126,8 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
+(- pytest-dev/pytest-env #262 \(TypeScript\) - document [pytest] env configuration in) Tj T*
+(pytest.toml / .pytest.toml Merged Sep 2026. github.com/pytest-dev/pytest-env/pull/262) Tj T*
 (- pnpm/pnpm #14863 \(Rust/TypeScript\) - fixed startup crashes on FreeBSD and other) Tj T*
 (non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path;) Tj T*
 (added platform-specific regression coverage. Merged Sep 2026.) Tj T*
@@ -152,8 +154,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (package-manager switching downloaded the configured engine; added unit and) Tj T*
 (filesystem-backed regression coverage across Rust and TypeScript paths. Merged Sep 2026.) Tj T*
 (github.com/pnpm/pnpm/pull/14753) Tj T*
-(- SQLMesh/sqlmesh #6040 \(Python\) - moved ModelTest.create_test\(\) off concurrent worker) Tj T*
-(threads to eliminate a time_machine/ttl_cache race in sqlmesh test; verified the focused) Tj T*
 ET
 endstream
 endobj
@@ -161,9 +161,11 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 2627 >>
+<< /Length 4066 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
+(- SQLMesh/sqlmesh #6040 \(Python\) - moved ModelTest.create_test\(\) off concurrent worker) Tj T*
+(threads to eliminate a time_machine/ttl_cache race in sqlmesh test; verified the focused) Tj T*
 (race regression repeatedly. Merged Sep 2026. github.com/SQLMesh/sqlmesh/pull/6040) Tj T*
 (- anza-xyz/kit #2032 \(TypeScript\) - restored number predicates in the getPatternMatchCodec) Tj T*
 (advanced guide to match current codec typing. Merged Sep 2026.) Tj T*
@@ -179,6 +181,20 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (401/429/timeout failures rethrow instead of rendering a false "Token Not Supported" state) Tj T*
 (in CheckoutWidget; added tests and a patch changeset. Merged Sep 2026.) Tj T*
 (github.com/thirdweb-dev/js/pull/8938) Tj T*
+(- devtechedge/regulatory_compliance #4 \(TypeScript\) - allow localhost API in CSP) Tj T*
+(connect-src for e2e Merged Sep 2026. github.com/devtechedge/regulatory_compliance/pull/4) Tj T*
+(- devtechedge/regulatory_compliance #3 \(TypeScript\) - restore full data/ seed tree for) Tj T*
+(backend + e2e Merged Sep 2026. github.com/devtechedge/regulatory_compliance/pull/3) Tj T*
+(- devtechedge/veritas-engine #3 \(TypeScript\) - drop CSP that broke next-dev Playwright e2e) Tj T*
+(Merged Sep 2026. github.com/devtechedge/veritas-engine/pull/3) Tj T*
+(- devtechedge/luxe-tracker #7 \(TypeScript\) - actually remove double comma after typescript) Tj T*
+(block Merged Sep 2026. github.com/devtechedge/luxe-tracker/pull/7) Tj T*
+(- devtechedge/aarop #2 \(TypeScript\) - drop CSP that broke next-dev Playwright e2e Merged) Tj T*
+(Sep 2026. github.com/devtechedge/aarop/pull/2) Tj T*
+(- devtechedge/notion-clone #2 \(TypeScript\) - convert next.config.ts to next.config.mjs for) Tj T*
+(Next 14 Merged Sep 2026. github.com/devtechedge/notion-clone/pull/2) Tj T*
+(- devtechedge/regulatory_compliance #2 \(TypeScript\) - array.from for Set + restore) Tj T*
+(data/frameworks seed Merged Sep 2026. github.com/devtechedge/regulatory_compliance/pull/2) Tj T*
 (<<<END:LEDGER:MERGED_LIST>>>) Tj T*
 ( ) Tj T*
 (Active upstream engineering spans AI infrastructure, developer tooling, package management,) Tj T*
@@ -219,10 +235,10 @@ xref
 0000000253 00000 n 
 0000005088 00000 n 
 0000005214 00000 n 
-0000010391 00000 n 
-0000010517 00000 n 
-0000013196 00000 n 
+0000010382 00000 n 
+0000010508 00000 n 
+0000014626 00000 n 
 trailer << /Size 10 /Root 1 0 R >>
 startxref
-13266
+14696
 %%EOF
