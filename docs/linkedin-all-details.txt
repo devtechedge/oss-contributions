@@ -11,7 +11,7 @@ My engineering focus is bounded autonomy: explicit state machines over opaque pr
 
 I have built and shipped 30+ production-grade systems spanning autonomous agents, MCP integrations, RLVR evaluation environments, real-time telemetry, developer tooling, Web3 infrastructure, and high-throughput web applications. I own the full lifecycle from architecture and implementation through testing, deployment, observability, iteration, and upstream contribution.
 
-I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 10 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, and Anza Kit.
+I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 11 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 WHAT I BUILD & ARCHITECT
 
@@ -36,7 +36,7 @@ OPEN SOURCE
 
 Canonical ledger: https://github.com/devtechedge/oss-contributions
 
-10 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
+11 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
 
 • recharts/recharts #7805 — removed tabIndex={-1} from z-index portal SVG layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage.
 • pnpm/pnpm #14753 — fixed lockfile:false being ignored during automatic package-manager switching; added Rust and TypeScript regression coverage.
@@ -48,6 +48,7 @@ Canonical ledger: https://github.com/devtechedge/oss-contributions
 • better-auth/better-auth #11208 — added regression coverage preserving the /phone-number/verify OpenAPI requestBody after a Zod intersection.
 • thirdweb-dev/js #8938 — fixed useTokenQuery so genuine 401/429/timeout failures rethrow instead of becoming a false Token Not Supported state.
 • anza-xyz/kit #2032 — restored number predicates in the getPatternMatchCodec advanced guide to match current codec typing.
+• web-infra-dev/rspress #3678 — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix.
 
 Active upstream engineering spans AI infrastructure, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.
 
@@ -140,7 +141,7 @@ DESCRIPTION
 
 Independent upstream contributor working across mature AI, developer-tooling, package-management, framework, SDK, and blockchain repositories. Maintains a canonical public ledger at https://github.com/devtechedge/oss-contributions.
 
-10 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, and Anza Kit.
+11 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 Representative work:
 
@@ -152,6 +153,7 @@ Representative work:
 • Better Auth — locked OpenAPI requestBody regression coverage for /phone-number/verify.
 • thirdweb — corrected CheckoutWidget token-query error propagation for 401, 429, and timeout failures.
 • Anza Kit — restored correct numeric predicates in an advanced codec documentation example.
+• Rspress — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; merged in #3678.
 
 Active contribution areas include AI runtimes, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.
 
