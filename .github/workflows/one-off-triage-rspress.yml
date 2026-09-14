@@ -1,0 +1,52 @@
+name: one-off-triage-rspress
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update Rspress ledger
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, subprocess
+          path = Path('docs/triage/triage.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          data['last_updated'] = '2026-09-14'
+          record = {
+              'repo': 'web-infra-dev/rspress', 'number': 3678, 'status': 'merged',
+              'merged': '2026-09-14', 'last_checked': '2026-09-14', 'issue': 3658,
+              'do_not_duplicate': True,
+              'summary': 'Fixes #3658: LocalProvider.init() now awaits FlexSearch addAsync() indexing across the three indexes before initialization resolves, preventing early searches from incorrectly showing no results on larger sites. One-file focused change, +7/-3. Merge commit 26f6cd4.'
+          }
+          pr = next((x for x in data['pull_requests'] if x.get('repo') == record['repo'] and x.get('number') == record['number']), None)
+          if pr is None: data['pull_requests'].insert(0, record)
+          else: pr.clear(); pr.update(record)
+          issue = next((x for x in data['issues'] if x.get('repo') == 'web-infra-dev/rspress' and x.get('number') == 3658), None)
+          if issue is None:
+              issue = {'repo':'web-infra-dev/rspress','number':3658}
+              data['issues'].insert(0, issue)
+          issue.update({'status':'closed','attempted':True,'related_prs':[3678],'do_not_duplicate':True,'closed':'2026-09-14','last_checked':'2026-09-14','note':'Closed as completed after PR #3678 merged. LocalProvider.init() now awaits all three FlexSearch addAsync() calls before search initialization resolves, eliminating the early-search no-results race on larger sites.'})
+          repo = data['repositories'].get('web-infra-dev/rspress')
+          if repo is None: data['repositories']['web-infra-dev/rspress']={'contributions':[3678],'focus':'Rspress documentation site generator; search initialization and FlexSearch behavior.'}
+          else:
+              repo.setdefault('contributions',[])
+              if 3678 not in repo['contributions']: repo['contributions'].append(3678)
+          path.write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+          json.loads(path.read_text(encoding='utf-8'))
+          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
+          subprocess.run(['git','add','docs/triage/triage.json'],check=True)
+          subprocess.run(['git','commit','-m','triage: record merged Rspress #3678 correctly'],check=True)
+          subprocess.run(['git','push'],check=True)
+          PY
