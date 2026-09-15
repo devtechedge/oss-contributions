@@ -1947,6 +1947,16 @@
       "do_not_duplicate": true,
       "note": "renderToString strips the rmx:flush document marker, so its output cannot be navigated by the client runtime. Fixed by PR #11877 (2026-09-15). Repro repo: https://github.com/devtechedge/remix-render-to-string-navigation.",
       "last_checked": "2026-09-15"
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "number": 8433,
+      "status": "open",
+      "attempted": false,
+      "related_prs": [],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-16",
+      "note": "Support click 8.5.0+. Issue is clean (open, no assignee, no linked PR, pin still click<8.5.0 on main) but skipped for the repo-level AgentScan auto-close gate. Soft claim comment by jagadeepmamidi on 2026-09-05, 0 PRs from them since. Repo-level hard gate (verified 2026-09-16): .github/workflows/agent-scan.yml runs AgentScan on pull_request_target types:[opened] with a write-capable token before any maintainer sees the PR, skipping only owner/member. Classification 'automation' or a community-flagged account gets the label 'possible bot' AND an immediate close. Observed in-repo: 30 PRs carry the label and at least 15 were closed 12-17 seconds after opening (#8482, #8474, #8465, #8435, #8414, #8394, #8383, #8358, #8348, #8347, #8346, #8341, #8333, #8332, #8331, #8330). The close fires on account signals at open, so AI disclo"
     }
   ],
   "closed_attempts": [
@@ -2121,6 +2131,13 @@
       "checked": "2026-09-16",
       "do_not_duplicate": true,
       "reason": "Account-integrity no-go, re-verified 2026-09-16: repo-root AI_POLICY.md still states agents may only interact with the repository for code review, and that creating PRs, opening issues, or posting comments under the username is not permitted; AI disclosure is mandatory. Issue itself remains clean (open, 0 comments, no assignee, no linked PR), so it is a valid target only if the user opens the PR personally with disclosure."
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "issue": 8433,
+      "checked": "2026-09-16",
+      "do_not_duplicate": true,
+      "reason": "Repo-level hard gate (verified 2026-09-16): .github/workflows/agent-scan.yml runs AgentScan on pull_request_target types:[opened] with a write-capable token before any maintainer sees the PR, skipping only owner/member. Classification 'automation' or a community-flagged account gets the label 'possible bot' AND an immediate close. Observed in-repo: 30 PRs carry the label and at least 15 were closed 12-17 seconds after opening (#8482, #8474, #8465, #8435, #8414, #8394, #8383, #8358, #8348, #8347, #8346, #8341, #8333, #8332, #8331, #8330). The close fires on account signals at open, so AI disclosure in the body does not prevent it. devtechedge is already flagged by AgentScan on the same signals (volume, bulk forks, issue-to-PR in minutes). Scan does not re-fire on reopen, but SKILL.md 7 says never refile an auto-closed issue from the same account and never reply to the auto-close bot, so both branches end badly. Treat sqlfluff/sqlfluff as no-go for this account until the gate changes."
     }
   ],
   "repositories": {
@@ -2456,7 +2473,9 @@
     },
     "sqlfluff/sqlfluff": {
       "focus": "SQL linter; fresh dialect/grammar issues raced next day.",
-      "contributions": []
+      "contributions": [],
+      "agent_scan_gate": true,
+      "note": "AgentScan auto-close gate as of 2026-09-16: PRs from fork authors can be labelled 'possible bot' and closed within seconds of opening. Do not open here until the workflow changes."
     },
     "pygments/pygments": {
       "contributions": [
