@@ -305,3 +305,15 @@ When a human maintainer merges one of our PRs, send a short thank-you note on th
   privately on disk instead if it is worth keeping.
 
 See `docs/SYNC.md`.
+
+## 16. Fork hygiene (a fork lives only as long as its PR)
+
+- Rule: a fork exists to serve one PR. Delete it when that PR merges or is finally closed, so the fork count tracks live PRs instead of accumulating.
+- Never delete a fork that has an open PR upstream. The PR's head branch lives on the fork, and deletion is permanent (GitHub offers only a best-effort restore for some repositories, within 90 days).
+- Never edit upstream prose inside a fork. Changing a fork's text creates divergence on branches nobody reviews, and the next upstream sync fights it. Deletion is the right lever, editing is not.
+- Account-wide text sweeps cover owned repositories only. Forks of upstream projects are out of scope.
+- Before deleting, three checks: no open PR from that fork, no branch holding our own work, and no local clone that depends on the fork's remote.
+- `compare` `ahead_by > 0` does not prove a branch is ours, because a fork carries every branch that existed upstream at fork time and a stale upstream branch reads as ahead. Check the branch tip's `author.login` instead, and keep the fork when the work is ours and no local clone has it.
+- Delete in batches of about ten with a repo count check after each batch (`gh api user --jq .public_repos`), then confirm the open PR count is unchanged.
+- `gh repo delete` needs the `delete_repo` scope; without it the call 403s. Add it with `gh auth refresh -s delete_repo`, which requires an interactive device flow.
+- Pruning also blunts the "bulk forks" pattern that got the account flagged, and it stops 74 forks from burying the owned repositories on the profile.
