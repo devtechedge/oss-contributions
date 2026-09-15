@@ -2288,7 +2288,8 @@
         2849,
         2859
       ],
-      "focus": "Stellar documentation; account, networking, transaction, and configuration guidance."
+      "focus": "Stellar documentation; account, networking, transaction, and configuration guidance.",
+      "note": "Post-merge flow observed 2026-09-16: after a merge, ElliotFriend deploys and comments on the source issue with the merge commit, deploy time, and live-verification timestamp, then files the [upstream-ready] recheck issue in stellar-experimental/stellar-raven himself (sd-040 #158, sd-041 #159, sd-044 #160). Do not file a duplicate Raven notice there even when an earlier issue comment of ours promised one. Review feedback also arrives from kaankacar on raven-labelled issues; confirm each point actually landed in the shipped file before treating the PR as done."
     },
     "stellar/freighter": {
       "contributions": [
