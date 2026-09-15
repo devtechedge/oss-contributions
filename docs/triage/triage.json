@@ -402,10 +402,15 @@
       "status": "closed",
       "mergeable": false,
       "opened": "2026-09-08",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-16",
       "issue": 2721,
       "do_not_duplicate": true,
-      "summary": "JS port of CVE-2026-71433: stop namespace sibling leakage in search for InMemory and Postgres stores."
+      "summary": "JS port of CVE-2026-71433: stop namespace sibling leakage in search for InMemory and Postgres stores.",
+      "competing_prs": [
+        2825,
+        2828
+      ],
+      "note": "Closed by hntrl (MEMBER) 2026-09-14 in favor of #2825/#2828: he agreed with the fix but called the `:` constraint on Postgres an over-optimization, then walked that assertion back on 2026-09-15 and explained the close was about splitting Postgres and InMemory into separate PRs, not a rejection of the approach. Our InMemory work carries forward in #2828 (author byhow, branch codex/inmemory-namespace-boundaries, Co-authored-by: Dev M), which hntrl approved 2026-09-14 and is mergeable/clean. #2825 (Postgres) is still open. Credit if #2828 merges is co-authorship, not authorship."
     },
     {
       "repo": "drizzle-team/drizzle-orm",
