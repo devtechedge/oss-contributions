@@ -411,12 +411,16 @@
       "repo": "drizzle-team/drizzle-orm",
       "number": 6258,
       "status": "open",
-      "mergeable": false,
+      "mergeable": true,
       "opened": "2026-09-08",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 6253,
       "do_not_duplicate": true,
-      "summary": "drizzle-kit pull no longer treats every two-FK domain table as a many-to-many junction."
+      "summary": "drizzle-kit pull no longer treats every two-FK domain table as a many-to-many junction.",
+      "competing_prs": [
+        6297
+      ],
+      "note": "Rebased onto rc5 8df2cdb0 on 16 Sep 2026 (head 5b57790); one conflict, in changelogs/drizzle-kit/1.0.0-rc.5.md where both sides appended bullets, resolved by keeping all three. Issue 6253 is still open and rc5 still carries the old `if (fks.length === 2)` check. Competitor #6297 (ks342, opened 14 Sep, mergeable) targets the same issue on the same base. Held rather than closed per the never-yield directive; posted one note stating ours has been open since 7 Sep and is rebased and ready."
     },
     {
       "repo": "TanStack/router",
@@ -454,10 +458,12 @@
       "number": 2051,
       "status": "open",
       "opened": "2026-09-13",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 1839,
       "do_not_duplicate": true,
-      "summary": "Wallet plugin documentation correction."
+      "summary": "Wallet plugin documentation correction.",
+      "mergeable": true,
+      "note": "Rebased onto main 1b931d7 on 16 Sep 2026; head now daca451, re-signed and verified. Only conflict was docs/pnpm-lock.yaml, resolved by taking main's lockfile wholesale and regenerating with `pnpm install --lockfile-only --ignore-workspace` (purely additive, +43/-0). All checks green; docs content byte-identical to the pre-rebase version. Still fills a real gap: main has no wallet.mdx and setting-up-signers.mdx still says the plugin is 'on its way'."
     },
     {
       "repo": "wormhole-foundation/wormhole-connect",
@@ -1162,9 +1168,11 @@
       "status": "open",
       "attempted": true,
       "related_prs": [
-        6258
+        6258,
+        6297
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-16"
     },
     {
       "repo": "TanStack/router",
