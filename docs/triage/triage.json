@@ -944,7 +944,7 @@
       "issue": 11808,
       "do_not_duplicate": true,
       "branch": "devtechedge/flush-kind-inference",
-      "commit": "eb316b7",
+      "commit": "eb23084",
       "summary": "Fixes issue #11808 (renderToString output cannot be navigated by the client runtime). packages/ui/src/runtime/frame.ts now infers the flush kind from markup when HTML carries no rmx:flush marker: HTML starting with a doctype or <html> is a document, not a fragment. Covers both the string path in renderContent and the end-of-stream remainder in renderFrameStream. Root cause confirmed by source read: renderToString wraps renderToStream in stripFlushMarkers, isFullDocumentReload gated on flushKind === 'document', and the fragment fallback parses inside a <template>, dropping html/head/body so diffNodes throws HierarchyRequestError. Three regressions in src/test/frame.test.ts (stream, string, real renderToString output) fail on main with that error and pass after. Full packages/ui suite green: 1081 tests, 1056 pass, 0 fail, 24 todo. oxlint clean on packages/ui. Patch change file added at packages/ui/.changes/patch.infer-document-flush-kind.md. Issue author aron-intframe independently reproduced and proposed the same approach first; maintainer brookslybrand ran /review issue and the bot asked for a minimal runnable repro, delivered at https://github.com/devtechedge/remix-render-to-string-navigation."
     }
   ],
