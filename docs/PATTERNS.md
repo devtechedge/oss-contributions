@@ -113,6 +113,96 @@ Companion to `SKILL.md`. Read on demand during scans and before implementing. Ev
 - CONTRIBUTING's stated base branch can contradict practice. `safe-global/safe-core-sdk` says branch from `development`, yet all 18 recent human merges targeted `main`. Check `baseRefName` on recent merged PRs before retargeting or offering to retarget.
 - A single polite comment per PR thread is the right response to a green, mergeable PR with no maintainer contact after about a week, and it beats closing. Collaborators are auto-subscribed to repository notifications, so no `@`-mention is needed, and naming the wrong owner is worse than naming none. One sentence per paragraph, varied openings across the batch, no apology, and close by offering a concrete concession (retarget it, split the diff, land a smaller part of it).
 
+## Environment, git and signing (this machine)
+
+Everything in this section was learned the hard way on the user's Windows box: Git Bash,
+git-for-Windows, and a native Windows OpenSSH agent. It lives here rather than in a local memory
+file so that Codex, zcode, Cline and Grok have it too. On a non-Windows host treat the
+Windows-specific items as informational. Re-verify anything that carries a date.
+
+### Shell and tooling
+
+- `gh` needs `export APPDATA='C:\Users\Devayan Mandal\AppData\Roaming'` first, in backslash form
+  only: the `/c/...` form makes gh report "not logged in". Config sits at
+  `...\AppData\Roaming\GitHub CLI\hosts.yml`. Never "fix" auth with `gh auth login`.
+- Never `base64 -w0`: it silently writes empty stdout on this box, and that has pushed 0-byte files
+  to a default branch. Use Python `base64` and verify the result with
+  `gh api .../contents/<path> --jq .size`.
+- `/tmp` is unreliable, so scratch goes in `~/osswork`. `$TEMP` resolves to `/tmp`, which native `gh`
+  cannot open, so pass request bodies with `--body "$VAR"` rather than `--body-file`.
+- The Bash tool's default timeout is 120s, so `sleep 180` gets SIGTERMed. Pass an explicit `timeout`
+  when waiting on CI.
+- Never create a venv: `uv` dies with `RECORD file is invalid`, and `python -m venv` silently no-ops
+  even outside the workspace. For a single CLI tool, unzip the pinned wheel out of the repo's
+  `uv.lock` with Python `zipfile`.
+- Match the tool version CI uses rather than the newest: a newer ruff reformatted 16 files where CI
+  wanted 1. Pin lookup: `awk '/^name = "ruff"$/{p=1} p' uv.lock`.
+- `uv` and long `pytest` runs get SIGTERMed under the sandbox. Re-run with the sandbox off and
+  redirect to a file; piping to `tail` loses everything when the command is killed.
+- Python `os.remove()` is intercepted by the WorkBuddy shim and raises `OSError: SHFileOperationW`.
+  Delete scratch files with bash `rm -f`.
+- The Contents API is authoritative; `raw.githubusercontent.com` is a CDN cache that has served stale
+  bodies minutes after a push.
+
+### Git landmines
+
+- **Never `git stash`.** It corrupted the object store on `reviewgate-143` and `tracelens`. Use
+  `git show HEAD:<path>` to compare instead.
+- **Never chain git mutations with `&&`.** One mutating command per call, then `git status`. A chained
+  `git rm -f` plus `git checkout` that got SIGTERMed left 292 files deleted and a stale
+  `.git/index.lock` (narwhals #3944, 15 Sep 2026). Recovery: `rm -f .git/index.lock`, then
+  `git checkout HEAD -- <dir>`; the objects survive.
+- Local branches containing `/`, and `refs/remotes/*`, are never persisted here. Work on a slash-free
+  local branch and push with an explicit URL plus refspec:
+  `git push <url> local:refs/heads/remote/branch`.
+- `git push --force-with-lease` always reports "(stale info)" for a slash branch, because no
+  remote-tracking ref is written. Anchor the lease by hand with the remote sha:
+  `--force-with-lease=refs/heads/<branch>:<sha>`.
+- Wrecked `.git` repair (the worktree is always safe): `mv .git .git.broken`, then
+  `git clone --no-checkout <fork> ../tmp && mv ../tmp/.git .git`, re-add the remotes and fetch,
+  `git symbolic-ref HEAD refs/heads/<slash-free>`, `git reset --mixed <sha>`.
+- `gh repo clone <fork>` sets origin to the fork and upstream to the parent in one step, which is
+  usually what you want.
+
+### Signing commits (solved 15 Sep 2026)
+
+- Symptom: with global `commit.gpgsign=true` and `gpg.format=ssh`, `git commit` dies with
+  `fatal: failed to write commit object`. The cause is `C:\Windows\System32\OpenSSH\ssh-keygen.exe`
+  exiting 255 with no output from this shell. PortableGit's `ssh-keygen` and `ssh-add` cannot reach
+  the Win32 agent either, and the key is passphrase-protected.
+- Do NOT fall back to disabling signing permanently, and do NOT hand the re-sign to the user. Commit
+  with `-c commit.gpgsign=false`, then re-sign with a **native Windows Python** (the managed
+  `binaries/python/versions/3.13.12/python.exe`, not MSYS) that opens `\\.\pipe\openssh-ssh-agent`
+  directly and signs with SSH signature namespace `git`. Helpers live at
+  `~/osswork/ssh_agent_sign.py` (agent client plus sshsig encoding) and
+  `~/osswork/sign_commit.py <sha> <ref> <public-key-file>` (rewrites a commit as signed; the tree is
+  unchanged, only the sha moves). If those scripts are absent, they are small to rebuild from the
+  sshsig layout: signed bytes are `SSHSIG + string(namespace) + string("") + string(hash_alg) +
+  string(H(message))`, and the armored form is `SSHSIG + uint32(1) + string(pubkey) +
+  string(namespace) + string("") + string(hash_alg) + string(signature)`, default hash sha512.
+- The signing script moves the branch ref, so sign in order: cherry-pick C1, sign C1, cherry-pick C2,
+  sign C2.
+- A rebase drops signatures. To move a branch onto a newer base, cherry-pick onto the new base and
+  re-sign rather than rebasing signed commits.
+- Never pass the commit message on stdin (`git commit -F -`): with signing on, the message is handed
+  to the passphrase prompt and the commit fails with a bogus "incorrect passphrase". Use `-m` or
+  `-F <file>`.
+- `%GK` and `%G?` are blank without `gpg.ssh.allowedSignersFile`, and `git verify-commit` can exit 1
+  with zero output on a valid SSH signature. Check the object with
+  `git cat-file commit <sha> | grep -q '^gpgsig'` and confirm on the API (`pulls/N/commits` gives
+  `commit.verification.verified`).
+
+### CI and API reads that mislead
+
+- `check-runs` on a freshly pushed head can report only two checks for several minutes while the real
+  workflows are still queued. Confirm with `actions/runs?head_branch=<branch>` before concluding that
+  nothing is running (stellar/js-stellar-sdk #1725, 15 Sep 2026).
+- Fork PRs in some repositories run workflows only after a maintainer approves them, so every run sits
+  at `conclusion: action_required` and the PR reads `mergeable_state: blocked`. Any force-push
+  re-triggers that approval gate, which is a real cost of re-pushing an already-approved PR.
+- `gh search prs --limit N` returns N, not a total. Use
+  `gh api "search/issues?q=...&per_page=1" --jq .total_count` for a count.
+
 ## Dated snapshots
 
 Point-in-time counts, rotting by design. The source of truth is the tracker named with each snapshot; update it there, not here.
