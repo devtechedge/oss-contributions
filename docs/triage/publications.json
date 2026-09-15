@@ -469,16 +469,18 @@
       "merge_commit": "6aafb49f59522b399f0a60642dd815d730cd6904",
       "issue": null,
       "url": "https://github.com/stellar/stellar-docs/pull/2859",
-      "languages": [],
+      "languages": [
+        "MDX"
+      ],
       "org": "stellar",
       "display_name": "stellar-docs",
       "profile_title": "stellar-docs #2859",
       "ledger_logo": "https://github.com/stellar.png?size=40",
       "profile_logo": "https://github.com/stellar.png?size=48",
-      "profile_logo_alt": "stellar-docs",
+      "profile_logo_alt": "Stellar",
       "ledger_what": "Added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR.",
-      "resume_bullet": "stellar/stellar-docs #2859 (TypeScript) - added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2859",
-      "linkedin_bullet": "stellar/stellar-docs #2859 — added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR.",
+      "resume_bullet": "stellar/stellar-docs #2859 (MDX) - added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2859",
+      "linkedin_bullet": "stellar/stellar-docs #2859 - added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR.",
       "profile_line": "added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR.",
       "curated": true
     }
