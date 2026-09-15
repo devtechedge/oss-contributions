@@ -250,7 +250,7 @@ function ensurePublication(pubs, facts, { summary, curated } = {}) {
     profile_logo_alt: display,
     ledger_what: impact,
     resume_bullet: `${facts.repo} #${facts.number} (${langLabel}) - ${uncap(impact)} Merged ${monthYear}. github.com/${facts.repo}/pull/${facts.number}`,
-    linkedin_bullet: `${facts.repo} #${facts.number} — ${uncap(impact)}`,
+    linkedin_bullet: `${facts.repo} #${facts.number} - ${uncap(impact)}`,
     profile_line: uncap(impact),
     curated: Boolean(curated || summary),
   };
@@ -326,7 +326,7 @@ function renderProfileBlock(rec) {
   const alt = rec.profile_logo_alt || rec.display_name || defaultDisplayName(rec.repo);
   const title = rec.profile_title || `${defaultDisplayName(rec.repo)} #${rec.number}`;
   const align = rec.profile_align === false ? "" : ' align="left"';
-  return `<img src="${logo}" width="32" height="32" alt="${alt}"${align} /> **[${title}](${rec.url})** — ${rec.profile_line}`;
+  return `<img src="${logo}" width="32" height="32" alt="${alt}"${align} /> **[${title}](${rec.url})** - ${rec.profile_line}`;
 }
 
 function renderResumeBullet(rec) {
@@ -400,7 +400,7 @@ function publishResume(root, recs, n, dryRun) {
 }
 
 function defaultLinkedinRep(rec) {
-  return `${rec.display_name || defaultDisplayName(rec.repo)} — ${uncap(rec.ledger_what)}`;
+  return `${rec.display_name || defaultDisplayName(rec.repo)} - ${uncap(rec.ledger_what)}`;
 }
 
 function publishLinkedin(root, recs, n, pubs, dryRun) {
@@ -489,7 +489,7 @@ function publishResumeHtml(root, recs, n, dryRun) {
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Devayan Mandal — Resume</title>
+  <title>Devayan Mandal - Resume</title>
   <style>
     :root { color-scheme: light; }
     body { font: 11.5pt/1.45 "Source Sans 3", "Segoe UI", sans-serif; max-width: 800px; margin: 32px auto; color: #1a1c1f; }
