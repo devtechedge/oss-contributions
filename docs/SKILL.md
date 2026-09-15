@@ -154,6 +154,18 @@ No babysitting: never set up a watch, cron job, event listener, or polling loop 
 - Closing our own open PR is a last resort, and never for an approved one. Before closing anything, re-read `reviewDecision`, the last comments and reviews, and the repo's recent merge history from the API, because a hand-off or older note claiming "no human contact" is the most rot-prone field in any summary and can be stale by minutes (16 Sep 2026: a hand-off recorded two `stellar/js-stellar-sdk` PRs as bot-only when a maintainer had closed one and approved the other minutes earlier). For a green, mergeable PR with no maintainer contact after about a week, prefer one polite nudge per thread over closing, and get per-PR approval before any close.
 - Auto-close: if a PR is auto-closed shortly after opening, mark it Closed (not merged) when writing the ledger, never refile that issue from the same account, and never reply to the auto-close bot. Prefer quieter mid-size repositories when auto-closes keep happening.
 
+- **Silence rule (decided 2026-09-16):** when our own comment is the last word on an open PR and no
+  maintainer and no code-review bot has replied for **7 days**, close the PR ourselves. Code-review
+  bots are CodeRabbit, Greptile, Copilot, Qodo, Devin, cubic-dev-ai and their kind; CI, deploy,
+  changeset, codecov, CLA and preview bots do **not** count as a reply, so a thread whose only
+  activity is `vercel`, `changeset-bot` or `netlify` is silence. Two exemptions, both absolute:
+  a PR that is already approved and only waiting on merge (stellar/js-stellar-sdk#1725,
+  safe-global/safe-docs#902 as of 2026-09-16), and a thread where a human maintainer is still
+  actively reviewing, for example changes requested on a fix we just pushed. Close with one short
+  sentence put through the comment approval gate, not silently, and never in a same-day burst after
+  our own ping. A single follow-up comment per PR is the ceiling: do not ping repeatedly and then
+  close. Record the closure in `docs/triage/triage.json` in the same turn.
+
 ## 8. Post-run retrospective (mandatory before retiring a PR session)
 
 Every PR run ends with a retrospective when the session's active work is done - after the PR is opened and the ledger updated, or on a no-go, a closure the user reports, or an abandonment (see section 4.2). Do not skip it on a bad outcome; a closed PR that yields no learned pattern is a wasted run.
@@ -262,5 +274,11 @@ When a human maintainer merges one of our PRs, send a short thank-you note on th
 - One note per merged PR, posted once. Never bump a merged thread a second time.
 - Skip it when the merge came from a bot, an auto-merge queue, or was self-merged.
 - When several merges land at once, post the notes across separate turns rather than in one burst; a sudden cluster of comments on old threads reads as automation.
+
+- **Never publish maintainer praise.** Do not quote maintainers by name in the ledger README, the
+  resume, the LinkedIn copy, or any other generated or public artifact, and do not add a "kind
+  words" section to a public repo. The user judged that too exposed on 2026-09-16: a public page
+  naming volunteers who reviewed our work reads as leverage, not gratitude. Keep such a list
+  privately on disk instead if it is worth keeping.
 
 See `docs/SYNC.md`.
