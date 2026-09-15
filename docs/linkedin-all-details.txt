@@ -40,24 +40,24 @@ Canonical ledger: https://github.com/devtechedge/oss-contributions
 
 <<<LEDGER:LINKEDIN_LIST>>>
 • stellar/stellar-docs #2859 - added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR.
-• stellar/stellar-docs #2850 — documented Quickstart's undocumented `--enable-core-manual-close` flag in the advanced usage docs, covering the `MANUAL_CLOSE` setting it writes into the generated core config, the `manualclose` endpoint that advances one ledger per call, and loopback-bound startup examples for macOS, Linux, and Windows.
-• ssf0409/tracelens #140 — markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.
-• stellar/stellar-docs #2849 — reworked the address conversion example to propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and documented that untrusted XDR must be handled rather than panicking.
-• stellar/stellar-docs #2853 — reconciled memo framing in the pooled accounts guide so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward.
-• stellar/stellar-docs #2851 — qualified the Freighter HTTPS requirement, noting that `http://localhost` is already a Potentially Trustworthy origin under W3C Secure Contexts so loopback needs no TLS.
-• pytest-dev/pytest-env #262 — documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section.
-• pnpm/pnpm #14863 — fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage.
-• web-infra-dev/rspress #3678 — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix.
-• recharts/recharts #7805 — removed tabIndex={-1} from z-index portal SVG layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage.
-• brianc/node-postgres #3772 — stopped Connection.sync() from incorrectly setting the internal _ending flag; added unit coverage for Sync versus disconnect semantics.
-• pnpm/pnpm #14756 — preserved dependency range operators and npm:/jsr: protocol prefixes during pnpm update, including prerelease and exact-version handling.
-• pnpm/pnpm #14754 — fixed non-recursive pattern script runs honoring --no-bail; added concurrent and sequential regression coverage.
-• pnpm/pnpm #14753 — fixed lockfile:false being ignored during automatic package-manager switching; added Rust and TypeScript regression coverage.
-• SQLMesh/sqlmesh #6040 — moved ModelTest.create_test() off concurrent worker threads to eliminate a time_machine/ttl_cache race in sqlmesh tests.
-• anza-xyz/kit #2032 — restored number predicates in the getPatternMatchCodec advanced guide to match current codec typing.
-• better-auth/better-auth #11208 — added regression coverage preserving the /phone-number/verify OpenAPI requestBody after a Zod intersection.
-• biomejs/biome #11667 — ported unicorn better-dom-traversing into Biome's nursery linter in Rust; +1,972 lines across 17 files and 7 commits, distributed through a changeset.
-• thirdweb-dev/js #8938 — fixed useTokenQuery so genuine 401/429/timeout failures rethrow instead of becoming a false Token Not Supported state.
+• stellar/stellar-docs #2850 - documented Quickstart's undocumented `--enable-core-manual-close` flag in the advanced usage docs, covering the `MANUAL_CLOSE` setting it writes into the generated core config, the `manualclose` endpoint that advances one ledger per call, and loopback-bound startup examples for macOS, Linux, and Windows.
+• ssf0409/tracelens #140 - markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.
+• stellar/stellar-docs #2849 - reworked the address conversion example to propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and documented that untrusted XDR must be handled rather than panicking.
+• stellar/stellar-docs #2853 - reconciled memo framing in the pooled accounts guide so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward.
+• stellar/stellar-docs #2851 - qualified the Freighter HTTPS requirement, noting that `http://localhost` is already a Potentially Trustworthy origin under W3C Secure Contexts so loopback needs no TLS.
+• pytest-dev/pytest-env #262 - documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section.
+• pnpm/pnpm #14863 - fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage.
+• web-infra-dev/rspress #3678 - fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix.
+• recharts/recharts #7805 - removed tabIndex={-1} from z-index portal SVG layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage.
+• brianc/node-postgres #3772 - stopped Connection.sync() from incorrectly setting the internal _ending flag; added unit coverage for Sync versus disconnect semantics.
+• pnpm/pnpm #14756 - preserved dependency range operators and npm:/jsr: protocol prefixes during pnpm update, including prerelease and exact-version handling.
+• pnpm/pnpm #14754 - fixed non-recursive pattern script runs honoring --no-bail; added concurrent and sequential regression coverage.
+• pnpm/pnpm #14753 - fixed lockfile:false being ignored during automatic package-manager switching; added Rust and TypeScript regression coverage.
+• SQLMesh/sqlmesh #6040 - moved ModelTest.create_test() off concurrent worker threads to eliminate a time_machine/ttl_cache race in sqlmesh tests.
+• anza-xyz/kit #2032 - restored number predicates in the getPatternMatchCodec advanced guide to match current codec typing.
+• better-auth/better-auth #11208 - added regression coverage preserving the /phone-number/verify OpenAPI requestBody after a Zod intersection.
+• biomejs/biome #11667 - ported unicorn better-dom-traversing into Biome's nursery linter in Rust; +1,972 lines across 17 files and 7 commits, distributed through a changeset.
+• thirdweb-dev/js #8938 - fixed useTokenQuery so genuine 401/429/timeout failures rethrow instead of becoming a false Token Not Supported state.
 <<<END:LEDGER:LINKEDIN_LIST>>>
 
 Active upstream engineering spans AI infrastructure, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.
@@ -156,8 +156,8 @@ Independent upstream contributor working across mature AI, developer-tooling, pa
 Representative work:
 
 <<<LEDGER:LINKEDIN_REP>>>
-• stellar-docs — reconciled contradictory memo guidance in the pooled accounts guide: the intro framed memos as obsolete while later sections still required supporting them. Reworked the intro and opening note so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward, with the guide covering both.
-• tracelens — markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.
+• stellar-docs - reconciled contradictory memo guidance in the pooled accounts guide: the intro framed memos as obsolete while later sections still required supporting them. Reworked the intro and opening note so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward, with the guide covering both.
+• tracelens - markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.
 • pytest-env — documented native [pytest] env configuration for pytest.toml / .pytest.toml, closing a gap in the plugin README.
 • pnpm — fixed lockfile:false handling during automatic engine switching; corrected --no-bail semantics for pattern script runs; preserved dependency range prefixes and protocol prefixes during updates; fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by using the Unix fallback for default_store_dir.
 • Rspress — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; merged in #3678.
