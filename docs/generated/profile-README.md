@@ -72,15 +72,15 @@ I build production-grade AI and full-stack systems and contribute fixes upstream
 
 ## 🚀 Flagship Architectures & Projects
 
-- 🔬 **[Synthesis](https://synthesis-gold.vercel.app/)** — autonomous multi-agent research with planning, research, synthesis, critique, HITL gates, RAG, Reflexion, and live SSE agent graphs ([repo](https://github.com/devtechedge/synthesis)).
-- 💼 **[Jobrow](https://jobrow.vercel.app)** — live register of still-open US tech roles sourced from employer ATS boards, with search, filters, closed-role tracking, and a public JSON API ([repo](https://github.com/devtechedge/job-board)).
-- ⛓️ **[Lattice](https://lattice-devtechedge1.vercel.app)** — Web3 jobs platform aggregating blockchain and crypto roles with salary observatory, talent directory, gigs, and hiring intelligence ([repo](https://github.com/devtechedge/lattice)).
-- 🪐 **[Pulsar](https://devtechedge.github.io/pulsar/)** — decentralized AI compute protocol interface with Base smart contracts, staking flows, wallet connectivity, 3D visualization, tokenomics, and Foundry-tested contracts ([repo](https://github.com/devtechedge/pulsar)).
-- 🧠 **[AAROP](https://aarop.vercel.app)** — explicit Perceive → Plan → Act → Observe → Reflect → Adapt loop with self-verification, bounded autonomy, and replayable traces ([repo](https://github.com/devtechedge/aarop)).
-- ⚖️ **[RegTrace](https://regtrace-ai.vercel.app)** — HITL Web3 compliance copilot mapping packs onto MiCA/VARA with retrieval-bounded findings and article citations ([repo](https://github.com/devtechedge/regulatory_compliance)).
-- 🏥 **[Cadence](https://cadence-healthcare.vercel.app/)** — deep-memory healthcare agent lab with layered patient memory, journey stages, and consent-scoped clinician briefs ([repo](https://github.com/devtechedge/healthcare-deep-memory-agents)).
-- 🔎 **[Veritas](https://veritas-engine-woad.vercel.app)** — LangGraph research agent with SSE streaming, grounded demo mode, and external retrieval when configured ([repo](https://github.com/devtechedge/veritas-engine)).
-- 🔥 **[Chaos Simulator](https://chaos-simulation.vercel.app)** — real-time chaos engineering dashboard with fault injection, self-healing services, animated service topology, scenario orchestration, telemetry, and recovery analysis ([repo](https://github.com/devtechedge/chaos-simulator)).
+- 🔬 **[Synthesis](https://synthesis-gold.vercel.app/)** - autonomous multi-agent research with planning, research, synthesis, critique, HITL gates, RAG, Reflexion, and live SSE agent graphs ([repo](https://github.com/devtechedge/synthesis)).
+- 💼 **[Jobrow](https://jobrow.vercel.app)** - live register of still-open US tech roles sourced from employer ATS boards, with search, filters, closed-role tracking, and a public JSON API ([repo](https://github.com/devtechedge/job-board)).
+- ⛓️ **[Lattice](https://lattice-devtechedge1.vercel.app)** - Web3 jobs platform aggregating blockchain and crypto roles with salary observatory, talent directory, gigs, and hiring intelligence ([repo](https://github.com/devtechedge/lattice)).
+- 🪐 **[Pulsar](https://devtechedge.github.io/pulsar/)** - decentralized AI compute protocol interface with Base smart contracts, staking flows, wallet connectivity, 3D visualization, tokenomics, and Foundry-tested contracts ([repo](https://github.com/devtechedge/pulsar)).
+- 🧠 **[AAROP](https://aarop.vercel.app)** - explicit Perceive → Plan → Act → Observe → Reflect → Adapt loop with self-verification, bounded autonomy, and replayable traces ([repo](https://github.com/devtechedge/aarop)).
+- ⚖️ **[RegTrace](https://regtrace-ai.vercel.app)** - HITL Web3 compliance copilot mapping packs onto MiCA/VARA with retrieval-bounded findings and article citations ([repo](https://github.com/devtechedge/regulatory_compliance)).
+- 🏥 **[Cadence](https://cadence-healthcare.vercel.app/)** - deep-memory healthcare agent lab with layered patient memory, journey stages, and consent-scoped clinician briefs ([repo](https://github.com/devtechedge/healthcare-deep-memory-agents)).
+- 🔎 **[Veritas](https://veritas-engine-woad.vercel.app)** - LangGraph research agent with SSE streaming, grounded demo mode, and external retrieval when configured ([repo](https://github.com/devtechedge/veritas-engine)).
+- 🔥 **[Chaos Simulator](https://chaos-simulation.vercel.app)** - real-time chaos engineering dashboard with fault injection, self-healing services, animated service topology, scenario orchestration, telemetry, and recovery analysis ([repo](https://github.com/devtechedge/chaos-simulator)).
 
 ---
 
