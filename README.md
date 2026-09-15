@@ -33,6 +33,19 @@ This repository serves as the canonical record of upstream contribution activity
 | <img src="https://github.com/biomejs.png?size=40" width="18" /> [biomejs/biome](https://github.com/biomejs/biome) | [#11667](https://github.com/biomejs/biome/pull/11667) | Added the `useBetterDomTraversing` nursery lint rule, ported from `eslint-plugin-unicorn`, with fixtures and release integration. | 8 Sep 2026 |
 | <img src="https://github.com/thirdweb-dev.png?size=40" width="18" /> [thirdweb-dev/js](https://github.com/thirdweb-dev/js) | [#8938](https://github.com/thirdweb-dev/js/pull/8938) | Genuine `useTokenQuery` request failures are rethrown instead of being converted into `Token Not Supported`; added regression tests and changeset. | 7 Sep 2026 |
 <!-- ledger:merged-table:end -->
+
+## ✍️ Selected write-ups
+
+Short technical notes on five of the merged contributions, covering the root cause, why the obvious fix was wrong, and how each change was verified.
+
+- [Sync is not a disconnect](docs/writeups/node-postgres-3772-sync-is-not-a-disconnect.md) - node-postgres #3772
+- [A package manager that cannot print its own version](docs/writeups/pnpm-14863-store-dir-panic-on-unix.md) - pnpm #14863
+- [A focus ring that traced the shape of a bar](docs/writeups/recharts-7805-pointer-focus-rings.md) - recharts #7805
+- [Build the tests before the workers race](docs/writeups/sqlmesh-6040-build-tests-off-worker-threads.md) - SQLMesh #6040
+- [useBetterDomTraversing, and knowing what not to autofix](docs/writeups/biome-11667-use-better-dom-traversing.md) - Biome #11667
+
+Full index: [docs/writeups](docs/writeups/README.md).
+
 ## 🔀 Open pull requests
 
 Open work is not enumerated here. Contributions are reviewed upstream on their own timelines, and a long-running PR says more about the upstream queue than about the change. This ledger lists merged contributions only; work in flight is visible on my GitHub profile and in each upstream repository.
