@@ -224,7 +224,7 @@ The workflow:
 2. Updates `docs/triage/triage.json` (status, merge date, merge commit, last_checked, issue closure, repo contribution list)
 3. Upserts `docs/triage/publications.json` without overwriting `curated: true` copy
 4. Regenerates README, resume.txt, linkedin-all-details.txt, and `docs/generated/`
-5. Updates repository About description
+5. Updates repository About description. This only works when the `LEDGER_SYNC_TOKEN` secret exists: PATCHing a repo description is admin-level, so `secrets.GITHUB_TOKEN` fails with 403 "Resource not accessible by integration". The run still reports success and About silently goes stale (it sat at 13 while the README already said 17), so after every sync confirm the About count matches the README. Without that secret the profile README step is skipped too.
 6. Validates merged counts across every publication target
 7. Commits only when something actually changed
 
@@ -241,6 +241,7 @@ Every merged PR gets real impact prose, never a one-line restatement of its titl
 - **Set `curated: true` when writing it.** A record left at `curated: false` keeps whatever title-derived stub the reconciler generated, and no later run will improve it. Check the `curated` flag on every newly merged record as part of the merge cascade.
 - Fill all four prose fields consistently: `ledger_what` (sentence case, README), `profile_line` (lowercase first letter, profile block), `resume_bullet`, `linkedin_bullet`.
 - `profile_logo_alt` must not repeat the visible title. Alt text is what renders when the avatar fails to load, so `alt="stellar-docs"` beside a `stellar-docs #2849` heading reads as one run-on string. Use the org or product name (`Stellar`).
+- After any sync, check the new record's `languages` field. An empty one makes the reconciler fall back to a wrong language in the resume bullet (a pure-Python repo was published as TypeScript until it was corrected by hand).
 
 ## 15. Gratitude to maintainers after a merge
 
