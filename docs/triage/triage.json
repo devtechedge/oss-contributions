@@ -754,7 +754,7 @@
     {
       "repo": "stellar/js-stellar-sdk",
       "number": 1723,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-15",
       "issue": 1685,
