@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5147 >>
+<< /Length 5143 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
@@ -126,10 +126,10 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
-(- ssf0409/tracelens #140 \(TypeScript\) - markdown table cells in the report generator are) Tj T*
-(now escaped with html.escape in addition to pipe and newline handling. Task ids or gate) Tj T*
-(values containing pipes, line breaks, or HTML metacharacters no longer break the per-task) Tj T*
-(and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML) Tj T*
+(- ssf0409/tracelens #140 \(Python\) - markdown table cells in the report generator are now) Tj T*
+(escaped with html.escape in addition to pipe and newline handling. Task ids or gate values) Tj T*
+(containing pipes, line breaks, or HTML metacharacters no longer break the per-task and) Tj T*
+(baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML) Tj T*
 (element. Merged Sep 2026. github.com/ssf0409/tracelens/pull/140) Tj T*
 (- stellar/stellar-docs #2849 \(TypeScript\) - reworked the address conversion example to) Tj T*
 (propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed) Tj T*
@@ -238,10 +238,10 @@ xref
 0000000253 00000 n 
 0000005088 00000 n 
 0000005214 00000 n 
-0000010413 00000 n 
-0000010539 00000 n 
-0000014860 00000 n 
+0000010409 00000 n 
+0000010535 00000 n 
+0000014856 00000 n 
 trailer << /Size 10 /Root 1 0 R >>
 startxref
-14930
+14926
 %%EOF
