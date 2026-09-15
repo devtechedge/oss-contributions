@@ -1909,10 +1909,12 @@
       "number": 1940,
       "status": "open",
       "attempted": false,
-      "related_prs": [],
-      "do_not_duplicate": false,
-      "note": "CANDIDATE (scan 2026-09-14): four FILENAME_ICONS entries (.atom .idea .rvm .zsh_sessions) unreachable because icon_for_file() early-returns for directories and those names are directories in practice. Filed 2026-09-12 by MQDuck (NONE), 0 comments, timeline clean, no PR touches FILENAME_ICONS, reporter has no open PRs. Fix: directory-vs-file check order in icon_for_file() (src/theme/icon.rs) + tests. Repo pushed_at 2026-08-06 (default branch quiet, PRs can sit unmerged). No AI policy in CONTRIBUTING.md.",
-      "last_checked": "2026-09-14"
+      "related_prs": [
+        1943
+      ],
+      "do_not_duplicate": true,
+      "note": "RACED (verified 2026-09-16): PR #1943 by yuefdev 'fix(icons): move directory-only names to DIRECTORY_ICONS' opened 2026-09-14, still open and mergeable, cross-referenced on this issue. Raced-target rule: do not duplicate. CANDIDATE (scan 2026-09-14): four FILENAME_ICONS entries (.atom .idea .rvm .zsh_sessions) unreachable because icon_for_file() early-returns for directories and those names are directories in practice. Filed 2026-09-12 by MQDuck (NONE), 0 comments, timeline clean, no PR touches FILENAME_ICONS, report",
+      "last_checked": "2026-09-16"
     },
     {
       "repo": "eza-community/eza",
@@ -2116,9 +2118,9 @@
     {
       "repo": "beetbox/beets",
       "issue": 7019,
-      "checked": "2026-09-14",
+      "checked": "2026-09-16",
       "do_not_duplicate": true,
-      "reason": "Account-integrity no-go: repo-root AI_POLICY.md prohibits agents from creating PRs, opening issues, or posting comments under the user account (agents allowed for code review only) and mandates AI-usage disclosure on LLM-assisted code. Verified 2026-09-14 before any coding; issue itself was clean (open, 0 comments, no assignee, no cross-referenced events, no competing modify/select PR). Bug is real: beet modify select path writes ModifyOperation repr into fields via beets/ui/commands/modify.py. Revisit only if the human opens the PR personally with the required AI disclosure."
+      "reason": "Account-integrity no-go, re-verified 2026-09-16: repo-root AI_POLICY.md still states agents may only interact with the repository for code review, and that creating PRs, opening issues, or posting comments under the username is not permitted; AI disclosure is mandatory. Issue itself remains clean (open, 0 comments, no assignee, no linked PR), so it is a valid target only if the user opens the PR personally with disclosure."
     }
   ],
   "repositories": {
