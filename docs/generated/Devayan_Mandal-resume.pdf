@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5164 >>
+<< /Length 5190 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
@@ -126,24 +126,26 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
-(- stellar/stellar-docs #2850 \(TypeScript\) - document the --enable-core-manual-close flag in) Tj T*
-(Quickstart advanced usage Merged Sep 2026. github.com/stellar/stellar-docs/pull/2850) Tj T*
+(- stellar/stellar-docs #2850 \(MDX\) - documented Quickstart's undocumented) Tj T*
+(`--enable-core-manual-close` flag in the advanced usage docs, covering the `MANUAL_CLOSE`) Tj T*
+(setting it writes into the generated core config, the `manualclose` endpoint that advances) Tj T*
+(one ledger per call, and loopback-bound startup examples for macOS, Linux, and Windows.) Tj T*
+(Merged Sep 2026. github.com/stellar/stellar-docs/pull/2850) Tj T*
 (- ssf0409/tracelens #140 \(Python\) - markdown table cells in the report generator are now) Tj T*
 (escaped with html.escape in addition to pipe and newline handling. Task ids or gate values) Tj T*
 (containing pipes, line breaks, or HTML metacharacters no longer break the per-task and) Tj T*
 (baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML) Tj T*
 (element. Merged Sep 2026. github.com/ssf0409/tracelens/pull/140) Tj T*
-(- stellar/stellar-docs #2849 \(TypeScript\) - reworked the address conversion example to) Tj T*
-(propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed) Tj T*
-(XDR, and documented that untrusted XDR must be handled rather than panicking. Merged Sep) Tj T*
-(2026. github.com/stellar/stellar-docs/pull/2849) Tj T*
-(- stellar/stellar-docs #2853 \(TypeScript\) - reconciled memo framing in the pooled accounts) Tj T*
-(guide so memos read as the legacy mechanism still in active use and muxed accounts as) Tj T*
-(preferred going forward. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853) Tj T*
-(- stellar/stellar-docs #2851 \(TypeScript\) - qualified the Freighter HTTPS requirement,) Tj T*
-(noting that `http://localhost` is already a Potentially Trustworthy origin under W3C Secure) Tj T*
-(Contexts so loopback needs no TLS. Merged Sep 2026.) Tj T*
-(github.com/stellar/stellar-docs/pull/2851) Tj T*
+(- stellar/stellar-docs #2849 \(MDX\) - reworked the address conversion example to propagate) Tj T*
+(the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and) Tj T*
+(documented that untrusted XDR must be handled rather than panicking. Merged Sep 2026.) Tj T*
+(github.com/stellar/stellar-docs/pull/2849) Tj T*
+(- stellar/stellar-docs #2853 \(MDX\) - reconciled memo framing in the pooled accounts guide) Tj T*
+(so memos read as the legacy mechanism still in active use and muxed accounts as preferred) Tj T*
+(going forward. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853) Tj T*
+(- stellar/stellar-docs #2851 \(MDX\) - qualified the Freighter HTTPS requirement, noting that) Tj T*
+(`http://localhost` is already a Potentially Trustworthy origin under W3C Secure Contexts so) Tj T*
+(loopback needs no TLS. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851) Tj T*
 (- pytest-dev/pytest-env #262 \(Python\) - documented that pytest.toml and .pytest.toml accept) Tj T*
 (the native [pytest] env table, not only the plugin-specific [pytest_env] section. Merged) Tj T*
 (Sep 2026. github.com/pytest-dev/pytest-env/pull/262) Tj T*
@@ -152,8 +154,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (added platform-specific regression coverage. Merged Sep 2026.) Tj T*
 (github.com/pnpm/pnpm/pull/14863) Tj T*
 (- web-infra-dev/rspress #3678 \(TypeScript\) - fixed a Search initialization race by awaiting) Tj T*
-(FlexSearch addAsync indexing before LocalProvider.init\(\) resolves, preventing early) Tj T*
-(searches from incorrectly returning no results on larger sites; focused regression-oriented) Tj T*
 ET
 endstream
 endobj
@@ -161,9 +161,11 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 4443 >>
+<< /Length 4637 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
+(FlexSearch addAsync indexing before LocalProvider.init\(\) resolves, preventing early) Tj T*
+(searches from incorrectly returning no results on larger sites; focused regression-oriented) Tj T*
 (fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678) Tj T*
 (- recharts/recharts #7805 \(TypeScript\) - removed tabIndex={-1} from z-index portal SVG <g>) Tj T*
 (layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced) Tj T*
@@ -240,10 +242,10 @@ xref
 0000000253 00000 n 
 0000005088 00000 n 
 0000005214 00000 n 
-0000010430 00000 n 
-0000010556 00000 n 
-0000015051 00000 n 
+0000010456 00000 n 
+0000010582 00000 n 
+0000015271 00000 n 
 trailer << /Size 10 /Root 1 0 R >>
 startxref
-15121
+15341
 %%EOF

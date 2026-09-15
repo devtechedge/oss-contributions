@@ -39,7 +39,7 @@ Canonical ledger: https://github.com/devtechedge/oss-contributions
 18 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
 
 <<<LEDGER:LINKEDIN_LIST>>>
-• stellar/stellar-docs #2850 — document the --enable-core-manual-close flag in Quickstart advanced usage
+• stellar/stellar-docs #2850 — documented Quickstart's undocumented `--enable-core-manual-close` flag in the advanced usage docs, covering the `MANUAL_CLOSE` setting it writes into the generated core config, the `manualclose` endpoint that advances one ledger per call, and loopback-bound startup examples for macOS, Linux, and Windows.
 • ssf0409/tracelens #140 — markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.
 • stellar/stellar-docs #2849 — reworked the address conversion example to propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and documented that untrusted XDR must be handled rather than panicking.
 • stellar/stellar-docs #2853 — reconciled memo framing in the pooled accounts guide so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward.

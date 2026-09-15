@@ -349,7 +349,9 @@
       "merge_commit": "525c722ceaeb4b839f46d03c2503cb61a019f4d9",
       "issue": 2769,
       "url": "https://github.com/stellar/stellar-docs/pull/2853",
-      "languages": ["MDX"],
+      "languages": [
+        "MDX"
+      ],
       "org": "stellar",
       "display_name": "stellar-docs",
       "profile_title": "stellar-docs #2853",
@@ -371,7 +373,9 @@
       "merge_commit": "29728e1f15890151859d340ba5c8a8fad24ec6b1",
       "issue": 2773,
       "url": "https://github.com/stellar/stellar-docs/pull/2851",
-      "languages": ["MDX"],
+      "languages": [
+        "MDX"
+      ],
       "org": "stellar",
       "display_name": "stellar-docs",
       "profile_title": "stellar-docs #2851",
@@ -393,7 +397,9 @@
       "merge_commit": "41919839b9cfc38ebf80a393d461f5644169de98",
       "issue": 2768,
       "url": "https://github.com/stellar/stellar-docs/pull/2849",
-      "languages": ["MDX"],
+      "languages": [
+        "MDX"
+      ],
       "org": "stellar",
       "display_name": "stellar-docs",
       "profile_title": "stellar-docs #2849",
@@ -439,7 +445,9 @@
       "merge_commit": "6a8bea6a253a74ab646023b82459a007072f1baf",
       "issue": 2772,
       "url": "https://github.com/stellar/stellar-docs/pull/2850",
-      "languages": ["MDX"],
+      "languages": [
+        "MDX"
+      ],
       "org": "stellar",
       "display_name": "stellar-docs",
       "profile_title": "stellar-docs #2850",
