@@ -9,34 +9,34 @@
   },
   "repos": {
     "pnpm/pnpm": {
-      "linkedin_representative": "pnpm — fixed lockfile:false handling during automatic engine switching; corrected --no-bail semantics for pattern script runs; preserved dependency range prefixes and protocol prefixes during updates; fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by using the Unix fallback for default_store_dir."
+      "linkedin_representative": "pnpm - fixed lockfile:false handling during automatic engine switching; corrected --no-bail semantics for pattern script runs; preserved dependency range prefixes and protocol prefixes during updates; fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by using the Unix fallback for default_store_dir."
     },
     "recharts/recharts": {
-      "linkedin_representative": "Recharts — fixed pointer-focus behavior in z-index portal SVG groups and added regression coverage for WebKit focus-ring behavior."
+      "linkedin_representative": "Recharts - fixed pointer-focus behavior in z-index portal SVG groups and added regression coverage for WebKit focus-ring behavior."
     },
     "brianc/node-postgres": {
-      "linkedin_representative": "node-postgres — corrected Connection.sync() ending semantics so subsequent socket errors are not suppressed incorrectly."
+      "linkedin_representative": "node-postgres - corrected Connection.sync() ending semantics so subsequent socket errors are not suppressed incorrectly."
     },
     "SQLMesh/sqlmesh": {
-      "linkedin_representative": "SQLMesh — removed a concurrent test-construction race involving time_machine and ttl_cache."
+      "linkedin_representative": "SQLMesh - removed a concurrent test-construction race involving time_machine and ttl_cache."
     },
     "biomejs/biome": {
-      "linkedin_representative": "Biome — ported the unicorn better-dom-traversing AST rule into the Rust nursery linter with tests and a release changeset."
+      "linkedin_representative": "Biome - ported the unicorn better-dom-traversing AST rule into the Rust nursery linter with tests and a release changeset."
     },
     "better-auth/better-auth": {
-      "linkedin_representative": "Better Auth — locked OpenAPI requestBody regression coverage for /phone-number/verify."
+      "linkedin_representative": "Better Auth - locked OpenAPI requestBody regression coverage for /phone-number/verify."
     },
     "thirdweb-dev/js": {
-      "linkedin_representative": "thirdweb — corrected CheckoutWidget token-query error propagation for 401, 429, and timeout failures."
+      "linkedin_representative": "thirdweb - corrected CheckoutWidget token-query error propagation for 401, 429, and timeout failures."
     },
     "anza-xyz/kit": {
-      "linkedin_representative": "Anza Kit — restored correct numeric predicates in an advanced codec documentation example."
+      "linkedin_representative": "Anza Kit - restored correct numeric predicates in an advanced codec documentation example."
     },
     "web-infra-dev/rspress": {
-      "linkedin_representative": "Rspress — fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; merged in #3678."
+      "linkedin_representative": "Rspress - fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; merged in #3678."
     },
     "pytest-dev/pytest-env": {
-      "linkedin_representative": "pytest-env — documented native [pytest] env configuration for pytest.toml / .pytest.toml, closing a gap in the plugin README."
+      "linkedin_representative": "pytest-env - documented native [pytest] env configuration for pytest.toml / .pytest.toml, closing a gap in the plugin README."
     }
   },
   "records": [
