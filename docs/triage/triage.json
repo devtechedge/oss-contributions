@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-09-14",
+  "last_updated": "2026-09-15",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -359,13 +359,14 @@
       "repo": "livekit/agents",
       "number": 7199,
       "status": "open",
-      "mergeable": false,
+      "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 7198,
-      "last_updated": "2026-09-11",
+      "last_updated": "2026-09-15",
       "do_not_duplicate": true,
-      "summary": "Cancel false-interruption resume timer on non-empty interim/preflight STT while paused; maintainer semantics conflict noted."
+      "summary": "Re-arm (never clear) the false-interruption resume timer on a non-empty interim/preflight while the pause is active and VAD reports no speech.",
+      "note": "Reworked 2026-09-15 away from clear-on-interim, which maintainer longcw rejected on #7198 (noise also produces interims). Verified against main: sustained VAD DOES cancel the timer regardless of interruption.min_duration, because on_start_of_speech calls _cancel_false_interruption_timer on every START_OF_SPEECH; min_duration only gates _interrupt_by_audio_activity (the pause). The real gap is that on_interim_transcript's timer branch is gated on vad is None. Open question put to longcw: whether the re-arm needs a cap on total deferral. dorukdumlu #7101 is complementary (preserves the turn across resume), not competing. CI green on 63c0f59."
     },
     {
       "repo": "TanStack/router",
@@ -1069,7 +1070,8 @@
         7199
       ],
       "do_not_duplicate": true,
-      "note": "Maintainer semantics conflict noted; monitor before further action."
+      "note": "Rework posted 2026-09-15: #7199 now re-arms rather than clears, matching longcw's stated semantics. The 'sustained VAD fails under turn_detection=\"stt\"' theory in the issue thread is incorrect; see the #7199 triage note for the verified mechanism. Awaiting longcw on the total-deferral bound before going further. dorukdumlu's #7101 covers the complementary resume-side preservation.",
+      "last_checked": "2026-09-15"
     },
     {
       "repo": "TanStack/router",
