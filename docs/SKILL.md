@@ -166,6 +166,16 @@ No babysitting: never set up a watch, cron job, event listener, or polling loop 
   our own ping. A single follow-up comment per PR is the ceiling: do not ping repeatedly and then
   close. Record the closure in `docs/triage/triage.json` in the same turn.
 
+- **Dormancy rule (decided 2026-09-16):** "activity" means a human other than us, or a code-review
+  bot (CodeRabbit, Greptile, Copilot, Qodo, Devin, cubic-dev-ai). Our own comments do **not** reset
+  the clock, so a PR we keep pinging is still dormant. When an open PR has gone **14 days** with no
+  activity at all, measured from when it was opened or from the last real activity, post **one** ping
+  comment through the comment approval gate. If nothing changes in the **7 days** after that ping,
+  close it with the same one-line note the silence rule uses. Same two exemptions: approved and only
+  awaiting merge, or a human maintainer actively reviewing. Net effect: a PR nobody ever looks at
+  lives about three weeks, then it is pinged, then it closes. Log the ping date in
+  `docs/triage/triage.json` so the next sweep can measure the 7 days without re-deriving it.
+
 ## 8. Post-run retrospective (mandatory before retiring a PR session)
 
 Every PR run ends with a retrospective when the session's active work is done - after the PR is opened and the ledger updated, or on a no-go, a closure the user reports, or an abandonment (see section 4.2). Do not skip it on a bad outcome; a closed PR that yields no learned pattern is a wasted run.
