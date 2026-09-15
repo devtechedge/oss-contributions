@@ -37,17 +37,6 @@ This repository serves as the canonical record of upstream contribution activity
 
 Open work is not enumerated here. Contributions are reviewed upstream on their own timelines, and a long-running PR says more about the upstream queue than about the change. This ledger lists merged contributions only; work in flight is visible on my GitHub profile and in each upstream repository.
 
-## 💬 Kind words from maintainers
-
-<!-- ledger:kind-words:start -->
-- **@ElliotFriend** on [stellar/stellar-docs #2850](https://github.com/stellar/stellar-docs/pull/2850#pullrequestreview-5202636784): "Thanks for picking this up, and nice work tracking the flag down in the `start` script."
-- **@ElliotFriend** on [stellar/stellar-docs #2859](https://github.com/stellar/stellar-docs/pull/2859#pullrequestreview-5212505079): "great addition! thanks for the help with these!!"
-- **@brianc** on [node-postgres #3772](https://github.com/brianc/node-postgres/pull/3772#issuecomment-5634896479): "thank you for putting in the work here & the follow up! Appreciated!"
-- **@cmgoffena13** on [sqlmesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040#pullrequestreview-5161083881): "Thanks for picking this up so quickly!"
-- **@bytaesu** on [better-auth #11208](https://github.com/better-auth/better-auth/pull/11208#pullrequestreview-5151540698): "Thank you @devtechedge LGTM!"
-- **@SoonIter** on [rspress #3678](https://github.com/web-infra-dev/rspress/pull/3678#pullrequestreview-5194354385): "LGTM ♥️, thanks~"
-<!-- ledger:kind-words:end -->
-
 ## 🧭 Engineering focus
 
 TypeScript · JavaScript · Python · Rust · frameworks · developer tooling · infrastructure · concurrency · portability · security · accessibility · testing · wallets · SDKs · blockchain infrastructure
