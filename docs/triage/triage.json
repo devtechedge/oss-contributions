@@ -91,15 +91,16 @@
     {
       "repo": "ssf0409/tracelens",
       "number": 140,
-      "status": "open",
-      "mergeable": true,
-      "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "status": "merged",
+      "last_checked": "2026-09-15",
       "issue": 134,
       "do_not_duplicate": true,
       "branch": "fix/134-markdown-table-escaping",
       "commit": "0412997",
-      "summary": "Fixes #134: private _md_cell escapes pipes, newlines, and a leading < in Markdown per-task and baseline-gate tables. Tests live in test_generator.py (unescaped-pipe split, header skipped). CHANGELOG [Unreleased] ### Fixed. Plan comment posted 00:18Z. Local fail-before/pass-after proven. CI: lint, typecheck, core 3.11/3.12/3.13, journey, datasets, llm, examples-smoke, build green. claude-review red is the known fork-PR failure (#57/#137), non-actionable."
+      "summary": "Fixes #134: private _md_cell escapes pipes, newlines, and a leading < in Markdown per-task and baseline-gate tables. Tests live in test_generator.py (unescaped-pipe split, header skipped). CHANGELOG [Unreleased] ### Fixed. Plan comment posted 00:18Z. Local fail-before/pass-after proven. CI: lint, typecheck, core 3.11/3.12/3.13, journey, datasets, llm, examples-smoke, build green. claude-review red is the known fork-PR failure (#57/#137), non-actionable.",
+      "merged": "2026-09-15",
+      "merge_commit": "7effc4019f0d41fc78240ee7e702bfe67a908452",
+      "merged_at": "2026-09-15T03:22:09Z"
     },
     {
       "repo": "andreafrancia/trash-cli",
@@ -107,7 +108,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 414,
       "do_not_duplicate": true,
       "summary": "Fixes #414 crash-consistency: Janitor.trash_file_in now reserves the trashinfo name, moves the file into files/ first, then writes info/NAME.trashinfo; persist() split into reserve_name+persist with backup-copy rename on ENAMETOOLONG truncation; try_trash no longer compensates (no trashinfo exists yet). Regression tests in test_put_crash_consistency.py (crash injection at fs boundary) fail on master and pass with fix; 2 tests in test_put_unwritable_trash_dir.py updated from old metadata-first invariant (documented in PR body). mypy clean. Branch trash-put-move-before-trashinfo; CI action_required (first-time contributor, maintainer approval needed)."
@@ -118,7 +119,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 2588,
       "do_not_duplicate": true,
       "summary": "Implements the maintainer-proposed API from #2588: InlineConfig#targetBrowserMap (default map: chrome/edge/brave/opera/chromium->chromium, firefox->firefox, safari/ios->safari; unknown labels resolve to themselves), ResolvedConfig#actualBrowser typed 'chromium'|'firefox'|'safari', and manifest.ts build-time checks plus the default manifest version switched to actualBrowser while output dir, import.meta.env constants, zip names, and launching stay keyed off the raw browser label. Branch fix/actual-browser-resolution, commit a332c76, fail-before/pass-after proven (12 new assertions). Local verification: bun run check green at root, packages/wxt vitest suite 559 passed plus e2e 113 passed (one unrelated flaky e2e passes on re-run). All workflow runs (Validate, pkg.pr.new, Check PR Title) action_required pending first-time contributor approval; title follows conventional commits."
@@ -129,7 +130,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1213,
       "do_not_duplicate": true,
       "summary": "Normalize CRLF to LF when decoding multi-line basic and multi-line literal strings (spec-permitted: parsers may normalize newlines in multi-line strings) and re-encode the string raw repr with the same normalization, so an unedited all-CRLF document roundtrips with uniform line endings; fixes #1213. Two commits per CONTRIBUTING convention: test commit pinning current behavior, then fix commit. Branch crlf-roundtrip on fork, local verification: cargo test --workspace green, fmt/clippy/docs per ci.yml (toml_edit_fuzz excluded locally, libfuzzer-sys needs clang). All workflow runs action_required pending first-time contributor approval."
@@ -140,7 +141,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 2420,
       "do_not_duplicate": true,
       "summary": "Docs: replace the German word 'verboten' with 'forbidden' in docs/how-to/config/dynamic-metadata.md L17, fixing #2420. One-word change on branch docs/2420-verboten-to-forbidden, commit ce047bcd (SSH-signed, GitHub reports verified). Base is master (repo default; there is no main branch). First-contribution workflow runs sit in action_required pending maintainer approval. AI disclosure included per docs/community/contributing.md."
@@ -253,7 +254,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-13",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 3301,
       "do_not_duplicate": true,
       "summary": "find_all_windows() lossy-decodes py --list-paths and conda info -e stdout with String::from_utf8_lossy instead of str::from_utf8().unwrap() panicking on non-UTF-8 bytes from localized Windows codepages; undecodable lines fail the existing regex/skip logic. Regression test covers the decode contract."
@@ -264,7 +265,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 2767,
       "do_not_duplicate": true,
       "summary": "portable-atomic feature forwards to ratatui-widgets; Block shadow switches Arc import for no_std targets without atomic pointers."
@@ -275,7 +276,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 6058,
       "do_not_duplicate": true,
       "summary": "create_external_models quotes case-sensitive column names so generated external_models.yaml round-trips correctly."
@@ -286,7 +287,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 849,
       "do_not_duplicate": true,
       "summary": "Config device plugin reports used virtual slots as Unhealthy so kubelet avoids slots still held during reclaim grace period."
@@ -297,7 +298,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 98417,
       "competing_prs": [
         98556
@@ -311,7 +312,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 27324,
       "requested_reviewers": [
         "ntBre"
@@ -325,7 +326,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-11",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 11192,
       "requested_reviewers": [
         "Bekacru"
@@ -339,7 +340,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 7351,
       "do_not_duplicate": true,
       "summary": "Async CancelledError now emits TaskFailedEvent before re-raise so execution spans pop and retained Task/Agent/Crew graphs can GC."
@@ -350,7 +351,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 7191,
       "do_not_duplicate": true,
       "summary": "Public SpeechHandle.hold_interruptions() context manager plus less severe realtime log path."
@@ -374,7 +375,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 8309,
       "do_not_duplicate": true,
       "summary": "Fix retain-then-strip search middleware so Link/buildLocation without search omits stripped defaults."
@@ -385,7 +386,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 11160,
       "requested_reviewers": [
         "Bekacru"
@@ -410,7 +411,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-08",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 6253,
       "do_not_duplicate": true,
       "summary": "drizzle-kit pull no longer treats every two-FK domain table as a many-to-many junction."
@@ -421,7 +422,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-07",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 8237,
       "do_not_duplicate": true,
       "summary": "Malformed JSON server-function payloads return 400 instead of unhandled 500."
@@ -431,7 +432,7 @@
       "number": 101,
       "status": "open",
       "opened": "2026-09-13",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 89,
       "do_not_duplicate": true,
       "summary": "Clippy hardening issue."
@@ -441,7 +442,7 @@
       "number": 8699,
       "status": "open",
       "opened": "2026-09-13",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 8642,
       "do_not_duplicate": true,
       "summary": "Queue recovery log window/range cap fix."
@@ -451,7 +452,7 @@
       "number": 2051,
       "status": "open",
       "opened": "2026-09-13",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1839,
       "do_not_duplicate": true,
       "summary": "Wallet plugin documentation correction."
@@ -461,7 +462,7 @@
       "number": 4042,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 4040,
       "do_not_duplicate": true,
       "summary": "Normalize and clarify per-token balance-fetch error messaging after RPC fallback."
@@ -495,7 +496,7 @@
       "number": 3009,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 2905,
       "do_not_duplicate": true,
       "summary": "Skip Blockaid scan when there is no scannable list."
@@ -505,7 +506,7 @@
       "number": 4868,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 4795,
       "do_not_duplicate": true,
       "summary": "Propagate Cardano buildTx errors instead of swallowing them."
@@ -515,7 +516,7 @@
       "number": 4867,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 4841,
       "do_not_duplicate": true,
       "summary": "Zeroize TWData before into_vec for Rust memory hygiene."
@@ -525,7 +526,7 @@
       "number": 905,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 825,
       "do_not_duplicate": true,
       "summary": "Correct safe1_1 versus SAFE_2_3_ADDRESS signature-guide typo."
@@ -535,7 +536,7 @@
       "number": 904,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 828,
       "do_not_duplicate": true,
       "summary": "Clarify zkSync EVM exception in signature documentation."
@@ -545,7 +546,7 @@
       "number": 732,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 671,
       "do_not_duplicate": true,
       "summary": "Add pda-rent-payer caution to documentation."
@@ -555,7 +556,7 @@
       "number": 731,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 725,
       "do_not_duplicate": true,
       "summary": "Document token-fundraiser teardown behavior."
@@ -565,7 +566,7 @@
       "number": 2850,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 2772,
       "do_not_duplicate": true,
       "summary": "Document core manual-close flag."
@@ -587,7 +588,7 @@
       "number": 1519,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1501,
       "do_not_duplicate": true,
       "summary": "Update TypeScript samples to current exports."
@@ -597,7 +598,7 @@
       "number": 275,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 266,
       "do_not_duplicate": true,
       "summary": "Guard percentageString decimal handling with BigInt."
@@ -607,7 +608,7 @@
       "number": 274,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 267,
       "do_not_duplicate": true,
       "summary": "Correct executeSwapQuote documentation."
@@ -617,7 +618,7 @@
       "number": 1725,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1674,
       "do_not_duplicate": true,
       "summary": "Migration sidebar documentation fix."
@@ -627,7 +628,7 @@
       "number": 1432,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 938,
       "do_not_duplicate": true,
       "summary": "Add disposable private-key tests."
@@ -637,7 +638,7 @@
       "number": 626,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 590,
       "do_not_duplicate": true,
       "summary": "Validate openUrl HTTPS requirement."
@@ -647,7 +648,7 @@
       "number": 8687,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 8672,
       "do_not_duplicate": true,
       "summary": "Co-signer address handling fix."
@@ -657,7 +658,7 @@
       "number": 1910,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1909,
       "do_not_duplicate": true,
       "summary": "WalletLink accessibility improvement."
@@ -667,7 +668,7 @@
       "number": 273,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 271,
       "do_not_duplicate": true,
       "summary": "Add timeout handling to waitForFill."
@@ -677,7 +678,7 @@
       "number": 272,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 268,
       "do_not_duplicate": true,
       "summary": "Handle undefined parseFillLogs output."
@@ -687,7 +688,7 @@
       "number": 902,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 826,
       "do_not_duplicate": true,
       "summary": "Correct contract filename in documentation."
@@ -697,7 +698,7 @@
       "number": 1431,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1424,
       "do_not_duplicate": true,
       "summary": "Fix generateHash byte-versus-character length handling."
@@ -707,7 +708,7 @@
       "number": 1401,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": null,
       "do_not_duplicate": true,
       "summary": "Gate React Native async-storage require."
@@ -717,7 +718,7 @@
       "number": 1430,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1182,
       "do_not_duplicate": true,
       "summary": "Correct MultiSend documentation."
@@ -727,7 +728,7 @@
       "number": 1533,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1449,
       "do_not_duplicate": true,
       "summary": "Correct relayerFeeDetails discount handling."
@@ -737,7 +738,7 @@
       "number": 1723,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1685,
       "do_not_duplicate": true,
       "summary": "Optional-null rewrite and Jest CJS documentation fixes."
@@ -747,7 +748,7 @@
       "number": 29,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 23,
       "do_not_duplicate": true,
       "summary": "Surface RPC forwarding errors."
@@ -757,7 +758,7 @@
       "number": 1426,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1425,
       "do_not_duplicate": true,
       "summary": "Preserve nonce value 0."
@@ -767,7 +768,7 @@
       "number": 5767,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 5552,
       "do_not_duplicate": true,
       "summary": "Preserve non-EVM aliases in createNamespaces."
@@ -777,7 +778,7 @@
       "number": 5240,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 5233,
       "do_not_duplicate": true,
       "summary": "Avoid reconnect remaining stuck after rejecting isAuthorized."
@@ -787,7 +788,7 @@
       "number": 5766,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 5752,
       "do_not_duplicate": true,
       "summary": "Pass Meld onramp countryCode correctly."
@@ -797,7 +798,7 @@
       "number": 2703,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 2574,
       "do_not_duplicate": true,
       "summary": "Fix mobile connect GET/store link flow."
@@ -807,7 +808,7 @@
       "number": 5186,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 5091,
       "do_not_duplicate": true,
       "summary": "Correct Signature._yParity handling."
@@ -817,7 +818,7 @@
       "number": 5763,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": null,
       "do_not_duplicate": true,
       "summary": "Improve modal accessible names."
@@ -827,7 +828,7 @@
       "number": 2701,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 2700,
       "do_not_duplicate": true,
       "summary": "Correct Account modal titleId."
@@ -837,7 +838,7 @@
       "number": 1063,
       "status": "open",
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1060,
       "do_not_duplicate": true,
       "summary": "Diff Dockerfile heredoc bodies: bump tree-sitter-containerfile to 0.9.2 and add heredoc_content to atom_nodes."
@@ -847,7 +848,7 @@
       "number": 3944,
       "status": "open",
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 3932,
       "do_not_duplicate": true,
       "summary": "chDB Arrow interop: tests for nw.from_arrow over chdb.query DataStore/ArrowTable output (nulls, unsigned ints, strings, nested list/struct, empty, row order) plus a chDB example and materialization note in the docs/ecosystem.md PyCapsule section. chdb dep added to core group with sys_platform != win32 marker; test module omitted from Windows coverage like ibis_test.py. First-contribution CI runs sit in action_required."
@@ -857,7 +858,7 @@
       "number": 342,
       "status": "open",
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 341,
       "do_not_duplicate": true,
       "branch": "fix/inherited-relative-crossrefs",
@@ -871,7 +872,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 3311,
       "do_not_duplicate": true,
       "branch": "fix/tads3-comment-backtracking",
@@ -884,7 +885,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1,
       "do_not_duplicate": true,
       "branch": "citation-validator",
@@ -897,7 +898,7 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 1190,
       "do_not_duplicate": true,
       "branch": "fix/allow-unsafe-custom-binary-no-warn",
@@ -910,7 +911,7 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-14",
+      "last_checked": "2026-09-15",
       "issue": 143,
       "do_not_duplicate": true,
       "branch": "feat/code-comment-verbosity-143",
@@ -958,14 +959,14 @@
     {
       "repo": "ssf0409/tracelens",
       "number": 134,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         140
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-14",
-      "note": "Maintainer-filed Markdown table-cell escaping bug. Assigned to devtechedge. Plan comment posted. PR #140 open."
+      "last_checked": "2026-09-15",
+      "note": "Closed by merged PR #140 (7effc40)."
     },
     {
       "repo": "recharts/recharts",

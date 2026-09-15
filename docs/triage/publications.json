@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
-  "last_updated": "2026-09-14",
-  "merged_count": 16,
+  "last_updated": "2026-09-15",
+  "merged_count": 17,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -404,6 +404,28 @@
       "resume_bullet": "stellar/stellar-docs #2849 (TypeScript) - reworked the address conversion example to propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and documented that untrusted XDR must be handled rather than panicking. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2849",
       "linkedin_bullet": "stellar/stellar-docs #2849 — reworked the address conversion example to propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and documented that untrusted XDR must be handled rather than panicking.",
       "profile_line": "reworked the Soroban address conversion example to propagate the fallible `Result<Address, ConversionError>` from `Address::from_xdr()` instead of calling `.unwrap()`, which panics on malformed XDR, and noted that contracts consuming XDR from untrusted sources must handle the error instead of aborting.",
+      "curated": true
+    },
+    {
+      "id": "ssf0409/tracelens#140",
+      "repo": "ssf0409/tracelens",
+      "number": 140,
+      "merged": true,
+      "merged_at": "2026-09-15T03:22:09Z",
+      "merge_commit": "7effc4019f0d41fc78240ee7e702bfe67a908452",
+      "issue": 134,
+      "url": "https://github.com/ssf0409/tracelens/pull/140",
+      "languages": [],
+      "org": "ssf0409",
+      "display_name": "tracelens",
+      "profile_title": "tracelens #140",
+      "ledger_logo": "https://github.com/ssf0409.png?size=40",
+      "profile_logo": "https://github.com/ssf0409.png?size=48",
+      "profile_logo_alt": "tracelens",
+      "ledger_what": "Markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.",
+      "resume_bullet": "ssf0409/tracelens #140 (TypeScript) - markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element. Merged Sep 2026. github.com/ssf0409/tracelens/pull/140",
+      "linkedin_bullet": "ssf0409/tracelens #140 — markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.",
+      "profile_line": "markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.",
       "curated": true
     }
   ]
