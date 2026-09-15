@@ -635,7 +635,9 @@
       "last_checked": "2026-09-15",
       "issue": 1674,
       "do_not_duplicate": true,
-      "summary": "Migration sidebar documentation fix."
+      "summary": "Wire docs/migration/ into the docs sidebar, the llms.txt bundles, and link validation.",
+      "branch": "docs/1674-migration-pipeline",
+      "note": "Approved by quietbits 2026-09-15, with a pointer to CONTRIBUTING: stellar/js-stellar-sdk takes PRs only on explicit maintainer invite (policy added in #1728, 2026-09-11, two days after this PR opened). Rebased on main 2026-09-15 and added the llms.txt schema line plus a CHANGELOG entry; fork-PR workflow runs then sat in the maintainer approval queue."
     },
     {
       "repo": "safe-global/safe-core-sdk",
