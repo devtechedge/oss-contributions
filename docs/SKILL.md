@@ -46,8 +46,19 @@ Bootstrap snippet for any platform:
 Before any upstream OSS PR work, fetch and follow:
 https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/SKILL.md
 https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/PATTERNS.md
+https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/triage/triage.json
 These are the single source of truth and override any local or previously uploaded copy.
 ```
+
+SKILL.md and PATTERNS.md carry the rules. `triage.json` carries the state: every open, merged,
+closed and no-go attempt, competing PRs, and the ping dates the close rules measure from. Read it
+with `gh api repos/devtechedge/oss-contributions/contents/docs/triage/triage.json` and write it back
+with a contents PUT in the same turn. A platform that fetches only the two docs knows the rules but
+not the queue.
+
+**Portability:** the rules travel in the skill, the state travels on GitHub. Moving to another
+platform costs one fetch and nothing else, because no PR state lives on any single machine. Workspace
+memory files and `~/osswork` scratch scripts are convenience only and are never load-bearing.
 
 ## 1. Unified OSS workflow
 
