@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-09-15",
+  "last_updated": "2026-09-16",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -968,6 +968,21 @@
       "branch": "devtechedge/flush-kind-inference",
       "commit": "f485114",
       "summary": "Fixes issue #11808 (renderToString output cannot be navigated by the client runtime). packages/ui/src/runtime/frame.ts now infers the flush kind from markup when HTML carries no rmx:flush marker: HTML starting with a doctype or <html> is a document, not a fragment. Covers both the string path in renderContent and the end-of-stream remainder in renderFrameStream. Root cause confirmed by source read: renderToString wraps renderToStream in stripFlushMarkers, isFullDocumentReload gated on flushKind === 'document', and the fragment fallback parses inside a <template>, dropping html/head/body so diffNodes throws HierarchyRequestError. Three regressions in src/test/frame.test.ts (stream, string, real renderToString output) fail on main with that error and pass after. Full packages/ui suite green: 1081 tests, 1056 pass, 0 fail, 24 todo. oxlint clean on packages/ui. Patch change file added at packages/ui/.changes/patch.infer-document-flush-kind.md. Issue author aron-intframe independently reproduced and proposed the same approach first; maintainer brookslybrand ran /review issue and the bot asked for a minimal runnable repro, delivered at https://github.com/devtechedge/remix-render-to-string-navigation. Head commit re-signed with the SSH agent (f485114, verified by GitHub); CI runs remain action_required pending first-contribution maintainer approval."
+    },
+    {
+      "repo": "Milkyway-at-home/milkywayathome_client",
+      "number": 244,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-16",
+      "last_checked": "2026-09-16",
+      "issue": 240,
+      "do_not_duplicate": true,
+      "branch": "nbody-plan-openmp-guard",
+      "commit": "e8390b3",
+      "summary": "nbody/CMakeLists.txt now gates the BOINC mt plan class on OPENMP_FOUND AND NBODY_OPENMP instead of NBODY_OPENMP alone, matching the condition that already applies the OpenMP compile flags at line 66. Without it the binary can carry the _mt suffix while every OpenMP construct stays behind #ifdef _OPENMP and no OpenMP flags were added. The sse2 fallback is unchanged. One line in one file; no test added because the repo ctest suite covers nbody numerics and not the BOINC binary name.",
+      "ci_status": "no_ci",
+      "ci_note": "Milkyway-at-home/milkywayathome_client has no .github/workflows directory, so no GitHub Actions run against this PR and head commit e8390b3 reports 0 check-runs. Only a legacy .travis.yml is present and it does not run on GitHub PRs. Do not wait on CI; a maintainer merge is the only remaining step. Verified 2026-09-16."
     }
   ],
   "issues": [
@@ -1957,6 +1972,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-16",
       "note": "Support click 8.5.0+. Issue is clean (open, no assignee, no linked PR, pin still click<8.5.0 on main) but skipped for the repo-level AgentScan auto-close gate. Soft claim comment by jagadeepmamidi on 2026-09-05, 0 PRs from them since. Repo-level hard gate (verified 2026-09-16): .github/workflows/agent-scan.yml runs AgentScan on pull_request_target types:[opened] with a write-capable token before any maintainer sees the PR, skipping only owner/member. Classification 'automation' or a community-flagged account gets the label 'possible bot' AND an immediate close. Observed in-repo: 30 PRs carry the label and at least 15 were closed 12-17 seconds after opening (#8482, #8474, #8465, #8435, #8414, #8394, #8383, #8358, #8348, #8347, #8346, #8341, #8333, #8332, #8331, #8330). The close fires on account signals at open, so AI disclo"
+    },
+    {
+      "repo": "Milkyway-at-home/milkywayathome_client",
+      "number": 240,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        244
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-16",
+      "note": "Claimed with PR #244 on 2026-09-16. Opened 2026-07-28 by MerrillFraz, no assignee, no labels, 0 comments, no cross-referenced PR in the timeline. Root CMakeLists.txt:373 cmake_dependent_option normally forces NBODY_OPENMP off when OPENMP_FOUND is false, so a mislabelled binary is not reproducible from a default configure; the fix removes the divergence between the two conditionals rather than repairing an observed build. Verified against master at 1e640779."
     }
   ],
   "closed_attempts": [
@@ -2536,6 +2563,12 @@
         11877
       ],
       "focus": "Remix 3 web framework monorepo; UI runtime server rendering and client navigation."
+    },
+    "Milkyway-at-home/milkywayathome_client": {
+      "contributions": [
+        244
+      ],
+      "focus": "Rensselaer Polytechnic Institute Milkyway@home BOINC client, C plus CMake build. nbody OpenMP detection and BOINC plan-class binary naming."
     }
   }
 }
