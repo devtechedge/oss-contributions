@@ -145,7 +145,11 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 - Python `os.remove()` is intercepted by the WorkBuddy shim and raises `OSError: SHFileOperationW`.
   Delete scratch files with bash `rm -f`.
 - The Contents API is authoritative; `raw.githubusercontent.com` is a CDN cache that has served stale
-  bodies minutes after a push.
+  bodies minutes after a push. It can truncate without returning empty, so an "is it empty?" check is
+  not enough. On 16 Sep 2026 raw served `docs/PATTERNS.md` at 46,510 bytes while the contents API
+  reported 60,916, a 24 percent silent truncation that looked like a normal successful fetch. Compare
+  the fetched byte count against `gh api repos/devtechedge/oss-contributions/contents/<path> --jq .size`
+  and refetch through the contents API whenever the two differ.
 
 ### Git landmines
 
