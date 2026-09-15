@@ -712,9 +712,22 @@ async function discoverRecentMerged(triage, pubs) {
   return found;
 }
 
+// The repository description is an admin-level PATCH. secrets.GITHUB_TOKEN
+// cannot do it even with `permissions: contents: write` (GitHub answers 403
+// "Resource not accessible by integration"), which is why the About text went
+// stale while every other publication target kept syncing. LEDGER_SYNC_TOKEN is
+// the PAT that unblocks it; the fallback keeps local runs working unchanged.
+function adminToken() {
+  return process.env.LEDGER_SYNC_TOKEN || "";
+}
+
 async function updateAbout(n, recs) {
   const description = aboutDescription(n, recs);
-  await gh(`/repos/${LEDGER_OWNER}/${LEDGER_REPO}`, { method: "PATCH", body: { description } });
+  await gh(`/repos/${LEDGER_OWNER}/${LEDGER_REPO}`, {
+    method: "PATCH",
+    body: { description },
+    token: adminToken() || token(),
+  });
   return description;
 }
 
