@@ -246,6 +246,8 @@ Every merged PR gets real impact prose, never a one-line restatement of its titl
 - **Set `curated: true` when writing it.** A record left at `curated: false` keeps whatever title-derived stub the reconciler generated, and no later run will improve it. Check the `curated` flag on every newly merged record as part of the merge cascade.
 - Fill all four prose fields consistently: `ledger_what` (sentence case, README), `profile_line` (lowercase first letter, profile block), `resume_bullet`, `linkedin_bullet`.
 - `profile_logo_alt` must not repeat the visible title. Alt text is what renders when the avatar fails to load, so `alt="stellar-docs"` beside a `stellar-docs #2849` heading reads as one run-on string. Use the org or product name (`Stellar`).
+- **No em dashes anywhere in generated copy.** The separator between a PR title and its impact line is a plain hyphen, in `linkedin_bullet`, `profile_block`, the profile fragment template, and the LinkedIn representative bullets. Check the whole `publications.json` tree, not just `records`: the representative bullets come from `repos[].linkedin_representative`, a curated override map, and all 10 of them survived a records-only sweep on 15 Sep 2026.
+
 - After any sync, check the new record's `languages` field. An empty one makes the reconciler fall back to a wrong language in the resume bullet (a pure-Python repo was published as TypeScript until it was corrected by hand).
 
 ## 15. Gratitude to maintainers after a merge
