@@ -225,6 +225,11 @@ The workflow:
 3. Upserts `docs/triage/publications.json` without overwriting `curated: true` copy
 4. Regenerates README, resume.txt, linkedin-all-details.txt, and `docs/generated/`
 5. Updates repository About description. This only works when the `LEDGER_SYNC_TOKEN` secret exists: PATCHing a repo description is admin-level, so `secrets.GITHUB_TOKEN` fails with 403 "Resource not accessible by integration". The run still reports success and About silently goes stale (it sat at 13 while the README already said 17), so after every sync confirm the About count matches the README. Without that secret the profile README step is skipped too.
+**When `LEDGER_SYNC_TOKEN` is missing (confirmed 15 Sep 2026), repair both targets by hand the same turn.** The run still reports success, so the only signal is the About count lagging the README badge.
+
+1. About: fetch the current description, change only the merged count (the string is capped at 350 chars, so the length does not change), then `gh api -X PATCH repos/devtechedge/oss-contributions -f description=<new>`. The user's own `gh` credentials are admin on the repo, so this succeeds where `secrets.GITHUB_TOKEN` fails.
+2. Profile README: fetch `docs/generated/profile-merged.md` from `oss-contributions` and splice it into the `devtechedge/devtechedge` README between `<!-- ledger:profile-merged:start -->` and `<!-- ledger:profile-merged:end -->` with a contents-API PUT.
+
 6. Validates merged counts across every publication target
 7. Commits only when something actually changed
 
