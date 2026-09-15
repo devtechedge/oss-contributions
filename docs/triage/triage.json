@@ -933,6 +933,19 @@
       "branch": "feat/code-comment-verbosity-143",
       "commit": "b623ff5",
       "summary": "Implements issue #143 (configurable excessive code-comment verbosity checks). Maintainer leo-aa88 requested changes twice: 5193516019 on 8e74aaa (context discarded, multiline strings not carried, per-file block warnings) resolved in b1ace51; 5193702832 on b1ace51 (unknown hunk reset-to-normal is fail-open, advertised C-family/JSX suffixes lack multiline string support, length-only filename pairing). Follow-up b623ff5: skip hunks whose new-file start > 1; drop Java/C/C++/C#/Rust/JSX/TSX until modeled; require file.filename == row.filename. Reviewer reproductions locked (mid-file docstring hunk, rust raw string, filename mismatch). Locally 117 passed in test_code_comments.py plus test_core_purity.py; ruff check src tests clean. CI still action_required pending first-contribution maintainer approval. Merge blocked on requested changes until leo re-reviews."
+    },
+    {
+      "repo": "remix-run/remix",
+      "number": 11877,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-15",
+      "last_checked": "2026-09-15",
+      "issue": 11808,
+      "do_not_duplicate": true,
+      "branch": "devtechedge/flush-kind-inference",
+      "commit": "eb316b7",
+      "summary": "Fixes issue #11808 (renderToString output cannot be navigated by the client runtime). packages/ui/src/runtime/frame.ts now infers the flush kind from markup when HTML carries no rmx:flush marker: HTML starting with a doctype or <html> is a document, not a fragment. Covers both the string path in renderContent and the end-of-stream remainder in renderFrameStream. Root cause confirmed by source read: renderToString wraps renderToStream in stripFlushMarkers, isFullDocumentReload gated on flushKind === 'document', and the fragment fallback parses inside a <template>, dropping html/head/body so diffNodes throws HierarchyRequestError. Three regressions in src/test/frame.test.ts (stream, string, real renderToString output) fail on main with that error and pass after. Full packages/ui suite green: 1081 tests, 1056 pass, 0 fail, 24 todo. oxlint clean on packages/ui. Patch change file added at packages/ui/.changes/patch.infer-document-flush-kind.md. Issue author aron-intframe independently reproduced and proposed the same approach first; maintainer brookslybrand ran /review issue and the bot asked for a minimal runnable repro, delivered at https://github.com/devtechedge/remix-render-to-string-navigation."
     }
   ],
   "issues": [
@@ -1896,6 +1909,18 @@
       "do_not_duplicate": false,
       "note": "BACKUP (scan 2026-09-14): visitor_text fires twice for Form XObject text with unreliable matrices. Filed 2026-09-13 by Pastel-aile (NONE), 0 comments, timeline clean, 50-PR sweep clean, reporter has no open PRs. Repo very active. ACCOUNT-INTEGRITY NOTE: CONTRIBUTING.md AI policy mandates disclosing AI code assistance in the PR body and human-written maintainer communication - confirm disclosure approach with user before coding.",
       "last_checked": "2026-09-14"
+    },
+    {
+      "repo": "remix-run/remix",
+      "number": 11808,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        11877
+      ],
+      "do_not_duplicate": true,
+      "note": "renderToString strips the rmx:flush document marker, so its output cannot be navigated by the client runtime. Fixed by PR #11877 (2026-09-15). Repro repo: https://github.com/devtechedge/remix-render-to-string-navigation.",
+      "last_checked": "2026-09-15"
     }
   ],
   "closed_attempts": [
@@ -2456,6 +2481,12 @@
         262
       ],
       "focus": ""
+    },
+    "remix-run/remix": {
+      "contributions": [
+        11877
+      ],
+      "focus": "Remix 3 web framework monorepo; UI runtime server rendering and client navigation."
     }
   }
 }
