@@ -43,9 +43,10 @@ jobs:
       - name: Reconcile and publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Optional cross-repo token. Only needed to push the merged list into
-          # the profile repo (devtechedge/devtechedge). secrets.GITHUB_TOKEN is
-          # repo-scoped and cannot write there. If unset, that step is skipped.
+          # Optional PAT. Needed for two things secrets.GITHUB_TOKEN cannot do:
+          # push the merged list into the profile repo (devtechedge/devtechedge),
+          # and PATCH this repo's About description, which is admin-level. If
+          # unset, both steps are skipped rather than failing the run.
           LEDGER_SYNC_TOKEN: ${{ secrets.LEDGER_SYNC_TOKEN }}
           INPUT_PR: ${{ github.event.inputs.pr || github.event.client_payload.pr || '' }}
           INPUT_SUMMARY: ${{ github.event.inputs.summary || github.event.client_payload.summary || '' }}
