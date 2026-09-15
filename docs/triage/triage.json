@@ -575,6 +575,15 @@
     },
     {
       "repo": "stellar/stellar-docs",
+      "number": 2859,
+      "status": "open",
+      "opened": "2026-09-15",
+      "last_checked": "2026-09-15",
+      "do_not_duplicate": true,
+      "summary": "List --enable-core-manual-close with the other local network parameters on the Network Modes page."
+    },
+    {
+      "repo": "stellar/stellar-docs",
       "number": 2849,
       "status": "merged",
       "last_checked": "2026-09-14",
