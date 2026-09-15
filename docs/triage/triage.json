@@ -259,9 +259,7 @@
       "do_not_duplicate": true,
       "summary": "find_all_windows() lossy-decodes py --list-paths and conda info -e stdout with String::from_utf8_lossy instead of str::from_utf8().unwrap() panicking on non-UTF-8 bytes from localized Windows codepages; undecodable lines fail the existing regex/skip logic. Regression test covers the decode contract.",
       "ci_status": "preexisting_red",
-      "ci_note": "Ubuntu 3.15-dev and 3.15t-dev legs fail at tests/common/mod.rs:428 with \"Failed to create conda environment: exit status 1\" and a conda CondaMultiError FileNotFoundError renaming /usr/share/miniconda/pkgs/*.conda.partial files. Pre-existing runner drift, not caused by this PR: unrelated PR PyO3/maturin#3303 (pre-commit config autoupdate, no Rust change) failed identically on 2026-09-14 with the same two tests. The Test workflow triggers only on pull_request, so main carries no comparable check set (base commit 316d513097 has only auditwheel and docker publish runs). Verified 2026-09-16.",
-      "maintainer_note_posted": "2026-09-16",
-      "maintainer_note_url": "https://github.com/PyO3/maturin/pull/3302#issuecomment-5686880777"
+      "ci_note": "Ubuntu 3.15-dev and 3.15t-dev legs fail at tests/common/mod.rs:428 with \"Failed to create conda environment: exit status 1\" and a conda CondaMultiError FileNotFoundError renaming /usr/share/miniconda/pkgs/*.conda.partial files. Pre-existing runner drift, not caused by this PR: unrelated PR PyO3/maturin#3303 (pre-commit config autoupdate, no Rust change) failed identically on 2026-09-14 with the same two tests. The Test workflow triggers only on pull_request, so main carries no comparable check set (base commit 316d513097 has only auditwheel and docker publish runs). Verified 2026-09-16."
     },
     {
       "repo": "ratatui/ratatui",
@@ -636,20 +634,22 @@
       "number": 1725,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 1674,
       "do_not_duplicate": true,
-      "summary": "Migration sidebar documentation fix."
+      "summary": "Migration sidebar documentation fix.",
+      "note": "Maintainer quietbits APPROVED 2026-09-15 despite the invite-only policy in #1728, which landed 2026-09-11 after we opened. Do not close. Sits at mergeable_state blocked because fork workflow runs need maintainer approval, so do not re-push."
     },
     {
       "repo": "safe-global/safe-core-sdk",
       "number": 1432,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 938,
       "do_not_duplicate": true,
-      "summary": "Add disposable private-key tests."
+      "summary": "Add disposable private-key tests.",
+      "note": "Nudged for review 2026-09-16. Test-only change to disposable keys in the 4337 tests, so no changeset needed. Also touches CI config and pnpm-lock."
     },
     {
       "repo": "farcasterxyz/miniapps",
@@ -720,10 +720,11 @@
       "number": 1431,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 1424,
       "do_not_duplicate": true,
-      "summary": "Fix generateHash byte-versus-character length handling."
+      "summary": "Fix generateHash byte-versus-character length handling.",
+      "note": "Added the required changeset 2026-09-16 because bumping the identifier to 01 is a public behavior change. CI green. Nudged for review."
     },
     {
       "repo": "MetaMask/metamask-sdk",
@@ -740,10 +741,11 @@
       "number": 1430,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 1182,
       "do_not_duplicate": true,
-      "summary": "Correct MultiSend documentation."
+      "summary": "Correct MultiSend documentation.",
+      "note": "Nudged for review 2026-09-16. Docs only across README and guides, so no changeset needed. Offered to split per package or retarget to main."
     },
     {
       "repo": "across-protocol/sdk",
@@ -760,10 +762,11 @@
       "number": 1723,
       "status": "closed",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 1685,
       "do_not_duplicate": true,
-      "summary": "Optional-null rewrite and Jest CJS documentation fixes."
+      "summary": "Optional-null rewrite and Jest CJS documentation fixes.",
+      "note": "Closed by maintainer quietbits on 2026-09-15 with a request to read CONTRIBUTING.md before future contributions. Do not refile."
     },
     {
       "repo": "AmbireTech/extension",
@@ -780,10 +783,11 @@
       "number": 1426,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 1425,
       "do_not_duplicate": true,
-      "summary": "Preserve nonce value 0."
+      "summary": "Preserve nonce value 0.",
+      "note": "Nudged for review 2026-09-16. Changeset present, CLA signed, CI green. Base is development while the repo actually merges to main; offered to retarget."
     },
     {
       "repo": "reown-com/appkit",
@@ -2320,7 +2324,8 @@
         1725,
         1723
       ],
-      "focus": "Stellar TypeScript SDK; migration and module/documentation fixes."
+      "focus": "Stellar TypeScript SDK; migration and module/documentation fixes.",
+      "note": "Invite-only since #1728 (2026-09-11). #1723 was closed by maintainer quietbits on 2026-09-15; #1725 was approved by quietbits the same day and is still open. No further PRs here without an explicit maintainer invite on the specific issue."
     },
     "safe-global/safe-core-sdk": {
       "contributions": [
@@ -2329,7 +2334,8 @@
         1430,
         1426
       ],
-      "focus": "Safe Core SDK; tests, hashing, docs, and nonce correctness."
+      "focus": "Safe Core SDK; tests, hashing, docs, and nonce correctness.",
+      "note": "Saturation: 4 open PRs from this account (1426, 1430, 1431, 1432), all mergeable with green CI, all nudged 2026-09-16. No outside author merged in the last 25 merges (Jul to Sep 2026); every one was MEMBER, COLLABORATOR or dependabot. CONTRIBUTING says branch from development, but every recent merge targets main. A changeset is required for any public behavior change."
     },
     "farcasterxyz/miniapps": {
       "contributions": [
