@@ -576,11 +576,14 @@
     {
       "repo": "stellar/stellar-docs",
       "number": 2859,
-      "status": "open",
-      "opened": "2026-09-15",
+      "status": "merged",
       "last_checked": "2026-09-15",
       "do_not_duplicate": true,
-      "summary": "List --enable-core-manual-close with the other local network parameters on the Network Modes page."
+      "summary": "List --enable-core-manual-close with the other local network parameters on the Network Modes page.",
+      "merged": "2026-09-15",
+      "merge_commit": "6aafb49f59522b399f0a60642dd815d730cd6904",
+      "merged_at": "2026-09-15T16:01:52Z",
+      "issue": null
     },
     {
       "repo": "stellar/stellar-docs",
@@ -2266,7 +2269,8 @@
         2853,
         2851,
         2850,
-        2849
+        2849,
+        2859
       ],
       "focus": "Stellar documentation; account, networking, transaction, and configuration guidance."
     },

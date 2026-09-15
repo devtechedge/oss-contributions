@@ -3,10 +3,10 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R] /Count 3 >>
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R] /Count 4 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 4 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 4 0 R >>
 endobj
 4 0 obj
 << /Length 4783 >>
@@ -23,7 +23,7 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed) Tj T*
 (production work. Built 30+ production-grade systems across autonomous multi-agent) Tj T*
 (platforms, MCP integrations, deterministic RL evaluation, real-time observability, and) Tj T*
-(high-throughput web applications. Merged 18 upstream pull requests across TypeScript,) Tj T*
+(high-throughput web applications. Merged 19 upstream pull requests across TypeScript,) Tj T*
 (JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth,) Tj T*
 (thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy,) Tj T*
 (verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and) Tj T*
@@ -82,10 +82,10 @@ ET
 endstream
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5190 >>
+<< /Length 5218 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
@@ -126,6 +126,11 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
+(- stellar/stellar-docs #2859 \(TypeScript\) - added the --enable-core-manual-close flag to) Tj T*
+(the Local section of the Network Modes page, so the parameter list no longer omits a flag) Tj T*
+(the quickstart container ships, with a cross-link to the Manual close mode section noting) Tj T*
+(that only the local configuration sets NODE_IS_VALIDATOR. Merged Sep 2026.) Tj T*
+(github.com/stellar/stellar-docs/pull/2859) Tj T*
 (- stellar/stellar-docs #2850 \(MDX\) - documented Quickstart's undocumented) Tj T*
 (`--enable-core-manual-close` flag in the advanced usage docs, covering the `MANUAL_CLOSE`) Tj T*
 (setting it writes into the generated core config, the `manualclose` endpoint that advances) Tj T*
@@ -149,21 +154,21 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (- pytest-dev/pytest-env #262 \(Python\) - documented that pytest.toml and .pytest.toml accept) Tj T*
 (the native [pytest] env table, not only the plugin-specific [pytest_env] section. Merged) Tj T*
 (Sep 2026. github.com/pytest-dev/pytest-env/pull/262) Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4919 >>
+stream
+BT /F1 10 Tf 48 770 Td 11 TL
 (- pnpm/pnpm #14863 \(Rust/TypeScript\) - fixed startup crashes on FreeBSD and other) Tj T*
 (non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path;) Tj T*
 (added platform-specific regression coverage. Merged Sep 2026.) Tj T*
 (github.com/pnpm/pnpm/pull/14863) Tj T*
 (- web-infra-dev/rspress #3678 \(TypeScript\) - fixed a Search initialization race by awaiting) Tj T*
-ET
-endstream
-endobj
-7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 8 0 R >>
-endobj
-8 0 obj
-<< /Length 4637 >>
-stream
-BT /F1 10 Tf 48 770 Td 11 TL
 (FlexSearch addAsync indexing before LocalProvider.init\(\) resolves, preventing early) Tj T*
 (searches from incorrectly returning no results on larger sites; focused regression-oriented) Tj T*
 (fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678) Tj T*
@@ -225,27 +230,39 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (UNIVERSITY OF MUMBAI) Tj T*
 (Bachelor of Engineering \(B.E.\), Chemical Engineering \(First Class\) | [Graduation Year]) Tj T*
 (Quantitative core in process dynamics, transport phenomena, mathematical modeling, and) Tj T*
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 149 >>
+stream
+BT /F1 10 Tf 48 770 Td 11 TL
 (optimization; transitioned into software engineering through computational and) Tj T*
 (systems-oriented work.) Tj T*
 ET
 endstream
 endobj
-9 0 obj
+11 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 xref
-0 10
+0 12
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000127 00000 n 
-0000000253 00000 n 
-0000005088 00000 n 
-0000005214 00000 n 
-0000010456 00000 n 
-0000010582 00000 n 
-0000015271 00000 n 
-trailer << /Size 10 /Root 1 0 R >>
+0000000133 00000 n 
+0000000260 00000 n 
+0000005095 00000 n 
+0000005222 00000 n 
+0000010492 00000 n 
+0000010619 00000 n 
+0000015590 00000 n 
+0000015718 00000 n 
+0000015919 00000 n 
+trailer << /Size 12 /Root 1 0 R >>
 startxref
-15341
+15990
 %%EOF
