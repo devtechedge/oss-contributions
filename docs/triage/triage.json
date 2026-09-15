@@ -855,7 +855,8 @@
       "last_checked": "2026-09-15",
       "issue": 3932,
       "do_not_duplicate": true,
-      "summary": "chDB Arrow interop: tests for nw.from_arrow over chdb.query DataStore/ArrowTable output (nulls, unsigned ints, strings, nested list/struct, empty, row order) plus a chDB example and materialization note in the docs/ecosystem.md PyCapsule section. chdb dep added to core group with sys_platform != win32 marker; test module omitted from Windows coverage like ibis_test.py. First-contribution CI runs sit in action_required."
+      "summary": "docs-only after maintainer review: a chDB example under a dedicated `#### chDB` section of the PyCapsule Interface entry in docs/ecosystem.md, noting that chdb.query executes and materializes the result so later ops run on the chosen backend without pushdown. FBruzzesi (2026-09-15) is ok with the docs but against adding chdb as a test dependency, so the test module, the chdb extra in pyproject.toml and the uv.lock churn were all reverted. Single commit ee2801fb, +17 in one file. Issue 3932 stays open (tests and perf check not done) so the PR says 'Towards #3932'. CI is action_required (first-contribution workflow approval), so no check is green.",
+      "notes": "scope reduced to docs-only on 2026-09-15 per FBruzzesi review comment 5677115123"
     },
     {
       "repo": "mkdocstrings/python",
