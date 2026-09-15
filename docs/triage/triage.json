@@ -691,7 +691,11 @@
       "last_checked": "2026-09-15",
       "issue": 826,
       "do_not_duplicate": true,
-      "summary": "Correct contract filename in documentation."
+      "summary": "Correct contract filename in documentation.",
+      "last_updated": "2026-09-15",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "note": "Approved by dasanra 2026-09-15 on a5b479d (cryptographically signed, verified, plus DCO trailer). mergeStateStatus BLOCKED on fork-only CI red: Report readability (Rebilly/lexi) and Deploy to staging both need pull-requests:write and get 403 on fork PRs; internal-branch PR 903 passed both. Do not push again without a concrete need: the main ruleset has dismiss_stale_reviews_on_push and require_last_push_approval, so any new push drops the approval the PR is waiting on."
     },
     {
       "repo": "safe-global/safe-core-sdk",
