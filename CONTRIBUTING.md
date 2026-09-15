@@ -6,22 +6,22 @@ This repository is the canonical ledger of upstream open-source contribution act
 
 ## Core Principles
 
-1. **Upstream value first** — prioritize real bugs, regressions, compatibility problems, portability issues, missing tests, and clearly useful bounded improvements.
-2. **Evidence before implementation** — understand the issue, reproduce it where practical, identify root cause, then change code.
-3. **Respect upstream contributors** — check existing PRs, discussions, commits, and signs of competing work before claiming an issue.
-4. **Minimal correct change** — make the smallest change that fully fixes the verified problem; avoid unrelated refactoring, formatting, or dependency changes.
-5. **Technical correctness over volume** — quality, validation, and mergeability matter more than contribution count.
-6. **Record outcomes honestly** — never describe work as merged, tested, or accepted unless the upstream evidence supports it.
+1. **Upstream value first** - prioritize real bugs, regressions, compatibility problems, portability issues, missing tests, and clearly useful bounded improvements.
+2. **Evidence before implementation** - understand the issue, reproduce it where practical, identify root cause, then change code.
+3. **Respect upstream contributors** - check existing PRs, discussions, commits, and signs of competing work before claiming an issue.
+4. **Minimal correct change** - make the smallest change that fully fixes the verified problem; avoid unrelated refactoring, formatting, or dependency changes.
+5. **Technical correctness over volume** - quality, validation, and mergeability matter more than contribution count.
+6. **Record outcomes honestly** - never describe work as merged, tested, or accepted unless the upstream evidence supports it.
 
 ## Contribution Priorities
 
-### Tier 1 — High-value targeted fixes
+### Tier 1 - High-value targeted fixes
 Regressions, deterministic correctness bugs, compatibility failures, platform issues, state/data consistency problems, silent corruption, and missing regression coverage.
 
-### Tier 2 — Meaningful bounded contributions
+### Tier 2 - Meaningful bounded contributions
 Scoped features, dependency compatibility, CLI/API fixes, portability improvements, parser/dialect support, documentation, typing, and substantive tests.
 
-### Tier 3 — Selective deeper work
+### Tier 3 - Selective deeper work
 Larger features, architectural changes, performance redesigns, or substantial new abstractions where the scope and upstream merge path are clear.
 
 ## Standard Workflow
@@ -84,9 +84,9 @@ For every tracked contribution, preserve useful evidence such as:
 **Repository · Issue/PR · Title · Tier · Category · Status · Competition · Branch/Agent · Validation · Outcome · Technical Notes**
 
 Distinguish clearly between:
-- **Facts** — directly supported by GitHub or repository evidence.
-- **Current state** — what is true now.
-- **Interpretation** — analysis or assessment.
+- **Facts** - directly supported by GitHub or repository evidence.
+- **Current state** - what is true now.
+- **Interpretation** - analysis or assessment.
 
 A contribution is only **merged** when GitHub confirms it as merged. Avoid misleading language such as “fixed upstream” before merge or “fully tested” without evidence.
 

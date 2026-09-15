@@ -375,7 +375,7 @@ files.
 
 # <img src="docs/favicon.svg" width="36" height="36" alt="" /> AI News Agent
 
-Serverless daily AI digest — GitHub Actions pulls public RSS, Gemini writes the brief, Telegram delivers it.
+Serverless daily AI digest - GitHub Actions pulls public RSS, Gemini writes the brief, Telegram delivers it.
 
 [![Live run](https://img.shields.io/badge/Live%20run-GitHub%20Actions-black?logo=githubactions&logoColor=white)](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)
 [![Daily agent](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml/badge.svg)](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)
@@ -387,7 +387,7 @@ Serverless daily AI digest — GitHub Actions pulls public RSS, Gemini writes th
 
 ## Live Demo
 
-**[Daily workflow on GitHub Actions](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)** — scheduled 19:30 UTC, plus manual `workflow_dispatch`.
+**[Daily workflow on GitHub Actions](https://github.com/devtechedge/ai-news-agent/actions/workflows/daily_news.yml)** - scheduled 19:30 UTC, plus manual `workflow_dispatch`.
 
 > **Status:** This is a real scheduled backend, not a client-side mock. There is **no public web UI**. Gemini reads public RSS and writes one short daily brief of the important developments, sent to a **private Telegram chat**. Fork the repo, add three Actions secrets, and the next run is yours. `memory.json` in this public copy stores article hashes only.
 
@@ -411,13 +411,13 @@ Serverless daily AI digest — GitHub Actions pulls public RSS, Gemini writes th
 
 ## Features
 
-- **Zero laptop, zero bill** — GitHub Actions + Gemini free tier + Telegram Bot API
-- **Six public feeds** — HN (AI query), arXiv cs.AI, Reddit r/MachineLearning, Google AI Blog, OpenAI News, Hugging Face Blog
-- **In-repo memory** — MD5 of `title|link|source` in `memory.json` so reruns skip duplicates
-- **Important-only brief** — Gemini keeps models, launches, landmark research, policy, and big deals; skips recaps and noise
-- **One Telegram message** — hard-capped under the Bot API length limit, never split into a thread
-- **Rate-limit safe** — one Gemini call per run, 10 RPM cap, exponential backoff on 429, 50-article candidate ceiling
-- **Fail-closed** — a Gemini or Telegram miss does **not** commit empty memory and does **not** report success
+- **Zero laptop, zero bill** - GitHub Actions + Gemini free tier + Telegram Bot API
+- **Six public feeds** - HN (AI query), arXiv cs.AI, Reddit r/MachineLearning, Google AI Blog, OpenAI News, Hugging Face Blog
+- **In-repo memory** - MD5 of `title|link|source` in `memory.json` so reruns skip duplicates
+- **Important-only brief** - Gemini keeps models, launches, landmark research, policy, and big deals; skips recaps and noise
+- **One Telegram message** - hard-capped under the Bot API length limit, never split into a thread
+- **Rate-limit safe** - one Gemini call per run, 10 RPM cap, exponential backoff on 429, 50-article candidate ceiling
+- **Fail-closed** - a Gemini or Telegram miss does **not** commit empty memory and does **not** report success
 
 ---
 
@@ -460,7 +460,7 @@ TEST_TELEGRAM_ONLY=true python agent.py
 
 1. Create a Telegram bot via [@BotFather](https://t.me/BotFather) and note the token + chat id.
 2. Create a Gemini key in [Google AI Studio](https://aistudio.google.com/app/apikey).
-3. Repo **Settings → Secrets and variables → Actions** — add `GEMINI_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+3. Repo **Settings → Secrets and variables → Actions** - add `GEMINI_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
 4. **Actions → Daily AI News Agent → Run workflow**. Cron is `30 19 * * *` (19:30 UTC).
 
 Schedule, feeds, and RPM caps live in `.github/workflows/daily_news.yml` and `agent.py`.
@@ -580,37 +580,37 @@ I build production-grade AI and full-stack systems and contribute fixes upstream
 
 ### Merged:
 
-<img src="https://github.com/anza-xyz.png?size=48" width="32" height="32" alt="Anza" align="left" /> **[Anza Kit #2032](https://github.com/anza-xyz/kit/pull/2032)** — corrected the `getPatternMatchCodec` advanced guide to match current codec typing.
+<img src="https://github.com/anza-xyz.png?size=48" width="32" height="32" alt="Anza" align="left" /> **[Anza Kit #2032](https://github.com/anza-xyz/kit/pull/2032)** - corrected the `getPatternMatchCodec` advanced guide to match current codec typing.
 
-<img src="https://github.com/better-auth.png?size=48" width="32" height="32" alt="Better Auth" align="left" /> **[Better Auth #11208](https://github.com/better-auth/better-auth/pull/11208)** — added regression coverage for missing OpenAPI `requestBody` generation after a Zod intersection.
+<img src="https://github.com/better-auth.png?size=48" width="32" height="32" alt="Better Auth" align="left" /> **[Better Auth #11208](https://github.com/better-auth/better-auth/pull/11208)** - added regression coverage for missing OpenAPI `requestBody` generation after a Zod intersection.
 
-<img src="https://github.com/biomejs.png?size=48" width="32" height="32" alt="Biome" align="left" /> **[Biome #11667](https://github.com/biomejs/biome/pull/11667)** — added the `useBetterDomTraversing` nursery lint rule with safe transformations where semantics permit.
+<img src="https://github.com/biomejs.png?size=48" width="32" height="32" alt="Biome" align="left" /> **[Biome #11667](https://github.com/biomejs/biome/pull/11667)** - added the `useBetterDomTraversing` nursery lint rule with safe transformations where semantics permit.
 
-<img src="https://cdn.simpleicons.org/node.js/339933" width="32" height="32" alt="Node.js" /> **[node-postgres #3772](https://github.com/brianc/node-postgres/pull/3772)** — fixed `Connection.sync()` incorrectly setting the internal `_ending` flag, preventing false suppression of subsequent socket errors.
+<img src="https://cdn.simpleicons.org/node.js/339933" width="32" height="32" alt="Node.js" /> **[node-postgres #3772](https://github.com/brianc/node-postgres/pull/3772)** - fixed `Connection.sync()` incorrectly setting the internal `_ending` flag, preventing false suppression of subsequent socket errors.
 
-<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14754](https://github.com/pnpm/pnpm/pull/14754)** — fixed non-recursive pattern runs with `--no-bail` so matching scripts continue executing and failures are aggregated correctly.
+<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14754](https://github.com/pnpm/pnpm/pull/14754)** - fixed non-recursive pattern runs with `--no-bail` so matching scripts continue executing and failures are aggregated correctly.
 
-<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14756](https://github.com/pnpm/pnpm/pull/14756)** — preserved existing dependency range operators and protocol prefixes during `pnpm update`.
+<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14756](https://github.com/pnpm/pnpm/pull/14756)** - preserved existing dependency range operators and protocol prefixes during `pnpm update`.
 
-<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14753](https://github.com/pnpm/pnpm/pull/14753)** — fixed `lockfile: false` being ignored during automatic package-manager switching.
+<img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14753](https://github.com/pnpm/pnpm/pull/14753)** - fixed `lockfile: false` being ignored during automatic package-manager switching.
 
-<img src="https://github.com/SQLMesh.png?size=48" width="32" height="32" alt="SQLMesh" align="left" /> **[SQLMesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040)** — fixed a concurrency race in `sqlmesh test` involving `time_machine` and worker threads.
+<img src="https://github.com/SQLMesh.png?size=48" width="32" height="32" alt="SQLMesh" align="left" /> **[SQLMesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040)** - fixed a concurrency race in `sqlmesh test` involving `time_machine` and worker threads.
 
-<img src="https://github.com/thirdweb-dev.png?size=48" width="32" height="32" alt="thirdweb" align="left" /> **[thirdweb JS #8938](https://github.com/thirdweb-dev/js/pull/8938)** — fixed `useTokenQuery` collapsing real token lookup failures into `unsupported_token` instead of using the existing error/retry path.
+<img src="https://github.com/thirdweb-dev.png?size=48" width="32" height="32" alt="thirdweb" align="left" /> **[thirdweb JS #8938](https://github.com/thirdweb-dev/js/pull/8938)** - fixed `useTokenQuery` collapsing real token lookup failures into `unsupported_token` instead of using the existing error/retry path.
 
 ---
 
 ## 🚀 Flagship Architectures & Projects
 
-- 🔬 **[Synthesis](https://synthesis-gold.vercel.app/)** — autonomous multi-agent research with planning, research, synthesis, critique, HITL gates, RAG, Reflexion, and live SSE agent graphs ([repo](https://github.com/devtechedge/synthesis)).
-- 💼 **[Jobrow](https://jobrow.vercel.app)** — live register of still-open US tech roles sourced from employer ATS boards, with search, filters, closed-role tracking, and a public JSON API ([repo](https://github.com/devtechedge/job-board)).
-- ⛓️ **[Lattice](https://lattice-devtechedge1.vercel.app)** — Web3 jobs platform aggregating blockchain and crypto roles with salary observatory, talent directory, gigs, and hiring intelligence ([repo](https://github.com/devtechedge/lattice)).
-- 🪐 **[Pulsar](https://devtechedge.github.io/pulsar/)** — decentralized AI compute protocol interface with Base smart contracts, staking flows, wallet connectivity, 3D visualization, tokenomics, and Foundry-tested contracts ([repo](https://github.com/devtechedge/pulsar)).
-- 🧠 **[AAROP](https://aarop.vercel.app)** — explicit Perceive → Plan → Act → Observe → Reflect → Adapt loop with self-verification, bounded autonomy, and replayable traces ([repo](https://github.com/devtechedge/aarop)).
-- ⚖️ **[RegTrace](https://regtrace-ai.vercel.app)** — HITL Web3 compliance copilot mapping packs onto MiCA/VARA with retrieval-bounded findings and article citations ([repo](https://github.com/devtechedge/regulatory_compliance)).
-- 🏥 **[Cadence](https://cadence-healthcare.vercel.app/)** — deep-memory healthcare agent lab with layered patient memory, journey stages, and consent-scoped clinician briefs ([repo](https://github.com/devtechedge/healthcare-deep-memory-agents)).
-- 🔎 **[Veritas](https://veritas-engine-woad.vercel.app)** — LangGraph research agent with SSE streaming, grounded demo mode, and external retrieval when configured ([repo](https://github.com/devtechedge/veritas-engine)).
-- 🔥 **[Chaos Simulator](https://chaos-simulation.vercel.app)** — real-time chaos engineering dashboard with fault injection, self-healing services, animated service topology, scenario orchestration, telemetry, and recovery analysis ([repo](https://github.com/devtechedge/chaos-simulator)).
+- 🔬 **[Synthesis](https://synthesis-gold.vercel.app/)** - autonomous multi-agent research with planning, research, synthesis, critique, HITL gates, RAG, Reflexion, and live SSE agent graphs ([repo](https://github.com/devtechedge/synthesis)).
+- 💼 **[Jobrow](https://jobrow.vercel.app)** - live register of still-open US tech roles sourced from employer ATS boards, with search, filters, closed-role tracking, and a public JSON API ([repo](https://github.com/devtechedge/job-board)).
+- ⛓️ **[Lattice](https://lattice-devtechedge1.vercel.app)** - Web3 jobs platform aggregating blockchain and crypto roles with salary observatory, talent directory, gigs, and hiring intelligence ([repo](https://github.com/devtechedge/lattice)).
+- 🪐 **[Pulsar](https://devtechedge.github.io/pulsar/)** - decentralized AI compute protocol interface with Base smart contracts, staking flows, wallet connectivity, 3D visualization, tokenomics, and Foundry-tested contracts ([repo](https://github.com/devtechedge/pulsar)).
+- 🧠 **[AAROP](https://aarop.vercel.app)** - explicit Perceive → Plan → Act → Observe → Reflect → Adapt loop with self-verification, bounded autonomy, and replayable traces ([repo](https://github.com/devtechedge/aarop)).
+- ⚖️ **[RegTrace](https://regtrace-ai.vercel.app)** - HITL Web3 compliance copilot mapping packs onto MiCA/VARA with retrieval-bounded findings and article citations ([repo](https://github.com/devtechedge/regulatory_compliance)).
+- 🏥 **[Cadence](https://cadence-healthcare.vercel.app/)** - deep-memory healthcare agent lab with layered patient memory, journey stages, and consent-scoped clinician briefs ([repo](https://github.com/devtechedge/healthcare-deep-memory-agents)).
+- 🔎 **[Veritas](https://veritas-engine-woad.vercel.app)** - LangGraph research agent with SSE streaming, grounded demo mode, and external retrieval when configured ([repo](https://github.com/devtechedge/veritas-engine)).
+- 🔥 **[Chaos Simulator](https://chaos-simulation.vercel.app)** - real-time chaos engineering dashboard with fault injection, self-healing services, animated service topology, scenario orchestration, telemetry, and recovery analysis ([repo](https://github.com/devtechedge/chaos-simulator)).
 
 ---
 
@@ -5996,15 +5996,15 @@ transitively via reference.
 
 #### System Information
 
-- `arch()` — Instruction set architecture. Possible values are: `"aarch64"`,
+- `arch()` - Instruction set architecture. Possible values are: `"aarch64"`,
   `"arm"`, `"asmjs"`, `"hexagon"`, `"mips"`, `"msp430"`, `"powerpc"`,
   `"powerpc64"`, `"s390x"`, `"sparc"`, `"wasm32"`, `"x86"`, `"x86_64"`, and
   `"xcore"`.
-- `num_cpus()`<sup>1.15.0</sup> — Number of logical CPUs.
-- `os()` — Operating system. Possible values are: `"android"`, `"bitrig"`,
+- `num_cpus()`<sup>1.15.0</sup> - Number of logical CPUs.
+- `os()` - Operating system. Possible values are: `"android"`, `"bitrig"`,
   `"dragonfly"`, `"emscripten"`, `"freebsd"`, `"haiku"`, `"ios"`, `"linux"`,
   `"macos"`, `"netbsd"`, `"openbsd"`, `"solaris"`, and `"windows"`.
-- `os_family()` — Operating system family; possible values are: `"unix"` and
+- `os_family()` - Operating system family; possible values are: `"unix"` and
   `"windows"`.
 
 For example:
@@ -6067,7 +6067,7 @@ olleh := shell('import sys; print(sys.argv[2][::-1])', 'hello')
 
 #### Environment Variables
 
-- `env(key)`<sup>1.15.0</sup> — Retrieves the environment variable with name `key`, aborting
+- `env(key)`<sup>1.15.0</sup> - Retrieves the environment variable with name `key`, aborting
   if it is not present.
 
 ```just
@@ -6082,14 +6082,14 @@ $ just
 /home/user1
 ```
 
-- `env(key, default)`<sup>1.15.0</sup> — Retrieves the environment variable with
+- `env(key, default)`<sup>1.15.0</sup> - Retrieves the environment variable with
   name `key`, returning `default` if it is not present.
-- `env_var(key)` — Deprecated alias for `env(key)`.
-- `env_var_or_default(key, default)` — Deprecated alias for `env(key, default)`.
+- `env_var(key)` - Deprecated alias for `env(key)`.
+- `env_var_or_default(key, default)` - Deprecated alias for `env(key, default)`.
 
 #### Executables
 
-- `require(name)`<sup>1.39.0</sup> — Search directories in the `PATH`
+- `require(name)`<sup>1.39.0</sup> - Search directories in the `PATH`
   environment variable for the executable `name` and return its full path, or
   halt with an error if no executable with `name` exists.
 
@@ -6105,7 +6105,7 @@ $ just
   bash: '/bin/bash'
   ```
 
-- `which(name)`<sup>1.39.0</sup> — Search directories in the `PATH` environment
+- `which(name)`<sup>1.39.0</sup> - Search directories in the `PATH` environment
   variable for the executable `name` and return its full path, or the empty
   list if not found. Requires `set lists`<sup>1.53.0</sup>.
 
@@ -6131,7 +6131,7 @@ $ just
   run as a dependency of another recipe, rather than being run directly,
   otherwise returns the string `false`.
 
-- `num_jobs()`<sup>1.56.0</sup> — The value of `--jobs` or the empty list,
+- `num_jobs()`<sup>1.56.0</sup> - The value of `--jobs` or the empty list,
   `[]`, if it was not passed.
 
 - `recipe_name()`<sup>1.53.0</sup> - Returns the name of the current recipe.
@@ -7286,7 +7286,7 @@ maturin itself is manylinux compliant when compiled for the musl target.
 - [deltalake-python](https://github.com/delta-io/delta-rs/tree/main/python) - Native Delta Lake Python binding based on delta-rs with Pandas integration
 - [opendal](https://github.com/apache/incubator-opendal/tree/main/bindings/python) - OpenDAL Python Binding to access data freely
 - [orjson](https://github.com/ijl/orjson) - A fast, correct JSON library for Python
-- [pdfcrate](https://github.com/ratazzi/pdfcrate) - An ergonomic, high-level PDF generation library for Rust and Python — a Prawn-style layout API for composing documents, not low-level PDF plumbing
+- [pdfcrate](https://github.com/ratazzi/pdfcrate) - An ergonomic, high-level PDF generation library for Rust and Python - a Prawn-style layout API for composing documents, not low-level PDF plumbing
 - [polars](https://github.com/pola-rs/polars/tree/master/py-polars) - Fast multi-threaded DataFrame library in Rust | Python | Node.js
 - [pydantic-core](https://github.com/pydantic/pydantic-core) - Core validation logic for pydantic written in Rust
 - [pyrus-cramjam](https://github.com/milesgranger/pyrus-cramjam) - Thin Python wrapper to de/compression algorithms in Rust
@@ -8263,7 +8263,7 @@ Licensed under the [Apache License 2.0](LICENSE).
 What was this token worth at this instant?
 
 One function, three upstreams, no state. It answers with the datapoint an upstream
-actually holds — and tells you when that datapoint is from.
+actually holds - and tells you when that datapoint is from.
 
 ## Install
 
@@ -8274,10 +8274,10 @@ pnpm add github:across-protocol/v5-token-pricing
 The package builds itself on install (`prepare`) and ships compiled ESM plus
 `.d.ts`.
 
-This repo is developed and built with **Node and pnpm only** — there is no Bun
+This repo is developed and built with **Node and pnpm only** - there is no Bun
 in its toolchain. Bun appears here for exactly one reason: the first consumer is
 a Bun service, so `dist/` is checked to load under **both Node >= 20 and Bun**
-before release. That check is not ceremony — a sibling package is unusable from
+before release. That check is not ceremony - a sibling package is unusable from
 Bun because a transitive dependency crashes its loader, which is why this package
 keeps its dependency surface to one.
 
@@ -8294,7 +8294,7 @@ const result = await getTokenPriceAt({
 });
 
 if (result.priceUsd === null) {
-  // nothing could price it — result.attempts says why
+  // nothing could price it - result.attempts says why
 } else {
   store(result.priceUsd, { observedAt: result.observedAt, source: result.source });
 }
@@ -8353,7 +8353,7 @@ type AttemptOutcome =
   | "skipped_unmapped_chain";
 ```
 
-`attempts` is present on **both** members — which is why unpriced is
+`attempts` is present on **both** members - which is why unpriced is
 `priceUsd === null` rather than a bare `null` return. A `null` on its own cannot
 say whether the token is unknown everywhere, the chain was unmapped, a key was
 missing, or every upstream was down, and those want different responses.
@@ -8364,14 +8364,14 @@ The function does not reject on upstream failure: a source that throws becomes a
 
 ### Also exported
 
-`LLAMA_SLUG_BY_CHAIN`, `CG_PLATFORM_BY_CHAIN`, `ALCHEMY_NETWORK_BY_CHAIN` —
+`LLAMA_SLUG_BY_CHAIN`, `CG_PLATFORM_BY_CHAIN`, `ALCHEMY_NETWORK_BY_CHAIN` -
 `Record<number, string>`, keyed by numeric chain id.
 
 ### observedAt is not the timestamp you asked for
 
 **`observedAt` is the instant of the datapoint the upstream returned.** It is
 never the requested `timestamp` and never the wall clock. Upstreams answer with
-the observation they have, which is near your instant, not on it — and how near
+the observation they have, which is near your instant, not on it - and how near
 depends on the token's liquidity.
 
 Measured: for one requested instant, DefiLlama answered for USDC on Base and
@@ -8383,7 +8383,7 @@ position on what you do about that. Both policies are legitimate and the choice
 is yours:
 
 - **File under the instant you asked for** and treat the answer as good enough.
-  Reasonable, because the upstream was *asked about* that instant — unlike a spot
+  Reasonable, because the upstream was *asked about* that instant - unlike a spot
   price, which knows nothing about the past. Keep `observedAt` anyway so the
   distance stays auditable later.
 - **File under `observedAt`'s own bucket** and decide per lookup whether an
@@ -8412,16 +8412,16 @@ that answered are not tried and so do not appear.
 | `skipped_no_key` | needs a credential that this call did not supply |
 | `skipped_unmapped_chain` | has no identifier for this chain id |
 
-This is the package's only concession to observability. It emits nothing — no
+This is the package's only concession to observability. It emits nothing - no
 logs, no spans, no metrics, not even on error paths. You decide what to record.
 
 ## Resolution order
 
-1. **DefiLlama** — free, no key, address-native. Always tried when the chain maps.
-2. **CoinGecko** — `market_chart/range`, nearest datapoint wins. Uses the pro
+1. **DefiLlama** - free, no key, address-native. Always tried when the chain maps.
+2. **CoinGecko** - `market_chart/range`, nearest datapoint wins. Uses the pro
    host and the `x-cg-pro-api-key` header when `apiKeys.coingecko` is present,
    the free host otherwise.
-3. **Alchemy** — historical prices, nearest datapoint wins. Skipped entirely
+3. **Alchemy** - historical prices, nearest datapoint wins. Skipped entirely
    without `apiKeys.alchemy`.
 
 A source that throws, times out, or returns an implausible value is a **miss**,
@@ -8448,7 +8448,7 @@ The stablecoin band exists because it caught real bad upstream data.
 ## Chains
 
 Each source has its own chain identifier map. A chain missing from one map means
-that source is skipped for the call (`skipped_unmapped_chain`) — never an error,
+that source is skipped for the call (`skipped_unmapped_chain`) - never an error,
 and the other sources still get their turn.
 
 ## Development
@@ -8717,15 +8717,15 @@ Across th' EVM kingdoms, ever at the Safe's own side.
 Storybook doth chronicle each component's tale,
 And Cypress walks the paths where lesser tests would fail.
 
-No `any` types shall darken these well-guarded lands —
+No `any` types shall darken these well-guarded lands -
 That ancient law doth hold by Prettier's own hands.
 Feature flags like waypoints mark what lies ahead,
 And lazy loads awaken only where the road doth tread.
 
-Long the name hath wandered — Gnosis once, now Safe it stands,
+Long the name hath wandered - Gnosis once, now Safe it stands,
 Yet still the vow endureth, written into typed commands:
 That what you hold stays guarded, deep beyond all theft or flame,
-For this the codebase liveth — and security its name.
+For this the codebase liveth - and security its name.
 ```
 
 ---
@@ -8826,7 +8826,7 @@ to `http://localhost:3000/docs/`. This development server will auto-reload when
 it detects changes to the repository.
 
 > **Already cloned this repo before we moved to pnpm?** Delete the old
-> `node_modules` directory before running `pnpm install` — pnpm uses a different
+> `node_modules` directory before running `pnpm install` - pnpm uses a different
 > `node_modules` layout than Yarn, so installing on top of an existing one can
 > fail.
 
@@ -9650,7 +9650,7 @@ try {
     for await (const notification of notifications) {
         // Consume messages.
     }
-    // [ABORTED] Reaching this line means the subscription was aborted — i.e. unsubscribed.
+    // [ABORTED] Reaching this line means the subscription was aborted - i.e. unsubscribed.
 } catch (e) {
     // [FAILED] Reaching this line means the subscription went down.
     // Retry it, then recover from potential missed messages.
@@ -9727,7 +9727,7 @@ const devnetRpc = createSolanaRpcSubscriptions(devnet('https://api.devnet.solana
 
 #### Including Unstable Subscriptions
 
-If your app needs access to [unstable RPC Subscriptions](https://solana.com/docs/rpc/websocket/blocksubscribe) — e.g. `BlockNotificationsApi` or `SlotsUpdatesNotificationsApi` — and your RPC server supports them, you may use the `createSolanaRpcSubscriptions_UNSTABLE` and `createSolanaRpcSubscriptionsFromTransport_UNSTABLE` functions to create an RPC Subscriptions client that includes those subscriptions.
+If your app needs access to [unstable RPC Subscriptions](https://solana.com/docs/rpc/websocket/blocksubscribe) - e.g. `BlockNotificationsApi` or `SlotsUpdatesNotificationsApi` - and your RPC server supports them, you may use the `createSolanaRpcSubscriptions_UNSTABLE` and `createSolanaRpcSubscriptionsFromTransport_UNSTABLE` functions to create an RPC Subscriptions client that includes those subscriptions.
 
 ```ts
 import {
@@ -10303,7 +10303,7 @@ const transactionMessage = pipe(createTransactionMessage({ version: 0 }), tx =>
 
 As you can see, each program now generates its own library allowing you to cherry-pick your dependencies.
 
-Note that asynchronous versions may be available for some instructions which allows them to resolve more inputs on your behalf — such as PDA derivation. For instance, the `CreateLookupTable` instruction offers an asynchronous builder that derives the `address` account and the `bump` argument for us.
+Note that asynchronous versions may be available for some instructions which allows them to resolve more inputs on your behalf - such as PDA derivation. For instance, the `CreateLookupTable` instruction offers an asynchronous builder that derives the `address` account and the `bump` argument for us.
 
 ```ts
 const rpc = createSolanaRpc('http://127.0.0.1:8899');
@@ -10336,13 +10336,13 @@ const instruction = getCreateLookupTableInstruction({
 
 On top of instruction builders, these clients offer a variety of utilities such as:
 
-- Instruction codecs — e.g. `getTransferSolInstructionDataCodec`.
-- Account types — e.g. `AddressLookupTable`.
-- Account codecs — e.g. `getAddressLookupTableAccountDataCodec`.
-- Account helpers — e.g. `fetchAddressLookupTable`.
-- PDA helpers — e.g. `findAddressLookupTablePda`, `fetchAddressLookupTableFromSeeds`.
-- Defined types and their codecs — e.g. `NonceState`, `getNonceStateCodec`.
-- Program helpers — e.g. `SYSTEM_PROGRAM_ADDRESS`, `SystemAccount` enum, `identifySystemInstruction`.
+- Instruction codecs - e.g. `getTransferSolInstructionDataCodec`.
+- Account types - e.g. `AddressLookupTable`.
+- Account codecs - e.g. `getAddressLookupTableAccountDataCodec`.
+- Account helpers - e.g. `fetchAddressLookupTable`.
+- PDA helpers - e.g. `findAddressLookupTablePda`, `fetchAddressLookupTableFromSeeds`.
+- Defined types and their codecs - e.g. `NonceState`, `getNonceStateCodec`.
+- Program helpers - e.g. `SYSTEM_PROGRAM_ADDRESS`, `SystemAccount` enum, `identifySystemInstruction`.
 - And much more!
 
 Here’s another example that fetches an `AddressLookupTable` PDA from its seeds.
@@ -10372,7 +10372,7 @@ Currently, there is one other renderer that generates Rust clients but this is o
 
 ## Create Solana Program
 
-We believe the whole ecosystem could benefit from generated program clients. That’s why we introduced a new NPM binary that allows you to create your Solana program — and generate clients for it — in no time. Simply run the following and follow the prompts to get started.
+We believe the whole ecosystem could benefit from generated program clients. That’s why we introduced a new NPM binary that allows you to create your Solana program - and generate clients for it - in no time. Simply run the following and follow the prompts to get started.
 
 ```sh
 pnpm create solana-program
@@ -11347,7 +11347,7 @@ This repo is constructed using yarn workspaces and consists of the 4 sections:
 
 ## Prerequisites
 
-- Node (>= 22): https://nodejs.org/en/download/ (use `nvm use` — the repo has
+- Node (>= 22): https://nodejs.org/en/download/ (use `nvm use` - the repo has
   `.nvmrc`)
 - Yarn 4.10.0: `corepack enable && corepack prepare yarn@4.10.0 --activate`
 
@@ -11463,7 +11463,7 @@ instance.
 [The `addToken` playground](http://localhost:3000/docs/playground/addToken)
 
 It's important to note that these last functions won't interact with the _dev
-server_ popup UI on `localhost:9000` — you'll need to re-install the unpacked
+server_ popup UI on `localhost:9000` - you'll need to re-install the unpacked
 extension each time you make a change.
 
 ### Importing a workspace
@@ -11824,7 +11824,7 @@ Create a fundraiser account specifying a target mint and amount, allowing contri
 
 ### Distributing tokens with Merkle-proof claims
 
-[Fund a vault once, publish a Merkle root of a balance snapshot, and let each holder claim their allocation with a proof](./tokens/merkle-tree-token-claimer/README.md) — the claim pattern behind large airdrops and chain migrations.
+[Fund a vault once, publish a Merkle root of a balance snapshot, and let each holder claim their allocation with a proof](./tokens/merkle-tree-token-claimer/README.md) - the claim pattern behind large airdrops and chain migrations.
 
 [anchor](./tokens/merkle-tree-token-claimer/anchor)
 
@@ -12028,7 +12028,7 @@ A bracket-prediction game: entrants pay a fee to submit a 32-game bracket, an or
 
 ### Gacha (provably-fair pack pulls)
 
-A provably-fair gacha / loot-box game — the on-chain mechanic behind RWA pack platforms like Collector Crypt and Phygitals. Buyers open pulls revealed with an RFC 9381 ECVRF anchored in the deployed [`cc-vrf`](https://vrf.collectorcrypt.com) registry by CPI; the VRF input binds buyer entropy, reveals are publicly verifiable off-chain, unsettled pulls are refundable, and prizes are minted as Token-2022 NFTs carrying a `rarity` metadata field. A full Pinocchio + Codama project with TypeScript + Rust clients.
+A provably-fair gacha / loot-box game - the on-chain mechanic behind RWA pack platforms like Collector Crypt and Phygitals. Buyers open pulls revealed with an RFC 9381 ECVRF anchored in the deployed [`cc-vrf`](https://vrf.collectorcrypt.com) registry by CPI; the VRF input binds buyer entropy, reveals are publicly verifiable off-chain, unsettled pulls are refundable, and prizes are minted as Token-2022 NFTs carrying a `rarity` metadata field. A full Pinocchio + Codama project with TypeScript + Rust clients.
 
 [pinocchio](./games/gacha/pinocchio)
 
@@ -12794,7 +12794,7 @@ Better Auth is a framework-agnostic authentication (and authorization) framework
 
 ### Why Better Auth
 
-Authentication in the TypeScript ecosystem is a half-solved problem. Other open-source libraries often require a lot of additional code for anything beyond basic authentication. Rather than just pushing third-party services as the solution, I believe we can do better as a community—hence, Better Auth.
+Authentication in the TypeScript ecosystem is a half-solved problem. Other open-source libraries often require a lot of additional code for anything beyond basic authentication. Rather than just pushing third-party services as the solution, I believe we can do better as a community - hence, Better Auth.
 
 ## Contribution
 
@@ -13702,7 +13702,7 @@ import { XMLHttpRequestInterceptor } from '@mswjs/interceptors/XMLHttpRequest/we
 
 Intercepts HTTP requests made via the global `fetch` function. In Node.js, the global `fetch` is powered by Undici; in the browser, it is the native `window.fetch`.
 
-> To intercept the requests made via _direct_ Undici imports (e.g. `fetch` or `request` from the `undici` package), use the [`HttpRequestInterceptor`](#httprequestinterceptor) instead—those requests do not go through the global `fetch` but are still intercepted at the socket level.
+> To intercept the requests made via _direct_ Undici imports (e.g. `fetch` or `request` from the `undici` package), use the [`HttpRequestInterceptor`](#httprequestinterceptor) instead - those requests do not go through the global `fetch` but are still intercepted at the socket level.
 
 ```js
 import { FetchInterceptor } from '@mswjs/interceptors/fetch'
@@ -14257,9 +14257,9 @@ Documentation on the framework and how to use it can be found [here](https://doc
 
 If you're using an AI coding assistant to build with LiveKit Agents, we recommend the following setup for the best results:
 
-1. **Install the [LiveKit Docs MCP server](https://docs.livekit.io/mcp)** — Gives your coding agent access to up-to-date LiveKit documentation, code search across LiveKit repositories, and working examples.
+1. **Install the [LiveKit Docs MCP server](https://docs.livekit.io/mcp)** - Gives your coding agent access to up-to-date LiveKit documentation, code search across LiveKit repositories, and working examples.
 
-2. **Install the [LiveKit Agent Skill](https://github.com/livekit/agent-skills)** — Provides your coding agent with architectural guidance and best practices for building voice AI applications, including workflow design, handoffs, tasks, and testing patterns.
+2. **Install the [LiveKit Agent Skill](https://github.com/livekit/agent-skills)** - Provides your coding agent with architectural guidance and best practices for building voice AI applications, including workflow design, handoffs, tasks, and testing patterns.
 
    ```shell
    npx skills add livekit/agent-skills --skill livekit-agents
@@ -15840,8 +15840,8 @@ import { StrKey, Keypair } from "@stellar/stellar-sdk/base";
 
 This loads only the former stellar-base modules, skipping Horizon, RPC, and the
 SEP helpers (federation, web auth, stellar.toml) and their networking
-dependencies. In CommonJS environments — where `require()` can't tree-shake the
-root barrel — this is noticeably leaner and avoids pulling in dependencies like
+dependencies. In CommonJS environments - where `require()` can't tree-shake the
+root barrel - this is noticeably leaner and avoids pulling in dependencies like
 `axios`, `eventsource`, and `smol-toml`.
 
 ## Versioning and compatibility
@@ -15865,7 +15865,7 @@ The usage documentation for this library lives in a handful of places:
 
 - across the [Stellar Developer Docs](https://developers.stellar.org), which
   includes tutorials and examples, and
-- on the generated [API doc site](https://stellar.github.io/js-stellar-sdk/) —
+- on the generated [API doc site](https://stellar.github.io/js-stellar-sdk/) -
   which also publishes
   [agent-friendly bundles, raw markdown siblings, and a crawler policy](https://stellar.github.io/js-stellar-sdk/agents/)
   for AI tools. The site's URL, base path, and AI policy values live in
@@ -15875,9 +15875,9 @@ The usage documentation for this library lives in a handful of places:
 
 Agents can use the documentation bundles published on the website:
 
-- [`llms.txt`](https://stellar.github.io/js-stellar-sdk/llms.txt) — an index of
+- [`llms.txt`](https://stellar.github.io/js-stellar-sdk/llms.txt) - an index of
   the guides, reference pages, and other agent-facing docs.
-- [`llms-full.txt`](https://stellar.github.io/js-stellar-sdk/llms-full.txt) —
+- [`llms-full.txt`](https://stellar.github.io/js-stellar-sdk/llms-full.txt) -
   the full documentation corpus plus the changelog in one text file.
 
 These generated bundles are not committed to the repo. To inspect bundles for a
@@ -15918,7 +15918,7 @@ without it the pattern matches at the first `node_modules/` segment and the
 package is skipped before the name is ever compared.
 
 If you compile tests with ts-jest or Babel, also make sure the compilation
-target is `es2020` or later — the SDK and its crypto dependencies use native
+target is `es2020` or later - the SDK and its crypto dependencies use native
 `BigInt`, and downleveling below `es2020` breaks it at runtime (for example
 `TypeError: Cannot convert a BigInt value to a number`).
 
@@ -15952,7 +15952,7 @@ as `@exodus/patch-broken-hermes-typed-arrays`.
 
 #### Usage with Expo managed workflows
 
-Expo has the same requirement as React Native above — a
+Expo has the same requirement as React Native above - a
 `crypto.getRandomValues()` source. Install a polyfill for it (use
 `npx expo install` so versions are matched to your Expo SDK) and import it at
 the top of your entry point (by default `App.js`) before any SDK code.
@@ -17235,8 +17235,8 @@ our [Discord](https://discord.com/invite/alchemyplatform) channel for the SDK.
 >
 > **Migrate to:**
 >
-> - [`@metamask/connect-evm`](https://www.npmjs.com/package/@metamask/connect-evm) — drop-in EVM dapp integration (browser, Node.js, React Native)
-> - [`@metamask/connect-multichain`](https://www.npmjs.com/package/@metamask/connect-multichain) — multichain dapp integration (EVM + non-EVM)
+> - [`@metamask/connect-evm`](https://www.npmjs.com/package/@metamask/connect-evm) - drop-in EVM dapp integration (browser, Node.js, React Native)
+> - [`@metamask/connect-multichain`](https://www.npmjs.com/package/@metamask/connect-multichain) - multichain dapp integration (EVM + non-EVM)
 >
 > **Migration guide & docs:** <https://docs.metamask.io/metamask-connect>
 >
@@ -17572,7 +17572,7 @@ Four skills that activate automatically when you ask relevant CrewAI questions:
 | Skill | When it runs |
 |-------|--------------|
 | `getting-started` | Scaffolding new projects, choosing between `LLM.call()` / `Agent` / `Crew` / `Flow`, wiring `crew.jsonc` / `main.py` |
-| `design-agent` | Configuring agents — role, goal, backstory, tools, LLMs, memory, guardrails |
+| `design-agent` | Configuring agents - role, goal, backstory, tools, LLMs, memory, guardrails |
 | `design-task` | Writing task descriptions, dependencies, structured output (`output_pydantic`, `output_json`), human review |
 | `ask-docs` | Querying the live [CrewAI docs MCP server](https://docs.crewai.com/mcp) for up-to-date API details |
 
@@ -17581,7 +17581,7 @@ Four skills that activate automatically when you ask relevant CrewAI questions:
 npx skills add crewaiinc/skills
 ```
 
-This installs the official [CrewAI Skills](https://github.com/crewAIInc/skills) — structured instructions that teach coding agents how to scaffold Flows, configure Crews, design agents and tasks, and follow CrewAI patterns.
+This installs the official [CrewAI Skills](https://github.com/crewAIInc/skills) - structured instructions that teach coding agents how to scaffold Flows, configure Crews, design agents and tasks, and follow CrewAI patterns.
 
 ## Why CrewAI?
 
@@ -17821,7 +17821,7 @@ Then edit the generated files:
 
 Before running your crew, set the required keys in your `.env` file:
 
-- Your model provider API key — see [LLM setup](https://docs.crewai.com/en/concepts/llms#setting-up-your-llm)
+- Your model provider API key - see [LLM setup](https://docs.crewai.com/en/concepts/llms#setting-up-your-llm)
 - A [Serper.dev](https://serper.dev/) API key if you use web search: `SERPER_API_KEY=YOUR_KEY_HERE`
 
 Then install dependencies and run from the project directory:
@@ -18031,7 +18031,7 @@ The site at [docs.crewai.com](https://docs.crewai.com) is published from
 versioning: edits to `docs/edge/<lang>/...` (e.g.
 `docs/edge/en/concepts/agents.mdx`) land under the **Edge** version selector
 immediately and are frozen into a new versioned snapshot under
-`docs/v<X.Y.Z>/` at the next release cut. Frozen snapshots are immutable — CI
+`docs/v<X.Y.Z>/` at the next release cut. Frozen snapshots are immutable - CI
 rejects PRs that modify them without a `[docs-freeze]` title prefix. The
 release CLI (`devtools release`) handles the freeze automatically; see
 [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) for contributor guidance and
@@ -19075,8 +19075,8 @@ NuGet resolves the best matching assembly for your project automatically.
 ### TFM-specific API notes
 
 - **SEP-0009 date fields** (`BirthDate`, `IdIssueDate`, `IdExpirationDate`, `RegistrationDate`): `DateOnly?` on `net8.0` / `net10.0`; `string?` (ISO `yyyy-MM-dd`) on `netstandard2.1`. JSON wire format is identical across TFMs.
-- **Synchronous `HttpClient.Send` resilience**: on `net8.0` / `net10.0`, `RetryingHttpMessageHandler` overrides sync `Send` with the full retry pipeline. On the `netstandard2.1` assembly (also what `net5`–`net7` apps resolve), sync `Send` throws `NotSupportedException` instead of silently bypassing retries — use `SendAsync`.
-- **Unity compiler note (`required` members)**: many SDK request/response models declare C# `required` members. Constructing them from *your* code needs a compiler that understands `required`: Unity 6 qualifies; Unity 2022.3's bundled compiler (Roslyn 4.1) does not — member initialization of those types fails to compile there unless you upgrade the compiler (e.g. [UnityRoslynUpdater](https://github.com/DaZombieKiller/UnityRoslynUpdater)). Deserialization and APIs without `required` members are unaffected.
+- **Synchronous `HttpClient.Send` resilience**: on `net8.0` / `net10.0`, `RetryingHttpMessageHandler` overrides sync `Send` with the full retry pipeline. On the `netstandard2.1` assembly (also what `net5`–`net7` apps resolve), sync `Send` throws `NotSupportedException` instead of silently bypassing retries - use `SendAsync`.
+- **Unity compiler note (`required` members)**: many SDK request/response models declare C# `required` members. Constructing them from *your* code needs a compiler that understands `required`: Unity 6 qualifies; Unity 2022.3's bundled compiler (Roslyn 4.1) does not - member initialization of those types fails to compile there unless you upgrade the compiler (e.g. [UnityRoslynUpdater](https://github.com/DaZombieKiller/UnityRoslynUpdater)). Deserialization and APIs without `required` members are unaffected.
 
 ### Examples
 
@@ -19091,7 +19091,7 @@ The SDK ships with opt-in retry support tuned for Stellar's HTTP surfaces (Horiz
 Pick the preset that matches the server you're calling:
 
 ```csharp
-// For Horizon — GET queries and SubmitTransaction()
+// For Horizon - GET queries and SubmitTransaction()
 var resilience = HttpResilienceOptionsPresets.ForHorizon();
 var server = new Server("https://horizon-testnet.stellar.org", resilience, bearerToken: null);
 
@@ -19114,12 +19114,12 @@ RFC-safe methods (`GET`, `HEAD`, `OPTIONS`). Each preset opts in to the addition
 |---|---|---|---|
 | Horizon queries (`Server.Accounts`, `Ledgers`, `Operations`, `Effects`, `Root`, …) | GET | ✅ | ✅ |
 | `Server.SubmitTransaction()` / `SubmitTransactionAsync()` | POST | ✅ | n/a |
-| Every `StellarRpcServer` method — read (`getLatestLedger`, `simulateTransaction`, `getEvents`, …) or write (`sendTransaction`) | POST | n/a | ✅ |
+| Every `StellarRpcServer` method - read (`getLatestLedger`, `simulateTransaction`, `getEvents`, …) or write (`sendTransaction`) | POST | n/a | ✅ |
 | SEP-6 `PATCH /transactions/{id}` | PATCH | ❌ | ❌ |
 
 Retrying `SubmitTransaction()` is safe on Stellar even though it is HTTP POST: every envelope is
 uniquely keyed by transaction hash plus the source account's sequence number, so a resubmit either
-returns the cached server result or fails with `tx_bad_seq` — there is no double-spend window. If
+returns the cached server result or fails with `tx_bad_seq` - there is no double-spend window. If
 the original submission had already committed when the transient failure occurred, the retry
 surfaces `tx_bad_seq` and your code should look up the transaction by its hash to recover the
 original result.
@@ -19129,13 +19129,13 @@ original result.
 > `HttpClient`). Specific SEP POST endpoints are **non-idempotent by spec** and silently retrying
 > them creates real problems:
 >
-> - **SEP-10 `POST /auth`** — the spec says: *"The Server should not provide more than one JWT for
+> - **SEP-10 `POST /auth`** - the spec says: *"The Server should not provide more than one JWT for
 >   a specific challenge transaction."* The challenge is one-shot. On transient failure, request a
->   **fresh** challenge — don't resubmit the same body.
-> - **SEP-24 `POST /transactions/{deposit,withdraw}/interactive`** — each call mints a fresh
+>   **fresh** challenge - don't resubmit the same body.
+> - **SEP-24 `POST /transactions/{deposit,withdraw}/interactive`** - each call mints a fresh
 >   `transaction_id`. Retrying creates a duplicate transaction record and an orphaned interactive
 >   URL. The spec defines no idempotency-key mechanism.
-> - **SEP-6 `PATCH /transactions/{id}`** — not in the SEP-6 master spec; anchor-vendor extension
+> - **SEP-6 `PATCH /transactions/{id}`** - not in the SEP-6 master spec; anchor-vendor extension
 >   that mutates KYC state. Treat as non-idempotent.
 >
 > For SEP HttpClients, use `WithConnectionRetries()` (transport retries only) or build a custom
@@ -19147,19 +19147,19 @@ original result.
 
 #### Presets
 
-- `ForHorizon()` — for the Stellar Horizon API. Retries the transient HTTP status codes on
+- `ForHorizon()` - for the Stellar Horizon API. Retries the transient HTTP status codes on
   Horizon's GET queries and `SubmitTransaction()` POST. 3 retries, 200ms–5s exponential backoff
   with jitter, honors `Retry-After`. PATCH/PUT/DELETE are not retried.
-- `ForSoroban()` — for Stellar RPC (Soroban). Same status-code set as `ForHorizon()`; adds POST
+- `ForSoroban()` - for Stellar RPC (Soroban). Same status-code set as `ForHorizon()`; adds POST
   to the retry-method whitelist (every JSON-RPC call is POST). Higher retry budget (5) and longer
-  delays (up to 15s) — tuned for long-running polling workflows like `getTransaction(hash)`. For
+  delays (up to 15s) - tuned for long-running polling workflows like `getTransaction(hash)`. For
   latency-sensitive one-off calls (e.g. `simulateTransaction`), override `MaxRetryCount`/`MaxDelay`.
-- `WithConnectionRetries()` — transport-level retries only (`HttpRequestException` and timeouts
+- `WithConnectionRetries()` - transport-level retries only (`HttpRequestException` and timeouts
   thrown inside the handler chain; an `HttpClient.Timeout` cancellation is never retried). No
-  status-code retries, but transport retries apply to **all** HTTP methods — see the SEP warning
+  status-code retries, but transport retries apply to **all** HTTP methods - see the SEP warning
   above for the replay window this implies on one-shot endpoints.
-- `LowLatency()` — minimal retries and short delays (trading bots, latency-sensitive workloads).
-- `NoRetry()` — no retries at all.
+- `LowLatency()` - minimal retries and short delays (trading bots, latency-sensitive workloads).
+- `NoRetry()` - no retries at all.
 
 The retry pipeline observes responses inside the HTTP handler chain, so it triggers
 *before* status codes are translated into typed exceptions like `TooManyRequestsException`
@@ -19173,8 +19173,8 @@ reports overload as HTTP 503/504 the retry pipeline falls back to exponential ba
 parser still accepts the RFC 7231 HTTP-date form because upstream proxies and CDNs
 (Cloudflare, nginx, API gateways) may rewrite the header.
 
-**JSON-RPC errors are not retried.** Stellar RPC reports request-scoped failures — an
-out-of-range `startLedger`, malformed parameters, a TTL ledger key queried directly — as a
+**JSON-RPC errors are not retried.** Stellar RPC reports request-scoped failures - an
+out-of-range `startLedger`, malformed parameters, a TTL ledger key queried directly - as a
 JSON-RPC error body delivered with HTTP status 200. The retry pipeline keys on the status
 code, and 200 is not a failure, so these never enter it: neither `RetryHttpStatusCodes` nor
 `AdditionalRetriableExceptionTypes` can reach them and no backoff applies. They surface as
@@ -19430,7 +19430,7 @@ Biome offers [enterprise support](https://biomejs.dev/enterprise), where Core Co
 
 # Jobrow
 
-Public register of **still-open US tech roles**, read from employer ATS JSON — not from another job site.
+Public register of **still-open US tech roles**, read from employer ATS JSON - not from another job site.
 
 Tagline: **Still open.**
 
@@ -19446,7 +19446,7 @@ Tagline: **Still open.**
 
 **https://jobrow.vercel.app**
 
-Production is **Neon Postgres** on Vercel Hobby. The board currently holds **5,000+ open US tech roles across 50 companies**. Apply always leaves Jobrow for the employer ATS. Public listings — not an employer, recruiter, or agency.
+Production is **Neon Postgres** on Vercel Hobby. The board currently holds **5,000+ open US tech roles across 50 companies**. Apply always leaves Jobrow for the employer ATS. Public listings - not an employer, recruiter, or agency.
 
 `GET /api/health` reports `{ db, openJobs, pendingBoards, staleBoards, lastOkAt }`.
 
@@ -19454,12 +19454,12 @@ Production is **Neon Postgres** on Vercel Hobby. The board currently holds **5,0
 
 Unauthenticated read API for the same US-tech slice Jobs shows (`status=open`, `us_eligible`, `tech_eligible`). Native apps and other clients can call these without going through server functions:
 
-- `GET /api/jobs` — `JobQuery` as querystring (`q`, `fn`, `seniority`, `workplace`, `location`, `salaryMin`, `posted`, `ats`, `company`, `sort`, `page`). Page size 40.
-- `GET /api/jobs/:id` — one role, with sanitized `description_html` plus `description_text`
-- `GET /api/companies` — boards
-- `GET /api/companies/:slug` — board plus open roles
-- `GET /api/home` — register KPIs (open count, boards, first-seen 24h, last crawl, functions, boards) plus a latest page
-- `GET /api/closed` — roles closed after a successful crawl
+- `GET /api/jobs` - `JobQuery` as querystring (`q`, `fn`, `seniority`, `workplace`, `location`, `salaryMin`, `posted`, `ats`, `company`, `sort`, `page`). Page size 40.
+- `GET /api/jobs/:id` - one role, with sanitized `description_html` plus `description_text`
+- `GET /api/companies` - boards
+- `GET /api/companies/:slug` - board plus open roles
+- `GET /api/home` - register KPIs (open count, boards, first-seen 24h, last crawl, functions, boards) plus a latest page
+- `GET /api/closed` - roles closed after a successful crawl
 
 `/api/health`, `/api/desk`, cron, and admin are unchanged. Product auth stays off. Apply URLs are employer ATS https links. Discovery helpers: [`/sitemap.xml`](https://jobrow.vercel.app/sitemap.xml), [`/llms.txt`](https://jobrow.vercel.app/llms.txt).
 
@@ -19471,7 +19471,7 @@ An Expo (Android + iOS) client lives in [`mobile/`](mobile/). It is a separate p
 
 ## Sister product
 
-**[Lattice](https://lattice-devtechedge1.vercel.app)** — free board for **blockchain, crypto, and Web3 jobs** from live employer ATS boards (Coinbase, Binance, Ripple, and more). Jobrow stays US tech; Lattice covers Web3 careers. Source: [devtechedge/lattice](https://github.com/devtechedge/lattice).
+**[Lattice](https://lattice-devtechedge1.vercel.app)** - free board for **blockchain, crypto, and Web3 jobs** from live employer ATS boards (Coinbase, Binance, Ripple, and more). Jobrow stays US tech; Lattice covers Web3 careers. Source: [devtechedge/lattice](https://github.com/devtechedge/lattice).
 
 ---
 
@@ -19495,21 +19495,21 @@ Share card: [docs/screenshots/social-preview.png](docs/screenshots/social-previe
 
 ## What you can do
 
-- **Jobs** (`/`) — Latest (8 roles, one company per row), filters, KPIs, Companies strip (8)
-- **Closed** (`/closed`) — roles removed after a successful crawl (filled or pulled)
+- **Jobs** (`/`) - Latest (8 roles, one company per row), filters, KPIs, Companies strip (8)
+- **Closed** (`/closed`) - roles removed after a successful crawl (filled or pulled)
 - Company marks next to every listing (site icon, initials if the icon fails)
-- **Search** (`/jobs`) — full paginated table of the US tech slice
-- **Companies** (`/companies`) — 50 boards, US-tech count vs listed count, last successful fetch
-- **Saved** — browser watchlist count in the header (nav: Jobs · Search · Companies · About · Saved · Closed)
-- **Role** (`/jobs/:id`) — summary, pay, workplace, posting HTML, Apply (leaves the site)
-- **Contact** (`/contact`) — corrections and legal notes (not applications)
-- **Add a board** (`/employers`) — public Greenhouse / Ashby / Lever / Workable token
-- **Pricing** (`/pricing`) — Bound pass waitlist (`$11` / 28 days). No live checkout
-- **Promote** (`/placements`) — Ruled pin `$120` / masthead line `$55`. Waitlist only
-- **Watchlist** — local to the browser (`localStorage` key `jobrow:watchlist`, max 200). No account. No resume upload
-- **JSON API** (`/api/jobs`, `/api/companies`, `/api/home`) — public register contract for native apps
-- **iOS / Android** — Expo app in `mobile/`. Apply opens the employer ATS. Saved jobs use local AsyncStorage.
-- **Admin** (`/admin`) — password-gated crawl and board edits
+- **Search** (`/jobs`) - full paginated table of the US tech slice
+- **Companies** (`/companies`) - 50 boards, US-tech count vs listed count, last successful fetch
+- **Saved** - browser watchlist count in the header (nav: Jobs · Search · Companies · About · Saved · Closed)
+- **Role** (`/jobs/:id`) - summary, pay, workplace, posting HTML, Apply (leaves the site)
+- **Contact** (`/contact`) - corrections and legal notes (not applications)
+- **Add a board** (`/employers`) - public Greenhouse / Ashby / Lever / Workable token
+- **Pricing** (`/pricing`) - Bound pass waitlist (`$11` / 28 days). No live checkout
+- **Promote** (`/placements`) - Ruled pin `$120` / masthead line `$55`. Waitlist only
+- **Watchlist** - local to the browser (`localStorage` key `jobrow:watchlist`, max 200). No account. No resume upload
+- **JSON API** (`/api/jobs`, `/api/companies`, `/api/home`) - public register contract for native apps
+- **iOS / Android** - Expo app in `mobile/`. Apply opens the employer ATS. Saved jobs use local AsyncStorage.
+- **Admin** (`/admin`) - password-gated crawl and board edits
 
 A role **drops when a successful crawl no longer sees it**. A failed fetch does not close that board.
 
@@ -19609,7 +19609,7 @@ Hardening in this tree: parameterized SQL, escaped job HTML, script-safe JSON-LD
 | GitHub Action `APP_URL` + `CRON_SECRET` | Set on the repo. |
 | Counsel | Terms / privacy / sourcing are drafts. |
 | Bound pass / ruled pins | Rate card exists. Checkout is not live. |
-| Private GitHub repo | Optional. Does not replace Vercel secrets — see [SECURITY.md](SECURITY.md). |
+| Private GitHub repo | Optional. Does not replace Vercel secrets - see [SECURITY.md](SECURITY.md). |
 
 ---
 
@@ -19773,14 +19773,14 @@ See [Contributing Guide](https://github.com/vitest-dev/vitest/blob/main/CONTRIBU
   <a href="https://github.com/langchain-ai/langgraphjs/issues" target="_blank"><img src="https://img.shields.io/github/issues-raw/langchain-ai/langgraphjs" alt="Open Issues"></a>
 </div>
 
-LangGraph — used by Replit, Uber, LinkedIn, GitLab and more — is a low-level orchestration framework for building controllable agents. While langchain provides integrations and composable components to streamline LLM application development, the LangGraph library enables agent orchestration — offering customizable architectures, long-term memory, and human-in-the-loop to reliably handle complex tasks.
+LangGraph - used by Replit, Uber, LinkedIn, GitLab and more - is a low-level orchestration framework for building controllable agents. While langchain provides integrations and composable components to streamline LLM application development, the LangGraph library enables agent orchestration - offering customizable architectures, long-term memory, and human-in-the-loop to reliably handle complex tasks.
 
 ```bash
 npm install @langchain/langgraph @langchain/core
 ```
 
 > [!TIP]
-> If you're looking to quickly build agents, check out **[Deep Agents](https://docs.langchain.com/oss/javascript/deepagents/overview)** — a higher-level package built on LangGraph for agents that can plan, use subagents, and leverage file systems for complex tasks.
+> If you're looking to quickly build agents, check out **[Deep Agents](https://docs.langchain.com/oss/javascript/deepagents/overview)** - a higher-level package built on LangGraph for agents that can plan, use subagents, and leverage file systems for complex tasks.
 
 For an equivalent Python library, check out [LangGraph](https://github.com/langchain-ai/langgraph) and the [Python docs](https://docs.langchain.com/oss/python/langgraph/overview).
 
@@ -19788,11 +19788,11 @@ For an equivalent Python library, check out [LangGraph](https://github.com/langc
 
 LangGraph provides low-level supporting infrastructure for *any* long-running, stateful workflow or agent:
 
-- **[Durable execution](https://docs.langchain.com/oss/javascript/langgraph/durable-execution)** — Build agents that persist through failures and can run for extended periods, automatically resuming from exactly where they left off.
-- **[Human-in-the-loop](https://docs.langchain.com/oss/javascript/langgraph/interrupts)** — Seamlessly incorporate human oversight by inspecting and modifying agent state at any point during execution.
-- **[Comprehensive memory](https://docs.langchain.com/oss/javascript/langgraph/memory)** — Create truly stateful agents with both short-term working memory for ongoing reasoning and long-term persistent memory across sessions.
-- **[Debugging with LangSmith](https://www.langchain.com/langsmith)** — Gain deep visibility into complex agent behavior with visualization tools that trace execution paths, capture state transitions, and provide detailed runtime metrics.
-- **[Production-ready deployment](https://docs.langchain.com/langsmith/deployments)** — Deploy sophisticated agent systems confidently with scalable infrastructure designed to handle the unique challenges of stateful, long-running workflows.
+- **[Durable execution](https://docs.langchain.com/oss/javascript/langgraph/durable-execution)** - Build agents that persist through failures and can run for extended periods, automatically resuming from exactly where they left off.
+- **[Human-in-the-loop](https://docs.langchain.com/oss/javascript/langgraph/interrupts)** - Seamlessly incorporate human oversight by inspecting and modifying agent state at any point during execution.
+- **[Comprehensive memory](https://docs.langchain.com/oss/javascript/langgraph/memory)** - Create truly stateful agents with both short-term working memory for ongoing reasoning and long-term persistent memory across sessions.
+- **[Debugging with LangSmith](https://www.langchain.com/langsmith)** - Gain deep visibility into complex agent behavior with visualization tools that trace execution paths, capture state transitions, and provide detailed runtime metrics.
+- **[Production-ready deployment](https://docs.langchain.com/langsmith/deployments)** - Deploy sophisticated agent systems confidently with scalable infrastructure designed to handle the unique challenges of stateful, long-running workflows.
 
 > [!TIP]
 > For developing, debugging, and deploying AI agents and LLM applications, see [LangSmith](https://docs.langchain.com/langsmith/home).
@@ -19801,9 +19801,9 @@ LangGraph provides low-level supporting infrastructure for *any* long-running, s
 
 While LangGraph can be used standalone, it also integrates seamlessly with any LangChain product, giving developers a full suite of tools for building agents. To improve your LLM application development, pair LangGraph with:
 
-- [Deep Agents (JS)](https://docs.langchain.com/oss/javascript/deepagents/overview) — Build agents that can plan, use subagents, and leverage file systems for complex tasks. A higher-level package built on top of LangGraph.
+- [Deep Agents (JS)](https://docs.langchain.com/oss/javascript/deepagents/overview) - Build agents that can plan, use subagents, and leverage file systems for complex tasks. A higher-level package built on top of LangGraph.
 - [LangChain](https://docs.langchain.com/oss/javascript/langchain/overview) – Provides integrations and composable components to streamline LLM application development.
-- [LangSmith](http://www.langchain.com/langsmith) — Helpful for agent evals and observability. Debug poor-performing LLM app runs, evaluate agent trajectories, gain visibility in production, and improve performance over time.
+- [LangSmith](http://www.langchain.com/langsmith) - Helpful for agent evals and observability. Debug poor-performing LLM app runs, evaluate agent trajectories, gain visibility in production, and improve performance over time.
 
 ## Additional resources
 
@@ -20785,7 +20785,7 @@ HITL Web3 compliance copilot for VASP licensing: source-traced MiCA / VARA mappi
 
 > **Status:** Vercel demo-mode (Next.js API routes, seeded Aurum Custody, HITL reviews in-memory / reset on cold start). Local Compose remains the full FastAPI + Postgres path. Deterministic retrieval-bounded generator; no API key. Findings are not legal advice. CI on `main` is green (pytest, typecheck, Playwright).
 >
-> **Demo password (HITL / eval mutations):** `Demo123!` — sent as `x-demo-token` (see [SECURITY.md](SECURITY.md)). Public GET of the seeded pack stays open.
+> **Demo password (HITL / eval mutations):** `Demo123!` - sent as `x-demo-token` (see [SECURITY.md](SECURITY.md)). Public GET of the seeded pack stays open.
 
 Vercel project Root Directory is `frontend` (Next.js App Router demo API; FastAPI is not part of the Vercel build).
 
@@ -20917,7 +20917,7 @@ Self-correcting multi-agent research console. Plan queries, retrieve in parallel
 
 **https://veritas-engine-woad.vercel.app/**
 
-> **Status:** The public site defaults to **Demo** mode (simulated). Keys alone do not enable spend — set `LIVE_MODE=true` (optional `PUBLIC_RUN_TOKEN` / `x-run-token`). There is no login.
+> **Status:** The public site defaults to **Demo** mode (simulated). Keys alone do not enable spend - set `LIVE_MODE=true` (optional `PUBLIC_RUN_TOKEN` / `x-run-token`). There is no login.
 
 This is the **only** public repo for the project.
 
@@ -20963,7 +20963,7 @@ This is the **only** public repo for the project.
 | Data on Vercel | Demo repository (simulated retrieval + canned brief) |
 | Auth | None |
 | Hosting | Vercel |
-| CI | GitHub Actions — Vitest, `tsc`, Playwright |
+| CI | GitHub Actions - Vitest, `tsc`, Playwright |
 
 ---
 
@@ -21042,7 +21042,7 @@ Pure client-side deterministic snapshot (seeded PRNG). Zero environment variable
 
 ## Screenshots
 
-### Overview — Live Telemetry
+### Overview - Live Telemetry
 ![Overview](docs/screenshots/01-overview.png)
 
 ### Price Disparity Matrix
@@ -21059,15 +21059,15 @@ Pure client-side deterministic snapshot (seeded PRNG). Zero environment variable
 
 ## Features
 
-- **Live Telemetry Overview** — editorial hero number, 8-column KPI strip, FX rates, region & brand markup charts
-- **Price Disparity Matrix** — sortable 5-region matrix with EUR baseline, duties, taxes and landed cost
-- **Launch Calendar** — 90-day rolling grid of regional drops with status badges
-- **Arbitrage Opportunity Detector** — net profit after duties, taxes and shipping per region pair
-- **Landed-Cost Optimizer** — cheapest buying region recommendation per SKU
-- **Price History & Anomaly Flags** — 90-day time series with >3 % daily move detection
-- **FX Volatility Hedge Calculator** — 90-day FX history + what-if revaluation
-- **Brand Pulse Radar** — 5-dimensional prestige / hype / scarcity / FX risk / resale score
-- **Stock-Out Risk Index** — sell-out probability from inventory × hype × days-to-launch
+- **Live Telemetry Overview** - editorial hero number, 8-column KPI strip, FX rates, region & brand markup charts
+- **Price Disparity Matrix** - sortable 5-region matrix with EUR baseline, duties, taxes and landed cost
+- **Launch Calendar** - 90-day rolling grid of regional drops with status badges
+- **Arbitrage Opportunity Detector** - net profit after duties, taxes and shipping per region pair
+- **Landed-Cost Optimizer** - cheapest buying region recommendation per SKU
+- **Price History & Anomaly Flags** - 90-day time series with >3 % daily move detection
+- **FX Volatility Hedge Calculator** - 90-day FX history + what-if revaluation
+- **Brand Pulse Radar** - 5-dimensional prestige / hype / scarcity / FX risk / resale score
+- **Stock-Out Risk Index** - sell-out probability from inventory × hype × days-to-launch
 - **Competitive Matrix, Runway Tracker, VIP Tier Simulator, Sustainability, Trend Forecast, Drop Queue, Watchlist & Alerts**
 
 ## Tech Stack
@@ -21098,7 +21098,7 @@ No environment variables required.
 ```bash
 bun test              # unit: snapshot counts, telemetry, price-history key split, VIP, validation
 bun run typecheck
-bun run test:e2e      # Playwright Chromium — overview, Price Matrix nav, theme toggle
+bun run test:e2e      # Playwright Chromium - overview, Price Matrix nav, theme toggle
 ```
 
 GitHub Actions runs unit + typecheck + e2e on every push to `main`. Dependabot opens weekly PRs for patch/minor npm and Actions updates (majors ignored).
@@ -21132,9 +21132,9 @@ Brand names and prices are synthetic and used for demonstration only. Trademarks
 
 ### README.md
 
-# 🧠 AAROP — Autonomous Agentic Reasoning & Orchestration Platform
+# 🧠 AAROP - Autonomous Agentic Reasoning & Orchestration Platform
 
-> A reference implementation of a **multi-agent AI system built on agentic-loop engineering principles**: `Perceive → Plan → Act → Observe → Reflect → Adapt`. The loop is an **explicit, inspectable state machine** — not a hidden prompt chain — with bounded autonomy, self-verification, durable checkpointing, and full trace replay.
+> A reference implementation of a **multi-agent AI system built on agentic-loop engineering principles**: `Perceive → Plan → Act → Observe → Reflect → Adapt`. The loop is an **explicit, inspectable state machine** - not a hidden prompt chain - with bounded autonomy, self-verification, durable checkpointing, and full trace replay.
 
 <p align="left">
   <a href="https://aarop.vercel.app/"><img alt="live demo" src="https://img.shields.io/badge/live%20demo-online-brightgreen"></a>
@@ -21147,11 +21147,11 @@ Brand names and prices are synthetic and used for demonstration only. Trademarks
 </p>
 
 ### 🌐 [**▶ Try the Live Demo →**](https://aarop.vercel.app/)
-Watch an objective flow through the full agentic loop in real time — no install, no API keys, no sign-up.
+Watch an objective flow through the full agentic loop in real time - no install, no API keys, no sign-up.
 
-> **Live demo status:** 100% client-side TypeScript port with a deterministic mock provider — always online on Vercel. The Python `core/` engine runs offline with the same loop semantics (24 tests, 99% coverage).
+> **Live demo status:** 100% client-side TypeScript port with a deterministic mock provider - always online on Vercel. The Python `core/` engine runs offline with the same loop semantics (24 tests, 99% coverage).
 
-**Built by [Devayan Mandal](https://github.com/devtechedge)** — AI / ML Engineer.
+**Built by [Devayan Mandal](https://github.com/devtechedge)** - AI / ML Engineer.
 
 ---
 
@@ -21171,7 +21171,7 @@ Watch an objective flow through the full agentic loop in real time — no instal
 
 | Path | What it is |
 |---|---|
-| **[`core/`](core/)** | The Python reference engine — the agentic loop, agents, tool registry, memory, model router, observability. **24 tests, 99% coverage. Runs offline, no API keys.** |
+| **[`core/`](core/)** | The Python reference engine - the agentic loop, agents, tool registry, memory, model router, observability. **24 tests, 99% coverage. Runs offline, no API keys.** |
 | **[`web-demo/`](web-demo/)** | A **Next.js live demo** ([aarop.vercel.app](https://aarop.vercel.app/)) that animates the full agentic loop in the browser. |
 | **[`docs/AAROP_Case_Study.pdf`](docs/AAROP_Case_Study.pdf)** | A polished 4-page case study (problem → architecture → results → ADRs). |
 | **[`core/docs/ARCHITECTURE.md`](core/docs/ARCHITECTURE.md)** | C4 diagrams, production reference stack, and 5 ADRs. |
@@ -21245,19 +21245,19 @@ npm run dev                 # http://localhost:3000
 
 ## Architecture & engineering rigor
 
-- **Explicit loop state machine** — observable, replayable, crash-recoverable
-- **Bounded autonomy** — step / cost / time budgets with human escalation
-- **Self-verification** — a critic agent gates every result before commit
-- **Resilient tooling** — schema-validated, permission-scoped, retries + circuit breaker + audit log
-- **Cost-aware model routing** — cloud + self-hosted, pluggable
-- **Observability** — structured trace per run (OpenTelemetry-shaped)
+- **Explicit loop state machine** - observable, replayable, crash-recoverable
+- **Bounded autonomy** - step / cost / time budgets with human escalation
+- **Self-verification** - a critic agent gates every result before commit
+- **Resilient tooling** - schema-validated, permission-scoped, retries + circuit breaker + audit log
+- **Cost-aware model routing** - cloud + self-hosted, pluggable
+- **Observability** - structured trace per run (OpenTelemetry-shaped)
 - **99% test coverage** on core orchestration; CI across Python 3.10–3.12, plus web unit tests, `tsc --noEmit`, and Playwright smokes
 
 See **[`core/docs/ARCHITECTURE.md`](core/docs/ARCHITECTURE.md)** for C4 diagrams, the production reference stack (Temporal, FastAPI, pgvector, vLLM, Kubernetes, OpenTelemetry), and **5 Architecture Decision Records**.
 
 ## Live demo
 
-The [`web-demo/`](web-demo/) ports the exact loop logic to TypeScript and runs **100% client-side** with a deterministic mock provider — instant, free, and always online. Deployed on Vercel: **[aarop.vercel.app](https://aarop.vercel.app/)**. See [`web-demo/README.md`](web-demo/README.md) for deploy steps.
+The [`web-demo/`](web-demo/) ports the exact loop logic to TypeScript and runs **100% client-side** with a deterministic mock provider - instant, free, and always online. Deployed on Vercel: **[aarop.vercel.app](https://aarop.vercel.app/)**. See [`web-demo/README.md`](web-demo/README.md) for deploy steps.
 
 Threat model for both surfaces: **[`SECURITY.md`](SECURITY.md)**.
 
@@ -21275,7 +21275,7 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md). Issues and PRs welcome.
 
 ## License
 
-MIT © 2026 Devayan Mandal — see [`LICENSE`](LICENSE).
+MIT © 2026 Devayan Mandal - see [`LICENSE`](LICENSE).
 
 
 ---
@@ -21622,7 +21622,7 @@ Repository: [github.com/devtechedge/notion-clone](https://github.com/devtechedge
 
 # PolyGlot Live
 
-Spanish speaking lab for learners who want live roleplay, not flashcards. Order tapas in Madrid, rent a bike in Barcelona, or sit a tech interview — then get IPA, grammar toasts, and a fluency scorecard.
+Spanish speaking lab for learners who want live roleplay, not flashcards. Order tapas in Madrid, rent a bike in Barcelona, or sit a tech interview - then get IPA, grammar toasts, and a fluency scorecard.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://polygot-snowy.vercel.app)
 [![CI](https://github.com/devtechedge/polygot/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/polygot/actions/workflows/ci.yml)
@@ -21677,10 +21677,10 @@ This is the **only** public repo for the project.
 | Frontend | Next.js 15 (App Router), React 19, TypeScript, Tailwind 4, Motion |
 | Speech | Web Speech API (`SpeechRecognition` + `speechSynthesis`) |
 | AI | Optional `@google/genai` (`gemini-2.5-flash`). Canned fallback in `lib/demo-chat.ts` |
-| Data | Static scenario catalog — not Prisma, not a database |
+| Data | Static scenario catalog - not Prisma, not a database |
 | Auth | None |
 | Hosting | Vercel |
-| CI | GitHub Actions — Vitest, `tsc`, Playwright |
+| CI | GitHub Actions - Vitest, `tsc`, Playwright |
 
 ---
 
@@ -21732,7 +21732,7 @@ Single-turn **calendar arithmetic** for RLVR / evals on the [Prime Intellect Env
 
 Hub: [devtechedge/calendar-math](https://app.primeintellect.ai/dashboard/environments/devtechedge/calendar-math) · Source: [github.com/devtechedge/calendar-math](https://github.com/devtechedge/calendar-math)
 
-The model is given one of three question types, reasons, and puts a final answer in `<answer>` tags. The grader is pure `datetime` — no LLM-as-judge, no fuzzy string matching on the main reward.
+The model is given one of three question types, reasons, and puts a final answer in `<answer>` tags. The grader is pure `datetime` - no LLM-as-judge, no fuzzy string matching on the main reward.
 
 | Task | Example prompt | Gold answer |
 | --- | --- | --- |
@@ -21747,7 +21747,7 @@ This is intentionally **not** reverse-text or word-count. Calendar reasoning is 
 - **Verifiable.** Gold answers are produced by Python `datetime.date`. The same functions are the reference solver.
 - **Hard where it matters.** Eval always includes curated edge cases: 1900-02-28 (century, not leap), 2000-02-28 (century, leap), 2024-02-29, year boundaries.
 - **Not gameable by format alone.** Format is a 0.2 bonus. Exact match is the 1.0 term.
-- **Shaping, not noise.** Off-by-one dates / day-counts score 0.5 partial credit — models routinely confuse inclusive vs exclusive counting. Adjacent weekdays score 0.3.
+- **Shaping, not noise.** Off-by-one dates / day-counts score 0.5 partial credit - models routinely confuse inclusive vs exclusive counting. Adjacent weekdays score 0.3.
 - **Configurable.** `num_train_examples`, `num_eval_examples`, `seed`, and an optional `task` pin.
 
 ## Reward
@@ -21877,7 +21877,7 @@ A sequel to [calendar-math](https://github.com/devtechedge/calendar-math): same 
 
 The task is to find the **earliest valid UTC start** that works for every attendee. Busy intervals, working hours, and timezones are hidden. The final answer goes in `<answer>` tags as a UTC ISO-8601 timestamp, e.g. `2024-03-11T15:00:00Z`. If no slot exists, `NONE`.
 
-The grader is a UTC sweep-line over `zoneinfo` — no LLM-as-judge, no fuzzy string match on the main reward.
+The grader is a UTC sweep-line over `zoneinfo` - no LLM-as-judge, no fuzzy string match on the main reward.
 
 | Tool | Returns |
 | --- | --- |
@@ -21923,9 +21923,9 @@ The gold policy is a harness check: tools leak enough to rebuild the world, and 
 
 MiniMax is exact on **12/15**. The three misses are the ones the env is supposed to catch:
 
-- `sydney_ny_none` — format only (0.2). Claimed a 13:00Z overlap between Sydney and New York that does not exist.
-- `dst_eu_monday` — valid-not-earliest (0.3). Answered 10:00Z after the EU spring-forward; gold is 08:00Z.
-- `no_slot_fully_booked` — 0.0. Truncated before `</answer>` at 2048 tokens.
+- `sydney_ny_none` - format only (0.2). Claimed a 13:00Z overlap between Sydney and New York that does not exist.
+- `dst_eu_monday` - valid-not-earliest (0.3). Answered 10:00Z after the EU spring-forward; gold is 08:00Z.
+- `no_slot_fully_booked` - 0.0. Truncated before `</answer>` at 2048 tokens.
 
 ```bash
 uv run vf-eval meeting-slot -n 15 -r 1 -p openrouter \
@@ -22055,13 +22055,13 @@ Pay `$PULSAR` to run AI inference. Earn by supplying GPU power. Deflationary by 
 
 ## Features
 
-- **3D hero** — React Three Fiber neutron star with polar jets, accretion disk, and animated pulse rings
-- **Wallet connect** — wagmi v3 + RainbowKit on Base (mainnet + Sepolia fallback)
-- **Staking dashboard** — full approve → stake → unstake → claim flow with live APY reads
-- **Tokenomics visuals** — Recharts allocation donut, vesting bars, animated burned-supply counter
-- **Live network pulse** — simulated job feed, supplier map, latency & volume KPIs
-- **Trust primitives** — Basescan verification hooks, UNCX lock proof, Gnosis Safe, KYC badge
-- **Smart contracts** — `Pulsar.sol` (fixed 1B supply, tax + burn) + `PulsarStaking.sol` (Foundry + 14 tests)
+- **3D hero** - React Three Fiber neutron star with polar jets, accretion disk, and animated pulse rings
+- **Wallet connect** - wagmi v3 + RainbowKit on Base (mainnet + Sepolia fallback)
+- **Staking dashboard** - full approve → stake → unstake → claim flow with live APY reads
+- **Tokenomics visuals** - Recharts allocation donut, vesting bars, animated burned-supply counter
+- **Live network pulse** - simulated job feed, supplier map, latency & volume KPIs
+- **Trust primitives** - Basescan verification hooks, UNCX lock proof, Gnosis Safe, KYC badge
+- **Smart contracts** - `Pulsar.sol` (fixed 1B supply, tax + burn) + `PulsarStaking.sol` (Foundry + 14 tests)
 
 ## Tech Stack
 
@@ -22081,7 +22081,7 @@ Pay `$PULSAR` to run AI inference. Earn by supplying GPU power. Deflationary by 
 bun install
 bun run dev          # → http://localhost:3000
 
-# Optional — contracts
+# Optional - contracts
 cd contracts
 forge install OpenZeppelin/openzeppelin-contracts --no-commit
 forge build && forge test -vv
@@ -22103,7 +22103,7 @@ See [`contracts/`](./contracts) for the full Foundry project, ABIs, deployment s
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).
 
 
 ---
@@ -22118,7 +22118,7 @@ MIT — see [LICENSE](./LICENSE).
 
 # The Obsidian Archive
 
-Single-file immersive portfolio for a fictional generative digital sculpture studio. Twenty complex frontend features, Three.js crystal, Web Audio drone, command palette, and pinned horizontal gallery — all with zero build step.
+Single-file immersive portfolio for a fictional generative digital sculpture studio. Twenty complex frontend features, Three.js crystal, Web Audio drone, command palette, and pinned horizontal gallery - all with zero build step.
 
 [![CI](https://github.com/devtechedge/obsidian/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/obsidian/actions/workflows/ci.yml)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-black?logo=github)](https://devtechedge.github.io/obsidian/)
@@ -22140,23 +22140,23 @@ Client-side only · zero build · fully self-contained (React UMD + Tailwind Pla
 
 ![Hero with 3D crystal](docs/screenshots/01-hero.jpg)
 
-*Hero — Three.js crystal + particle field*
+*Hero - Three.js crystal + particle field*
 
 ![Archive grid](docs/screenshots/02-archive.jpg)
 
-*Archive — generative sculpture grid*
+*Archive - generative sculpture grid*
 
 ![Philosophy section](docs/screenshots/03-philosophy.jpg)
 
-*Philosophy — live-drawing mandala + stats*
+*Philosophy - live-drawing mandala + stats*
 
 ![Dark contact](docs/screenshots/04-contact-dark.jpg)
 
-*Contact — dark theme*
+*Contact - dark theme*
 
 ## Features
 
-- **One file, zero build** — entire experience ships as a single `index.html` (~140 KB)
+- **One file, zero build** - entire experience ships as a single `index.html` (~140 KB)
 - **Three.js hero crystal** with custom GLSL shader + mouse-drag rotation
 - **Six generative SVG sculptures** (Vortex, Grid, Waves, Facets, Rings, Hex)
 - **Pinned horizontal-scroll gallery** driven by vertical scroll
@@ -22185,7 +22185,7 @@ No bundler. No package manager. The file is the project.
 # Clone and open locally
 git clone https://github.com/devtechedge/obsidian.git
 cd obsidian
-# Just open index.html in a browser — there is no build step
+# Just open index.html in a browser - there is no build step
 
 # Optional: CI tooling only
 npm ci
@@ -22229,7 +22229,7 @@ Agentic smart-contract security copilot: deterministic static analysis, SWC-mapp
 
 **https://argus-copilot.vercel.app**
 
-> **Status:** Vercel demo-mode. The analyzer, SWC retrieval, MCP tool host, and HITL board run in the browser. No API key. No chain RPC. Educational fixtures only — do not deploy the samples.
+> **Status:** Vercel demo-mode. The analyzer, SWC retrieval, MCP tool host, and HITL board run in the browser. No API key. No chain RPC. Educational fixtures only - do not deploy the samples.
 
 ---
 
@@ -22270,7 +22270,7 @@ This is a defensive review aid, not a professional audit and not a chain client.
 | Tools | JSON-RPC 2.0 subset (MCP-shaped, read-only) |
 | Data | Educational Solidity fixtures in-repo |
 | Hosting | Vercel demo-mode (client-side analyzer) |
-| CI | GitHub Actions — `npm ci`, unit tests, typecheck. No RPC. |
+| CI | GitHub Actions - `npm ci`, unit tests, typecheck. No RPC. |
 
 ---
 
@@ -22321,7 +22321,7 @@ after review without changing the live site’s required env hygiene.
 
 ### README.md
 
-# Synthesis — Autonomous Multi-Agent Research Platform
+# Synthesis - Autonomous Multi-Agent Research Platform
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-synthesis--gold.vercel.app-black?style=for-the-badge&logo=vercel)](https://synthesis-gold.vercel.app/)
 [![CI](https://github.com/devtechedge/synthesis/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/synthesis/actions/workflows/ci.yml)
@@ -22339,8 +22339,8 @@ after review without changing the live site’s required env hygiene.
 
 **https://synthesis-gold.vercel.app/**
 
-- **Real LLM path is live** — Groq (`llama-3.3-70b-versatile`) + Tavily web search. Full multi-agent runs with cited reports, Reflexion, and telemetry.
-- **Demo / simulated mode is the default** — works with or without keys. Real LLM/search only when LIVE_MODE=true and keys are set (optional PUBLIC_RUN_TOKEN).
+- **Real LLM path is live** - Groq (`llama-3.3-70b-versatile`) + Tavily web search. Full multi-agent runs with cited reports, Reflexion, and telemetry.
+- **Demo / simulated mode is the default** - works with or without keys. Real LLM/search only when LIVE_MODE=true and keys are set (optional PUBLIC_RUN_TOKEN).
 - Any OpenAI-compatible provider works via `OPENAI_API_KEY` + `OPENAI_BASE_URL` + `OPENAI_MODEL`.
 
 ---
@@ -22359,15 +22359,15 @@ after review without changing the live site’s required env hygiene.
 
 ## What it does
 
-1. **Brief** — enter a complex research question.
-2. **Planner** — decomposes into research vectors; run **pauses for human-in-the-loop approval**.
-3. **Research crew (parallel fan-out)** — tools (`web_search`, `read_url`), typed evidence, RAG ingest.
-4. **Synthesizer** — cited Markdown report, streamed.
-5. **Critic (Reflexion)** — faithfulness score; bounded revision loop if below threshold.
-6. **Fact-checker** — source credibility audit.
-7. **Finalizer** — confidence + cost/latency dashboard.
+1. **Brief** - enter a complex research question.
+2. **Planner** - decomposes into research vectors; run **pauses for human-in-the-loop approval**.
+3. **Research crew (parallel fan-out)** - tools (`web_search`, `read_url`), typed evidence, RAG ingest.
+4. **Synthesizer** - cited Markdown report, streamed.
+5. **Critic (Reflexion)** - faithfulness score; bounded revision loop if below threshold.
+6. **Fact-checker** - source credibility audit.
+7. **Finalizer** - confidence + cost/latency dashboard.
 
-Every event is persisted — any past run is replayable.
+Every event is persisted - any past run is replayable.
 
 ---
 
@@ -22375,7 +22375,7 @@ Every event is persisted — any past run is replayable.
 
 | Principle | Implementation |
 |---|---|
-| **Loop is a graph, not a `while`** | `StateGraph` executor — nodes, conditional edges, explicit `END`. |
+| **Loop is a graph, not a `while`** | `StateGraph` executor - nodes, conditional edges, explicit `END`. |
 | **Plan → Act → Observe → Reflect** | ReAct tools + Reflexion critic with bounded revisions. |
 | **Bounded autonomy + budget** | Max steps / tokens / cost / wall-clock → graceful finalize. |
 | **Human-in-the-loop** | Planner checkpoint → `awaiting_approval` → resume on approve. |
@@ -22407,7 +22407,7 @@ Browser ──SSE──▶ Next.js (App Router) ──▶ Orchestration (StateGr
    Postgres: runs · checkpoints · events · documents · evidence · memories · eval_runs
 ```
 
-**Portability:** embeddings as JSONB float arrays (no pgvector required) — runs on any Neon / Vercel Postgres free DB.
+**Portability:** embeddings as JSONB float arrays (no pgvector required) - runs on any Neon / Vercel Postgres free DB.
 
 ---
 
@@ -22443,7 +22443,7 @@ npm run dev
 Open http://localhost:3000.
 
 ### Demo mode (no keys)
-Deterministic grounded engine — full graph, HITL, telemetry, eval. **Deployed demo always works.**
+Deterministic grounded engine - full graph, HITL, telemetry, eval. **Deployed demo always works.**
 
 ### Real mode
 ```
@@ -22459,10 +22459,10 @@ TAVILY_API_KEY=...                        # live web search
 
 [![CI](https://github.com/devtechedge/synthesis/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/synthesis/actions/workflows/ci.yml)
 
-- **Unit tests** — Zod schemas, token/cost math, cosine, tool allow-lists, StateGraph termination, Reflexion routing (`npm test`)
-- **Typecheck** — `tsc --noEmit`
-- **Playwright** — Chromium smokes for idle chrome + HITL plan pause (`npm run test:e2e`)
-- **Eval gate** — `GET /api/eval?limit=2` golden set (simulated engine, Postgres service)
+- **Unit tests** - Zod schemas, token/cost math, cosine, tool allow-lists, StateGraph termination, Reflexion routing (`npm test`)
+- **Typecheck** - `tsc --noEmit`
+- **Playwright** - Chromium smokes for idle chrome + HITL plan pause (`npm run test:e2e`)
+- **Eval gate** - `GET /api/eval?limit=2` golden set (simulated engine, Postgres service)
 
 ```bash
 npm ci
@@ -22478,16 +22478,16 @@ Threat model: [SECURITY.md](./SECURITY.md).
 ## Deploy (Vercel free tier)
 
 1. Import the GitHub repo on Vercel.
-2. Add Neon Postgres (Storage → Create Database → Neon) — `DATABASE_URL` is injected automatically.
+2. Add Neon Postgres (Storage → Create Database → Neon) - `DATABASE_URL` is injected automatically.
 3. Optional: Groq + Tavily env vars. Real spend also needs LIVE_MODE=true (keep false on public demos).
-4. Optional: PUBLIC_RUN_TOKEN — live calls must send matching x-run-token.
+4. Optional: PUBLIC_RUN_TOKEN - live calls must send matching x-run-token.
 5. Redeploy and open the live URL.
 
 ---
 
 ## Environment
 
-See [`.env.example`](./.env.example). Only `DATABASE_URL` is required. Provider keys alone do not enable live spend — set LIVE_MODE=true (and optionally PUBLIC_RUN_TOKEN). Details: [SECURITY.md](./SECURITY.md).
+See [`.env.example`](./.env.example). Only `DATABASE_URL` is required. Provider keys alone do not enable live spend - set LIVE_MODE=true (and optionally PUBLIC_RUN_TOKEN). Details: [SECURITY.md](./SECURITY.md).
 
 ---
 
@@ -22502,7 +22502,7 @@ See [`.env.example`](./.env.example). Only `DATABASE_URL` is required. Provider 
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).
 
 See also [SECURITY.md](./SECURITY.md).
 
@@ -22521,7 +22521,7 @@ Built as a senior-portfolio demonstration of agentic-loop engineering.
 
 # Lattice
 
-**Web3 jobs, crypto careers, blockchain roles** — live from employer ATS boards. Roles, gigs, talent, salaries, and companies — without five tabs and a paywall.
+**Web3 jobs, crypto careers, blockchain roles** - live from employer ATS boards. Roles, gigs, talent, salaries, and companies - without five tabs and a paywall.
 
 <p align="left">
   <img src="public/favicon.svg" width="48" height="48" alt="Lattice mark" />
@@ -22551,7 +22551,7 @@ This is the **only** public repo for the product.
 
 ### Fresh openings
 
-**[Companies hiring this week](https://lattice-devtechedge1.vercel.app/hiring)** — live roundup of crypto/Web3 employers that posted in the last seven days. Also: [job hubs](https://lattice-devtechedge1.vercel.app/jobs) (Solidity, DeFi, Ethereum, remote) and the [salary observatory](https://lattice-devtechedge1.vercel.app/salaries).
+**[Companies hiring this week](https://lattice-devtechedge1.vercel.app/hiring)** - live roundup of crypto/Web3 employers that posted in the last seven days. Also: [job hubs](https://lattice-devtechedge1.vercel.app/jobs) (Solidity, DeFi, Ethereum, remote) and the [salary observatory](https://lattice-devtechedge1.vercel.app/salaries).
 
 ---
 
@@ -22576,7 +22576,7 @@ Share card: [docs/screenshots/social-preview.png](docs/screenshots/social-previe
 ## Features
 
 - Editorial homepage: latest live role, twenty-team strip, new-this-week, companies hiring, manifesto
-- [Companies hiring this week](https://lattice-devtechedge1.vercel.app/hiring) — shareable 7-day roundup from live ATS crawls
+- [Companies hiring this week](https://lattice-devtechedge1.vercel.app/hiring) - shareable 7-day roundup from live ATS crawls
 - Roles index with table and card views, persisted locally
 - Live openings from twenty first-party ATS boards (Greenhouse, Lever, Ashby). Apply on the employer’s site; pay is posted or inferred (`~`), never invented
 - Filters for chain, scene, department, seniority, remote region, benefits, pay-in-crypto
@@ -22633,7 +22633,7 @@ See [SECURITY.md](SECURITY.md) for the threat model, reporting, and residual ris
 
 ## Security
 
-Lattice is hardened for a public Vercel deploy (parameterized SQL, same-site auth guards, CSP/HSTS headers, Markdown URL allow-lists, guest-post rate limits). **No public site is unhackable** — see [SECURITY.md](SECURITY.md) for the threat model, residual risk, and how to make this GitHub repo private later. SEO checklist: [docs/SEO.md](docs/SEO.md).
+Lattice is hardened for a public Vercel deploy (parameterized SQL, same-site auth guards, CSP/HSTS headers, Markdown URL allow-lists, guest-post rate limits). **No public site is unhackable** - see [SECURITY.md](SECURITY.md) for the threat model, residual risk, and how to make this GitHub repo private later. SEO checklist: [docs/SEO.md](docs/SEO.md).
 
 ## License
 
@@ -22652,7 +22652,7 @@ MIT. See [LICENSE](LICENSE).
 
 # Zenith Canvas
 
-Neo-brutalist family canvas workspace — drag-and-drop bento cards, client-side persistence, Web Audio chimes, and a 4-digit PIN vault.
+Neo-brutalist family canvas workspace - drag-and-drop bento cards, client-side persistence, Web Audio chimes, and a 4-digit PIN vault.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://zenith-workspace-ten.vercel.app)
 [![CI](https://github.com/devtechedge/zenith-canvas/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/zenith-canvas/actions/workflows/ci.yml)
@@ -22669,7 +22669,7 @@ Neo-brutalist family canvas workspace — drag-and-drop bento cards, client-side
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://zenith-workspace-ten.vercel.app)
 
-Do **not** use https://zenith-canvas.vercel.app or https://zenith-workspace.vercel.app — those hostnames are not this project.
+Do **not** use https://zenith-canvas.vercel.app or https://zenith-workspace.vercel.app - those hostnames are not this project.
 
 > **Status:** Client-side only. Canvases, checklists, sketches, guest passes and the vault PIN live in `localStorage`. There is no account system, no database, and no production backend. Do not store secrets on the board.
 
@@ -22704,7 +22704,7 @@ Do **not** use https://zenith-canvas.vercel.app or https://zenith-workspace.verc
 |-------|------------|
 | Frontend | Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS 3, Lucide |
 | Data | Browser `localStorage` (no database) |
-| Auth | None. Demo PIN is a client-side UX gate — see [SECURITY.md](SECURITY.md) |
+| Auth | None. Demo PIN is a client-side UX gate - see [SECURITY.md](SECURITY.md) |
 | Audio | Native Web Audio API |
 | Hosting | Vercel (import this repo; do not use `output: "standalone"`) |
 | CI | GitHub Actions (unit + typecheck + Playwright) |
@@ -22803,7 +22803,7 @@ This is the **only** public repo for Pulse Workspace.
 | Data | In-memory React context (`context/WorkspaceContext.tsx`) |
 | Audio | Web Audio API (procedural noise, no samples) |
 | Hosting | Vercel |
-| CI | GitHub Actions — Vitest, `tsc`, Playwright |
+| CI | GitHub Actions - Vitest, `tsc`, Playwright |
 
 ---
 
@@ -22866,7 +22866,7 @@ Local-first visual flowchart IDE. Drag nodes onto a custom pan/zoom canvas, comp
 
 **https://aetherflow-ide.vercel.app**
 
-Do **not** use https://aether-flow.vercel.app — that hostname is paused and is not this project.
+Do **not** use https://aether-flow.vercel.app - that hostname is paused and is not this project.
 
 > **Status:** The live site is a **client-side demo**. Graphs persist in `localStorage`. Gmail / Drive / Docs nodes use mock payloads unless you sign in locally with Firebase env vars. Gemini calls hit `/api/gemini/generate` and fall back to a canned reply when `GEMINI_API_KEY` is unset.
 
@@ -22909,11 +22909,11 @@ This is the **only** public repo for the project.
 | Frontend | React 19, Vite 6, TypeScript, Tailwind 4 |
 | Canvas | SVG + DOM cards, quadtree cull |
 | Persistence | `localStorage` (not IndexedDB) |
-| Auth | Optional Firebase Google popup — mock mode by default |
+| Auth | Optional Firebase Google popup - mock mode by default |
 | AI | Optional `POST /api/gemini/generate` (Gemini 2.5). Mock fallback on Vercel |
 | Local server | Express + Vite middleware (`tsx server.ts`) |
 | Hosting | Vercel (static Vite + serverless `/api`) |
-| CI | GitHub Actions — Vitest, `tsc`, Playwright |
+| CI | GitHub Actions - Vitest, `tsc`, Playwright |
 
 ---
 
@@ -22927,7 +22927,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Open **http://localhost:3000**. Gemini and Google sign-in are optional — the default pipeline runs on mock data.
+Open **http://localhost:3000**. Gemini and Google sign-in are optional - the default pipeline runs on mock data.
 
 ```bash
 npm test
@@ -22982,7 +22982,7 @@ Real-time chaos engineering dashboard with self-healing microservices, animated 
 
 **https://chaos-simulation.vercel.app**
 
-> **Status:** The live site is a full **client-side simulation** (no backend, no paid host). Chaos injection, self-healing, scenarios, latency charts, and the event stream all run in the browser. A Bun + Socket.io engine lives in this repo for **local** use only — it is not exposed on Vercel.
+> **Status:** The live site is a full **client-side simulation** (no backend, no paid host). Chaos injection, self-healing, scenarios, latency charts, and the event stream all run in the browser. A Bun + Socket.io engine lives in this repo for **local** use only - it is not exposed on Vercel.
 
 This is the **only** public repo for the project.
 
@@ -23007,8 +23007,8 @@ This is the **only** public repo for the project.
 ## Features
 
 - **3 mock microservices** (Auth, Payment, Inventory) with live health, latency, and request volume
-- **Automated chaos injector** — 500 errors, latency spikes, and service crashes every 30 s
-- **Self-healing recovery** — services restore themselves within 8–15 seconds
+- **Automated chaos injector** - 500 errors, latency spikes, and service crashes every 30 s
+- **Self-healing recovery** - services restore themselves within 8–15 seconds
 - **Animated SVG topology** with particle data flow and health-based pulse rings
 - **Canvas particle bursts + synthesized sound** on every critical event
 - **Multi-step Scenario Builder** with presets (Black Friday, Cascading Failure, etc.)
@@ -23026,7 +23026,7 @@ This is the **only** public repo for the project.
 | Charts       | Recharts |
 | Demo mode    | Client-side simulation on Vercel |
 | Local engine | Bun + Socket.io (not public) |
-| CI           | GitHub Actions — unit, `tsc`, Playwright |
+| CI           | GitHub Actions - unit, `tsc`, Playwright |
 | Package mgr  | Bun |
 
 ---
@@ -23052,10 +23052,10 @@ Vercel / Demo                         Local only
 | Check | How |
 |-------|-----|
 | Unit tests | Validation, simulation transitions, Scenario Builder presets |
-| Types | `ignoreBuildErrors` is **off** — `bun run typecheck` |
+| Types | `ignoreBuildErrors` is **off** - `bun run typecheck` |
 | E2E | Playwright: dashboard, Scenario Builder, 500 inject, partition |
 | CI | [GitHub Actions](https://github.com/devtechedge/chaos-simulator/actions) on every push to `main` |
-| Supply chain | Unused template packages removed; Dependabot weekly (**patch/minor only** — do not merge majors blindly) |
+| Supply chain | Unused template packages removed; Dependabot weekly (**patch/minor only** - do not merge majors blindly) |
 
 ```bash
 bun install
@@ -23077,7 +23077,7 @@ Details: **[SECURITY.md](SECURITY.md)**.
 
 ---
 
-## Quick Start (demo — same as Vercel)
+## Quick Start (demo - same as Vercel)
 
 ```bash
 bun install
@@ -23106,7 +23106,7 @@ MIT License. See [LICENSE](LICENSE).
 
 # CollabSpace Express
 
-Real-time multiplayer whiteboard — infinite canvas, live cursors, and Prisma-backed rooms.
+Real-time multiplayer whiteboard - infinite canvas, live cursors, and Prisma-backed rooms.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://collabspace-express.vercel.app)
 [![CI](https://github.com/devtechedge/collabspace-express/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/collabspace-express/actions/workflows/ci.yml)
@@ -23143,18 +23143,18 @@ Real-time multiplayer whiteboard — infinite canvas, live cursors, and Prisma-b
 ![Light-mode whiteboard with rooms and collaborators](docs/screenshots/02-light-canvas.png)
 
 ### Empty board
-![Dark UI after load — sidebar, infinite canvas, start-drawing hint](docs/screenshots/03-toolbar.png)
+![Dark UI after load - sidebar, infinite canvas, start-drawing hint](docs/screenshots/03-toolbar.png)
 
 ---
 
 ## Features
 
-- **11 drawing tools** — pencil, highlighter, line, rectangle, circle, text, sticky note, eraser, select, image, laser pointer
-- **Live collaboration** — Socket.io rooms, color-coded cursors, laser trails, presence list
-- **Infinite canvas** — scroll zoom, Shift-drag / middle-click pan, grid overlay
-- **Undo / redo** — local history, broadcast to peers
-- **Shareable rooms** — UUID in the URL (`?room=`), join-by-ID in the sidebar
-- **Persistence** — boards and elements in SQLite via Prisma (local backend)
+- **11 drawing tools** - pencil, highlighter, line, rectangle, circle, text, sticky note, eraser, select, image, laser pointer
+- **Live collaboration** - Socket.io rooms, color-coded cursors, laser trails, presence list
+- **Infinite canvas** - scroll zoom, Shift-drag / middle-click pan, grid overlay
+- **Undo / redo** - local history, broadcast to peers
+- **Shareable rooms** - UUID in the URL (`?room=`), join-by-ID in the sidebar
+- **Persistence** - boards and elements in SQLite via Prisma (local backend)
 - **PNG export**, dark / light theme, keyboard shortcuts (`V` `P` `E` `L` `R` `O` `T`)
 
 ---
@@ -23192,7 +23192,7 @@ npm run dev
 | Client | http://localhost:5173 |
 | API + WebSocket | http://localhost:5000 |
 
-Open two windows, create a board, paste the room ID in the second — strokes sync live.
+Open two windows, create a board, paste the room ID in the second - strokes sync live.
 
 ---
 
@@ -23216,10 +23216,10 @@ Prisma is the local production path, not leftover template. The public Vercel al
 | Check | How |
 |-------|-----|
 | Unit | Allow-lists, payload sanitizer, board-name rules, element upsert (`npm test`) |
-| Types | `npm run typecheck` — server `tsc --noEmit`, client `tsc -b` |
+| Types | `npm run typecheck` - server `tsc --noEmit`, client `tsc -b` |
 | E2E | Playwright Chromium: shell, create board, pencil tool, theme toggle |
-| CI | GitHub Actions — install → Prisma generate → unit → typecheck → e2e |
-| Supply chain | Unused Testing Library removed; Dependabot weekly (patch/minor only — do not merge majors blindly) |
+| CI | GitHub Actions - install → Prisma generate → unit → typecheck → e2e |
+| Supply chain | Unused Testing Library removed; Dependabot weekly (patch/minor only - do not merge majors blindly) |
 
 ```bash
 npm test
@@ -23273,35 +23273,35 @@ Real-time multiplayer collaborative whiteboard with infinite canvas, presence, c
 **https://collabspace-mauve.vercel.app**
 
 > **Status:** The production deploy currently shows a clean “Supabase not configured” shell. Full multiplayer collaboration requires a Supabase project; the free tier is limited to 2 active projects and those slots are already used by other portfolio apps.  
-> Locally the project runs fully: Docker + local Supabase (`npx supabase start`) + `npm run dev`. Schema is idempotent — paste `supabase/migrations/0001_init.sql` into any free Supabase project (or use the local stack) for a working realtime demo.
+> Locally the project runs fully: Docker + local Supabase (`npx supabase start`) + `npm run dev`. Schema is idempotent - paste `supabase/migrations/0001_init.sql` into any free Supabase project (or use the local stack) for a working realtime demo.
 
 ## Screenshots
 
-### Dark mode — Rooms
+### Dark mode - Rooms
 ![Dark mode Rooms view](docs/screenshots/Screenshot%202026-07-27%20082946.png)
 
-### Light mode — Chat
+### Light mode - Chat
 ![Light mode Chat view](docs/screenshots/Screenshot%202026-07-27%20082952.png)
 
-### Dark mode — Users
+### Dark mode - Users
 ![Dark mode Users view](docs/screenshots/Screenshot%202026-07-27%20082958.png)
 
 ## Features
 
-- **Infinite canvas** — pan (Shift-drag / middle-click), zoom (scroll), minimap
-- **Drawing tools** — Pencil, Line, Rectangle, Circle, Text, Sticky note, Eraser, Select, Laser pointer
-- **Real-time multiplayer** — live cursors with name labels via Supabase Presence
-- **Persistent elements & chat** — Postgres Changes fan-out (no custom Socket server)
-- **Ephemeral signals** — floating emoji reactions + laser pointer via Realtime Broadcast
+- **Infinite canvas** - pan (Shift-drag / middle-click), zoom (scroll), minimap
+- **Drawing tools** - Pencil, Line, Rectangle, Circle, Text, Sticky note, Eraser, Select, Laser pointer
+- **Real-time multiplayer** - live cursors with name labels via Supabase Presence
+- **Persistent elements & chat** - Postgres Changes fan-out (no custom Socket server)
+- **Ephemeral signals** - floating emoji reactions + laser pointer via Realtime Broadcast
 - **Undo / Redo** with full history stack (`⌘Z` / `⌘⇧Z`)
 - **Dark / light theme** with system preference + anti-flash
-- **Responsive** — 5 breakpoints, mobile bottom-drawer sidebar, 44 px touch targets
-- **Accessible** — focus-visible rings, ARIA tablist, prefers-reduced-motion, prefers-contrast
-- **Anonymous identity** — random user stored in `localStorage` (auth-ready later)
+- **Responsive** - 5 breakpoints, mobile bottom-drawer sidebar, 44 px touch targets
+- **Accessible** - focus-visible rings, ARIA tablist, prefers-reduced-motion, prefers-contrast
+- **Anonymous identity** - random user stored in `localStorage` (auth-ready later)
 
 ## Related
 
-Sibling demo: [collabspace-express](https://github.com/devtechedge/collabspace-express) — Express + Vite whiteboard without the Supabase realtime stack.
+Sibling demo: [collabspace-express](https://github.com/devtechedge/collabspace-express) - Express + Vite whiteboard without the Supabase realtime stack.
 
 ## Tech Stack
 
@@ -23323,7 +23323,7 @@ cp client/.env.example client/.env
 # Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY
 
 # 3. Schema (paste supabase/migrations/0001_init.sql into Supabase SQL Editor)
-# Idempotent — safe to re-run
+# Idempotent - safe to re-run
 
 # 4. Dev server
 npm run dev
@@ -23333,7 +23333,7 @@ npm run dev
 ## Architecture (v1 → v2)
 
 Original v1 used Express + Socket.io + Prisma + SQLite.  
-v2 is fully client-side against Supabase — no custom backend process.
+v2 is fully client-side against Supabase - no custom backend process.
 
 | Concern              | v2 implementation                          |
 |----------------------|--------------------------------------------|
@@ -23365,13 +23365,13 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ### README.md
 
-# AEGIS — Autonomous Enterprise Graph Intelligence System
+# AEGIS - Autonomous Enterprise Graph Intelligence System
 
 **A self-hosted, auditable alternative to Glean + Devin + PagerDuty Autopilot, built 100% on LangChain.**
 
-> **Try it live:** [aegis-agent-api.vercel.app/ui](https://aegis-agent-api.vercel.app/ui) — toggle between Demo and Live inference, watch the LangGraph supervisor route specialists in real time, and approve/reject HITL gates.
+> **Try it live:** [aegis-agent-api.vercel.app/ui](https://aegis-agent-api.vercel.app/ui) - toggle between Demo and Live inference, watch the LangGraph supervisor route specialists in real time, and approve/reject HITL gates.
 
-AEGIS takes a natural language operational request — _"Why is checkout latency spiking in us-east?"_ — and autonomously plans, delegates to specialist sub-agents, retrieves from hybrid knowledge bases, executes tools, hits human-in-the-loop gates, and posts a fully traced, evaluated, and auditable result.
+AEGIS takes a natural language operational request - _"Why is checkout latency spiking in us-east?"_ - and autonomously plans, delegates to specialist sub-agents, retrieves from hybrid knowledge bases, executes tools, hits human-in-the-loop gates, and posts a fully traced, evaluated, and auditable result.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://aegis-agent-api.vercel.app/ui)
 [![CI](https://img.shields.io/github/actions/workflow/status/devtechedge/aegis_vercel/ci.yml?branch=main)](https://github.com/devtechedge/aegis_vercel/actions)
@@ -23389,11 +23389,11 @@ Open [aegis-agent-api.vercel.app/ui](https://aegis-agent-api.vercel.app/ui) and 
 **What you'll see:**
 
 - **Real-time Mermaid graph** animating the execution path: Supervisor → SRE Analyst → Knowledge → Coder → [HITL] → Evaluator → Communicator
-- **Streaming agent output** — each specialist's findings appear as they execute, with confidence scores and artifact counts
-- **Human-in-the-Loop gate** — the Coder produces a patch, pauses for your approval, then the Evaluator and Communicator complete the flow
-- **Demo / Live toggle** — Demo mode runs an instant simulation; Live mode connects to the real LangGraph with your API keys
-- **Live info panel** — step count, confidence %, artifact count, and elapsed time update in real time
-- **LangSmith traces** — one-click link to the full trace for every run
+- **Streaming agent output** - each specialist's findings appear as they execute, with confidence scores and artifact counts
+- **Human-in-the-Loop gate** - the Coder produces a patch, pauses for your approval, then the Evaluator and Communicator complete the flow
+- **Demo / Live toggle** - Demo mode runs an instant simulation; Live mode connects to the real LangGraph with your API keys
+- **Live info panel** - step count, confidence %, artifact count, and elapsed time update in real time
+- **LangSmith traces** - one-click link to the full trace for every run
 
 ### Screenshots
 
@@ -23423,7 +23423,7 @@ Public demo threat model: [SECURITY.md](SECURITY.md). Demo/sim is public by defa
                               [LangSmith Traces / Evals / Prompt Hub]
 ```
 
-## Feature Matrix — Full LangChain Ecosystem
+## Feature Matrix - Full LangChain Ecosystem
 
 | Product | Used For |
 |---|---|
@@ -23434,7 +23434,7 @@ Public demo threat model: [SECURITY.md](SECURITY.md). Demo/sim is public by defa
 | **RAG** | MultiQuery → Cohere Rerank → LLM Grader → HyDE, PGVector + BM25 hybrid |
 | **Tools (14)** | Tavily, Code Executor, Postgres, GitHub, Slack, Browser, Prometheus, Runbook, Arxiv, Wikipedia, Email, Calendar, FS, Memory |
 
-## 7 Agentic Loops — All Implemented
+## 7 Agentic Loops - All Implemented
 
 1. Perception-Plan-Act-Reflect
 2. Supervisor-Worker Hierarchical
@@ -23450,13 +23450,13 @@ All visible in LangSmith with custom metadata.
 
 ## Quickstart
 
-### Vercel (recommended — zero config)
+### Vercel (recommended - zero config)
 
 1. Fork this repo
 2. Import into [Vercel](https://vercel.com)
 3. Set root directory to `apps/api`
 4. Add `GOOGLE_API_KEY` (or `OPENAI_API_KEY`) as an environment variable
-5. Deploy — visit `/ui` for the live dashboard, `/docs` for the API playground
+5. Deploy - visit `/ui` for the live dashboard, `/docs` for the API playground
 
 Without API keys the UI gracefully falls back to **Demo mode** (instant simulation).
 
@@ -23516,7 +23516,7 @@ aegis/
 python scripts/run_evals.py
 ```
 
-Writes `evals/reports/latest.md`. Public CI has no `LANGCHAIN_API_KEY`, so that job writes a **mock** report and exits 0 — it does not measure live LangSmith faithfulness. With the key set, datasets `aegis_rag_qa`, `aegis_tool_use`, and `aegis_incident_triage` run against project `aegis-production`; the intended production threshold is faithfulness ≥ 0.82.
+Writes `evals/reports/latest.md`. Public CI has no `LANGCHAIN_API_KEY`, so that job writes a **mock** report and exits 0 - it does not measure live LangSmith faithfulness. With the key set, datasets `aegis_rag_qa`, `aegis_tool_use`, and `aegis_incident_triage` run against project `aegis-production`; the intended production threshold is faithfulness ≥ 0.82.
 
 CI itself fails on ruff (real errors), mypy on tools/evals/tests, and pytest (graph compile, RAG loop, tool guards, `/health` `/ui` `/stream` smokes). `pip-audit` is informational and does not fail the job on LangChain majors.
 
@@ -23533,11 +23533,11 @@ CI itself fails on ruff (real errors), mypy on tools/evals/tests, and pytest (gr
 | `REDIS_URL` | Short-term memory |
 | `TAVILY_API_KEY` | Web search |
 
-All optional — fake models/fallbacks keep Vercel deploy green even without keys.
+All optional - fake models/fallbacks keep Vercel deploy green even without keys.
 
 ---
 
-MIT License — Built with LangChain, LangGraph, LangSmith
+MIT License - Built with LangChain, LangGraph, LangSmith
 
 
 ---
@@ -23552,7 +23552,7 @@ MIT License — Built with LangChain, LangGraph, LangSmith
 
 # <img src="web/favicon.svg" width="40" height="40" alt="" /> Cadence
 
-**Deep-memory vertical agents for healthcare** — pure Python, fully local, zero agentic frameworks.
+**Deep-memory vertical agents for healthcare** - pure Python, fully local, zero agentic frameworks.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://cadence-healthcare.vercel.app/)
 [![CI](https://github.com/devtechedge/healthcare-deep-memory-agents/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/healthcare-deep-memory-agents/actions/workflows/ci.yml)
@@ -23586,7 +23586,7 @@ https://cadence-healthcare.vercel.app/
 
 ## What it is
 
-Vertical AI agents that remember — symptoms, history, preferences — across sessions.
+Vertical AI agents that remember - symptoms, history, preferences - across sessions.
 
 - Multi-layer deep memory (session · episodic · semantic · knowledge · insights)
 - Pure Python only (no LangChain, CrewAI, AutoGen, Mem0…)
@@ -23716,7 +23716,7 @@ MIT (code). Any medical content you add keeps its original license.
 
 # NexusBazaar
 
-Client-side multi-role marketplace for buyers, sellers, and admins — storefront, promo checkout, B2B RFQ, and localStorage persistence.
+Client-side multi-role marketplace for buyers, sellers, and admins - storefront, promo checkout, B2B RFQ, and localStorage persistence.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://nexusbazaar-market.vercel.app)
 [![CI](https://github.com/devtechedge/nexus-bazaar/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/nexus-bazaar/actions/workflows/ci.yml)
@@ -23734,7 +23734,7 @@ Client-side multi-role marketplace for buyers, sellers, and admins — storefron
 
 > **Status:** Public deploy is a **client-side demo**. Catalog, cart, orders, loyalty, and B2B ledgers persist in `localStorage`. There is no production payment backend, JWT, or NextAuth. Switch Buyer / Seller / Admin from the header avatar. `NEXUS10` is a public promo; `ELITEPRO` needs Elite (crown toggle). NexusBot falls back to a mock reply unless `GEMINI_API_KEY` is set locally.
 
-Do **not** use [nexus-bazaar.vercel.app](https://nexus-bazaar.vercel.app) — that hostname is a different lifestyle-blog project.
+Do **not** use [nexus-bazaar.vercel.app](https://nexus-bazaar.vercel.app) - that hostname is a different lifestyle-blog project.
 
 This is the **only** public repo for the marketplace.
 
@@ -23759,11 +23759,11 @@ This is the **only** public repo for the marketplace.
 ## Features
 
 - Buyer storefront with search, product details, wishlist, live-auction tiles, and promo checkout (`NEXUS10`, `ELITEPRO`, `BIGSAVER`)
-- Header identity switcher for Buyer, Seller, and Admin — seller/admin chrome is role-gated
+- Header identity switcher for Buyer, Seller, and Admin - seller/admin chrome is role-gated
 - Seller hub: listings, inventory, vouchers, broadcast tiles
 - Admin workspace: user flags, promo ledger, marketplace metrics
 - B2B desk: RFQ, Net-30 credit, team budget, pallet calculator
-- Loyalty, guilds, curations, security-vault UI — all `localStorage`
+- Loyalty, guilds, curations, security-vault UI - all `localStorage`
 - Optional Gemini concierge at `POST /api/gemini/chat` (mock without a key)
 
 ---
@@ -23774,11 +23774,11 @@ This is the **only** public repo for the marketplace.
 |-------|------------|
 | Frontend | React 19, Vite 8, TypeScript, Tailwind 4 |
 | Data | Seeded in-memory catalog + `localStorage` (not a SQL backend) |
-| Auth | Demo role switcher — not JWT, not NextAuth |
+| Auth | Demo role switcher - not JWT, not NextAuth |
 | Payments | Simulated checkout only |
-| AI | Optional `POST /api/gemini/chat` — mock fallback on Vercel |
+| AI | Optional `POST /api/gemini/chat` - mock fallback on Vercel |
 | Hosting | Vercel (static Vite + `/api` function) |
-| CI | GitHub Actions — Vitest, `tsc`, Playwright |
+| CI | GitHub Actions - Vitest, `tsc`, Playwright |
 
 ---
 
@@ -23957,7 +23957,7 @@ This is the **only** public repo for the project.
 - Traveler / provider demo auth with a one-click role switch
 - Booking card: nights, 50% day-retreat, pantry upgrades, 30/70 deposit split
 - Trip workspace: host chat, co-traveler expense split, in-stay cabin controls, wilderness log
-- Optional Gemini botanist / concierge — mocked on the public demo
+- Optional Gemini botanist / concierge - mocked on the public demo
 
 ---
 
@@ -23968,10 +23968,10 @@ This is the **only** public repo for the project.
 | Frontend | Next.js 15 (App Router), React 19, TypeScript, Tailwind 4 |
 | Motion | Motion (`motion/react`) |
 | Data | JSON file store in `lib/db.ts` (not Prisma, not Mongo) |
-| Auth | HttpOnly user-id cookie (`lib/session.ts`) — demo only |
+| Auth | HttpOnly user-id cookie (`lib/session.ts`) - demo only |
 | AI | Optional `@google/genai` with canned fallback |
 | Hosting | Vercel |
-| CI | GitHub Actions — Vitest, `tsc`, Playwright |
+| CI | GitHub Actions - Vitest, `tsc`, Playwright |
 
 ---
 
@@ -24019,7 +24019,7 @@ MIT. See [LICENSE](LICENSE).
 
 # VividPulse
 
-Neo-noir visual social network. A seeded photo feed, 24-hour stories, DMs, and a cozy neighbors board — built with Next.js 15.
+Neo-noir visual social network. A seeded photo feed, 24-hour stories, DMs, and a cozy neighbors board - built with Next.js 15.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://vividpulse-social.vercel.app)
 [![CI](https://github.com/devtechedge/vivid-pulse/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/vivid-pulse/actions/workflows/ci.yml)
@@ -24034,7 +24034,7 @@ Neo-noir visual social network. A seeded photo feed, 24-hour stories, DMs, and a
 
 **https://vividpulse-social.vercel.app**
 
-Do **not** use https://vividpulse.vercel.app — that hostname is a different AI-automation product.
+Do **not** use https://vividpulse.vercel.app - that hostname is a different AI-automation product.
 
 > **Status:** The public site is a **demo**. Auth is a signed `vp_session` cookie (not JWT / NextAuth). Posts, stories, and DMs live in **process memory** and reset on cold start. Seeded login: `alex_vivid` / `password123` (or the one-click ports on the login screen).
 
@@ -24067,7 +24067,7 @@ This is the **only** public repo for the project.
 - 24-hour stories tray and viewer
 - Discover search over captions and locations
 - Direct messages with polling
-- Cozy Neighbors hub — vibes, bulletin notes, strolls, treats
+- Cozy Neighbors hub - vibes, bulletin notes, strolls, treats
 - Session cookie is httpOnly + `SameSite=lax` (`secure` in production)
 
 ---
@@ -24082,7 +24082,7 @@ This is the **only** public repo for the project.
 | Auth | SHA-256 password hash + signed session cookie |
 | Media | Mock `/api/upload` (data URLs). Feed images from picsum.photos |
 | Hosting | Vercel |
-| CI | GitHub Actions — Vitest, `tsc`, Playwright |
+| CI | GitHub Actions - Vitest, `tsc`, Playwright |
 
 ---
 
@@ -24158,12 +24158,12 @@ Production-ready SaaS waitlist with viral referral loops, live position tracking
 
 ## Features
 
-- **Viral referral engine** — unique referral codes, position leapfrogging, live leaderboard
-- **Real-time position tracking** — dashboard shows rank, referrals, and shareable link
-- **Admin analytics** — waitlist table, conversion funnel, geo heatmap, CSV export
-- **Stripe tiers** — paid upgrades and promo codes
-- **Secure by default** — Supabase RLS, Zod validation, admin allow-list, webhook signatures. See [SECURITY.md](SECURITY.md).
-- **Modern stack** — Next.js 16 App Router + Server Actions, Drizzle ORM, Tailwind v4 + shadcn/ui, strict TypeScript
+- **Viral referral engine** - unique referral codes, position leapfrogging, live leaderboard
+- **Real-time position tracking** - dashboard shows rank, referrals, and shareable link
+- **Admin analytics** - waitlist table, conversion funnel, geo heatmap, CSV export
+- **Stripe tiers** - paid upgrades and promo codes
+- **Secure by default** - Supabase RLS, Zod validation, admin allow-list, webhook signatures. See [SECURITY.md](SECURITY.md).
+- **Modern stack** - Next.js 16 App Router + Server Actions, Drizzle ORM, Tailwind v4 + shadcn/ui, strict TypeScript
 
 ## Tech Stack
 
@@ -24225,7 +24225,7 @@ Single-turn **Python repair** for RLVR / evals on the [Prime Intellect Environme
 
 Hub: [devtechedge/unit-fix](https://app.primeintellect.ai/dashboard/environments/devtechedge/unit-fix) · Source: [github.com/devtechedge/unit-fix](https://github.com/devtechedge/unit-fix)
 
-A third environment next to [calendar-math](https://github.com/devtechedge/calendar-math) (datetime gold) and [meeting-slot](https://github.com/devtechedge/meeting-slot) (multi-turn tools). This one is **code**: a small broken function plus a failing unit test. The model puts a patched function in `<answer>` tags. The grader execs the tests in a stdlib sandbox — no LLM-as-judge, no source-string match on the main reward.
+A third environment next to [calendar-math](https://github.com/devtechedge/calendar-math) (datetime gold) and [meeting-slot](https://github.com/devtechedge/meeting-slot) (multi-turn tools). This one is **code**: a small broken function plus a failing unit test. The model puts a patched function in `<answer>` tags. The grader execs the tests in a stdlib sandbox - no LLM-as-judge, no source-string match on the main reward.
 
 | Family | Bug the eval edge exists to catch |
 | --- | --- |
@@ -24276,7 +24276,7 @@ reward = 1.0 * exact_match + 0.2 * format + 0.2 * partial_credit
 | Gold repair (ceiling) | **1.200** | 1.000 | 1.000 | 0.000 |
 | Naive (echo original function) | **0.200** | 0.000 | 1.000 | 0.000 |
 
-The gold policy is a harness check: install, `load_environment`, the sandbox, and the rubric all fire 1.2. The naive policy is a discrimination check: returning the prompt's broken function does not rubber-stamp 1.2 — it fails a visible test on every eval edge, so it never collects partial credit either.
+The gold policy is a harness check: install, `load_environment`, the sandbox, and the rubric all fire 1.2. The naive policy is a discrimination check: returning the prompt's broken function does not rubber-stamp 1.2 - it fails a visible test on every eval edge, so it never collects partial credit either.
 
 Model row pending a fresh OpenRouter key (`minimax/minimax-m2.7`, T=0, 2048 tok, `--max-concurrent 1`).
 
@@ -24389,7 +24389,7 @@ Independent paper-and-copper marketplace demo with a customer storefront, seller
 
 **https://astra-marketplace.vercel.app/**
 
-> **Demo-mode status:** The live Vercel site uses seeded in-memory demo data and mock payments — not Prisma. Catalog browse, search, product photos, health, and coupon GET are public. **Checkout, account, orders, seller, and admin require sign-in.** Full Prisma/PostgreSQL schema + Docker Compose remain the local production foundation. No real payment capture, carrier labels, or object storage.
+> **Demo-mode status:** The live Vercel site uses seeded in-memory demo data and mock payments - not Prisma. Catalog browse, search, product photos, health, and coupon GET are public. **Checkout, account, orders, seller, and admin require sign-in.** Full Prisma/PostgreSQL schema + Docker Compose remain the local production foundation. No real payment capture, carrier labels, or object storage.
 
 ### Demo credentials
 
@@ -24417,14 +24417,14 @@ Shown on `/login` and this README on purpose for portfolio DX. Passwords are bcr
 
 ## Features
 
-- **Design system** — paper `#F4EFE6` / surface `#FFFCF7` / ink `#1A1612` / copper `#C45C26` tokens; Fraunces (display) + IBM Plex Sans via `next/font`; Fraunces wordmark with a 4-point copper star; Account menu holds Seller/Admin; overlay scrollbars hidden until overflow + hover/focus
-- **Customer storefront** — merchandising hero (not a GMV/SLA pitch), search, deals, product detail, cart, 6-step checkout (login required), orders, tracking, returns, wishlist, gift-card SKUs, AstraPlus membership
-- **18-SKU catalog** — real JPEGs in `public/products` (not SVG placeholders) across Electronics, Home & Kitchen, Fashion, Books, Beauty, Sports, Toys, Grocery, Automotive, Pet Supplies, and Gift cards. Header lists Gift cards once via `/gift-cards`
-- **Seller portal** — KPI dashboard, listings/inventory, product listing wizard, promotions, payouts, ads, support (signed session)
-- **Admin command center** — GMV/orders/refund/SLA metrics, seller & product moderation, support tickets, audit, CMS, feature flags, analytics, search merchandising (signed session)
-- **Commerce core** — coupons, tax/shipping calculation, mock payment intents, RMA-style returns, recommendation rows (buy again / trending / recently viewed)
-- **Platform services** — HMAC session middleware, API RBAC, origin checks, auth rate limits, webhook secret, CSP without `unsafe-eval`, health API, notifications, review/Q&A endpoints
-- **Production foundation** — Prisma schema, Docker Compose, GitHub Actions (unit + typecheck + Playwright), Dependabot, [SECURITY.md](SECURITY.md)
+- **Design system** - paper `#F4EFE6` / surface `#FFFCF7` / ink `#1A1612` / copper `#C45C26` tokens; Fraunces (display) + IBM Plex Sans via `next/font`; Fraunces wordmark with a 4-point copper star; Account menu holds Seller/Admin; overlay scrollbars hidden until overflow + hover/focus
+- **Customer storefront** - merchandising hero (not a GMV/SLA pitch), search, deals, product detail, cart, 6-step checkout (login required), orders, tracking, returns, wishlist, gift-card SKUs, AstraPlus membership
+- **18-SKU catalog** - real JPEGs in `public/products` (not SVG placeholders) across Electronics, Home & Kitchen, Fashion, Books, Beauty, Sports, Toys, Grocery, Automotive, Pet Supplies, and Gift cards. Header lists Gift cards once via `/gift-cards`
+- **Seller portal** - KPI dashboard, listings/inventory, product listing wizard, promotions, payouts, ads, support (signed session)
+- **Admin command center** - GMV/orders/refund/SLA metrics, seller & product moderation, support tickets, audit, CMS, feature flags, analytics, search merchandising (signed session)
+- **Commerce core** - coupons, tax/shipping calculation, mock payment intents, RMA-style returns, recommendation rows (buy again / trending / recently viewed)
+- **Platform services** - HMAC session middleware, API RBAC, origin checks, auth rate limits, webhook secret, CSP without `unsafe-eval`, health API, notifications, review/Q&A endpoints
+- **Production foundation** - Prisma schema, Docker Compose, GitHub Actions (unit + typecheck + Playwright), Dependabot, [SECURITY.md](SECURITY.md)
 
 Playwright testids kept: `site-header`, `home-hero`, `add-to-cart`, `shopping-cart`, `login-page`, `seller-dashboard`, `admin-command-center`.
 
@@ -24437,7 +24437,7 @@ Playwright testids kept: `site-header`, `home-hero`, `add-to-cart`, `shopping-ca
 | Data         | Prisma 5 + PostgreSQL schema (local foundation); seeded demo repository on Vercel |
 | Auth         | HMAC cookie sessions + bcrypt demo users (server-only) |
 | Tooling      | Vitest, Playwright, ESLint, GitHub Actions |
-| Deploy       | Vercel — https://astra-marketplace.vercel.app/ |
+| Deploy       | Vercel - https://astra-marketplace.vercel.app/ |
 
 
 ## Quick Start
@@ -24450,7 +24450,7 @@ npm run dev
 Open http://localhost:3000
 
 ```bash
-npm test            # unit — 26 passed (commerce, rbac, validation, session, origin)
+npm test            # unit - 26 passed (commerce, rbac, validation, session, origin)
 npm run typecheck
 npm run test:e2e    # Playwright Chromium smokes (signed session cookies)
 ```
@@ -24491,11 +24491,11 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 # github-repo-presentation
 
-Private skill archive. **Revision 11 — 2026-09-01.** Not a product repo.
+Private skill archive. **Revision 11 - 2026-09-01.** Not a product repo.
 
 ## Download
 
-**[github-repo-presentation-revision-11.zip](https://github.com/devtechedge/github-repo-presentation/raw/main/github-repo-presentation-revision-11.zip)** — click to download.
+**[github-repo-presentation-revision-11.zip](https://github.com/devtechedge/github-repo-presentation/raw/main/github-repo-presentation-revision-11.zip)** - click to download.
 
 Or clone with GitHub Desktop into `Documents\GitHub\github-repo-presentation`.
 
@@ -24583,16 +24583,16 @@ This approach avoids the need for `.cjs`/`.mjs` extensions while keeping CJS and
 #### Build flags explained
 
 **`build:cjs`**: `tsc --module commonjs --moduleResolution node --declaration --verbatimModuleSyntax false`
-- `--module commonjs` — overrides the root tsconfig's `es2020` to emit `require()`/`module.exports`. The `"type": "commonjs"` in the root `package.json` only affects Node.js runtime, not tsc.
-- `--moduleResolution node` — overrides the root's `bundler` to use Node's CJS resolution algorithm.
-- `--declaration` — emits `.d.ts` type declarations alongside `.js` files, so CJS consumers get CJS-flavored types.
-- `--verbatimModuleSyntax false` — allows tsc to transform `import`/`export` to `require()`/`module.exports`.
+- `--module commonjs` - overrides the root tsconfig's `es2020` to emit `require()`/`module.exports`. The `"type": "commonjs"` in the root `package.json` only affects Node.js runtime, not tsc.
+- `--moduleResolution node` - overrides the root's `bundler` to use Node's CJS resolution algorithm.
+- `--declaration` - emits `.d.ts` type declarations alongside `.js` files, so CJS consumers get CJS-flavored types.
+- `--verbatimModuleSyntax false` - allows tsc to transform `import`/`export` to `require()`/`module.exports`.
 
 **`build:esm`**: `tsc --declaration && tsc-alias --resolve-full-paths`
 - Inherits `--module es2020` and `--moduleResolution bundler` from root tsconfig.
-- `--declaration` — emits `.d.ts` type declarations alongside `.js` files, so ESM consumers get ESM-flavored types.
+- `--declaration` - emits `.d.ts` type declarations alongside `.js` files, so ESM consumers get ESM-flavored types.
 - The `"sideEffects": false` in the nested `package.json` enables tree-shaking for bundlers that check the nearest `package.json` to the resolved file.
-- **`tsc-alias --resolve-full-paths`** — post-processes the ESM output to add `.js` extensions to all relative import paths (e.g., `from './api'` becomes `from './api/index.js'`). This is necessary because strict ESM resolvers (Node.js with `"type": "module"`, Vitest) require explicit file extensions — bare directory imports like `'./api'` don't resolve in ESM. TypeScript deliberately does not rewrite import specifiers during compilation ([by design](https://github.com/microsoft/TypeScript/issues/16577)), so a post-processing step is needed. The CJS output does not need this because Node's `require()` handles directory resolution natively.
+- **`tsc-alias --resolve-full-paths`** - post-processes the ESM output to add `.js` extensions to all relative import paths (e.g., `from './api'` becomes `from './api/index.js'`). This is necessary because strict ESM resolvers (Node.js with `"type": "module"`, Vitest) require explicit file extensions - bare directory imports like `'./api'` don't resolve in ESM. TypeScript deliberately does not rewrite import specifiers during compilation ([by design](https://github.com/microsoft/TypeScript/issues/16577)), so a post-processing step is needed. The CJS output does not need this because Node's `require()` handles directory resolution natively.
 
 #### Package fields
 
@@ -24620,20 +24620,20 @@ This approach avoids the need for `.cjs`/`.mjs` extensions while keeping CJS and
 }
 ```
 
-**`"type": "commonjs"`** — declares the package's default module type. Without this, Node.js auto-detects the type on each file access, causing a small performance hit ([publint suggestion](https://publint.dev/)). We use `"commonjs"` (not `"module"`) because:
+**`"type": "commonjs"`** - declares the package's default module type. Without this, Node.js auto-detects the type on each file access, causing a small performance hit ([publint suggestion](https://publint.dev/)). We use `"commonjs"` (not `"module"`) because:
 - The package root contains source files, config files, and scripts that are CJS
 - The `dist/_esm/` directory overrides this with its own `{"type": "module"}` nested `package.json`
 - Vitest runs tests relative to the package root
 
-**`"sideEffects": false`** — tells bundlers (webpack, Vite, Rollup) that all modules in this package are pure — importing a module without using its exports has no observable effect. This enables aggressive tree-shaking: if a consumer imports only `isValidAddress`, the bundler can safely drop all other modules.
+**`"sideEffects": false`** - tells bundlers (webpack, Vite, Rollup) that all modules in this package are pure - importing a module without using its exports has no observable effect. This enables aggressive tree-shaking: if a consumer imports only `isValidAddress`, the bundler can safely drop all other modules.
 
-**`"main"`** — entry point for Node.js `require('@alephium/web3')` and legacy bundlers that don't understand `exports`. Points to the CJS output.
+**`"main"`** - entry point for Node.js `require('@alephium/web3')` and legacy bundlers that don't understand `exports`. Points to the CJS output.
 
-**`"module"`** — entry point for legacy bundlers (webpack 4, older Rollup) that look for ESM via this non-standard field. Modern bundlers use `exports` instead, but `module` provides a fallback.
+**`"module"`** - entry point for legacy bundlers (webpack 4, older Rollup) that look for ESM via this non-standard field. Modern bundlers use `exports` instead, but `module` provides a fallback.
 
-**`"types"`** — entry point for TypeScript when `moduleResolution` is `"node"` (node10). Points to the CJS type declarations since `"type": "commonjs"` packages default to CJS resolution.
+**`"types"`** - entry point for TypeScript when `moduleResolution` is `"node"` (node10). Points to the CJS type declarations since `"type": "commonjs"` packages default to CJS resolution.
 
-**`"exports"`** — the modern entry point map. Runtimes and bundlers that support it use `exports` over `main`/`module`/`types`. Each condition (`import`/`require`) has its own `types` entry pointing to the type declarations in the corresponding output directory. This ensures CJS consumers get CJS-flavored type declarations and ESM consumers get ESM-flavored type declarations, avoiding [FalseCJS](https://github.com/arethetypeswrong/arethetypeswrong.github.io/blob/main/docs/problems/FalseCJS.md) and [FalseESM](https://github.com/arethetypeswrong/arethetypeswrong.github.io/blob/main/docs/problems/FalseESM.md) type issues.
+**`"exports"`** - the modern entry point map. Runtimes and bundlers that support it use `exports` over `main`/`module`/`types`. Each condition (`import`/`require`) has its own `types` entry pointing to the type declarations in the corresponding output directory. This ensures CJS consumers get CJS-flavored type declarations and ESM consumers get ESM-flavored type declarations, avoiding [FalseCJS](https://github.com/arethetypeswrong/arethetypeswrong.github.io/blob/main/docs/problems/FalseCJS.md) and [FalseESM](https://github.com/arethetypeswrong/arethetypeswrong.github.io/blob/main/docs/problems/FalseESM.md) type issues.
 
 #### Sub-path exports
 
@@ -24650,10 +24650,10 @@ import { FungibleTokenMetadata, MempoolTransaction } from '@alephium/web3/api/ex
 These replace the old deep imports into the package's internal directory structure:
 
 ```ts
-// ❌ Old (v2) — reaches into internal dist structure
+// ❌ Old (v2) - reaches into internal dist structure
 import { FungibleTokenMetadata } from '@alephium/web3/dist/src/api/api-explorer'
 
-// ✅ New (v3) — stable public sub-path
+// ✅ New (v3) - stable public sub-path
 import { FungibleTokenMetadata } from '@alephium/web3/api/explorer'
 ```
 
@@ -24676,7 +24676,7 @@ The `internal-resolution-error` rule is ignored in attw because the `node16 (fro
 
 When using `@alephium/web3` in a React Native environment (Expo or bare), one workaround is needed:
 
-**`react-native-get-random-values`** — `@noble/secp256k1` requires `crypto.getRandomValues`, which is not available in React Native by default. Install the package and load it before any `@alephium/web3` import:
+**`react-native-get-random-values`** - `@noble/secp256k1` requires `crypto.getRandomValues`, which is not available in React Native by default. Install the package and load it before any `@alephium/web3` import:
 
 ```ts
 // index.ts (entry point)
@@ -24684,7 +24684,7 @@ require('react-native-get-random-values')
 // ... then load your app
 ```
 
-> **Note:** If using pnpm, add `node-linker=hoisted` to `.npmrc` — Metro is incompatible with pnpm's strict symlink layout.
+> **Note:** If using pnpm, add `node-linker=hoisted` to `.npmrc` - Metro is incompatible with pnpm's strict symlink layout.
 
 Create `shims/fs.js`:
 ```js
@@ -24699,7 +24699,7 @@ config.resolver.extraNodeModules = {
 }
 ```
 
-> **Note:** If using pnpm, add `node-linker=hoisted` to `.npmrc` — Metro is incompatible with pnpm's strict symlink layout.
+> **Note:** If using pnpm, add `node-linker=hoisted` to `.npmrc` - Metro is incompatible with pnpm's strict symlink layout.
 
 ### Testing
 
