@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-09-15",
+  "last_updated": "2026-09-16",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -254,10 +254,12 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-13",
-      "last_checked": "2026-09-15",
+      "last_checked": "2026-09-16",
       "issue": 3301,
       "do_not_duplicate": true,
-      "summary": "find_all_windows() lossy-decodes py --list-paths and conda info -e stdout with String::from_utf8_lossy instead of str::from_utf8().unwrap() panicking on non-UTF-8 bytes from localized Windows codepages; undecodable lines fail the existing regex/skip logic. Regression test covers the decode contract."
+      "summary": "find_all_windows() lossy-decodes py --list-paths and conda info -e stdout with String::from_utf8_lossy instead of str::from_utf8().unwrap() panicking on non-UTF-8 bytes from localized Windows codepages; undecodable lines fail the existing regex/skip logic. Regression test covers the decode contract.",
+      "ci_status": "preexisting_red",
+      "ci_note": "Ubuntu 3.15-dev and 3.15t-dev legs fail at tests/common/mod.rs:428 with \"Failed to create conda environment: exit status 1\" and a conda CondaMultiError FileNotFoundError renaming /usr/share/miniconda/pkgs/*.conda.partial files. Pre-existing runner drift, not caused by this PR: unrelated PR PyO3/maturin#3303 (pre-commit config autoupdate, no Rust change) failed identically on 2026-09-14 with the same two tests. The Test workflow triggers only on pull_request, so main carries no comparable check set (base commit 316d513097 has only auditwheel and docker publish runs). Verified 2026-09-16."
     },
     {
       "repo": "ratatui/ratatui",
@@ -635,9 +637,7 @@
       "last_checked": "2026-09-15",
       "issue": 1674,
       "do_not_duplicate": true,
-      "summary": "Wire docs/migration/ into the docs sidebar, the llms.txt bundles, and link validation.",
-      "branch": "docs/1674-migration-pipeline",
-      "note": "Approved by quietbits 2026-09-15, with a pointer to CONTRIBUTING: stellar/js-stellar-sdk takes PRs only on explicit maintainer invite (policy added in #1728, 2026-09-11, two days after this PR opened). Rebased on main 2026-09-15 and added the llms.txt schema line plus a CHANGELOG entry; fork-PR workflow runs then sat in the maintainer approval queue."
+      "summary": "Migration sidebar documentation fix."
     },
     {
       "repo": "safe-global/safe-core-sdk",
