@@ -13657,7 +13657,7 @@ interceptor.on(
 
 ### `ClientRequestInterceptor`
 
-Intercepts HTTP requests made via `http.ClientRequest`—that is, `http.get()`/`http.request()` and their `https` counterparts (this also covers third-party clients built on top of them, like Axios or Got).
+Intercepts HTTP requests made via `http.ClientRequest` - that is, `http.get()`/`http.request()` and their `https` counterparts (this also covers third-party clients built on top of them, like Axios or Got).
 
 ```js
 import { ClientRequestInterceptor } from '@mswjs/interceptors/ClientRequest'
@@ -13671,7 +13671,7 @@ interceptor.on('request', ({ request, controller }) => {
 })
 ```
 
-This interceptor implements the same events as [`HttpRequestInterceptor`](#httprequestinterceptor)—`request`, `response`, and `unhandledException`—and you subscribe to them in the same way. See the sections above for observing, modifying, and mocking requests.
+This interceptor implements the same events as [`HttpRequestInterceptor`](#httprequestinterceptor) - `request`, `response`, and `unhandledException` - and you subscribe to them in the same way. See the sections above for observing, modifying, and mocking requests.
 
 ### `XMLHttpRequestInterceptor`
 
@@ -13689,7 +13689,7 @@ interceptor.on('request', ({ request, controller }) => {
 })
 ```
 
-This interceptor implements the same events as [`HttpRequestInterceptor`](#httprequestinterceptor)—`request`, `response`, and `unhandledException`—and you subscribe to them in the same way.
+This interceptor implements the same events as [`HttpRequestInterceptor`](#httprequestinterceptor) - `request`, `response`, and `unhandledException` - and you subscribe to them in the same way.
 
 This interceptor has two versions: `/node` and `/web`. The `@mswjs/interceptors/XMLHttpRequest` import automatically loads the correct one based on your environment. If you wish, you can import the exact version manually:
 
@@ -13716,7 +13716,7 @@ interceptor.on('request', ({ request, controller }) => {
 })
 ```
 
-This interceptor implements the same events as [`HttpRequestInterceptor`](#httprequestinterceptor)—`request`, `response`, and `unhandledException`—and you subscribe to them in the same way.
+This interceptor implements the same events as [`HttpRequestInterceptor`](#httprequestinterceptor) - `request`, `response`, and `unhandledException` - and you subscribe to them in the same way.
 
 This interceptor has two versions: `/node` and `/web`. The `@mswjs/interceptors/fetch` import automatically loads the correct one based on your environment. If you wish, you can import the exact version manually:
 
@@ -15958,7 +15958,7 @@ Expo has the same requirement as React Native above - a
 the top of your entry point (by default `App.js`) before any SDK code.
 
 Once `crypto.getRandomValues()` is available, `Keypair.random()` works normally
-— the manual `expo-random` workaround from older Expo SDKs is no longer needed.
+- the manual `expo-random` workaround from older Expo SDKs is no longer needed.
 
 #### Usage with CloudFlare Workers
 
