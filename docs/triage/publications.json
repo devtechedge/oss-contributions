@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-15",
-  "merged_count": 17,
+  "merged_count": 18,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -429,6 +429,28 @@
       "linkedin_bullet": "ssf0409/tracelens #140 — markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.",
       "profile_line": "markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.",
       "curated": true
+    },
+    {
+      "id": "stellar/stellar-docs#2850",
+      "repo": "stellar/stellar-docs",
+      "number": 2850,
+      "merged": true,
+      "merged_at": "2026-09-15T14:54:01Z",
+      "merge_commit": "6a8bea6a253a74ab646023b82459a007072f1baf",
+      "issue": 2772,
+      "url": "https://github.com/stellar/stellar-docs/pull/2850",
+      "languages": [],
+      "org": "stellar",
+      "display_name": "stellar-docs",
+      "profile_title": "stellar-docs #2850",
+      "ledger_logo": "https://github.com/stellar.png?size=40",
+      "profile_logo": "https://github.com/stellar.png?size=48",
+      "profile_logo_alt": "stellar-docs",
+      "ledger_what": "Document the --enable-core-manual-close flag in Quickstart advanced usage",
+      "resume_bullet": "stellar/stellar-docs #2850 (TypeScript) - document the --enable-core-manual-close flag in Quickstart advanced usage Merged Sep 2026. github.com/stellar/stellar-docs/pull/2850",
+      "linkedin_bullet": "stellar/stellar-docs #2850 — document the --enable-core-manual-close flag in Quickstart advanced usage",
+      "profile_line": "document the --enable-core-manual-close flag in Quickstart advanced usage",
+      "curated": false
     }
   ]
 }

@@ -56,6 +56,8 @@ I build production-grade AI and full-stack systems and contribute fixes upstream
 
 <img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="Stellar" align="left" /> **[stellar-docs #2849](https://github.com/stellar/stellar-docs/pull/2849)** — reworked the Soroban address conversion example to propagate the fallible `Result<Address, ConversionError>` from `Address::from_xdr()` instead of calling `.unwrap()`, which panics on malformed XDR, and noted that contracts consuming XDR from untrusted sources must handle the error instead of aborting.
 
+<img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="stellar-docs" align="left" /> **[stellar-docs #2850](https://github.com/stellar/stellar-docs/pull/2850)** — document the --enable-core-manual-close flag in Quickstart advanced usage
+
 <img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="Stellar" align="left" /> **[stellar-docs #2851](https://github.com/stellar/stellar-docs/pull/2851)** — qualified the dapp frontend guide's blanket claim that Freighter requires HTTPS; `http://localhost` and `http://127.0.0.1` are already Potentially Trustworthy origins under the W3C Secure Contexts specification, so plain HTTP on loopback satisfies the requirement and local development needs no TLS.
 
 <img src="https://github.com/stellar.png?size=48" width="32" height="32" alt="Stellar" align="left" /> **[stellar-docs #2853](https://github.com/stellar/stellar-docs/pull/2853)** — reconciled contradictory memo guidance in the pooled accounts guide: the intro framed memos as obsolete while later sections still required supporting them, so memos now read as the legacy mechanism still in active use and muxed accounts as preferred going forward.

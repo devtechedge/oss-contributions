@@ -23,7 +23,7 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed) Tj T*
 (production work. Built 30+ production-grade systems across autonomous multi-agent) Tj T*
 (platforms, MCP integrations, deterministic RL evaluation, real-time observability, and) Tj T*
-(high-throughput web applications. Merged 17 upstream pull requests across TypeScript,) Tj T*
+(high-throughput web applications. Merged 18 upstream pull requests across TypeScript,) Tj T*
 (JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth,) Tj T*
 (thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy,) Tj T*
 (verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and) Tj T*
@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5143 >>
+<< /Length 5164 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
@@ -126,6 +126,8 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
+(- stellar/stellar-docs #2850 \(TypeScript\) - document the --enable-core-manual-close flag in) Tj T*
+(Quickstart advanced usage Merged Sep 2026. github.com/stellar/stellar-docs/pull/2850) Tj T*
 (- ssf0409/tracelens #140 \(Python\) - markdown table cells in the report generator are now) Tj T*
 (escaped with html.escape in addition to pipe and newline handling. Task ids or gate values) Tj T*
 (containing pipes, line breaks, or HTML metacharacters no longer break the per-task and) Tj T*
@@ -152,8 +154,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (- web-infra-dev/rspress #3678 \(TypeScript\) - fixed a Search initialization race by awaiting) Tj T*
 (FlexSearch addAsync indexing before LocalProvider.init\(\) resolves, preventing early) Tj T*
 (searches from incorrectly returning no results on larger sites; focused regression-oriented) Tj T*
-(fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678) Tj T*
-(- recharts/recharts #7805 \(TypeScript\) - removed tabIndex={-1} from z-index portal SVG <g>) Tj T*
 ET
 endstream
 endobj
@@ -161,9 +161,11 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 4269 >>
+<< /Length 4443 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
+(fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678) Tj T*
+(- recharts/recharts #7805 \(TypeScript\) - removed tabIndex={-1} from z-index portal SVG <g>) Tj T*
 (layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced) Tj T*
 (focus rings; added regression coverage asserting no layer carries a tabindex attribute.) Tj T*
 (Merged Sep 2026. github.com/recharts/recharts/pull/7805) Tj T*
@@ -238,10 +240,10 @@ xref
 0000000253 00000 n 
 0000005088 00000 n 
 0000005214 00000 n 
-0000010409 00000 n 
-0000010535 00000 n 
-0000014856 00000 n 
+0000010430 00000 n 
+0000010556 00000 n 
+0000015051 00000 n 
 trailer << /Size 10 /Root 1 0 R >>
 startxref
-14926
+15121
 %%EOF

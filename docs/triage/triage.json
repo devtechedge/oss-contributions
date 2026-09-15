@@ -564,12 +564,14 @@
     {
       "repo": "stellar/stellar-docs",
       "number": 2850,
-      "status": "open",
-      "opened": "2026-09-12",
+      "status": "merged",
       "last_checked": "2026-09-15",
       "issue": 2772,
       "do_not_duplicate": true,
-      "summary": "Document core manual-close flag."
+      "summary": "Document core manual-close flag.",
+      "merged": "2026-09-15",
+      "merge_commit": "6a8bea6a253a74ab646023b82459a007072f1baf",
+      "merged_at": "2026-09-15T14:54:01Z"
     },
     {
       "repo": "stellar/stellar-docs",
@@ -925,6 +927,18 @@
     }
   ],
   "issues": [
+    {
+      "repo": "stellar/stellar-docs",
+      "number": 2772,
+      "status": "closed",
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-15",
+      "related_prs": [
+        2850
+      ],
+      "note": "Closed by merged PR #2850."
+    },
     {
       "repo": "stellar/stellar-docs",
       "number": 2768,
