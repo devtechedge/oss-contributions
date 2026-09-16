@@ -1013,6 +1013,21 @@
       "summary": "Fixes #213 (pygbif.search has silently been institution.search since 0.6.6). pygbif/__init__.py assigned the top-level names species, search and name_suggest from the occurrences module and then ran three star-imports whose last one, from .institution import search, rebound pygbif.search to the institution search. The three clobbering imports are replaced by a single from . import literature, collection, institution, which binds the submodules without rebinding the top-level names, so pygbif.search resolves to occurrences.search again. This is option 1 from the issue and non-breaking: the public top-level names go back to their documented meaning and no name is removed. One line changed, plus a new network-free test/test-top-level-search.py asserting pygbif.search is occurrences.search and that the other searches stay in their namespaces. Fail-before was proven by running the new test against a pristine copy of the package outside the workspace rather than by stashing, which this box forbids. Head commit 2201764 is SSH signed and reported verified by GitHub.",
       "ci_status": "action_required",
       "ci_note": "Both workflows sit at action_required, the first-contribution approval gate for fork PRs, so no check reports until a maintainer approves the run. The other open fork PR in the repo, #212, is in the same state. Not a red check; do not push again to trigger it. Verified 2026-09-16."
+    },
+    {
+      "repo": "hack-rpi/HackRPI-Website-2026",
+      "number": 75,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-16",
+      "last_checked": "2026-09-16",
+      "issue": 69,
+      "do_not_duplicate": true,
+      "branch": "eventpage-mobile",
+      "commit": "d5d5b60",
+      "ci_status": "no_ci",
+      "ci_note": "hack-rpi/HackRPI-Website-2026 has no .github/workflows directory, so no GitHub Actions run against this PR and head commit d5d5b60 reports 0 check-runs. npm run build passes locally (Next.js 16.2.6, 12/12 static pages generated). npx eslint cannot run on main either, before or after this change: eslint-config-next is pinned to ^0.2.4, which resolves to an unrelated legacy package with no core-web-vitals export, so eslint.config.mjs fails to load. This PR only touches CSS, which ESLint does not lint. Do not wait on CI; a maintainer merge is the only remaining step. Verified 2026-09-16.",
+      "summary": "Fixes #69 (Event page top formatted weirdly on mobile). The cover of /event switches to a vertical stack below the 860px desktop breakpoint, but my-app/app/event/event.css kept three side-by-side assumptions. .mapContainer kept width 50% and height 100vh, so on a 390px viewport it rendered as a 195x844 strip that filled the entire first screen. .coverTextContainer kept max-width 50vw, so the text panel was also half width and only started at y=844, below the fold. Each cover line is a flex row of one div per letter with the default flex-wrap nowrap, so long lines could not wrap and ran off the left edge instead: 5 of the 14 rows had a negative x, the worst being 'Participants will get wrist bands for food and activities' at x=-139. The fix is confined to event.css: below 859.98px the map becomes full width and 45vh, the text panel loses the 50vw cap, and the cover font drops to 1rem; the .lineItem base rule gains flex-wrap wrap, justify-content center and max-width 100% so rows wrap and stay centred. Measured after the change at 390x844 the map is 390x380, the text panel is 390 wide starting at y=380, and 0 of 14 rows are off screen. Desktop is byte-identical: at 1440x900 the map is still 720x900 and every cover row keeps its original position and size. Prettier was applied to the changed file only."
     }
   ],
   "issues": [
@@ -2038,6 +2053,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-16",
       "note": "Claimed with PR #215 on 2026-09-16. Opened 2026-09-06 by wilmund, no assignee, 0 comments. Root cause confirmed by reading pygbif/__init__.py: the three top-level assignments are followed by from .literature import search, from .collection import search and from .institution import search, so the last star-import wins and pygbif.search is the institution search."
+    },
+    {
+      "repo": "hack-rpi/HackRPI-Website-2026",
+      "number": 69,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        75
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-16",
+      "note": "Claimed with PR #75 on 2026-09-16. Opened 2026-08-02 by Levetonus, no assignee, no labels, 0 comments, empty timeline and no cross-referenced PR. Body is a single mobile screenshot of /event. Root cause measured at 390x844 rather than inferred from the screenshot: .mapContainer kept width 50% and height 100vh (a 195x844 strip), .coverTextContainer kept max-width 50vw, and each cover line is a nowrap flex row of one div per letter, so 5 of 14 rows started off the left edge. External contributions are explicitly welcome per CONTRIBUTING.md and 28 of the last 30 closed PRs were merged, mostly from CONTRIBUTOR authors. Open PR #73 (Levetonus, opened 2026-08-07, still open and mergeable null) is a repo-wide lint and prettier sweep that also rewrites app/event/page.tsx, cover.tsx, event.css and tailwind.config.ts; it does not address this issue, but expect a merge-order conflict if it lands first. Claim comment posted on 2026-09-16 (comment id 5690487904); do not post a second claim comment on this issue. No further action until a maintainer replies."
     }
   ],
   "closed_attempts": [
@@ -2635,6 +2662,12 @@
         215
       ],
       "focus": "Python client for the GBIF API; top-level namespace and module re-export correctness."
+    },
+    "hack-rpi/HackRPI-Website-2026": {
+      "contributions": [
+        75
+      ],
+      "focus": "HackRPI 2026 hackathon site (Next.js, TypeScript, Tailwind, daisyUI); mobile responsive layout of the event page cover."
     }
   }
 }

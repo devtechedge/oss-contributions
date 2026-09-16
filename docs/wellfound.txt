@@ -1,1 +1,115 @@
-WellfoundYour bio: 160 charactersFull Stack & AI Engineer building multi-agent systems & high-throughput state machines in Rust, TS & Python. OSS Contributor to LangGraph, Biome & Drizzle.Your work experience:What other positions have you held?Company*Lattice AI LabsTitle*Open-Source Software ContributorStart date*08/2026End date*I currently work hereDescription:Independent upstream contributor to non-Web3 developer toolchains: linters, agent runtimes, ORMs, auth, and routers. Public ledger: github.com/devtechedge/non-web3-oss-contributions.6 PRs on other orgs: 2 merged, 3 open, 1 closed unmerged.MERGED• better-auth/better-auth #11208 — merged by @bytaesu, 9 Sep 2026 (874752f on main). Regression test: /phone-number/verify OpenAPI requestBody stays present after Zod .and(z.record()). Generator already fixed on main; this locks the endpoint. Closes #8122. +53/0, 1 file. Tests only, no changeset.• biomejs/biome #11667 — merged by @dyc3, 8 Sep 2026 (e997900 on main). Nursery port of unicorn/better-dom-traversing in Rust. Prefer .firstChild / .firstElementChild / .closest() / merged .querySelector() over positional DOM walks. props.children ignored; fixes unsafe; :scope on element merges. Closes #11641. +1972/0, 17 files, 7 commits. Patch changeset, 13 packages.OPEN• langchain-ai/langgraphjs #2803 — JS port of CVE-2026-71433. InMemoryStore + Postgres: search(["tenant","acme"]) no longer leaks sibling acme-corp. Exact-or-descendant match; empty prefix still returns everything. Closes #2721. +337/-62, 8 files.• drizzle-team/drizzle-orm #6258 — drizzle-kit pull no longer treats two-FK domain tables as M2M junctions. Junction only if every column is an FK column. SQLite/Cockroach pass columns into SchemaForPull. Closes #6253. +212/-6, 7 files.• TanStack/router #8285 — handleServerAction returns 400 for malformed JSON (GET ?payload= and JSON POST) instead of an unhandled 500. Action not invoked. Shape 2 of #8237. +114/-4, 3 files.CLOSED, NOT MERGED• vitest-dev/vitest #11174 — browser-mode define double-stringify. Closed by repo automation before review. +17/-3, 4 files. Not refiled.Process: search existing PRs first, skip claimed issues, ship tests + changeset, wait on the maintainer.Stack: TypeScript, Rust, Biome, LangGraph.js, Drizzle ORM, TanStack Start/Router, Better Auth, Vitest, Changesets, Git.Company*Lattice AI LabsTitle*Web3 Open Source Software ContributorStart date*08/2026End date*I currently work hereDescription:Independent Web3 Open Source contributor.github.com/devtechedge/web3-oss-contributions.Claim first, then PR when the issue is free: 17 items - 2 merged, 9 open, 2 closed not merged, 4 Drips claims.MERGED• Anza Kit #2032: docs — getPatternMatchCodec predicates use number again after #1809 (#1810). Merged by @lorisleiva, 9 Sep 2026. Docs-only, no changeset.• thirdweb js #8938: useTokenQuery rethrows 401/429/timeout instead of Token Not Supported in CheckoutWidget (#8937). Tests + changeset. Merged by @0xFirekeeper, 7 Sep 2026.OPEN• Safe Protocol Kit #1426: keep nonce=0 in createTxOptions / createLegacyTxOptions (truthiness dropped 0). Tests, changeset, CLA.• AppKit #5767: createNamespaces uses caipNetworkId so Stellar/Neo3/Solana are not advertised as WC chain ids (#5552).• AppKit #5766: Meld on-ramp URL gets countryCode/source so it does not land on Binance Connect with a fake amount (#5752).• AppKit #5763: accessible names on modal card and header icon buttons.• wagmi #5240: reconnect() no longer strands on reconnecting when isAuthorized() rejects (#5233).• RainbowKit #2701: account modal aria-labelledby via titleId (#2700).• RainbowKit #2703: mobile connecting screen shows GET/store link if the wallet app may be missing (#2574).• ethers.js #5186: Signature._yParity for non-canonical EIP-7702 auth-list values; raw yParity serialize (#5091).• Stellar SDK #1715: coerce RPC timestamps to number; reject NaN/null/blank (#1644).CLOSED• viem #5065: TestClient.revert on evm_revert=false. Closed by author.• solana-web3.js #3882: ALT Freeze/Deactivate decoder discriminators. Closed; v1.x maintenance-only.DRIPS CLAIMS• #1845 Drip List URL swapped for account ID, then validatedValue fails.• #1509 timeline titles should follow tx status.• #1576 hide step index on single-tx flows.• #1500 DripListBadge still mounts .name when name/owner hidden.Stack: TypeScript, Safe, AppKit, thirdweb, wagmi, RainbowKit, ethers.js, Stellar, Anza Kit, viem, changesetsSkills:TypeScriptOpen-Source SoftwareWeb3BlockchainSafe Core SDKWagmiEthers.jsViemReact 18Software Quality AssuranceViteGitCompany*Lattice AI LabsTitle*Full Stack EngineerStart date*01/2016End date*I currently work hereDescription:Architected, implemented, and open-sourced 50 repositories (30+ original production-grade architectures) spanning autonomous multi-agent systems, RLVR environments, real-time observability, and high-throughput web apps using Python, TypeScript, LangGraph, Next.js 16, React 19, and PostgreSQL. Grounded in Six Sigma DMAIC rigor and 23 technical certifications:• Autonomous Multi-Agent Cortexes & Protocols: Architected AEGIS (LangGraph supervisor managing 6 specialists across 7 loops with LangSmith eval gates), Synthesis (StateGraph research engine with cyclic Reflexion and SSE streaming), and AAROP (explicit 6-phase state machine with 99% Python test coverage). Implemented Anthropic MCP (Stdio/SSE) and HoldSlot for the OpenAI WebMCP Challenge 2026.• Verifiable RL & Evaluation Environments: Authored 3 official RLVR environments on Prime Intellect (unit-fix, meeting-slot, calendar-math) featuring AST-sandboxed execution graders, sweep-line timezone solvers, and deterministic verifiers without LLM-as-judge variance.• Vertical AI & Deep-Memory Systems: Engineered Cadence, a framework-less healthcare agent with a 5-layer clinical memory architecture (session, episodic, semantic, knowledge, insights) via Ollama and SQLite, alongside Argus and RegTrace for automated smart-contract and MiCA/VARA compliance audits.• Real-Time Observability & Chaos Engineering: Built Chaos Simulator featuring self-healing microservices, animated SVG topologies, and sub-second WebSocket telemetry, plus CollabSpace multiplayer whiteboards using Supabase Realtime.• High-Throughput Full-Stack & Web3 Platforms: Delivered Jobrow & Lattice (indexing 5,000+ tech and crypto roles from Greenhouse, Ashby, and Lever APIs via TanStack Start & Neon Postgres), Smart Waitlist (viral referral loops + Stripe), AstraMart, and Pulsar (Base L2 GPU marketplace with Foundry contracts).Skills:Python (Programming Language)TypeScriptMulti-agent SystemsLangGraphModel Context Protocol (MCP)Next.js 16React 19PostgreSQLFastAPIDrizzle ORMSupabaseFramer MotionGitViteSoftware Quality AssuranceProject ManagementData AnalyticsAchievements: 1000 characters(Sharing more details about yourself will help you stand out more.)
+BIO (160 character limit)
+
+Full Stack & AI Engineer building multi-agent systems & deterministic state machines in Rust, TS & Python. 19 PRs merged into pnpm, Biome, Recharts & Stellar.
+
+
+WORK EXPERIENCE
+
+Company: Lattice AI Labs
+Title: Open-Source Software Contributor
+Start date: 08/2026
+End date: I currently work here
+
+Description:
+Independent upstream contributor to developer tooling, frameworks, databases, and Web3 SDKs. 19 pull requests merged into 12 projects, each one root-caused from the issue, shipped with regression tests, and handed to the maintainer. Full record: github.com/devtechedge/oss-contributions
+
+MERGED (most recent first)
+
+- stellar/stellar-docs #2859, #2850, #2849, #2853, #2851 (MDX, 5 PRs): documented the undocumented --enable-core-manual-close flag and its real limits, reworked the Soroban address example to propagate Result instead of calling .unwrap() on untrusted XDR, and qualified the Freighter HTTPS claim for loopback origins.
+- ssf0409/tracelens #140 (Python): markdown table cells are escaped with html.escape, so task ids and gate values containing pipes, newlines, or HTML no longer break the report tables piped into GITHUB_STEP_SUMMARY.
+- pnpm/pnpm #14863 (Rust/TypeScript): fixed startup crashes on FreeBSD and other non-Windows Unix platforms by making default_store_dir use the Unix fallback path, with platform-specific regression coverage.
+- web-infra-dev/rspress #3678 (TypeScript): awaited FlexSearch addAsync() indexing before search init resolves, so early queries no longer return zero results on larger sites.
+- recharts/recharts #7805 (TypeScript): removed tabIndex=-1 from z-index portal SVG layers so empty groups are not focusable and WebKit stops drawing geometry-traced focus rings.
+- pytest-dev/pytest-env #262 (Python): documented that pytest.toml accepts the native [pytest] env table, not only the plugin [pytest_env] section.
+- brianc/node-postgres #3772 (JavaScript): Connection.sync() no longer permanently sets _ending, so later ECONNRESET and EPIPE errors are no longer swallowed.
+- pnpm/pnpm #14756 (Rust/TypeScript): pnpm update pkg@x.y.z preserves the existing ^ and ~ range operators plus npm: and jsr: prefixes.
+- pnpm/pnpm #14754 (Rust): non-recursive pnpm run "/pattern/" --no-bail no longer terminates sibling scripts after the first failure.
+- pnpm/pnpm #14753 (Rust/TypeScript): lockfile: false is honoured with devEngines.packageManager.onFail: download, so package-manager switching works without lockfile sync.
+- SQLMesh/sqlmesh #6040 (Python): ModelTest.create_test() now runs on the calling thread, removing a race on shared execution_time and time_machine state.
+- biomejs/biome #11667 (Rust): added the useBetterDomTraversing nursery lint rule ported from eslint-plugin-unicorn, with fixtures and release integration.
+- better-auth/better-auth #11208 (TypeScript): regression coverage locks the /phone-number/verify OpenAPI requestBody contract after a Zod intersection issue.
+- anza-xyz/kit #2032 (TypeScript): restored number predicates in the getPatternMatchCodec docs so the examples match actual codec typing.
+- thirdweb-dev/js #8938 (TypeScript): genuine useTokenQuery failures are rethrown instead of being flattened into "Token Not Supported".
+
+Method: confirm the issue is unclaimed and still unfixed on main, ship a minimal root-cause patch with a regression test (and a changeset where the repo uses one), then stop and wait for the maintainer.
+
+Stack: TypeScript, Rust, Python, JavaScript, MDX, pnpm, Biome, Recharts, node-postgres, SQLMesh, Better Auth, Stellar, thirdweb, Anza Kit, Rspress, pytest, Changesets, Git
+
+Skills:
+TypeScript
+Rust
+Python
+Open-Source Software
+Web3
+Blockchain
+Developer Tooling
+Software Quality Assurance
+Git
+Vite
+Supabase
+
+
+Company: Lattice AI Labs
+Title: Full Stack Engineer
+Start date: 01/2016
+End date: I currently work here
+
+Description:
+Architected, implemented, and open-sourced 50 repositories (30+ original production-grade architectures) spanning autonomous multi-agent systems, RLVR environments, real-time observability, and high-throughput web apps using Python, TypeScript, LangGraph, Next.js 16, React 19, and PostgreSQL. Grounded in Six Sigma DMAIC rigor and 23 technical certifications:
+
+- Autonomous Multi-Agent Cortexes & Protocols: Architected AEGIS (LangGraph supervisor managing 6 specialists across 7 loops with LangSmith eval gates), Synthesis (StateGraph research engine with cyclic Reflexion and SSE streaming), and AAROP (explicit 6-phase state machine with 99% Python test coverage). Implemented Anthropic MCP (Stdio/SSE) and HoldSlot for the OpenAI WebMCP Challenge 2026.
+- Verifiable RL & Evaluation Environments: Authored 3 official RLVR environments on Prime Intellect (unit-fix, meeting-slot, calendar-math) featuring AST-sandboxed execution graders, sweep-line timezone solvers, and deterministic verifiers without LLM-as-judge variance.
+- Vertical AI & Deep-Memory Systems: Engineered Cadence, a framework-less healthcare agent with a 5-layer clinical memory architecture (session, episodic, semantic, knowledge, insights) via Ollama and SQLite, alongside Argus and RegTrace for automated smart-contract and MiCA/VARA compliance audits.
+- Real-Time Observability & Chaos Engineering: Built Chaos Simulator featuring self-healing microservices, animated SVG topologies, and sub-second WebSocket telemetry, plus CollabSpace multiplayer whiteboards using Supabase Realtime.
+- High-Throughput Full-Stack & Web3 Platforms: Delivered Jobrow & Lattice (indexing 5,000+ tech and crypto roles from Greenhouse, Ashby, and Lever APIs via TanStack Start & Neon Postgres), Smart Waitlist (viral referral loops + Stripe), AstraMart, and Pulsar (Base L2 GPU marketplace with Foundry contracts).
+
+Skills:
+Python (Programming Language)
+TypeScript
+Multi-agent Systems
+LangGraph
+Model Context Protocol (MCP)
+Next.js 16
+React 19
+PostgreSQL
+FastAPI
+Drizzle ORM
+Supabase
+Framer Motion
+Git
+Vite
+Software Quality Assurance
+Project Management
+Data Analytics
+
+
+ACHIEVEMENTS (1000 character limit)
+
+Getting 19 pull requests merged into other people's production codebases. The one I would point at first is pnpm #14863: pnpm crashed on startup on FreeBSD because default_store_dir assumed Windows on any non-macOS, non-Linux target. The fix routes every non-Windows platform to the Unix fallback path and adds regression coverage per platform. Before that, a Rust port of the useBetterDomTraversing lint rule landed in Biome, and a race fix moved SQLMesh's create_test() onto the calling thread. Every one of them went in the same way: read the issue, confirm it is unclaimed and still broken on main, ship the smallest correct patch with a test, then wait. Alongside that I built AEGIS, a LangGraph supervisor coordinating six specialists across seven loops with LangSmith evaluation gates.
+
+
+Q&A
+
+If money were not an issue, what would you be doing right now?
+Exactly what I'm doing now: building open-source AI infrastructure, multi-agent systems, and deterministic state engines in Rust/TS. I'd just do it with unlimited compute, funding open eval benchmarks and frontier developer tooling.
+
+What words of advice would you give your younger self?
+Go lower down the stack earlier. Don't fear the low-level abstractions or math - master Rust, state machines, and system fundamentals before chasing high-level abstractions. And trust the unconventional pivot from chemical engineering.
+
+What's the most creative thing you've ever done?
+Built a real-time SVG topology chaos simulator to visualize dynamic network degradation. Turning abstract distributed system failures into an interactive visual playground made complex reliability testing intuitive and engaging.
+
+Which founders or startups do you most admire?
+Prime Intellect for democratizing decentralized compute and RLVR evals, and Anthropic for pioneering protocol standards like MCP. I admire teams building hard AI infrastructure and deterministic systems over surface-level hype.
+
+What's your super power?
+Eliminating LLM non-determinism. I turn chaotic multi-agent interactions into verifiable, state-machine-driven systems through low-level infrastructure hardening, custom RLVR evals, and deep open-source debugging.
+
+What's the best way for people to get in touch with you?
+Email is best: devayanmandal@gmail.com. You can also reach out on LinkedIn: https://www.linkedin.com/in/dev-ma/ Or, message me directly here on Wellfound. I keep notifications active and usually respond within 24 hours.
+
+What words of wisdom do you live by?
+"First principles over hype, determinism over magic." Always engineer below the abstraction layer. Real software reliability comes from understanding the mechanics, eliminating non-determinism, and building simple foundations that withstand chaos.
+
+What aspects of your work are you most passionate about?
+Hardening low-level AI infrastructure and bringing order to chaotic multi-agent systems. I love engineering deterministic state engines, verifiable RLVR eval suites, and contributing directly upstream to foundational open-source toolchains.
