@@ -1043,6 +1043,17 @@
       "head_repo": "devtechedge/v5-token-pricing",
       "do_not_duplicate": true,
       "summary": "Fixes #3. Adds getTokenPricesAt({ tokens, apiKeys }), batching DefiLlama historical lookups: tokens are grouped by timestamp, coin keys chunked at 100 per request, de-duplicated and issued sequentially, so the 1,696 in-scope token instances cost ~17 requests instead of 1,696. Results are aligned by index with failures attributable per chunk rather than per call, and getTokenPriceAt now routes through the same resolver as the 1-element case. A rate-limited attempt records a distinct `throttled` AttemptOutcome instead of folding into `error`. New test/batch.test.ts covers chunking, grouping, de-duplication, partial answers and the 429 fall-through to later sources. +965/-221 across 40 files."
+    },
+    {
+      "repo": "leo-aa88/reviewgate",
+      "number": 172,
+      "status": "open",
+      "last_checked": "2026-09-17",
+      "do_not_duplicate": true,
+      "branch": "docs/hunk-entry-state",
+      "commit": "58c997c",
+      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` §10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. §12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
+      "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144."
     }
   ],
   "issues": [
