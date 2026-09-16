@@ -110,7 +110,7 @@ A target is GO only when every item below holds. Re-check the timeline with `gh`
 
 Hard gates:
 
-- Open issue, no owning assignee, no competing open fix PR. Check the issue **timeline's** `cross-referenced` events for linked PRs, not just the body and comments - fresh bugs can have competing PRs before any triage comment lands (0 comments is not a clear field).
+- Open issue, no owning assignee, no competing open fix PR. Check the issue **timeline's** `cross-referenced` events for linked PRs, not just the body and comments - fresh bugs can have competing PRs before any triage comment lands (0 comments is not a clear field). Check the **author** of any open fix PR too: if it is our own account, another platform already ran the same brief in parallel, so stop, open nothing, and report the existing PR instead. Two PRs from one account on one issue is the worst possible outcome and no amount of care in the diff justifies it.
 - No prior closed-unmerged PR on the same issue, or a clear reason why the earlier approach failed and the new one differs.
 - The fix is owned by the repo being targeted; confirm companion packages (e.g. a `fastapi-users` bug may live in `fastapi-users-db-sqlalchemy`) before claiming.
 - Reproducible or source-verifiable on the current default branch, and not already fixed on main even if the issue is still open.
