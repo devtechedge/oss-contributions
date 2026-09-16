@@ -289,7 +289,15 @@ The workflow:
 5. Updates repository About description. This only works when the `LEDGER_SYNC_TOKEN` secret exists: PATCHing a repo description is admin-level, so `secrets.GITHUB_TOKEN` fails with 403 "Resource not accessible by integration". The run still reports success and About silently goes stale (it sat at 13 while the README already said 17), so after every sync confirm the About count matches the README. Without that secret the profile README step is skipped too.
 **When `LEDGER_SYNC_TOKEN` is missing (confirmed 15 Sep 2026), repair both targets by hand the same turn.** The run still reports success, so the only signal is the About count lagging the README badge.
 
-1. About: fetch the current description, change only the merged count, then `gh api -X PATCH repos/devtechedge/oss-contributions -f description=<new>`. The user's own `gh` credentials are admin on the repo, so this succeeds where `secrets.GITHUB_TOKEN` fails. **Keep the string length-stable and under 340 chars:** GitHub caps the field at 350 and truncates silently, and the old copy enumerated every repo, hit exactly 350 and rendered cut off mid-word. Use a fixed short set of flagship names plus "and more" (16 Sep 2026: Biome, pnpm, SQLMesh, Recharts, maturin) and never grow the list, so only the digits of the count change and an extra digit can never cross the cap.
+1. About: fetch the current description, then `gh api -X PATCH repos/devtechedge/oss-contributions -f description=<new>`. The user's own `gh` credentials are admin on the repo, so this succeeds where `secrets.GITHUB_TOKEN` fails. **Rebuild the whole string from the template below on every merge, never patch a substring.** GitHub caps the field at 350 and truncates silently, and the old copy listed every repo with no budget, hit exactly 350 and rendered cut off mid-word. This is a public field: never mention `docs/triage/triage.json` or any internal path or filename in it, because the tracker is agent-only.
+
+   Template, budget 340 chars, fill as close to 340 as fits:
+
+   ```
+   Public ledger of upstream open-source contributions: {count} merged pull requests across TypeScript, Rust and Python. Merged into {names}, covering SDKs, tooling, frameworks, databases, docs and concurrency fixes.
+   ```
+
+   `{count}` is the merged total. `{names}` is the distinct merged repos sorted alphabetically, joined with ", " and a final " and ". Shed in this fixed order when the result exceeds 340: first drop the ", covering ..." clause, then drop names from the end of the sorted list and append " and more". Names are appended as new repos merge and never reordered, so the string re-derives identically each run and one extra digit in `{count}` can never cross the cap. Current set (16 Sep 2026, 20 merged across 13 repos): Anza Kit, Better Auth, Biome, maturin, node-postgres, pnpm, pytest-env, Recharts, Rspress, SQLMesh, stellar-docs, thirdweb JS, tracelens.
 2. Profile README: fetch `docs/generated/profile-merged.md` from `oss-contributions` and splice it into the `devtechedge/devtechedge` README between `<!-- ledger:profile-merged:start -->` and `<!-- ledger:profile-merged:end -->` with a contents-API PUT.
 
 6. Validates merged counts across every publication target
