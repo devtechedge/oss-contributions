@@ -2068,6 +2068,19 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-16",
       "note": "Claimed with PR #75 on 2026-09-16. Opened 2026-08-02 by Levetonus, no assignee, no labels, 0 comments, empty timeline and no cross-referenced PR. Body is a single mobile screenshot of /event. Root cause measured at 390x844 rather than inferred from the screenshot: .mapContainer kept width 50% and height 100vh (a 195x844 strip), .coverTextContainer kept max-width 50vw, and each cover line is a nowrap flex row of one div per letter, so 5 of 14 rows started off the left edge. External contributions are explicitly welcome per CONTRIBUTING.md and 28 of the last 30 closed PRs were merged, mostly from CONTRIBUTOR authors. Open PR #73 (Levetonus, opened 2026-08-07, still open and mergeable null) is a repo-wide lint and prettier sweep that also rewrites app/event/page.tsx, cover.tsx, event.css and tailwind.config.ts; it does not address this issue, but expect a merge-order conflict if it lands first. Claim comment posted on 2026-09-16 (comment id 5690487904); do not post a second claim comment on this issue. No further action until a maintainer replies."
+    },
+    {
+      "repo": "apify/crawlee",
+      "number": 2815,
+      "status": "maintainer_owned",
+      "attempted": false,
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-16",
+      "related_prs": [
+        4131,
+        2925
+      ],
+      "note": "Maintainer janbuchar redirected the fix away from setValue/useState and onto RecoverableState, opening #4131 on 2026-09-16 which closes this issue. Earlier community PR #2925 (big-json approach) was closed unmerged on 2025-06-20. We have no PR in apify/crawlee: only a 2026-09-11 comment asking whether a narrowed fix would be welcome, which the maintainer answered with the redirect. Do not open a setValue/useState streaming fix - it duplicates a maintainer PR that closes the issue."
     }
   ],
   "closed_attempts": [
