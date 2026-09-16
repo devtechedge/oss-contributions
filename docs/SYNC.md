@@ -39,7 +39,7 @@ The same workflow also runs hourly against PRs already tracked as `open` in `tri
 | Resume master | `docs/Devayan_Mandal-resume.txt` | Count + generated merged list |
 | LinkedIn master | `docs/linkedin-all-details.txt` | Count + generated list + representative bullets |
 | Profile fragment | `docs/generated/profile-merged.md` | Alphabetical by repo, PR number ascending |
-| Master resume DOCX | `docs/Devayan_Mandal.docx` | Rendered from resume.txt by `scripts/render-resume-docx.py`. Fixed rules: exactly two pages, 0.4 inch margins, nothing below 10pt |
+| Master resume DOCX | `docs/Devayan_Mandal.docx` | Rendered from resume.txt by `scripts/render-resume-docx.py`. Fixed rules: exactly two pages, 0.4 inch margins, nothing below 10pt. Open source is ranked by significance, not by merge date |
 | Resume HTML / DOCX / PDF | `docs/generated/` | Printable derived artifacts regenerated from resume.txt |
 | Repository About | GitHub metadata | Count + repo names, 350-char cap |
 
@@ -51,12 +51,18 @@ The GitHub profile README is spliced from `docs/generated/profile-merged.md` by 
 
 Every run the renderer measures the content with real Calibri metrics and fits it to a two-page budget:
 
-1. The open-source section is the shock absorber. It tries full bullets, then condensed one-liners, then a subset plus a `+N more merged upstream PRs across ...` roll-up line.
+1. The open-source section is the shock absorber, and it is ranked by significance rather than by merge date. It names the most significant merges first, gives the leading few a second line of detail, keeps the rest to one line each, and rolls the remainder into a `+N more merged upstream PRs across ...` line.
 2. Only if the hand-written sections still leave no room are they condensed, cheapest first: certifications to one line, small skill categories folded together, then long experience bullets trimmed at clause boundaries.
-3. Everything is measured as if it were 12% larger before it is compared to the budget (`RENDER_SAFETY`). Word paginates the result at two pages, but viewers that substitute a wider font for Calibri, or apply their own line spacing, need that room or they spill onto a third page.
-4. It then targets 95% of the budget. Calibration against Word: 0.98 fits, 1.00 spills to three pages, so the last 5% is the error margin.
+3. Everything is measured as if it were 6% larger before it is compared to the budget (`RENDER_SAFETY`). Word paginates the result at two pages, but viewers that substitute a wider font for Calibri, or apply their own line spacing, need that room or they spill onto a third page.
+4. It then targets 99% of the budget. The font is pinned on every run so Word lays the text out with the same Calibri the metrics assume; without that, Word 2024 substitutes Aptos and the measurement stops describing the page.
 
 Font sizes: name 16pt, section headings 10.5pt bold, body 10pt. Margins are 0.4 inch on all four sides.
+
+### Ranking the open-source section
+
+The ledger writes its list newest-first and rewrites it wholesale on every sync, so the order cannot live in the text file. It lives in `IMPORTANCE` in `scripts/render-resume-docx.py`: an explicit, curated order of the merges already known, judged on the standing of the upstream project first and on how much of the codebase the change touched second. The list interleaves repositories deliberately, so it reads as a ranking rather than as blocks of the same project.
+
+A merge the list has never seen is scored by `REPO_TIER` instead and slotted in among the curated ones, so a later merge into a significant project surfaces on its own. Add the project to `REPO_TIER` when a new upstream becomes a regular target. Extending `IMPORTANCE` is optional and only refines the order.
 
 ## What it does not touch
 

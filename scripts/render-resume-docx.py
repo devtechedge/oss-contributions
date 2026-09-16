@@ -2,23 +2,29 @@
 """Render docs/Devayan_Mandal.docx from the ledger resume text.
 
 Source of truth is docs/Devayan_Mandal-resume.txt, which the ledger workflow
-rewrites on every merge. This script renders it to a DOCX that meets three
+rewrites on every merge. This script renders it to a DOCX that meets four
 fixed requirements:
 
   * exactly two pages on US Letter
   * 0.4 inch margins on all four sides
   * no run set below 10pt
+  * the open-source section carries the most weight of any section
 
 Because the page budget is fixed, the open-source section is re-summarised on
-every run rather than pasted verbatim. The renderer tries the full bullet text
-first, then condensed one-liners, then a shortened subset plus a roll-up line,
-and stops at the first variant that fits the remaining space. If the hand
-written sections leave no room at all, they are condensed too, cheapest first:
+every run rather than pasted verbatim, and it is ranked by significance rather
+than by merge date. The renderer shows the most significant merges first, gives
+the leading few a second line of detail, keeps the rest to a single line each,
+and rolls everything left over into one closing line. If the hand-written
+sections leave no room at all, they are condensed too, cheapest first:
 certifications to a single line, then small skill categories folded together,
 then long experience bullets trimmed at clause boundaries.
 
 Text is measured with real Calibri advance widths baked into _WIDTHS, so no
 font engine is needed and the result does not depend on what CI has installed.
+A one-line bullet at 10pt holds about 127 characters, which is why SHORT_CAP
+sits just under that: an entry that wraps to two lines costs a second slot that
+another repository could have used.
+
 The file is rewritten only when the bytes actually change, so a no-op sync
 still commits nothing.
 
@@ -60,6 +66,17 @@ BUDGET = 2 * USABLE_H  # two pages, in points
 
 BULLET_INDENT = 180  # twips
 
+# Vertical rhythm. These are deliberately generous: the earlier layout packed
+# every paragraph tight against the next and read as a wall of text.
+GAP_NAME_AFTER = 2.0
+GAP_CONTACT_AFTER = 10.0
+GAP_HEAD_BEFORE = 10.0
+GAP_HEAD_AFTER = 3.5
+GAP_BULLET_AFTER = 2.5
+GAP_BODY_AFTER = 3.0
+GAP_ORG_BEFORE = 6.0
+GAP_ORG_AFTER = 0.5
+
 # Advance widths in 1/1000 em for chr(32), chr(33..126), U+2022, U+2013,
 # U+2019, U+00A0, read out of calibri.ttf.
 _ORDER = [32] + list(range(33, 127)) + [0x2022, 0x2013, 0x2019, 0x00A0]
@@ -81,11 +98,13 @@ END = "<<<END:LEDGER:MERGED_LIST>>>"
 URL_TAIL = re.compile(r"\s+(?:https?://)?(?:www\.)?github\.com/\S+\s*$")
 MERGED_TAIL = re.compile(r"\s*Merged\s+[A-Z][a-z]{2}\s+\d{4}\.\s*$")
 
+# Render order. Open source sits directly under the skills block so it owns the
+# top half of page one, ahead of the portfolio of private project work.
 SECTIONS = (
     "PROFESSIONAL SUMMARY",
     "TECHNICAL SKILLS",
-    "PROFESSIONAL EXPERIENCE",
     "OPEN SOURCE CONTRIBUTIONS",
+    "PROFESSIONAL EXPERIENCE",
     "CERTIFICATIONS",
     "EDUCATION",
 )
@@ -323,9 +342,78 @@ SKILL_MERGE = {
 # document regardless of content.
 RENDER_SAFETY = 1.06
 
-TARGET_FILL = 0.95  # 0.98 fits, 1.00 tips to three pages, so leave headroom
+TARGET_FILL = 0.99  # Word is the oracle here: it renders the pinned font, and
+# the measured height tracks it closely. Leave the last one percent as the
+# margin between "two pages" and "three pages".
 GOAL = BUDGET * TARGET_FILL
-MIN_OSS = 130.0  # heading + intro + a handful of bullets + closing
+MIN_OSS = 200.0  # heading + intro + a real list of merges + closing
+
+# A 10pt bullet line holds about 127 characters before it wraps. An entry that
+# wraps costs a second slot, so one-line entries are capped just below that and
+# only the leading entries are allowed the second line.
+SHORT_CAP = 124
+RICH_CAP = 250  # two lines, for the most significant merges
+RICH_MAX = 4  # how many entries may spend a second line
+MAX_NAMED = 12  # past this the section reads as a list rather than a record
+
+
+# ------------------------------------------------------- significance ranking
+
+# Curated order: how much a merge says about the person who wrote it. Upstream
+# reputation first, then how much of the codebase the change touched, then how
+# hard the bug was. The ledger list is generated newest-first and is rewritten
+# wholesale on every sync, so this ordering cannot live in the text file; it
+# lives here and is applied at render time.
+IMPORTANCE = (
+    "biomejs/biome #11667",        # 1,972 lines across 17 files, shipped to 13 packages
+    "pnpm/pnpm #14863",            # startup crash on FreeBSD, cross-platform
+    "brianc/node-postgres #3772",  # internal state flag on the canonical pg driver
+    "recharts/recharts #7805",     # pointer focusability and WebKit focus rings
+    "PyO3/maturin #3302",          # build panic on non-UTF-8 interpreter output
+    "SQLMesh/sqlmesh #6040",       # thread-safety race in a concurrent test path
+    "pnpm/pnpm #14753",            # lockfile:false ignored during engine switch
+    "better-auth/better-auth #11208",
+    "thirdweb-dev/js #8938",       # false error state in a payment widget
+    "anza-xyz/kit #2032",
+    "web-infra-dev/rspress #3678", # search initialisation race
+    "pnpm/pnpm #14756",
+    "pytest-dev/pytest-env #262",
+    "stellar/stellar-docs #2850",
+    "leo-aa88/reviewgate #144",    # lexer that must not miscount runtime strings
+    "stellar/stellar-docs #2849",
+    "pnpm/pnpm #14754",
+    "stellar/stellar-docs #2859",
+    "ssf0409/tracelens #140",
+    "stellar/stellar-docs #2853",
+    "stellar/stellar-docs #2851",
+)
+
+# Fallback for merges the ledger adds after this list was written: the standing
+# of the project, so a new merge into a well-known repository outranks a new
+# merge into an obscure one, and ties fall back to newest-first.
+REPO_TIER = {
+    "biomejs/biome": 10,
+    "pnpm/pnpm": 9,
+    "brianc/node-postgres": 9,
+    "recharts/recharts": 9,
+    "better-auth/better-auth": 8,
+    "pyo3/maturin": 8,
+    "sqlmesh/sqlmesh": 8,
+    "thirdweb-dev/js": 7,
+    "web-infra-dev/rspress": 7,
+    "anza-xyz/kit": 7,
+    "pytest-dev/pytest-env": 6,
+    "stellar/stellar-docs": 6,
+}
+
+# Where a merge the curated list has never seen enters the ranking. Scoring it
+# as ENTRY_BASE + (TIER_TOP - tier) drops a new merge into a top-tier project
+# just below the six flagship entries, and a new merge into an unknown project
+# at the tail. Without this the section would freeze at whatever the curated
+# list happened to know on the day it was written, and a later merge into
+# somewhere significant would never surface.
+ENTRY_BASE = 6
+TIER_TOP = 10
 
 
 def full_line(entry: str) -> str:
@@ -343,7 +431,93 @@ def split_entry(entry: str):
     return None, None, entry
 
 
-def condensed_line(entry: str, limit: int = 150) -> str:
+def entry_key(entry: str) -> str:
+    head, _, _ = split_entry(entry)
+    return (head or "").lower()
+
+
+def repo_name(entry: str) -> str:
+    m = re.match(r"^([^/]+/[^ ]+)\s+#", entry)
+    return m.group(1) if m else entry.split()[0]
+
+
+def rank_entries(entries):
+    """Most significant merges first, ties newest-first.
+
+    Entries the curated list already knows are ordered by its judgement, which
+    interleaves repositories so the list reads as a ranking rather than as
+    blocks of the same project. Anything the ledger added afterwards is scored
+    by the standing of its project and slotted in among them, so a fresh merge
+    into a significant repository surfaces on its own without an edit here.
+    """
+    # Both sides are lowercased: the curated list is written with the upstream
+    # capitalisation ("PyO3/maturin"), while entry_key normalises the ledger's.
+    order = {key.lower(): i for i, key in enumerate(IMPORTANCE)}
+
+    def sort_key(item):
+        i, entry = item
+        k = entry_key(entry)
+        if k in order:
+            return (order[k], i)
+        tier = REPO_TIER.get(repo_name(entry).lower(), 0)
+        return (ENTRY_BASE + (TIER_TOP - tier), i)
+
+    return [e for _, e in sorted(enumerate(entries), key=sort_key)]
+
+
+# Cut points, most preferred first. Cutting at a semicolon leaves the strongest
+# claim standing. Cutting before a preposition or a conjunction still leaves a
+# complete statement. Cutting at a bare word count does not, which is how
+# "setting the internal _ending" used to appear where "the internal _ending
+# flag" was meant.
+CUT_POINTS = (
+    ("; ", ". "),
+    (", ",),
+    (" by ", " so ", " using ", " via ", " with ", " from ", " for ", " when ",
+     " after ", " before ", " across ", " instead of ", " that ", " which ",
+     " to ", " in ", " on ", " into ", " through ", " without ", " against ",
+     " between ", " over ", " under ", " during ", " while ", " because ",
+     " since "),
+)
+
+
+def shorten_impact(impact: str, budget: int) -> str:
+    """The most of `impact` that fits `budget` and still ends on a clause.
+
+    A one-line entry leaves roughly eighty characters for its description,
+    which is less than a whole sentence, so the line has to stop somewhere.
+    The cut is chosen from CUT_POINTS rather than from a character count, so
+    the line always ends on something a reader can call a finished thought.
+
+    The budget is measured on the closed form because `finish` drops the
+    trailing separator and appends a full stop. A short line is not a wasted
+    line: `fit_oss` spends whatever is left on naming another merge, and a
+    complete claim in seventy characters beats a severed one in a hundred.
+    """
+    body = MERGED_TAIL.sub("", impact).strip().rstrip(".")
+    if len(finish(body)) <= budget:
+        return finish(body)
+
+    floor = max(30.0, budget * 0.35)
+    for separators in CUT_POINTS:
+        best = ""
+        for sep in separators:
+            pos = body.find(sep)
+            while pos != -1:
+                candidate = body[:pos]
+                if len(finish(candidate)) <= budget and len(candidate) > len(best):
+                    best = candidate
+                pos = body.find(sep, pos + 1)
+        if best and len(finish(best)) >= floor:
+            return finish(best)
+
+    head = first_clause(body)
+    if len(finish(head)) <= budget:
+        return finish(head)
+    return clip(head, budget)
+
+
+def condensed_line(entry: str, limit: int = SHORT_CAP) -> str:
     """`limit` caps the whole rendered line, prefix included."""
     head, lang, impact = split_entry(entry)
     if head and lang:
@@ -352,19 +526,17 @@ def condensed_line(entry: str, limit: int = 150) -> str:
         prefix = f"{head} - "
     else:
         prefix = ""
-    text = clip(first_clause(impact), max(50, limit - len(prefix)))
-    return prefix + text
+    return prefix + shorten_impact(impact, max(50, limit - len(prefix)))
 
 
 def short_line(entry: str) -> str:
-    # Still long enough to end on a full clause. Cutting below about 110
-    # characters forces mid-clause truncation, which reads badly on a resume.
-    return condensed_line(entry, 145)
+    # A one-line bullet holds about 127 characters at 10pt. Going past that
+    # costs a second line, which is a slot another repository could have used.
+    return condensed_line(entry, SHORT_CAP)
 
 
-def repo_name(entry: str) -> str:
-    m = re.match(r"^([^/]+/[^ ]+)\s+#", entry)
-    return m.group(1) if m else entry.split()[0]
+def rich_line(entry: str) -> str:
+    return condensed_line(entry, RICH_CAP)
 
 
 def rollup(items) -> str:
@@ -384,21 +556,24 @@ def rollup(items) -> str:
 # --------------------------------------------------------------------- layout
 
 
-def build_fixed(data: dict, level=(False, False, None)) -> list[Block]:
+def build_fixed(data: dict, level=(False, False, None)):
+    """The hand-written sections, plus the index where open source goes."""
     certs_compact, skills_merge, exp_cap = level
     out: list[Block] = []
+    slot = len(out)
 
-    out.append(Block(data["name"], NAME_PT, True, "body", 0, 1))
+    out.append(Block(data["name"], NAME_PT, True, "body", 0, GAP_NAME_AFTER))
     if data["tagline"]:
-        out.append(Block(data["tagline"], BODY_PT, False, "body", 0, 1))
+        out.append(Block(data["tagline"], BODY_PT, False, "body", 0, GAP_NAME_AFTER))
     if data["contact"]:
-        out.append(Block(data["contact"], BODY_PT, False, "body", 0, 8))
+        out.append(Block(data["contact"], BODY_PT, False, "body", 0, GAP_CONTACT_AFTER))
 
     order = [s for s in SECTIONS if s in data["sections"]]
     for name in order:
         if name == "OPEN SOURCE CONTRIBUTIONS":
+            slot = len(out)
             continue
-        out.append(Block(name, HEAD_PT, True, "heading", 8, 2))
+        out.append(Block(name, HEAD_PT, True, "heading", GAP_HEAD_BEFORE, GAP_HEAD_AFTER))
         lines = list(data["sections"][name])
 
         if name == "TECHNICAL SKILLS" and skills_merge:
@@ -406,7 +581,10 @@ def build_fixed(data: dict, level=(False, False, None)) -> list[Block]:
         if name == "CERTIFICATIONS" and certs_compact:
             items = [l[2:].strip().rstrip(".") for l in lines if l.startswith("- ")]
             if items:
-                out.append(Block(BULLET + " " + "; ".join(items), BODY_PT, False, "bullet", 0, 1))
+                out.append(
+                    Block(BULLET + " " + "; ".join(items), BODY_PT, False, "bullet",
+                          0, GAP_BULLET_AFTER)
+                )
             continue
 
         for line in lines:
@@ -414,17 +592,19 @@ def build_fixed(data: dict, level=(False, False, None)) -> list[Block]:
                 text = line[2:].strip()
                 if name == "PROFESSIONAL EXPERIENCE":
                     text = shorten_prose(text, exp_cap)
-                out.append(Block(BULLET + " " + text, BODY_PT, False, "bullet", 0, 1))
+                out.append(
+                    Block(BULLET + " " + text, BODY_PT, False, "bullet", 0, GAP_BULLET_AFTER)
+                )
             elif name == "PROFESSIONAL EXPERIENCE":
                 if line == line.upper() and len(line) > 6:
-                    out.append(Block(line, BODY_PT, True, "body", 4, 0))
+                    out.append(Block(line, BODY_PT, True, "body", GAP_ORG_BEFORE, GAP_ORG_AFTER))
                 else:
-                    out.append(Block(line, BODY_PT, False, "body", 0, 1))
+                    out.append(Block(line, BODY_PT, False, "body", 0, GAP_BODY_AFTER))
             elif name == "EDUCATION" and line == line.upper() and len(line) > 6:
-                out.append(Block(line, BODY_PT, True, "body", 4, 0))
+                out.append(Block(line, BODY_PT, True, "body", GAP_ORG_BEFORE, GAP_ORG_AFTER))
             else:
-                out.append(Block(line, BODY_PT, False, "body", 0, 2))
-    return out
+                out.append(Block(line, BODY_PT, False, "body", 0, GAP_BODY_AFTER))
+    return out, slot
 
 
 def merge_skills(lines: list[str]) -> list[str]:
@@ -446,77 +626,70 @@ def merge_skills(lines: list[str]) -> list[str]:
 
 
 def oss_blocks(data: dict, lines: list[str]) -> list[Block]:
-    out = [Block("OPEN SOURCE CONTRIBUTIONS", HEAD_PT, True, "heading", 8, 2)]
+    out = [Block("OPEN SOURCE CONTRIBUTIONS", HEAD_PT, True, "heading",
+                 GAP_HEAD_BEFORE, GAP_HEAD_AFTER)]
     if data["intro"]:
-        out.append(Block(data["intro"], BODY_PT, False, "body", 0, 1))
+        out.append(Block(data["intro"], BODY_PT, False, "body", 0, GAP_BODY_AFTER))
     for line in lines:
-        out.append(Block(BULLET + " " + line, BODY_PT, False, "bullet", 0, 1))
+        out.append(Block(BULLET + " " + line, BODY_PT, False, "bullet", 0, GAP_BULLET_AFTER))
     if data["closing"]:
-        out.append(Block(data["closing"], BODY_PT, False, "body", 2, 0))
+        out.append(Block(data["closing"], BODY_PT, False, "body", 3, 0))
     return out
 
 
-def distinct_repos(entries):
-    """Newest first, but at most one entry per repository.
+def fit_oss(data: dict, remaining: float) -> list[str]:
+    """The most merges, in significance order, that fit `remaining`.
 
-    Two pages cannot hold nineteen bullets, and five merges in one repo read as
-    padding next to five merges across five projects.
+    Two pages cannot hold twenty-one bullets. The renderer therefore maximises
+    how many merges are named, and spends whatever is left on a second line of
+    detail for the leading few, which carry the most signal.
     """
-    seen = set()
-    out = []
-    for e in entries:
-        key = repo_name(e)
-        if key in seen:
-            continue
-        seen.add(key)
-        out.append(e)
-    return out
-
-
-def fit_oss(data: dict, remaining: float):
-    """Pick the richest open-source rendering that still fits `remaining`."""
-    entries = data["entries"]
+    entries = rank_entries(data["entries"])
     if not entries:
         return []
 
     def height(lines):
         return total_height(oss_blocks(data, lines))
 
-    for build in (full_line, condensed_line):
-        lines = [build(e) for e in entries]
-        if height(lines) <= remaining:
-            return lines
+    # Everything, in full. Rarely fits, but it is the best outcome when it does.
+    lines = [full_line(e) for e in entries]
+    if height(lines) <= remaining:
+        return lines
 
-    # Space is tight, so prefer showing more repositories tersely over fewer
-    # at length: the portfolio breadth is the point on a two-page resume.
-    picked = distinct_repos(entries)
     best = None
-    for rank, build in enumerate((condensed_line, short_line)):
-        for k in range(len(picked), 0, -1):
-            shown = picked[:k]
-            rest = [e for e in entries if e not in shown]
-            lines = [build(e) for e in shown]
-            if rest:
-                lines.append(rollup(rest))
+    for k in range(min(len(entries), MAX_NAMED), 0, -1):
+        for rich in range(min(RICH_MAX, k), -1, -1):
+            lines = [rich_line(e) for e in entries[:rich]]
+            lines += [short_line(e) for e in entries[rich:k]]
+            if k < len(entries):
+                lines.append(rollup(entries[k:]))
             if height(lines) <= remaining:
-                if best is None or (k, -rank) > (best[0], -best[1]):
-                    best = (k, rank, lines)
+                best = (k, rich, lines)
                 break
+        if best:
+            break
     if best:
         return best[2]
 
-    shown = picked[:1]
-    return [short_line(shown[0]), rollup([e for e in entries if e != shown[0]])]
+    # Nothing but the single most significant merge fits.
+    return [short_line(entries[0]), rollup(entries[1:])]
 
 
 # --------------------------------------------------------------------- xml
 
 
+S_FONTS = "<w:rFonts w:ascii='Calibri' w:hAnsi='Calibri' w:cs='Calibri'/>"
+
+
 def run(text: str, size: float, bold: bool) -> str:
     size = max(size, MIN_PT)
     half = int(round(size * 2))
+    # The font is pinned on every run, not only in docDefaults. Without the
+    # theme part Word 2024 resolves the document default to its own theme font
+    # (Aptos) and lays the text out with metrics that are not the ones baked
+    # into _WIDTHS, which quietly invalidates the page budget.
     props = (
-        f"<w:rPr>{'<w:b/>' if bold else ''}"
+        f"<w:rPr>{S_FONTS}{'<w:b/>' if bold else ''}"
         f"<w:sz w:val='{half}'/><w:szCs w:val='{half}'/></w:rPr>"
     )
     return f"<w:r>{props}<w:t xml:space='preserve'>{escape(text)}</w:t></w:r>"
@@ -539,14 +712,14 @@ def paragraph(block: Block) -> str:
         bdr = "<w:pBdr><w:bottom w:val='single' w:sz='6' w:space='1' w:color='666666'/></w:pBdr>"
     ppr = (
         f"<w:pPr>{spacing}{ind}{bdr}"
-        f"<w:rPr><w:sz w:val='{half}'/><w:szCs w:val='{half}'/></w:rPr></w:pPr>"
+        f"<w:rPr>{S_FONTS}<w:sz w:val='{half}'/><w:szCs w:val='{half}'/></w:rPr></w:pPr>"
     )
     return f"<w:p>{ppr}{run(block.text, size, block.bold)}</w:p>"
 
 
 S_DEFAULTS = (
     "<w:docDefaults><w:rPrDefault><w:rPr>"
-    "<w:rFonts w:ascii='Calibri' w:hAnsi='Calibri' w:cs='Calibri'/>"
+    + S_FONTS +
     "<w:sz w:val='20'/><w:szCs w:val='20'/>"
     "</w:rPr></w:rPrDefault><w:pPrDefault><w:pPr>"
     "<w:spacing w:after='0' w:line='240' w:lineRule='auto'/>"
@@ -624,18 +797,19 @@ def main() -> int:
         return 1
 
     fixed = None
+    slot = 0
     level = LEVELS[-1]
     for candidate_level in LEVELS:
-        candidate = build_fixed(data, candidate_level)
+        candidate, candidate_slot = build_fixed(data, candidate_level)
         if total_height(candidate) + MIN_OSS <= GOAL:
-            fixed, level = candidate, candidate_level
+            fixed, slot, level = candidate, candidate_slot, candidate_level
             break
     if fixed is None:
         ranked = sorted(
-            ((total_height(build_fixed(data, lv)), i) for i, lv in enumerate(LEVELS))
+            ((total_height(build_fixed(data, lv)[0]), i) for i, lv in enumerate(LEVELS))
         )
         level = LEVELS[ranked[0][1]]
-        fixed = build_fixed(data, level)
+        fixed, slot = build_fixed(data, level)
         print(
             "::warning::master resume DOCX: content does not fit two pages even at "
             "the deepest condensation; trim docs/Devayan_Mandal-resume.txt",
@@ -644,7 +818,7 @@ def main() -> int:
 
     remaining = GOAL - total_height(fixed)
     lines = fit_oss(data, remaining)
-    blocks = fixed + oss_blocks(data, lines)
+    blocks = fixed[:slot] + oss_blocks(data, lines) + fixed[slot:]
     print(
         f"condensation: certs_compact={level[0]} skills_merge={level[1]} "
         f"experience_cap={level[2]}"

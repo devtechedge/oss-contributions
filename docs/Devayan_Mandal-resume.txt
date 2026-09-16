@@ -5,7 +5,7 @@ linkedin.com/in/dev-ma | github.com/devtechedge
 
 PROFESSIONAL SUMMARY
 
-Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed production work. Built 30+ production-grade systems across autonomous multi-agent platforms, MCP integrations, deterministic RL evaluation, real-time observability, and high-throughput web applications. Merged 21 upstream pull requests across TypeScript, JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy, verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and production-grade developer tooling, with end-to-end ownership from architecture through deployment, observability, testing, and upstream delivery.
+Forward Deployed AI Engineer with 10 years of self-directed production work and 30+ shipped systems across multi-agent platforms, MCP integrations, deterministic RL evaluation, and real-time infrastructure. Merged 21 upstream pull requests across TypeScript, Python, and Rust in widely used projects including Biome, pnpm, and node-postgres, owning each change from root cause through tests, review, and release.
 
 TECHNICAL SKILLS
 
@@ -23,19 +23,14 @@ PROFESSIONAL EXPERIENCE
 LATTICE AI LABS
 Full Stack AI Native / Forward Deployed AI Engineer | January 2016 - Present | Remote
 
-- Architected and shipped 30+ production-grade systems across a broad portfolio of public engineering repositories spanning autonomous agents, RL evaluation environments, real-time observability, and high-throughput web applications.
+- Architected and shipped 30+ production-grade systems spanning autonomous agents, RL evaluation environments, real-time observability, and high-throughput web applications.
 - Built AEGIS, an enterprise AI ops cortex where a LangGraph supervisor routes 6 specialist agents across 7 agentic loops, with hybrid RAG, human-in-the-loop gates, LangSmith evaluation gates, and a live SSE dashboard. Live: aegis-agent-api.vercel.app/ui
-- Built Synthesis, an autonomous research platform running cyclic Reflexion workflows (Plan, Research, Synthesize, Critique, Finalize) on a StateGraph executor with HITL approval gates, and AAROP, an inspectable 6-phase reasoning engine with cost-aware model routing, circuit breakers, RAG memory, replayable traces, and 99% Python test coverage. Live: synthesis-gold.vercel.app | aarop.vercel.app
-- Built Veritas, a LangGraph research agent with SSE streaming, grounded demo mode, external retrieval when configured, and explicit separation between deterministic demo execution and live model/retrieval execution. Live: veritas-engine-woad.vercel.app
-- Authored 3 official RLVR environments on the Prime Intellect Environments Hub (calendar-math, meeting-slot, unit-fix) using deterministic UTC sweep-line solvers and AST-sandboxed execution graders, removing LLM-as-judge variance.
+- Built Synthesis, an autonomous research platform running cyclic Reflexion workflows with HITL approval gates, and AAROP, an inspectable 6-phase reasoning engine with cost-aware routing, circuit breakers, RAG memory, and replayable traces. Live: synthesis-gold.vercel.app | aarop.vercel.app
+- Authored 3 official RLVR environments on the Prime Intellect Environments Hub (calendar-math, meeting-slot, unit-fix) using deterministic UTC sweep-line solvers and AST-sandboxed graders, removing LLM-as-judge variance.
 - Implemented MCP servers and clients across Stdio and StreamableHTTP/SSE transports with client-side sampling and roots-based security boundaries; shipped HoldSlot, a WebMCP implementation for the OpenAI WebMCP Challenge 2026.
-- Engineered Cadence, a framework-free healthcare agent with 5-layer clinical memory (session, episodic, semantic, knowledge, insights) using Ollama and SQLite, producing consent-scoped clinician briefs. Live: cadence-healthcare.vercel.app
-- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer ATS boards (Greenhouse, Ashby, Lever) on TanStack Start, React 19, and Neon Postgres, with a public JSON API, Expo iOS/Android client, and GitHub Actions crawl pipeline running 4x daily. Live: jobrow.vercel.app
-- Shipped Lattice, a live Web3 job platform for blockchain, crypto, and DeFi roles with same-day close detection from employer ATS boards. Live: lattice-devtechedge1.vercel.app
-- Built a real-time chaos engineering platform with self-healing microservices, animated SVG topology, automated fault injection, and sub-second WebSocket telemetry, plus CollabSpace multiplayer whiteboards on Supabase Realtime; wired replayable OTel-shaped traces and LangSmith evaluation pipelines through the agent systems. Live: chaos-simulation.vercel.app
-- Delivered Pulsar, a Base L2 GPU marketplace with Foundry smart contracts; RegTrace-AI, a MiCA/VARA compliance copilot with source-traced citations and hallucination flags; Smart Waitlist with Stripe-backed referral flows; and AstraMart.
-- Operate a serverless daily AI news agent on GitHub Actions that pulls six public feeds, dedupes against in-repo memory, summarizes with Gemini, and delivers one Telegram executive brief at zero infrastructure cost.
-- Work AI-native across the full stack using frontier coding and reasoning models through dedicated development harnesses, with emphasis on rapid iteration, test-driven validation, repository-specific contribution policies, and reproducible upstream delivery.
+- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer ATS boards (Greenhouse, Ashby, Lever) on TanStack Start, React 19, and Neon Postgres, with an Expo mobile client and a GitHub Actions crawl pipeline running 4x daily. Live: jobrow.vercel.app
+- Also delivered Veritas (LangGraph research agent), Cadence (healthcare agent with 5-layer clinical memory), a real-time chaos engineering platform with self-healing services and sub-second WebSocket telemetry, Pulsar (Base L2 GPU marketplace on Foundry contracts), and a serverless daily AI news agent on GitHub Actions.
+- Work AI-native across the full stack using frontier coding and reasoning models, with emphasis on rapid iteration, test-driven validation, repository-specific contribution policies, and reproducible upstream delivery.
 
 SPECTRAL QUANTITATIVE TRADING
 Quantitative Crypto Trader & Derivatives Strategist | September 2016 - Present | Remote
@@ -72,7 +67,7 @@ Merged upstream:
 - thirdweb-dev/js #8938 (TypeScript) - fixed useTokenQuery error handling so 401/429/timeout failures rethrow instead of rendering a false "Token Not Supported" state in CheckoutWidget; added tests and a patch changeset. Merged Sep 2026. github.com/thirdweb-dev/js/pull/8938
 <<<END:LEDGER:MERGED_LIST>>>
 
-Active upstream engineering spans AI infrastructure, developer tooling, package management, frameworks, accessibility, concurrency, portability, security, SDKs, wallets, and blockchain infrastructure. Canonical ledger: github.com/devtechedge/oss-contributions
+Canonical ledger with links to every merged PR: github.com/devtechedge/oss-contributions
 
 CERTIFICATIONS
 
