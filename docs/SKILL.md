@@ -254,7 +254,7 @@ The ledger exists in exactly one place: `oss-contributions` on GitHub. The local
 
 ## 13. Merge cascade (do not hand-edit publication targets)
 
-When an upstream PR merges, do not independently edit README, resume, LinkedIn source, profile README, or the repository About text. Trigger the ledger workflow instead.
+When an upstream PR merges, do not independently edit README, resume, LinkedIn source, the master resume DOCX, profile README, or the repository About text. Trigger the ledger workflow instead.
 
 One-click: Actions → **Sync merged OSS** → Run workflow. Optional input `pr` is `owner/repo#number` (example: `pnpm/pnpm#14863`). Optional input `summary` is curated impact copy, used only when creating a new publication record.
 
@@ -264,6 +264,7 @@ The workflow:
 2. Updates `docs/triage/triage.json` (status, merge date, merge commit, last_checked, issue closure, repo contribution list)
 3. Upserts `docs/triage/publications.json` without overwriting `curated: true` copy
 4. Regenerates README, resume.txt, linkedin-all-details.txt, and `docs/generated/`
+4b. Splices the new merged list and the merged-count sentence into the master resume DOCX `docs/Devayan_Mandal.docx` via `scripts/render-resume-docx.py`. It edits that file in place, cloning the existing paragraphs so the hand-built formatting survives, and writes only when the content actually changed, so a no-op sync still commits nothing
 5. Updates repository About description. This only works when the `LEDGER_SYNC_TOKEN` secret exists: PATCHing a repo description is admin-level, so `secrets.GITHUB_TOKEN` fails with 403 "Resource not accessible by integration". The run still reports success and About silently goes stale (it sat at 13 while the README already said 17), so after every sync confirm the About count matches the README. Without that secret the profile README step is skipped too.
 **When `LEDGER_SYNC_TOKEN` is missing (confirmed 15 Sep 2026), repair both targets by hand the same turn.** The run still reports success, so the only signal is the About count lagging the README badge.
 
