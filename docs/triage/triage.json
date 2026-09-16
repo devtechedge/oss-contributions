@@ -1029,6 +1029,19 @@
       "ci_status": "no_ci",
       "ci_note": "hack-rpi/HackRPI-Website-2026 has no .github/workflows directory, so no GitHub Actions run against this PR and head commit d5d5b60 reports 0 check-runs. npm run build passes locally (Next.js 16.2.6, 12/12 static pages generated). npx eslint cannot run on main either, before or after this change: eslint-config-next is pinned to ^0.2.4, which resolves to an unrelated legacy package with no core-web-vitals export, so eslint.config.mjs fails to load. This PR only touches CSS, which ESLint does not lint. Do not wait on CI; a maintainer merge is the only remaining step. Verified 2026-09-16.",
       "summary": "Fixes #69 (Event page top formatted weirdly on mobile). The cover of /event switches to a vertical stack below the 860px desktop breakpoint, but my-app/app/event/event.css kept three side-by-side assumptions. .mapContainer kept width 50% and height 100vh, so on a 390px viewport it rendered as a 195x844 strip that filled the entire first screen. .coverTextContainer kept max-width 50vw, so the text panel was also half width and only started at y=844, below the fold. Each cover line is a flex row of one div per letter with the default flex-wrap nowrap, so long lines could not wrap and ran off the left edge instead: 5 of the 14 rows had a negative x, the worst being 'Participants will get wrist bands for food and activities' at x=-139. The fix is confined to event.css: below 859.98px the map becomes full width and 45vh, the text panel loses the 50vw cap, and the cover font drops to 1rem; the .lineItem base rule gains flex-wrap wrap, justify-content center and max-width 100% so rows wrap and stay centred. Measured after the change at 390x844 the map is 390x380, the text panel is 390 wide starting at y=380, and 0 of 14 rows are off screen. Desktop is byte-identical: at 1440x900 the map is still 720x900 and every cover row keeps its original position and size. Prettier was applied to the changed file only."
+    },
+    {
+      "repo": "across-protocol/v5-token-pricing",
+      "number": 5,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-12",
+      "last_checked": "2026-09-16",
+      "issue": 3,
+      "branch": "feat/batch-the-defillama-lookups",
+      "head_repo": "devtechedge/v5-token-pricing",
+      "do_not_duplicate": true,
+      "summary": "Fixes #3. Adds getTokenPricesAt({ tokens, apiKeys }), batching DefiLlama historical lookups: tokens are grouped by timestamp, coin keys chunked at 100 per request, de-duplicated and issued sequentially, so the 1,696 in-scope token instances cost ~17 requests instead of 1,696. Results are aligned by index with failures attributable per chunk rather than per call, and getTokenPriceAt now routes through the same resolver as the 1-element case. A rate-limited attempt records a distinct `throttled` AttemptOutcome instead of folding into `error`. New test/batch.test.ts covers chunking, grouping, de-duplication, partial answers and the 429 fall-through to later sources. +965/-221 across 40 files."
     }
   ],
   "issues": [
