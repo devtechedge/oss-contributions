@@ -277,8 +277,6 @@ Canonical operational record: `docs/triage/triage.json`
 Canonical publication copy: `docs/triage/publications.json`
 Human-only: GitHub profile bio, PATTERNS.md (unless a new generalizable lesson exists), social preview, `docs/all_repos.md`.
 
-**Hand-maintained profile sources are outside the cascade and drift fast.** `docs/wellfound.txt` (Wellfound profile source copy) is edited by hand, so no sync run repairs it. On 16 Sep 2026 it still claimed 2 + 2 merged across two stale "Web3" and "non-Web3" contributor entries while the ledger was at 19, and its bio named LangGraph and Drizzle, neither of which is merged (langgraphjs #2803 had since closed, drizzle-orm #6258 was still open). Before any profile source is pasted into a live profile, re-derive every figure from `publications.json` (`merged_count`) and confirm each repo named in the copy actually appears in a merged record. Never name a repo in public copy on the strength of an open or closed PR. Note also that `web3-oss-contributions` 404s and `non-web3-oss-contributions` was renamed to `oss-contributions`: the only ledger URL to publish is `github.com/devtechedge/oss-contributions`.
-
 ## 14. Publication copy quality (merged entries must explain the change)
 
 Every merged PR gets real impact prose, never a one-line restatement of its title. A reader of the README, resume, or profile should be able to tell what changed and why it mattered without opening the PR.
@@ -319,6 +317,8 @@ See `docs/SYNC.md`.
 - Account-wide text sweeps cover owned repositories only. Forks of upstream projects are out of scope.
 - Before deleting, three checks: no open PR from that fork, no branch holding our own work, and no local clone that depends on the fork's remote.
 - `compare` `ahead_by > 0` does not prove a branch is ours, because a fork carries every branch that existed upstream at fork time and a stale upstream branch reads as ahead. Check the branch tip's `author.login` instead, and keep the fork when the work is ours and no local clone has it.
+- That `author.login` check does not actually work (16 Sep 2026): `repos/<fork>/branches` returns an empty author name and email for every branch, including branches we pushed ourselves. Use the fork's `created_at` against its `pushed_at` instead. A gap after creation means we pushed to the fork; a gap of a few seconds is noise from the fork itself. For any fork with a real gap, confirm in `triage.json` that the repo is a recorded dead end (auto-closed, no-go, superseded, maintainer-rejected) before deleting.
+- Deleting a fork does not lose work that was already pushed as a PR, because upstream keeps the commits of an open or closed PR after the fork is gone. Work that was pushed to a fork but never opened as a PR is the only kind that is actually lost, so that is the case to check for a local clone before deleting.
 - Delete in batches of about ten with a repo count check after each batch (`gh api user --jq .public_repos`), then confirm the open PR count is unchanged.
 - `gh repo delete` needs the `delete_repo` scope; without it the call 403s. Add it with `gh auth refresh -s delete_repo`, which requires an interactive device flow.
 - Pruning also blunts the "bulk forks" pattern that got the account flagged, and it stops 74 forks from burying the owned repositories on the profile.
