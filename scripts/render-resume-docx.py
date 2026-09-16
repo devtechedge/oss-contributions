@@ -48,8 +48,15 @@ MIN_PT = 10.0
 LINE = 1.2207  # Calibri single-line height as a fraction of the point size
 PACK = 0.96  # lines never fill edge to edge; be slightly pessimistic
 
-USABLE_W = (PAGE_W - 2 * MARGIN) / 20.0  # points
-USABLE_H = (PAGE_H - 2 * MARGIN) / 20.0
+# The file is written with MARGIN above, but not every reader honours it. Some
+# previewers apply Word's default one inch margins instead, which costs about
+# 15% of the line width and 12% of the height. Content is measured against that
+# pessimistic box so the document is two pages whether or not the reader
+# respects the narrow margins.
+MEASURE_MARGIN = MARGIN
+
+USABLE_W = (PAGE_W - 2 * MEASURE_MARGIN) / 20.0  # points
+USABLE_H = (PAGE_H - 2 * MEASURE_MARGIN) / 20.0
 BUDGET = 2 * USABLE_H  # two pages, in points
 
 BULLET_INDENT = 180  # twips
@@ -312,7 +319,7 @@ SKILL_MERGE = {
 # roughly ten percent more room before they spill onto a third page. Everything
 # is measured as if the content were this much larger so the DOCX stays two
 # pages in Word and in the pickier renderers.
-RENDER_SAFETY = 1.12
+RENDER_SAFETY = 1.06
 
 TARGET_FILL = 0.95  # 0.98 fits, 1.00 tips to three pages, so leave headroom
 GOAL = BUDGET * TARGET_FILL
