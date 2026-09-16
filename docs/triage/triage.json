@@ -998,6 +998,21 @@
       "summary": "Fixes #315 (a synthesized license field is appended without its closing quote). In src/licenses/resolution.rs, synthesize_manifest takes the append path when a [package] table runs to the end of the manifest with no blank line and no following table to insert before; the writeln! there emitted the expression and a newline but never the closing double quote, so the synthesized manifest contained license = \"MIT and was not valid TOML. One line now terminates the value, matching the sibling branch that synthesizes an entire manifest, which already did this. The expression offset is unchanged, so diagnostics still point at the start of the expression. Added the first #[cfg(test)] module in this file: synthesizes_a_terminated_license_field_when_appending asserts the exact output, the offset, and that the result parses as TOML with package.license == MIT. It fails before the change with license = \"MIT\\n\\n and passes after. Verified locally with cargo test --features cli (28 integration plus 4 unit tests, 0 failures) and cargo fmt --check. cargo clippy --all-targets --features cli reports one pre-existing collapsible_if in is_powershell_parent at src/lib.rs:399 under clippy 1.98; it is untouched by this change and was left alone. Head commit cfb2ac2 signed with the SSH agent and reported verified by GitHub.",
       "ci_status": "action_required",
       "ci_note": "mergeable_state is blocked and no workflow run has started, which matches PR #318 in the same repo: this is the first-contribution action_required gate on fork PRs, so a maintainer must approve the run before any check reports. rust-ci.yml is the only workflow (lint via fmt and clippy, test on ubuntu/macos/windows, msrv 1.88, cargo-deny, check-self, doc-book, publish-check). No red check; do not push again to trigger it, a run is already queued for approval. Verified 2026-09-16."
+    },
+    {
+      "repo": "gbif/pygbif",
+      "number": 215,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-09-16",
+      "last_checked": "2026-09-16",
+      "issue": 213,
+      "do_not_duplicate": true,
+      "branch": "top-level-search",
+      "commit": "2201764",
+      "summary": "Fixes #213 (pygbif.search has silently been institution.search since 0.6.6). pygbif/__init__.py assigned the top-level names species, search and name_suggest from the occurrences module and then ran three star-imports whose last one, from .institution import search, rebound pygbif.search to the institution search. The three clobbering imports are replaced by a single from . import literature, collection, institution, which binds the submodules without rebinding the top-level names, so pygbif.search resolves to occurrences.search again. This is option 1 from the issue and non-breaking: the public top-level names go back to their documented meaning and no name is removed. One line changed, plus a new network-free test/test-top-level-search.py asserting pygbif.search is occurrences.search and that the other searches stay in their namespaces. Fail-before was proven by running the new test against a pristine copy of the package outside the workspace rather than by stashing, which this box forbids. Head commit 2201764 is SSH signed and reported verified by GitHub.",
+      "ci_status": "action_required",
+      "ci_note": "Both workflows sit at action_required, the first-contribution approval gate for fork PRs, so no check reports until a maintainer approves the run. The other open fork PR in the repo, #212, is in the same state. Not a red check; do not push again to trigger it. Verified 2026-09-16."
     }
   ],
   "issues": [
@@ -2011,6 +2026,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-16",
       "note": "Claimed with PR #319 on 2026-09-16. Opened 2026-08-25 by yu7400ki, label bug, no assignee, 0 comments, no cross-referenced events on the timeline, and no competing PR (the only open PR in the repo is #318, NOTICE file collection, unrelated). Regression from #299, which replaced the toml_edit implementation with manual string manipulation. Sibling issue #314 (the pkg + 5 slice can land on a UTF-8 boundary and panic) is in the same function but is a separate bug and was deliberately left out of scope."
+    },
+    {
+      "repo": "gbif/pygbif",
+      "number": 213,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        215
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-16",
+      "note": "Claimed with PR #215 on 2026-09-16. Opened 2026-09-06 by wilmund, no assignee, 0 comments. Root cause confirmed by reading pygbif/__init__.py: the three top-level assignments are followed by from .literature import search, from .collection import search and from .institution import search, so the last star-import wins and pygbif.search is the institution search."
     }
   ],
   "closed_attempts": [
@@ -2602,6 +2629,12 @@
         319
       ],
       "focus": "Rust cargo plugin that generates license listings; license resolution and cargo manifest synthesis."
+    },
+    "gbif/pygbif": {
+      "contributions": [
+        215
+      ],
+      "focus": "Python client for the GBIF API; top-level namespace and module re-export correctness."
     }
   }
 }
