@@ -1,64 +1,16 @@
-================================================================================
-WELLFOUND PROFILE - SOURCE COPY
-Profile : https://wellfound.com/u/devayan-mandal
-Ledger  : https://github.com/devtechedge/oss-contributions
-Synced  : 16 Sep 2026
-================================================================================
+BIO (160 character limit)
 
-HOW TO USE
-Every block below maps to one field in the Wellfound profile editor. Copy only
-what sits under "TEXT". Do not copy the field labels or the separators.
-
-Where the numbers come from
-  docs/triage/publications.json  -> merged_count: 19 (last_updated 2026-09-16)
-  docs/triage/triage.json        -> 86 PR records: 19 merged, 65 open, 2 closed
-  README badge and repo About    -> both read 19, so the cascade is in sync
-
-Verified figures (use these, nothing older)
-  19   merged upstream pull requests
-  12   upstream projects with merged work
-  65   open pull requests across 48 projects   <- internal only, do not paste
-   2   closed without merge
- The open and closed counts move every few days. Only the merged count goes into
- public copy, because that is the one a recruiter can verify at the ledger link.
-
-Changes made in this revision
-  1. Bio no longer names LangGraph or Drizzle. Neither is merged: langgraphjs
-     #2803 is now closed, drizzle-orm #6258 is still open. The bio now names only
-     merged work.
-  2. The two separate "Web3" and "non-Web3" contributor entries are merged into
-     one. There is a single unified ledger now. web3-oss-contributions returns
-     404, and non-web3-oss-contributions was renamed to oss-contributions, so
-     both old URLs in the old copy were wrong or dead.
-  3. Merged count goes from 2 + 2 to the real 19, and the merged list is rebuilt
-     from publications.json, which holds the curated impact copy.
-  4. Stale ledger URLs replaced with github.com/devtechedge/oss-contributions.
-
-
---------------------------------------------------------------------------------
-1. BIO  (hard limit: 160 characters)
---------------------------------------------------------------------------------
-TEXT
 Full Stack & AI Engineer building multi-agent systems & deterministic state machines in Rust, TS & Python. 19 PRs merged into pnpm, Biome, Recharts & Stellar.
-END
-
-Length: 158 / 160 characters.
-
-Fallback if you want the old opening back (151 chars):
-Full Stack & AI Engineer building multi-agent systems & high-throughput state machines in Rust, TS & Python. 19 PRs merged into pnpm, Biome & Recharts.
 
 
---------------------------------------------------------------------------------
-2. WORK EXPERIENCE
---------------------------------------------------------------------------------
+WORK EXPERIENCE
 
-2.1  Lattice AI Labs
-     Title      : Open-Source Software Contributor
-     Start date : 08/2026
-     End date   : I currently work here
-     Employee   : yes
+Company: Lattice AI Labs
+Title: Open-Source Software Contributor
+Start date: 08/2026
+End date: I currently work here
 
-TEXT
+Description:
 Independent upstream contributor to developer tooling, frameworks, databases, and Web3 SDKs. 19 pull requests merged into 12 projects, each one root-caused from the issue, shipped with regression tests, and handed to the maintainer. Full record: github.com/devtechedge/oss-contributions
 
 MERGED (most recent first)
@@ -82,33 +34,27 @@ MERGED (most recent first)
 Method: confirm the issue is unclaimed and still unfixed on main, ship a minimal root-cause patch with a regression test (and a changeset where the repo uses one), then stop and wait for the maintainer.
 
 Stack: TypeScript, Rust, Python, JavaScript, MDX, pnpm, Biome, Recharts, node-postgres, SQLMesh, Better Auth, Stellar, thirdweb, Anza Kit, Rspress, pytest, Changesets, Git
-END
 
-Note on counting: that list is 19 pull requests written as 15 bullets. The
-stellar-docs line carries five of them, so the bullet count is not the PR count.
-
-
-Skills for this entry
-  TypeScript
-  Rust
-  Python
-  Open-Source Software
-  Web3
-  Blockchain
-  Developer Tooling
-  Software Quality Assurance
-  Git
-  Vite
-  Supabase
+Skills:
+TypeScript
+Rust
+Python
+Open-Source Software
+Web3
+Blockchain
+Developer Tooling
+Software Quality Assurance
+Git
+Vite
+Supabase
 
 
-2.2  Lattice AI Labs
-     Title      : Full Stack Engineer
-     Start date : 01/2016
-     End date   : I currently work here
-     Employee   : yes
+Company: Lattice AI Labs
+Title: Full Stack Engineer
+Start date: 01/2016
+End date: I currently work here
 
-TEXT
+Description:
 Architected, implemented, and open-sourced 50 repositories (30+ original production-grade architectures) spanning autonomous multi-agent systems, RLVR environments, real-time observability, and high-throughput web apps using Python, TypeScript, LangGraph, Next.js 16, React 19, and PostgreSQL. Grounded in Six Sigma DMAIC rigor and 23 technical certifications:
 
 - Autonomous Multi-Agent Cortexes & Protocols: Architected AEGIS (LangGraph supervisor managing 6 specialists across 7 loops with LangSmith eval gates), Synthesis (StateGraph research engine with cyclic Reflexion and SSE streaming), and AAROP (explicit 6-phase state machine with 99% Python test coverage). Implemented Anthropic MCP (Stdio/SSE) and HoldSlot for the OpenAI WebMCP Challenge 2026.
@@ -116,78 +62,54 @@ Architected, implemented, and open-sourced 50 repositories (30+ original product
 - Vertical AI & Deep-Memory Systems: Engineered Cadence, a framework-less healthcare agent with a 5-layer clinical memory architecture (session, episodic, semantic, knowledge, insights) via Ollama and SQLite, alongside Argus and RegTrace for automated smart-contract and MiCA/VARA compliance audits.
 - Real-Time Observability & Chaos Engineering: Built Chaos Simulator featuring self-healing microservices, animated SVG topologies, and sub-second WebSocket telemetry, plus CollabSpace multiplayer whiteboards using Supabase Realtime.
 - High-Throughput Full-Stack & Web3 Platforms: Delivered Jobrow & Lattice (indexing 5,000+ tech and crypto roles from Greenhouse, Ashby, and Lever APIs via TanStack Start & Neon Postgres), Smart Waitlist (viral referral loops + Stripe), AstraMart, and Pulsar (Base L2 GPU marketplace with Foundry contracts).
-END
+
+Skills:
+Python (Programming Language)
+TypeScript
+Multi-agent Systems
+LangGraph
+Model Context Protocol (MCP)
+Next.js 16
+React 19
+PostgreSQL
+FastAPI
+Drizzle ORM
+Supabase
+Framer Motion
+Git
+Vite
+Software Quality Assurance
+Project Management
+Data Analytics
 
 
-Skills for this entry
-  Python (Programming Language)
-  TypeScript
-  Multi-agent Systems
-  LangGraph
-  Model Context Protocol (MCP)
-  Next.js 16
-  React 19
-  PostgreSQL
-  FastAPI
-  Drizzle ORM
-  Supabase
-  Framer Motion
-  Git
-  Vite
-  Software Quality Assurance
-  Project Management
-  Data Analytics
+ACHIEVEMENTS (1000 character limit)
 
-
---------------------------------------------------------------------------------
-3. ACHIEVEMENTS  (limit: 1000 characters) - the field is empty today
---------------------------------------------------------------------------------
-TEXT
 Getting 19 pull requests merged into other people's production codebases. The one I would point at first is pnpm #14863: pnpm crashed on startup on FreeBSD because default_store_dir assumed Windows on any non-macOS, non-Linux target. The fix routes every non-Windows platform to the Unix fallback path and adds regression coverage per platform. Before that, a Rust port of the useBetterDomTraversing lint rule landed in Biome, and a race fix moved SQLMesh's create_test() onto the calling thread. Every one of them went in the same way: read the issue, confirm it is unclaimed and still broken on main, ship the smallest correct patch with a test, then wait. Alongside that I built AEGIS, a LangGraph supervisor coordinating six specialists across seven loops with LangSmith evaluation gates.
-END
-
-Length: 745 / 1000 characters.
 
 
---------------------------------------------------------------------------------
-4. Q&A  (already filled in on the profile, left as is)
---------------------------------------------------------------------------------
-
-What was the most impactful class you took in school?
-  Empty on the profile today. Left blank on purpose.
+Q&A
 
 If money were not an issue, what would you be doing right now?
-  Exactly what I'm doing now: building open-source AI infrastructure, multi-agent systems, and deterministic state engines in Rust/TS. I'd just do it with unlimited compute, funding open eval benchmarks and frontier developer tooling.
+Exactly what I'm doing now: building open-source AI infrastructure, multi-agent systems, and deterministic state engines in Rust/TS. I'd just do it with unlimited compute, funding open eval benchmarks and frontier developer tooling.
 
 What words of advice would you give your younger self?
-  Go lower down the stack earlier. Don't fear the low-level abstractions or math - master Rust, state machines, and system fundamentals before chasing high-level abstractions. And trust the unconventional pivot from chemical engineering.
+Go lower down the stack earlier. Don't fear the low-level abstractions or math - master Rust, state machines, and system fundamentals before chasing high-level abstractions. And trust the unconventional pivot from chemical engineering.
 
 What's the most creative thing you've ever done?
-  Built a real-time SVG topology chaos simulator to visualize dynamic network degradation. Turning abstract distributed system failures into an interactive visual playground made complex reliability testing intuitive and engaging.
+Built a real-time SVG topology chaos simulator to visualize dynamic network degradation. Turning abstract distributed system failures into an interactive visual playground made complex reliability testing intuitive and engaging.
 
 Which founders or startups do you most admire?
-  Prime Intellect for democratizing decentralized compute and RLVR evals, and Anthropic for pioneering protocol standards like MCP. I admire teams building hard AI infrastructure and deterministic systems over surface-level hype.
+Prime Intellect for democratizing decentralized compute and RLVR evals, and Anthropic for pioneering protocol standards like MCP. I admire teams building hard AI infrastructure and deterministic systems over surface-level hype.
 
 What's your super power?
-  Eliminating LLM non-determinism. I turn chaotic multi-agent interactions into verifiable, state-machine-driven systems through low-level infrastructure hardening, custom RLVR evals, and deep open-source debugging.
+Eliminating LLM non-determinism. I turn chaotic multi-agent interactions into verifiable, state-machine-driven systems through low-level infrastructure hardening, custom RLVR evals, and deep open-source debugging.
 
 What's the best way for people to get in touch with you?
-  Email is best: devayanmandal@gmail.com. You can also reach out on LinkedIn: https://www.linkedin.com/in/dev-ma/ Or, message me directly here on Wellfound. I keep notifications active and usually respond within 24 hours.
+Email is best: devayanmandal@gmail.com. You can also reach out on LinkedIn: https://www.linkedin.com/in/dev-ma/ Or, message me directly here on Wellfound. I keep notifications active and usually respond within 24 hours.
 
 What words of wisdom do you live by?
-  "First principles over hype, determinism over magic." Always engineer below the abstraction layer. Real software reliability comes from understanding the mechanics, eliminating non-determinism, and building simple foundations that withstand chaos.
+"First principles over hype, determinism over magic." Always engineer below the abstraction layer. Real software reliability comes from understanding the mechanics, eliminating non-determinism, and building simple foundations that withstand chaos.
 
 What aspects of your work are you most passionate about?
-  Hardening low-level AI infrastructure and bringing order to chaotic multi-agent systems. I love engineering deterministic state engines, verifiable RLVR eval suites, and contributing directly upstream to foundational open-source toolchains.
-
-
---------------------------------------------------------------------------------
-5. WHAT I DID NOT TOUCH
---------------------------------------------------------------------------------
-- Education: University Of Mumbai, BEng Chemical Engineering, 3.80/4.00 GPA.
-  The graduation year is still empty on the profile. Add it if you want the field
-  complete.
-- Locations: India.
-- Projects: none added.
-- The long skills tag cloud on the profile. It is a separate field from the
-  per-role skills lists above and already reads well.
+Hardening low-level AI infrastructure and bringing order to chaotic multi-agent systems. I love engineering deterministic state engines, verifiable RLVR eval suites, and contributing directly upstream to foundational open-source toolchains.
