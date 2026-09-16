@@ -99,6 +99,10 @@ Companion to `SKILL.md`. Read on demand during scans and before implementing. Ev
 
 - Implement: a repo with no `.github/workflows` directory runs no CI on a PR, so "all checks green" is vacuous rather than true. Confirm with `commits/<head-sha>/check-runs` (0 runs) and say so in the PR body, naming what does exist instead (a legacy `.travis.yml` does not run on GitHub PRs). Never imply you are waiting on CI that cannot fire.
 
+- Implement (16 Sep 2026, gbif/pygbif #215): prove a regression fails-before without `git stash`, which this box forbids. Copy the package directory to a scratch dir outside the workspace, overwrite only the changed source file with `git show HEAD:<path>`, drop a minimal `pytest.ini` beside it when the repo's own config scopes test discovery (`python_files`/`testpaths`), copy the new test file in, and run pytest from that scratch dir. The scratch copy is what `import <pkg>` resolves to, so the before state is genuine. This supersedes the "stash only the source files" advice above: it touches nothing in the real worktree and cannot corrupt the object store. Then run the same file from the repo for the after state.
+
+- Implement: when a repo documents a formatter that CI does not run (pygbif asks for Black but its workflows only run pytest), match the style of the repo's existing files rather than the newest formatter. Black 26.x reformats this repo's own untouched test files (it wants a blank line after the module docstring), so a "black --check" failure on a brand new file is tool drift, not a defect in the new file. Confirm by running the check on an untouched file first.
+
 ## Post-open maintenance
 
 - A red required check can be stale rather than real. Before telling the user to do something only a human can do (sign a CLA, accept an invite), find the check's own source of truth and verify. CLA Assistant Lite is the common case: signatures live in the org's `cla-signatures` repo under the `path-to-signatures` value from `.github/workflows/cla.yml`, so read that JSON and grep for the account before asking anyone to sign (safe-global/safe-core-sdk #1426, 15 Sep 2026: the account was already in `signedContributors` and sibling PRs in the same repo passed with the identical commit author email).
@@ -219,6 +223,25 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   re-triggers that approval gate, which is a real cost of re-pushing an already-approved PR.
 - `gh search prs --limit N` returns N, not a total. Use
   `gh api "search/issues?q=...&per_page=1" --jq .total_count` for a count.
+- `action_required` on every workflow of a new fork PR is usually the repo's norm, not a
+  problem with the diff (gbif/pygbif #215, 16 Sep 2026). Confirm by listing
+  `actions/runs?head_branch=<branch of another open fork PR>`: if those runs are
+  `action_required` too, report it as non-actionable and stop. Such runs never produce
+  check-runs, so an empty `check-runs` list on the head sha means "waiting on approval",
+  not "nothing is running". Check `actions/runs?head_branch=<your branch>` before drawing
+  any conclusion.
+
+### Ledger writes (contents PUT)
+
+- A `PUT` can return 409 "does not match <sha>" even when the sha was fetched minutes
+  earlier: the Sync merged OSS workflow or a parallel session rewrote the file in between
+  (16 Sep 2026, `docs/triage/triage.json`). **Size is not a freshness signal** - two
+  consecutive revisions were both 105,864 bytes with different blob shas. Refetch content
+  and sha in one call, rebuild the payload from the refetched content, and PUT in the same
+  step; never carry a sha across tool calls.
+- Build the payload with a script that does the fetch, the mutation, and the write in one
+  run, and make the record insertion idempotent (skip if `repo`+`number` already present).
+  That makes a retry after a 409 safe instead of duplicating rows.
 
 ## Dated snapshots
 
