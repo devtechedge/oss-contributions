@@ -311,6 +311,7 @@ Every merged PR gets real impact prose, never a one-line restatement of its titl
 - **No em dashes anywhere in generated copy.** The separator between a PR title and its impact line is a plain hyphen, in `linkedin_bullet`, `profile_block`, the profile fragment template, and the LinkedIn representative bullets. Check the whole `publications.json` tree, not just `records`: the representative bullets come from `repos[].linkedin_representative`, a curated override map, and all 10 of them survived a records-only sweep on 15 Sep 2026.
 
 - After any sync, check the new record's `languages` field. An empty one makes the reconciler fall back to a wrong language in the resume bullet (a pure-Python repo was published as TypeScript until it was corrected by hand).
+- **After hand-fixing a record, re-run the Sync merged OSS workflow.** README, `resume.txt`, the master DOCX and the profile fragment are rendered from `publications.json` at sync time, so a correction written straight into the JSON does not reach them until the next run. The run leaves `curated: true` copy alone, so re-running is safe. (PyO3/maturin#3302, 16 Sep 2026: fixing `languages` to Rust without a re-run left the resume bullet reading TypeScript for a Rust-only change.)
 
 ## 15. Gratitude to maintainers after a merge
 
