@@ -3,13 +3,13 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R] /Count 4 >>
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R] /Count 3 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 4 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 4 0 R >>
 endobj
 4 0 obj
-<< /Length 4783 >>
+<< /Length 4592 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (DEVAYAN MANDAL) Tj T*
@@ -20,15 +20,11 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (PROFESSIONAL SUMMARY) Tj T*
 ( ) Tj T*
-(Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed) Tj T*
-(production work. Built 30+ production-grade systems across autonomous multi-agent) Tj T*
-(platforms, MCP integrations, deterministic RL evaluation, real-time observability, and) Tj T*
-(high-throughput web applications. Merged 21 upstream pull requests across TypeScript,) Tj T*
-(JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth,) Tj T*
-(thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy,) Tj T*
-(verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and) Tj T*
-(production-grade developer tooling, with end-to-end ownership from architecture through) Tj T*
-(deployment, observability, testing, and upstream delivery.) Tj T*
+(Forward Deployed AI Engineer with 10 years of self-directed production work and 30+ shipped) Tj T*
+(systems across multi-agent platforms, MCP integrations, deterministic RL evaluation, and) Tj T*
+(real-time infrastructure. Merged 21 upstream pull requests across TypeScript, Python, and) Tj T*
+(Rust in widely used projects including Biome, pnpm, and node-postgres, owning each change) Tj T*
+(from root cause through tests, review, and release.) Tj T*
 ( ) Tj T*
 (TECHNICAL SKILLS) Tj T*
 ( ) Tj T*
@@ -55,60 +51,43 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (LATTICE AI LABS) Tj T*
 (Full Stack AI Native / Forward Deployed AI Engineer | January 2016 - Present | Remote) Tj T*
 ( ) Tj T*
-(- Architected and shipped 30+ production-grade systems across a broad portfolio of public) Tj T*
-(engineering repositories spanning autonomous agents, RL evaluation environments, real-time) Tj T*
-(observability, and high-throughput web applications.) Tj T*
+(- Architected and shipped 30+ production-grade systems spanning autonomous agents, RL) Tj T*
+(evaluation environments, real-time observability, and high-throughput web applications.) Tj T*
 (- Built AEGIS, an enterprise AI ops cortex where a LangGraph supervisor routes 6 specialist) Tj T*
 (agents across 7 agentic loops, with hybrid RAG, human-in-the-loop gates, LangSmith) Tj T*
 (evaluation gates, and a live SSE dashboard. Live: aegis-agent-api.vercel.app/ui) Tj T*
-(- Built Synthesis, an autonomous research platform running cyclic Reflexion workflows) Tj T*
-(\(Plan, Research, Synthesize, Critique, Finalize\) on a StateGraph executor with HITL) Tj T*
-(approval gates, and AAROP, an inspectable 6-phase reasoning engine with cost-aware model) Tj T*
-(routing, circuit breakers, RAG memory, replayable traces, and 99% Python test coverage.) Tj T*
-(Live: synthesis-gold.vercel.app | aarop.vercel.app) Tj T*
-(- Built Veritas, a LangGraph research agent with SSE streaming, grounded demo mode,) Tj T*
-(external retrieval when configured, and explicit separation between deterministic demo) Tj T*
-(execution and live model/retrieval execution. Live: veritas-engine-woad.vercel.app) Tj T*
+(- Built Synthesis, an autonomous research platform running cyclic Reflexion workflows with) Tj T*
+(HITL approval gates, and AAROP, an inspectable 6-phase reasoning engine with cost-aware) Tj T*
+(routing, circuit breakers, RAG memory, and replayable traces. Live:) Tj T*
+(synthesis-gold.vercel.app | aarop.vercel.app) Tj T*
 (- Authored 3 official RLVR environments on the Prime Intellect Environments Hub) Tj T*
 (\(calendar-math, meeting-slot, unit-fix\) using deterministic UTC sweep-line solvers and) Tj T*
-(AST-sandboxed execution graders, removing LLM-as-judge variance.) Tj T*
+(AST-sandboxed graders, removing LLM-as-judge variance.) Tj T*
 (- Implemented MCP servers and clients across Stdio and StreamableHTTP/SSE transports with) Tj T*
 (client-side sampling and roots-based security boundaries; shipped HoldSlot, a WebMCP) Tj T*
 (implementation for the OpenAI WebMCP Challenge 2026.) Tj T*
-(- Engineered Cadence, a framework-free healthcare agent with 5-layer clinical memory) Tj T*
-(\(session, episodic, semantic, knowledge, insights\) using Ollama and SQLite, producing) Tj T*
-(consent-scoped clinician briefs. Live: cadence-healthcare.vercel.app) Tj T*
+(- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
+(ATS boards \(Greenhouse, Ashby, Lever\) on TanStack Start, React 19, and Neon Postgres, with) Tj T*
+(an Expo mobile client and a GitHub Actions crawl pipeline running 4x daily. Live:) Tj T*
+(jobrow.vercel.app) Tj T*
+(- Also delivered Veritas \(LangGraph research agent\), Cadence \(healthcare agent with 5-layer) Tj T*
+(clinical memory\), a real-time chaos engineering platform with self-healing services and) Tj T*
+(sub-second WebSocket telemetry, Pulsar \(Base L2 GPU marketplace on Foundry contracts\), and) Tj T*
+(a serverless daily AI news agent on GitHub Actions.) Tj T*
+(- Work AI-native across the full stack using frontier coding and reasoning models, with) Tj T*
+(emphasis on rapid iteration, test-driven validation, repository-specific contribution) Tj T*
+(policies, and reproducible upstream delivery.) Tj T*
+( ) Tj T*
 ET
 endstream
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5278 >>
+<< /Length 5392 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
-(- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
-(ATS boards \(Greenhouse, Ashby, Lever\) on TanStack Start, React 19, and Neon Postgres, with) Tj T*
-(a public JSON API, Expo iOS/Android client, and GitHub Actions crawl pipeline running 4x) Tj T*
-(daily. Live: jobrow.vercel.app) Tj T*
-(- Shipped Lattice, a live Web3 job platform for blockchain, crypto, and DeFi roles with) Tj T*
-(same-day close detection from employer ATS boards. Live: lattice-devtechedge1.vercel.app) Tj T*
-(- Built a real-time chaos engineering platform with self-healing microservices, animated) Tj T*
-(SVG topology, automated fault injection, and sub-second WebSocket telemetry, plus) Tj T*
-(CollabSpace multiplayer whiteboards on Supabase Realtime; wired replayable OTel-shaped) Tj T*
-(traces and LangSmith evaluation pipelines through the agent systems. Live:) Tj T*
-(chaos-simulation.vercel.app) Tj T*
-(- Delivered Pulsar, a Base L2 GPU marketplace with Foundry smart contracts; RegTrace-AI, a) Tj T*
-(MiCA/VARA compliance copilot with source-traced citations and hallucination flags; Smart) Tj T*
-(Waitlist with Stripe-backed referral flows; and AstraMart.) Tj T*
-(- Operate a serverless daily AI news agent on GitHub Actions that pulls six public feeds,) Tj T*
-(dedupes against in-repo memory, summarizes with Gemini, and delivers one Telegram executive) Tj T*
-(brief at zero infrastructure cost.) Tj T*
-(- Work AI-native across the full stack using frontier coding and reasoning models through) Tj T*
-(dedicated development harnesses, with emphasis on rapid iteration, test-driven validation,) Tj T*
-(repository-specific contribution policies, and reproducible upstream delivery.) Tj T*
-( ) Tj T*
 (SPECTRAL QUANTITATIVE TRADING) Tj T*
 (Quantitative Crypto Trader & Derivatives Strategist | September 2016 - Present | Remote) Tj T*
 ( ) Tj T*
@@ -154,16 +133,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (- stellar/stellar-docs #2849 \(MDX\) - reworked the address conversion example to propagate) Tj T*
 (the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and) Tj T*
 (documented that untrusted XDR must be handled rather than panicking. Merged Sep 2026.) Tj T*
-ET
-endstream
-endobj
-7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 8 0 R >>
-endobj
-8 0 obj
-<< /Length 5215 >>
-stream
-BT /F1 10 Tf 48 770 Td 11 TL
 (github.com/stellar/stellar-docs/pull/2849) Tj T*
 (- stellar/stellar-docs #2853 \(MDX\) - reconciled memo framing in the pooled accounts guide) Tj T*
 (so memos read as the legacy mechanism still in active use and muxed accounts as preferred) Tj T*
@@ -185,6 +154,16 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (- recharts/recharts #7805 \(TypeScript\) - removed tabIndex={-1} from z-index portal SVG <g>) Tj T*
 (layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced) Tj T*
 (focus rings; added regression coverage asserting no layer carries a tabindex attribute.) Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 3888 >>
+stream
+BT /F1 10 Tf 48 770 Td 11 TL
 (Merged Sep 2026. github.com/recharts/recharts/pull/7805) Tj T*
 (- brianc/node-postgres #3772 \(JavaScript\) - stopped Connection.sync\(\) from incorrectly) Tj T*
 (setting the internal _ending flag, preventing false suppression of subsequent socket) Tj T*
@@ -219,9 +198,7 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (github.com/thirdweb-dev/js/pull/8938) Tj T*
 (<<<END:LEDGER:MERGED_LIST>>>) Tj T*
 ( ) Tj T*
-(Active upstream engineering spans AI infrastructure, developer tooling, package management,) Tj T*
-(frameworks, accessibility, concurrency, portability, security, SDKs, wallets, and) Tj T*
-(blockchain infrastructure. Canonical ledger: github.com/devtechedge/oss-contributions) Tj T*
+(Canonical ledger with links to every merged PR: github.com/devtechedge/oss-contributions) Tj T*
 ( ) Tj T*
 (CERTIFICATIONS) Tj T*
 ( ) Tj T*
@@ -230,16 +207,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (- Agents and Workflows - OpenAI Academy, 2026) Tj T*
 (- Deep Agents with LangGraph - LangChain Academy, 2026) Tj T*
 (- Ambient Agents with LangGraph - LangChain Academy, 2026) Tj T*
-ET
-endstream
-endobj
-9 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 10 0 R >>
-endobj
-10 0 obj
-<< /Length 734 >>
-stream
-BT /F1 10 Tf 48 770 Td 11 TL
 (- Microsoft Certified: Azure Fundamentals \(AZ-900\) - Microsoft, 2020) Tj T*
 (- AWS Fundamentals Specialization - Amazon Web Services \(Coursera\), 2020) Tj T*
 (- Data Science Specialization - Johns Hopkins University \(Coursera\), 2020) Tj T*
@@ -255,24 +222,22 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ET
 endstream
 endobj
-11 0 obj
+9 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 xref
-0 12
+0 10
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000133 00000 n 
-0000000260 00000 n 
-0000005095 00000 n 
-0000005222 00000 n 
-0000010552 00000 n 
-0000010679 00000 n 
-0000015946 00000 n 
-0000016074 00000 n 
-0000016860 00000 n 
-trailer << /Size 12 /Root 1 0 R >>
+0000000127 00000 n 
+0000000253 00000 n 
+0000004897 00000 n 
+0000005023 00000 n 
+0000010467 00000 n 
+0000010593 00000 n 
+0000014533 00000 n 
+trailer << /Size 10 /Root 1 0 R >>
 startxref
-16931
+14603
 %%EOF
