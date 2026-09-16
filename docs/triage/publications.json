@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-16",
-  "merged_count": 20,
+  "merged_count": 21,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -506,6 +506,28 @@
       "resume_bullet": "PyO3/maturin #3302 (Rust) - Windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path. Merged Sep 2026. github.com/PyO3/maturin/pull/3302",
       "linkedin_bullet": "PyO3/maturin #3302 - Windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path.",
       "profile_line": "windows interpreter discovery no longer panics on non-UTF-8 command output: find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy, so a localized install skips the affected line instead of aborting the build, with a unit test covering the decode path.",
+      "curated": true
+    },
+    {
+      "id": "leo-aa88/reviewgate#144",
+      "repo": "leo-aa88/reviewgate",
+      "number": 144,
+      "merged": true,
+      "merged_at": "2026-09-16T17:01:00Z",
+      "merge_commit": "2953129e2bca06bca5408c6519d2082ffd74c480",
+      "issue": 143,
+      "url": "https://github.com/leo-aa88/reviewgate/pull/144",
+      "languages": [],
+      "org": "leo-aa88",
+      "display_name": "reviewgate",
+      "profile_title": "reviewgate #144",
+      "ledger_logo": "https://github.com/leo-aa88.png?size=40",
+      "profile_logo": "https://github.com/leo-aa88.png?size=48",
+      "profile_logo_alt": "reviewgate",
+      "ledger_what": "Adds a configurable excessive code-comment verbosity check to the core review engine: oversized_comment_block, excessive_comment_lines and comment_heavy_diff are computed from added patch lines only, so a PR is never penalised for comments it did not touch. A single-pass lexer tracks string literals, block comments, JS/Go template literals, shell heredocs and Python triple-quoted strings, so runtime data such as a banner inside a backtick string is never miscounted as commentary, and files in languages with no scanner profile contribute to the ratio denominator only. Hunk entry state is established from diff context that carries a code token, which keeps a verbose block added mid-file in an existing file detectable while docstring content stays excluded, and all three dimensions feed the existing baseline_reviewability aggregation through the policy.code_comments config block.",
+      "resume_bullet": "leo-aa88/reviewgate #144 (TypeScript) - adds a configurable excessive code-comment verbosity check to the core review engine: oversized_comment_block, excessive_comment_lines and comment_heavy_diff are computed from added patch lines only, so a PR is never penalised for comments it did not touch. A single-pass lexer tracks string literals, block comments, JS/Go template literals, shell heredocs and Python triple-quoted strings, so runtime data such as a banner inside a backtick string is never miscounted as commentary, and files in languages with no scanner profile contribute to the ratio denominator only. Hunk entry state is established from diff context that carries a code token, which keeps a verbose block added mid-file in an existing file detectable while docstring content stays excluded, and all three dimensions feed the existing baseline_reviewability aggregation through the policy.code_comments config block. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/144",
+      "linkedin_bullet": "leo-aa88/reviewgate #144 - adds a configurable excessive code-comment verbosity check to the core review engine: oversized_comment_block, excessive_comment_lines and comment_heavy_diff are computed from added patch lines only, so a PR is never penalised for comments it did not touch. A single-pass lexer tracks string literals, block comments, JS/Go template literals, shell heredocs and Python triple-quoted strings, so runtime data such as a banner inside a backtick string is never miscounted as commentary, and files in languages with no scanner profile contribute to the ratio denominator only. Hunk entry state is established from diff context that carries a code token, which keeps a verbose block added mid-file in an existing file detectable while docstring content stays excluded, and all three dimensions feed the existing baseline_reviewability aggregation through the policy.code_comments config block.",
+      "profile_line": "adds a configurable excessive code-comment verbosity check to the core review engine: oversized_comment_block, excessive_comment_lines and comment_heavy_diff are computed from added patch lines only, so a PR is never penalised for comments it did not touch. A single-pass lexer tracks string literals, block comments, JS/Go template literals, shell heredocs and Python triple-quoted strings, so runtime data such as a banner inside a backtick string is never miscounted as commentary, and files in languages with no scanner profile contribute to the ratio denominator only. Hunk entry state is established from diff context that carries a code token, which keeps a verbose block added mid-file in an existing file detectable while docstring content stays excluded, and all three dimensions feed the existing baseline_reviewability aggregation through the policy.code_comments config block.",
       "curated": true
     }
   ]

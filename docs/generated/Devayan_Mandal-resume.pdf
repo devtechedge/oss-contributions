@@ -23,7 +23,7 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (Full Stack AI Native / Forward Deployed AI Engineer with 10 years of remote, self-directed) Tj T*
 (production work. Built 30+ production-grade systems across autonomous multi-agent) Tj T*
 (platforms, MCP integrations, deterministic RL evaluation, real-time observability, and) Tj T*
-(high-throughput web applications. Merged 20 upstream pull requests across TypeScript,) Tj T*
+(high-throughput web applications. Merged 21 upstream pull requests across TypeScript,) Tj T*
 (JavaScript, Python, and Rust in Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth,) Tj T*
 (thirdweb, Anza Kit, and Rspress. Specializes in explicit state machines, bounded autonomy,) Tj T*
 (verifiable AI systems, hybrid RAG and memory architectures, streaming infrastructure, and) Tj T*
@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5244 >>
+<< /Length 5339 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
@@ -126,6 +126,17 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
+(- leo-aa88/reviewgate #144 \(TypeScript\) - adds a configurable excessive code-comment) Tj T*
+(verbosity check to the core review engine: oversized_comment_block, excessive_comment_lines) Tj T*
+(and comment_heavy_diff are computed from added patch lines only, so a PR is never penalised) Tj T*
+(for comments it did not touch. A single-pass lexer tracks string literals, block comments,) Tj T*
+(JS/Go template literals, shell heredocs and Python triple-quoted strings, so runtime data) Tj T*
+(such as a banner inside a backtick string is never miscounted as commentary, and files in) Tj T*
+(languages with no scanner profile contribute to the ratio denominator only. Hunk entry) Tj T*
+(state is established from diff context that carries a code token, which keeps a verbose) Tj T*
+(block added mid-file in an existing file detectable while docstring content stays excluded,) Tj T*
+(and all three dimensions feed the existing baseline_reviewability aggregation through the) Tj T*
+(policy.code_comments config block. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/144) Tj T*
 (- PyO3/maturin #3302 \(Rust\) - Windows interpreter discovery no longer panics on non-UTF-8) Tj T*
 (command output. find_all_windows\(\) decodes py --list-paths and conda info -e with) Tj T*
 (String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that) Tj T*
@@ -143,6 +154,16 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (Merged Sep 2026. github.com/stellar/stellar-docs/pull/2850) Tj T*
 (- ssf0409/tracelens #140 \(Python\) - markdown table cells in the report generator are now) Tj T*
 (escaped with html.escape in addition to pipe and newline handling. Task ids or gate values) Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 5436 >>
+stream
+BT /F1 10 Tf 48 770 Td 11 TL
 (containing pipes, line breaks, or HTML metacharacters no longer break the per-task and) Tj T*
 (baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML) Tj T*
 (element. Merged Sep 2026. github.com/ssf0409/tracelens/pull/140) Tj T*
@@ -154,16 +175,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (so memos read as the legacy mechanism still in active use and muxed accounts as preferred) Tj T*
 (going forward. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853) Tj T*
 (- stellar/stellar-docs #2851 \(MDX\) - qualified the Freighter HTTPS requirement, noting that) Tj T*
-ET
-endstream
-endobj
-7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 8 0 R >>
-endobj
-8 0 obj
-<< /Length 5117 >>
-stream
-BT /F1 10 Tf 48 770 Td 11 TL
 (`http://localhost` is already a Potentially Trustworthy origin under W3C Secure Contexts so) Tj T*
 (loopback needs no TLS. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851) Tj T*
 (- pytest-dev/pytest-env #262 \(Python\) - documented that pytest.toml and .pytest.toml accept) Tj T*
@@ -219,6 +230,16 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (blockchain infrastructure. Canonical ledger: github.com/devtechedge/oss-contributions) Tj T*
 ( ) Tj T*
 (CERTIFICATIONS) Tj T*
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 1065 >>
+stream
+BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (- Model Context Protocol: Advanced Topics - Anthropic, 2026) Tj T*
 (- AI Fluency for Builders - Anthropic \(with CodePath\), 2026) Tj T*
@@ -230,16 +251,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (- Data Science Specialization - Johns Hopkins University \(Coursera\), 2020) Tj T*
 (- Six Sigma Green Belt - Kennesaw State University \(Coursera\), 2020) Tj T*
 ( ) Tj T*
-ET
-endstream
-endobj
-9 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 10 0 R >>
-endobj
-10 0 obj
-<< /Length 400 >>
-stream
-BT /F1 10 Tf 48 770 Td 11 TL
 (EDUCATION) Tj T*
 ( ) Tj T*
 (UNIVERSITY OF MUMBAI) Tj T*
@@ -262,12 +273,12 @@ xref
 0000000260 00000 n 
 0000005095 00000 n 
 0000005222 00000 n 
-0000010518 00000 n 
-0000010645 00000 n 
-0000015814 00000 n 
-0000015942 00000 n 
-0000016394 00000 n 
+0000010613 00000 n 
+0000010740 00000 n 
+0000016228 00000 n 
+0000016356 00000 n 
+0000017474 00000 n 
 trailer << /Size 12 /Root 1 0 R >>
 startxref
-16465
+17545
 %%EOF
