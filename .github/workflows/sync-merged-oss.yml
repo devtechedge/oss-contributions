@@ -73,7 +73,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md docs/triage/triage.json docs/triage/publications.json \
             docs/Devayan_Mandal-resume.txt docs/linkedin-all-details.txt \
-            docs/generated || true
+            docs/Devayan_Mandal.docx docs/generated || true
           if git diff --cached --quiet; then
             echo "No ledger file changes"
             exit 0
