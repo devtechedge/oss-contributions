@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5339 >>
+<< /Length 5278 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
@@ -126,17 +126,11 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
-(- leo-aa88/reviewgate #144 \(TypeScript\) - adds a configurable excessive code-comment) Tj T*
-(verbosity check to the core review engine: oversized_comment_block, excessive_comment_lines) Tj T*
-(and comment_heavy_diff are computed from added patch lines only, so a PR is never penalised) Tj T*
-(for comments it did not touch. A single-pass lexer tracks string literals, block comments,) Tj T*
-(JS/Go template literals, shell heredocs and Python triple-quoted strings, so runtime data) Tj T*
-(such as a banner inside a backtick string is never miscounted as commentary, and files in) Tj T*
-(languages with no scanner profile contribute to the ratio denominator only. Hunk entry) Tj T*
-(state is established from diff context that carries a code token, which keeps a verbose) Tj T*
-(block added mid-file in an existing file detectable while docstring content stays excluded,) Tj T*
-(and all three dimensions feed the existing baseline_reviewability aggregation through the) Tj T*
-(policy.code_comments config block. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/144) Tj T*
+(- leo-aa88/reviewgate #144 \(Python\) - adds a configurable excessive code-comment verbosity) Tj T*
+(check to the core review engine: three signals computed from added patch lines only, so a) Tj T*
+(PR is never penalised for comments it did not touch, with a single-pass lexer that tracks) Tj T*
+(string literals, heredocs and template literals so runtime data is never counted as) Tj T*
+(commentary. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/144) Tj T*
 (- PyO3/maturin #3302 \(Rust\) - Windows interpreter discovery no longer panics on non-UTF-8) Tj T*
 (command output. find_all_windows\(\) decodes py --list-paths and conda info -e with) Tj T*
 (String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that) Tj T*
@@ -154,6 +148,12 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (Merged Sep 2026. github.com/stellar/stellar-docs/pull/2850) Tj T*
 (- ssf0409/tracelens #140 \(Python\) - markdown table cells in the report generator are now) Tj T*
 (escaped with html.escape in addition to pipe and newline handling. Task ids or gate values) Tj T*
+(containing pipes, line breaks, or HTML metacharacters no longer break the per-task and) Tj T*
+(baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML) Tj T*
+(element. Merged Sep 2026. github.com/ssf0409/tracelens/pull/140) Tj T*
+(- stellar/stellar-docs #2849 \(MDX\) - reworked the address conversion example to propagate) Tj T*
+(the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and) Tj T*
+(documented that untrusted XDR must be handled rather than panicking. Merged Sep 2026.) Tj T*
 ET
 endstream
 endobj
@@ -161,15 +161,9 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 5436 >>
+<< /Length 5215 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
-(containing pipes, line breaks, or HTML metacharacters no longer break the per-task and) Tj T*
-(baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML) Tj T*
-(element. Merged Sep 2026. github.com/ssf0409/tracelens/pull/140) Tj T*
-(- stellar/stellar-docs #2849 \(MDX\) - reworked the address conversion example to propagate) Tj T*
-(the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and) Tj T*
-(documented that untrusted XDR must be handled rather than panicking. Merged Sep 2026.) Tj T*
 (github.com/stellar/stellar-docs/pull/2849) Tj T*
 (- stellar/stellar-docs #2853 \(MDX\) - reconciled memo framing in the pooled accounts guide) Tj T*
 (so memos read as the legacy mechanism still in active use and muxed accounts as preferred) Tj T*
@@ -230,6 +224,12 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (blockchain infrastructure. Canonical ledger: github.com/devtechedge/oss-contributions) Tj T*
 ( ) Tj T*
 (CERTIFICATIONS) Tj T*
+( ) Tj T*
+(- Model Context Protocol: Advanced Topics - Anthropic, 2026) Tj T*
+(- AI Fluency for Builders - Anthropic \(with CodePath\), 2026) Tj T*
+(- Agents and Workflows - OpenAI Academy, 2026) Tj T*
+(- Deep Agents with LangGraph - LangChain Academy, 2026) Tj T*
+(- Ambient Agents with LangGraph - LangChain Academy, 2026) Tj T*
 ET
 endstream
 endobj
@@ -237,15 +237,9 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 10 0 R >>
 endobj
 10 0 obj
-<< /Length 1065 >>
+<< /Length 734 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
-( ) Tj T*
-(- Model Context Protocol: Advanced Topics - Anthropic, 2026) Tj T*
-(- AI Fluency for Builders - Anthropic \(with CodePath\), 2026) Tj T*
-(- Agents and Workflows - OpenAI Academy, 2026) Tj T*
-(- Deep Agents with LangGraph - LangChain Academy, 2026) Tj T*
-(- Ambient Agents with LangGraph - LangChain Academy, 2026) Tj T*
 (- Microsoft Certified: Azure Fundamentals \(AZ-900\) - Microsoft, 2020) Tj T*
 (- AWS Fundamentals Specialization - Amazon Web Services \(Coursera\), 2020) Tj T*
 (- Data Science Specialization - Johns Hopkins University \(Coursera\), 2020) Tj T*
@@ -273,12 +267,12 @@ xref
 0000000260 00000 n 
 0000005095 00000 n 
 0000005222 00000 n 
-0000010613 00000 n 
-0000010740 00000 n 
-0000016228 00000 n 
-0000016356 00000 n 
-0000017474 00000 n 
+0000010552 00000 n 
+0000010679 00000 n 
+0000015946 00000 n 
+0000016074 00000 n 
+0000016860 00000 n 
 trailer << /Size 12 /Root 1 0 R >>
 startxref
-17545
+16931
 %%EOF
