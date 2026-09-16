@@ -493,17 +493,19 @@
       "merge_commit": "d2ed4ca0e4315e73e63edabcd9400b2097cf85d9",
       "issue": 3301,
       "url": "https://github.com/PyO3/maturin/pull/3302",
-      "languages": [],
+      "languages": [
+        "Rust"
+      ],
       "org": "PyO3",
       "display_name": "maturin",
       "profile_title": "maturin #3302",
       "ledger_logo": "https://github.com/PyO3.png?size=40",
       "profile_logo": "https://github.com/PyO3.png?size=48",
-      "profile_logo_alt": "maturin",
-      "ledger_what": "find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.",
-      "resume_bullet": "PyO3/maturin #3302 (TypeScript) - find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path. Merged Sep 2026. github.com/PyO3/maturin/pull/3302",
-      "linkedin_bullet": "PyO3/maturin #3302 - find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.",
-      "profile_line": "find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.",
+      "profile_logo_alt": "PyO3",
+      "ledger_what": "Windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path.",
+      "resume_bullet": "PyO3/maturin #3302 (Rust) - Windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path. Merged Sep 2026. github.com/PyO3/maturin/pull/3302",
+      "linkedin_bullet": "PyO3/maturin #3302 - Windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path.",
+      "profile_line": "windows interpreter discovery no longer panics on non-UTF-8 command output: find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy, so a localized install skips the affected line instead of aborting the build, with a unit test covering the decode path.",
       "curated": true
     }
   ]
