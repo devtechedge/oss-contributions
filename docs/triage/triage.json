@@ -948,14 +948,14 @@
       "repo": "leo-aa88/reviewgate",
       "number": 144,
       "status": "open",
-      "mergeable": false,
+      "mergeable": true,
       "opened": "2026-09-14",
       "last_checked": "2026-09-16",
       "issue": 143,
       "do_not_duplicate": true,
       "branch": "feat/code-comment-verbosity-143",
-      "commit": "b623ff5",
-      "summary": "Implements issue #143 (configurable excessive code-comment verbosity checks). Maintainer leo-aa88 requested changes twice: 5193516019 on 8e74aaa (context discarded, multiline strings not carried, per-file block warnings) resolved in b1ace51; 5193702832 on b1ace51 (unknown hunk reset-to-normal is fail-open, advertised C-family/JSX suffixes lack multiline string support, length-only filename pairing). Follow-up b623ff5: skip hunks whose new-file start > 1; drop Java/C/C++/C#/Rust/JSX/TSX until modeled; require file.filename == row.filename. Reviewer reproductions locked (mid-file docstring hunk, rust raw string, filename mismatch). Locally 117 passed in test_code_comments.py plus test_core_purity.py; ruff check src tests clean. CI still action_required pending first-contribution maintainer approval. Merge blocked on requested changes until leo re-reviews."
+      "commit": "b9a8cf1",
+      "summary": "Implements issue #143 (configurable excessive code-comment verbosity checks) on branch feat/code-comment-verbosity-143. Five review rounds from maintainer leo-aa88, each closing with reproductions that were fixed and re-verified: (1) 5193516019 context discarded, multiline strings not carried, per-file block warnings; (2) 5193702832 unknown hunk reset-to-normal, advertised C-family and JSX suffixes, length-only filename pairing; (3) 5201613952 `+++`/`---` header collision with `++i` and the 600 LOC hard cap; (4) 5209028289 mid-file hunks never fired, header detection by content, unmodeled languages dropped from the ratio denominator, 831-line module over the cap; (5) 5220259902 hunk establishment fooled by two lines of docstring prose, contradicting the unconditional README docstring guarantee. Head b9a8cf1 closes round 5: a context line counts as evidence only when it scans clean AND carries a code token (`_line_shows_code` in `_comment_lex.py`), blank context lines are neutral rather than either evidence or a run breaker, and README plus CHANGELOG now state the one residual case instead of claiming the exclusion is unconditional. Five new tests pin the reviewer repro; verified that it reports 12 comments before the fix and 0 after, while the round-4 mid-file repro still reports 12. Locally 110 passed in test_code_comments.py and 1058 passed across the full suite with 6 failures, the identical 6 that fail on unmodified main on this machine; ruff check src tests clean. CI on b9a8cf1 reports action_required, awaiting maintainer approval of the fork run. Awaiting leo's round-6 review."
     },
     {
       "repo": "remix-run/remix",
