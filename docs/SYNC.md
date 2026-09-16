@@ -53,7 +53,8 @@ Every run the renderer measures the content with real Calibri metrics and fits i
 
 1. The open-source section is the shock absorber. It tries full bullets, then condensed one-liners, then a subset plus a `+N more merged upstream PRs across ...` roll-up line.
 2. Only if the hand-written sections still leave no room are they condensed, cheapest first: certifications to one line, small skill categories folded together, then long experience bullets trimmed at clause boundaries.
-3. It targets 95% of the budget. Calibration against Word: 0.98 fits, 1.00 spills to three pages, so the remaining 5% is the error margin.
+3. Everything is measured as if it were 12% larger before it is compared to the budget (`RENDER_SAFETY`). Word paginates the result at two pages, but viewers that substitute a wider font for Calibri, or apply their own line spacing, need that room or they spill onto a third page.
+4. It then targets 95% of the budget. Calibration against Word: 0.98 fits, 1.00 spills to three pages, so the last 5% is the error margin.
 
 Font sizes: name 16pt, section headings 10.5pt bold, body 10pt. Margins are 0.4 inch on all four sides.
 
