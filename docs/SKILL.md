@@ -277,6 +277,8 @@ Canonical operational record: `docs/triage/triage.json`
 Canonical publication copy: `docs/triage/publications.json`
 Human-only: GitHub profile bio, PATTERNS.md (unless a new generalizable lesson exists), social preview, `docs/all_repos.md`.
 
+**Hand-maintained profile sources are outside the cascade and drift fast.** `docs/wellfound.txt` (Wellfound profile source copy) is edited by hand, so no sync run repairs it. On 16 Sep 2026 it still claimed 2 + 2 merged across two stale "Web3" and "non-Web3" contributor entries while the ledger was at 19, and its bio named LangGraph and Drizzle, neither of which is merged (langgraphjs #2803 had since closed, drizzle-orm #6258 was still open). Before any profile source is pasted into a live profile, re-derive every figure from `publications.json` (`merged_count`) and confirm each repo named in the copy actually appears in a merged record. Never name a repo in public copy on the strength of an open or closed PR. Note also that `web3-oss-contributions` 404s and `non-web3-oss-contributions` was renamed to `oss-contributions`: the only ledger URL to publish is `github.com/devtechedge/oss-contributions`.
+
 ## 14. Publication copy quality (merged entries must explain the change)
 
 Every merged PR gets real impact prose, never a one-line restatement of its title. A reader of the README, resume, or profile should be able to tell what changed and why it mattered without opening the PR.
