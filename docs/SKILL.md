@@ -150,7 +150,7 @@ Scan mechanics (when asked to scan for N targets):
 
 1. Default to fork, branch, and PR via `gh` when Cloud Agents are unavailable.
 2. Probe the submission path before the heavy implementation work (see the submission-path hard gate in section 5): confirm the maintainer has not blocked the account and the repo has no hard filter (PRs disabled repo-wide, collaborator-only PRs, interaction limits) that would stop committing or PR/issue comments. Cheap checks first - search the repo for "pull requests are disabled" issues, check recent merged PRs for outside authors - then the definitive probe: push the working branch early and attempt PR creation once the fix compiles. A 404/FORBIDDEN on creation means stop: record the no-go, keep the branch, report. Never discover this after the full test-and-polish cycle (casey/just #3227).
-3. Minimal root-cause fix matching repo style. No drive-by refactors.
+3. Minimal root-cause fix matching repo style. No drive-by refactors. Treat written rules in CONTRIBUTING.md (file LOC caps, required module layout, doc targets) as review gates even when CI does not enforce them: a new module over the stated cap gets flagged every round, and splitting it along its existing seams early is cheaper than defending it (reviewgate #144, 16 Sep 2026).
 4. Add a focused regression that fails before and passes after, when tests exist.
 5. Add a changeset when the repo uses changesets.
 6. Use distinct branch names when multiple PRs target the same repo.
