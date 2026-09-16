@@ -826,6 +826,21 @@ async function main() {
   }
 
   if (!args.dryRun) {
+    const masterPy = path.join(root, "scripts/render-resume-docx.py");
+    const masterDocx = path.join(root, "docs/Devayan_Mandal.docx");
+    if (fs.existsSync(masterPy) && fs.existsSync(masterDocx)) {
+      const before = fs.readFileSync(masterDocx);
+      const rendered = spawnSync("python3", [masterPy, root], { encoding: "utf8" });
+      if (rendered.status !== 0) {
+        console.warn("::warning::master resume DOCX not updated:", rendered.stderr || rendered.stdout);
+      } else {
+        const after = fs.readFileSync(masterDocx);
+        writes.push({ file: masterDocx, changed: !before.equals(after) });
+      }
+    }
+  }
+
+  if (!args.dryRun) {
     writes.push({ file: triagePath, changed: writeJson(triagePath, triage) });
     writes.push({ file: pubsPath, changed: writeJson(pubsPath, pubs) });
   }
