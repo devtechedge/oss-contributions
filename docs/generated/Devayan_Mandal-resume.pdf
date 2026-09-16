@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5200 >>
+<< /Length 5244 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer) Tj T*
@@ -126,11 +126,11 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
-(- PyO3/maturin #3302 \(TypeScript\) - find_all_windows\(\) now lossy-decodes py --list-paths) Tj T*
-(and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with) Tj T*
-(localized \(non-UTF-8\) interpreter output skips the affected line rather than panicking and) Tj T*
-(aborting the build; added a unit test covering the non-UTF-8 decode path. Merged Sep 2026.) Tj T*
-(github.com/PyO3/maturin/pull/3302) Tj T*
+(- PyO3/maturin #3302 \(Rust\) - Windows interpreter discovery no longer panics on non-UTF-8) Tj T*
+(command output. find_all_windows\(\) decodes py --list-paths and conda info -e with) Tj T*
+(String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that) Tj T*
+(emits undecodable bytes skips that line instead of aborting the build. Added a unit test) Tj T*
+(covering the non-UTF-8 decode path. Merged Sep 2026. github.com/PyO3/maturin/pull/3302) Tj T*
 (- stellar/stellar-docs #2859 \(MDX\) - added the --enable-core-manual-close flag to the Local) Tj T*
 (section of the Network Modes page, so the parameter list no longer omits a flag the) Tj T*
 (quickstart container ships, with a cross-link to the Manual close mode section noting that) Tj T*
@@ -262,12 +262,12 @@ xref
 0000000260 00000 n 
 0000005095 00000 n 
 0000005222 00000 n 
-0000010474 00000 n 
-0000010601 00000 n 
-0000015770 00000 n 
-0000015898 00000 n 
-0000016350 00000 n 
+0000010518 00000 n 
+0000010645 00000 n 
+0000015814 00000 n 
+0000015942 00000 n 
+0000016394 00000 n 
 trailer << /Size 12 /Root 1 0 R >>
 startxref
-16421
+16465
 %%EOF
