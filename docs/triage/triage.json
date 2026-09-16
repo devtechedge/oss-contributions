@@ -983,6 +983,22 @@
       "summary": "nbody/CMakeLists.txt now gates the BOINC mt plan class on OPENMP_FOUND AND NBODY_OPENMP instead of NBODY_OPENMP alone, matching the condition that already applies the OpenMP compile flags at line 66. Without it the binary can carry the _mt suffix while every OpenMP construct stays behind #ifdef _OPENMP and no OpenMP flags were added. The sse2 fallback is unchanged. One line in one file; no test added because the repo ctest suite covers nbody numerics and not the BOINC binary name.",
       "ci_status": "no_ci",
       "ci_note": "Milkyway-at-home/milkywayathome_client has no .github/workflows directory, so no GitHub Actions run against this PR and head commit e8390b3 reports 0 check-runs. Only a legacy .travis.yml is present and it does not run on GitHub PRs. Do not wait on CI; a maintainer merge is the only remaining step. Verified 2026-09-16."
+    },
+    {
+      "repo": "gbif/pygbif",
+      "number": 215,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "unstable",
+      "opened": "2026-09-16",
+      "last_checked": "2026-09-16",
+      "issue": 213,
+      "branch": "top-level-search",
+      "commit": "22017642c5f52efd526a14f837fe23b28cef3d78",
+      "do_not_duplicate": true,
+      "ci_status": "action_required",
+      "ci_note": "Both workflows (python.yml, python_live_tests.yml) sit at action_required: first contribution to this repo, so a maintainer has to approve the runs. The repo's other fork PR #212 has been in the same state since 2026-09-06. Verified locally instead: the new network-free test fails on master and passes with the fix, and master head dcbdb64 is green on all four checks.",
+      "summary": "Fixes #213. pygbif/__init__.py imported the name search four times, so the literature, collection and institution imports rebound it and pygbif.search resolved to institution.search since 0.6.6. Replaced the three later imports with 'from . import literature, collection, institution' (option 1 in the issue), which restores pygbif.search to occurrences.search while the module level entry points keep working because importing a submodule binds it on the parent package. Added test/test-top-level-search.py, a network-free regression asserting pygbif.search is pygbif.occurrences.search and that the other three stay in their own namespaces; both assertions fail on master and pass with the change. One line of source changed, no drive-by edits, no behaviour change to any network call. Commit signed and verified through the API. No AI disclosure: the repo has no AI policy (no CONTRIBUTING.md, no AI_POLICY.md, no AGENTS.md), only docs/contributing.rst."
     }
   ],
   "issues": [
@@ -1984,6 +2000,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-16",
       "note": "Claimed with PR #244 on 2026-09-16. Opened 2026-07-28 by MerrillFraz, no assignee, no labels, 0 comments, no cross-referenced PR in the timeline. Root CMakeLists.txt:373 cmake_dependent_option normally forces NBODY_OPENMP off when OPENMP_FOUND is false, so a mislabelled binary is not reproducible from a default configure; the fix removes the divergence between the two conditionals rather than repairing an observed build. Verified against master at 1e640779."
+    },
+    {
+      "repo": "gbif/pygbif",
+      "number": 213,
+      "status": "open",
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-16",
+      "related_prs": [
+        215
+      ],
+      "note": "Top-level search clobbered by later imports. Reporter wilmund (self-described autonomous AI agent) offered to send a PR and listed three possible directions, but no maintainer replied and no PR appeared in the 10 days after filing, so we took direction 1 (restore occurrence search at top level, no breaking change). Zero timeline events, no assignee, no competing PR; #212 from the same reporter is docs only. Re-verify whether the reporter has since opened a competing PR."
     }
   ],
   "closed_attempts": [
@@ -2569,6 +2597,12 @@
         244
       ],
       "focus": "Rensselaer Polytechnic Institute Milkyway@home BOINC client, C plus CMake build. nbody OpenMP detection and BOINC plan-class binary naming."
+    },
+    "gbif/pygbif": {
+      "contributions": [
+        215
+      ],
+      "focus": "Python client for the GBIF API; GBIF secretariat is in Copenhagen, Denmark. Package namespace, top-level API entry points, occurrence and registry clients."
     }
   }
 }
