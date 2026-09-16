@@ -252,6 +252,20 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 - Build the payload with a script that does the fetch, the mutation, and the write in one
   run, and make the record insertion idempotent (skip if `repo`+`number` already present).
   That makes a retry after a 409 safe instead of duplicating rows.
+- **Never write `owner/repo#N` in a ledger commit message.** GitHub turns that pattern into a
+  cross-reference on the upstream issue, so the commit appears in the maintainer's own timeline as
+  "devtechedge added a commit that references this issue". `oss-contributions` is public, so
+  clicking through lands on our triage notes about that maintainer (16 Sep 2026: a triage commit
+  naming `apify/crawlee` plus the issue number appeared on apify/crawlee issue 2815 within minutes,
+  exposing a note that named the maintainer and recorded that we would not open a competing fix).
+  Write `owner/repo <N>` with no `#`, or name the repo only. The `referenced` event is bound to the
+  commit sha and the old commit stays reachable by sha, so amending the message and force-pushing
+  does **not** remove it. Prevention is the only remedy.
+- If such a reference leaks anyway, do **not** post a comment on the upstream thread to explain it.
+  The event is one line of noise that most maintainers scroll past; a comment promotes it to a real
+  thread entry and points everyone at the ledger. Stay quiet and fix the convention instead.
+- The same rule covers any public surface the ledger writes: PR titles, PR bodies, issue comments.
+  Internal triage wording belongs in `triage.json`, never in text GitHub will render upstream.
 
 ## Dated snapshots
 
