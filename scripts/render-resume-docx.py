@@ -116,7 +116,7 @@ class Block:
         else:
             usable = USABLE_W
         n = lines_for(self.text, size, usable)
-        return self.before + n * size * LINE + self.after
+        return (self.before + n * size * LINE + self.after) * RENDER_SAFETY
 
 
 def total_height(blocks) -> float:
@@ -306,6 +306,13 @@ SKILL_MERGE = {
     "Realtime & Observability": "Backend & Data",
     "Practices": "Cloud & DevOps",
 }
+
+# Word paginates this at two pages, but not every reader agrees. Viewers that
+# substitute a wider font for Calibri, or apply their own line spacing, need
+# roughly ten percent more room before they spill onto a third page. Everything
+# is measured as if the content were this much larger so the DOCX stays two
+# pages in Word and in the pickier renderers.
+RENDER_SAFETY = 1.12
 
 TARGET_FILL = 0.95  # 0.98 fits, 1.00 tips to three pages, so leave headroom
 GOAL = BUDGET * TARGET_FILL
