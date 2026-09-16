@@ -29,6 +29,8 @@ Companion to `SKILL.md`. Read on demand during scans and before implementing. Ev
 
 - Scan (16 Sep 2026, sqlfluff/sqlfluff): account-level agent scanners are a repo-level no-go, and they hide behind a clean issue. `agent-scan.yml` runs on `pull_request_target` `types: [opened]` with a write-capable token, exempts only `owner`/`member`, and on an `automation` classification or a community-flagged account adds the label `possible bot` and closes the PR immediately. Evidence in the repo: 30 issues carried the label and at least 15 were closed 12-17 seconds after opening (#8482 15s, #8474 14s, #8465 14s, #8435 17s, #8414 13s, #8394 14s, #8383 16s, #8358 12s, #8348 14s, #8347 13s, #8346 14s, #8341 16s, #8333 15s, #8332 12s, #8331 13s, #8330 14s). Detection recipe: list `.github/workflows`, grep for `pull_request_target` + `types: [opened]` + `pulls.update` `state: closed`, then confirm by listing the labelled issues and diffing `created_at` against `closed_at` for a sub-minute gap. Two consequences worth remembering: the close fires on account signals, so AI disclosure in the body neither prevents nor causes it; and the scan does not re-fire on `reopened`, so a reopen would technically stick even though SKILL.md 7 forbids refiling an auto-closed issue from the same account. Record the gate against the repo in triage and move on.
 
+- Scan (16 Sep 2026, EmbarkStudios/cargo-about #315): the same session brief had been dispatched to two agent platforms at once, and both reached the same target. What caught it was the ordinary pre-flight open-PR list showing a PR from **our own account** opened 20 minutes earlier, plus a `cross-referenced` event on the issue that the earlier scan had not seen. The parallel session had already done the whole job: PR open, test added, CI green, commit signed, triage records written with `do_not_duplicate`. Read `user.login` on every open PR in the repo, not just on foreign-looking ones, and when the PR is ours, check `docs/triage/triage.json` before assuming the target is unclaimed. Duplicate dispatch is a real failure mode when work moves between platforms by quota, and the only defence is reading GitHub before writing anything.
+
 ## Implementation patterns
 
 - Tree-sitter grammar bugs can be root-caused without a C compiler: `pip install tree-sitter tree-sitter-<grammar>` ships prebuilt wheels for most grammars, so a short Python snippet can dump the parse tree (use `node.children` with byte ranges, and `str(root)` for the named sexp) to prove which tokens vanish from the tree and test candidate crate versions before touching the Rust side. Verified on difftastic #1060 (14 Sep 2026): the pinned grammar emitted no tokens for heredoc lines, making before/after trees structurally identical - exactly the "No syntactic changes" mechanism. Also check the newer version's `node-types.json` (crates.io tarball) still contains every node name in the app's atom config before recommending a bump.
@@ -98,6 +100,18 @@ Companion to `SKILL.md`. Read on demand during scans and before implementing. Ev
 - Implement (16 Sep 2026, milkywayathome_client #244): `cmake_dependent_option(<opt> ... <depends> <force>)` sets `<opt>` as a **local** variable in the caller's scope when a dependency is false, not a cache variable, so a branch that reads a divergent value can be unreachable in a default configure even though the source plainly disagrees with a neighbouring check. Read the guard before adopting an issue's stated mechanism: where the dependent option already forces the value, frame the fix as hardening ("these two conditions no longer re-derive the same decision from different inputs") and state explicitly that you did not reproduce the broken build. Claiming a reproduction you cannot demonstrate is the fastest way to lose a reviewer.
 
 - Implement: a repo with no `.github/workflows` directory runs no CI on a PR, so "all checks green" is vacuous rather than true. Confirm with `commits/<head-sha>/check-runs` (0 runs) and say so in the PR body, naming what does exist instead (a legacy `.travis.yml` does not run on GitHub PRs). Never imply you are waiting on CI that cannot fire.
+
+- Implement (16 Sep 2026, gbif/pygbif #215): prove a regression fails-before without `git stash`, which this box forbids. Copy the package directory to a scratch dir outside the workspace, overwrite only the changed source file with `git show HEAD:<path>`, drop a minimal `pytest.ini` beside it when the repo's own config scopes test discovery (`python_files`/`testpaths`), copy the new test file in, and run pytest from that scratch dir. The scratch copy is what `import <pkg>` resolves to, so the before state is genuine. This supersedes the "stash only the source files" advice above: it touches nothing in the real worktree and cannot corrupt the object store. Then run the same file from the repo for the after state.
+
+- Implement (16 Sep 2026, gbif/pygbif #215): vcr cassette suites recorded under CI's Python (3.9-3.11 here) do not replay on a newer local interpreter. Every network test fails with `vcr.errors.CannotOverwriteExistingCassetteException` because the local requests/urllib3 traffic no longer matches the recording, and 65 of 86 tests fail on a pristine checkout. Do not chase it and do not "fix" the cassettes. Copy the repo to a scratch dir, restore the base version of the changed file (`git show <base-sha>:<path>`, not `HEAD:`, which has moved once you commit), run the suite in both trees, and diff the sorted `FAILED` lists. Identical sets plus a passed-count delta equal to the new tests is a clean no-regression proof, and it is the only proof available when the PR's workflows sit at `action_required`.
+
+- Implement: when a repo documents a formatter that CI does not run (pygbif asks for Black but its workflows only run pytest), match the style of the repo's existing files rather than the newest formatter. Black 26.x reformats this repo's own untouched test files (it wants a blank line after the module docstring), so a "black --check" failure on a brand new file is tool drift, not a defect in the new file. Confirm by running the check on an untouched file first.
+
+- Rust on this box (16 Sep 2026, EmbarkStudios/cargo-about #319): the windows-gnu toolchain's build scripts need `dlltool.exe`, and it sits at `~/w64devkit/w64devkit/bin`. Without it `getrandom` and `windows-sys` die with `error calling dlltool 'dlltool.exe': program not found` before any of your own code compiles. Prefix the cargo command with `export PATH="$HOME/w64devkit/w64devkit/bin:$PATH"` instead of hunting for a MinGW install.
+
+- Local clippy drift is not your red. A local clippy newer than the toolchain the repo's CI resolves turns pre-existing code into `-D warnings` errors. Confirm the finding sits in a file your diff does not touch, then re-run clippy without `-D warnings` and list every warning to prove none is yours. Name the pre-existing finding in the PR body and leave it alone; do not fold an unrelated collapse into the fix. Case (EmbarkStudios/cargo-about #319, 16 Sep 2026): clippy 1.98 reports `collapsible_if` at `src/lib.rs:399` on let-chain code, while the repo's `dtolnay/rust-toolchain@stable` was last green on an older stable.
+
+- Unit-testing a private function that takes a heavy upstream type: check whether the type is constructible before designing a fixture. `krates` 0.21 vendors its own `cm::Package` (`~/.cargo/registry/src/*/krates-*/src/cm.rs`): it is a plain struct, all fields public, with no `#[non_exhaustive]` and no `Deserialize` derive, so a test builds one with a struct literal and JSON round-tripping is not even available. Read the vendored source instead of assuming the upstream `cargo_metadata` shape applies.
 
 ## Post-open maintenance
 
@@ -219,6 +233,25 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   re-triggers that approval gate, which is a real cost of re-pushing an already-approved PR.
 - `gh search prs --limit N` returns N, not a total. Use
   `gh api "search/issues?q=...&per_page=1" --jq .total_count` for a count.
+- `action_required` on every workflow of a new fork PR is usually the repo's norm, not a
+  problem with the diff (gbif/pygbif #215, 16 Sep 2026). Confirm by listing
+  `actions/runs?head_branch=<branch of another open fork PR>`: if those runs are
+  `action_required` too, report it as non-actionable and stop. Such runs never produce
+  check-runs, so an empty `check-runs` list on the head sha means "waiting on approval",
+  not "nothing is running". Check `actions/runs?head_branch=<your branch>` before drawing
+  any conclusion.
+
+### Ledger writes (contents PUT)
+
+- A `PUT` can return 409 "does not match <sha>" even when the sha was fetched minutes
+  earlier: the Sync merged OSS workflow or a parallel session rewrote the file in between
+  (16 Sep 2026, `docs/triage/triage.json`). **Size is not a freshness signal** - two
+  consecutive revisions were both 105,864 bytes with different blob shas. Refetch content
+  and sha in one call, rebuild the payload from the refetched content, and PUT in the same
+  step; never carry a sha across tool calls.
+- Build the payload with a script that does the fetch, the mutation, and the write in one
+  run, and make the record insertion idempotent (skip if `repo`+`number` already present).
+  That makes a retry after a 409 safe instead of duplicating rows.
 
 ## Dated snapshots
 
