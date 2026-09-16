@@ -251,15 +251,16 @@
     {
       "repo": "PyO3/maturin",
       "number": 3302,
-      "status": "open",
-      "mergeable": true,
-      "opened": "2026-09-13",
+      "status": "merged",
       "last_checked": "2026-09-16",
       "issue": 3301,
       "do_not_duplicate": true,
       "summary": "find_all_windows() lossy-decodes py --list-paths and conda info -e stdout with String::from_utf8_lossy instead of str::from_utf8().unwrap() panicking on non-UTF-8 bytes from localized Windows codepages; undecodable lines fail the existing regex/skip logic. Regression test covers the decode contract.",
       "ci_status": "preexisting_red",
-      "ci_note": "Ubuntu 3.15-dev and 3.15t-dev legs fail at tests/common/mod.rs:428 with \"Failed to create conda environment: exit status 1\" and a conda CondaMultiError FileNotFoundError renaming /usr/share/miniconda/pkgs/*.conda.partial files. Pre-existing runner drift, not caused by this PR: unrelated PR PyO3/maturin#3303 (pre-commit config autoupdate, no Rust change) failed identically on 2026-09-14 with the same two tests. The Test workflow triggers only on pull_request, so main carries no comparable check set (base commit 316d513097 has only auditwheel and docker publish runs). Verified 2026-09-16."
+      "ci_note": "Ubuntu 3.15-dev and 3.15t-dev legs fail at tests/common/mod.rs:428 with \"Failed to create conda environment: exit status 1\" and a conda CondaMultiError FileNotFoundError renaming /usr/share/miniconda/pkgs/*.conda.partial files. Pre-existing runner drift, not caused by this PR: unrelated PR PyO3/maturin#3303 (pre-commit config autoupdate, no Rust change) failed identically on 2026-09-14 with the same two tests. The Test workflow triggers only on pull_request, so main carries no comparable check set (base commit 316d513097 has only auditwheel and docker publish runs). Verified 2026-09-16.",
+      "merged": "2026-09-16",
+      "merge_commit": "d2ed4ca0e4315e73e63edabcd9400b2097cf85d9",
+      "merged_at": "2026-09-16T13:03:52Z"
     },
     {
       "repo": "ratatui/ratatui",
@@ -1313,12 +1314,14 @@
     {
       "repo": "PyO3/maturin",
       "number": 3301,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         3302
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-16",
+      "note": "Closed by merged PR #3302 (d2ed4ca)."
     },
     {
       "repo": "web-infra-dev/rspress",
@@ -2668,6 +2671,12 @@
         75
       ],
       "focus": "HackRPI 2026 hackathon site (Next.js, TypeScript, Tailwind, daisyUI); mobile responsive layout of the event page cover."
+    },
+    "PyO3/maturin": {
+      "contributions": [
+        3302
+      ],
+      "focus": ""
     }
   }
 }

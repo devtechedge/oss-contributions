@@ -11,7 +11,7 @@ My engineering focus is bounded autonomy: explicit state machines over opaque pr
 
 I have built and shipped 30+ production-grade systems spanning autonomous agents, MCP integrations, RLVR evaluation environments, real-time telemetry, developer tooling, Web3 infrastructure, and high-throughput web applications. I own the full lifecycle from architecture and implementation through testing, deployment, observability, iteration, and upstream contribution.
 
-I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 19 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 20 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 WHAT I BUILD & ARCHITECT
 
@@ -36,9 +36,10 @@ OPEN SOURCE
 
 Canonical ledger: https://github.com/devtechedge/oss-contributions
 
-19 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
+20 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
 
 <<<LEDGER:LINKEDIN_LIST>>>
+• PyO3/maturin #3302 - find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.
 • stellar/stellar-docs #2859 - added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR.
 • stellar/stellar-docs #2850 - documented Quickstart's undocumented `--enable-core-manual-close` flag in the advanced usage docs, covering the `MANUAL_CLOSE` setting it writes into the generated core config, the `manualclose` endpoint that advances one ledger per call, and loopback-bound startup examples for macOS, Linux, and Windows.
 • ssf0409/tracelens #140 - markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.
@@ -151,11 +152,12 @@ DESCRIPTION
 
 Independent upstream contributor working across mature AI, developer-tooling, package-management, framework, SDK, and blockchain repositories. Maintains a canonical public ledger at https://github.com/devtechedge/oss-contributions.
 
-19 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+20 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 Representative work:
 
 <<<LEDGER:LINKEDIN_REP>>>
+• maturin - find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.
 • stellar-docs - reconciled contradictory memo guidance in the pooled accounts guide: the intro framed memos as obsolete while later sections still required supporting them. Reworked the intro and opening note so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward, with the guide covering both.
 • tracelens - markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.
 • pytest-env - documented native [pytest] env configuration for pytest.toml / .pytest.toml, closing a gap in the plugin README.

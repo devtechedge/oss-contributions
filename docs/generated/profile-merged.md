@@ -5,6 +5,8 @@
 
 <img src="https://github.com/biomejs.png?size=48" width="32" height="32" alt="Biome" align="left" /> **[Biome #11667](https://github.com/biomejs/biome/pull/11667)** - added the `useBetterDomTraversing` nursery lint rule with safe transformations where semantics permit.
 
+<img src="https://github.com/PyO3.png?size=48" width="32" height="32" alt="maturin" align="left" /> **[maturin #3302](https://github.com/PyO3/maturin/pull/3302)** - find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.
+
 <img src="https://cdn.simpleicons.org/node.js/339933" width="32" height="32" alt="Node.js" /> **[node-postgres #3772](https://github.com/brianc/node-postgres/pull/3772)** - fixed `Connection.sync()` incorrectly setting the internal `_ending` flag, preventing false suppression of subsequent socket errors.
 
 <img src="https://github.com/pnpm.png?size=48" width="32" height="32" alt="pnpm" align="left" /> **[pnpm #14753](https://github.com/pnpm/pnpm/pull/14753)** - fixed `lockfile: false` being ignored during automatic package-manager switching.

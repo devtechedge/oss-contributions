@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-16",
-  "merged_count": 19,
+  "merged_count": 20,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -482,6 +482,28 @@
       "resume_bullet": "stellar/stellar-docs #2859 (MDX) - added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2859",
       "linkedin_bullet": "stellar/stellar-docs #2859 - added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR.",
       "profile_line": "added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR.",
+      "curated": true
+    },
+    {
+      "id": "PyO3/maturin#3302",
+      "repo": "PyO3/maturin",
+      "number": 3302,
+      "merged": true,
+      "merged_at": "2026-09-16T13:03:52Z",
+      "merge_commit": "d2ed4ca0e4315e73e63edabcd9400b2097cf85d9",
+      "issue": 3301,
+      "url": "https://github.com/PyO3/maturin/pull/3302",
+      "languages": [],
+      "org": "PyO3",
+      "display_name": "maturin",
+      "profile_title": "maturin #3302",
+      "ledger_logo": "https://github.com/PyO3.png?size=40",
+      "profile_logo": "https://github.com/PyO3.png?size=48",
+      "profile_logo_alt": "maturin",
+      "ledger_what": "find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.",
+      "resume_bullet": "PyO3/maturin #3302 (TypeScript) - find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path. Merged Sep 2026. github.com/PyO3/maturin/pull/3302",
+      "linkedin_bullet": "PyO3/maturin #3302 - find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.",
+      "profile_line": "find_all_windows() now lossy-decodes py --list-paths and conda info -e output instead of unwrapping str::from_utf8, so a Windows build with localized (non-UTF-8) interpreter output skips the affected line rather than panicking and aborting the build; added a unit test covering the non-UTF-8 decode path.",
       "curated": true
     }
   ]
