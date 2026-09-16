@@ -817,10 +817,18 @@ async function main() {
       if (rendered.status !== 0) {
         console.warn("resume artifact render skipped:", rendered.stderr || rendered.stdout);
       } else {
+        // The renderer only writes when the bytes changed, so trust its
+        // "wrote <path>" lines instead of assuming every artifact moved.
+        const wrote = new Set(
+          String(rendered.stdout || "")
+            .split("\n")
+            .filter((line) => line.startsWith("wrote "))
+            .map((line) => line.slice("wrote ".length).split(" (")[0].trim()),
+        );
         const docx = path.join(root, "docs/generated/Devayan_Mandal-resume.docx");
         const pdf = path.join(root, "docs/generated/Devayan_Mandal-resume.pdf");
-        if (fs.existsSync(docx)) writes.push({ file: docx, changed: true });
-        if (fs.existsSync(pdf)) writes.push({ file: pdf, changed: true });
+        if (fs.existsSync(docx)) writes.push({ file: docx, changed: wrote.has(docx) });
+        if (fs.existsSync(pdf)) writes.push({ file: pdf, changed: wrote.has(pdf) });
       }
     }
   }
