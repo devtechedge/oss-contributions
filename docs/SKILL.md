@@ -245,6 +245,27 @@ The ledger exists in exactly one place: `oss-contributions` on GitHub. The local
 - **Stale-copy rule:** if a local `triage_*.json` is encountered, treat it as a fossil. The remote file is truth; never restore, merge from, or push a local copy over the remote. If it differs, the local one is old.
 - **Skill mirrors:** the canonical playbook is `~/.agents/skills/oss/SKILL.md` + `PATTERNS.md`. After editing either, PUT the updated copy to `docs/SKILL.md` / `docs/PATTERNS.md` in `oss-contributions` (temp payload deleted same turn). That push is the sync - there is no other sync step, and no third copy is created anywhere.
 
+### 11.1 Local clones are disposable (added 16 Sep 2026)
+
+A clone exists to produce one PR, not to archive one. On 16 Sep 2026 the working folder held 25
+clones at **25.3 GB**, about 95 percent of it build output that the repos' own `.gitignore` files
+already ignored: Rust `target/` trees at 19 GB, plus `node_modules`, `.venv`, and type-test caches.
+Nothing in this playbook ever said to delete a clone, so none ever was.
+
+- **Retire the clone when the PR is open, checks are green, and triage is updated.** The branch is
+  pushed, the PR lives upstream, the state is in `triage.json`. Keep the clone only while it holds
+  unpushed commits or you are actively iterating on review.
+- **Confirm before deleting: `git check-ignore -v <path>`.** Name lists fail in both directions.
+  `maturin/src/target/` is 2,177 lines of real Rust, not build output, while maturin's actual build
+  dirs are `test-crates/targets` and `venvs` (plural), which a `target`/`venv` glob skips.
+- **Check for unpushed work first** (`git status --porcelain`, `rev-list @{u}..HEAD`). A fork can be
+  deleted upstream while the clone still holds the only copy: `devtechedge/just` was gone from
+  GitHub while `just/tests/format.rs` still carried two uncommitted tests. Export a patch before
+  deleting a clone in that state.
+- **An oversized `.git` is worth a shallow re-clone** (`--depth 1 --branch <b>`), which took one
+  clone from 1.63 GB to 11 MB at the same pushed commit. Shallow clones push normally but need
+  `git fetch --unshallow` before any history-dependent work.
+
 ## 12. Unified ledger schema discipline
 
 - Canonical triage memory is `docs/triage/triage.json` in `oss-contributions`, and only there (see section 11).
