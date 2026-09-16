@@ -13,8 +13,11 @@ docs/triage/publications.json    curated prose (never overwritten if curated=tru
  ┌──────┼──────────┬──────────────┬──────────────────┐
  ↓      ↓          ↓              ↓                  ↓
 README  resume.txt LinkedIn src   profile fragment   About description
-                                      ↓
-                               resume.html / DOCX / PDF
+                       ↓
+           ┌──────────┴───────────┐
+           ↓                      ↓
+     master resume DOCX    docs/generated
+  (docs/Devayan_Mandal.docx)  html / DOCX / PDF
 ```
 
 ## One-click
@@ -36,7 +39,7 @@ The same workflow also runs hourly against PRs already tracked as `open` in `tri
 | Resume master | `docs/Devayan_Mandal-resume.txt` | Count + generated merged list |
 | LinkedIn master | `docs/linkedin-all-details.txt` | Count + generated list + representative bullets |
 | Profile fragment | `docs/generated/profile-merged.md` | Alphabetical by repo, PR number ascending |
-| Resume HTML / DOCX / PDF | `docs/generated/` | Printable derived artifacts regenerated from resume.txt |
+| Master resume DOCX | `docs/Devayan_Mandal.docx` | Merged-count sentence and merged bullet list, spliced in place by `scripts/render-resume-docx.py`; hand formatting is preserved |\n| Resume HTML / DOCX / PDF | `docs/generated/` | Printable derived artifacts regenerated from resume.txt |
 | Repository About | GitHub metadata | Count + repo names, 350-char cap |
 
 The GitHub profile README is spliced from `docs/generated/profile-merged.md` by the workflow in `devtechedge/devtechedge`.
@@ -49,7 +52,7 @@ GitHub profile bio, `docs/PATTERNS.md`, `docs/SKILL.md`, `docs/all_repos.md`, `d
 
 Running the workflow once or ten times must produce the same files, no duplicate rows, and no commit when nothing changed.
 
-Merged count in `triage.json` == README badge == resume == LinkedIn == publication records. Every merged PR has a triage row, a publication record, a README row, a resume bullet, a LinkedIn bullet, and a profile entry. If one is missing, the workflow repairs it.
+Merged count in `triage.json` == README badge == resume == LinkedIn == master DOCX == publication records. The DOCX step rewrites the file only when its content actually changes, so an unchanged run still produces no commit. Every merged PR has a triage row, a publication record, a README row, a resume bullet, a LinkedIn bullet, and a profile entry. If one is missing, the workflow repairs it.
 
 ## Curated copy
 
