@@ -48,15 +48,14 @@ MIN_PT = 10.0
 LINE = 1.2207  # Calibri single-line height as a fraction of the point size
 PACK = 0.96  # lines never fill edge to edge; be slightly pessimistic
 
-# The file is written with MARGIN above, but not every reader honours it. Some
-# previewers apply Word's default one inch margins instead, which costs about
-# 15% of the line width and 12% of the height. Content is measured against that
-# pessimistic box so the document is two pages whether or not the reader
-# respects the narrow margins.
-MEASURE_MARGIN = MARGIN
-
-USABLE_W = (PAGE_W - 2 * MEASURE_MARGIN) / 20.0  # points
-USABLE_H = (PAGE_H - 2 * MEASURE_MARGIN) / 20.0
+# The file is written with MARGIN on all four sides and Word honours it. Some
+# previewers substitute their own margins and report an extra page for any
+# document, including the two-page original this replaced. That is a property
+# of the viewer, not something to design the content around; RENDER_SAFETY is
+# the whole allowance. Do not measure against a pessimistic page box: doing so
+# costs roughly twenty percent of the content for no gain in the real target.
+USABLE_W = (PAGE_W - 2 * MARGIN) / 20.0  # points
+USABLE_H = (PAGE_H - 2 * MARGIN) / 20.0
 BUDGET = 2 * USABLE_H  # two pages, in points
 
 BULLET_INDENT = 180  # twips
@@ -314,11 +313,14 @@ SKILL_MERGE = {
     "Practices": "Cloud & DevOps",
 }
 
-# Word paginates this at two pages, but not every reader agrees. Viewers that
-# substitute a wider font for Calibri, or apply their own line spacing, need
-# roughly ten percent more room before they spill onto a third page. Everything
-# is measured as if the content were this much larger so the DOCX stays two
-# pages in Word and in the pickier renderers.
+# Everything is measured as if it were this much larger before it is compared
+# to the budget, which keeps a little slack for readers that substitute a wider
+# font for Calibri or apply their own line spacing. Calibrated in Word: 1.00
+# fills two pages, and Word's own PDF export agrees at 1.06.
+#
+# Keep this small. At 1.12 the open-source section fell from five repositories
+# to three, and the slack buys nothing against viewers that add a page to every
+# document regardless of content.
 RENDER_SAFETY = 1.06
 
 TARGET_FILL = 0.95  # 0.98 fits, 1.00 tips to three pages, so leave headroom
