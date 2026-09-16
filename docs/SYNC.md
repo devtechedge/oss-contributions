@@ -39,10 +39,23 @@ The same workflow also runs hourly against PRs already tracked as `open` in `tri
 | Resume master | `docs/Devayan_Mandal-resume.txt` | Count + generated merged list |
 | LinkedIn master | `docs/linkedin-all-details.txt` | Count + generated list + representative bullets |
 | Profile fragment | `docs/generated/profile-merged.md` | Alphabetical by repo, PR number ascending |
-| Master resume DOCX | `docs/Devayan_Mandal.docx` | Merged-count sentence and merged bullet list, spliced in place by `scripts/render-resume-docx.py`; hand formatting is preserved |\n| Resume HTML / DOCX / PDF | `docs/generated/` | Printable derived artifacts regenerated from resume.txt |
+| Master resume DOCX | `docs/Devayan_Mandal.docx` | Rendered from resume.txt by `scripts/render-resume-docx.py`. Fixed rules: exactly two pages, 0.4 inch margins, nothing below 10pt |
+| Resume HTML / DOCX / PDF | `docs/generated/` | Printable derived artifacts regenerated from resume.txt |
 | Repository About | GitHub metadata | Count + repo names, 350-char cap |
 
 The GitHub profile README is spliced from `docs/generated/profile-merged.md` by the workflow in `devtechedge/devtechedge`.
+
+## The two-page rule
+
+`docs/Devayan_Mandal.docx` is not spliced, it is rendered. `docs/Devayan_Mandal-resume.txt` is the master, so edit the text file, never the DOCX.
+
+Every run the renderer measures the content with real Calibri metrics and fits it to a two-page budget:
+
+1. The open-source section is the shock absorber. It tries full bullets, then condensed one-liners, then a subset plus a `+N more merged upstream PRs across ...` roll-up line.
+2. Only if the hand-written sections still leave no room are they condensed, cheapest first: certifications to one line, small skill categories folded together, then long experience bullets trimmed at clause boundaries.
+3. It targets 95% of the budget. Calibration against Word: 0.98 fits, 1.00 spills to three pages, so the remaining 5% is the error margin.
+
+Font sizes: name 16pt, section headings 10.5pt bold, body 10pt. Margins are 0.4 inch on all four sides.
 
 ## What it does not touch
 
@@ -52,7 +65,9 @@ GitHub profile bio, `docs/PATTERNS.md`, `docs/SKILL.md`, `docs/all_repos.md`, `d
 
 Running the workflow once or ten times must produce the same files, no duplicate rows, and no commit when nothing changed.
 
-Merged count in `triage.json` == README badge == resume == LinkedIn == master DOCX == publication records. The DOCX step rewrites the file only when its content actually changes, so an unchanged run still produces no commit. Every merged PR has a triage row, a publication record, a README row, a resume bullet, a LinkedIn bullet, and a profile entry. If one is missing, the workflow repairs it.
+Merged count in `triage.json` == README badge == resume == LinkedIn == master DOCX == publication records. Every merged PR has a triage row, a publication record, a README row, a resume bullet, a LinkedIn bullet, and a profile entry. If one is missing, the workflow repairs it.
+
+Binary targets are written only when the bytes change. A zip entry's mtime differs on every run, so `render-resume-artifacts.py` pins it to the zip epoch; without that the hourly cron commits an identical DOCX every hour.
 
 ## Curated copy
 
