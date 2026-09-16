@@ -9,6 +9,19 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 
+def write_if_changed(dest: Path, data: bytes) -> bool:
+    """Write only when the bytes differ.
+
+    The sync runs hourly, so an unconditional rewrite commits an identical
+    binary every hour and buries real ledger changes in the history.
+    """
+    if dest.exists() and dest.read_bytes() == data:
+        return False
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_bytes(data)
+    return True
+
+
 def load_resume(root: Path) -> str:
     return (root / "docs" / "Devayan_Mandal-resume.txt").read_text(encoding="utf-8")
 
@@ -55,13 +68,22 @@ def write_docx(text: str, dest: Path) -> None:
   <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
 </Relationships>
 """
-    dest.parent.mkdir(parents=True, exist_ok=True)
     buf = io.BytesIO()
+    # Zip entries carry an mtime. Left at "now" the archive differs on every
+    # run, so write_if_changed can never see a match. Pin it to the zip epoch.
+    epoch = (1980, 1, 1, 0, 0, 0)
+    parts = {
+        "[Content_Types].xml": content_types,
+        "_rels/.rels": rels,
+        "word/document.xml": document,
+    }
     with zipfile.ZipFile(buf, "w", compression=zipfile.ZIP_DEFLATED) as zf:
-        zf.writestr("[Content_Types].xml", content_types)
-        zf.writestr("_rels/.rels", rels)
-        zf.writestr("word/document.xml", document)
-    dest.write_bytes(buf.getvalue())
+        for name, payload in parts.items():
+            info = zipfile.ZipInfo(name, date_time=epoch)
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o600 << 16
+            zf.writestr(info, payload)
+    return write_if_changed(dest, buf.getvalue())
 
 
 def pdf_escape(s: str) -> str:
@@ -132,7 +154,6 @@ def write_pdf(text: str, dest: Path) -> None:
     rebuilt.append(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>")
     objects = rebuilt
 
-    dest.parent.mkdir(parents=True, exist_ok=True)
     out = io.BytesIO()
     out.write(b"%PDF-1.4\n")
     offsets = [0]
@@ -149,7 +170,7 @@ def write_pdf(text: str, dest: Path) -> None:
     out.write(
         f"trailer << /Size {len(objects) + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n".encode()
     )
-    dest.write_bytes(out.getvalue())
+    return write_if_changed(dest, out.getvalue())
 
 
 def main() -> int:
@@ -158,10 +179,10 @@ def main() -> int:
     generated = root / "docs" / "generated"
     docx = generated / "Devayan_Mandal-resume.docx"
     pdf = generated / "Devayan_Mandal-resume.pdf"
-    write_docx(text, docx)
-    write_pdf(text, pdf)
-    print(f"wrote {docx} ({docx.stat().st_size} bytes)")
-    print(f"wrote {pdf} ({pdf.stat().st_size} bytes)")
+    docx_changed = write_docx(text, docx)
+    pdf_changed = write_pdf(text, pdf)
+    print(f"{'wrote' if docx_changed else 'unchanged'} {docx} ({docx.stat().st_size} bytes)")
+    print(f"{'wrote' if pdf_changed else 'unchanged'} {pdf} ({pdf.stat().st_size} bytes)")
     return 0
 
 
