@@ -56,7 +56,7 @@ I build production-grade AI and full-stack systems and contribute fixes upstream
 
 <img src="https://github.com/web-infra-dev.png?size=48" width="32" height="32" alt="Rspress" align="left" /> **[Rspress #3678](https://github.com/web-infra-dev/rspress/pull/3678)** - fixed search initialization racing ahead of asynchronous FlexSearch indexing by awaiting all `addAsync()` operations before initialization resolves, preventing early queries from incorrectly returning no results on larger sites.
 
-<img src="https://github.com/astral-sh.png?size=48" width="32" height="32" alt="ruff" align="left" /> **[ruff #28542](https://github.com/astral-sh/ruff/pull/28542)** - pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.
+<img src="https://github.com/astral-sh.png?size=48" width="32" height="32" alt="Astral" align="left" /> **[ruff #28542](https://github.com/astral-sh/ruff/pull/28542)** - PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.
 
 <img src="https://github.com/SQLMesh.png?size=48" width="32" height="32" alt="SQLMesh" align="left" /> **[SQLMesh #6040](https://github.com/SQLMesh/sqlmesh/pull/6040)** - fixed a concurrency race in `sqlmesh test` involving `time_machine` and worker threads.
 

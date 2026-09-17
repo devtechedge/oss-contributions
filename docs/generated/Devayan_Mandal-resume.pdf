@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5403 >>
+<< /Length 5397 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (SPECTRAL QUANTITATIVE TRADING) Tj T*
@@ -105,8 +105,8 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
-(- astral-sh/ruff #28542 \(TypeScript\) - pYI002 diagnostic in complex_if_statement_in_stub.rs) Tj T*
-(now names the stub-file context, so if tests in .pyi files report as needing a simple) Tj T*
+(- astral-sh/ruff #28542 \(Rust\) - PYI002 diagnostic in complex_if_statement_in_stub.rs now) Tj T*
+(names the stub-file context, so if tests in .pyi files report as needing a simple) Tj T*
 (comparison against sys.platform or sys.version_info instead of reading as a claim about the) Tj T*
 (flagged test itself. Merged Sep 2026. github.com/astral-sh/ruff/pull/28542) Tj T*
 (- leo-aa88/reviewgate #144 \(Python\) - adds a configurable excessive code-comment verbosity) Tj T*
@@ -238,10 +238,10 @@ xref
 0000000253 00000 n 
 0000004897 00000 n 
 0000005023 00000 n 
-0000010478 00000 n 
-0000010604 00000 n 
-0000014912 00000 n 
+0000010472 00000 n 
+0000010598 00000 n 
+0000014906 00000 n 
 trailer << /Size 10 /Root 1 0 R >>
 startxref
-14982
+14976
 %%EOF
