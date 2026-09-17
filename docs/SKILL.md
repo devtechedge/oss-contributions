@@ -37,7 +37,7 @@ https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/PATTER
 Platform notes:
 
 - **WorkBuddy / zcode**: run `~/.agents/skills/oss/sync-from-github.py` (or `.sh`) after any push. It rewrites canonical and rebuilds the Grok zip.
-- **grok.com**: upload `dist/oss.zip` produced by that script (`oss/SKILL.md` + `oss/references/PATTERNS.md`). Re-upload after every change; Grok snapshots the upload and will not see later edits.
+- **grok.com**: upload `dist/oss.zip` produced by that script (`oss/SKILL.md` + `oss/references/PATTERNS.md`). Re-upload after every change; Grok snapshots the upload and will not see later edits. The agent has no API or OAuth path into personal grok.com skills (xAI exposes none - checked Sep 2026), so it cannot perform this upload itself: end every skill-edit turn with the explicit reminder to re-upload `~/.agents/skills/oss/dist/oss.zip`, and never treat the turn as done without printing it.
 - **Codex / ChatGPT**: store the bootstrap snippet in project or memory instructions so it fetches both URLs before starting work.
 
 Bootstrap snippet for any platform:
