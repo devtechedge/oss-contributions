@@ -32,7 +32,7 @@ https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/PATTER
 1. **Edit only the GitHub copies.** Local mirrors (`~/.agents/skills/oss/`, a Grok upload, a Codex project file) are derivatives. A change made to a derivative is lost on the next sync.
 2. **Refetch at the start of every PR session.** If the copy you are reading did not come from those URLs during this session, fetch them and follow what comes back. Working from a stale mirror is a real failure mode, not a hypothetical: a session on an older copy did not know section 13 existed and hand-edited publication targets.
 3. Raw is a CDN cache. It can serve a stale or truncated body with a 200 and no error, so an empty-body check is not enough: compare the fetched byte count against `gh api repos/devtechedge/oss-contributions/contents/<path> --jq .size` and refetch through the contents API when they differ (16 Sep 2026: raw served PATTERNS.md at 46,510 bytes while the API reported 60,916, a 24 percent silent truncation). Never proceed on an empty or truncated file.
-4. After editing either file, push to `docs/` in the same turn (section 8.4) and let the propagator rebuild the local mirrors.
+4. After editing either file, push to `docs/` in the same turn (section 8.4), then run `~/.agents/skills/oss/sync-from-github.py` in the same turn and verify `dist/oss.zip` carries the change - the zip is a build artifact that goes stale on every push, so no skill edit is done until the zip is rebuilt and verified (standing user directive, 17 Sep 2026).
 
 Platform notes:
 
