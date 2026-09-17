@@ -541,17 +541,19 @@
       "merge_commit": "370949487234ad0dc17a6e4c1fc7d66c4029b515",
       "issue": 27324,
       "url": "https://github.com/astral-sh/ruff/pull/28542",
-      "languages": [],
+      "languages": [
+        "Rust"
+      ],
       "org": "astral-sh",
       "display_name": "ruff",
       "profile_title": "ruff #28542",
       "ledger_logo": "https://github.com/astral-sh.png?size=40",
       "profile_logo": "https://github.com/astral-sh.png?size=48",
-      "profile_logo_alt": "ruff",
+      "profile_logo_alt": "Astral",
       "ledger_what": "PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
-      "resume_bullet": "astral-sh/ruff #28542 (TypeScript) - pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself. Merged Sep 2026. github.com/astral-sh/ruff/pull/28542",
-      "linkedin_bullet": "astral-sh/ruff #28542 - pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
-      "profile_line": "pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
+      "resume_bullet": "astral-sh/ruff #28542 (Rust) - PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself. Merged Sep 2026. github.com/astral-sh/ruff/pull/28542",
+      "linkedin_bullet": "astral-sh/ruff #28542 - PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
+      "profile_line": "PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
       "curated": true
     }
   ]
