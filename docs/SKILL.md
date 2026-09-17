@@ -76,7 +76,7 @@ Upstream PR work is recorded on the unified ledger repo. The README lists merged
 
 - Act (comment, open PRs, request review) only as the authorized OSS account. Never post as any other account.
 - Never comment, open a PR, or request review without permission in that turn, or a batch authorization covering those exact targets. A batch such as "open N uncontested PRs" covers uncontested in-scope targets only: no contested pile-ons, no tracker edits unless named.
-- **Comment approval gate:** always ask before posting any PR comment, issue reply, or review: show the full text to the user as a draft and wait for explicit approval of that exact text, every time, no exceptions. A general go-ahead such as "work on this" authorizes the work, not the post; the draft still needs its own approval in the turn it would be posted. Post the approved text verbatim.
+- **Comment approval gate:** always ask before posting any PR comment, issue reply, or review: show the full text to the user as a draft and wait for explicit approval of that exact text, every time, no exceptions. A general go-ahead such as "work on this" authorizes the work, not the post; the draft still needs its own approval in the turn it would be posted. Post the approved text verbatim. Never ask for posting approval before the draft exists and is shown: a "yes" to a blind should-I-post question is not approval of any text.
 - **Copy-pastable comment block:** whenever you draft, post, or fail to post a PR comment, issue reply, or review, always include a copy-pastable fenced code block of the exact GitHub markdown. Preserve blank lines, inline code, and paragraph breaks so the user can paste it into GitHub without reformatting. Use a fence longer than any backtick run inside the comment (four backticks wrapping the body, or a `~~~~` fence) so inner backticks stay intact. Required even when the agent posts successfully.
 
 - **Verify after posting:** fetch the posted comment back from the API in the same turn and diff it against the approved text. A mis-built body posts successfully and returns 201 while carrying the wrong content, so a success response proves nothing about what landed. Case (stellar/stellar-docs#2768, 16 Sep 2026): a claim comment went out containing only a local temp file path, and the thread read as bot noise for days before it was caught and rewritten. Never report a comment as posted until the fetched body matches, and treat a body that is a path, empty, or truncated as a failed post to redo.
@@ -204,7 +204,8 @@ Every PR run ends with a retrospective when the session's active work is done - 
    - Repo-specific facts (no-gos, saturation, gate evidence, branch names worth preserving) go to the canonical `docs/triage/triage.json` in the ledger repo, never to PATTERNS.md.
    - Keep entries terse and dated where rot is possible; every pattern is a hypothesis to re-verify, not a permanent truth.
 4. Sync the ledger mirrors: after editing SKILL.md or PATTERNS.md, push the updated copies to `docs/SKILL.md` / `docs/PATTERNS.md` in `oss-contributions` (see sections 10 and 11; temp payloads deleted the same turn, nothing else written locally) so portable agent context stays accurate.
-5. Only then retire the session. The next PR run starts from the updated playbook.
+5. Close the loop with the user: end the conversation by asking whether they picked up any learnings or improvements to this playbook from the run, and write anything they offer per step 3 in the turn it is offered.
+6. Only then retire the session. The next PR run starts from the updated playbook.
 
 ## 9. Email triage (OSS inbox)
 
