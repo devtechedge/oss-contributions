@@ -312,16 +312,17 @@
     {
       "repo": "astral-sh/ruff",
       "number": 28542,
-      "status": "open",
-      "mergeable": false,
-      "opened": "2026-09-12",
+      "status": "merged",
       "last_checked": "2026-09-17",
       "issue": 27324,
       "requested_reviewers": [
         "ntBre"
       ],
       "do_not_duplicate": true,
-      "summary": "PYI002 diagnostic reworded to name the stub-file context; message-only, behavior unchanged."
+      "summary": "PYI002 diagnostic reworded to name the stub-file context; message-only, behavior unchanged.",
+      "merged": "2026-09-17",
+      "merge_commit": "370949487234ad0dc17a6e4c1fc7d66c4029b515",
+      "merged_at": "2026-09-17T14:36:43Z"
     },
     {
       "repo": "better-auth/better-auth",
@@ -1202,12 +1203,14 @@
     {
       "repo": "astral-sh/ruff",
       "number": 27324,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         28542
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-17",
+      "note": "Closed by merged PR #28542 (3709494)."
     },
     {
       "repo": "better-auth/better-auth",

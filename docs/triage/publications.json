@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-17",
-  "merged_count": 21,
+  "merged_count": 22,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -530,6 +530,28 @@
       "resume_bullet": "leo-aa88/reviewgate #144 (Python) - adds a configurable excessive code-comment verbosity check to the core review engine: three signals computed from added patch lines only, so a PR is never penalised for comments it did not touch, with a single-pass lexer that tracks string literals, heredocs and template literals so runtime data is never counted as commentary. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/144",
       "linkedin_bullet": "leo-aa88/reviewgate #144 - adds a configurable excessive code-comment verbosity check to the core review engine: three signals computed from added patch lines only, so a PR is never penalised for comments it did not touch, with a lexer that tracks string literals, heredocs and template literals so runtime data is never counted as commentary",
       "profile_line": "adds a configurable excessive code-comment verbosity check computed from added patch lines only: `oversized_comment_block`, `excessive_comment_lines` and `comment_heavy_diff` are derived by a single-pass lexer that tracks string literals, block comments, template literals, shell heredocs and Python triple-quoted strings, so runtime data is never counted as commentary",
+      "curated": true
+    },
+    {
+      "id": "astral-sh/ruff#28542",
+      "repo": "astral-sh/ruff",
+      "number": 28542,
+      "merged": true,
+      "merged_at": "2026-09-17T14:36:43Z",
+      "merge_commit": "370949487234ad0dc17a6e4c1fc7d66c4029b515",
+      "issue": 27324,
+      "url": "https://github.com/astral-sh/ruff/pull/28542",
+      "languages": [],
+      "org": "astral-sh",
+      "display_name": "ruff",
+      "profile_title": "ruff #28542",
+      "ledger_logo": "https://github.com/astral-sh.png?size=40",
+      "profile_logo": "https://github.com/astral-sh.png?size=48",
+      "profile_logo_alt": "ruff",
+      "ledger_what": "PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
+      "resume_bullet": "astral-sh/ruff #28542 (TypeScript) - pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself. Merged Sep 2026. github.com/astral-sh/ruff/pull/28542",
+      "linkedin_bullet": "astral-sh/ruff #28542 - pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
+      "profile_line": "pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
       "curated": true
     }
   ]

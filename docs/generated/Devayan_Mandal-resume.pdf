@@ -22,7 +22,7 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Forward Deployed AI Engineer with 10 years of self-directed production work and 30+ shipped) Tj T*
 (systems across multi-agent platforms, MCP integrations, deterministic RL evaluation, and) Tj T*
-(real-time infrastructure. Merged 21 upstream pull requests across TypeScript, Python, and) Tj T*
+(real-time infrastructure. Merged 22 upstream pull requests across TypeScript, Python, and) Tj T*
 (Rust in widely used projects including Biome, pnpm, and node-postgres, owning each change) Tj T*
 (from root cause through tests, review, and release.) Tj T*
 ( ) Tj T*
@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5392 >>
+<< /Length 5403 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (SPECTRAL QUANTITATIVE TRADING) Tj T*
@@ -105,6 +105,10 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
+(- astral-sh/ruff #28542 \(TypeScript\) - pYI002 diagnostic in complex_if_statement_in_stub.rs) Tj T*
+(now names the stub-file context, so if tests in .pyi files report as needing a simple) Tj T*
+(comparison against sys.platform or sys.version_info instead of reading as a claim about the) Tj T*
+(flagged test itself. Merged Sep 2026. github.com/astral-sh/ruff/pull/28542) Tj T*
 (- leo-aa88/reviewgate #144 \(Python\) - adds a configurable excessive code-comment verbosity) Tj T*
 (check to the core review engine: three signals computed from added patch lines only, so a) Tj T*
 (PR is never penalised for comments it did not touch, with a single-pass lexer that tracks) Tj T*
@@ -150,10 +154,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (- web-infra-dev/rspress #3678 \(TypeScript\) - fixed a Search initialization race by awaiting) Tj T*
 (FlexSearch addAsync indexing before LocalProvider.init\(\) resolves, preventing early) Tj T*
 (searches from incorrectly returning no results on larger sites; focused regression-oriented) Tj T*
-(fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678) Tj T*
-(- recharts/recharts #7805 \(TypeScript\) - removed tabIndex={-1} from z-index portal SVG <g>) Tj T*
-(layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced) Tj T*
-(focus rings; added regression coverage asserting no layer carries a tabindex attribute.) Tj T*
 ET
 endstream
 endobj
@@ -161,9 +161,13 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 3888 >>
+<< /Length 4256 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
+(fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678) Tj T*
+(- recharts/recharts #7805 \(TypeScript\) - removed tabIndex={-1} from z-index portal SVG <g>) Tj T*
+(layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced) Tj T*
+(focus rings; added regression coverage asserting no layer carries a tabindex attribute.) Tj T*
 (Merged Sep 2026. github.com/recharts/recharts/pull/7805) Tj T*
 (- brianc/node-postgres #3772 \(JavaScript\) - stopped Connection.sync\(\) from incorrectly) Tj T*
 (setting the internal _ending flag, preventing false suppression of subsequent socket) Tj T*
@@ -234,10 +238,10 @@ xref
 0000000253 00000 n 
 0000004897 00000 n 
 0000005023 00000 n 
-0000010467 00000 n 
-0000010593 00000 n 
-0000014533 00000 n 
+0000010478 00000 n 
+0000010604 00000 n 
+0000014912 00000 n 
 trailer << /Size 10 /Root 1 0 R >>
 startxref
-14603
+14982
 %%EOF
