@@ -1054,6 +1054,22 @@
       "commit": "58c997c",
       "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` §10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. §12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
       "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144."
+    },
+    {
+      "branch": "fix/314-subslice-offset",
+      "ci_note": "mergeable true, mergeable_state blocked, CI run action_required (first-contribution approval gate on fork PRs, same as #319 in this repo): a maintainer must approve the run before any check reports. rust-ci.yml is the only workflow. No red check; do not push again to trigger it. Verified 2026-09-17.",
+      "ci_status": "action_required",
+      "commit": "7fe3cbd",
+      "do_not_duplicate": true,
+      "issue": 314,
+      "last_checked": "2026-09-17",
+      "mergeable": true,
+      "number": 320,
+      "opened": "2026-09-17",
+      "ping_date": null,
+      "repo": "EmbarkStudios/cargo-about",
+      "status": "open",
+      "summary": "Fixes #314 (synthesize_manifest used subslice offsets to index the full manifest). In src/licenses/resolution.rs the insert position computed relative to &existing[pkg+5..] is rebased with the subslice base before indexing existing, and the returned offset still points at the start of the expression. Added mid-file #[cfg(test)] mod synthesize_offset_tests (distinct name and placement from #319's end-of-file mod test so the two PRs cannot conflict): multibyte CRLF manifest test panics before with is_char_boundary at resolution.rs:86 and passes after; ASCII LF test corrupts the edition value before and passes after with a TOML round-trip check. cargo fmt clean; clippy reports only the pre-existing collapsible_if at src/lib.rs:399 (clippy 1.98 drift, untouched). Head commit 7fe3cbd signed, verified by GitHub."
     }
   ],
   "issues": [
@@ -2118,6 +2134,18 @@
         2925
       ],
       "note": "Maintainer janbuchar redirected the fix away from setValue/useState and onto RecoverableState, opening #4131 on 2026-09-16 which closes this issue. Earlier community PR #2925 (big-json approach) was closed unmerged on 2025-06-20. We have no PR in apify/crawlee: only a 2026-09-11 comment asking whether a narrowed fix would be welcome, which the maintainer answered with the redirect. Do not open a setValue/useState streaming fix - it duplicates a maintainer PR that closes the issue."
+    },
+    {
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-17",
+      "note": "Claimed with PR #320 on 2026-09-17. Opened 2026-08-25 by yu7400ki, label bug, no assignee, 0 comments, timeline showed only a labeled event, no competing PR (only open PRs are #318 NOTICE collection and our own #319 on sibling issue #315). Sibling of #315 in synthesize_manifest (src/licenses/resolution.rs): offsets relative to the &existing[pkg+5..] subslice were used to index the full manifest, landing 5 bytes early (UTF-8 panic or silent corruption). Fix adds the subslice base back; regression tests panic/fail before and pass after. Distinct branch fix/314-subslice-offset; test module placed mid-file with allow(clippy::items_after_test_module) so the diff cannot conflict with #319's end-of-file test module.",
+      "number": 314,
+      "related_prs": [
+        320
+      ],
+      "repo": "EmbarkStudios/cargo-about",
+      "status": "open"
     }
   ],
   "closed_attempts": [
@@ -2706,7 +2734,8 @@
     },
     "EmbarkStudios/cargo-about": {
       "contributions": [
-        319
+        319,
+        320
       ],
       "focus": "Rust cargo plugin that generates license listings; license resolution and cargo manifest synthesis."
     },
