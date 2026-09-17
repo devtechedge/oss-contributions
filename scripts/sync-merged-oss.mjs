@@ -357,10 +357,28 @@ function oxford(list) {
   return `${list.slice(0, -1).join(", ")}, and ${list[list.length - 1]}`;
 }
 
+const ABOUT_HARD_CAP = 340;
+
 function aboutDescription(n, recs) {
   const names = uniqueRepos(recs);
-  const base = `Public ledger of upstream open-source contributions across Web3 and non-Web3 projects. ${n} merged contributions across ${oxford(names)}, spanning TypeScript, Rust, Python, developer tooling, frameworks, databases, concurrency, portability, security, accessibility, search, and`;
-  return base.slice(0, 350);
+  const covering = ", covering SDKs, tooling, frameworks, databases, docs and concurrency fixes";
+  const prefix = `Public ledger of upstream open-source contributions: ${n} merged pull requests across TypeScript, Rust and Python. Merged into `;
+  const commaAnd = (list) => {
+    if (list.length === 0) return "";
+    if (list.length === 1) return list[0];
+    return `${list.slice(0, -1).join(", ")} and ${list[list.length - 1]}`;
+  };
+  const candidates = [
+    `${prefix}${oxford(names)}${covering}.`,
+    `${prefix}${oxford(names)}.`,
+  ];
+  for (let k = names.length - 1; k >= 1; k--) {
+    candidates.push(`${prefix}${commaAnd(names.slice(0, k))} and more.`);
+  }
+  for (const c of candidates) {
+    if (c.length <= ABOUT_HARD_CAP) return c;
+  }
+  throw new Error(`aboutDescription overflow: even minimal form is ${candidates[candidates.length - 1].length} chars (cap ${ABOUT_HARD_CAP})`);
 }
 
 function publishReadme(root, recs, n, dryRun) {
