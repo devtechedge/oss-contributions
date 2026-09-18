@@ -539,6 +539,102 @@ ${bullets}
   return { file, changed: writeIfChanged(file, html) };
 }
 
+const WELLFOUND_BIO_CAP = 160;
+const WELLFOUND_ACHIEVEMENTS_CAP = 1000;
+const WELLFOUND_BIO_NAMES = ["pnpm", "Biome", "Recharts", "Stellar"];
+
+function wellfoundBioNames(recs) {
+  const hay = recs
+    .map((r) => `${r.repo} ${r.display_name || ""} ${r.profile_title || ""}`.toLowerCase())
+    .join("\n");
+  const picked = WELLFOUND_BIO_NAMES.filter((nm) => hay.includes(nm.toLowerCase()));
+  for (const nm of uniqueRepos(recs)) {
+    if (!picked.includes(nm)) picked.push(nm);
+  }
+  return picked;
+}
+
+function wellfoundBio(n, recs) {
+  const head = `Full Stack & AI Engineer building multi-agent systems & deterministic state machines in Rust, TS & Python. ${n} PRs merged into `;
+  const pool = wellfoundBioNames(recs);
+  for (let k = pool.length; k >= 1; k--) {
+    const tail = pool.slice(0, k);
+    const joined =
+      tail.length === 1
+        ? tail[0]
+        : tail.length === 2
+          ? tail.join(" & ")
+          : `${tail.slice(0, -1).join(", ")} & ${tail[tail.length - 1]}`;
+    const bio = `${head}${joined}.`;
+    if (bio.length <= WELLFOUND_BIO_CAP) return bio;
+  }
+  throw new Error(`wellfound BIO: cannot fit even one repo name in ${WELLFOUND_BIO_CAP} chars`);
+}
+
+function wellfoundGroupSummary(repo, group, pubs) {
+  const first = [...group].sort(sortLedger)[0];
+  const name = first.display_name || defaultDisplayName(repo);
+  const override = pubs.repos?.[repo]?.linkedin_representative;
+  const raw = override || defaultLinkedinRep(first);
+  const prefix = `${name} - `;
+  const summary = raw.startsWith(prefix) ? raw.slice(prefix.length) : raw.replace(/^[^-]{1,40} - /, "");
+  return summary.endsWith(".") ? summary : `${summary}.`;
+}
+
+function renderWellfoundMerged(recs, pubs) {
+  const byRepo = new Map();
+  for (const rec of recs) {
+    if (!byRepo.has(rec.repo)) byRepo.set(rec.repo, []);
+    byRepo.get(rec.repo).push(rec);
+  }
+  const repoOrder = [...byRepo.keys()].sort((a, b) => {
+    const aa = [...byRepo.get(a)].sort(sortLedger)[0];
+    const bb = [...byRepo.get(b)].sort(sortLedger)[0];
+    return sortLedger(aa, bb);
+  });
+  return repoOrder
+    .map((repo) => {
+      const group = [...byRepo.get(repo)].sort(sortLedger);
+      const nums = group.map((r) => `#${r.number}`).join(", ");
+      const langs = [...new Set(group.flatMap((r) => r.languages || []))].join("/");
+      const detail =
+        group.length === 1 ? `(${langs})` : langs ? `(${langs}, ${group.length} PRs)` : `(${group.length} PRs)`;
+      return `- ${repo} ${nums} ${detail}: ${wellfoundGroupSummary(repo, group, pubs)}`;
+    })
+    .join("\n");
+}
+
+function renderWellfound(text, recs, n, pubs) {
+  const repos = uniqueRepos(recs).length;
+  const bio = wellfoundBio(n, recs);
+  const merged = renderWellfoundMerged(recs, pubs);
+  const descRe =
+    /Independent upstream contributor to developer tooling, frameworks, databases, and Web3 SDKs\. \d+ pull requests merged into \d+ projects, each one root-caused from the issue, shipped with regression tests, and handed to the maintainer\./;
+  if (!descRe.test(text)) throw new Error("wellfound: experience description anchor not found");
+  text = text.replace(
+    descRe,
+    `Independent upstream contributor to developer tooling, frameworks, databases, and Web3 SDKs. ${n} pull requests merged into ${repos} projects, each one root-caused from the issue, shipped with regression tests, and handed to the maintainer.`,
+  );
+  const bioRe = /(BIO \(160 character limit\)\n\n)[^\n]*(\n\n+WORK EXPERIENCE)/;
+  if (!bioRe.test(text)) throw new Error("wellfound: BIO anchor not found");
+  text = text.replace(bioRe, `$1${bio}$2`);
+  const mergedRe = /(MERGED \(most recent first\)\n\n)[\s\S]*?(\n\nMethod:)/;
+  if (!mergedRe.test(text)) throw new Error("wellfound: MERGED anchor not found");
+  text = text.replace(mergedRe, `$1${merged}$2`);
+  const achRe = /Getting \d+ pull requests merged/;
+  if (!achRe.test(text)) throw new Error("wellfound: achievements anchor not found");
+  text = text.replace(achRe, `Getting ${n} pull requests merged`);
+  return text;
+}
+
+function publishWellfound(root, recs, n, pubs, dryRun) {
+  const file = path.join(root, "docs/wellfound.txt");
+  const prev = fs.readFileSync(file, "utf8");
+  const text = renderWellfound(prev, recs, n, pubs);
+  if (dryRun) return { file, changed: text !== prev };
+  return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
+}
+
 function escapeHtml(s) {
   const map = {
     "&": "&" + "amp;",
@@ -586,6 +682,20 @@ function validate(triage, recs, files) {
       .replace(/\n{3,}/g, "\n\n")
       .trim();
     if (paste.length > 1990 || paste.length < 1980) problems.push(`linkedin Experience paste=${paste.length} outside 1980-1990 window`);
+  }
+  const wfText = (files.find(([label]) => label === "wellfound") || [])[1] || "";
+  if (wfText) {
+    const bioLine = wfText.match(/BIO \(160 character limit\)\n\n([^\n]*)/);
+    if (bioLine && bioLine[1].length > WELLFOUND_BIO_CAP)
+      problems.push(`wellfound BIO=${bioLine[1].length} over ${WELLFOUND_BIO_CAP}`);
+    const achBlock = wfText.match(/ACHIEVEMENTS \(1000 character limit\)\n\n([\s\S]*?)\n\nQ&A/);
+    if (achBlock && achBlock[1].trim().length > WELLFOUND_ACHIEVEMENTS_CAP)
+      problems.push(`wellfound achievements=${achBlock[1].trim().length} over ${WELLFOUND_ACHIEVEMENTS_CAP}`);
+    const wfCount = wfText.match(/(\d+) pull requests merged into \d+ projects/);
+    if (wfCount && Number(wfCount[1]) !== n) problems.push(`wellfound count=${wfCount[1]} expected=${n}`);
+    for (const rec of recs) {
+      if (!wfText.includes(`#${rec.number}`)) problems.push(`wellfound missing ${rec.repo}#${rec.number}`);
+    }
   }
   return problems;
 }
@@ -852,6 +962,7 @@ async function main() {
   writes.push(publishExperiencePaste(root, args.dryRun));
   writes.push(publishProfileReadme(root, recs, args.dryRun));
   writes.push(publishResumeHtml(root, recs, n, args.dryRun));
+  writes.push(publishWellfound(root, recs, n, pubs, args.dryRun));
 
   if (!args.dryRun) {
     const py = path.join(root, "scripts/render-resume-artifacts.py");
@@ -900,6 +1011,7 @@ async function main() {
     ["README", fs.readFileSync(path.join(root, "README.md"), "utf8")],
     ["resume", fs.readFileSync(path.join(root, "docs/Devayan_Mandal-resume.txt"), "utf8")],
     ["linkedin", fs.readFileSync(path.join(root, "docs/linkedin-all-details.txt"), "utf8")],
+    ["wellfound", fs.readFileSync(path.join(root, "docs/wellfound.txt"), "utf8")],
     ["profile-fragment", fs.existsSync(path.join(root, "docs/generated/profile-merged.md"))
       ? fs.readFileSync(path.join(root, "docs/generated/profile-merged.md"), "utf8")
       : fs.existsSync(path.join(root, "docs/generated/profile-README.md"))
