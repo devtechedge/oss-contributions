@@ -594,46 +594,57 @@ function ownShort(own) {
   return cut ? `${own.featured.name} (${cut})` : own.featured.name;
 }
 
+function ownName(own) {
+  if (!own || !own.featured) return "my open-source repos";
+  return own.featured.name;
+}
+
+function capWords(s, max) {
+  const t = String(s || "");
+  if (t.length <= max) return t;
+  return t.slice(0, max).replace(/\s+\S*$/, "") + "...";
+}
+
 const WELLFOUND_QA = [
   {
     q: "If money were not an issue, what would you be doing right now?",
     a: (ctx) =>
-      `Exactly what I'm doing now: building open-source AI infrastructure, multi-agent systems, and deterministic state engines in Rust/TS. Right now that is ${ctx.n} merged upstream pull requests, latest ${ctx.latest.repo} #${ctx.latest.number} (${ctx.latest.short}), alongside ${ownShort(ctx.own)}. I'd just do it with unlimited compute, funding open eval benchmarks and frontier developer tooling.`,
+      `Exactly what I'm doing now: building open-source AI infrastructure and multi-agent systems in Rust/TS. That is ${ctx.n} merged upstream PRs plus ${ownName(ctx.own)} on my own repos. I'd just do it with unlimited compute, funding open eval benchmarks.`,
   },
   {
     q: "What words of advice would you give your younger self?",
     a: (ctx) =>
-      `Go lower down the stack earlier. Don't fear the low-level abstractions or math - master Rust, state machines, and system fundamentals before chasing high-level abstractions. And trust the unconventional pivot from chemical engineering. That bet compounds: ${ctx.n} upstream merges so far, most recently ${ctx.latest.repo} #${ctx.latest.number}.`,
+      `Go lower down the stack earlier. Master Rust, state machines, and system fundamentals before chasing high-level abstractions. And trust the pivot from chemical engineering. That bet compounds: ${ctx.n} upstream merges so far.`,
   },
   {
     q: "What's the most creative thing you've ever done?",
     a: (ctx) =>
-      `Built a real-time SVG topology chaos simulator to visualize dynamic network degradation. Turning abstract distributed system failures into an interactive visual playground made complex reliability testing intuitive and engaging. Most recently I shipped ${ownShort(ctx.own)}.`,
+      `Built a real-time SVG topology chaos simulator for visualizing network degradation. Most recently I shipped ${ownName(ctx.own)} (github.com/devtechedge).`,
   },
   {
     q: "Which founders or startups do you most admire?",
     a: (ctx) =>
-      `Prime Intellect for democratizing decentralized compute and RLVR evals, and Anthropic for pioneering protocol standards like MCP. I admire teams building hard AI infrastructure and deterministic systems over surface-level hype. My own bar is the same: ${ctx.n} upstream merges into ${joinNames(wellfoundBioNames(ctx.recs).slice(0, 4))}, infrastructure over hype.`,
+      `Prime Intellect for decentralized compute and RLVR evals, Anthropic for MCP. I admire teams building hard AI infrastructure over hype. My bar is the same: ${ctx.n} upstream merges and counting.`,
   },
   {
     q: "What's your super power?",
     a: (ctx) =>
-      `Eliminating LLM non-determinism. I turn chaotic multi-agent interactions into verifiable, state-machine-driven systems through low-level infrastructure hardening, custom RLVR evals, and deep open-source debugging. Latest evidence: ${ctx.latest.repo} #${ctx.latest.number}, ${ctx.latest.short}.`,
+      `Eliminating LLM non-determinism: verifiable, state-machine-driven multi-agent systems through low-level hardening and custom RLVR evals. Latest evidence: ${ctx.latest.repo} #${ctx.latest.number}.`,
   },
   {
     q: "What's the best way for people to get in touch with you?",
     a: (ctx) =>
-      `Email is best: devayanmandal@gmail.com. You can also reach out on LinkedIn: https://www.linkedin.com/in/dev-ma/ Or, message me directly here on Wellfound. I keep notifications active and usually respond within 24 hours. My current upstream record (${ctx.n} merged PRs) is at github.com/devtechedge/oss-contributions.`,
+      `Email is best: devayanmandal@gmail.com. LinkedIn: https://www.linkedin.com/in/dev-ma. Or message me here on Wellfound; I usually respond within 24 hours. Upstream record: github.com/devtechedge/oss-contributions.`,
   },
   {
     q: "What words of wisdom do you live by?",
     a: (ctx) =>
-      `"First principles over hype, determinism over magic." Always engineer below the abstraction layer. Real software reliability comes from understanding the mechanics, eliminating non-determinism, and building simple foundations that withstand chaos. Recent example: ${ctx.latest.repo} #${ctx.latest.number} (${ctx.latest.short}).`,
+      `"First principles over hype, determinism over magic." Engineer below the abstraction layer. Recent example: ${ctx.latest.repo} #${ctx.latest.number} (${capWords(ctx.latest.short, 80)}).`,
   },
   {
     q: "What aspects of your work are you most passionate about?",
     a: (ctx) =>
-      `Hardening low-level AI infrastructure and bringing order to chaotic multi-agent systems. I love engineering deterministic state engines, verifiable RLVR eval suites, and contributing directly upstream to foundational open-source toolchains. Right now that is ${ctx.latest.repo} #${ctx.latest.number} upstream and ${ownShort(ctx.own)} on my own repos (github.com/devtechedge).`,
+      `Hardening low-level AI infrastructure: deterministic state engines, verifiable RLVR eval suites, upstream OSS tooling. Right now: ${ctx.latest.repo} #${ctx.latest.number} and ${ownName(ctx.own)} (github.com/devtechedge).`,
   },
 ];
 
@@ -753,6 +764,20 @@ function validate(triage, recs, files, pubs, own) {
     }
     const qaBlock = wfText.slice(wfText.indexOf("Q&A"));
     const latestRec = [...recs].sort(sortLedger)[0];
+    const qaCtx = {
+      n,
+      recs,
+      latest: {
+        repo: latestRec.repo,
+        number: latestRec.number,
+        short: shortInline(wellfoundGroupSummary(latestRec.repo, [latestRec], pubs)),
+      },
+      own: own || null,
+    };
+    for (const item of WELLFOUND_QA) {
+      const len = item.a(qaCtx).trim().length;
+      if (len > 250) problems.push(`wellfound Q&A over 250: ${item.q.slice(0, 40)}=${len}`);
+    }
     for (const item of WELLFOUND_QA) {
       if (!qaBlock.includes(item.q)) problems.push(`wellfound Q&A question missing: ${item.q.slice(0, 40)}`);
     }
