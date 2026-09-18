@@ -9,11 +9,17 @@ I am a Full Stack AI Native and Forward Deployed AI Engineer building production
 
 My engineering focus is bounded autonomy: explicit state machines over opaque prompt chains, deterministic evaluation over fuzzy judgment, validated retrieval and memory over ungrounded generation, and observable execution with clear human oversight.
 
-I have built and shipped 30+ production-grade systems spanning autonomous agents, MCP integrations, RLVR evaluation environments, real-time telemetry, developer tooling, Web3 infrastructure, and high-throughput web applications. I own the full lifecycle from architecture and implementation through testing, deployment, observability, iteration, and upstream contribution.
+I have built and shipped 30+ production-grade systems spanning autonomous agents, MCP integrations, RLVR evaluation environments, real-time telemetry, developer tooling, Web3 infrastructure, and high-throughput web applications.
 
-Flagship systems include AEGIS, an enterprise AI operations cortex with supervisor routing and live SSE telemetry, Synthesis, an autonomous research platform with Reflexion and HITL approval, AAROP, an inspectable reasoning engine with 99 percent Python test coverage, Veritas, a grounded research agent with configurable retrieval, Cadence, a framework-free healthcare agent with five-layer clinical memory, Chaos Simulator, a real-time chaos engineering platform, and Jobrow, a production job platform indexing 5,000 plus open roles.
+I own the full lifecycle from architecture and implementation through testing, deployment, observability, iteration, and upstream contribution.
 
-I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure. My canonical public contribution ledger records 24 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress. My production stack is Next.js, React, TanStack, FastAPI, Node.js, Drizzle ORM, PostgreSQL, Supabase, and Vercel, with SSE and WebSockets for live dashboards, GitHub Actions for delivery, and replayable traces plus evaluation gates built in.
+Flagship systems include AEGIS, an enterprise AI operations cortex with supervisor routing and SSE telemetry, Synthesis, an autonomous research platform with Reflexion and HITL approval, AAROP, an inspectable reasoning engine with 99 percent Python test coverage, Veritas, a grounded research agent with configurable retrieval, Cadence, a framework-free healthcare agent with five-layer clinical memory, Chaos Simulator, a real-time chaos engineering platform, and Jobrow, a job platform indexing 5,000 plus open roles.
+
+I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure.
+
+My canonical public contribution ledger records 24 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+
+My production stack is Next.js, React, TanStack, FastAPI, Node.js, Drizzle ORM, PostgreSQL, Supabase, and Vercel, with SSE and WebSockets for live dashboards, GitHub Actions for delivery, and replayable traces plus evaluation gates built in.
 
 WHAT I BUILD & ARCHITECT
 
