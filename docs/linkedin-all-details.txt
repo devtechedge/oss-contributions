@@ -104,7 +104,7 @@ Canonical public contribution ledger: github.com/devtechedge/oss-contributions.
 Representative work:
 
 <<<LEDGER:LINKEDIN_REP>>>
-• js-stellar-sdk - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts.
+• js-stellar-sdk - docs pipeline for migration pages, sidebar, and llms bundles.
 
 • cargo-about - synthesized manifest license quote termination and insert offset fixes.
 
@@ -112,11 +112,11 @@ Representative work:
 
 • reviewgate - code comment verbosity check computed from added patch lines only.
 
-• maturin - Windows interpreter discovery fix for non-UTF-8 command output with coverage.
+• maturin - Windows interpreter discovery fix for non-UTF-8 output with coverage.
 
-• stellar-docs - memo guidance reconciliation, Freighter HTTPS scope, address conversion, and manual close flag docs.
+• stellar-docs - memo, HTTPS scope, address conversion, and flag doc fixes.
 
-• tracelens - report table cell escaping for pipes, line breaks, and HTML metacharacters in summaries.
+• tracelens - report table cell escaping for pipes, breaks, and HTML in summaries.
 
 • pytest-env - native pytest.toml env table docs closing a README gap.
 
