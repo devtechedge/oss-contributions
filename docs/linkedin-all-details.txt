@@ -17,7 +17,7 @@ Flagship systems include AEGIS, an enterprise AI operations cortex with supervis
 
 I also contribute directly to mature open-source projects across AI infrastructure, package management, frameworks, accessibility, concurrency, ORMs, authentication, SDKs, developer tooling, and blockchain infrastructure.
 
-My canonical public contribution ledger records 24 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+My canonical public contribution ledger records 25 merged upstream pull requests across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
 
 My production stack is Next.js, React, TanStack, FastAPI, Node.js, Drizzle ORM, PostgreSQL, Supabase, and Vercel, with SSE and WebSockets for live dashboards, GitHub Actions for delivery, and replayable traces plus evaluation gates built in.
 
@@ -99,11 +99,13 @@ Independent upstream contributor working across mature AI, developer tooling, pa
 
 Canonical public contribution ledger: github.com/devtechedge/oss-contributions.
 
-24 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across 16 repositories.
+25 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across 16 repositories.
 
 Representative work:
 
 <<<LEDGER:LINKEDIN_REP>>>
+• js-stellar-sdk - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts.
+
 • cargo-about - synthesized manifest license quote termination and insert offset fixes.
 
 • ruff - PYI002 diagnostic now names the stub file context for if tests.

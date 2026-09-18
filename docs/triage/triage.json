@@ -645,13 +645,15 @@
     {
       "repo": "stellar/js-stellar-sdk",
       "number": 1725,
-      "status": "open",
-      "opened": "2026-09-12",
+      "status": "merged",
       "last_checked": "2026-09-18",
       "issue": 1674,
       "do_not_duplicate": true,
       "summary": "Migration sidebar documentation fix.",
-      "note": "Maintainer quietbits APPROVED 2026-09-15 despite invite-only policy in #1728 (landed after we opened). Do not close. On 2026-09-18 quietbits asked to revert the CHANGELOG entry; pushed signed revert 16e7a00e, CHANGELOG out of diff, 4 files remain, mergeable true, awaiting merge. Fork workflow runs need maintainer approval (action_required, non-actionable)."
+      "note": "Maintainer quietbits APPROVED 2026-09-15 despite invite-only policy in #1728 (landed after we opened). Do not close. On 2026-09-18 quietbits asked to revert the CHANGELOG entry; pushed signed revert 16e7a00e, CHANGELOG out of diff, 4 files remain, mergeable true, awaiting merge. Fork workflow runs need maintainer approval (action_required, non-actionable).",
+      "merged": "2026-09-18",
+      "merge_commit": "3033dbc06986d395186092a32b504634f2fe6639",
+      "merged_at": "2026-09-18T17:55:00Z"
     },
     {
       "repo": "safe-global/safe-core-sdk",
@@ -1076,6 +1078,18 @@
     }
   ],
   "issues": [
+    {
+      "repo": "stellar/js-stellar-sdk",
+      "number": 1674,
+      "status": "closed",
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-18",
+      "related_prs": [
+        1725
+      ],
+      "note": "Closed by merged PR #1725 (3033dbc)."
+    },
     {
       "repo": "leo-aa88/reviewgate",
       "number": 143,

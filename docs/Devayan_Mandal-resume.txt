@@ -5,7 +5,7 @@ linkedin.com/in/dev-ma | github.com/devtechedge
 
 PROFESSIONAL SUMMARY
 
-Forward Deployed AI Engineer with 10 years of self-directed production work and 30+ shipped systems across multi-agent platforms, MCP integrations, deterministic RL evaluation, and real-time infrastructure. Merged 24 upstream pull requests across TypeScript, Python, and Rust in widely used projects including Biome, pnpm, and node-postgres, owning each change from root cause through tests, review, and release.
+Forward Deployed AI Engineer with 10 years of self-directed production work and 30+ shipped systems across multi-agent platforms, MCP integrations, deterministic RL evaluation, and real-time infrastructure. Merged 25 upstream pull requests across TypeScript, Python, and Rust in widely used projects including Biome, pnpm, and node-postgres, owning each change from root cause through tests, review, and release.
 
 TECHNICAL SKILLS
 
@@ -44,6 +44,7 @@ OPEN SOURCE CONTRIBUTIONS
 
 Merged upstream:
 <<<LEDGER:MERGED_LIST>>>
+- stellar/js-stellar-sdk #1725 (TypeScript) - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts. Merged Sep 2026. github.com/stellar/js-stellar-sdk/pull/1725
 - EmbarkStudios/cargo-about #319 (Rust) - terminate the appended license value with its closing quote in synthesize_manifest when the [package] table runs to end of file, so the synthesized manifest stays valid TOML; added the first unit test module in resolution.rs. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/319
 - EmbarkStudios/cargo-about #320 (Rust) - rebase the subslice-relative insert position to full-manifest coordinates in synthesize_manifest, fixing corrupted output and an is_char_boundary panic on multibyte CRLF manifests; added mid-file offset tests with TOML round-trips. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/320
 - astral-sh/ruff #28542 (Rust) - PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself. Merged Sep 2026. github.com/astral-sh/ruff/pull/28542
