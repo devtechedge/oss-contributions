@@ -554,16 +554,17 @@ function validate(triage, recs, files) {
   const liText = (files.find(([label]) => label === "linkedin") || [])[1] || "";
   const expHead = liText.indexOf("2. Open-Source Software Contributor");
   const descHead = expHead === -1 ? -1 : liText.indexOf("DESCRIPTION", expHead);
-  const skillsHead = descHead === -1 ? -1 : liText.indexOf("KEY SKILLS", descHead);
+  const bodyHead = descHead === -1 ? -1 : liText.indexOf("\n", descHead) + 1;
+  const skillsHead = bodyHead <= 0 ? -1 : liText.indexOf("KEY SKILLS", bodyHead);
   if (skillsHead !== -1) {
     const paste = liText
-      .slice(descHead, skillsHead)
+      .slice(bodyHead, skillsHead)
       .split("\n")
       .filter((l) => !l.includes("<<<LEDGER") && !l.includes("<<<END:LEDGER"))
       .join("\n")
       .replace(/\n{3,}/g, "\n\n")
       .trim();
-    if (paste.length > 1990) problems.push(`linkedin Experience paste=${paste.length} exceeds 1990 window`);
+    if (paste.length > 1990 || paste.length < 1980) problems.push(`linkedin Experience paste=${paste.length} outside 1980-1990 window`);
   }
   return problems;
 }
