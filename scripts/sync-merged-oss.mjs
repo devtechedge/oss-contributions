@@ -633,7 +633,7 @@ const WELLFOUND_QA = [
   {
     q: "What aspects of your work are you most passionate about?",
     a: (ctx) =>
-      `Hardening low-level AI infrastructure and bringing order to chaotic multi-agent systems. I love engineering deterministic state engines, verifiable RLVR eval suites, and contributing directly upstream to foundational open-source toolchains. Right now that is ${ctx.latest.repo} #${ctx.latest.number} upstream and ${ownShort(ctx.own)} on my own repos.`,
+      `Hardening low-level AI infrastructure and bringing order to chaotic multi-agent systems. I love engineering deterministic state engines, verifiable RLVR eval suites, and contributing directly upstream to foundational open-source toolchains. Right now that is ${ctx.latest.repo} #${ctx.latest.number} upstream and ${ownShort(ctx.own)} on my own repos (github.com/devtechedge).`,
   },
 ];
 
@@ -641,8 +641,15 @@ async function fetchOwnRepos() {
   const repos = await gh("/users/devtechedge/repos?per_page=100&type=owner");
   if (!Array.isArray(repos)) throw new Error("own repos feed: unexpected response");
   const own = repos.filter((r) => !r.fork && !r.archived);
-  const pool = own.filter((r) => r.name !== "devtechedge" && r.name !== "oss-contributions");
-  const sorted = [...pool].sort((a, b) => (a.created_at < b.created_at ? 1 : -1));
+  const pool = own.filter(
+    (r) => r.name !== "devtechedge" && r.name !== "oss-contributions" && r.name !== "devtechedge.github.io",
+  );
+  const sorted = [...pool].sort((a, b) => {
+    const da = a.description ? 1 : 0;
+    const db = b.description ? 1 : 0;
+    if (da !== db) return db - da;
+    return a.created_at < b.created_at ? 1 : -1;
+  });
   const f = sorted[0];
   return {
     count: own.length,
