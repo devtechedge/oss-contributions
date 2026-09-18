@@ -440,11 +440,11 @@ function publishLinkedin(root, recs, n, pubs, dryRun) {
   }
 
   try {
-    text = splice(text, MARK.linkedinRepStart, MARK.linkedinRepEnd, grouped.join("\n"));
+    text = splice(text, MARK.linkedinRepStart, MARK.linkedinRepEnd, grouped.join("\n\n"));
   } catch {
     text = text.replace(
       /(Representative work:\n\n)([\s\S]*?)(\n\nActive contribution areas include)/,
-      `$1${MARK.linkedinRepStart}\n${grouped.join("\n")}\n${MARK.linkedinRepEnd}$3`,
+      `$1${MARK.linkedinRepStart}\n${grouped.join("\n\n")}\n${MARK.linkedinRepEnd}$3`,
     );
   }
 
