@@ -631,13 +631,15 @@
       "merge_commit": "3033dbc06986d395186092a32b504634f2fe6639",
       "issue": 1674,
       "url": "https://github.com/stellar/js-stellar-sdk/pull/1725",
-      "languages": [],
+      "languages": [
+        "TypeScript"
+      ],
       "org": "stellar",
       "display_name": "js-stellar-sdk",
       "profile_title": "js-stellar-sdk #1725",
       "ledger_logo": "https://github.com/stellar.png?size=40",
       "profile_logo": "https://github.com/stellar.png?size=48",
-      "profile_logo_alt": "js-stellar-sdk",
+      "profile_logo_alt": "Stellar",
       "ledger_what": "Docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts.",
       "resume_bullet": "stellar/js-stellar-sdk #1725 (TypeScript) - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts. Merged Sep 2026. github.com/stellar/js-stellar-sdk/pull/1725",
       "linkedin_bullet": "stellar/js-stellar-sdk #1725 - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts.",
