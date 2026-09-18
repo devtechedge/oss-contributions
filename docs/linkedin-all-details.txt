@@ -39,8 +39,8 @@ Canonical ledger: https://github.com/devtechedge/oss-contributions
 24 merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:
 
 <<<LEDGER:LINKEDIN_LIST>>>
-• EmbarkStudios/cargo-about #319 - write the closing quote when appending a synthesized license field
-• EmbarkStudios/cargo-about #320 - fix subslice offsets when synthesizing the license field
+• EmbarkStudios/cargo-about #319 - terminate the appended license value with its closing quote in synthesize_manifest when the [package] table runs to end of file, so the synthesized manifest stays valid TOML; added the first unit test module in resolution.rs.
+• EmbarkStudios/cargo-about #320 - rebase the subslice-relative insert position to full-manifest coordinates in synthesize_manifest, fixing corrupted output and an is_char_boundary panic on multibyte CRLF manifests; added mid-file offset tests with TOML round-trips.
 • astral-sh/ruff #28542 - PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.
 • leo-aa88/reviewgate #144 - adds a configurable excessive code-comment verbosity check to the core review engine: three signals computed from added patch lines only, so a PR is never penalised for comments it did not touch, with a lexer that tracks string literals, heredocs and template literals so runtime data is never counted as commentary
 • PyO3/maturin #3302 - Windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path.
@@ -161,7 +161,7 @@ Independent upstream contributor working across mature AI, developer-tooling, pa
 Representative work:
 
 <<<LEDGER:LINKEDIN_REP>>>
-• cargo-about - write the closing quote when appending a synthesized license field
+• cargo-about - terminate the appended license value with its closing quote in `synthesize_manifest` when the `[package]` table runs to end of file, so the synthesized manifest stays valid TOML with `package.license` intact. Added the first unit test module in `resolution.rs`, covering exact output, expression offset, and a TOML round-trip.
 • ruff - pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.
 • reviewgate - adds a configurable excessive code-comment verbosity check to the core review engine: `oversized_comment_block`, `excessive_comment_lines` and `comment_heavy_diff` are computed from added patch lines only, so a PR is never penalised for comments it did not touch. A single-pass lexer tracks string literals, block comments, JS and Go template literals, shell heredocs and Python triple-quoted strings, so runtime data such as a banner inside a backtick string is never counted as commentary, and hunk state established from context carrying a code token keeps a verbose block added mid-file detectable while docstring content stays excluded.
 • maturin - windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path.

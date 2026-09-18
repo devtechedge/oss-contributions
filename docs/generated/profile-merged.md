@@ -5,9 +5,9 @@
 
 <img src="https://github.com/biomejs.png?size=48" width="32" height="32" alt="Biome" align="left" /> **[Biome #11667](https://github.com/biomejs/biome/pull/11667)** - added the `useBetterDomTraversing` nursery lint rule with safe transformations where semantics permit.
 
-<img src="https://github.com/EmbarkStudios.png?size=48" width="32" height="32" alt="cargo-about" align="left" /> **[cargo-about #319](https://github.com/EmbarkStudios/cargo-about/pull/319)** - write the closing quote when appending a synthesized license field
+<img src="https://github.com/EmbarkStudios.png?size=48" width="32" height="32" alt="EmbarkStudios" align="left" /> **[cargo-about #319](https://github.com/EmbarkStudios/cargo-about/pull/319)** - terminate the appended license value with its closing quote in `synthesize_manifest` when the `[package]` table runs to end of file, so the synthesized manifest stays valid TOML with `package.license` intact, with the first unit test module in `resolution.rs` covering exact output, expression offset, and a TOML round-trip.
 
-<img src="https://github.com/EmbarkStudios.png?size=48" width="32" height="32" alt="cargo-about" align="left" /> **[cargo-about #320](https://github.com/EmbarkStudios/cargo-about/pull/320)** - fix subslice offsets when synthesizing the license field
+<img src="https://github.com/EmbarkStudios.png?size=48" width="32" height="32" alt="EmbarkStudios" align="left" /> **[cargo-about #320](https://github.com/EmbarkStudios/cargo-about/pull/320)** - rebase the insert position computed from the `&existing[pkg+5..]` subslice back to full-manifest coordinates in `synthesize_manifest`, fixing corrupted output and an `is_char_boundary` panic on multibyte CRLF manifests while keeping the reported offset at the expression start, with mid-file offset tests covering ASCII and multibyte TOML round-trips.
 
 <img src="https://github.com/PyO3.png?size=48" width="32" height="32" alt="PyO3" align="left" /> **[maturin #3302](https://github.com/PyO3/maturin/pull/3302)** - windows interpreter discovery no longer panics on non-UTF-8 command output: find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy, so a localized install skips the affected line instead of aborting the build, with a unit test covering the decode path.
 
