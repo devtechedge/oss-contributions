@@ -124,7 +124,7 @@ Representative work:
 
 Active contribution areas include AI runtimes, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.
 
-Process: inspect existing upstream work, confirm issue ownership, follow repository contribution policy, add targeted tests where appropriate, provide changesets when required, and keep the ledger synchronized with maintainer outcomes.
+Process: inspect existing upstream work, confirm issue ownership, follow contribution policy, add targeted tests, provide changesets when required, and keep the ledger synchronized with maintainer outcomes.
 
 KEY SKILLS
 TypeScript
