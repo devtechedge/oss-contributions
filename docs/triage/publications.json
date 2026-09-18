@@ -39,13 +39,13 @@
       "linkedin_representative": "pytest-env - native pytest.toml env table docs closing a README gap."
     },
     "stellar/stellar-docs": {
-      "linkedin_representative": "stellar-docs - memo guidance reconciliation, Freighter HTTPS scope, address conversion, and manual close flag docs."
+      "linkedin_representative": "stellar-docs - memo, HTTPS scope, address conversion, and flag doc fixes."
     },
     "ssf0409/tracelens": {
-      "linkedin_representative": "tracelens - report table cell escaping for pipes, line breaks, and HTML metacharacters in summaries."
+      "linkedin_representative": "tracelens - report table cell escaping for pipes, breaks, and HTML in summaries."
     },
     "PyO3/maturin": {
-      "linkedin_representative": "maturin - Windows interpreter discovery fix for non-UTF-8 command output with coverage."
+      "linkedin_representative": "maturin - Windows interpreter discovery fix for non-UTF-8 output with coverage."
     },
     "leo-aa88/reviewgate": {
       "linkedin_representative": "reviewgate - code comment verbosity check computed from added patch lines only."
@@ -55,6 +55,9 @@
     },
     "EmbarkStudios/cargo-about": {
       "linkedin_representative": "cargo-about - synthesized manifest license quote termination and insert offset fixes."
+    },
+    "stellar/js-stellar-sdk": {
+      "linkedin_representative": "js-stellar-sdk - docs pipeline for migration pages, sidebar, and llms bundles."
     }
   },
   "records": [
