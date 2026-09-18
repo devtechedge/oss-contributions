@@ -649,5 +649,13 @@
       "profile_line": "docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts.",
       "curated": true
     }
-  ]
+  ],
+  "wellfound_cache": {
+    "count": 34,
+    "featured": {
+      "name": "devtechedge.github.io",
+      "desc": "Personal site and privacy policy"
+    },
+    "fetched_at": "2026-09-18"
+  }
 }
