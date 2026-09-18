@@ -104,22 +104,22 @@ Canonical public contribution ledger at github.com/devtechedge/oss-contributions
 Representative work:
 
 <<<LEDGER:LINKEDIN_REP>>>
-• cargo-about - terminate the appended license value with its closing quote in `synthesize_manifest` when the `[package]` table runs to end of file, so the synthesized manifest stays valid TOML with `package.license` intact. Added the first unit test module in `resolution.rs`, covering exact output, expression offset, and a TOML round-trip.
-• ruff - pYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.
-• reviewgate - adds a configurable excessive code-comment verbosity check to the core review engine: `oversized_comment_block`, `excessive_comment_lines` and `comment_heavy_diff` are computed from added patch lines only, so a PR is never penalised for comments it did not touch. A single-pass lexer tracks string literals, block comments, JS and Go template literals, shell heredocs and Python triple-quoted strings, so runtime data such as a banner inside a backtick string is never counted as commentary, and hunk state established from context carrying a code token keeps a verbose block added mid-file detectable while docstring content stays excluded.
-• maturin - windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path.
-• stellar-docs - reconciled contradictory memo guidance in the pooled accounts guide: the intro framed memos as obsolete while later sections still required supporting them. Reworked the intro and opening note so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward, with the guide covering both.
-• tracelens - markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element.
-• pytest-env - documented native [pytest] env configuration for pytest.toml / .pytest.toml, closing a gap in the plugin README.
-• pnpm - fixed lockfile:false handling during automatic engine switching; corrected --no-bail semantics for pattern script runs; preserved dependency range prefixes and protocol prefixes during updates; fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by using the Unix fallback for default_store_dir.
-• Rspress - fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; merged in #3678.
-• Recharts - fixed pointer-focus behavior in z-index portal SVG groups and added regression coverage for WebKit focus-ring behavior.
-• node-postgres - corrected Connection.sync() ending semantics so subsequent socket errors are not suppressed incorrectly.
-• SQLMesh - removed a concurrent test-construction race involving time_machine and ttl_cache.
-• Anza Kit - restored correct numeric predicates in an advanced codec documentation example.
-• Better Auth - locked OpenAPI requestBody regression coverage for /phone-number/verify.
-• Biome - ported the unicorn better-dom-traversing AST rule into the Rust nursery linter with tests and a release changeset.
-• thirdweb - corrected CheckoutWidget token-query error propagation for 401, 429, and timeout failures.
+• cargo-about - manifest license quote and offset fixes.
+• ruff - PYI002 diagnostic naming the stub file context.
+• reviewgate - comment verbosity check from added patch lines only.
+• maturin - Windows discovery fix for non-UTF-8 output with unit coverage.
+• stellar-docs - memo, HTTPS scope, address conversion, and flag doc fixes.
+• tracelens - table cell escaping for pipes, breaks, and HTML in summaries.
+• pytest-env - native pytest.toml env table docs closing a README gap.
+• pnpm - Unix store path fix, engine switching, range prefix retention, and run bail correction.
+• Rspress - Search init race fix by awaiting FlexSearch indexing before init.
+• Recharts - portal SVG pointer focus fix with WebKit ring regression coverage.
+• node-postgres - Connection.sync ending fix so later socket errors surface correctly.
+• SQLMesh - test construction race removal around shared execution state.
+• Anza Kit - codec docs numeric predicate correction in the example.
+• Better Auth - phone verify OpenAPI requestBody regression coverage lock.
+• Biome - better-dom-traversing rule ported to the Rust nursery linter with tests.
+• thirdweb - token query error propagation fix for 401, 429, and timeout failures.
 <<<END:LEDGER:LINKEDIN_REP>>>
 
 Active contribution areas include AI runtimes, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.
