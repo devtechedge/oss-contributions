@@ -473,72 +473,6 @@ function publishExperiencePaste(root, dryRun) {
   return { file, changed: writeIfChanged(file, next) };
 }
 
-function publishProfileFragment(root, recs, dryRun) {
-  const blocks = [...recs].sort(sortProfile).map(renderProfileBlock).join("\n\n");
-  const inner = `${MARK.profileStart}\n${blocks}\n${MARK.profileEnd}`;
-  const file = path.join(root, "docs/generated/profile-merged.md");
-  if (dryRun) {
-    const prev = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : "";
-    return { file, changed: prev !== inner + "\n", content: inner };
-  }
-  return { file, changed: writeIfChanged(file, inner + "\n"), content: inner };
-}
-
-function publishProfileReadme(root, recs, dryRun) {
-  const fragment = publishProfileFragment(root, recs, dryRun);
-  const file = path.join(root, "docs/generated/profile-README.md");
-  if (!fs.existsSync(file)) return fragment;
-  let text = fs.readFileSync(file, "utf8");
-  const blocks = [...recs].sort(sortProfile).map(renderProfileBlock).join("\n\n");
-  try {
-    text = splice(text, MARK.profileStart, MARK.profileEnd, blocks);
-  } catch {
-    text = text.replace(
-      /(### Merged:\n\n)([\s\S]*?)(\n---\n)/,
-      `$1${MARK.profileStart}\n${blocks}\n${MARK.profileEnd}$3`,
-    );
-  }
-  if (dryRun) return { file, changed: text !== fs.readFileSync(file, "utf8"), fragment };
-  return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n"), fragment };
-}
-
-function publishResumeHtml(root, recs, n, dryRun) {
-  const file = path.join(root, "docs/generated/Devayan_Mandal-resume.html");
-  const bullets = [...recs]
-    .sort(sortLedger)
-    .map((r) => `<li>${escapeHtml(r.resume_bullet.replace(/^- /, ""))}</li>`)
-    .join("\n");
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Devayan Mandal - Resume</title>
-  <style>
-    :root { color-scheme: light; }
-    body { font: 11.5pt/1.45 "Source Sans 3", "Segoe UI", sans-serif; max-width: 800px; margin: 32px auto; color: #1a1c1f; }
-    h1 { font-size: 22pt; letter-spacing: -0.03em; margin: 0 0 4px; }
-    h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 0.08em; margin: 22px 0 8px; border-bottom: 1px solid #d5d8dd; padding-bottom: 4px; }
-    .sub { color: #4b5563; margin-bottom: 16px; }
-    ul { padding-left: 18px; }
-    li { margin: 0 0 6px; }
-    @media print { body { margin: 16px 20px; } }
-  </style>
-</head>
-<body>
-  <h1>Devayan Mandal</h1>
-  <p class="sub">Full Stack AI Native / Forward Deployed AI Engineer & Open Source Contributor</p>
-  <h2>Open source</h2>
-  <p>Merged ${n} upstream pull requests. Canonical ledger: github.com/devtechedge/oss-contributions</p>
-  <ul>
-${bullets}
-  </ul>
-</body>
-</html>
-`;
-  if (dryRun) return { file, changed: !fs.existsSync(file) || fs.readFileSync(file, "utf8") !== html };
-  return { file, changed: writeIfChanged(file, html) };
-}
-
 const WELLFOUND_BIO_CAP = 160;
 const WELLFOUND_ACHIEVEMENTS_CAP = 1000;
 const WELLFOUND_BIO_NAMES = ["pnpm", "Biome", "Recharts", "Stellar"];
@@ -657,7 +591,7 @@ function validate(triage, recs, files) {
   if (triageN !== n) problems.push(`triage merged=${triageN} publications=${n}`);
   // linkedin-all-details.txt no longer carries the per-PR LEDGER list (removed Sep 2026),
   // so only its merged count is checked here, not individual PR numbers.
-  const NUMBER_CHECKED = new Set(["README", "resume", "profile-fragment"]);
+  const NUMBER_CHECKED = new Set(["README", "resume"]);
   for (const [label, text] of files) {
     const c = countIn(text);
     if (c != null && c !== n) problems.push(`${label} count=${c} expected=${n}`);
@@ -960,32 +894,8 @@ async function main() {
   writes.push(publishResume(root, recs, n, args.dryRun));
   writes.push(publishLinkedin(root, recs, n, pubs, args.dryRun));
   writes.push(publishExperiencePaste(root, args.dryRun));
-  writes.push(publishProfileReadme(root, recs, args.dryRun));
-  writes.push(publishResumeHtml(root, recs, n, args.dryRun));
   writes.push(publishWellfound(root, recs, n, pubs, args.dryRun));
 
-  if (!args.dryRun) {
-    const py = path.join(root, "scripts/render-resume-artifacts.py");
-    if (fs.existsSync(py)) {
-      const rendered = spawnSync("python3", [py, root], { encoding: "utf8" });
-      if (rendered.status !== 0) {
-        console.warn("resume artifact render skipped:", rendered.stderr || rendered.stdout);
-      } else {
-        // The renderer only writes when the bytes changed, so trust its
-        // "wrote <path>" lines instead of assuming every artifact moved.
-        const wrote = new Set(
-          String(rendered.stdout || "")
-            .split("\n")
-            .filter((line) => line.startsWith("wrote "))
-            .map((line) => line.slice("wrote ".length).split(" (")[0].trim()),
-        );
-        const docx = path.join(root, "docs/generated/Devayan_Mandal-resume.docx");
-        const pdf = path.join(root, "docs/generated/Devayan_Mandal-resume.pdf");
-        if (fs.existsSync(docx)) writes.push({ file: docx, changed: wrote.has(docx) });
-        if (fs.existsSync(pdf)) writes.push({ file: pdf, changed: wrote.has(pdf) });
-      }
-    }
-  }
 
   if (!args.dryRun) {
     const masterPy = path.join(root, "scripts/render-resume-docx.py");
@@ -1012,11 +922,6 @@ async function main() {
     ["resume", fs.readFileSync(path.join(root, "docs/Devayan_Mandal-resume.txt"), "utf8")],
     ["linkedin", fs.readFileSync(path.join(root, "docs/linkedin-all-details.txt"), "utf8")],
     ["wellfound", fs.readFileSync(path.join(root, "docs/wellfound.txt"), "utf8")],
-    ["profile-fragment", fs.existsSync(path.join(root, "docs/generated/profile-merged.md"))
-      ? fs.readFileSync(path.join(root, "docs/generated/profile-merged.md"), "utf8")
-      : fs.existsSync(path.join(root, "docs/generated/profile-README.md"))
-        ? fs.readFileSync(path.join(root, "docs/generated/profile-README.md"), "utf8")
-        : ""],
   ];
   report.problems = args.dryRun ? [] : validate(triage, recs, fileTexts);
   report.files = writes.filter((w) => w.changed).map((w) => path.relative(root, w.file));
