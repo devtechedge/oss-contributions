@@ -130,7 +130,7 @@ Representative work:
 
 • Anza Kit - codec documentation numeric predicate correction in the advanced example.
 
-• Better Auth - phone number verify OpenAPI requestBody regression coverage lock.
+• Better Auth - phone verify OpenAPI requestBody regression coverage lock.
 
 • Biome - better-dom-traversing rule ported to the Rust nursery linter with tests.
 
