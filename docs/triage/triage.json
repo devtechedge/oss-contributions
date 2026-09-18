@@ -651,7 +651,7 @@
       "issue": 1674,
       "do_not_duplicate": true,
       "summary": "Migration sidebar documentation fix.",
-      "note": "Maintainer quietbits APPROVED 2026-09-15 despite the invite-only policy in #1728, which landed 2026-09-11 after we opened. Do not close. Sits at mergeable_state blocked because fork workflow runs need maintainer approval, so do not re-push."
+      "note": "Maintainer quietbits APPROVED 2026-09-15 despite invite-only policy in #1728 (landed after we opened). Do not close. On 2026-09-18 quietbits asked to revert the CHANGELOG entry; pushed signed revert 16e7a00e, CHANGELOG out of diff, 4 files remain, mergeable true, awaiting merge. Fork workflow runs need maintainer approval (action_required, non-actionable)."
     },
     {
       "repo": "safe-global/safe-core-sdk",
