@@ -565,18 +565,20 @@
       "merge_commit": "d7c169da07c684c5a80f75aab8a1dd7df660bc4b",
       "issue": 315,
       "url": "https://github.com/EmbarkStudios/cargo-about/pull/319",
-      "languages": [],
+      "languages": [
+        "Rust"
+      ],
       "org": "EmbarkStudios",
       "display_name": "cargo-about",
       "profile_title": "cargo-about #319",
       "ledger_logo": "https://github.com/EmbarkStudios.png?size=40",
       "profile_logo": "https://github.com/EmbarkStudios.png?size=48",
-      "profile_logo_alt": "cargo-about",
-      "ledger_what": "Write the closing quote when appending a synthesized license field",
-      "resume_bullet": "EmbarkStudios/cargo-about #319 (TypeScript) - write the closing quote when appending a synthesized license field Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/319",
-      "linkedin_bullet": "EmbarkStudios/cargo-about #319 - write the closing quote when appending a synthesized license field",
-      "profile_line": "write the closing quote when appending a synthesized license field",
-      "curated": false
+      "profile_logo_alt": "EmbarkStudios",
+      "ledger_what": "Terminate the appended license value with its closing quote in `synthesize_manifest` when the `[package]` table runs to end of file, so the synthesized manifest stays valid TOML with `package.license` intact. Added the first unit test module in `resolution.rs`, covering exact output, expression offset, and a TOML round-trip.",
+      "resume_bullet": "EmbarkStudios/cargo-about #319 (Rust) - terminate the appended license value with its closing quote in synthesize_manifest when the [package] table runs to end of file, so the synthesized manifest stays valid TOML; added the first unit test module in resolution.rs. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/319",
+      "linkedin_bullet": "EmbarkStudios/cargo-about #319 - terminate the appended license value with its closing quote in synthesize_manifest when the [package] table runs to end of file, so the synthesized manifest stays valid TOML; added the first unit test module in resolution.rs.",
+      "profile_line": "terminate the appended license value with its closing quote in `synthesize_manifest` when the `[package]` table runs to end of file, so the synthesized manifest stays valid TOML with `package.license` intact, with the first unit test module in `resolution.rs` covering exact output, expression offset, and a TOML round-trip.",
+      "curated": true
     },
     {
       "id": "EmbarkStudios/cargo-about#320",
@@ -587,18 +589,20 @@
       "merge_commit": "e80bf03abf754dd6cfdf8721350ce4a8d60f1471",
       "issue": 314,
       "url": "https://github.com/EmbarkStudios/cargo-about/pull/320",
-      "languages": [],
+      "languages": [
+        "Rust"
+      ],
       "org": "EmbarkStudios",
       "display_name": "cargo-about",
       "profile_title": "cargo-about #320",
       "ledger_logo": "https://github.com/EmbarkStudios.png?size=40",
       "profile_logo": "https://github.com/EmbarkStudios.png?size=48",
-      "profile_logo_alt": "cargo-about",
-      "ledger_what": "Fix subslice offsets when synthesizing the license field",
-      "resume_bullet": "EmbarkStudios/cargo-about #320 (TypeScript) - fix subslice offsets when synthesizing the license field Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/320",
-      "linkedin_bullet": "EmbarkStudios/cargo-about #320 - fix subslice offsets when synthesizing the license field",
-      "profile_line": "fix subslice offsets when synthesizing the license field",
-      "curated": false
+      "profile_logo_alt": "EmbarkStudios",
+      "ledger_what": "Rebase the insert position computed from the `&existing[pkg+5..]` subslice back to full-manifest coordinates in `synthesize_manifest`, fixing corrupted output and an `is_char_boundary` panic on multibyte CRLF manifests while keeping the reported offset at the expression start. Added mid-file offset tests with ASCII and multibyte TOML round-trips.",
+      "resume_bullet": "EmbarkStudios/cargo-about #320 (Rust) - rebase the subslice-relative insert position to full-manifest coordinates in synthesize_manifest, fixing corrupted output and an is_char_boundary panic on multibyte CRLF manifests; added mid-file offset tests with TOML round-trips. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/320",
+      "linkedin_bullet": "EmbarkStudios/cargo-about #320 - rebase the subslice-relative insert position to full-manifest coordinates in synthesize_manifest, fixing corrupted output and an is_char_boundary panic on multibyte CRLF manifests; added mid-file offset tests with TOML round-trips.",
+      "profile_line": "rebase the insert position computed from the `&existing[pkg+5..]` subslice back to full-manifest coordinates in `synthesize_manifest`, fixing corrupted output and an `is_char_boundary` panic on multibyte CRLF manifests while keeping the reported offset at the expression start, with mid-file offset tests covering ASCII and multibyte TOML round-trips.",
+      "curated": true
     }
   ]
 }
