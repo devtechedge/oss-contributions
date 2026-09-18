@@ -99,7 +99,7 @@ Independent upstream contributor working across mature AI, developer tooling, pa
 
 Canonical public contribution ledger: github.com/devtechedge/oss-contributions.
 
-25 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across 16 repositories.
+25 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across 17 repositories.
 
 Representative work:
 
