@@ -452,6 +452,27 @@ function publishLinkedin(root, recs, n, pubs, dryRun) {
   return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
 }
 
+function publishExperiencePaste(root, dryRun) {
+  const src = path.join(root, "docs/linkedin-all-details.txt");
+  const text = fs.readFileSync(src, "utf8");
+  const expHead = text.indexOf("2. Open-Source Software Contributor");
+  const descHead = expHead === -1 ? -1 : text.indexOf("DESCRIPTION", expHead);
+  const bodyHead = descHead === -1 ? -1 : text.indexOf("\n", descHead) + 1;
+  const skillsHead = bodyHead <= 0 ? -1 : text.indexOf("KEY SKILLS", bodyHead);
+  if (skillsHead === -1) throw new Error("experience paste: Experience block not found");
+  const paste = text
+    .slice(bodyHead, skillsHead)
+    .split("\n")
+    .filter((l) => !l.includes("<<<LEDGER") && !l.includes("<<<END:LEDGER"))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  const file = path.join(root, "docs/generated/linkedin-experience-paste.txt");
+  const next = paste + "\n";
+  if (dryRun) return { file, changed: !fs.existsSync(file) || fs.readFileSync(file, "utf8") !== next };
+  return { file, changed: writeIfChanged(file, next) };
+}
+
 function publishProfileFragment(root, recs, dryRun) {
   const blocks = [...recs].sort(sortProfile).map(renderProfileBlock).join("\n\n");
   const inner = `${MARK.profileStart}\n${blocks}\n${MARK.profileEnd}`;
@@ -828,6 +849,7 @@ async function main() {
   writes.push(publishReadme(root, recs, n, args.dryRun));
   writes.push(publishResume(root, recs, n, args.dryRun));
   writes.push(publishLinkedin(root, recs, n, pubs, args.dryRun));
+  writes.push(publishExperiencePaste(root, args.dryRun));
   writes.push(publishProfileReadme(root, recs, args.dryRun));
   writes.push(publishResumeHtml(root, recs, n, args.dryRun));
 
