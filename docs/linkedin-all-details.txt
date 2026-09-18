@@ -97,7 +97,7 @@ DESCRIPTION
 
 Independent upstream contributor working across mature AI, developer tooling, package management, framework, SDK, and blockchain repositories.
 
-Canonical public contribution ledger at github.com/devtechedge/oss-contributions.
+Canonical public contribution ledger: github.com/devtechedge/oss-contributions.
 
 24 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across 16 repositories.
 
@@ -123,8 +123,6 @@ Representative work:
 <<<END:LEDGER:LINKEDIN_REP>>>
 
 Active contribution areas include AI runtimes, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.
-
-Process: inspect existing upstream work, confirm issue ownership, follow contribution policy, add targeted tests, provide changesets when required, and keep the ledger synchronized with maintainer outcomes.
 
 KEY SKILLS
 TypeScript
