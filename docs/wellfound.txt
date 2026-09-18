@@ -93,25 +93,25 @@ Getting 25 pull requests merged into other people's production codebases. The on
 Q&A
 
 If money were not an issue, what would you be doing right now?
-Exactly what I'm doing now: building open-source AI infrastructure, multi-agent systems, and deterministic state engines in Rust/TS. Right now that is 25 merged upstream pull requests, latest stellar/js-stellar-sdk #1725 (docs pipeline for migration pages, sidebar, and llms bundles), alongside lattice (Web3 career lattice: live roles from twenty crypto teams’ public Greenhouse, Lever, and Ashby boards, plus...). I'd just do it with unlimited compute, funding open eval benchmarks and frontier developer tooling.
+Exactly what I'm doing now: building open-source AI infrastructure and multi-agent systems in Rust/TS. That is 25 merged upstream PRs plus lattice on my own repos. I'd just do it with unlimited compute, funding open eval benchmarks.
 
 What words of advice would you give your younger self?
-Go lower down the stack earlier. Don't fear the low-level abstractions or math - master Rust, state machines, and system fundamentals before chasing high-level abstractions. And trust the unconventional pivot from chemical engineering. That bet compounds: 25 upstream merges so far, most recently stellar/js-stellar-sdk #1725.
+Go lower down the stack earlier. Master Rust, state machines, and system fundamentals before chasing high-level abstractions. And trust the pivot from chemical engineering. That bet compounds: 25 upstream merges so far.
 
 What's the most creative thing you've ever done?
-Built a real-time SVG topology chaos simulator to visualize dynamic network degradation. Turning abstract distributed system failures into an interactive visual playground made complex reliability testing intuitive and engaging. Most recently I shipped lattice (Web3 career lattice: live roles from twenty crypto teams’ public Greenhouse, Lever, and Ashby boards, plus...).
+Built a real-time SVG topology chaos simulator for visualizing network degradation. Most recently I shipped lattice (github.com/devtechedge).
 
 Which founders or startups do you most admire?
-Prime Intellect for democratizing decentralized compute and RLVR evals, and Anthropic for pioneering protocol standards like MCP. I admire teams building hard AI infrastructure and deterministic systems over surface-level hype. My own bar is the same: 25 upstream merges into pnpm, Biome, Recharts and Stellar, infrastructure over hype.
+Prime Intellect for decentralized compute and RLVR evals, Anthropic for MCP. I admire teams building hard AI infrastructure over hype. My bar is the same: 25 upstream merges and counting.
 
 What's your super power?
-Eliminating LLM non-determinism. I turn chaotic multi-agent interactions into verifiable, state-machine-driven systems through low-level infrastructure hardening, custom RLVR evals, and deep open-source debugging. Latest evidence: stellar/js-stellar-sdk #1725, docs pipeline for migration pages, sidebar, and llms bundles.
+Eliminating LLM non-determinism: verifiable, state-machine-driven multi-agent systems through low-level hardening and custom RLVR evals. Latest evidence: stellar/js-stellar-sdk #1725.
 
 What's the best way for people to get in touch with you?
-Email is best: devayanmandal@gmail.com. You can also reach out on LinkedIn: https://www.linkedin.com/in/dev-ma/ Or, message me directly here on Wellfound. I keep notifications active and usually respond within 24 hours. My current upstream record (25 merged PRs) is at github.com/devtechedge/oss-contributions.
+Email is best: devayanmandal@gmail.com. LinkedIn: https://www.linkedin.com/in/dev-ma. Or message me here on Wellfound; I usually respond within 24 hours. Upstream record: github.com/devtechedge/oss-contributions.
 
 What words of wisdom do you live by?
-"First principles over hype, determinism over magic." Always engineer below the abstraction layer. Real software reliability comes from understanding the mechanics, eliminating non-determinism, and building simple foundations that withstand chaos. Recent example: stellar/js-stellar-sdk #1725 (docs pipeline for migration pages, sidebar, and llms bundles).
+"First principles over hype, determinism over magic." Engineer below the abstraction layer. Recent example: stellar/js-stellar-sdk #1725 (docs pipeline for migration pages, sidebar, and llms bundles).
 
 What aspects of your work are you most passionate about?
-Hardening low-level AI infrastructure and bringing order to chaotic multi-agent systems. I love engineering deterministic state engines, verifiable RLVR eval suites, and contributing directly upstream to foundational open-source toolchains. Right now that is stellar/js-stellar-sdk #1725 upstream and lattice (Web3 career lattice: live roles from twenty crypto teams’ public Greenhouse, Lever, and Ashby boards, plus...) on my own repos (github.com/devtechedge).
+Hardening low-level AI infrastructure: deterministic state engines, verifiable RLVR eval suites, upstream OSS tooling. Right now: stellar/js-stellar-sdk #1725 and lattice (github.com/devtechedge).
