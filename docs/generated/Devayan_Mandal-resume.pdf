@@ -22,7 +22,7 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Forward Deployed AI Engineer with 10 years of self-directed production work and 30+ shipped) Tj T*
 (systems across multi-agent platforms, MCP integrations, deterministic RL evaluation, and) Tj T*
-(real-time infrastructure. Merged 22 upstream pull requests across TypeScript, Python, and) Tj T*
+(real-time infrastructure. Merged 24 upstream pull requests across TypeScript, Python, and) Tj T*
 (Rust in widely used projects including Biome, pnpm, and node-postgres, owning each change) Tj T*
 (from root cause through tests, review, and release.) Tj T*
 ( ) Tj T*
@@ -85,7 +85,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 5397 >>
+<< /Length 5443 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
 (SPECTRAL QUANTITATIVE TRADING) Tj T*
@@ -105,6 +105,10 @@ BT /F1 10 Tf 48 770 Td 11 TL
 ( ) Tj T*
 (Merged upstream:) Tj T*
 (<<<LEDGER:MERGED_LIST>>>) Tj T*
+(- EmbarkStudios/cargo-about #319 \(TypeScript\) - write the closing quote when appending a) Tj T*
+(synthesized license field Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/319) Tj T*
+(- EmbarkStudios/cargo-about #320 \(TypeScript\) - fix subslice offsets when synthesizing the) Tj T*
+(license field Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/320) Tj T*
 (- astral-sh/ruff #28542 \(Rust\) - PYI002 diagnostic in complex_if_statement_in_stub.rs now) Tj T*
 (names the stub-file context, so if tests in .pyi files report as needing a simple) Tj T*
 (comparison against sys.platform or sys.version_info instead of reading as a claim about the) Tj T*
@@ -150,10 +154,6 @@ BT /F1 10 Tf 48 770 Td 11 TL
 (- pnpm/pnpm #14863 \(Rust/TypeScript\) - fixed startup crashes on FreeBSD and other) Tj T*
 (non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path;) Tj T*
 (added platform-specific regression coverage. Merged Sep 2026.) Tj T*
-(github.com/pnpm/pnpm/pull/14863) Tj T*
-(- web-infra-dev/rspress #3678 \(TypeScript\) - fixed a Search initialization race by awaiting) Tj T*
-(FlexSearch addAsync indexing before LocalProvider.init\(\) resolves, preventing early) Tj T*
-(searches from incorrectly returning no results on larger sites; focused regression-oriented) Tj T*
 ET
 endstream
 endobj
@@ -161,9 +161,13 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 9 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 4256 >>
+<< /Length 4592 >>
 stream
 BT /F1 10 Tf 48 770 Td 11 TL
+(github.com/pnpm/pnpm/pull/14863) Tj T*
+(- web-infra-dev/rspress #3678 \(TypeScript\) - fixed a Search initialization race by awaiting) Tj T*
+(FlexSearch addAsync indexing before LocalProvider.init\(\) resolves, preventing early) Tj T*
+(searches from incorrectly returning no results on larger sites; focused regression-oriented) Tj T*
 (fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678) Tj T*
 (- recharts/recharts #7805 \(TypeScript\) - removed tabIndex={-1} from z-index portal SVG <g>) Tj T*
 (layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced) Tj T*
@@ -238,10 +242,10 @@ xref
 0000000253 00000 n 
 0000004897 00000 n 
 0000005023 00000 n 
-0000010472 00000 n 
-0000010598 00000 n 
-0000014906 00000 n 
+0000010518 00000 n 
+0000010644 00000 n 
+0000015288 00000 n 
 trailer << /Size 10 /Root 1 0 R >>
 startxref
-14976
+15358
 %%EOF

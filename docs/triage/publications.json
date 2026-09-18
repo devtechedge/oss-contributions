@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-18",
-  "merged_count": 22,
+  "merged_count": 24,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -555,6 +555,50 @@
       "linkedin_bullet": "astral-sh/ruff #28542 - PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
       "profile_line": "PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself.",
       "curated": true
+    },
+    {
+      "id": "EmbarkStudios/cargo-about#319",
+      "repo": "EmbarkStudios/cargo-about",
+      "number": 319,
+      "merged": true,
+      "merged_at": "2026-09-18T09:46:02Z",
+      "merge_commit": "d7c169da07c684c5a80f75aab8a1dd7df660bc4b",
+      "issue": 315,
+      "url": "https://github.com/EmbarkStudios/cargo-about/pull/319",
+      "languages": [],
+      "org": "EmbarkStudios",
+      "display_name": "cargo-about",
+      "profile_title": "cargo-about #319",
+      "ledger_logo": "https://github.com/EmbarkStudios.png?size=40",
+      "profile_logo": "https://github.com/EmbarkStudios.png?size=48",
+      "profile_logo_alt": "cargo-about",
+      "ledger_what": "Write the closing quote when appending a synthesized license field",
+      "resume_bullet": "EmbarkStudios/cargo-about #319 (TypeScript) - write the closing quote when appending a synthesized license field Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/319",
+      "linkedin_bullet": "EmbarkStudios/cargo-about #319 - write the closing quote when appending a synthesized license field",
+      "profile_line": "write the closing quote when appending a synthesized license field",
+      "curated": false
+    },
+    {
+      "id": "EmbarkStudios/cargo-about#320",
+      "repo": "EmbarkStudios/cargo-about",
+      "number": 320,
+      "merged": true,
+      "merged_at": "2026-09-18T07:32:50Z",
+      "merge_commit": "e80bf03abf754dd6cfdf8721350ce4a8d60f1471",
+      "issue": 314,
+      "url": "https://github.com/EmbarkStudios/cargo-about/pull/320",
+      "languages": [],
+      "org": "EmbarkStudios",
+      "display_name": "cargo-about",
+      "profile_title": "cargo-about #320",
+      "ledger_logo": "https://github.com/EmbarkStudios.png?size=40",
+      "profile_logo": "https://github.com/EmbarkStudios.png?size=48",
+      "profile_logo_alt": "cargo-about",
+      "ledger_what": "Fix subslice offsets when synthesizing the license field",
+      "resume_bullet": "EmbarkStudios/cargo-about #320 (TypeScript) - fix subslice offsets when synthesizing the license field Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/320",
+      "linkedin_bullet": "EmbarkStudios/cargo-about #320 - fix subslice offsets when synthesizing the license field",
+      "profile_line": "fix subslice offsets when synthesizing the license field",
+      "curated": false
     }
   ]
 }

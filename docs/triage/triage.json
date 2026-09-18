@@ -990,9 +990,7 @@
     {
       "repo": "EmbarkStudios/cargo-about",
       "number": 319,
-      "status": "open",
-      "mergeable": true,
-      "opened": "2026-09-16",
+      "status": "merged",
       "last_checked": "2026-09-18",
       "issue": 315,
       "do_not_duplicate": true,
@@ -1000,7 +998,10 @@
       "commit": "cfb2ac2",
       "summary": "Fixes #315 (a synthesized license field is appended without its closing quote). In src/licenses/resolution.rs, synthesize_manifest takes the append path when a [package] table runs to the end of the manifest with no blank line and no following table to insert before; the writeln! there emitted the expression and a newline but never the closing double quote, so the synthesized manifest contained license = \"MIT and was not valid TOML. One line now terminates the value, matching the sibling branch that synthesizes an entire manifest, which already did this. The expression offset is unchanged, so diagnostics still point at the start of the expression. Added the first #[cfg(test)] module in this file: synthesizes_a_terminated_license_field_when_appending asserts the exact output, the offset, and that the result parses as TOML with package.license == MIT. It fails before the change with license = \"MIT\\n\\n and passes after. Verified locally with cargo test --features cli (28 integration plus 4 unit tests, 0 failures) and cargo fmt --check. cargo clippy --all-targets --features cli reports one pre-existing collapsible_if in is_powershell_parent at src/lib.rs:399 under clippy 1.98; it is untouched by this change and was left alone. Head commit cfb2ac2 signed with the SSH agent and reported verified by GitHub.",
       "ci_status": "action_required",
-      "ci_note": "mergeable_state is blocked and no workflow run has started, which matches PR #318 in the same repo: this is the first-contribution action_required gate on fork PRs, so a maintainer must approve the run before any check reports. rust-ci.yml is the only workflow (lint via fmt and clippy, test on ubuntu/macos/windows, msrv 1.88, cargo-deny, check-self, doc-book, publish-check). No red check; do not push again to trigger it, a run is already queued for approval. Verified 2026-09-16."
+      "ci_note": "mergeable_state is blocked and no workflow run has started, which matches PR #318 in the same repo: this is the first-contribution action_required gate on fork PRs, so a maintainer must approve the run before any check reports. rust-ci.yml is the only workflow (lint via fmt and clippy, test on ubuntu/macos/windows, msrv 1.88, cargo-deny, check-self, doc-book, publish-check). No red check; do not push again to trigger it, a run is already queued for approval. Verified 2026-09-16.",
+      "merged": "2026-09-18",
+      "merge_commit": "d7c169da07c684c5a80f75aab8a1dd7df660bc4b",
+      "merged_at": "2026-09-18T09:46:02Z"
     },
     {
       "repo": "gbif/pygbif",
@@ -1064,13 +1065,14 @@
       "do_not_duplicate": true,
       "issue": 314,
       "last_checked": "2026-09-18",
-      "mergeable": true,
       "number": 320,
-      "opened": "2026-09-17",
       "ping_date": null,
       "repo": "EmbarkStudios/cargo-about",
-      "status": "open",
-      "summary": "Fixes #314 (synthesize_manifest used subslice offsets to index the full manifest). In src/licenses/resolution.rs the insert position computed relative to &existing[pkg+5..] is rebased with the subslice base before indexing existing, and the returned offset still points at the start of the expression. Added mid-file #[cfg(test)] mod synthesize_offset_tests (distinct name and placement from #319's end-of-file mod test so the two PRs cannot conflict): multibyte CRLF manifest test panics before with is_char_boundary at resolution.rs:86 and passes after; ASCII LF test corrupts the edition value before and passes after with a TOML round-trip check. cargo fmt clean; clippy reports only the pre-existing collapsible_if at src/lib.rs:399 (clippy 1.98 drift, untouched). Head commit 7fe3cbd signed, verified by GitHub."
+      "status": "merged",
+      "summary": "Fixes #314 (synthesize_manifest used subslice offsets to index the full manifest). In src/licenses/resolution.rs the insert position computed relative to &existing[pkg+5..] is rebased with the subslice base before indexing existing, and the returned offset still points at the start of the expression. Added mid-file #[cfg(test)] mod synthesize_offset_tests (distinct name and placement from #319's end-of-file mod test so the two PRs cannot conflict): multibyte CRLF manifest test panics before with is_char_boundary at resolution.rs:86 and passes after; ASCII LF test corrupts the edition value before and passes after with a TOML round-trip check. cargo fmt clean; clippy reports only the pre-existing collapsible_if at src/lib.rs:399 (clippy 1.98 drift, untouched). Head commit 7fe3cbd signed, verified by GitHub.",
+      "merged": "2026-09-18",
+      "merge_commit": "e80bf03abf754dd6cfdf8721350ce4a8d60f1471",
+      "merged_at": "2026-09-18T07:32:50Z"
     }
   ],
   "issues": [
@@ -2092,14 +2094,14 @@
     {
       "repo": "EmbarkStudios/cargo-about",
       "number": 315,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         319
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-16",
-      "note": "Claimed with PR #319 on 2026-09-16. Opened 2026-08-25 by yu7400ki, label bug, no assignee, 0 comments, no cross-referenced events on the timeline, and no competing PR (the only open PR in the repo is #318, NOTICE file collection, unrelated). Regression from #299, which replaced the toml_edit implementation with manual string manipulation. Sibling issue #314 (the pkg + 5 slice can land on a UTF-8 boundary and panic) is in the same function but is a separate bug and was deliberately left out of scope."
+      "last_checked": "2026-09-18",
+      "note": "Closed by merged PR #319."
     },
     {
       "repo": "gbif/pygbif",
@@ -2141,14 +2143,14 @@
     {
       "attempted": true,
       "do_not_duplicate": true,
-      "last_checked": "2026-09-17",
-      "note": "Claimed with PR #320 on 2026-09-17. Opened 2026-08-25 by yu7400ki, label bug, no assignee, 0 comments, timeline showed only a labeled event, no competing PR (only open PRs are #318 NOTICE collection and our own #319 on sibling issue #315). Sibling of #315 in synthesize_manifest (src/licenses/resolution.rs): offsets relative to the &existing[pkg+5..] subslice were used to index the full manifest, landing 5 bytes early (UTF-8 panic or silent corruption). Fix adds the subslice base back; regression tests panic/fail before and pass after. Distinct branch fix/314-subslice-offset; test module placed mid-file with allow(clippy::items_after_test_module) so the diff cannot conflict with #319's end-of-file test module.",
+      "last_checked": "2026-09-18",
+      "note": "Closed by merged PR #320.",
       "number": 314,
       "related_prs": [
         320
       ],
       "repo": "EmbarkStudios/cargo-about",
-      "status": "open"
+      "status": "closed"
     }
   ],
   "closed_attempts": [
