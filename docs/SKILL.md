@@ -327,8 +327,11 @@ Every merged PR gets real impact prose, never a one-line restatement of its titl
 When a human maintainer merges one of our PRs, send a short thank-you note on the PR thread. Maintainers are volunteers reviewing unpaid work, and a specific note is worth more than silence.
 
 - Goes through the **comment approval gate** (section 2): draft the full text, get explicit approval in that turn, then post verbatim.
-- Address the maintainer by handle. Name the specific thing the change or the review taught us, so the note cannot read as a template.
-- Three or four sentences. No em dashes, no emojis, no ask, no follow-up question, no residue of the submission. Do not request anything.
+- Personalize with real first names. Before drafting, fetch each reviewer's GitHub profile (`gh api users/<login> --jq .name`) and address them by first name only, no @-mention (js-stellar-sdk#1725: quietbits is Iveta, Ryang-21 is Ryan). Never guess a name from a handle; if the profile name is blank, fall back to the handle.
+- Name the review chain when one is visible (who requested whose review, who approved, who merged). It proves a human read the thread and gives every reviewer their moment.
+- Warm, enthusiastic, collaborative: "thanks" never "thank yous", exclamation marks over periods, and three or four varied emojis tied to the comment's content (merge, docs, learning, teamwork). Say plainly the process was fun and taught us a lot. The old flat no-emoji rule for these notes is retired by standing user directive (18 Sep 2026).
+- Name the specific thing the change or the review taught us, so the note cannot read as a template.
+- Three or four sentences, one sentence per paragraph. No em dashes, no ask, no follow-up question, no residue of the submission. Do not request anything.
 - One note per merged PR, posted once. Never bump a merged thread a second time.
 - Skip it when the merge came from a bot, an auto-merge queue, or was self-merged.
 - When several merges land at once, post the notes across separate turns rather than in one burst; a sudden cluster of comments on old threads reads as automation.
