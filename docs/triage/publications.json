@@ -9,52 +9,52 @@
   },
   "repos": {
     "pnpm/pnpm": {
-      "linkedin_representative": "pnpm - Unix store path fix, engine switching, range prefix retention, and run bail correction."
+      "linkedin_representative": "pnpm - Unix store path fix, lockfile false switching, range prefixes, and run bail correction."
     },
     "recharts/recharts": {
-      "linkedin_representative": "Recharts - portal SVG pointer focus fix with WebKit ring regression coverage."
+      "linkedin_representative": "Recharts - portal SVG pointer focus fix with WebKit focus ring regression coverage."
     },
     "brianc/node-postgres": {
-      "linkedin_representative": "node-postgres - Connection.sync ending fix so later socket errors surface correctly."
+      "linkedin_representative": "node-postgres - Connection.sync ending semantics fix so later socket errors surface correctly."
     },
     "SQLMesh/sqlmesh": {
-      "linkedin_representative": "SQLMesh - test construction race removal around shared execution state."
+      "linkedin_representative": "SQLMesh - concurrent test construction race removal around shared execution state."
     },
     "biomejs/biome": {
       "linkedin_representative": "Biome - better-dom-traversing rule ported to the Rust nursery linter with tests."
     },
     "better-auth/better-auth": {
-      "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody regression coverage lock."
+      "linkedin_representative": "Better Auth - phone number verify OpenAPI requestBody regression coverage lock."
     },
     "thirdweb-dev/js": {
-      "linkedin_representative": "thirdweb - token query error propagation fix for 401, 429, and timeout failures."
+      "linkedin_representative": "thirdweb - CheckoutWidget token query error propagation fix across 401, 429, and timeout failures."
     },
     "anza-xyz/kit": {
-      "linkedin_representative": "Anza Kit - codec docs numeric predicate correction in the example."
+      "linkedin_representative": "Anza Kit - codec documentation numeric predicate correction in the advanced example."
     },
     "web-infra-dev/rspress": {
-      "linkedin_representative": "Rspress - Search init race fix by awaiting FlexSearch indexing before init."
+      "linkedin_representative": "Rspress - Search init race fix by awaiting FlexSearch indexing."
     },
     "pytest-dev/pytest-env": {
       "linkedin_representative": "pytest-env - native pytest.toml env table docs closing a README gap."
     },
     "stellar/stellar-docs": {
-      "linkedin_representative": "stellar-docs - memo, HTTPS scope, address conversion, and flag doc fixes."
+      "linkedin_representative": "stellar-docs - memo guidance reconciliation, Freighter HTTPS scope, address conversion, and manual close flag docs."
     },
     "ssf0409/tracelens": {
-      "linkedin_representative": "tracelens - table cell escaping for pipes, breaks, and HTML in summaries."
+      "linkedin_representative": "tracelens - report table cell escaping for pipes, line breaks, and HTML metacharacters in summaries."
     },
     "PyO3/maturin": {
-      "linkedin_representative": "maturin - Windows discovery fix for non-UTF-8 output with unit coverage."
+      "linkedin_representative": "maturin - Windows interpreter discovery fix for non-UTF-8 command output with coverage."
     },
     "leo-aa88/reviewgate": {
-      "linkedin_representative": "reviewgate - comment verbosity check from added patch lines only."
+      "linkedin_representative": "reviewgate - code comment verbosity check computed from added patch lines only."
     },
     "astral-sh/ruff": {
-      "linkedin_representative": "ruff - PYI002 diagnostic naming the stub file context."
+      "linkedin_representative": "ruff - PYI002 diagnostic now names the stub file context for if tests."
     },
     "EmbarkStudios/cargo-about": {
-      "linkedin_representative": "cargo-about - manifest license quote and offset fixes."
+      "linkedin_representative": "cargo-about - synthesized manifest license quote termination and insert offset fixes."
     }
   },
   "records": [
