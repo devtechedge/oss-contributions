@@ -95,9 +95,11 @@ Remote
 
 DESCRIPTION
 
-Independent upstream contributor working across mature AI, developer-tooling, package-management, framework, SDK, and blockchain repositories. Maintains a canonical public ledger at https://github.com/devtechedge/oss-contributions.
+Independent upstream contributor working across mature AI, developer tooling, package management, framework, SDK, and blockchain repositories.
 
-24 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across Recharts, pnpm, node-postgres, SQLMesh, Biome, Better Auth, thirdweb, Anza Kit, and Rspress.
+Canonical public contribution ledger at github.com/devtechedge/oss-contributions.
+
+24 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across 16 repositories.
 
 Representative work:
 
@@ -122,7 +124,7 @@ Representative work:
 
 Active contribution areas include AI runtimes, developer tooling, package management, frameworks, accessibility, concurrency, security, ORMs, authentication, SDKs, wallets, and blockchain infrastructure.
 
-Process: inspect existing upstream work, confirm issue ownership, follow repository contribution policy, add targeted tests where appropriate, provide changesets when required, and keep the canonical ledger synchronized with maintainer outcomes.
+Process: inspect existing upstream work, confirm issue ownership, follow repository contribution policy, add targeted tests where appropriate, provide changesets when required, and keep the ledger synchronized with maintainer outcomes.
 
 KEY SKILLS
 TypeScript
