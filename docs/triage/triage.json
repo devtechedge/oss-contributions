@@ -650,7 +650,7 @@
       "issue": 1674,
       "do_not_duplicate": true,
       "summary": "Migration sidebar documentation fix.",
-      "note": "Maintainer quietbits APPROVED 2026-09-15 despite invite-only policy in #1728 (landed after we opened). Do not close. On 2026-09-18 quietbits asked to revert the CHANGELOG entry; pushed signed revert 16e7a00e, CHANGELOG out of diff, 4 files remain, mergeable true, awaiting merge. Fork workflow runs need maintainer approval (action_required, non-actionable).",
+      "note": "Merged 2026-09-18 by quietbits (merge 3033dbc). CHANGELOG revert 16e7a00e landed pre-merge; issue #1674 auto-closed.",
       "merged": "2026-09-18",
       "merge_commit": "3033dbc06986d395186092a32b504634f2fe6639",
       "merged_at": "2026-09-18T17:55:00Z"
