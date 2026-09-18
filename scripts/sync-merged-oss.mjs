@@ -29,8 +29,6 @@ const MARK = {
   profileEnd: "<!-- ledger:profile-merged:end -->",
   resumeStart: "<<<LEDGER:MERGED_LIST>>>",
   resumeEnd: "<<<END:LEDGER:MERGED_LIST>>>",
-  linkedinListStart: "<<<LEDGER:LINKEDIN_LIST>>>",
-  linkedinListEnd: "<<<END:LEDGER:LINKEDIN_LIST>>>",
   linkedinRepStart: "<<<LEDGER:LINKEDIN_REP>>>",
   linkedinRepEnd: "<<<END:LEDGER:LINKEDIN_REP>>>",
 };
@@ -333,11 +331,6 @@ function renderResumeBullet(rec) {
   return rec.resume_bullet.startsWith("- ") ? rec.resume_bullet : `- ${rec.resume_bullet}`;
 }
 
-function renderLinkedinBullet(rec) {
-  const body = rec.linkedin_bullet.replace(/^•\s*/, "");
-  return `• ${body}`;
-}
-
 function uniqueRepos(recs) {
   const names = [];
   const seen = new Set();
@@ -425,15 +418,6 @@ function publishLinkedin(root, recs, n, pubs, dryRun) {
   const file = path.join(root, "docs/linkedin-all-details.txt");
   let text = fs.readFileSync(file, "utf8");
   text = rewriteCounts(text, n);
-  const bullets = [...recs].sort(sortLedger).map(renderLinkedinBullet).join("\n");
-  try {
-    text = splice(text, MARK.linkedinListStart, MARK.linkedinListEnd, bullets);
-  } catch {
-    text = text.replace(
-      /(\d+ merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:\n\n)([\s\S]*?)(\n\nActive upstream engineering spans)/,
-      `${n} merged upstream pull requests across TypeScript, JavaScript, Python, and Rust:\n\n${MARK.linkedinListStart}\n${bullets}\n${MARK.linkedinListEnd}\n\nActive upstream engineering spans`,
-    );
-  }
 
   const grouped = [];
   const seen = new Set();
@@ -554,9 +538,13 @@ function validate(triage, recs, files) {
   const triageN = mergedRecords(triage).length;
   const problems = [];
   if (triageN !== n) problems.push(`triage merged=${triageN} publications=${n}`);
+  // linkedin-all-details.txt no longer carries the per-PR LEDGER list (removed Sep 2026),
+  // so only its merged count is checked here, not individual PR numbers.
+  const NUMBER_CHECKED = new Set(["README", "resume", "profile-fragment"]);
   for (const [label, text] of files) {
     const c = countIn(text);
     if (c != null && c !== n) problems.push(`${label} count=${c} expected=${n}`);
+    if (!NUMBER_CHECKED.has(label)) continue;
     for (const rec of recs) {
       if (!text.includes(`#${rec.number}`)) {
         problems.push(`${label} missing ${rec.repo}#${rec.number}`);
