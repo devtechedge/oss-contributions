@@ -558,95 +558,13 @@ function renderWellfound(text, recs, n, pubs, own) {
   const achRe = /Getting \d+ pull requests merged/;
   if (!achRe.test(text)) throw new Error("wellfound: achievements anchor not found");
   text = text.replace(achRe, `Getting ${n} pull requests merged`);
-  const latestRec = [...recs].sort(sortLedger)[0];
-  const ctx = {
-    n,
-    recs,
-    latest: {
-      repo: latestRec.repo,
-      number: latestRec.number,
-      short: shortInline(wellfoundGroupSummary(latestRec.repo, [latestRec], pubs)),
-    },
-    own: own || null,
-  };
-  if (ctx.own && ctx.own.count) {
+  if (own && own.count) {
     const expRe = /open-sourced \d+ repositories/;
     if (!expRe.test(text)) throw new Error("wellfound: own-repo count anchor not found");
-    text = text.replace(expRe, `open-sourced ${ctx.own.count} repositories`);
+    text = text.replace(expRe, `open-sourced ${own.count} repositories`);
   }
-  text = renderWellfoundQa(text, ctx);
   return text;
 }
-
-function shortInline(s) {
-  return String(s || "").replace(/\.\s*$/, "");
-}
-
-function joinNames(list) {
-  if (list.length <= 2) return list.join(" & ");
-  return `${list.slice(0, -1).join(", ")} and ${list[list.length - 1]}`;
-}
-
-function ownShort(own) {
-  if (!own || !own.featured) return "my open-source repos";
-  const d = String(own.featured.desc || "");
-  const cut = d.length > 110 ? d.slice(0, 110).replace(/\s+\S*$/, "") + "..." : d;
-  return cut ? `${own.featured.name} (${cut})` : own.featured.name;
-}
-
-function ownName(own) {
-  if (!own || !own.featured) return "my open-source repos";
-  return own.featured.name;
-}
-
-function capWords(s, max) {
-  const t = String(s || "");
-  if (t.length <= max) return t;
-  return t.slice(0, max).replace(/\s+\S*$/, "") + "...";
-}
-
-const WELLFOUND_QA = [
-  {
-    q: "If money were not an issue, what would you be doing right now?",
-    a: (ctx) =>
-      `Exactly what I'm doing now: building open-source AI infrastructure and multi-agent systems in Rust/TS. That is ${ctx.n} merged upstream PRs plus ${ownName(ctx.own)} on my own repos. I'd just do it with unlimited compute, funding open eval benchmarks.`,
-  },
-  {
-    q: "What words of advice would you give your younger self?",
-    a: (ctx) =>
-      `Go lower down the stack earlier. Master Rust, state machines, and system fundamentals before chasing high-level abstractions. And trust the pivot from chemical engineering. That bet compounds: ${ctx.n} upstream merges so far.`,
-  },
-  {
-    q: "What's the most creative thing you've ever done?",
-    a: (ctx) =>
-      `Built a real-time SVG topology chaos simulator for visualizing network degradation. Most recently I shipped ${ownName(ctx.own)} (github.com/devtechedge).`,
-  },
-  {
-    q: "Which founders or startups do you most admire?",
-    a: (ctx) =>
-      `Prime Intellect for decentralized compute and RLVR evals, Anthropic for MCP. I admire teams building hard AI infrastructure over hype. My bar is the same: ${ctx.n} upstream merges and counting.`,
-  },
-  {
-    q: "What's your super power?",
-    a: (ctx) =>
-      `Eliminating LLM non-determinism: verifiable, state-machine-driven multi-agent systems through low-level hardening and custom RLVR evals. Latest evidence: ${ctx.latest.repo} #${ctx.latest.number}.`,
-  },
-  {
-    q: "What's the best way for people to get in touch with you?",
-    a: (ctx) =>
-      `Email is best: devayanmandal@gmail.com. LinkedIn: https://www.linkedin.com/in/dev-ma. Or message me here on Wellfound; I usually respond within 24 hours. Upstream record: github.com/devtechedge/oss-contributions.`,
-  },
-  {
-    q: "What words of wisdom do you live by?",
-    a: (ctx) =>
-      `"First principles over hype, determinism over magic." Engineer below the abstraction layer. Recent example: ${ctx.latest.repo} #${ctx.latest.number} (${capWords(ctx.latest.short, 80)}).`,
-  },
-  {
-    q: "What aspects of your work are you most passionate about?",
-    a: (ctx) =>
-      `Hardening low-level AI infrastructure: deterministic state engines, verifiable RLVR eval suites, upstream OSS tooling. Right now: ${ctx.latest.repo} #${ctx.latest.number} and ${ownName(ctx.own)} (github.com/devtechedge).`,
-  },
-];
 
 async function fetchOwnRepos() {
   const repos = await gh("/users/devtechedge/repos?per_page=100&type=owner");
@@ -666,31 +584,6 @@ async function fetchOwnRepos() {
     count: own.length,
     featured: f ? { name: f.name, desc: String(f.description || "").replace(/\s+/g, " ").trim() } : null,
   };
-}
-
-function renderWellfoundQa(text, ctx) {
-  let out = text;
-  const qaHead = out.indexOf("Q&A");
-  if (qaHead === -1) throw new Error("wellfound: Q&A anchor not found");
-  let pos = qaHead;
-  for (let i = 0; i < WELLFOUND_QA.length; i++) {
-    const item = WELLFOUND_QA[i];
-    const qi = out.indexOf(item.q, pos);
-    if (qi === -1) throw new Error(`wellfound: Q&A question anchor not found: ${item.q.slice(0, 48)}`);
-    const ansStart = qi + item.q.length;
-    const next = WELLFOUND_QA[i + 1];
-    let ansEnd;
-    if (next) {
-      ansEnd = out.indexOf(next.q, ansStart);
-      if (ansEnd === -1) throw new Error(`wellfound: Q&A question anchor not found: ${next.q.slice(0, 48)}`);
-    } else {
-      ansEnd = out.length;
-    }
-    const tail = next ? "\n\n" : "\n";
-    out = out.slice(0, ansStart) + "\n" + item.a(ctx).trim() + tail + out.slice(ansEnd);
-    pos = ansStart + 1;
-  }
-  return out;
 }
 
 function publishWellfound(root, recs, n, pubs, own, dryRun) {
@@ -716,7 +609,7 @@ function countIn(text) {
   return m ? Number(m[1]) : null;
 }
 
-function validate(triage, recs, files, pubs, own) {
+function validate(triage, recs, files) {
   const n = recs.length;
   const triageN = mergedRecords(triage).length;
   const problems = [];
@@ -762,30 +655,7 @@ function validate(triage, recs, files, pubs, own) {
     for (const rec of recs) {
       if (!wfText.includes(`#${rec.number}`)) problems.push(`wellfound missing ${rec.repo}#${rec.number}`);
     }
-    const qaBlock = wfText.slice(wfText.indexOf("Q&A"));
-    const latestRec = [...recs].sort(sortLedger)[0];
-    const qaCtx = {
-      n,
-      recs,
-      latest: {
-        repo: latestRec.repo,
-        number: latestRec.number,
-        short: shortInline(wellfoundGroupSummary(latestRec.repo, [latestRec], pubs)),
-      },
-      own: own || null,
-    };
-    for (const item of WELLFOUND_QA) {
-      const len = item.a(qaCtx).trim().length;
-      if (len > 250) problems.push(`wellfound Q&A over 250: ${item.q.slice(0, 40)}=${len}`);
-    }
-    for (const item of WELLFOUND_QA) {
-      if (!qaBlock.includes(item.q)) problems.push(`wellfound Q&A question missing: ${item.q.slice(0, 40)}`);
-    }
-    if (!qaBlock.includes(`#${latestRec.number}`))
-      problems.push(`wellfound Q&A missing latest #${latestRec.number}`);
-    if (own && own.featured && !qaBlock.includes(own.featured.name))
-      problems.push(`wellfound Q&A missing featured repo ${own.featured.name}`);
-    if (!qaBlock.includes("devayanmandal@gmail.com")) problems.push("wellfound contact email drifted");
+
     if (/undefined|NaN|\[object /.test(wfText)) problems.push("wellfound contains template leakage");
   }
   return problems;
@@ -1088,7 +958,7 @@ async function main() {
     ["linkedin", fs.readFileSync(path.join(root, "docs/linkedin-all-details.txt"), "utf8")],
     ["wellfound", fs.readFileSync(path.join(root, "docs/wellfound.txt"), "utf8")],
   ];
-  report.problems = args.dryRun ? [] : validate(triage, recs, fileTexts, pubs, ownRepos);
+  report.problems = args.dryRun ? [] : validate(triage, recs, fileTexts);
   report.files = writes.filter((w) => w.changed).map((w) => path.relative(root, w.file));
   report.merged_count = n;
   report.about_preview = aboutDescription(n, recs);
