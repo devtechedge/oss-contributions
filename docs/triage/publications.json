@@ -24,7 +24,7 @@
       "linkedin_representative": "Biome - better-dom-traversing rule ported to the Rust nursery linter with tests."
     },
     "better-auth/better-auth": {
-      "linkedin_representative": "Better Auth - phone number verify OpenAPI requestBody regression coverage lock."
+      "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody regression coverage lock."
     },
     "thirdweb-dev/js": {
       "linkedin_representative": "thirdweb - CheckoutWidget token query error propagation fix across 401, 429, and timeout failures."
