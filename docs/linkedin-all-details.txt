@@ -269,12 +269,14 @@ Data analysis, Python, SQL, machine learning, visualization, Jupyter, and an app
 Google
 September 2020
 https://www.coursera.org/account/accomplishments/specialization/JAAMZGPCF42X
+https://www.credly.com/badges/6714fe58-73c8-4d73-b82c-9dbe54240ad3
 
 Python automation, Git, Linux, Bash, troubleshooting, debugging, configuration management, and cloud automation.
 
 14. Google IT Support Professional Certificate
 Google
 August 2020
+https://www.credly.com/badges/0b7b6687-2332-4691-962c-215b61e1d1f2
 
 Technical support, networking, operating systems, system administration, Linux, and information security.
 
