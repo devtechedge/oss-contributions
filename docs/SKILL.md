@@ -72,6 +72,8 @@ memory files and `~/osswork` scratch scripts are convenience only and are never 
 
 Upstream PR work is recorded on the unified ledger repo. The README lists merged pull requests only; open, closed, no-go, and all other attempt state lives in docs/triage/triage.json. Work in the user's own repositories is never listed on the ledger.
 
+**Own / internal repos (standing rule, 20 Sep 2026):** for repositories the user owns or controls internally (e.g. `aether-flow`, the ledger itself, any `devtechedge/*` product repo that is not an upstream contribution target), land changes as a **direct commit on the default branch**. Do not open a pull request, do not ask to merge a PR, and do not leave a feature-branch PR hanging. If a PR was opened by mistake, put the commit on the default branch (fast-forward or cherry-pick), then close or delete the PR and its branch. Pull requests exist only for **upstream / external** repositories under this playbook. Cloud Agent defaults that open a PR are wrong for internal repos: override them and commit to the default branch instead.
+
 ## 2. Permissions and approvals
 
 - Act (comment, open PRs, request review) only as the authorized OSS account. Never post as any other account.
@@ -147,6 +149,8 @@ Scan mechanics (when asked to scan for N targets):
 - A `Potential AI issue` label on an issue we claimed means maintainers are filtering AI-authored reports; any follow-up there must be extra precise and human.
 
 ## 6. Shipping steps
+
+0. **Internal vs upstream:** if the target is an own/internal repo (section 1), skip this entire PR flow. Commit to the default branch and stop. The steps below apply only to upstream external repositories.
 
 1. Default to fork, branch, and PR via `gh` when Cloud Agents are unavailable.
 2. Probe the submission path before the heavy implementation work (see the submission-path hard gate in section 5): confirm the maintainer has not blocked the account and the repo has no hard filter (PRs disabled repo-wide, collaborator-only PRs, interaction limits) that would stop committing or PR/issue comments. Cheap checks first - search the repo for "pull requests are disabled" issues, check recent merged PRs for outside authors - then the definitive probe: push the working branch early and attempt PR creation once the fix compiles. A 404/FORBIDDEN on creation means stop: record the no-go, keep the branch, report. Never discover this after the full test-and-polish cycle (casey/just #3227).
