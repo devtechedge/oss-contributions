@@ -32,6 +32,12 @@ Notes:
 - rIds are never reused: --add takes max+1. Gaps left by --remove are valid.
 - --check is read-only and never writes. Mutations write only when the bytes
   actually change.
+- Word rejects ET-serialized document.xml as unreadable when namespace
+  declarations no body element uses are dropped while the root's
+  mc:Ignorable still references them (w15, w16*, wp14; Sep 2026). write_docx
+  therefore splices the original <w:document> start-tag back onto the
+  serialized body and refuses to write when the body uses a prefix the
+  original tag does not declare.
 
 No third-party dependencies.
 """
@@ -197,11 +203,38 @@ def rebuild_paragraph(p, head: str, rest: str):
     p.append(make_run(rest, rest_rpr))
 
 
+def register_document_namespaces(*blobs: bytes):
+    """Register every namespace prefix the source files declare.
+
+    ElementTree remaps unregistered prefixes to ns0, ns1, ... on output.
+    For w14:paraId / w14:textId that remap is fatal: the root tag's
+    mc:Ignorable keeps naming w14 while the body says ns2, and Word rejects
+    the file as unreadable. Registering the file's own declarations keeps
+    the original prefixes in the serialized body.
+    """
+    for raw in blobs:
+        head = raw[:4000].decode("utf-8", errors="ignore")
+        for m in re.finditer(r'xmlns(?::([\w.\-]+))?="([^"]+)"', head):
+            prefix, uri = m.group(1) or "", m.group(2)
+            if prefix in ("", "xml"):
+                continue
+            try:
+                ET.register_namespace(prefix, uri)
+            except ValueError:
+                pass
+
+
 def read_docx(path: Path):
     data = path.read_bytes()
     zin = zipfile.ZipFile(io.BytesIO(data))
     names = zin.namelist()
-    doc = ET.fromstring(zin.read(DOC_XML))
+    raw_doc = zin.read(DOC_XML)
+    try:
+        raw_rels = zin.read(DOC_RELS)
+    except KeyError:
+        raw_rels = b""
+    register_document_namespaces(raw_doc, raw_rels)
+    doc = ET.fromstring(raw_doc)
     try:
         rels = ET.fromstring(zin.read(DOC_RELS))
     except KeyError:
@@ -209,13 +242,46 @@ def read_docx(path: Path):
             f"{{{REL}}}Relationships",
             {"xmlns": REL},
         )
-    return data, names, zin, doc, rels
+    return data, names, zin, doc, rels, raw_doc
 
 
-def write_docx(path: Path, names, zin, doc, rels):
+def serialize_doc_xml(raw_doc: bytes, doc) -> bytes:
+    """Serialize word/document.xml the way Word accepts.
+
+    ET drops namespace declarations that no body element uses, but the root
+    tag's mc:Ignorable keeps referencing them (w15, w16*, wp14 on this file).
+    Word then reports the document as unreadable, so the original
+    <w:document ...> start-tag - with every declaration - is spliced back
+    onto the serialized body. Refuses when the body uses a prefix the
+    original tag does not declare, instead of writing a file Word rejects.
+    """
+    body = ET.tostring(doc, encoding="utf-8", xml_declaration=True)
+    tag_start = raw_doc.find(b"<w:document")
+    tag_end = raw_doc.find(b">", tag_start) + 1
+    b_start = body.find(b"<w:document")
+    b_end = body.find(b">", b_start) + 1
+    if tag_start == -1 or b_start == -1:
+        sys.exit("patch-resume-docx: <w:document> start-tag not found, refusing")
+    orig_tag = raw_doc[tag_start:tag_end]
+    tail = body[b_end:]
+    declared = set(re.findall(rb"xmlns:([\w.\-]+)=", orig_tag))
+    used = set(re.findall(rb"[<\s]([A-Za-z_][\w.\-]*):[\w.\-]+=", tail))
+    used |= set(re.findall(rb"<([A-Za-z_][\w.\-]*):", tail))
+    used.discard(b"xml")
+    missing = used - declared
+    if missing:
+        sys.exit(
+            "patch-resume-docx: refusing write, prefixes lack declarations: "
+            + ", ".join(sorted(m.decode("ascii") for m in missing))
+        )
+    decl_end = body.find(b"?>") + 2
+    return body[:decl_end] + orig_tag + tail
+
+
+def write_docx(path: Path, names, zin, doc, rels, raw_doc):
     out = io.BytesIO()
     payloads = {
-        DOC_XML: ET.tostring(doc, encoding="utf-8", xml_declaration=True),
+        DOC_XML: serialize_doc_xml(raw_doc, doc),
         DOC_RELS: ET.tostring(rels, encoding="utf-8", xml_declaration=True),
     }
     with zipfile.ZipFile(out, "w", compression=zipfile.ZIP_DEFLATED) as zf:
@@ -340,7 +406,7 @@ def main() -> int:
         sys.exit(f"patch-resume-docx: missing {docx}")
     lib = load_render_lib(root / "scripts")
 
-    data, names, zin, doc, rels = read_docx(docx)
+    data, names, zin, doc, rels, raw_doc = read_docx(docx)
     try:
         if args.check:
             return cmd_check(doc, rels)
@@ -356,7 +422,7 @@ def main() -> int:
             sys.exit("patch-resume-docx: pass --check, --add or --remove")
         if not dirty:
             return 0
-        changed = write_docx(docx, names, zin, doc, rels)
+        changed = write_docx(docx, names, zin, doc, rels, raw_doc)
         print("wrote" if changed else "unchanged", docx)
         return 0
     finally:
