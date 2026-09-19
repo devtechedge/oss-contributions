@@ -4,24 +4,24 @@ devayanmandal@gmail.com
 linkedin.com/in/dev-ma | github.com/devtechedge
 
 PROFESSIONAL SUMMARY
--AI-native Full Stack Engineer (Jun 2026 to now) with 30+ shipped systems across multi-agent platforms, MCP integrations, deterministic RL evaluation, and real-time infrastructure.
+-AI-native Full Stack Engineer (Jun 2026-now), shipped 30+ systems: agents, MCP, RL eval, realtime infra.
 
--Merged 26 upstream pull requests across TypeScript, Python, and Rust in widely used projects including Biome, pnpm, and node-postgres, owning each change from root cause through tests, review, and release.
+-Merged 26 upstream pull requests (TypeScript/Python/Rust) in Biome, pnpm, node-postgres; owned root cause to release.
 
 TECHNICAL SKILLS
--Languages: Python, TypeScript, JavaScript, Rust, SQL, R, Bash
-AI & Agents: LangGraph, LangChain, LangServe, LangSmith, Model Context Protocol (MCP), multi-agent orchestration, supervisor routing, Reflexion loops, human-in-the-loop gates, hybrid RAG, RLVR environments, deterministic evaluation, prompt engineering, Ollama, Gemini, OpenAI-compatible providers
+-Languages: Python, TypeScript, JavaScript, Rust, SQL, Bash
+AI & Agents: LangGraph, LangChain, MCP, multi-agent orchestration, RAG, RLVR, evals, Ollama, Gemini, OpenAI
 
--Frontend: React 19, Next.js 16, TanStack Start/Router/Query, Tailwind v4, Vite, Framer Motion, Expo, Three.js, React Three Fiber, HTML5 Canvas, SVG
+-Frontend: React 19, Next.js 16, TanStack, Tailwind v4, Vite, Expo, Three.js
 
--Backend & Data: FastAPI, Node.js, Drizzle ORM, Prisma, SQLAlchemy, PostgreSQL (pgvector), Neon, Supabase, SQLite, Pydantic, Zod, Stripe
-Realtime & Observability: SSE, WebSockets, Socket.io, replayable traces, OpenTelemetry-shaped tracing, LangSmith evaluation pipelines
+-Backend & Data: FastAPI, Node.js, Postgres (pgvector), Prisma, Supabase
+Realtime & Observability: SSE, WebSockets, OpenTelemetry, LangSmith
 
--Cloud & DevOps: Vercel, AWS, Microsoft Azure, GitHub Actions CI/CD, serverless, scheduled pipelines, Vitest, pytest, Playwright, Biome
+-Cloud & DevOps: Vercel, AWS, Azure, Actions, serverless, pytest, Playwright
 
--Web3 & Blockchain: Solidity, OpenZeppelin, Foundry, viem, wagmi, ethers.js, Safe Protocol Kit, RainbowKit, Reown AppKit, Base L2, blockchain and wallet infrastructure
+-Web3 & Blockchain: Solidity, Foundry, viem, wagmi, Safe, Base L2
 
--Practices: Six Sigma DMAIC, bounded autonomy, retrieval-bounded generation, AST-sandboxed grading, cost-aware routing, threat-model documentation, Git, Changesets
+-Practices: Six Sigma, bounded autonomy, cost-aware routing, Git, Changesets
 
 PROFESSIONAL EXPERIENCE
 
@@ -30,32 +30,32 @@ OPEN SOURCE CONTRIBUTIONS
 Merged upstream:
 
 <<<LEDGER:MERGED_LIST>>>
-- leo-aa88/reviewgate #172 (Python) - corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/172
-- stellar/js-stellar-sdk #1725 (TypeScript) - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts. Merged Sep 2026. github.com/stellar/js-stellar-sdk/pull/1725
-- EmbarkStudios/cargo-about #319 (Rust) - terminate the appended license value with its closing quote in synthesize_manifest when the [package] table runs to end of file, so the synthesized manifest stays valid TOML; added the first unit test module in resolution.rs. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/319
-- EmbarkStudios/cargo-about #320 (Rust) - rebase the subslice-relative insert position to full-manifest coordinates in synthesize_manifest, fixing corrupted output and an is_char_boundary panic on multibyte CRLF manifests; added mid-file offset tests with TOML round-trips. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/320
-- astral-sh/ruff #28542 (Rust) - PYI002 diagnostic in complex_if_statement_in_stub.rs now names the stub-file context, so if tests in .pyi files report as needing a simple comparison against sys.platform or sys.version_info instead of reading as a claim about the flagged test itself. Merged Sep 2026. github.com/astral-sh/ruff/pull/28542
-- leo-aa88/reviewgate #144 (Python) - adds a configurable excessive code-comment verbosity check to the core review engine: three signals computed from added patch lines only, so a PR is never penalised for comments it did not touch, with a single-pass lexer that tracks string literals, heredocs and template literals so runtime data is never counted as commentary. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/144
-- PyO3/maturin #3302 (Rust) - Windows interpreter discovery no longer panics on non-UTF-8 command output. find_all_windows() decodes py --list-paths and conda info -e with String::from_utf8_lossy instead of unwrapping str::from_utf8, so a localized install that emits undecodable bytes skips that line instead of aborting the build. Added a unit test covering the non-UTF-8 decode path. Merged Sep 2026. github.com/PyO3/maturin/pull/3302
-- stellar/stellar-docs #2859 (MDX) - added the --enable-core-manual-close flag to the Local section of the Network Modes page, so the parameter list no longer omits a flag the quickstart container ships, with a cross-link to the Manual close mode section noting that only the local configuration sets NODE_IS_VALIDATOR. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2859
-- stellar/stellar-docs #2850 (MDX) - documented Quickstart's undocumented `--enable-core-manual-close` flag in the advanced usage docs, covering the `MANUAL_CLOSE` setting it writes into the generated core config, the `manualclose` endpoint that advances one ledger per call, and loopback-bound startup examples for macOS, Linux, and Windows. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2850
-- ssf0409/tracelens #140 (Python) - markdown table cells in the report generator are now escaped with html.escape in addition to pipe and newline handling. Task ids or gate values containing pipes, line breaks, or HTML metacharacters no longer break the per-task and baseline-gate tables piped into $GITHUB_STEP_SUMMARY, and no cell can open a raw HTML element. Merged Sep 2026. github.com/ssf0409/tracelens/pull/140
-- stellar/stellar-docs #2849 (MDX) - reworked the address conversion example to propagate the fallible `Result<Address, ConversionError>` instead of unwrapping malformed XDR, and documented that untrusted XDR must be handled rather than panicking. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2849
-- stellar/stellar-docs #2853 (MDX) - reconciled memo framing in the pooled accounts guide so memos read as the legacy mechanism still in active use and muxed accounts as preferred going forward. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853
-- stellar/stellar-docs #2851 (MDX) - qualified the Freighter HTTPS requirement, noting that `http://localhost` is already a Potentially Trustworthy origin under W3C Secure Contexts so loopback needs no TLS. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851
-- pytest-dev/pytest-env #262 (Python) - documented that pytest.toml and .pytest.toml accept the native [pytest] env table, not only the plugin-specific [pytest_env] section. Merged Sep 2026. github.com/pytest-dev/pytest-env/pull/262
-- pnpm/pnpm #14863 (Rust/TypeScript) - fixed startup crashes on FreeBSD and other non-Windows Unix-like platforms by making default_store_dir use the Unix fallback path; added platform-specific regression coverage. Merged Sep 2026. github.com/pnpm/pnpm/pull/14863
-- web-infra-dev/rspress #3678 (TypeScript) - fixed a Search initialization race by awaiting FlexSearch addAsync indexing before LocalProvider.init() resolves, preventing early searches from incorrectly returning no results on larger sites; focused regression-oriented fix. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678
-- recharts/recharts #7805 (TypeScript) - removed tabIndex={-1} from z-index portal SVG <g> layers so empty groups are not pointer-focusable and WebKit does not draw geometry-traced focus rings; added regression coverage asserting no layer carries a tabindex attribute. Merged Sep 2026. github.com/recharts/recharts/pull/7805
-- brianc/node-postgres #3772 (JavaScript) - stopped Connection.sync() from incorrectly setting the internal _ending flag, preventing false suppression of subsequent socket errors; added unit coverage for Sync vs disconnect semantics. Merged Sep 2026. github.com/brianc/node-postgres/pull/3772
-- pnpm/pnpm #14756 (Rust/TypeScript) - preserved existing dependency range operators and npm:/jsr: protocol prefixes during pnpm update, including prerelease and exact-version handling. Merged Sep 2026. github.com/pnpm/pnpm/pull/14756
-- pnpm/pnpm #14754 (Rust) - fixed non-recursive pattern runs with --no-bail so matching scripts continue executing and failures are aggregated correctly; added concurrent and sequential regression tests. Merged Sep 2026. github.com/pnpm/pnpm/pull/14754
-- pnpm/pnpm #14753 (Rust/TypeScript) - fixed lockfile:false being ignored when automatic package-manager switching downloaded the configured engine; added unit and filesystem-backed regression coverage across Rust and TypeScript paths. Merged Sep 2026. github.com/pnpm/pnpm/pull/14753
-- SQLMesh/sqlmesh #6040 (Python) - moved ModelTest.create_test() off concurrent worker threads to eliminate a time_machine/ttl_cache race in sqlmesh test; verified the focused race regression repeatedly. Merged Sep 2026. github.com/SQLMesh/sqlmesh/pull/6040
-- anza-xyz/kit #2032 (TypeScript) - restored number predicates in the getPatternMatchCodec advanced guide to match current codec typing. Merged Sep 2026. github.com/anza-xyz/kit/pull/2032
-- better-auth/better-auth #11208 (TypeScript) - added regression coverage locking the /phone-number/verify OpenAPI requestBody after a Zod .and(z.record()) intersection; tests only, no production generator changes. Merged Sep 2026. github.com/better-auth/better-auth/pull/11208
-- biomejs/biome #11667 (Rust) - ported the unicorn better-dom-traversing rule into Biome's nursery linter; +1,972 lines across 17 files and 7 commits, released to 13 packages via changeset. Merged Sep 2026. github.com/biomejs/biome/pull/11667
-- thirdweb-dev/js #8938 (TypeScript) - fixed useTokenQuery error handling so 401/429/timeout failures rethrow instead of rendering a false "Token Not Supported" state in CheckoutWidget; added tests and a patch changeset. Merged Sep 2026. github.com/thirdweb-dev/js/pull/8938
+- leo-aa88/reviewgate #172 (Python) - aligned DESIGN.md 10.14 Hunk entry with PR 144 code-token rule: context lines scan clean with code token, blanks neutral. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/172
+- stellar/js-stellar-sdk #1725 (TypeScript) - extended docs pipeline to migration pages: Starlight sidebar, llms.txt bundles with link validation. Merged Sep 2026. github.com/stellar/js-stellar-sdk/pull/1725
+- EmbarkStudios/cargo-about #319 (Rust) - closed license quote in synthesize_manifest at EOF so output stays valid TOML; added first resolution.rs tests. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/319
+- EmbarkStudios/cargo-about #320 (Rust) - fixed insert offset to full-manifest coordinates, fixing corrupt output and multibyte CRLF panic; added offset tests. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/320
+- astral-sh/ruff #28542 (Rust) - clarified PYI002 message to name stub-file context for sys.platform/version_info checks. Merged Sep 2026. github.com/astral-sh/ruff/pull/28542
+- leo-aa88/reviewgate #144 (Python) - added configurable comment-verbosity check on added lines only, with lexer that ignores strings/heredocs. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/144
+- PyO3/maturin #3302 (Rust) - fixed Windows interpreter crash on non-UTF-8 output via from_utf8_lossy; added decode test. Merged Sep 2026. github.com/PyO3/maturin/pull/3302
+- stellar/stellar-docs #2859 (MDX) - added missing --enable-core-manual-close flag to Network Modes Local section. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2859
+- stellar/stellar-docs #2850 (MDX) - documented --enable-core-manual-close flag: MANUAL_CLOSE config, manualclose endpoint, loopback examples. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2850
+- ssf0409/tracelens #140 (Python) - escaped report table cells with html.escape so pipes/HTML cannot break summary tables. Merged Sep 2026. github.com/ssf0409/tracelens/pull/140
+- stellar/stellar-docs #2849 (MDX) - fixed address example to propagate Result instead of unwrapping bad XDR. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2849
+- stellar/stellar-docs #2853 (MDX) - clarified pooled accounts guide: memos legacy in use, muxed preferred. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2853
+- stellar/stellar-docs #2851 (MDX) - noted localhost is already trustworthy, no TLS needed for Freighter. Merged Sep 2026. github.com/stellar/stellar-docs/pull/2851
+- pytest-dev/pytest-env #262 (Python) - documented pytest.toml accepts native [pytest] env table. Merged Sep 2026. github.com/pytest-dev/pytest-env/pull/262
+- pnpm/pnpm #14863 (Rust/TypeScript) - fixed FreeBSD/Unix startup crash via Unix fallback store path. Merged Sep 2026. github.com/pnpm/pnpm/pull/14863
+- web-infra-dev/rspress #3678 (TypeScript) - fixed Search race by awaiting FlexSearch indexing before init. Merged Sep 2026. github.com/web-infra-dev/rspress/pull/3678
+- recharts/recharts #7805 (TypeScript) - removed tabIndex from portal SVG groups to stop false focus rings; added test. Merged Sep 2026. github.com/recharts/recharts/pull/7805
+- brianc/node-postgres #3772 (JavaScript) - fixed Connection.sync() setting _ending flag and hiding socket errors. Merged Sep 2026. github.com/brianc/node-postgres/pull/3772
+- pnpm/pnpm #14756 (Rust/TypeScript) - kept range operators and npm:/jsr: prefixes during update. Merged Sep 2026. github.com/pnpm/pnpm/pull/14756
+- pnpm/pnpm #14754 (Rust) - fixed --no-bail pattern runs to continue and aggregate failures. Merged Sep 2026. github.com/pnpm/pnpm/pull/14754
+- pnpm/pnpm #14753 (Rust/TypeScript) - respected lockfile:false during auto package-manager switch. Merged Sep 2026. github.com/pnpm/pnpm/pull/14753
+- SQLMesh/sqlmesh #6040 (Python) - moved ModelTest off worker threads to fix time_machine race. Merged Sep 2026. github.com/SQLMesh/sqlmesh/pull/6040
+- anza-xyz/kit #2032 (TypeScript) - restored number predicates in getPatternMatchCodec guide. Merged Sep 2026. github.com/anza-xyz/kit/pull/2032
+- better-auth/better-auth #11208 (TypeScript) - added OpenAPI regression test for phone verify body; tests only. Merged Sep 2026. github.com/better-auth/better-auth/pull/11208
+- biomejs/biome #11667 (Rust) - ported unicorn dom-traversing rule to nursery; 1,972 lines, 13 packages. Merged Sep 2026. github.com/biomejs/biome/pull/11667
+- thirdweb-dev/js #8938 (TypeScript) - fixed useTokenQuery to rethrow 401/429/timeout instead of false unsupported. Merged Sep 2026. github.com/thirdweb-dev/js/pull/8938
 <<<END:LEDGER:MERGED_LIST>>>
 
 Canonical ledger with links to every merged PR: github.com/devtechedge/oss-contributions
