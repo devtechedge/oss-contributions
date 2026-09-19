@@ -340,6 +340,41 @@ https://www.theforage.com/simulations/jpmorgan/software-engineering-btjx
 
 Repository setup, debugging, data analysis, and integration of JPMorgan Chase's Perspective library for live financial-data visualization.
 
+23. Applied Data Science Specialization
+Coursera
+July 2020
+https://www.credly.com/badges/ba78b3be-4ac2-4f3a-bae4-1278f908df0b/public_url
+
+Practical data science with Python, Matplotlib and Seaborn visualization, and applied analytics.
+
+24. IBM Applied AI Professional Certificate
+IBM
+July 2020
+https://www.credly.com/badges/da1a5658-50d9-4f06-99ab-e273c94b0e10/public_url
+
+AI use cases, IBM Watson services and APIs, chatbots, and Python for AI applications.
+
+25. IBM AI Engineering Professional Certificate
+IBM
+July 2020
+https://www.credly.com/badges/8b611162-933c-4e19-8ce9-91bd7170c332/public_url
+
+Machine learning and deep learning with Spark, Keras, PyTorch and TensorFlow, plus applied projects.
+
+26. Artificial Intelligence Foundations Specialization
+Coursera
+July 2020
+https://www.credly.com/badges/80e49cd0-715c-40b8-bdbb-d25aebfd2ad4/public_url
+
+AI concepts across industries, machine learning and neural networks, Watson services, and no-code chatbots.
+
+27. AWS Educate Introduction to Generative AI
+Amazon Web Services
+August 2025
+https://www.credly.com/badges/24356848-8540-4eac-bcc3-40db36303d7c/public_url
+
+Generative AI fundamentals, foundation models, and GenAI use cases.
+
 EDUCATION
 
 University of Mumbai
