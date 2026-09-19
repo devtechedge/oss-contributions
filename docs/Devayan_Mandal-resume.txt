@@ -64,21 +64,21 @@ Canonical ledger with links to every merged PR: github.com/devtechedge/oss-contr
 LATTICE AI LABS
 Full Stack AI Native / Forward Deployed AI Engineer | June 2026 - Present | Remote
 
-- Architected and shipped 30+ production-grade systems spanning autonomous agents, RL evaluation environments, real-time observability, and high-throughput web applications.
+- Shipped 30+ production systems across agents, RL eval, realtime observability, and web apps.
 
-- Built AEGIS, an enterprise AI ops cortex where a LangGraph supervisor routes 6 specialist agents across 7 agentic loops, with hybrid RAG, human-in-the-loop gates, LangSmith evaluation gates, and a live SSE dashboard. Live: aegis-agent-api.vercel.app/ui
+- Built AEGIS, an AI ops cortex: LangGraph supervisor, 6 agents, 7 loops, RAG, HITL gates, LangSmith evals, SSE dashboard. Live: aegis-agent-api.vercel.app/ui
 
-- Built Synthesis, an autonomous research platform running cyclic Reflexion workflows with HITL approval gates, and AAROP, an inspectable 6-phase reasoning engine with cost-aware routing, circuit breakers, RAG memory, and replayable traces. Live: synthesis-gold.vercel.app | aarop.vercel.app
+- Built Synthesis (Reflexion research, HITL gates) and AAROP (6-phase reasoning, cost-aware routing, replayable traces). Live: synthesis-gold.vercel.app | aarop.vercel.app
 
-- Authored 3 official RLVR environments on the Prime Intellect Environments Hub (calendar-math, meeting-slot, unit-fix) using deterministic UTC sweep-line solvers and AST-sandboxed graders, removing LLM-as-judge variance.
+- 3 Prime Intellect RLVR envs (calendar-math, meeting-slot, unit-fix): sweep-line solvers, sandboxed graders, no LLM judge.
 
-- Implemented MCP servers and clients across Stdio and StreamableHTTP/SSE transports with client-side sampling and roots-based security boundaries; shipped HoldSlot, a WebMCP implementation for the OpenAI WebMCP Challenge 2026.
+- MCP servers/clients over Stdio and StreamableHTTP/SSE with sampling, roots security; shipped HoldSlot (OpenAI WebMCP Challenge 2026).
 
-- Shipped Jobrow, a live US tech job board indexing 5,000+ still-open roles across employer ATS boards (Greenhouse, Ashby, Lever) on TanStack Start, React 19, and Neon Postgres, with an Expo mobile client and a GitHub Actions crawl pipeline running 4x daily. Live: jobrow.vercel.app
+- Jobrow: 5,000+ open roles across Greenhouse/Ashby/Lever; TanStack Start, React 19, Neon Postgres, Expo, 4x-daily crawls. Live: jobrow.vercel.app
 
-- Also delivered Veritas (LangGraph research agent), Cadence (healthcare agent with 5-layer clinical memory), a real-time chaos engineering platform with self-healing services and sub-second WebSocket telemetry, Pulsar (Base L2 GPU marketplace on Foundry contracts), and a serverless daily AI news agent on GitHub Actions.
+- Also: Veritas (research agent), Cadence (healthcare, 5-layer memory), chaos platform (self-healing, WebSocket telemetry), Pulsar (Base L2 GPU market), daily AI news agent.
 
-- Work AI-native across the full stack using frontier coding and reasoning models, with emphasis on rapid iteration, test-driven validation, repository-specific contribution policies, and reproducible upstream delivery.
+- AI-native full stack with frontier models: fast iteration, test-driven validation, repo norms, reproducible upstream delivery.
 
 SPECTRAL QUANTITATIVE TRADING
 Quantitative Crypto Trader & Derivatives Strategist | September 2016 - Present | Remote
@@ -103,10 +103,16 @@ CERTIFICATIONS
 - AWS Fundamentals Specialization - Amazon Web Services (Coursera), 2020
 - Data Science Specialization - Johns Hopkins University (Coursera), 2020
 - Six Sigma Green Belt - Kennesaw State University (Coursera), 2020
+- DeepLearning.AI TensorFlow Developer Professional Certificate - DeepLearning.AI, 2020
+- Deep Learning Specialization - DeepLearning.AI, 2020
+- IBM Data Science Professional Certificate - IBM, 2020
+- Google IT Automation with Python Professional Certificate - Google, 2020
+- Blockchain Specialization - University of California, Irvine (Coursera), 2020
+- Google IT Support Professional Certificate - Google, 2020
 
 
 EDUCATION
 
 UNIVERSITY OF MUMBAI
-Bachelor of Engineering (B.E.), Chemical Engineering (First Class) | [Graduation Year]
+Bachelor of Engineering (B.E.), Chemical Engineering (First Class)
 Quantitative core in process dynamics, transport phenomena, mathematical modeling, and optimization; transitioned into software engineering through computational and systems-oriented work.
