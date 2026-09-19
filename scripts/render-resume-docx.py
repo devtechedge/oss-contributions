@@ -102,8 +102,8 @@ URL_FIND = re.compile(r"(?:https?://)?(?:www\.)?github\.com/\S+")
 LINK_COLOR = "0563C1"  # Word hyperlink blue; the run also takes a single underline
 MERGED_TAIL = re.compile(r"\s*Merged\s+[A-Z][a-z]{2}\s+\d{4}\.\s*$")
 
-# Render order. Open source sits directly under the skills block so it owns the
-# top half of page one, ahead of the portfolio of private project work.
+# Render order. The merged open-source list sits inside PROFESSIONAL EXPERIENCE
+# as its first block, under a bold subhead, ahead of the role line and bullets.
 SECTIONS = (
     "PROFESSIONAL SUMMARY",
     "TECHNICAL SKILLS",
@@ -625,10 +625,14 @@ def build_fixed(data: dict, level=(False, False, None)):
     order = [s for s in SECTIONS if s in data["sections"]]
     for name in order:
         if name == "OPEN-SOURCE CONTRIBUTIONS":
-            slot = len(out)
+            # Never standalone: the merged list renders inside PROFESSIONAL
+            # EXPERIENCE under its own bold subhead (19 Sep 2026).
             continue
         out.append(Block(name, HEAD_PT, True, "heading", GAP_HEAD_BEFORE, GAP_HEAD_AFTER))
+        if name == "PROFESSIONAL EXPERIENCE":
+            slot = len(out)
         lines = list(data["sections"][name])
+        lattice_role_next = False
 
         if name == "TECHNICAL SKILLS" and skills_merge:
             lines = merge_skills(lines)
@@ -652,8 +656,16 @@ def build_fixed(data: dict, level=(False, False, None)):
                     Block(BULLET + " " + text, BODY_PT, False, "bullet", 0, GAP_BULLET_AFTER)
                 )
             elif name == "PROFESSIONAL EXPERIENCE":
+                if line == "LATTICE AI LABS":
+                    # Org name dropped (19 Sep 2026); the role line below it
+                    # renders bold instead.
+                    lattice_role_next = True
+                    continue
                 if line == line.upper() and len(line) > 6:
                     out.append(Block(line, BODY_PT, True, "body", GAP_ORG_BEFORE, GAP_ORG_AFTER))
+                elif lattice_role_next:
+                    lattice_role_next = False
+                    out.append(Block(line, BODY_PT, True, "body", 0, GAP_BODY_AFTER))
                 else:
                     out.append(Block(line, BODY_PT, False, "body", 0, GAP_BODY_AFTER))
             elif name == "EDUCATION" and line == line.upper() and len(line) > 6:
@@ -682,10 +694,10 @@ def merge_skills(lines: list[str]) -> list[str]:
 
 
 def oss_blocks(data: dict, lines: list[tuple[str, str]]) -> list[Block]:
-    out = [Block("OPEN-SOURCE CONTRIBUTIONS", HEAD_PT, True, "heading",
-                 GAP_HEAD_BEFORE, GAP_HEAD_AFTER)]
-    if data["intro"]:
-        out.append(Block(data["intro"], BODY_PT, False, "body", 0, GAP_BODY_AFTER))
+    # Bold subhead inside PROFESSIONAL EXPERIENCE. The old standalone heading
+    # and its "Merged upstream:" intro are gone (19 Sep 2026).
+    out = [Block("Merged Open-Source Contributions", BODY_PT, True, "body",
+                 GAP_ORG_BEFORE, GAP_ORG_AFTER)]
     for line in lines:
         if isinstance(line, tuple):
             text, url = line
