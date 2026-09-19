@@ -262,6 +262,7 @@ Deep learning foundations, optimization, CNNs, sequence models, and applied neur
 IBM
 July 2020
 https://www.coursera.org/account/accomplishments/specialization/DRBARHHVEX6F
+https://www.credly.com/badges/e50ef04e-13fb-4130-9275-fc760487924c/public_url
 
 Data analysis, Python, SQL, machine learning, visualization, Jupyter, and an applied capstone.
 
