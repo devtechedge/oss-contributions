@@ -822,7 +822,8 @@
       "last_checked": "2026-09-19",
       "issue": 5233,
       "do_not_duplicate": true,
-      "summary": "Avoid reconnect remaining stuck after rejecting isAuthorized."
+      "summary": "Avoid reconnect remaining stuck after rejecting isAuthorized.",
+      "last_ping": "2026-09-20"
     },
     {
       "repo": "reown-com/appkit",
@@ -832,7 +833,8 @@
       "last_checked": "2026-09-19",
       "issue": 5752,
       "do_not_duplicate": true,
-      "summary": "Pass Meld onramp countryCode correctly."
+      "summary": "Pass Meld onramp countryCode correctly.",
+      "last_ping": "2026-09-20"
     },
     {
       "repo": "rainbow-me/rainbowkit",
@@ -842,7 +844,8 @@
       "last_checked": "2026-09-19",
       "issue": 2574,
       "do_not_duplicate": true,
-      "summary": "Fix mobile connect GET/store link flow."
+      "summary": "Fix mobile connect GET/store link flow.",
+      "last_ping": "2026-09-20"
     },
     {
       "repo": "ethers-io/ethers.js",
@@ -852,7 +855,8 @@
       "last_checked": "2026-09-19",
       "issue": 5091,
       "do_not_duplicate": true,
-      "summary": "Correct Signature._yParity handling."
+      "summary": "Correct Signature._yParity handling.",
+      "last_ping": "2026-09-20"
     },
     {
       "repo": "reown-com/appkit",
@@ -862,7 +866,8 @@
       "last_checked": "2026-09-19",
       "issue": null,
       "do_not_duplicate": true,
-      "summary": "Improve modal accessible names."
+      "summary": "Improve modal accessible names.",
+      "last_ping": "2026-09-20"
     },
     {
       "repo": "rainbow-me/rainbowkit",
@@ -872,7 +877,8 @@
       "last_checked": "2026-09-19",
       "issue": 2700,
       "do_not_duplicate": true,
-      "summary": "Correct Account modal titleId."
+      "summary": "Correct Account modal titleId.",
+      "last_ping": "2026-09-20"
     },
     {
       "repo": "Wilfred/difftastic",
