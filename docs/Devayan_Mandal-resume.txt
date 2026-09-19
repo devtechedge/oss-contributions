@@ -30,7 +30,7 @@ OPEN SOURCE CONTRIBUTIONS
 Merged upstream:
 
 <<<LEDGER:MERGED_LIST>>>
-- leo-aa88/reviewgate #172 (TypeScript) - corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/172
+- leo-aa88/reviewgate #172 (Python) - corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/172
 - stellar/js-stellar-sdk #1725 (TypeScript) - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts. Merged Sep 2026. github.com/stellar/js-stellar-sdk/pull/1725
 - EmbarkStudios/cargo-about #319 (Rust) - terminate the appended license value with its closing quote in synthesize_manifest when the [package] table runs to end of file, so the synthesized manifest stays valid TOML; added the first unit test module in resolution.rs. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/319
 - EmbarkStudios/cargo-about #320 (Rust) - rebase the subslice-relative insert position to full-manifest coordinates in synthesize_manifest, fixing corrupted output and an is_char_boundary panic on multibyte CRLF manifests; added mid-file offset tests with TOML round-trips. Merged Sep 2026. github.com/EmbarkStudios/cargo-about/pull/320
