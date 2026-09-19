@@ -103,7 +103,7 @@ MERGED_TAIL = re.compile(r"\s*Merged\s+[A-Z][a-z]{2}\s+\d{4}\.\s*$")
 SECTIONS = (
     "PROFESSIONAL SUMMARY",
     "TECHNICAL SKILLS",
-    "OPEN SOURCE CONTRIBUTIONS",
+    "OPEN-SOURCE CONTRIBUTIONS",
     "PROFESSIONAL EXPERIENCE",
     "CERTIFICATIONS",
     "EDUCATION",
@@ -570,7 +570,7 @@ def build_fixed(data: dict, level=(False, False, None)):
 
     order = [s for s in SECTIONS if s in data["sections"]]
     for name in order:
-        if name == "OPEN SOURCE CONTRIBUTIONS":
+        if name == "OPEN-SOURCE CONTRIBUTIONS":
             slot = len(out)
             continue
         out.append(Block(name, HEAD_PT, True, "heading", GAP_HEAD_BEFORE, GAP_HEAD_AFTER))
@@ -634,7 +634,7 @@ def merge_skills(lines: list[str]) -> list[str]:
 
 
 def oss_blocks(data: dict, lines: list[str]) -> list[Block]:
-    out = [Block("OPEN SOURCE CONTRIBUTIONS", HEAD_PT, True, "heading",
+    out = [Block("OPEN-SOURCE CONTRIBUTIONS", HEAD_PT, True, "heading",
                  GAP_HEAD_BEFORE, GAP_HEAD_AFTER)]
     if data["intro"]:
         out.append(Block(data["intro"], BODY_PT, False, "body", 0, GAP_BODY_AFTER))

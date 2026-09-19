@@ -1,12 +1,12 @@
 DEVAYAN MANDAL
-Full Stack AI Native / Forward Deployed AI Engineer & Open Source Contributor - Open to Remote Work
+Full Stack AI Native / Forward Deployed AI Engineer & Open-Source Contributor - Open to Remote Work
 devayanmandal@gmail.com
 linkedin.com/in/dev-ma | github.com/devtechedge
 
 PROFESSIONAL SUMMARY
--AI-native Full Stack Engineer (Jun 2026-now), shipped 30+ systems: agents, MCP, RL eval, realtime infra.
+AI-native Full Stack Engineer (Jun 2026-now), shipped 30+ systems: agents, MCP, RL eval, realtime infra.
 
--Merged 26 upstream pull requests (TypeScript/Python/Rust) in Biome, pnpm, node-postgres; owned root cause to release.
+Merged 26 upstream pull requests (TypeScript/Python/Rust) in Biome, pnpm, node-postgres and others; owned root cause to release.
 
 TECHNICAL SKILLS
 -Languages: Python, TypeScript, JavaScript, Rust, SQL, Bash
@@ -23,7 +23,7 @@ Realtime & Observability: SSE, WebSockets, OpenTelemetry, LangSmith
 
 -Practices: Six Sigma, bounded autonomy, cost-aware routing, Git, Changesets
 
-OPEN SOURCE CONTRIBUTIONS
+OPEN-SOURCE CONTRIBUTIONS
 
 Merged upstream:
 
