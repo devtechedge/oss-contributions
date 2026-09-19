@@ -6,3 +6,6 @@ Thumbs.db
 node_modules/
 .idea/
 .vscode/
+
+# Word owner lock files (auto-created while a .docx is open; never commit)
+~$*
