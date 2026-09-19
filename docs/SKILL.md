@@ -194,7 +194,7 @@ No babysitting: never set up a watch, cron job, event listener, or polling loop 
   close it with the same one-line note the silence rule uses. Same two exemptions: approved and only
   awaiting merge, or a human maintainer actively reviewing. Net effect: a PR nobody ever looks at
   lives about two weeks, then it is pinged, then it closes. Log the ping date in
-  `docs/triage/triage.json` so the next sweep can measure the 7 days without re-deriving it.
+  `docs/triage/triage.json` so the next sweep can measure the 7 days without re-deriving it. Space batch pings about one minute apart and never fire a batch back-to-back (20 Sep 2026: six pings landed within 40 seconds with no fallout; the gap exists to keep it that way).
 
 ## 8. Post-run retrospective (mandatory before retiring a PR session)
 
