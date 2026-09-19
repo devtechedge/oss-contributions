@@ -23,8 +23,6 @@ Realtime & Observability: SSE, WebSockets, OpenTelemetry, LangSmith
 
 -Practices: Six Sigma, bounded autonomy, cost-aware routing, Git, Changesets
 
-PROFESSIONAL EXPERIENCE
-
 OPEN SOURCE CONTRIBUTIONS
 
 Merged upstream:
@@ -60,6 +58,7 @@ Merged upstream:
 
 Canonical ledger with links to every merged PR: github.com/devtechedge/oss-contributions
 
+PROFESSIONAL EXPERIENCE
 
 LATTICE AI LABS
 Full Stack AI Native / Forward Deployed AI Engineer | June 2026 - Present | Remote
