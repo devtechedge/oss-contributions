@@ -658,15 +658,17 @@
       "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
       "issue": null,
       "url": "https://github.com/leo-aa88/reviewgate/pull/172",
-      "languages": [],
+      "languages": [
+        "Python"
+      ],
       "org": "leo-aa88",
       "display_name": "reviewgate",
       "profile_title": "reviewgate #172",
       "ledger_logo": "https://github.com/leo-aa88.png?size=40",
       "profile_logo": "https://github.com/leo-aa88.png?size=48",
-      "profile_logo_alt": "reviewgate",
+      "profile_logo_alt": "leo-aa88",
       "ledger_what": "Corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position.",
-      "resume_bullet": "leo-aa88/reviewgate #172 (TypeScript) - corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/172",
+      "resume_bullet": "leo-aa88/reviewgate #172 (Python) - corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/172",
       "linkedin_bullet": "leo-aa88/reviewgate #172 - corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position.",
       "profile_line": "corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position.",
       "curated": true
