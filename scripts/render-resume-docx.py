@@ -354,7 +354,7 @@ MIN_OSS = 200.0  # heading + intro + a real list of merges + closing
 SHORT_CAP = 124
 RICH_CAP = 250  # two lines, for the most significant merges
 RICH_MAX = 4  # how many entries may spend a second line
-MAX_NAMED = 12  # past this the section reads as a list rather than a record
+MAX_NAMED = 20  # 20 named fits 2 pages at 1.97p (19 Sep 2026); past this the section reads as a list
 
 
 # ------------------------------------------------------- significance ranking
