@@ -14,7 +14,9 @@ Because the page budget is fixed, the open-source section is re-summarised on
 every run rather than pasted verbatim, and it is ranked by significance rather
 than by merge date. The renderer shows the most significant merges first, gives
 the leading few a second line of detail, keeps the rest to a single line each,
-and rolls everything left over into one closing line. If the hand-written
+and rolls everything left over into one closing line when the list does not fit,
+and links each named merge to its upstream pull request the way the README does.
+If the hand-written
 sections leave no room at all, they are condensed too, cheapest first:
 certifications to a single line, then small skill categories folded together,
 then long experience bullets trimmed at clause boundaries.
@@ -96,6 +98,8 @@ BULLET = "\u2022"
 START = "<<<LEDGER:MERGED_LIST>>>"
 END = "<<<END:LEDGER:MERGED_LIST>>>"
 URL_TAIL = re.compile(r"\s+(?:https?://)?(?:www\.)?github\.com/\S+\s*$")
+URL_FIND = re.compile(r"(?:https?://)?(?:www\.)?github\.com/\S+")
+LINK_COLOR = "0563C1"  # Word hyperlink blue; the run also takes a single underline
 MERGED_TAIL = re.compile(r"\s*Merged\s+[A-Z][a-z]{2}\s+\d{4}\.\s*$")
 
 # Render order. Open source sits directly under the skills block so it owns the
@@ -124,15 +128,20 @@ def lines_for(text: str, size: float, width: float) -> int:
 
 
 class Block:
-    __slots__ = ("text", "size", "bold", "kind", "before", "after")
+    __slots__ = ("text", "size", "bold", "kind", "before", "after",
+                 "link_text", "link_url", "link_rid")
 
-    def __init__(self, text, size=BODY_PT, bold=False, kind="body", before=0.0, after=0.0):
+    def __init__(self, text, size=BODY_PT, bold=False, kind="body", before=0.0, after=0.0,
+                 link_text="", link_url=""):
         self.text = text
         self.size = size
         self.bold = bold
         self.kind = kind
         self.before = before
         self.after = after
+        self.link_text = link_text
+        self.link_url = link_url
+        self.link_rid = ""
 
     def height(self) -> float:
         size = max(self.size, MIN_PT)
@@ -140,7 +149,12 @@ class Block:
             usable = USABLE_W - BULLET_INDENT / 20.0
         else:
             usable = USABLE_W
-        n = lines_for(self.text, size, usable)
+        text = self.text
+        if self.kind == "bullet" and self.link_text:
+            # The bullet, the linked head and the rest render as separate runs
+            # but measure as one line, exactly as the plain form did.
+            text = BULLET + " " + self.link_text + self.text
+        n = lines_for(text, size, usable)
         return (self.before + n * size * LINE + self.after) * RENDER_SAFETY
 
 
@@ -178,14 +192,23 @@ def parse_resume(text: str) -> dict:
             sections[current].append(s)
 
     entries: list[str] = []
+    urls: list[str] = []
     if START in text and END in text:
         block = text.split(START, 1)[1].split(END, 1)[0]
         for raw in block.splitlines():
             s = raw.strip()
             if s.startswith("- "):
-                s = URL_TAIL.sub("", s[2:].strip()).strip()
+                body = s[2:].strip()
+                url = ""
+                m = URL_FIND.search(body)
+                if m:
+                    url = m.group(0).strip().rstrip(".")
+                    if not url.startswith("http"):
+                        url = "https://" + url
+                s = URL_TAIL.sub("", body).strip()
                 if s:
                     entries.append(s)
+                    urls.append(url)
 
     intro = "Merged upstream:"
     after = text.split(END, 1)[1].splitlines() if END in text else []
@@ -205,6 +228,7 @@ def parse_resume(text: str) -> dict:
         "contact": " | ".join(contact),
         "sections": sections,
         "entries": entries,
+        "urls": urls,
         "intro": intro,
         "closing": closing,
     }
@@ -354,7 +378,7 @@ MIN_OSS = 200.0  # heading + intro + a real list of merges + closing
 SHORT_CAP = 124
 RICH_CAP = 250  # two lines, for the most significant merges
 RICH_MAX = 4  # how many entries may spend a second line
-MAX_NAMED = 20  # 20 named fits 2 pages at 1.97p (19 Sep 2026); past this the section reads as a list
+MAX_NAMED = 30  # headroom: all 26 merged 19 Sep 2026 fit at ~1.90p with certs on one line
 
 
 # ------------------------------------------------------- significance ranking
@@ -441,8 +465,8 @@ def repo_name(entry: str) -> str:
     return m.group(1) if m else entry.split()[0]
 
 
-def rank_entries(entries):
-    """Most significant merges first, ties newest-first.
+def rank_pairs(pairs):
+    """Most significant (entry, url) pairs first, ties newest-first.
 
     Entries the curated list already knows are ordered by its judgement, which
     interleaves repositories so the list reads as a ranking rather than as
@@ -455,14 +479,14 @@ def rank_entries(entries):
     order = {key.lower(): i for i, key in enumerate(IMPORTANCE)}
 
     def sort_key(item):
-        i, entry = item
+        i, (entry, _url) = item
         k = entry_key(entry)
         if k in order:
             return (order[k], i)
         tier = REPO_TIER.get(repo_name(entry).lower(), 0)
         return (ENTRY_BASE + (TIER_TOP - tier), i)
 
-    return [e for _, e in sorted(enumerate(entries), key=sort_key)]
+    return [p for _, p in sorted(enumerate(pairs), key=sort_key)]
 
 
 # Cut points, most preferred first. Cutting at a semicolon leaves the strongest
@@ -633,44 +657,55 @@ def merge_skills(lines: list[str]) -> list[str]:
     return [merged.get(k, k) for k in order]
 
 
-def oss_blocks(data: dict, lines: list[str]) -> list[Block]:
+def oss_blocks(data: dict, lines: list[tuple[str, str]]) -> list[Block]:
     out = [Block("OPEN-SOURCE CONTRIBUTIONS", HEAD_PT, True, "heading",
                  GAP_HEAD_BEFORE, GAP_HEAD_AFTER)]
     if data["intro"]:
         out.append(Block(data["intro"], BODY_PT, False, "body", 0, GAP_BODY_AFTER))
     for line in lines:
-        out.append(Block(BULLET + " " + line, BODY_PT, False, "bullet", 0, GAP_BULLET_AFTER))
+        if isinstance(line, tuple):
+            text, url = line
+        else:  # plain-string callers carry no link
+            text, url = line, ""
+        head, _, _ = split_entry(text)
+        if url and head and text.startswith(head):
+            out.append(Block(text[len(head):], BODY_PT, False, "bullet", 0,
+                             GAP_BULLET_AFTER, link_text=head, link_url=url))
+        else:
+            out.append(Block(BULLET + " " + text, BODY_PT, False, "bullet", 0, GAP_BULLET_AFTER))
     if data["closing"]:
         out.append(Block(data["closing"], BODY_PT, False, "body", 3, 0))
     return out
 
 
-def fit_oss(data: dict, remaining: float) -> list[str]:
+def fit_oss(data: dict, remaining: float) -> list[tuple[str, str]]:
     """The most merges, in significance order, that fit `remaining`.
 
-    Two pages cannot hold twenty-one bullets. The renderer therefore maximises
-    how many merges are named, and spends whatever is left on a second line of
-    detail for the leading few, which carry the most signal.
+    The renderer maximises how many merges are named, and spends whatever is
+    left on a second line of detail for the leading few, which carry the most
+    signal. Each returned line is (text, url); the rollup closing line, when
+    present, carries an empty url.
     """
-    entries = rank_entries(data["entries"])
-    if not entries:
+    urls = data.get("urls", [""] * len(data["entries"]))
+    pairs = rank_pairs(list(zip(data["entries"], urls)))
+    if not pairs:
         return []
 
     def height(lines):
         return total_height(oss_blocks(data, lines))
 
     # Everything, in full. Rarely fits, but it is the best outcome when it does.
-    lines = [full_line(e) for e in entries]
+    lines = [(full_line(e), u) for e, u in pairs]
     if height(lines) <= remaining:
         return lines
 
     best = None
-    for k in range(min(len(entries), MAX_NAMED), 0, -1):
+    for k in range(min(len(pairs), MAX_NAMED), 0, -1):
         for rich in range(min(RICH_MAX, k), -1, -1):
-            lines = [rich_line(e) for e in entries[:rich]]
-            lines += [short_line(e) for e in entries[rich:k]]
-            if k < len(entries):
-                lines.append(rollup(entries[k:]))
+            lines = [(rich_line(e), u) for e, u in pairs[:rich]]
+            lines += [(short_line(e), u) for e, u in pairs[rich:k]]
+            if k < len(pairs):
+                lines.append((rollup([e for e, _ in pairs[k:]]), ""))
             if height(lines) <= remaining:
                 best = (k, rich, lines)
                 break
@@ -680,7 +715,8 @@ def fit_oss(data: dict, remaining: float) -> list[str]:
         return best[2]
 
     # Nothing but the single most significant merge fits.
-    return [short_line(entries[0]), rollup(entries[1:])]
+    return [(short_line(pairs[0][0]), pairs[0][1]),
+            (rollup([e for e, _ in pairs[1:]]), "")]
 
 
 # --------------------------------------------------------------------- xml
@@ -689,16 +725,21 @@ def fit_oss(data: dict, remaining: float) -> list[str]:
 S_FONTS = "<w:rFonts w:ascii='Calibri' w:hAnsi='Calibri' w:cs='Calibri'/>"
 
 
-def run(text: str, size: float, bold: bool) -> str:
+def run(text: str, size: float, bold: bool, color=None, underline=False) -> str:
     size = max(size, MIN_PT)
     half = int(round(size * 2))
     # The font is pinned on every run, not only in docDefaults. Without the
     # theme part Word 2024 resolves the document default to its own theme font
     # (Aptos) and lays the text out with metrics that are not the ones baked
     # into _WIDTHS, which quietly invalidates the page budget.
+    # Colour and underline change no advance widths, so linked heads measure
+    # exactly as their plain form did.
+    color_xml = f"<w:color w:val='{color}'/>" if color else ""
+    underline_xml = "<w:u w:val='single'/>" if underline else ""
     props = (
         f"<w:rPr>{S_FONTS}{'<w:b/>' if bold else ''}"
-        f"<w:sz w:val='{half}'/><w:szCs w:val='{half}'/></w:rPr>"
+        f"<w:sz w:val='{half}'/><w:szCs w:val='{half}'/>"
+        f"{color_xml}{underline_xml}</w:rPr>"
     )
     return f"<w:r>{props}<w:t xml:space='preserve'>{escape(text)}</w:t></w:r>"
 
@@ -722,6 +763,16 @@ def paragraph(block: Block) -> str:
         f"<w:pPr>{spacing}{ind}{bdr}"
         f"<w:rPr>{S_FONTS}<w:sz w:val='{half}'/><w:szCs w:val='{half}'/></w:rPr></w:pPr>"
     )
+    if block.kind == "bullet" and block.link_url and block.link_text and block.link_rid:
+        return (
+            f"<w:p>{ppr}"
+            f"{run(BULLET + ' ', size, block.bold)}"
+            f"<w:hyperlink r:id='{block.link_rid}' w:history='1'>"
+            f"{run(block.link_text, size, False, color=LINK_COLOR, underline=True)}"
+            f"</w:hyperlink>"
+            f"{run(block.text, size, block.bold)}"
+            f"</w:p>"
+        )
     return f"<w:p>{ppr}{run(block.text, size, block.bold)}</w:p>"
 
 
@@ -736,6 +787,7 @@ S_DEFAULTS = (
 
 
 def build_document(blocks) -> str:
+    assign_link_ids(blocks)
     body = "".join(paragraph(b) for b in blocks)
     sect = (
         f"<w:sectPr><w:pgSz w:w='{PAGE_W}' w:h='{PAGE_H}'/>"
@@ -745,7 +797,8 @@ def build_document(blocks) -> str:
     )
     return (
         "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>"
-        '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+        '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"'
+        ' xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
         f"<w:body>{body}{sect}</w:body></w:document>"
     )
 
@@ -772,6 +825,38 @@ RELS = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="word/styles.xml"/>
 </Relationships>
 """
+HYPERLINK_TYPE = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink"
+
+
+def assign_link_ids(blocks) -> None:
+    """Number the hyperlink targets in document order (deterministic)."""
+    n = 0
+    for b in blocks:
+        if b.kind == "bullet" and b.link_url and b.link_text:
+            n += 1
+            b.link_rid = f"rId{n}"
+        else:
+            b.link_rid = ""
+
+
+def build_doc_rels(blocks):
+    """The word/_rels/document.xml.rels part, or None when nothing is linked."""
+    linked = [b for b in blocks if b.link_rid and b.link_url]
+    if not linked:
+        return None
+    out = [
+        "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>",
+        '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">',
+    ]
+    for b in linked:
+        target = escape(b.link_url, {'"': "&quot;"})
+        out.append(
+            f'  <Relationship Id="{b.link_rid}" Type="{HYPERLINK_TYPE}"'
+            f' Target="{target}" TargetMode="External"/>'
+        )
+    out.append("</Relationships>")
+    return "\n".join(out) + "\n"
+
 
 EPOCH = (1980, 1, 1, 0, 0, 0)
 
@@ -804,15 +889,24 @@ def main() -> int:
         print("render-resume-docx: no merged entries found", file=sys.stderr)
         return 1
 
-    fixed = None
-    slot = 0
-    level = LEVELS[-1]
-    for candidate_level in LEVELS:
+    # The condensation level that names the most merges wins: a cheap one-line
+    # certifications row can pay for several more OSS bullets and still leave the
+    # document shorter overall. Ties go to the cheapest (least condensed) level.
+    best = None
+    for li, candidate_level in enumerate(LEVELS):
         candidate, candidate_slot = build_fixed(data, candidate_level)
-        if total_height(candidate) + MIN_OSS <= GOAL:
-            fixed, slot, level = candidate, candidate_slot, candidate_level
-            break
-    if fixed is None:
+        if total_height(candidate) + MIN_OSS > GOAL:
+            continue
+        remaining = GOAL - total_height(candidate)
+        candidate_lines = fit_oss(data, remaining)
+        named = sum(1 for text, _url in candidate_lines if not text.startswith("+"))
+        total = total_height(
+            candidate[:candidate_slot] + oss_blocks(data, candidate_lines)
+            + candidate[candidate_slot:])
+        if best is None or (named, -li) > best[0]:
+            best = ((named, -li), candidate, candidate_slot, candidate_level,
+                    candidate_lines, total)
+    if best is None:
         ranked = sorted(
             ((total_height(build_fixed(data, lv)[0]), i) for i, lv in enumerate(LEVELS))
         )
@@ -823,28 +917,36 @@ def main() -> int:
             "the deepest condensation; trim docs/Devayan_Mandal-resume.txt",
             file=sys.stderr,
         )
-
-    remaining = GOAL - total_height(fixed)
-    lines = fit_oss(data, remaining)
-    blocks = fixed[:slot] + oss_blocks(data, lines) + fixed[slot:]
+        remaining = GOAL - total_height(fixed)
+        lines = fit_oss(data, remaining)
+        blocks = fixed[:slot] + oss_blocks(data, lines) + fixed[slot:]
+    else:
+        _key, fixed, slot, level, lines, _total = best
+        blocks = fixed[:slot] + oss_blocks(data, lines) + fixed[slot:]
     print(
         f"condensation: certs_compact={level[0]} skills_merge={level[1]} "
         f"experience_cap={level[2]}"
     )
 
     height = total_height(blocks)
+    linked = sum(1 for b in blocks if b.kind == "bullet" and b.link_url)
     print(
         f"layout: {len(blocks)} blocks, {height:.0f}pt of {BUDGET:.0f}pt "
         f"({height / USABLE_H:.2f} pages), {len(data['entries'])} merged entries, "
-        f"{len(lines)} published"
+        f"{len(lines)} published ({linked} hyperlinked)"
     )
 
-    blob = pack({
+    parts = {
         "[Content_Types].xml": CONTENT_TYPES,
         "_rels/.rels": RELS,
         "word/document.xml": build_document(blocks),
         "word/styles.xml": STYLES,
-    })
+    }
+    # build_document assigned the link ids above, so the rels targets line up.
+    doc_rels = build_doc_rels(blocks)
+    if doc_rels is not None:
+        parts["word/_rels/document.xml.rels"] = doc_rels
+    blob = pack(parts)
 
     if dest.exists() and dest.read_bytes() == blob:
         print(f"unchanged {dest}")
