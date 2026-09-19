@@ -595,6 +595,14 @@ def build_fixed(data: dict, level=(False, False, None)):
                 out.append(
                     Block(BULLET + " " + text, BODY_PT, False, "bullet", 0, GAP_BULLET_AFTER)
                 )
+            elif name == "TECHNICAL SKILLS":
+                # Skill lines carry a bare "-" prefix or none at all in the
+                # text source. Render them with the same bullet glyph as every
+                # other list so the DOCX reads uniform.
+                text = line[1:].strip() if line.startswith("-") else line.strip()
+                out.append(
+                    Block(BULLET + " " + text, BODY_PT, False, "bullet", 0, GAP_BULLET_AFTER)
+                )
             elif name == "PROFESSIONAL EXPERIENCE":
                 if line == line.upper() and len(line) > 6:
                     out.append(Block(line, BODY_PT, True, "body", GAP_ORG_BEFORE, GAP_ORG_AFTER))
