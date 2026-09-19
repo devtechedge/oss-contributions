@@ -18,8 +18,8 @@ and rolls everything left over into one closing line when the list does not fit,
 and links each named merge to its upstream pull request the way the README does.
 If the hand-written
 sections leave no room at all, they are condensed too, cheapest first:
-certifications to a single line, then small skill categories folded together,
-then long experience bullets trimmed at clause boundaries.
+small skill categories folded together, then long experience bullets trimmed
+at clause boundaries. Certifications always render one per line.
 
 Text is measured with real Calibri advance widths baked into _WIDTHS, so no
 font engine is needed and the result does not depend on what CI has installed.
@@ -129,10 +129,10 @@ def lines_for(text: str, size: float, width: float) -> int:
 
 class Block:
     __slots__ = ("text", "size", "bold", "kind", "before", "after",
-                 "link_text", "link_url", "link_rid")
+                 "link_text", "link_url", "link_rid", "align", "segs")
 
     def __init__(self, text, size=BODY_PT, bold=False, kind="body", before=0.0, after=0.0,
-                 link_text="", link_url=""):
+                 link_text="", link_url="", align="", segs=None):
         self.text = text
         self.size = size
         self.bold = bold
@@ -142,6 +142,10 @@ class Block:
         self.link_text = link_text
         self.link_url = link_url
         self.link_rid = ""
+        self.align = align
+        # Contact segments: [text, url, rid] triples rendered with " | " between.
+        # block.text keeps the joined visible string, so measuring never changes.
+        self.segs = segs
 
     def height(self) -> float:
         size = max(self.size, MIN_PT)
@@ -334,8 +338,10 @@ def shorten_prose(text: str, cap) -> str:
     return (out + live).strip()
 
 
-# Condensation ladder, cheapest and least lossy first. The renderer walks it
-# until the fixed sections leave a real open-source section room to breathe.
+# Condensation ladder, cheapest and least lossy first. The driver tries every
+# level and keeps the one naming the most merges. The first flag is retired:
+# certifications always render one per line (19 Sep 2026), so condensation runs
+# through skill merges, then experience caps down to 110.
 LEVELS = (
     (False, False, None),
     (True, False, None),
@@ -348,6 +354,8 @@ LEVELS = (
     (True, True, 190),
     (True, True, 170),
     (True, True, 150),
+    (True, True, 130),
+    (True, True, 110),
 )
 
 # Small skill categories folded into their neighbour, dropping the prefix.
@@ -580,17 +588,39 @@ def rollup(items) -> str:
 # --------------------------------------------------------------------- layout
 
 
+def contact_url(token: str) -> str:
+    """A clickable target for one contact token, or "" when it is plain text."""
+    t = token.strip()
+    if not t or " " in t:
+        return ""
+    if "@" in t:
+        return t if t.startswith("mailto:") else "mailto:" + t
+    if t.startswith("http"):
+        return t
+    if "." in t:
+        return "https://" + t
+    return ""
+
+
+def contact_segs(contact: str) -> list:
+    """Split "a | b | c" into [text, url, rid] triples for rendering."""
+    return [[token.strip(), contact_url(token), ""] for token in contact.split("|")]
+
+
 def build_fixed(data: dict, level=(False, False, None)):
     """The hand-written sections, plus the index where open source goes."""
     certs_compact, skills_merge, exp_cap = level
     out: list[Block] = []
     slot = len(out)
 
-    out.append(Block(data["name"], NAME_PT, True, "body", 0, GAP_NAME_AFTER))
+    out.append(Block(data["name"], NAME_PT, True, "body", 0, GAP_NAME_AFTER,
+                     align="center"))
     if data["tagline"]:
-        out.append(Block(data["tagline"], BODY_PT, False, "body", 0, GAP_NAME_AFTER))
+        out.append(Block(data["tagline"], BODY_PT, False, "body", 0, GAP_NAME_AFTER,
+                         align="center"))
     if data["contact"]:
-        out.append(Block(data["contact"], BODY_PT, False, "body", 0, GAP_CONTACT_AFTER))
+        out.append(Block(data["contact"], BODY_PT, False, "body", 0, GAP_CONTACT_AFTER,
+                         align="center", segs=contact_segs(data["contact"])))
 
     order = [s for s in SECTIONS if s in data["sections"]]
     for name in order:
@@ -602,14 +632,8 @@ def build_fixed(data: dict, level=(False, False, None)):
 
         if name == "TECHNICAL SKILLS" and skills_merge:
             lines = merge_skills(lines)
-        if name == "CERTIFICATIONS" and certs_compact:
-            items = [l[2:].strip().rstrip(".") for l in lines if l.startswith("- ")]
-            if items:
-                out.append(
-                    Block(BULLET + " " + "; ".join(items), BODY_PT, False, "bullet",
-                          0, GAP_BULLET_AFTER)
-                )
-            continue
+        # certs_compact is retired: certifications always render one bullet per
+        # line (19 Sep 2026). The flag stays in LEVELS so the shape never changes.
 
         for line in lines:
             if line.startswith("- "):
@@ -759,10 +783,28 @@ def paragraph(block: Block) -> str:
     bdr = ""
     if block.kind == "heading":
         bdr = "<w:pBdr><w:bottom w:val='single' w:sz='6' w:space='1' w:color='666666'/></w:pBdr>"
+    jc = ""
+    if block.align == "center":
+        jc = "<w:jc w:val='center'/>"
     ppr = (
-        f"<w:pPr>{spacing}{ind}{bdr}"
+        f"<w:pPr>{spacing}{ind}{bdr}{jc}"
         f"<w:rPr>{S_FONTS}<w:sz w:val='{half}'/><w:szCs w:val='{half}'/></w:rPr></w:pPr>"
     )
+    if block.segs:
+        parts = []
+        for i, seg in enumerate(block.segs):
+            stext, surl, srid = seg
+            if i:
+                parts.append(run(" | ", size, block.bold))
+            if surl and srid:
+                parts.append(
+                    f"<w:hyperlink r:id='{srid}' w:history='1'>"
+                    f"{run(stext, size, False, color=LINK_COLOR, underline=True)}"
+                    f"</w:hyperlink>"
+                )
+            else:
+                parts.append(run(stext, size, block.bold))
+        return f"<w:p>{ppr}{''.join(parts)}</w:p>"
     if block.kind == "bullet" and block.link_url and block.link_text and block.link_rid:
         return (
             f"<w:p>{ppr}"
@@ -832,6 +874,13 @@ def assign_link_ids(blocks) -> None:
     """Number the hyperlink targets in document order (deterministic)."""
     n = 0
     for b in blocks:
+        if b.segs:
+            for seg in b.segs:
+                if seg[1]:
+                    n += 1
+                    seg[2] = f"rId{n}"
+                else:
+                    seg[2] = ""
         if b.kind == "bullet" and b.link_url and b.link_text:
             n += 1
             b.link_rid = f"rId{n}"
@@ -841,17 +890,22 @@ def assign_link_ids(blocks) -> None:
 
 def build_doc_rels(blocks):
     """The word/_rels/document.xml.rels part, or None when nothing is linked."""
-    linked = [b for b in blocks if b.link_rid and b.link_url]
-    if not linked:
+    pairs = []
+    for b in blocks:
+        if b.segs:
+            pairs += [(seg[2], seg[1]) for seg in b.segs if seg[2] and seg[1]]
+        if b.link_rid and b.link_url:
+            pairs.append((b.link_rid, b.link_url))
+    if not pairs:
         return None
     out = [
         "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>",
         '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">',
     ]
-    for b in linked:
-        target = escape(b.link_url, {'"': "&quot;"})
+    for rid, url in pairs:
+        target = escape(url, {'"': "&quot;"})
         out.append(
-            f'  <Relationship Id="{b.link_rid}" Type="{HYPERLINK_TYPE}"'
+            f'  <Relationship Id="{rid}" Type="{HYPERLINK_TYPE}"'
             f' Target="{target}" TargetMode="External"/>'
         )
     out.append("</Relationships>")
@@ -930,6 +984,7 @@ def main() -> int:
 
     height = total_height(blocks)
     linked = sum(1 for b in blocks if b.kind == "bullet" and b.link_url)
+    linked += sum(1 for b in blocks if b.segs for s in b.segs if s[1])
     print(
         f"layout: {len(blocks)} blocks, {height:.0f}pt of {BUDGET:.0f}pt "
         f"({height / USABLE_H:.2f} pages), {len(data['entries'])} merged entries, "
