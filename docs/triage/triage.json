@@ -1051,13 +1051,17 @@
     {
       "repo": "leo-aa88/reviewgate",
       "number": 172,
-      "status": "open",
+      "status": "merged",
       "last_checked": "2026-09-19",
       "do_not_duplicate": true,
       "branch": "docs/hunk-entry-state",
       "commit": "58c997c",
       "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` §10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. §12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
-      "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144."
+      "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144.",
+      "merged": "2026-09-19",
+      "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
+      "merged_at": "2026-09-19T02:57:05Z",
+      "issue": null
     },
     {
       "branch": "fix/314-subslice-offset",
@@ -2717,7 +2721,8 @@
     },
     "leo-aa88/reviewgate": {
       "contributions": [
-        144
+        144,
+        172
       ],
       "focus": "Deterministic PR reviewability gate: pure Python engine (AST-enforced purity boundary), GitHub Action, hosted App."
     },

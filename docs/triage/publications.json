@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-19",
-  "merged_count": 25,
+  "merged_count": 26,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -647,6 +647,28 @@
       "resume_bullet": "stellar/js-stellar-sdk #1725 (TypeScript) - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts. Merged Sep 2026. github.com/stellar/js-stellar-sdk/pull/1725",
       "linkedin_bullet": "stellar/js-stellar-sdk #1725 - docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts.",
       "profile_line": "docs pipeline now covers docs/migration pages: Starlight sidebar group, llms.txt and llms-full.txt bundles with strict link validation, wired through astro.config.mjs, build-llms.ts and doc-links.ts.",
+      "curated": true
+    },
+    {
+      "id": "leo-aa88/reviewgate#172",
+      "repo": "leo-aa88/reviewgate",
+      "number": 172,
+      "merged": true,
+      "merged_at": "2026-09-19T02:57:05Z",
+      "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
+      "issue": null,
+      "url": "https://github.com/leo-aa88/reviewgate/pull/172",
+      "languages": [],
+      "org": "leo-aa88",
+      "display_name": "reviewgate",
+      "profile_title": "reviewgate #172",
+      "ledger_logo": "https://github.com/leo-aa88.png?size=40",
+      "profile_logo": "https://github.com/leo-aa88.png?size=48",
+      "profile_logo_alt": "reviewgate",
+      "ledger_what": "Corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position.",
+      "resume_bullet": "leo-aa88/reviewgate #172 (TypeScript) - corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position. Merged Sep 2026. github.com/leo-aa88/reviewgate/pull/172",
+      "linkedin_bullet": "leo-aa88/reviewgate #172 - corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position.",
+      "profile_line": "corrects DESIGN.md section 10.14 Hunk entry state to match the shipped code-token rule from PR 144: each establishing context line must scan clean and carry a code token, with blank lines neutral, so docstring prose can no longer read as a normal code position.",
       "curated": true
     }
   ],

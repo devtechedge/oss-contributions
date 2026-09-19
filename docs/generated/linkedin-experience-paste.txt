@@ -2,17 +2,17 @@ Independent upstream contributor working across mature AI, developer tooling, pa
 
 Canonical public contribution ledger: github.com/devtechedge/oss-contributions.
 
-25 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across 17 repositories.
+26 merged upstream pull requests span TypeScript, JavaScript, Python, and Rust across 17 repositories.
 
 Representative work:
+
+• reviewgate - code comment verbosity check computed from added patch lines only.
 
 • js-stellar-sdk - docs pipeline for migration pages, sidebar, and llms bundles.
 
 • cargo-about - synthesized manifest license quote termination and insert offset fixes.
 
 • ruff - PYI002 diagnostic now names the stub file context for if tests.
-
-• reviewgate - code comment verbosity check computed from added patch lines only.
 
 • maturin - Windows interpreter discovery fix for non-UTF-8 output with coverage.
 
