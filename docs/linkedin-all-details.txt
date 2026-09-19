@@ -227,6 +227,7 @@ Advanced DMAIC, statistical process control, root-cause analysis, workflow impro
 Microsoft
 August 2020
 https://learn.microsoft.com/api/credentials/share/en-us/DevayanMandal-5513/3841D21B0E5E588F?sharingId
+https://www.credly.com/badges/974aeec1-fa85-42d2-a7f9-81dab6a5b3c6/public_url
 
 Foundational Azure cloud concepts, architecture, governance, security, identity, cost management, compute, storage, networking, and databases.
 
@@ -270,6 +271,7 @@ Data analysis, Python, SQL, machine learning, visualization, Jupyter, and an app
 Google
 September 2020
 https://www.coursera.org/account/accomplishments/specialization/JAAMZGPCF42X
+https://www.credly.com/badges/6714fe58-73c8-4d73-b82c-9dbe54240ad3/public_url
 https://www.credly.com/badges/6714fe58-73c8-4d73-b82c-9dbe54240ad3
 
 Python automation, Git, Linux, Bash, troubleshooting, debugging, configuration management, and cloud automation.
@@ -277,6 +279,7 @@ Python automation, Git, Linux, Bash, troubleshooting, debugging, configuration m
 14. Google IT Support Professional Certificate
 Google
 August 2020
+https://www.credly.com/badges/0b7b6687-2332-4691-962c-215b61e1d1f2/public_url
 https://www.credly.com/badges/0b7b6687-2332-4691-962c-215b61e1d1f2
 
 Technical support, networking, operating systems, system administration, Linux, and information security.
