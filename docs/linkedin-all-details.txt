@@ -216,27 +216,29 @@ https://academy.langchain.com/courses/ambient-agents
 
 Ambient and background agents, state management, email automation, and agent evaluation using LangGraph and LangSmith.
 
-6. Six Sigma Green Belt
-Kennesaw State University
-July 2020
-https://www.coursera.org/account/accomplishments/specialization/VDGA9TV9GG3V
+6. AWS Educate Introduction to Generative AI
+Amazon Web Services
+August 2025
+https://www.credly.com/badges/24356848-8540-4eac-bcc3-40db36303d7c/public_url
 
-Advanced DMAIC, statistical process control, root-cause analysis, workflow improvement, and quality management.
+Generative AI fundamentals, foundation models, and GenAI use cases.
 
-7. Microsoft Certified: Azure Fundamentals (AZ-900)
+7. Google IT Automation with Python Professional Certificate
+Google
+September 2020
+https://www.coursera.org/account/accomplishments/specialization/JAAMZGPCF42X
+https://www.credly.com/badges/6714fe58-73c8-4d73-b82c-9dbe54240ad3/public_url
+https://www.credly.com/badges/6714fe58-73c8-4d73-b82c-9dbe54240ad3
+
+Python automation, Git, Linux, Bash, troubleshooting, debugging, configuration management, and cloud automation.
+
+8. Microsoft Certified: Azure Fundamentals (AZ-900)
 Microsoft
 August 2020
 https://learn.microsoft.com/api/credentials/share/en-us/DevayanMandal-5513/3841D21B0E5E588F?sharingId
 https://www.credly.com/badges/974aeec1-fa85-42d2-a7f9-81dab6a5b3c6/public_url
 
 Foundational Azure cloud concepts, architecture, governance, security, identity, cost management, compute, storage, networking, and databases.
-
-8. AWS Fundamentals Specialization
-Amazon Web Services
-July 2020
-https://www.coursera.org/account/accomplishments/specialization/8W8Q9UJSFR7R
-
-Cloud-native AWS infrastructure, security, migration planning, and serverless application architecture.
 
 9. Data Science Specialization
 The Johns Hopkins University
@@ -252,31 +254,7 @@ https://www.coursera.org/account/accomplishments/specialization/MB53RUAWEP96
 
 Practical TensorFlow development across neural networks, CNNs, NLP, and time-series models.
 
-11. Deep Learning Specialization
-DeepLearning.AI
-July 2020
-https://www.coursera.org/account/accomplishments/specialization/X6UWWBABR5XA
-
-Deep learning foundations, optimization, CNNs, sequence models, and applied neural-network development.
-
-12. IBM Data Science Professional Certificate
-IBM
-July 2020
-https://www.coursera.org/account/accomplishments/specialization/DRBARHHVEX6F
-https://www.credly.com/badges/e50ef04e-13fb-4130-9275-fc760487924c/public_url
-
-Data analysis, Python, SQL, machine learning, visualization, Jupyter, and an applied capstone.
-
-13. Google IT Automation with Python Professional Certificate
-Google
-September 2020
-https://www.coursera.org/account/accomplishments/specialization/JAAMZGPCF42X
-https://www.credly.com/badges/6714fe58-73c8-4d73-b82c-9dbe54240ad3/public_url
-https://www.credly.com/badges/6714fe58-73c8-4d73-b82c-9dbe54240ad3
-
-Python automation, Git, Linux, Bash, troubleshooting, debugging, configuration management, and cloud automation.
-
-14. Google IT Support Professional Certificate
+11. Google IT Support Professional Certificate
 Google
 August 2020
 https://www.credly.com/badges/0b7b6687-2332-4691-962c-215b61e1d1f2/public_url
@@ -284,96 +262,118 @@ https://www.credly.com/badges/0b7b6687-2332-4691-962c-215b61e1d1f2
 
 Technical support, networking, operating systems, system administration, Linux, and information security.
 
-15. Self-Driving Cars Specialization
+12. Self-Driving Cars Specialization
 University of Toronto
 August 2020
 https://www.coursera.org/account/accomplishments/specialization/LHYPGGJVV75V
 
 Autonomous-vehicle fundamentals spanning localization, sensor fusion, computer vision, state estimation, and motion planning.
 
-16. Blockchain Specialization
-University of California, Irvine
-July 2020
-https://www.coursera.org/account/accomplishments/specialization/HT9CWLVYLDH9
-
-Blockchain architecture, cryptography, Merkle trees, decentralized transaction processing, Bitcoin, Ethereum, and smart contracts.
-
-17. Virtual Reality Specialization
-University of London
-July 2020
-https://www.coursera.org/account/accomplishments/specialization/4XR3YMZUXHE4
-
-VR principles, 3D interaction design, environment development, and Unity-based application development.
-
-18. Data Science: Statistics and Machine Learning
+13. Data Science: Statistics and Machine Learning
 The Johns Hopkins University
 August 2020
 https://www.coursera.org/account/accomplishments/specialization/WUTRNV3D9VN3
 
 Statistical inference, regression, machine learning, predictive modeling, R, visualization, and data-product development.
 
-19. Data Science: Foundations using R
+14. Data Science: Foundations using R
 The Johns Hopkins University
 August 2020
 https://www.coursera.org/account/accomplishments/specialization/XZJJ2823YZJJ
 
 R programming, data cleaning, exploratory analysis, reproducible research, Git, and statistical workflows.
 
-20. Introduction to Data Science
+15. Six Sigma Green Belt
+Kennesaw State University
+July 2020
+https://www.coursera.org/account/accomplishments/specialization/VDGA9TV9GG3V
+
+Advanced DMAIC, statistical process control, root-cause analysis, workflow improvement, and quality management.
+
+16. AWS Fundamentals Specialization
+Amazon Web Services
+July 2020
+https://www.coursera.org/account/accomplishments/specialization/8W8Q9UJSFR7R
+
+Cloud-native AWS infrastructure, security, migration planning, and serverless application architecture.
+
+17. Deep Learning Specialization
+DeepLearning.AI
+July 2020
+https://www.coursera.org/account/accomplishments/specialization/X6UWWBABR5XA
+
+Deep learning foundations, optimization, CNNs, sequence models, and applied neural-network development.
+
+18. IBM Data Science Professional Certificate
+IBM
+July 2020
+https://www.coursera.org/account/accomplishments/specialization/DRBARHHVEX6F
+https://www.credly.com/badges/e50ef04e-13fb-4130-9275-fc760487924c/public_url
+
+Data analysis, Python, SQL, machine learning, visualization, Jupyter, and an applied capstone.
+
+19. Blockchain Specialization
+University of California, Irvine
+July 2020
+https://www.coursera.org/account/accomplishments/specialization/HT9CWLVYLDH9
+
+Blockchain architecture, cryptography, Merkle trees, decentralized transaction processing, Bitcoin, Ethereum, and smart contracts.
+
+20. Virtual Reality Specialization
+University of London
+July 2020
+https://www.coursera.org/account/accomplishments/specialization/4XR3YMZUXHE4
+
+VR principles, 3D interaction design, environment development, and Unity-based application development.
+
+21. Introduction to Data Science
 IBM
 July 2020
 https://www.coursera.org/account/accomplishments/specialization/DN47EG8AZW2L
 
 Core data science methodology, Python, SQL, Jupyter, databases, and open-source analytics tooling.
 
-21. Deloitte Australia Technology Consulting Job Simulation
-Forage
-June 2020
-https://www.theforage.com/simulations/deloitte-au/technology-consulting-virtual-internship-5972
-
-Technology strategy, telemetry data unification, data analysis, enterprise architecture, cybersecurity incident response, and data governance.
-
-22. J.P. Morgan Software Engineering Job Simulation
-Forage
-June 2020
-https://www.theforage.com/simulations/jpmorgan/software-engineering-btjx
-
-Repository setup, debugging, data analysis, and integration of JPMorgan Chase's Perspective library for live financial-data visualization.
-
-23. Applied Data Science Specialization
+22. Applied Data Science Specialization
 Coursera
 July 2020
 https://www.credly.com/badges/ba78b3be-4ac2-4f3a-bae4-1278f908df0b/public_url
 
 Practical data science with Python, Matplotlib and Seaborn visualization, and applied analytics.
 
-24. IBM Applied AI Professional Certificate
+23. IBM Applied AI Professional Certificate
 IBM
 July 2020
 https://www.credly.com/badges/da1a5658-50d9-4f06-99ab-e273c94b0e10/public_url
 
 AI use cases, IBM Watson services and APIs, chatbots, and Python for AI applications.
 
-25. IBM AI Engineering Professional Certificate
+24. IBM AI Engineering Professional Certificate
 IBM
 July 2020
 https://www.credly.com/badges/8b611162-933c-4e19-8ce9-91bd7170c332/public_url
 
 Machine learning and deep learning with Spark, Keras, PyTorch and TensorFlow, plus applied projects.
 
-26. Artificial Intelligence Foundations Specialization
+25. Artificial Intelligence Foundations Specialization
 Coursera
 July 2020
 https://www.credly.com/badges/80e49cd0-715c-40b8-bdbb-d25aebfd2ad4/public_url
 
 AI concepts across industries, machine learning and neural networks, Watson services, and no-code chatbots.
 
-27. AWS Educate Introduction to Generative AI
-Amazon Web Services
-August 2025
-https://www.credly.com/badges/24356848-8540-4eac-bcc3-40db36303d7c/public_url
+26. Deloitte Australia Technology Consulting Job Simulation
+Forage
+June 2020
+https://www.theforage.com/simulations/deloitte-au/technology-consulting-virtual-internship-5972
 
-Generative AI fundamentals, foundation models, and GenAI use cases.
+Technology strategy, telemetry data unification, data analysis, enterprise architecture, cybersecurity incident response, and data governance.
+
+27. J.P. Morgan Software Engineering Job Simulation
+Forage
+June 2020
+https://www.theforage.com/simulations/jpmorgan/software-engineering-btjx
+
+Repository setup, debugging, data analysis, and integration of JPMorgan Chase's Perspective library for live financial-data visualization.
 
 EDUCATION
 
