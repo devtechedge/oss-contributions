@@ -11,7 +11,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { spawnSync } from "node:child_process";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_ROOT = path.resolve(__dirname, "..");
@@ -932,20 +931,11 @@ async function main() {
   writes.push(publishWellfound(root, recs, n, pubs, ownRepos, args.dryRun));
 
 
-  if (!args.dryRun) {
-    const masterPy = path.join(root, "scripts/render-resume-docx.py");
-    const masterDocx = path.join(root, "docs/Devayan_Mandal.docx");
-    if (fs.existsSync(masterPy) && fs.existsSync(masterDocx)) {
-      const before = fs.readFileSync(masterDocx);
-      const rendered = spawnSync("python3", [masterPy, root], { encoding: "utf8" });
-      if (rendered.status !== 0) {
-        console.warn("::warning::master resume DOCX not updated:", rendered.stderr || rendered.stdout);
-      } else {
-        const after = fs.readFileSync(masterDocx);
-        writes.push({ file: masterDocx, changed: !before.equals(after) });
-      }
-    }
-  }
+  // The master resume DOCX is hand-maintained and decoupled from resume.txt
+  // (19 Sep 2026): the sync never renders or overwrites it, and validate()
+  // does not check it. Merge-cascade DOCX bullet updates run explicitly via
+  // scripts/patch-resume-docx.py; Dev may edit the file in Word at any time
+  // without fear of a sync clobber.
 
   if (!args.dryRun) {
     writes.push({ file: triagePath, changed: writeJson(triagePath, triage) });
