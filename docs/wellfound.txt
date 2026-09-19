@@ -53,7 +53,7 @@ Supabase
 
 Company: Lattice AI Labs
 Title: Full Stack Engineer
-Start date: 01/2016
+Start date: 06/2026
 End date: I currently work here
 
 Description:
