@@ -57,7 +57,7 @@ Start date: 06/2026
 End date: I currently work here
 
 Description:
-Architected, implemented, and open-sourced 34 repositories (30+ original production-grade architectures) spanning autonomous multi-agent systems, RLVR environments, real-time observability, and high-throughput web apps using Python, TypeScript, LangGraph, Next.js 16, React 19, and PostgreSQL. Grounded in Six Sigma DMAIC rigor and 23 technical certifications:
+Architected, implemented, and open-sourced 35 repositories (30+ original production-grade architectures) spanning autonomous multi-agent systems, RLVR environments, real-time observability, and high-throughput web apps using Python, TypeScript, LangGraph, Next.js 16, React 19, and PostgreSQL. Grounded in Six Sigma DMAIC rigor and 23 technical certifications:
 
 - Autonomous Multi-Agent Cortexes & Protocols: Architected AEGIS (LangGraph supervisor managing 6 specialists across 7 loops with LangSmith eval gates), Synthesis (StateGraph research engine with cyclic Reflexion and SSE streaming), and AAROP (explicit 6-phase state machine with 99% Python test coverage). Implemented Anthropic MCP (Stdio/SSE) and HoldSlot for the OpenAI WebMCP Challenge 2026.
 - Verifiable RL & Evaluation Environments: Authored 3 official RLVR environments on Prime Intellect (unit-fix, meeting-slot, calendar-math) featuring AST-sandboxed execution graders, sweep-line timezone solvers, and deterministic verifiers without LLM-as-judge variance.
