@@ -1,27 +1,20 @@
-DEVAYAN MANDAL
-Full Stack AI Native / Forward Deployed AI Engineer & Open-Source Contributor - Open to Remote Work
-devayanmandal@gmail.com
-linkedin.com/in/dev-ma | github.com/devtechedge
-
-PROFESSIONAL SUMMARY
-AI-native Full Stack Engineer (Jun 2026-now), shipped 30+ systems: agents, MCP, RL eval, realtime infra.
-
+Devayan Mandal
+AI Native Full Stack & Open-Source Contributor - Open to Remote Work
+devayanmandal@gmail.com | linkedin.com/in/dev-ma | github.com/devtechedge
+Professional Summary
+AI-native Full Stack Engineer; shipped 35+ systems: agents, Model Context Protocol (MCP), RL eval, realtime infra.
 Merged 26 upstream pull requests (TypeScript/Python/Rust) in Biome, pnpm, node-postgres and others; owned root cause to release.
+Technical Skills
+• Languages: Python, TypeScript, JavaScript, Rust, SQL, Bash	
+• AI & Agents: LangGraph, LangChain, Model Context Protocol (MCP), multi-agent orchestration, RAG, RLVR, LLM evaluations, Ollama, Google Gemini, OpenAI, cost-aware routing
+• Frontend: React 19, Next.js 16, TanStack, Tailwind CSS v4, Vite, Expo, Three.js
+• Backend & Data: FastAPI, Node.js, PostgreSQL (pgvector), Prisma, Supabase
+• Realtime & Observability: SSE, WebSockets, OpenTelemetry, LangSmith
+• Cloud & DevOps: Vercel, AWS, Azure, Github Actions, serverless, pytest, Playwright
+• Web3 & Blockchain: Solidity, Foundry, viem, wagmi, Safe, Base L2
+• Engineering Practices: Six Sigma, Git, Changesets, Conventional Commits, Semantic Versioning
 
-TECHNICAL SKILLS
--Languages: Python, TypeScript, JavaScript, Rust, SQL, Bash
-AI & Agents: LangGraph, LangChain, MCP, multi-agent orchestration, RAG, RLVR, evals, Ollama, Gemini, OpenAI
-
--Frontend: React 19, Next.js 16, TanStack, Tailwind v4, Vite, Expo, Three.js
-
--Backend & Data: FastAPI, Node.js, Postgres (pgvector), Prisma, Supabase
-Realtime & Observability: SSE, WebSockets, OpenTelemetry, LangSmith
-
--Cloud & DevOps: Vercel, AWS, Azure, Actions, serverless, pytest, Playwright
-
--Web3 & Blockchain: Solidity, Foundry, viem, wagmi, Safe, Base L2
-
--Practices: Six Sigma, bounded autonomy, cost-aware routing, Git, Changesets
+Experience: AI Native Full Stack Engineer | June 2026 - Present | Remote
 
 OPEN-SOURCE CONTRIBUTIONS
 
@@ -58,60 +51,37 @@ Merged upstream:
 
 Canonical ledger with links to every merged PR: github.com/devtechedge/oss-contributions
 
-PROFESSIONAL EXPERIENCE
+Projects:
+• Lattice: Web3 roles board aggregating 20 crypto teams plus salary observatory.
+• Jobrow: Table-first index of 5,000+ open US tech roles from public APIs.
+• Luxe Tracker: Luxury price-gap dashboard across 5 maisons, 5 regions, 11k rows.
+• Aegis: Multi-agent ops cortex with supervisor, HITL gates, live graph view.
+• AetherFlow: Local-first flowchart IDE with compile, step simulator, time-travel.
+• Synthesis: Autonomous research pipeline with HITL, RAG, streaming eval gate.
+Shipped 35+ production systems across agents, RL eval, real-time observability, and web apps. 
 
-LATTICE AI LABS
-Full Stack AI Native / Forward Deployed AI Engineer | June 2026 - Present | Remote
-
-- Shipped 30+ production systems across agents, RL eval, realtime observability, and web apps.
-
-- Built AEGIS, an AI ops cortex: LangGraph supervisor, 6 agents, 7 loops, RAG, HITL gates, LangSmith evals, SSE dashboard. Live: aegis-agent-api.vercel.app/ui
-
-- Built Synthesis (Reflexion research, HITL gates) and AAROP (6-phase reasoning, cost-aware routing, replayable traces). Live: synthesis-gold.vercel.app | aarop.vercel.app
-
-- 3 Prime Intellect RLVR envs (calendar-math, meeting-slot, unit-fix): sweep-line solvers, sandboxed graders, no LLM judge.
-
-- MCP servers/clients over Stdio and StreamableHTTP/SSE with sampling, roots security; shipped HoldSlot (OpenAI WebMCP Challenge 2026).
-
-- Jobrow: 5,000+ open roles across Greenhouse/Ashby/Lever; TanStack Start, React 19, Neon Postgres, Expo, 4x-daily crawls. Live: jobrow.vercel.app
-
-- Also: Veritas (research agent), Cadence (healthcare, 5-layer memory), chaos platform (self-healing, WebSocket telemetry), Pulsar (Base L2 GPU market), daily AI news agent.
-
-- AI-native full stack with frontier models: fast iteration, test-driven validation, repo norms, reproducible upstream delivery.
-
-SPECTRAL QUANTITATIVE TRADING
 Quantitative Crypto Trader & Derivatives Strategist | September 2016 - Present | Remote
-
-- Manage diversified proprietary capital across tier-1 exchanges including Binance, Coinbase, Bitget, and MEXC, and on-chain protocols including Hyperliquid, Uniswap v3, Aave, and GMX.
-
-- Built and ran automated grid, DCA, and Martingale bots on Pionex and Binance to capture spread and volatility in ranging markets.
-
-- Executed delta-neutral basis and funding-rate arbitrage between spot and perpetuals, plus concentrated-liquidity and lending-loop strategies on-chain.
-
-- Applied TWAP/VWAP execution on illiquid pairs, with VaR limits, drawdown caps, and Sharpe-ratio optimization governing position sizing and portfolio risk.
-
-
-CERTIFICATIONS
-
-- Model Context Protocol: Advanced Topics - Anthropic, 2026
-- AI Fluency for Builders - Anthropic (with CodePath), 2026
-- Agents and Workflows - OpenAI Academy, 2026
-- Deep Agents with LangGraph - LangChain Academy, 2026
-- Ambient Agents with LangGraph - LangChain Academy, 2026
-- Microsoft Certified: Azure Fundamentals (AZ-900) - Microsoft, 2020
-- AWS Fundamentals Specialization - Amazon Web Services (Coursera), 2020
-- Data Science Specialization - Johns Hopkins University (Coursera), 2020
-- Six Sigma Green Belt - Kennesaw State University (Coursera), 2020
-- DeepLearning.AI TensorFlow Developer Professional Certificate - DeepLearning.AI, 2020
-- Deep Learning Specialization - DeepLearning.AI, 2020
-- IBM Data Science Professional Certificate - IBM, 2020
-- Google IT Automation with Python Professional Certificate - Google, 2020
-- Blockchain Specialization - University of California, Irvine (Coursera), 2020
-- Google IT Support Professional Certificate - Google, 2020
-
-
-EDUCATION
-
-UNIVERSITY OF MUMBAI
+• Manage diversified proprietary capital across tier-1 exchanges including Binance, Coinbase, Bitget.
+• Built and ran automated grid, DCA, and Martingale bots on Pionex and Binance to capture spread and volatility in ranging markets.
+• Executed delta-neutral basis and funding-rate arbitrage between spot and perpetuals, plus concentrated-liquidity and lending-loop strategies on-chain.
+• Applied TWAP/VWAP execution on illiquid pairs, with VaR limits, drawdown caps, and Sharpe-ratio optimization governing position sizing and portfolio.
+Certifications
+• Model Context Protocol: Advanced Topics - Anthropic, 2026
+• AI Fluency for Builders - Anthropic (with CodePath), 2026
+• Agents and Workflows - OpenAI Academy, 2026
+• Deep Agents with LangGraph - LangChain Academy, 2026
+• Ambient Agents with LangGraph - LangChain Academy, 2026
+• Google IT Automation with Python Professional Certificate - Google, 2020
+• Microsoft Certified: Azure Fundamentals (AZ-900) - Microsoft, 2020
+• Data Science Specialization - Johns Hopkins University (Coursera), 2020
+• DeepLearning.AI TensorFlow Developer Professional Certificate - DeepLearning.AI, 2020
+• Google IT Support Professional Certificate - Google, 2020
+• AWS Fundamentals Specialization - Amazon Web Services (Coursera), 2020
+• Six Sigma Green Belt - Kennesaw State University (Coursera), 2020
+• Deep Learning Specialization - DeepLearning.AI, 2020
+• IBM Data Science Professional Certificate - IBM, 2020
+• Blockchain Specialization - University of California, Irvine (Coursera), 2020
+Education
+University of Mumbai
 Bachelor of Engineering (B.E.), Chemical Engineering (First Class)
-Quantitative core in process dynamics, transport phenomena, mathematical modeling, and optimization; transitioned into software engineering through computational and systems-oriented work.
+Quantitative core in process dynamics, transport phenomena, mathematical modelling, and optimization; transitioned into software engineering through computational and systems-oriented work.
