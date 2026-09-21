@@ -330,13 +330,14 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-11",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 11192,
       "requested_reviewers": [
         "Bekacru"
       ],
       "do_not_duplicate": true,
-      "summary": "Widen email/deletion callback user typing to User & Record<string, any> so user.additionalFields is visible."
+      "summary": "Widen email/deletion callback user typing to User & Record<string, any> so user.additionalFields is visible.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "crewAIInc/crewAI",
@@ -356,10 +357,11 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 7191,
       "do_not_duplicate": true,
-      "summary": "Public SpeechHandle.hold_interruptions() context manager plus less severe realtime log path."
+      "summary": "Public SpeechHandle.hold_interruptions() context manager plus less severe realtime log path.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "livekit/agents",
@@ -367,12 +369,13 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 7198,
       "last_updated": "2026-09-15",
       "do_not_duplicate": true,
       "summary": "Bounded re-arm (never clear) of the false-interruption resume timer on a non-empty interim/preflight while the pause is active and VAD reports no speech; total deferral capped at 3x false_interruption_timeout.",
-      "note": "Reworked 2026-09-15 away from clear-on-interim, which maintainer longcw rejected on #7198 (noise also produces interims). Verified against main: sustained VAD DOES cancel the timer regardless of interruption.min_duration, because on_start_of_speech calls _cancel_false_interruption_timer on every START_OF_SPEECH; min_duration only gates _interrupt_by_audio_activity (the pause). The real gap is that on_interim_transcript's timer branch is gated on vad is None. Later the same day the cap was implemented: dorukdumlu agreed on #7198 that re-arm needs a bound (pipecat-ai/pipecat#5735 shows Flux emitting interims with no EOT for a whole call), so the re-arm now draws on a budget of _FALSE_INTERRUPTION_MAX_DEFERRAL_FACTOR (3) x false_interruption_timeout, reset per pause, and stops once spent. Kept separate from #7101 as dorukdumlu asked: same lines, different decision (when the resume fires vs what it discards). Cap is a module constant, not a new option in TurnHandlingOptions. Still unreviewed by longcw."
+      "note": "Reworked 2026-09-15 away from clear-on-interim, which maintainer longcw rejected on #7198 (noise also produces interims). Verified against main: sustained VAD DOES cancel the timer regardless of interruption.min_duration, because on_start_of_speech calls _cancel_false_interruption_timer on every START_OF_SPEECH; min_duration only gates _interrupt_by_audio_activity (the pause). The real gap is that on_interim_transcript's timer branch is gated on vad is None. Later the same day the cap was implemented: dorukdumlu agreed on #7198 that re-arm needs a bound (pipecat-ai/pipecat#5735 shows Flux emitting interims with no EOT for a whole call), so the re-arm now draws on a budget of _FALSE_INTERRUPTION_MAX_DEFERRAL_FACTOR (3) x false_interruption_timeout, reset per pause, and stops once spent. Kept separate from #7101 as dorukdumlu asked: same lines, different decision (when the resume fires vs what it discards). Cap is a module constant, not a new option in TurnHandlingOptions. Still unreviewed by longcw.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "TanStack/router",
@@ -621,20 +624,22 @@
       "number": 1519,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 1501,
       "do_not_duplicate": true,
-      "summary": "Update TypeScript samples to current exports."
+      "summary": "Update TypeScript samples to current exports.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "across-protocol/toolkit",
       "number": 275,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 266,
       "do_not_duplicate": true,
-      "summary": "Guard percentageString decimal handling with BigInt."
+      "summary": "Guard percentageString decimal handling with BigInt.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "across-protocol/toolkit",
