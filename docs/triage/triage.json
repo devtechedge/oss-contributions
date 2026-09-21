@@ -641,10 +641,11 @@
       "number": 274,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 267,
       "do_not_duplicate": true,
-      "summary": "Correct executeSwapQuote documentation."
+      "summary": "Correct executeSwapQuote documentation.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "stellar/js-stellar-sdk",
@@ -686,40 +687,44 @@
       "number": 8687,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 8672,
       "do_not_duplicate": true,
-      "summary": "Co-signer address handling fix."
+      "summary": "Co-signer address handling fix.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "coinbase/coinbase-wallet-sdk",
       "number": 1910,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 1909,
       "do_not_duplicate": true,
-      "summary": "WalletLink accessibility improvement."
+      "summary": "WalletLink accessibility improvement.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "across-protocol/toolkit",
       "number": 273,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 271,
       "do_not_duplicate": true,
-      "summary": "Add timeout handling to waitForFill."
+      "summary": "Add timeout handling to waitForFill.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "across-protocol/toolkit",
       "number": 272,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 268,
       "do_not_duplicate": true,
-      "summary": "Handle undefined parseFillLogs output."
+      "summary": "Handle undefined parseFillLogs output.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "safe-global/safe-docs",
