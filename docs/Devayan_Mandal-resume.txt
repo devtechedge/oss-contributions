@@ -1,9 +1,13 @@
 Devayan Mandal
+
 AI Native Full Stack & Open-Source Contributor - Open to Remote Work
+
 devayanmandal@gmail.com | linkedin.com/in/dev-ma | github.com/devtechedge
+
 Professional Summary
 AI-native Full Stack Engineer; shipped 35+ systems: agents, Model Context Protocol (MCP), RL eval, realtime infra.
 Merged 26 upstream pull requests (TypeScript/Python/Rust) in Biome, pnpm, node-postgres and others; owned root cause to release.
+
 Technical Skills
 • Languages: Python, TypeScript, JavaScript, Rust, SQL, Bash	
 • AI & Agents: LangGraph, LangChain, Model Context Protocol (MCP), multi-agent orchestration, RAG, RLVR, LLM evaluations, Ollama, Google Gemini, OpenAI, cost-aware routing
@@ -65,6 +69,7 @@ Quantitative Crypto Trader & Derivatives Strategist | September 2016 - Present |
 • Built and ran automated grid, DCA, and Martingale bots on Pionex and Binance to capture spread and volatility in ranging markets.
 • Executed delta-neutral basis and funding-rate arbitrage between spot and perpetuals, plus concentrated-liquidity and lending-loop strategies on-chain.
 • Applied TWAP/VWAP execution on illiquid pairs, with VaR limits, drawdown caps, and Sharpe-ratio optimization governing position sizing and portfolio.
+
 Certifications
 • Model Context Protocol: Advanced Topics - Anthropic, 2026
 • AI Fluency for Builders - Anthropic (with CodePath), 2026
@@ -81,7 +86,9 @@ Certifications
 • Deep Learning Specialization - DeepLearning.AI, 2020
 • IBM Data Science Professional Certificate - IBM, 2020
 • Blockchain Specialization - University of California, Irvine (Coursera), 2020
+
 Education
+
 University of Mumbai
 Bachelor of Engineering (B.E.), Chemical Engineering (First Class)
 Quantitative core in process dynamics, transport phenomena, mathematical modelling, and optimization; transitioned into software engineering through computational and systems-oriented work.
