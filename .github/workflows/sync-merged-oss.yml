@@ -32,28 +32,41 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout ledger
         uses: actions/checkout@v4
+
+      - name: Checkout private jobsearch
+        uses: actions/checkout@v4
+        with:
+          repository: devtechedge/jobsearch-private
+          path: private
+          token: ${{ secrets.LEDGER_SYNC_TOKEN }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "22"
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Reconcile and publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Optional PAT. Needed for two things secrets.GITHUB_TOKEN cannot do:
+          # PAT. Needed for three things secrets.GITHUB_TOKEN cannot do:
           # push the merged list into the profile repo (devtechedge/devtechedge),
-          # and PATCH this repo's About description, which is admin-level. If
-          # unset, both steps are skipped rather than failing the run.
+          # PATCH this repo's About description (admin-level),
+          # and read/write devtechedge/jobsearch-private (a separate private repo).
+          # If unset, profile + About steps are skipped; private write fails loudly.
           LEDGER_SYNC_TOKEN: ${{ secrets.LEDGER_SYNC_TOKEN }}
           INPUT_PR: ${{ github.event.inputs.pr || github.event.client_payload.pr || '' }}
           INPUT_SUMMARY: ${{ github.event.inputs.summary || github.event.client_payload.summary || '' }}
           INPUT_DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
           set -euo pipefail
-          ARGS=(--update-about)
+          ARGS=(--update-about --private-root private)
           if [ -n "${INPUT_PR}" ]; then
             ARGS+=(--pr "${INPUT_PR}")
           fi
@@ -65,38 +78,70 @@ jobs:
           fi
           node scripts/sync-merged-oss.mjs "${ARGS[@]}"
 
+      - name: Auto-patch private DOCX
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+          python scripts/sync-docx-to-private.py --oss-root . --private-root private
+
       - name: Commit ledger if changed
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # docs/Devayan_Mandal.docx is hand-maintained and decoupled (19 Sep 2026):
-          # the sync never renders it, so it is never staged here. DOCX bullet
-          # updates run explicitly via scripts/patch-resume-docx.py.
-          git add README.md docs/triage/triage.json docs/triage/publications.json \
-            docs/Devayan_Mandal-resume.txt docs/linkedin-all-details.txt docs/wellfound.txt \
-            docs/generated || true
+          # Professional docs moved to jobsearch-private 21 Sep 2026 and are
+          # never staged here: resume txt, DOCX, all_repos, linkedin, wellfound,
+          # generated paste. DOCX patch runs explicitly in the step above.
+          git add README.md docs/triage/triage.json docs/triage/publications.json || true
           if git diff --cached --quiet; then
             echo "No ledger file changes"
+          else
+            git commit -m "chore(ledger): sync merged OSS publications"
+            for attempt in 1 2 3; do
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                echo "Pushed ledger on attempt ${attempt}"
+                break
+              fi
+              echo "Push rejected on attempt ${attempt}; rebasing onto latest ${GITHUB_REF_NAME}"
+              if ! git pull --rebase origin "${GITHUB_REF_NAME}"; then
+                git rebase --abort || true
+                echo "::error::rebase conflict while syncing ledger; inspect the run and rerun"
+                exit 1
+              fi
+              sleep $((attempt * 5))
+              if [ "${attempt}" = "3" ]; then
+                echo "::error::could not push ledger after 3 attempts"
+                exit 1
+              fi
+            done
+          fi
+
+      - name: Commit private docs if changed
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+          cd private
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Devayan_Mandal-resume.txt linkedin-all-details.txt wellfound.txt linkedin-experience-paste.txt Devayan_Mandal.docx || true
+          if git diff --cached --quiet; then
+            echo "No private doc changes"
             exit 0
           fi
-          git commit -m "chore(ledger): sync merged OSS publications"
-          # The concurrency group serialises runs, but a dispatch or a manual
-          # rerun can still land between our checkout and our push. Rebase and
-          # retry instead of dying with a non-fast-forward rejection.
+          git commit -m "chore(private): sync merged OSS publications"
           for attempt in 1 2 3; do
-            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
-              echo "Pushed ledger on attempt ${attempt}"
+            if git push origin "HEAD:main"; then
+              echo "Pushed private on attempt ${attempt}"
               exit 0
             fi
-            echo "Push rejected on attempt ${attempt}; rebasing onto latest ${GITHUB_REF_NAME}"
-            if ! git pull --rebase origin "${GITHUB_REF_NAME}"; then
+            echo "Push rejected on attempt ${attempt}; rebasing onto latest main"
+            if ! git pull --rebase origin main; then
               git rebase --abort || true
-              echo "::error::rebase conflict while syncing ledger; inspect the run and rerun"
+              echo "::error::rebase conflict while syncing private docs; inspect the run and rerun"
               exit 1
             fi
             sleep $((attempt * 5))
           done
-          echo "::error::could not push ledger after 3 attempts"
+          echo "::error::could not push private docs after 3 attempts"
           exit 1

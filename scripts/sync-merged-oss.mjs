@@ -5,6 +5,13 @@
  * Source of truth: docs/triage/triage.json (operational state)
  * Publication copy: docs/triage/publications.json (curated prose, never overwritten)
  *
+ * Split 21 Sep 2026: public OSS targets (README, triage, publications, About,
+ * profile README) stay in this repo. Professional docs (resume.txt,
+ * linkedin-all-details.txt, wellfound.txt, linkedin-experience-paste.txt)
+ * live in devtechedge/jobsearch-private repo root and are written via
+ * --private-root (or $PRIVATE_ROOT). DOCX lives there too and is patched
+ * via scripts/sync-docx-to-private.py, never rendered here.
+ *
  * Idempotent: running once or ten times yields the same files.
  * Commits are the caller's job; this script only writes when content changes.
  */
@@ -19,6 +26,13 @@ const AUTHOR = "devtechedge";
 const LEDGER_OWNER = "devtechedge";
 const LEDGER_REPO = "oss-contributions";
 const PROFILE_REPO = "devtechedge";
+const PRIVATE_REPO = "jobsearch-private";
+const PRIVATE_FILES = {
+  resume: "Devayan_Mandal-resume.txt",
+  linkedin: "linkedin-all-details.txt",
+  paste: "linkedin-experience-paste.txt",
+  wellfound: "wellfound.txt",
+};
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const MARK = {
@@ -35,6 +49,7 @@ const MARK = {
 function parseArgs(argv) {
   const args = {
     root: DEFAULT_ROOT,
+    privateRoot: null,
     publishOnly: false,
     dryRun: false,
     prs: [],
@@ -44,6 +59,7 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--root") args.root = path.resolve(argv[++i]);
+    else if (a === "--private-root") args.privateRoot = path.resolve(argv[++i]);
     else if (a === "--publish-only") args.publishOnly = true;
     else if (a === "--dry-run") args.dryRun = true;
     else if (a === "--update-about") args.updateAbout = true;
@@ -52,6 +68,8 @@ function parseArgs(argv) {
     else if (a === "--help" || a === "-h") {
       console.log(`Usage: node scripts/sync-merged-oss.mjs [options]
   --root DIR          Ledger checkout (default: repo root)
+  --private-root DIR  jobsearch-private checkout (or $PRIVATE_ROOT). Professional
+                      docs are written there; without it legacy docs/ paths are used.
   --pr owner/repo#N   Force-reconcile a specific PR (repeatable)
   --summary TEXT      Curated summary for a newly created publication record
   --publish-only      Skip GitHub reconcile; regenerate publication targets
@@ -60,7 +78,18 @@ function parseArgs(argv) {
       process.exit(0);
     }
   }
+  if (!args.privateRoot && process.env.PRIVATE_ROOT) {
+    args.privateRoot = path.resolve(process.env.PRIVATE_ROOT);
+  }
   return args;
+}
+
+// Professional docs moved to jobsearch-private root 21 Sep 2026.
+// Without --private-root we fall back to legacy docs/ paths so old
+// local runs fail loudly instead of writing to the wrong place.
+function privateOr(root, privateRoot, ossRel, privateName) {
+  if (privateRoot) return path.join(privateRoot, privateName);
+  return path.join(root, ossRel);
 }
 
 function readJson(file) {
@@ -392,8 +421,8 @@ function publishReadme(root, recs, n, dryRun) {
   return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
 }
 
-function publishResume(root, recs, n, dryRun) {
-  const file = path.join(root, "docs/Devayan_Mandal-resume.txt");
+function publishResume(root, recs, n, dryRun, privateRoot = null) {
+  const file = privateOr(root, privateRoot, "docs/Devayan_Mandal-resume.txt", PRIVATE_FILES.resume);
   let text = fs.readFileSync(file, "utf8");
   text = rewriteCounts(text, n);
   const bullets = [...recs].sort(sortLedger).map(renderResumeBullet).join("\n");
@@ -413,8 +442,8 @@ function defaultLinkedinRep(rec) {
   return `${rec.display_name || defaultDisplayName(rec.repo)} - ${uncap(rec.ledger_what)}`;
 }
 
-function publishLinkedin(root, recs, n, pubs, dryRun) {
-  const file = path.join(root, "docs/linkedin-all-details.txt");
+function publishLinkedin(root, recs, n, pubs, dryRun, privateRoot = null) {
+  const file = privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin);
   let text = fs.readFileSync(file, "utf8");
   text = rewriteCounts(text, n);
 
@@ -451,8 +480,8 @@ function publishLinkedin(root, recs, n, pubs, dryRun) {
   return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
 }
 
-function publishExperiencePaste(root, dryRun) {
-  const src = path.join(root, "docs/linkedin-all-details.txt");
+function publishExperiencePaste(root, dryRun, privateRoot = null) {
+  const src = privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin);
   const text = fs.readFileSync(src, "utf8");
   const expHead = text.indexOf("2. Open-Source Software Contributor");
   const descHead = expHead === -1 ? -1 : text.indexOf("DESCRIPTION", expHead);
@@ -466,7 +495,7 @@ function publishExperiencePaste(root, dryRun) {
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
-  const file = path.join(root, "docs/generated/linkedin-experience-paste.txt");
+  const file = privateOr(root, privateRoot, "docs/generated/linkedin-experience-paste.txt", PRIVATE_FILES.paste);
   const next = paste + "\n";
   if (dryRun) return { file, changed: !fs.existsSync(file) || fs.readFileSync(file, "utf8") !== next };
   return { file, changed: writeIfChanged(file, next) };
@@ -585,8 +614,8 @@ async function fetchOwnRepos() {
   };
 }
 
-function publishWellfound(root, recs, n, pubs, own, dryRun) {
-  const file = path.join(root, "docs/wellfound.txt");
+function publishWellfound(root, recs, n, pubs, own, dryRun, privateRoot = null) {
+  const file = privateOr(root, privateRoot, "docs/wellfound.txt", PRIVATE_FILES.wellfound);
   const prev = fs.readFileSync(file, "utf8");
   const text = renderWellfound(prev, recs, n, pubs, own);
   if (dryRun) return { file, changed: text !== prev };
@@ -923,19 +952,20 @@ async function main() {
     console.warn("own repos feed failed, using cache:", err.message);
   }
 
+  const privateRoot = args.privateRoot || null;
   const writes = [];
   writes.push(publishReadme(root, recs, n, args.dryRun));
-  writes.push(publishResume(root, recs, n, args.dryRun));
-  writes.push(publishLinkedin(root, recs, n, pubs, args.dryRun));
-  writes.push(publishExperiencePaste(root, args.dryRun));
-  writes.push(publishWellfound(root, recs, n, pubs, ownRepos, args.dryRun));
+  writes.push(publishResume(root, recs, n, args.dryRun, privateRoot));
+  writes.push(publishLinkedin(root, recs, n, pubs, args.dryRun, privateRoot));
+  writes.push(publishExperiencePaste(root, args.dryRun, privateRoot));
+  writes.push(publishWellfound(root, recs, n, pubs, ownRepos, args.dryRun, privateRoot));
 
 
-  // The master resume DOCX is hand-maintained and decoupled from resume.txt
-  // (19 Sep 2026): the sync never renders or overwrites it, and validate()
-  // does not check it. Merge-cascade DOCX bullet updates run explicitly via
-  // scripts/patch-resume-docx.py; Dev may edit the file in Word at any time
-  // without fear of a sync clobber.
+  // The master resume DOCX lives in jobsearch-private root, hand-maintained
+  // and decoupled from resume.txt (19 Sep 2026, moved 21 Sep 2026): this script
+  // never renders it and validate() does not check it. Merge-cascade DOCX
+  // bullet updates run via scripts/sync-docx-to-private.py (wrapping
+  // scripts/patch-resume-docx.py) in the workflow; Dev may edit in Word freely.
 
   if (!args.dryRun) {
     writes.push({ file: triagePath, changed: writeJson(triagePath, triage) });
@@ -944,12 +974,18 @@ async function main() {
 
   const fileTexts = [
     ["README", fs.readFileSync(path.join(root, "README.md"), "utf8")],
-    ["resume", fs.readFileSync(path.join(root, "docs/Devayan_Mandal-resume.txt"), "utf8")],
-    ["linkedin", fs.readFileSync(path.join(root, "docs/linkedin-all-details.txt"), "utf8")],
-    ["wellfound", fs.readFileSync(path.join(root, "docs/wellfound.txt"), "utf8")],
+    ["resume", fs.readFileSync(privateOr(root, privateRoot, "docs/Devayan_Mandal-resume.txt", PRIVATE_FILES.resume), "utf8")],
+    ["linkedin", fs.readFileSync(privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin), "utf8")],
+    ["wellfound", fs.readFileSync(privateOr(root, privateRoot, "docs/wellfound.txt", PRIVATE_FILES.wellfound), "utf8")],
   ];
   report.problems = args.dryRun ? [] : validate(triage, recs, fileTexts);
-  report.files = writes.filter((w) => w.changed).map((w) => path.relative(root, w.file));
+  report.files = writes.filter((w) => w.changed).map((w) => {
+    if (privateRoot && w.file.startsWith(privateRoot)) {
+      return `private/${path.basename(w.file)}`;
+    }
+    return path.relative(root, w.file);
+  });
+  report.private_root = privateRoot ? path.basename(privateRoot) : null;
   report.merged_count = n;
   report.about_preview = aboutDescription(n, recs);
 

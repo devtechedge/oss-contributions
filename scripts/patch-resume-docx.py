@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Surgically maintain the OSS bullets of docs/Devayan_Mandal.docx.
+"""Surgically maintain the OSS bullets of Devayan_Mandal.docx.
 
-The DOCX is hand-maintained and decoupled from docs/Devayan_Mandal-resume.txt
-(19 Sep 2026): the sync workflow never renders or overwrites it, and Dev may
-audit and edit it in Word at any time. This script is the ONLY automated
-writer, run explicitly by the agent during a merge cascade or a professional
-update, never by CI:
+The DOCX lives in jobsearch-private root since 21 Sep 2026 (was
+docs/Devayan_Mandal.docx in oss-contributions). It is hand-maintained and
+decoupled from Devayan_Mandal-resume.txt (19 Sep 2026): the sync never renders
+it, and Dev may audit and edit it in Word at any time. Writers are this script
+plus scripts/sync-docx-to-private.py in CI:
 
-  patch-resume-docx.py --check [--root .]
+  patch-resume-docx.py --check [--root private] [--lib-dir oss/scripts]
   patch-resume-docx.py --add --head "owner/repo #123" --lang "Python"
       --impact "what changed, one sentence"
-      --url "https://github.com/owner/repo/pull/123" [--root .]
-  patch-resume-docx.py --remove --head "owner/repo #123" [--root .]
+      --url "https://github.com/owner/repo/pull/123" [--root private]
+  patch-resume-docx.py --remove --head "owner/repo #123" [--root private]
 
 Ranking and condensing reuse scripts/render-resume-docx.py as a library
 (IMPORTANCE, REPO_TIER, short_line): new bullets land in significance order and
@@ -388,9 +388,17 @@ def cmd_remove(args, doc, rels):
     return 1
 
 
+def find_docx(root: Path) -> Path:
+    for cand in (root / "Devayan_Mandal.docx", root / "docs" / "Devayan_Mandal.docx"):
+        if cand.exists():
+            return cand
+    sys.exit(f"patch-resume-docx: missing {root / 'Devayan_Mandal.docx'} (legacy {root / 'docs' / 'Devayan_Mandal.docx'} gone 21 Sep 2026)")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Surgically maintain DOCX OSS bullets")
     ap.add_argument("--root", default=".")
+    ap.add_argument("--lib-dir", default=None, help="scripts dir holding render-resume-docx.py (default: this file's dir)")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--add", action="store_true")
     ap.add_argument("--remove", action="store_true")
@@ -401,10 +409,9 @@ def main() -> int:
     args = ap.parse_args()
 
     root = Path(args.root).resolve()
-    docx = root / "docs" / "Devayan_Mandal.docx"
-    if not docx.exists():
-        sys.exit(f"patch-resume-docx: missing {docx}")
-    lib = load_render_lib(root / "scripts")
+    docx = find_docx(root)
+    lib_dir = Path(args.lib_dir).resolve() if args.lib_dir else Path(__file__).resolve().parent
+    lib = load_render_lib(lib_dir)
 
     data, names, zin, doc, rels, raw_doc = read_docx(docx)
     try:
