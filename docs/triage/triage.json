@@ -455,7 +455,8 @@
       "last_checked": "2026-09-21",
       "issue": 89,
       "do_not_duplicate": true,
-      "summary": "Clippy hardening issue."
+      "summary": "Clippy hardening issue.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "safe-global/safe-wallet-monorepo",
@@ -477,7 +478,8 @@
       "do_not_duplicate": true,
       "summary": "Wallet plugin documentation correction.",
       "mergeable": true,
-      "note": "Rebased onto main 1b931d7 on 16 Sep 2026; head now daca451, re-signed and verified. Only conflict was docs/pnpm-lock.yaml, resolved by taking main's lockfile wholesale and regenerating with `pnpm install --lockfile-only --ignore-workspace` (purely additive, +43/-0). All checks green; docs content byte-identical to the pre-rebase version. Still fills a real gap: main has no wallet.mdx and setting-up-signers.mdx still says the plugin is 'on its way'."
+      "note": "Rebased onto main 1b931d7 on 16 Sep 2026; head now daca451, re-signed and verified. Only conflict was docs/pnpm-lock.yaml, resolved by taking main's lockfile wholesale and regenerating with `pnpm install --lockfile-only --ignore-workspace` (purely additive, +43/-0). All checks green; docs content byte-identical to the pre-rebase version. Still fills a real gap: main has no wallet.mdx and setting-up-signers.mdx still says the plugin is 'on its way'.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "wormhole-foundation/wormhole-connect",
@@ -487,7 +489,8 @@
       "last_checked": "2026-09-21",
       "issue": 4040,
       "do_not_duplicate": true,
-      "summary": "Normalize and clarify per-token balance-fetch error messaging after RPC fallback."
+      "summary": "Normalize and clarify per-token balance-fetch error messaging after RPC fallback.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "stellar/stellar-docs",
@@ -521,7 +524,8 @@
       "last_checked": "2026-09-21",
       "issue": 2905,
       "do_not_duplicate": true,
-      "summary": "Skip Blockaid scan when there is no scannable list."
+      "summary": "Skip Blockaid scan when there is no scannable list.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "trustwallet/wallet-core",
@@ -531,7 +535,8 @@
       "last_checked": "2026-09-21",
       "issue": 4795,
       "do_not_duplicate": true,
-      "summary": "Propagate Cardano buildTx errors instead of swallowing them."
+      "summary": "Propagate Cardano buildTx errors instead of swallowing them.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "trustwallet/wallet-core",
