@@ -380,10 +380,11 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 8309,
       "do_not_duplicate": true,
-      "summary": "Fix retain-then-strip search middleware so Link/buildLocation without search omits stripped defaults."
+      "summary": "Fix retain-then-strip search middleware so Link/buildLocation without search omits stripped defaults.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "better-auth/better-auth",
@@ -391,13 +392,14 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 11160,
       "requested_reviewers": [
         "Bekacru"
       ],
       "do_not_duplicate": true,
-      "summary": "Coalesce session-signal bursts so overlapping notifies do not cancel in-flight /get-session."
+      "summary": "Coalesce session-signal bursts so overlapping notifies do not cancel in-flight /get-session.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "langchain-ai/langgraphjs",
@@ -673,10 +675,11 @@
       "number": 626,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 590,
       "do_not_duplicate": true,
-      "summary": "Validate openUrl HTTPS requirement."
+      "summary": "Validate openUrl HTTPS requirement.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "safe-global/safe-wallet-monorepo",
@@ -737,21 +740,23 @@
       "number": 1431,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 1424,
       "do_not_duplicate": true,
       "summary": "Fix generateHash byte-versus-character length handling.",
-      "note": "Added the required changeset 2026-09-16 because bumping the identifier to 01 is a public behavior change. CI green. Nudged for review."
+      "note": "Added the required changeset 2026-09-16 because bumping the identifier to 01 is a public behavior change. CI green. Nudged for review.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "MetaMask/metamask-sdk",
       "number": 1401,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": null,
       "do_not_duplicate": true,
-      "summary": "Gate React Native async-storage require."
+      "summary": "Gate React Native async-storage require.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "safe-global/safe-core-sdk",
