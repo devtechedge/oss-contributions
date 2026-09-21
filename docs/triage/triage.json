@@ -133,7 +133,8 @@
       "last_checked": "2026-09-21",
       "issue": 1213,
       "do_not_duplicate": true,
-      "summary": "Normalize CRLF to LF when decoding multi-line basic and multi-line literal strings (spec-permitted: parsers may normalize newlines in multi-line strings) and re-encode the string raw repr with the same normalization, so an unedited all-CRLF document roundtrips with uniform line endings; fixes #1213. Two commits per CONTRIBUTING convention: test commit pinning current behavior, then fix commit. Branch crlf-roundtrip on fork, local verification: cargo test --workspace green, fmt/clippy/docs per ci.yml (toml_edit_fuzz excluded locally, libfuzzer-sys needs clang). All workflow runs action_required pending first-time contributor approval."
+      "summary": "Normalize CRLF to LF when decoding multi-line basic and multi-line literal strings (spec-permitted: parsers may normalize newlines in multi-line strings) and re-encode the string raw repr with the same normalization, so an unedited all-CRLF document roundtrips with uniform line endings; fixes #1213. Two commits per CONTRIBUTING convention: test commit pinning current behavior, then fix commit. Branch crlf-roundtrip on fork, local verification: cargo test --workspace green, fmt/clippy/docs per ci.yml (toml_edit_fuzz excluded locally, libfuzzer-sys needs clang). All workflow runs action_required pending first-time contributor approval.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "pypa/hatch",
@@ -144,7 +145,8 @@
       "last_checked": "2026-09-21",
       "issue": 2420,
       "do_not_duplicate": true,
-      "summary": "Docs: replace the German word 'verboten' with 'forbidden' in docs/how-to/config/dynamic-metadata.md L17, fixing #2420. One-word change on branch docs/2420-verboten-to-forbidden, commit ce047bcd (SSH-signed, GitHub reports verified). Base is master (repo default; there is no main branch). First-contribution workflow runs sit in action_required pending maintainer approval. AI disclosure included per docs/community/contributing.md."
+      "summary": "Docs: replace the German word 'verboten' with 'forbidden' in docs/how-to/config/dynamic-metadata.md L17, fixing #2420. One-word change on branch docs/2420-verboten-to-forbidden, commit ce047bcd (SSH-signed, GitHub reports verified). Base is master (repo default; there is no main branch). First-contribution workflow runs sit in action_required pending maintainer approval. AI disclosure included per docs/community/contributing.md.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "brianc/node-postgres",
@@ -282,7 +284,8 @@
       "last_checked": "2026-09-21",
       "issue": 6058,
       "do_not_duplicate": true,
-      "summary": "create_external_models quotes case-sensitive column names so generated external_models.yaml round-trips correctly."
+      "summary": "create_external_models quotes case-sensitive column names so generated external_models.yaml round-trips correctly.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "project-akri/akri",
@@ -918,7 +921,8 @@
       "last_checked": "2026-09-21",
       "issue": 1060,
       "do_not_duplicate": true,
-      "summary": "Diff Dockerfile heredoc bodies: bump tree-sitter-containerfile to 0.9.2 and add heredoc_content to atom_nodes."
+      "summary": "Diff Dockerfile heredoc bodies: bump tree-sitter-containerfile to 0.9.2 and add heredoc_content to atom_nodes.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "narwhals-dev/narwhals",
@@ -942,7 +946,8 @@
       "branch": "fix/inherited-relative-crossrefs",
       "commit": "70996f3",
       "mergeable_state": "unstable",
-      "summary": "AutorefsHook.expand_identifier anchors leading-dot relative crossrefs on docstring.parent (the defining object) when reachable, fixing wrong-target expansion for inherited members; regression test with cross-module griffe modules plus a non-inherited control. 13 CI failures are pre-existing on main at base commit 8125b0d (all lowest-direct legs and several highest legs, test_api_matches_inventory inventory snapshot and PyAssertionError); all quality checks pass."
+      "summary": "AutorefsHook.expand_identifier anchors leading-dot relative crossrefs on docstring.parent (the defining object) when reachable, fixing wrong-target expansion for inherited members; regression test with cross-module griffe modules plus a non-inherited control. 13 CI failures are pre-existing on main at base commit 8125b0d (all lowest-direct legs and several highest legs, test_api_matches_inventory inventory snapshot and PyAssertionError); all quality checks pass.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "pygments/pygments",
