@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-22",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -344,10 +344,11 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 7351,
       "do_not_duplicate": true,
-      "summary": "Async CancelledError now emits TaskFailedEvent before re-raise so execution spans pop and retained Task/Agent/Crew graphs can GC."
+      "summary": "Async CancelledError now emits TaskFailedEvent before re-raise so execution spans pop and retained Task/Agent/Crew graphs can GC.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "livekit/agents",
@@ -435,10 +436,11 @@
       "status": "open",
       "mergeable": false,
       "opened": "2026-09-07",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 8237,
       "do_not_duplicate": true,
-      "summary": "Malformed JSON server-function payloads return 400 instead of unhandled 500."
+      "summary": "Malformed JSON server-function payloads return 400 instead of unhandled 500.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "anza-xyz/agave-sdk",
@@ -767,10 +769,11 @@
       "number": 1533,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 1449,
       "do_not_duplicate": true,
-      "summary": "Correct relayerFeeDetails discount handling."
+      "summary": "Correct relayerFeeDetails discount handling.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "stellar/js-stellar-sdk",
@@ -788,10 +791,11 @@
       "number": 29,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 23,
       "do_not_duplicate": true,
-      "summary": "Surface RPC forwarding errors."
+      "summary": "Surface RPC forwarding errors.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "safe-global/safe-core-sdk",
@@ -809,10 +813,11 @@
       "number": 5767,
       "status": "open",
       "opened": "2026-09-12",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 5552,
       "do_not_duplicate": true,
-      "summary": "Preserve non-EVM aliases in createNamespaces."
+      "summary": "Preserve non-EVM aliases in createNamespaces.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "wevm/wagmi",
@@ -1062,7 +1067,7 @@
       "do_not_duplicate": true,
       "branch": "docs/hunk-entry-state",
       "commit": "58c997c",
-      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` §10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. §12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
+      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` \u00a710.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. \u00a712 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
       "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144.",
       "merged": "2026-09-19",
       "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
