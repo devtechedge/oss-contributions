@@ -541,7 +541,8 @@
       "last_checked": "2026-09-21",
       "issue": 4841,
       "do_not_duplicate": true,
-      "summary": "Zeroize TWData before into_vec for Rust memory hygiene."
+      "summary": "Zeroize TWData before into_vec for Rust memory hygiene.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "safe-global/safe-docs",
@@ -551,7 +552,8 @@
       "last_checked": "2026-09-21",
       "issue": 825,
       "do_not_duplicate": true,
-      "summary": "Correct safe1_1 versus SAFE_2_3_ADDRESS signature-guide typo."
+      "summary": "Correct safe1_1 versus SAFE_2_3_ADDRESS signature-guide typo.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "safe-global/safe-docs",
@@ -561,7 +563,8 @@
       "last_checked": "2026-09-21",
       "issue": 828,
       "do_not_duplicate": true,
-      "summary": "Clarify zkSync EVM exception in signature documentation."
+      "summary": "Clarify zkSync EVM exception in signature documentation.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "solana-foundation/program-examples",
@@ -571,7 +574,8 @@
       "last_checked": "2026-09-21",
       "issue": 671,
       "do_not_duplicate": true,
-      "summary": "Add pda-rent-payer caution to documentation."
+      "summary": "Add pda-rent-payer caution to documentation.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "solana-foundation/program-examples",
@@ -581,7 +585,8 @@
       "last_checked": "2026-09-21",
       "issue": 725,
       "do_not_duplicate": true,
-      "summary": "Document token-fundraiser teardown behavior."
+      "summary": "Document token-fundraiser teardown behavior.",
+      "last_ping": "2026-09-22"
     },
     {
       "repo": "stellar/stellar-docs",
