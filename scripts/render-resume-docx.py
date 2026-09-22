@@ -404,18 +404,25 @@ IMPORTANCE = (
     "PyO3/maturin #3302",          # build panic on non-UTF-8 interpreter output
     "SQLMesh/sqlmesh #6040",       # thread-safety race in a concurrent test path
     "pnpm/pnpm #14753",            # lockfile:false ignored during engine switch
+    "astral-sh/ruff #28542",       # 22 Sep 2026: major linter, PYI002 names stub context
     "better-auth/better-auth #11208",
+    "remix-run/remix #11877",      # 22 Sep 2026: major framework, client nav fix
     "thirdweb-dev/js #8938",       # false error state in a payment widget
     "anza-xyz/kit #2032",
     "web-infra-dev/rspress #3678", # search initialisation race
+    "stellar/js-stellar-sdk #1725", # 22 Sep 2026: wallet SDK, web3 relevance
     "pnpm/pnpm #14756",
     "pytest-dev/pytest-env #262",
-    "stellar/stellar-docs #2850",
+    "mkdocstrings/python #342",    # 22 Sep 2026: docs-toolchain cross-ref fix
     "leo-aa88/reviewgate #144",    # lexer that must not miscount runtime strings
     "stellar/stellar-docs #2849",
+    "EmbarkStudios/cargo-about #319", # 22 Sep 2026: valid-TOML fix, stronger half
+    "stellar/stellar-docs #2850",
     "pnpm/pnpm #14754",
     "stellar/stellar-docs #2859",
     "ssf0409/tracelens #140",
+    "leo-aa88/reviewgate #172",    # 22 Sep 2026: niche DESIGN.md correction
+    "EmbarkStudios/cargo-about #320", # 22 Sep 2026: weaker half of the pair
     "stellar/stellar-docs #2853",
     "stellar/stellar-docs #2851",
 )
@@ -436,6 +443,13 @@ REPO_TIER = {
     "anza-xyz/kit": 7,
     "pytest-dev/pytest-env": 6,
     "stellar/stellar-docs": 6,
+    "astral-sh/ruff": 9,
+    "remix-run/remix": 8,
+    "embarkstudios/cargo-about": 7,
+    "stellar/js-stellar-sdk": 7,
+    "mkdocstrings/python": 6,
+    "leo-aa88/reviewgate": 6,
+    "ssf0409/tracelens": 5,
 }
 
 # Where a merge the curated list has never seen enters the ranking. Scoring it
