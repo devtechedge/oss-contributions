@@ -349,10 +349,10 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-10",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 7351,
       "do_not_duplicate": true,
-      "summary": "Async CancelledError now emits TaskFailedEvent before re-raise so execution spans pop and retained Task/Agent/Crew graphs can GC.",
+      "summary": "Async CancelledError now emits TaskFailedEvent before re-raise so execution spans pop and retained Task/Agent/Crew graphs can GC. Community review 5275371977 (gaoanze888) approved 22 Sep 2026 at head 1efb337, non-blocking note on TaskFailedEvent reuse; still needs maintainer review. Mergeable but behind main.",
       "last_ping": "2026-09-22"
     },
     {
@@ -903,17 +903,6 @@
       "last_ping": "2026-09-20"
     },
     {
-      "repo": "Wilfred/difftastic",
-      "number": 1063,
-      "status": "open",
-      "opened": "2026-09-14",
-      "last_checked": "2026-09-21",
-      "issue": 1060,
-      "do_not_duplicate": true,
-      "summary": "Diff Dockerfile heredoc bodies: bump tree-sitter-containerfile to 0.9.2 and add heredoc_content to atom_nodes.",
-      "last_ping": "2026-09-22"
-    },
-    {
       "repo": "narwhals-dev/narwhals",
       "number": 3944,
       "status": "open",
@@ -972,12 +961,12 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-21",
+      "last_checked": "2026-09-22",
       "issue": 1190,
       "do_not_duplicate": true,
       "branch": "fix/allow-unsafe-custom-binary-no-warn",
       "commit": "2179c19",
-      "summary": "Minimal fix for issue #1190 (console.warn on every simpleGit() construction even with unsafe.allowUnsafeCustomBinary opted in): custom-binary.plugin.ts now throws only when the flag is absent and never warns on the opted-in path; throw path byte-identical. Two unit tests in plugin.binary.spec.ts (no warn + command queued when opted in; throw without flag, no warn), proven fail-before/pass-after by stashing src only (1 failed untouched, 22 pass after). Changeset added (simple-git: patch). Repo is a yarn 4 monorepo, jest 29. Local CI replication green where runnable: yarn install/build/build:pkg, biome lint rules on changed files, full unit suite. Pre-existing red on base commit on this Windows box (identical counts with and without the fix): 6 integration suites (19 tests) and test:consumer argv-parser ESM resolution; biome formatter CRLF noise from core.autocrlf. GitHub Actions CI + Lint runs action_required pending first-contribution maintainer approval; Snyk passed. Caution: open PR #1187 (derekm, stale since 2026-08-02) proposes dropping the allowlist entirely; our PR is the minimal independently mergeable option and does not adopt that design.",
+      "summary": "Minimal fix for issue #1190 (console.warn on every simpleGit() construction even with unsafe.allowUnsafeCustomBinary opted in): custom-binary.plugin.ts now throws only when the flag is absent and never warns on the opted-in path; throw path byte-identical. Two unit tests in plugin.binary.spec.ts (no warn + command queued when opted in; throw without flag, no warn), proven fail-before/pass-after by stashing src only (1 failed untouched, 22 pass after). Changeset added (simple-git: patch). Repo is a yarn 4 monorepo, jest 29. Local CI replication green where runnable: yarn install/build/build:pkg, biome lint rules on changed files, full unit suite. Pre-existing red on base commit on this Windows box (identical counts with and without the fix): 6 integration suites (19 tests) and test:consumer argv-parser ESM resolution; biome formatter CRLF noise from core.autocrlf. GitHub Actions CI + Lint runs action_required pending first-contribution maintainer approval; Snyk passed. Caution: open PR #1187 (derekm, stale since 2026-08-02) proposes dropping the allowlist entirely; our PR is the minimal independently mergeable option and does not adopt that design. Maintainer steveukx 22 Sep 2026: change will be rolled into v4 release PR #1193 (touches same files); leaving open for maintainer to supersede.",
       "last_ping": "2026-09-22"
     },
     {
@@ -1089,7 +1078,7 @@
       "do_not_duplicate": true,
       "branch": "docs/hunk-entry-state",
       "commit": "58c997c",
-      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` ง10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. ง12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
+      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` ยง10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. ยง12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
       "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144.",
       "merged": "2026-09-19",
       "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
@@ -2308,6 +2297,13 @@
       "related_pr": 7201,
       "do_not_refile": true,
       "reason": "Maintainer longcw closed as not planned 2026-09-22, no technical review. Companion #7203 also closed unmerged. Bot review 5160525377 resolved before close (commit 86c9181). Do not refile holds API unless direction changes."
+    },
+    {
+      "repo": "Wilfred/difftastic",
+      "issue": 1060,
+      "related_pr": 1063,
+      "do_not_refile": true,
+      "reason": "Maintainer Wilfred Hughes closed unmerged 2026-09-22 in favour of his own #1060 atom fix (heredoc_block as atom), no technical fault cited. Flagged AI_POLICY.md (LLM-written PR comments not allowed); no reply posted to avoid compounding. Do not refile Dockerfile heredoc work here."
     }
   ],
   "no_go": [
