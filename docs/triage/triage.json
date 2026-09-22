@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-22",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -353,18 +353,6 @@
       "issue": 7351,
       "do_not_duplicate": true,
       "summary": "Async CancelledError now emits TaskFailedEvent before re-raise so execution spans pop and retained Task/Agent/Crew graphs can GC.",
-      "last_ping": "2026-09-22"
-    },
-    {
-      "repo": "livekit/agents",
-      "number": 7201,
-      "status": "open",
-      "mergeable": false,
-      "opened": "2026-09-10",
-      "last_checked": "2026-09-21",
-      "issue": 7191,
-      "do_not_duplicate": true,
-      "summary": "Public SpeechHandle.hold_interruptions() context manager plus less severe realtime log path.",
       "last_ping": "2026-09-22"
     },
     {
@@ -1101,7 +1089,7 @@
       "do_not_duplicate": true,
       "branch": "docs/hunk-entry-state",
       "commit": "58c997c",
-      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` ยง10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. ยง12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
+      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` ง10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. ง12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
       "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144.",
       "merged": "2026-09-19",
       "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
@@ -1300,12 +1288,16 @@
     {
       "repo": "livekit/agents",
       "number": 7191,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         7201
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "do_not_refile": true,
+      "closed": "2026-09-22",
+      "last_checked": "2026-09-22",
+      "note": "Maintainer longcw closed issue and PR #7201 as not planned 2026-09-22 with no technical objection. Companion PR #7203 (bharatnpti, counted hold) also closed unmerged. Devin bot review 5160525377 on #7201 was addressed (commit 86c9181, bot marked resolved). Do not refile a holds API unless upstream direction materially changes. #7199 stays open."
     },
     {
       "repo": "livekit/agents",
@@ -2309,6 +2301,13 @@
       "related_pr": 8308,
       "do_not_refile": true,
       "reason": "Auto-closed by the repo's github-actions bot: it requires the linked issue to be assigned before opening a PR. Issue #8292 is bot-filed (roundtrip-sweep) and unassigned, so there is no assignment path for an outside contributor. PR was otherwise healthy: 50 checks passed including quality checks, Macroscope approved."
+    },
+    {
+      "repo": "livekit/agents",
+      "issue": 7191,
+      "related_pr": 7201,
+      "do_not_refile": true,
+      "reason": "Maintainer longcw closed as not planned 2026-09-22, no technical review. Companion #7203 also closed unmerged. Bot review 5160525377 resolved before close (commit 86c9181). Do not refile holds API unless direction changes."
     }
   ],
   "no_go": [
@@ -2475,10 +2474,9 @@
     },
     "livekit/agents": {
       "contributions": [
-        7201,
         7199
       ],
-      "focus": "Realtime voice agents; interruption semantics and speech handling."
+      "focus": "Realtime voice agents; interruption semantics and speech handling. Holds direction declined 2026-09-22 (longcw closed #7191/#7201 as not planned, no tech objection; do not refile). #7199 re-arm work stays open."
     },
     "TanStack/router": {
       "contributions": [
