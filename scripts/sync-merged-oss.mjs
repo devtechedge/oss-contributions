@@ -633,9 +633,12 @@ function fmtDay(iso) {
   return `${d} ${DEVAYAN_MONTHS[m - 1]} ${y}`;
 }
 function renderDevayanDetails(prev, n) {
+  const mergedRe = /(Merged )\d+( upstream pull requests)/;
+  if (!mergedRe.test(prev)) throw new Error("devayan-details: summary count anchor not found");
+  let text = prev.replace(mergedRe, `$1${n}$2`);
   const ledgerRe = /(records )\d+( merged upstream pull requests)/;
-  if (!ledgerRe.test(prev)) throw new Error("devayan-details: ledger count anchor not found");
-  let text = prev.replace(ledgerRe, `$1${n}$2`);
+  if (!ledgerRe.test(text)) throw new Error("devayan-details: ledger count anchor not found");
+  text = text.replace(ledgerRe, `$1${n}$2`);
   const tracksRe = /(Tracks )\d+( merged pull requests across [^.\n]* as of )\d{1,2} \w+ \d{4}(\.)/;
   if (!tracksRe.test(text)) throw new Error("devayan-details: tracker count/date anchor not found");
   return text.replace(tracksRe, `$1${n}$2${fmtDay(TODAY)}$3`);
