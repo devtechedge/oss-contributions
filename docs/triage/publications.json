@@ -27,7 +27,7 @@
       "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody regression coverage lock."
     },
     "thirdweb-dev/js": {
-      "linkedin_representative": "thirdweb - CheckoutWidget token query error propagation fix across 401, 429, and timeout failures."
+      "linkedin_representative": "thirdweb - CheckoutWidget token error propagation fix."
     },
     "anza-xyz/kit": {
       "linkedin_representative": "Anza Kit - codec documentation numeric predicate correction in the advanced example."
@@ -58,6 +58,12 @@
     },
     "stellar/js-stellar-sdk": {
       "linkedin_representative": "js-stellar-sdk - docs pipeline for migration pages, sidebar, and llms bundles."
+    },
+    "mkdocstrings/python": {
+      "linkedin_representative": "python - inherited relative cross-references now anchor on the defining object."
+    },
+    "remix-run/remix": {
+      "linkedin_representative": "remix - marker-less doctype and html markup now navigates as a document."
     }
   },
   "records": [
