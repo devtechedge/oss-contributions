@@ -688,15 +688,17 @@
       "merge_commit": "a9a4ca3bfd8ee361cd8f7aa63a5079b232adc837",
       "issue": 341,
       "url": "https://github.com/mkdocstrings/python/pull/342",
-      "languages": [],
+      "languages": [
+        "Python"
+      ],
       "org": "mkdocstrings",
       "display_name": "python",
       "profile_title": "python #342",
       "ledger_logo": "https://github.com/mkdocstrings.png?size=40",
       "profile_logo": "https://github.com/mkdocstrings.png?size=48",
-      "profile_logo_alt": "python",
+      "profile_logo_alt": "mkdocstrings",
       "ledger_what": "AutorefsHook.expand_identifier anchors leading-dot relative cross-references on docstring.parent, the object the docstring was written on, so inherited members resolve against the defining module instead of the inheriting class.",
-      "resume_bullet": "mkdocstrings/python #342 (TypeScript) - autorefsHook.expand_identifier anchors leading-dot relative cross-references on docstring.parent, the object the docstring was written on, so inherited members resolve against the defining module instead of the inheriting class. Merged Sep 2026. github.com/mkdocstrings/python/pull/342",
+      "resume_bullet": "mkdocstrings/python #342 (Python) - autorefsHook.expand_identifier anchors leading-dot relative cross-references on docstring.parent, the object the docstring was written on, so inherited members resolve against the defining module instead of the inheriting class. Merged Sep 2026. github.com/mkdocstrings/python/pull/342",
       "linkedin_bullet": "mkdocstrings/python #342 - autorefsHook.expand_identifier anchors leading-dot relative cross-references on docstring.parent, the object the docstring was written on, so inherited members resolve against the defining module instead of the inheriting class.",
       "profile_line": "autorefsHook.expand_identifier anchors leading-dot relative cross-references on docstring.parent, the object the docstring was written on, so inherited members resolve against the defining module instead of the inheriting class.",
       "curated": true
@@ -710,18 +712,20 @@
       "merge_commit": "0bb8ed1a94e9fc714ecefc4fab03adf781bcd365",
       "issue": 11808,
       "url": "https://github.com/remix-run/remix/pull/11877",
-      "languages": [],
+      "languages": [
+        "TypeScript"
+      ],
       "org": "remix-run",
       "display_name": "remix",
       "profile_title": "remix #11877",
       "ledger_logo": "https://github.com/remix-run.png?size=40",
       "profile_logo": "https://github.com/remix-run.png?size=48",
-      "profile_logo_alt": "remix",
-      "ledger_what": "Treat marker-less HTML starting with a doctype or <html> as a document",
-      "resume_bullet": "remix-run/remix #11877 (TypeScript) - treat marker-less HTML starting with a doctype or <html> as a document Merged Sep 2026. github.com/remix-run/remix/pull/11877",
-      "linkedin_bullet": "remix-run/remix #11877 - treat marker-less HTML starting with a doctype or <html> as a document",
-      "profile_line": "treat marker-less HTML starting with a doctype or <html> as a document",
-      "curated": false
+      "profile_logo_alt": "Remix",
+      "ledger_what": "frame.ts infers flush kind from markup when no rmx flush marker is present, treating HTML starting with a doctype or html tag as a document so renderToString output navigates correctly.",
+      "resume_bullet": "remix-run/remix #11877 (TypeScript) - frame.ts infers flush kind from markup when no rmx flush marker is present, treating HTML starting with a doctype or html tag as a document so renderToString output navigates correctly. Merged Sep 2026. github.com/remix-run/remix/pull/11877",
+      "linkedin_bullet": "remix-run/remix #11877 - frame.ts infers flush kind from markup when no rmx flush marker is present, treating HTML starting with a doctype or html tag as a document so renderToString output navigates correctly.",
+      "profile_line": "frame.ts infers flush kind from markup when no rmx flush marker is present, treating HTML starting with a doctype or html tag as a document so renderToString output navigates correctly.",
+      "curated": true
     }
   ],
   "wellfound_cache": {
