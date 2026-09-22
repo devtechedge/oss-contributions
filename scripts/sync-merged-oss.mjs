@@ -32,6 +32,7 @@ const PRIVATE_FILES = {
   linkedin: "linkedin-all-details.txt",
   paste: "linkedin-experience-paste.txt",
   wellfound: "wellfound.txt",
+  devayan: "devayan-all-details.txt",
 };
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -622,6 +623,31 @@ function publishWellfound(root, recs, n, pubs, own, dryRun, privateRoot = null) 
   return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
 }
 
+// devayan-all-details.txt is Dev's full professional picture for job applications
+// (Gemini sidebar context). Desktop copy is the editing truth; this refreshes only
+// machine-known tokens in the private repo copy: the ledger merged count and the
+// tracker count + date. Repo-name selections and all other prose stay Dev's.
+const DEVAYAN_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function fmtDay(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${d} ${DEVAYAN_MONTHS[m - 1]} ${y}`;
+}
+function renderDevayanDetails(prev, n) {
+  const ledgerRe = /(records )\d+( merged upstream pull requests)/;
+  if (!ledgerRe.test(prev)) throw new Error("devayan-details: ledger count anchor not found");
+  let text = prev.replace(ledgerRe, `$1${n}$2`);
+  const tracksRe = /(Tracks )\d+( merged pull requests across [^.\n]* as of )\d{1,2} \w+ \d{4}(\.)/;
+  if (!tracksRe.test(text)) throw new Error("devayan-details: tracker count/date anchor not found");
+  return text.replace(tracksRe, `$1${n}$2${fmtDay(TODAY)}$3`);
+}
+function publishDevayanDetails(root, n, dryRun, privateRoot = null) {
+  const file = privateOr(root, privateRoot, "docs/devayan-all-details.txt", PRIVATE_FILES.devayan);
+  const prev = fs.readFileSync(file, "utf8");
+  const text = renderDevayanDetails(prev, n);
+  if (dryRun) return { file, changed: text !== prev };
+  return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
+}
+
 function escapeHtml(s) {
   const map = {
     "&": "&" + "amp;",
@@ -959,6 +985,7 @@ async function main() {
   writes.push(publishLinkedin(root, recs, n, pubs, args.dryRun, privateRoot));
   writes.push(publishExperiencePaste(root, args.dryRun, privateRoot));
   writes.push(publishWellfound(root, recs, n, pubs, ownRepos, args.dryRun, privateRoot));
+  writes.push(publishDevayanDetails(root, n, args.dryRun, privateRoot));
 
 
   // The master resume DOCX lives in jobsearch-private root, hand-maintained
@@ -977,6 +1004,7 @@ async function main() {
     ["resume", fs.readFileSync(privateOr(root, privateRoot, "docs/Devayan_Mandal-resume.txt", PRIVATE_FILES.resume), "utf8")],
     ["linkedin", fs.readFileSync(privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin), "utf8")],
     ["wellfound", fs.readFileSync(privateOr(root, privateRoot, "docs/wellfound.txt", PRIVATE_FILES.wellfound), "utf8")],
+    ["devayan", fs.readFileSync(privateOr(root, privateRoot, "docs/devayan-all-details.txt", PRIVATE_FILES.devayan), "utf8")],
   ];
   report.problems = args.dryRun ? [] : validate(triage, recs, fileTexts);
   report.files = writes.filter((w) => w.changed).map((w) => {
