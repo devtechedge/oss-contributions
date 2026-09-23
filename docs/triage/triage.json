@@ -116,38 +116,44 @@
     {
       "repo": "wxt-dev/wxt",
       "number": 2622,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-14",
       "last_checked": "2026-09-23",
       "issue": 2588,
       "do_not_duplicate": true,
       "summary": "Implements the maintainer-proposed API from #2588: InlineConfig#targetBrowserMap (default map: chrome/edge/brave/opera/chromium->chromium, firefox->firefox, safari/ios->safari; unknown labels resolve to themselves), ResolvedConfig#actualBrowser typed 'chromium'|'firefox'|'safari', and manifest.ts build-time checks plus the default manifest version switched to actualBrowser while output dir, import.meta.env constants, zip names, and launching stay keyed off the raw browser label. Branch fix/actual-browser-resolution, commit a332c76, fail-before/pass-after proven (12 new assertions). Local verification: bun run check green at root, packages/wxt vitest suite 559 passed plus e2e 113 passed (one unrelated flaky e2e passes on re-run). All workflow runs (Validate, pkg.pr.new, Check PR Title) action_required pending first-time contributor approval; title follows conventional commits.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "toml-rs/toml",
       "number": 1219,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-14",
       "last_checked": "2026-09-23",
       "issue": 1213,
       "do_not_duplicate": true,
       "summary": "Normalize CRLF to LF when decoding multi-line basic and multi-line literal strings (spec-permitted: parsers may normalize newlines in multi-line strings) and re-encode the string raw repr with the same normalization, so an unedited all-CRLF document roundtrips with uniform line endings; fixes #1213. Two commits per CONTRIBUTING convention: test commit pinning current behavior, then fix commit. Branch crlf-roundtrip on fork, local verification: cargo test --workspace green, fmt/clippy/docs per ci.yml (toml_edit_fuzz excluded locally, libfuzzer-sys needs clang). All workflow runs action_required pending first-time contributor approval.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "pypa/hatch",
       "number": 2422,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-14",
       "last_checked": "2026-09-23",
       "issue": 2420,
       "do_not_duplicate": true,
       "summary": "Docs: replace the German word 'verboten' with 'forbidden' in docs/how-to/config/dynamic-metadata.md L17, fixing #2420. One-word change on branch docs/2420-verboten-to-forbidden, commit ce047bcd (SSH-signed, GitHub reports verified). Base is master (repo default; there is no main branch). First-contribution workflow runs sit in action_required pending maintainer approval. AI disclosure included per docs/community/contributing.md.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "brianc/node-postgres",
@@ -279,14 +285,16 @@
     {
       "repo": "SQLMesh/sqlmesh",
       "number": 6059,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 6058,
       "do_not_duplicate": true,
       "summary": "create_external_models quotes case-sensitive column names so generated external_models.yaml round-trips correctly.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "project-akri/akri",
@@ -331,7 +339,7 @@
     {
       "repo": "better-auth/better-auth",
       "number": 11261,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-11",
       "last_checked": "2026-09-23",
@@ -341,7 +349,9 @@
       ],
       "do_not_duplicate": true,
       "summary": "Widen email/deletion callback user typing to User & Record<string, any> so user.additionalFields is visible.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "crewAIInc/crewAI",
@@ -2388,6 +2398,46 @@
       "reason": "Closed by us after a silent nudge. Do not refile.",
       "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-20. Do not ping.",
       "issue": 5233
+    },
+    {
+      "repo": "wxt-dev/wxt",
+      "issue": 2588,
+      "related_pr": 2622,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "toml-rs/toml",
+      "issue": 1213,
+      "related_pr": 1219,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "pypa/hatch",
+      "issue": 2420,
+      "related_pr": 2422,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "SQLMesh/sqlmesh",
+      "issue": 6058,
+      "related_pr": 6059,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "better-auth/better-auth",
+      "issue": 11192,
+      "related_pr": 11261,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
     }
   ],
   "no_go": [
@@ -2503,7 +2553,8 @@
         6059,
         6040
       ],
-      "focus": "Python/SQL tooling; schema serialization and thread-safety."
+      "focus": "Python/SQL tooling; schema serialization and thread-safety.",
+      "note": "#6059 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day. #6040 stays a merged contribution."
     },
     "better-auth/better-auth": {
       "contributions": [
@@ -2511,7 +2562,8 @@
         11235,
         11208
       ],
-      "focus": "TypeScript authentication library; typing, concurrency, and OpenAPI correctness."
+      "focus": "TypeScript authentication library; typing, concurrency, and OpenAPI correctness.",
+      "note": "#11261 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile that one. #11235 stays open (nudged 2026-09-22). Fork kept."
     },
     "biomejs/biome": {
       "contributions": [
@@ -2799,7 +2851,8 @@
       "focus": "Python packaging; docs hygiene.",
       "contributions": [
         2422
-      ]
+      ],
+      "note": "#2422 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "honojs/hono": {
       "focus": "TypeScript web framework; router and accepts fixes race within hours.",
@@ -2825,7 +2878,8 @@
       "focus": "Browser extension build framework; config resolution and browser targeting. Bun+pnpm monorepo, vitest, no changesets, conventional PR titles enforced by commitlint workflow. First-contribution workflow runs sit in action_required.",
       "contributions": [
         2622
-      ]
+      ],
+      "note": "#2622 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "steveukx/git-js": {
       "contributions": [
@@ -2912,6 +2966,13 @@
         342
       ],
       "focus": ""
+    },
+    "toml-rs/toml": {
+      "contributions": [
+        1219
+      ],
+      "focus": "TOML edit crate; newline normalization.",
+      "note": "#1219 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     }
   }
 }
