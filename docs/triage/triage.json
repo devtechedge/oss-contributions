@@ -842,35 +842,41 @@
     {
       "repo": "wevm/wagmi",
       "number": 5240,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 5233,
       "do_not_duplicate": true,
       "summary": "Avoid reconnect remaining stuck after rejecting isAuthorized.",
-      "last_ping": "2026-09-20"
+      "last_ping": "2026-09-20",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 20 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "reown-com/appkit",
       "number": 5766,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 5752,
       "do_not_duplicate": true,
       "summary": "Pass Meld onramp countryCode correctly.",
-      "last_ping": "2026-09-20"
+      "last_ping": "2026-09-20",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 20 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "rainbow-me/rainbowkit",
       "number": 2703,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 2574,
       "do_not_duplicate": true,
       "summary": "Fix mobile connect GET/store link flow.",
-      "last_ping": "2026-09-20"
+      "last_ping": "2026-09-20",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 20 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "ethers-io/ethers.js",
@@ -886,24 +892,28 @@
     {
       "repo": "reown-com/appkit",
       "number": 5763,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": null,
       "do_not_duplicate": true,
       "summary": "Improve modal accessible names.",
-      "last_ping": "2026-09-20"
+      "last_ping": "2026-09-20",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 20 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "rainbow-me/rainbowkit",
       "number": 2701,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 2700,
       "do_not_duplicate": true,
       "summary": "Correct Account modal titleId.",
-      "last_ping": "2026-09-20"
+      "last_ping": "2026-09-20",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 20 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "narwhals-dev/narwhals",
@@ -2339,6 +2349,45 @@
       "do_not_refile": true,
       "reason": "Closed by us after a silent nudge. Do not refile.",
       "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-16, no maintainer reply. Do not ping."
+    },
+    {
+      "repo": "rainbow-me/rainbowkit",
+      "related_pr": 2701,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-20. Do not ping.",
+      "issue": 2700
+    },
+    {
+      "repo": "rainbow-me/rainbowkit",
+      "related_pr": 2703,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-20. Do not ping.",
+      "issue": 2574
+    },
+    {
+      "repo": "reown-com/appkit",
+      "related_pr": 5763,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-20. Do not ping."
+    },
+    {
+      "repo": "reown-com/appkit",
+      "related_pr": 5766,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-20. Do not ping.",
+      "issue": 5752
+    },
+    {
+      "repo": "wevm/wagmi",
+      "related_pr": 5240,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-20. Do not ping.",
+      "issue": 5233
     }
   ],
   "no_go": [
@@ -2692,20 +2741,23 @@
         5766,
         5763
       ],
-      "focus": "Wallet connection UI; namespace aliases, onramp metadata, accessibility."
+      "focus": "Wallet connection UI; namespace aliases, onramp metadata, accessibility.",
+      "note": "#5763 and #5766 closed by us 2026-09-23 after the 20 Sep nudge. Do not ping or refile those two. #5767 stays open (nudged 2026-09-22). Fork kept."
     },
     "wevm/wagmi": {
       "contributions": [
         5240
       ],
-      "focus": "React Ethereum hooks; reconnect/auth state handling."
+      "focus": "React Ethereum hooks; reconnect/auth state handling.",
+      "note": "#5240 closed by us 2026-09-23 after the 20 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "rainbow-me/rainbowkit": {
       "contributions": [
         2703,
         2701
       ],
-      "focus": "Wallet UI kit; mobile connect flow and accessible modal semantics."
+      "focus": "Wallet UI kit; mobile connect flow and accessible modal semantics.",
+      "note": "Both PRs (#2701, #2703) closed by us 2026-09-23 after the 20 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "ethers-io/ethers.js": {
       "contributions": [
