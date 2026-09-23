@@ -382,19 +382,21 @@
     {
       "repo": "TanStack/router",
       "number": 8314,
-      "status": "open",
+      "status": "closed",
       "mergeable": false,
       "opened": "2026-09-10",
       "last_checked": "2026-09-23",
       "issue": 8309,
       "do_not_duplicate": true,
       "summary": "Fix retain-then-strip search middleware so Link/buildLocation without search omits stripped defaults.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "better-auth/better-auth",
       "number": 11235,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-10",
       "last_checked": "2026-09-23",
@@ -404,7 +406,9 @@
       ],
       "do_not_duplicate": true,
       "summary": "Coalesce session-signal bursts so overlapping notifies do not cancel in-flight /get-session.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "langchain-ai/langgraphjs",
@@ -440,14 +444,16 @@
     {
       "repo": "TanStack/router",
       "number": 8285,
-      "status": "open",
+      "status": "closed",
       "mergeable": false,
       "opened": "2026-09-07",
       "last_checked": "2026-09-23",
       "issue": 8237,
       "do_not_duplicate": true,
       "summary": "Malformed JSON server-function payloads return 400 instead of unhandled 500.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "anza-xyz/agave-sdk",
@@ -2438,6 +2444,30 @@
       "do_not_refile": true,
       "reason": "Closed by us after a silent nudge. Do not refile.",
       "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "TanStack/router",
+      "issue": 8309,
+      "related_pr": 8314,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "TanStack/router",
+      "issue": 8237,
+      "related_pr": 8285,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "better-auth/better-auth",
+      "issue": 11160,
+      "related_pr": 11235,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
     }
   ],
   "no_go": [
@@ -2563,7 +2593,7 @@
         11208
       ],
       "focus": "TypeScript authentication library; typing, concurrency, and OpenAPI correctness.",
-      "note": "#11261 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile that one. #11235 stays open (nudged 2026-09-22). Fork kept."
+      "note": "#11261 and #11235 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. #11208 stays a merged contribution. Fork deleted the same day."
     },
     "biomejs/biome": {
       "contributions": [
@@ -2615,7 +2645,8 @@
         8314,
         8285
       ],
-      "focus": "TypeScript router; URL/search middleware and server-action error handling."
+      "focus": "TypeScript router; URL/search middleware and server-action error handling.",
+      "note": "#8314 and #8285 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "langchain-ai/langgraphjs": {
       "contributions": [
