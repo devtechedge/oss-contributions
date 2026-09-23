@@ -402,7 +402,7 @@
       "status": "closed",
       "mergeable": false,
       "opened": "2026-09-08",
-      "last_checked": "2026-09-16",
+      "last_checked": "2026-09-23",
       "issue": 2721,
       "do_not_duplicate": true,
       "summary": "JS port of CVE-2026-71433: stop namespace sibling leakage in search for InMemory and Postgres stores.",
@@ -410,7 +410,7 @@
         2825,
         2828
       ],
-      "note": "Closed by hntrl (MEMBER) 2026-09-14 in favor of #2825/#2828: he agreed with the fix but called the `:` constraint on Postgres an over-optimization, then walked that assertion back on 2026-09-15 and explained the close was about splitting Postgres and InMemory into separate PRs, not a rejection of the approach. Our InMemory work carries forward in #2828 (author byhow, branch codex/inmemory-namespace-boundaries, Co-authored-by: Dev M), which hntrl approved 2026-09-14 and is mergeable/clean. #2825 (Postgres) is still open. Credit if #2828 merges is co-authorship, not authorship."
+      "note": "Closed by hntrl (MEMBER) 2026-09-14 in favor of #2825/#2828: he agreed with the fix but called the `:` constraint on Postgres an over-optimization, then walked that assertion back on 2026-09-15 and explained the close was about splitting Postgres and InMemory into separate PRs, not a rejection of the approach. Our InMemory work carries forward in #2828 (author byhow, branch codex/inmemory-namespace-boundaries, Co-authored-by: Dev M), which hntrl approved 2026-09-14 and is mergeable/clean. #2825 (Postgres) is still open. Credit if #2828 merges is co-authorship, not authorship. Rechecked 2026-09-23: #2825 and #2828 still open, issue #2721 still open. A NONE-association comment restated the bug; no reply."
     },
     {
       "repo": "drizzle-team/drizzle-orm",
@@ -1331,7 +1331,9 @@
       "related_prs": [
         2803
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-23",
+      "note": "Still open as of 2026-09-23. #2825 and #2828 still open. samvallad33 comment is not a maintainer ask; no reply."
     },
     {
       "repo": "drizzle-team/drizzle-orm",
@@ -2205,8 +2207,10 @@
     {
       "repo": "nodejs/undici",
       "related_pr": 5796,
-      "do_not_refile": false,
-      "note": "PR closed without exposed reason; investigate before retry."
+      "do_not_refile": true,
+      "note": "KhafraDev closed #5796 on 2026-09-10 with no comment. He merged his own #5850 on 2026-09-23, which closed issue #5728. Do not refile.",
+      "issue": 5728,
+      "reason": "Maintainer closed our PR and shipped their own fix."
     },
     {
       "repo": "pallets/jinja",
@@ -2501,7 +2505,7 @@
       "contributions": [
         5796
       ],
-      "focus": "Node.js HTTP client; redirect/connection lifecycle bug attempted."
+      "focus": "Node.js HTTP client. #5796 closed unmerged; maintainer fixed #5728 in #5850 (merged 2026-09-23)."
     },
     "pallets/jinja": {
       "contributions": [
