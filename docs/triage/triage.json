@@ -558,57 +558,67 @@
     {
       "repo": "trustwallet/wallet-core",
       "number": 4867,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 4841,
       "do_not_duplicate": true,
       "summary": "Zeroize TWData before into_vec for Rust memory hygiene.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "safe-global/safe-docs",
       "number": 905,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 825,
       "do_not_duplicate": true,
       "summary": "Correct safe1_1 versus SAFE_2_3_ADDRESS signature-guide typo.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "safe-global/safe-docs",
       "number": 904,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 828,
       "do_not_duplicate": true,
       "summary": "Clarify zkSync EVM exception in signature documentation.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "solana-foundation/program-examples",
       "number": 732,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 671,
       "do_not_duplicate": true,
       "summary": "Add pda-rent-payer caution to documentation.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "solana-foundation/program-examples",
       "number": 731,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 725,
       "do_not_duplicate": true,
       "summary": "Document token-fundraiser teardown behavior.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "stellar/stellar-docs",
@@ -2517,6 +2527,46 @@
       "do_not_refile": true,
       "reason": "Closed by us after a silent nudge. Do not refile.",
       "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "trustwallet/wallet-core",
+      "issue": 4841,
+      "related_pr": 4867,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "safe-global/safe-docs",
+      "issue": 825,
+      "related_pr": 905,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "safe-global/safe-docs",
+      "issue": 828,
+      "related_pr": 904,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "solana-foundation/program-examples",
+      "issue": 671,
+      "related_pr": 732,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "solana-foundation/program-examples",
+      "issue": 725,
+      "related_pr": 731,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
     }
   ],
   "no_go": [
@@ -2798,7 +2848,7 @@
         4867
       ],
       "focus": "Wallet-core library; Cardano errors and Rust memory hygiene.",
-      "note": "#4868 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile that one. #4867 stays open (nudged 2026-09-22). Fork kept."
+      "note": "#4868 and #4867 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "safe-global/safe-docs": {
       "contributions": [
@@ -2806,14 +2856,16 @@
         904,
         902
       ],
-      "focus": "Safe documentation; address, signature, and deployment guidance."
+      "focus": "Safe documentation; address, signature, and deployment guidance.",
+      "note": "#905 and #904 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile those two. #902 stays open, approved and waiting on merge. Do not ping #902. Fork kept."
     },
     "solana-foundation/program-examples": {
       "contributions": [
         732,
         731
       ],
-      "focus": "Solana examples; rent and teardown documentation."
+      "focus": "Solana examples; rent and teardown documentation.",
+      "note": "#732 and #731 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "across-protocol/toolkit": {
       "contributions": [
