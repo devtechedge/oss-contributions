@@ -747,35 +747,41 @@
     {
       "repo": "coinbase/coinbase-wallet-sdk",
       "number": 1910,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 1909,
       "do_not_duplicate": true,
       "summary": "WalletLink accessibility improvement.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "across-protocol/toolkit",
       "number": 273,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 271,
       "do_not_duplicate": true,
       "summary": "Add timeout handling to waitForFill.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "across-protocol/toolkit",
       "number": 272,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 268,
       "do_not_duplicate": true,
       "summary": "Handle undefined parseFillLogs output.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "safe-global/safe-docs",
@@ -794,25 +800,28 @@
     {
       "repo": "safe-global/safe-core-sdk",
       "number": 1431,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 1424,
       "do_not_duplicate": true,
       "summary": "Fix generateHash byte-versus-character length handling.",
-      "note": "Added the required changeset 2026-09-16 because bumping the identifier to 01 is a public behavior change. CI green. Nudged for review.",
-      "last_ping": "2026-09-22"
+      "note": "Added the required changeset 2026-09-16 because bumping the identifier to 01 is a public behavior change. CI green. Nudged for review. Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile.",
+      "last_ping": "2026-09-22",
+      "merged": false
     },
     {
       "repo": "MetaMask/metamask-sdk",
       "number": 1401,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": null,
       "do_not_duplicate": true,
       "summary": "Gate React Native async-storage require.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "safe-global/safe-core-sdk",
@@ -2607,6 +2616,45 @@
       "do_not_refile": true,
       "reason": "Closed by us after a silent nudge. Do not refile.",
       "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "coinbase/coinbase-wallet-sdk",
+      "related_pr": 1910,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping.",
+      "issue": 1909
+    },
+    {
+      "repo": "across-protocol/toolkit",
+      "related_pr": 273,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping.",
+      "issue": 271
+    },
+    {
+      "repo": "across-protocol/toolkit",
+      "related_pr": 272,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping.",
+      "issue": 268
+    },
+    {
+      "repo": "safe-global/safe-core-sdk",
+      "related_pr": 1431,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping.",
+      "issue": 1424
+    },
+    {
+      "repo": "MetaMask/metamask-sdk",
+      "related_pr": 1401,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
     }
   ],
   "no_go": [
@@ -2915,7 +2963,7 @@
         272
       ],
       "focus": "Across toolkit; numeric correctness, docs, fill waiting and log parsing.",
-      "note": "#275 and #274 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile those two. #273 and #272 stay open. Fork kept."
+      "note": "#275, #274, #273, and #272 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "stellar/js-stellar-sdk": {
       "contributions": [
@@ -2933,7 +2981,7 @@
         1426
       ],
       "focus": "Safe Core SDK; tests, hashing, docs, and nonce correctness.",
-      "note": "Saturation: 1 open PR from this account (#1431, nudged 2026-09-22). #1426, #1430, and #1432 were closed by us on 2026-09-23 after the 16 Sep nudge with no maintainer reply. Do not ping or refile those three. No outside author merged in the last 25 merges (Jul to Sep 2026); every one was MEMBER, COLLABORATOR or dependabot. CONTRIBUTING says branch from development, but every recent merge targets main. A changeset is required for any public behavior change."
+      "note": "#1426, #1430, #1432, and #1431 closed by us 2026-09-23. Do not ping or refile. Fork deleted the same day. No outside author merged in the last 25 merges (Jul to Sep 2026). CONTRIBUTING says branch from development, but every recent merge targets main. A changeset is required for any public behavior change."
     },
     "farcasterxyz/miniapps": {
       "contributions": [
@@ -2946,7 +2994,8 @@
       "contributions": [
         1910
       ],
-      "focus": "Coinbase wallet SDK; accessibility."
+      "focus": "Coinbase wallet SDK; accessibility.",
+      "note": "#1910 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "across-protocol/sdk": {
       "contributions": [
@@ -2958,7 +3007,8 @@
       "contributions": [
         1401
       ],
-      "focus": "MetaMask SDK; React Native dependency loading."
+      "focus": "MetaMask SDK; React Native dependency loading.",
+      "note": "#1401 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork devtechedge/metamask-sdk-1 deleted the same day."
     },
     "AmbireTech/extension": {
       "contributions": [
