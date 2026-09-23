@@ -670,13 +670,14 @@
     {
       "repo": "safe-global/safe-core-sdk",
       "number": 1432,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 938,
       "do_not_duplicate": true,
       "summary": "Add disposable private-key tests.",
-      "note": "Nudged for review 2026-09-16. Test-only change to disposable keys in the 4337 tests, so no changeset needed. Also touches CI config and pnpm-lock."
+      "note": "Nudged for review 2026-09-16. Test-only change to disposable keys in the 4337 tests, so no changeset needed. Also touches CI config and pnpm-lock. Closed by us 2026-09-23 after the 16 Sep nudge, with no maintainer reply. Do not ping or refile.",
+      "merged": false
     },
     {
       "repo": "farcasterxyz/miniapps",
@@ -773,13 +774,14 @@
     {
       "repo": "safe-global/safe-core-sdk",
       "number": 1430,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 1182,
       "do_not_duplicate": true,
       "summary": "Correct MultiSend documentation.",
-      "note": "Nudged for review 2026-09-16. Docs only across README and guides, so no changeset needed. Offered to split per package or retarget to main."
+      "note": "Nudged for review 2026-09-16. Docs only across README and guides, so no changeset needed. Offered to split per package or retarget to main. Closed by us 2026-09-23 after the 16 Sep nudge, with no maintainer reply. Do not ping or refile.",
+      "merged": false
     },
     {
       "repo": "across-protocol/sdk",
@@ -817,13 +819,14 @@
     {
       "repo": "safe-global/safe-core-sdk",
       "number": 1426,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 1425,
       "do_not_duplicate": true,
       "summary": "Preserve nonce value 0.",
-      "note": "Nudged for review 2026-09-16. Changeset present, CLA signed, CI green. Base is development while the repo actually merges to main; offered to retarget."
+      "note": "Nudged for review 2026-09-16. Changeset present, CLA signed, CI green. Base is development while the repo actually merges to main; offered to retarget. Closed by us 2026-09-23 after the 16 Sep nudge, with no maintainer reply. Do not ping or refile.",
+      "merged": false
     },
     {
       "repo": "reown-com/appkit",
@@ -2312,6 +2315,30 @@
       "related_pr": 1063,
       "do_not_refile": true,
       "reason": "Maintainer Wilfred Hughes closed unmerged 2026-09-22 in favour of his own #1060 atom fix (heredoc_block as atom), no technical fault cited. Flagged AI_POLICY.md (LLM-written PR comments not allowed); no reply posted to avoid compounding. Do not refile Dockerfile heredoc work here."
+    },
+    {
+      "repo": "safe-global/safe-core-sdk",
+      "issue": 1425,
+      "related_pr": 1426,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-16, no maintainer reply. Do not ping."
+    },
+    {
+      "repo": "safe-global/safe-core-sdk",
+      "issue": 1182,
+      "related_pr": 1430,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-16, no maintainer reply. Do not ping."
+    },
+    {
+      "repo": "safe-global/safe-core-sdk",
+      "issue": 938,
+      "related_pr": 1432,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-16, no maintainer reply. Do not ping."
     }
   ],
   "no_go": [
@@ -2627,7 +2654,7 @@
         1426
       ],
       "focus": "Safe Core SDK; tests, hashing, docs, and nonce correctness.",
-      "note": "Saturation: 4 open PRs from this account (1426, 1430, 1431, 1432), all mergeable with green CI, all nudged 2026-09-16. No outside author merged in the last 25 merges (Jul to Sep 2026); every one was MEMBER, COLLABORATOR or dependabot. CONTRIBUTING says branch from development, but every recent merge targets main. A changeset is required for any public behavior change."
+      "note": "Saturation: 1 open PR from this account (#1431, nudged 2026-09-22). #1426, #1430, and #1432 were closed by us on 2026-09-23 after the 16 Sep nudge with no maintainer reply. Do not ping or refile those three. No outside author merged in the last 25 merges (Jul to Sep 2026); every one was MEMBER, COLLABORATOR or dependabot. CONTRIBUTING says branch from development, but every recent merge targets main. A changeset is required for any public behavior change."
     },
     "farcasterxyz/miniapps": {
       "contributions": [
