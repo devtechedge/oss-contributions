@@ -458,13 +458,15 @@
     {
       "repo": "anza-xyz/agave-sdk",
       "number": 101,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-13",
       "last_checked": "2026-09-23",
       "issue": 89,
       "do_not_duplicate": true,
       "summary": "Clippy hardening issue.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "safe-global/safe-wallet-monorepo",
@@ -479,26 +481,29 @@
     {
       "repo": "anza-xyz/kit",
       "number": 2051,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-13",
       "last_checked": "2026-09-23",
       "issue": 1839,
       "do_not_duplicate": true,
       "summary": "Wallet plugin documentation correction.",
       "mergeable": true,
-      "note": "Rebased onto main 1b931d7 on 16 Sep 2026; head now daca451, re-signed and verified. Only conflict was docs/pnpm-lock.yaml, resolved by taking main's lockfile wholesale and regenerating with `pnpm install --lockfile-only --ignore-workspace` (purely additive, +43/-0). All checks green; docs content byte-identical to the pre-rebase version. Still fills a real gap: main has no wallet.mdx and setting-up-signers.mdx still says the plugin is 'on its way'.",
-      "last_ping": "2026-09-22"
+      "note": "Rebased onto main 1b931d7 on 16 Sep 2026; head now daca451, re-signed and verified. Only conflict was docs/pnpm-lock.yaml, resolved by taking main's lockfile wholesale and regenerating with `pnpm install --lockfile-only --ignore-workspace` (purely additive, +43/-0). All checks green; docs content byte-identical to the pre-rebase version. Still fills a real gap: main has no wallet.mdx and setting-up-signers.mdx still says the plugin is 'on its way'. Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile.",
+      "last_ping": "2026-09-22",
+      "merged": false
     },
     {
       "repo": "wormhole-foundation/wormhole-connect",
       "number": 4042,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 4040,
       "do_not_duplicate": true,
       "summary": "Normalize and clarify per-token balance-fetch error messaging after RPC fallback.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "stellar/stellar-docs",
@@ -527,24 +532,28 @@
     {
       "repo": "stellar/freighter",
       "number": 3009,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 2905,
       "do_not_duplicate": true,
       "summary": "Skip Blockaid scan when there is no scannable list.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "trustwallet/wallet-core",
       "number": 4868,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 4795,
       "do_not_duplicate": true,
       "summary": "Propagate Cardano buildTx errors instead of swallowing them.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "trustwallet/wallet-core",
@@ -2468,6 +2477,46 @@
       "do_not_refile": true,
       "reason": "Closed by us after a silent nudge. Do not refile.",
       "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "anza-xyz/agave-sdk",
+      "issue": 89,
+      "related_pr": 101,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "anza-xyz/kit",
+      "issue": 1839,
+      "related_pr": 2051,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "wormhole-foundation/wormhole-connect",
+      "issue": 4040,
+      "related_pr": 4042,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "stellar/freighter",
+      "issue": 2905,
+      "related_pr": 3009,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "trustwallet/wallet-core",
+      "issue": 4795,
+      "related_pr": 4868,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
     }
   ],
   "no_go": [
@@ -2695,7 +2744,8 @@
         2032,
         2051
       ],
-      "focus": "Solana wallet SDK/docs; focused documentation correctness and plugin guidance."
+      "focus": "Solana wallet SDK/docs; focused documentation correctness and plugin guidance.",
+      "note": "#2051 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. #2032 stays a merged contribution. Fork deleted the same day."
     },
     "thirdweb-dev/js": {
       "contributions": [
@@ -2707,7 +2757,8 @@
       "contributions": [
         101
       ],
-      "focus": "Solana Rust SDK; clippy hardening."
+      "focus": "Solana Rust SDK; clippy hardening.",
+      "note": "#101 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "safe-global/safe-wallet-monorepo": {
       "contributions": [
@@ -2720,7 +2771,8 @@
       "contributions": [
         4042
       ],
-      "focus": "Cross-chain wallet connectivity; balance error normalization."
+      "focus": "Cross-chain wallet connectivity; balance error normalization.",
+      "note": "#4042 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "stellar/stellar-docs": {
       "contributions": [
@@ -2737,14 +2789,16 @@
       "contributions": [
         3009
       ],
-      "focus": "Stellar wallet extension; scan-path correctness."
+      "focus": "Stellar wallet extension; scan-path correctness.",
+      "note": "#3009 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "trustwallet/wallet-core": {
       "contributions": [
         4868,
         4867
       ],
-      "focus": "Wallet-core library; Cardano errors and Rust memory hygiene."
+      "focus": "Wallet-core library; Cardano errors and Rust memory hygiene.",
+      "note": "#4868 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile that one. #4867 stays open (nudged 2026-09-22). Fork kept."
     },
     "safe-global/safe-docs": {
       "contributions": [
