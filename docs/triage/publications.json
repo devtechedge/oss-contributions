@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
-  "last_updated": "2026-09-22",
+  "last_updated": "2026-09-23",
   "merged_count": 28,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
@@ -734,6 +734,6 @@
       "name": "certifications",
       "desc": "Verified certification archive for Dev M with 30 entries across Anthropic MCP, OpenAI agents, LangGraph deep and ambient agents, AWS, Azure AZ-900, TensorFlow, deep learning, JHU data science, IBM data science, blockchain, VR, self-driving cars, Google IT automation, six sigma and Forage, each with issuer, date, verify link and local PDF."
     },
-    "fetched_at": "2026-09-22"
+    "fetched_at": "2026-09-23"
   }
 }
