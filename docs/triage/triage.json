@@ -659,35 +659,41 @@
     {
       "repo": "tkhq/sdk",
       "number": 1519,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 1501,
       "do_not_duplicate": true,
       "summary": "Update TypeScript samples to current exports.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "across-protocol/toolkit",
       "number": 275,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 266,
       "do_not_duplicate": true,
       "summary": "Guard percentageString decimal handling with BigInt.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "across-protocol/toolkit",
       "number": 274,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 267,
       "do_not_duplicate": true,
       "summary": "Correct executeSwapQuote documentation.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "stellar/js-stellar-sdk",
@@ -717,13 +723,15 @@
     {
       "repo": "farcasterxyz/miniapps",
       "number": 626,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-23",
       "issue": 590,
       "do_not_duplicate": true,
       "summary": "Validate openUrl HTTPS requirement.",
-      "last_ping": "2026-09-22"
+      "last_ping": "2026-09-22",
+      "merged": false,
+      "note": "Closed by us 2026-09-23 after the 22 Sep nudge. No maintainer reply expected. Do not ping or refile."
     },
     {
       "repo": "safe-global/safe-wallet-monorepo",
@@ -2567,6 +2575,38 @@
       "do_not_refile": true,
       "reason": "Closed by us after a silent nudge. Do not refile.",
       "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "tkhq/sdk",
+      "issue": 1501,
+      "related_pr": 1519,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "across-protocol/toolkit",
+      "issue": 266,
+      "related_pr": 275,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "across-protocol/toolkit",
+      "issue": 267,
+      "related_pr": 274,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
+    },
+    {
+      "repo": "farcasterxyz/miniapps",
+      "issue": 590,
+      "related_pr": 626,
+      "do_not_refile": true,
+      "reason": "Closed by us after a silent nudge. Do not refile.",
+      "note": "Dev closed the PR on 2026-09-23. Nudged 2026-09-22. Do not ping."
     }
   ],
   "no_go": [
@@ -2874,7 +2914,8 @@
         273,
         272
       ],
-      "focus": "Across toolkit; numeric correctness, docs, fill waiting and log parsing."
+      "focus": "Across toolkit; numeric correctness, docs, fill waiting and log parsing.",
+      "note": "#275 and #274 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile those two. #273 and #272 stay open. Fork kept."
     },
     "stellar/js-stellar-sdk": {
       "contributions": [
@@ -2898,7 +2939,8 @@
       "contributions": [
         626
       ],
-      "focus": "Farcaster miniapps; URL validation and security."
+      "focus": "Farcaster miniapps; URL validation and security.",
+      "note": "#626 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
     },
     "coinbase/coinbase-wallet-sdk": {
       "contributions": [
@@ -2958,7 +3000,8 @@
       "contributions": [
         1519
       ],
-      "focus": "TypeScript SDK; current exports in examples."
+      "focus": "TypeScript SDK; current exports in examples.",
+      "note": "#1519 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork devtechedge/sdk-1 deleted the same day."
     },
     "drips-network/app": {
       "contributions": [],
