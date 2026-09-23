@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-09-23",
+  "last_updated": "2026-09-24",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -108,10 +108,11 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-24",
       "issue": 414,
       "do_not_duplicate": true,
-      "summary": "Fixes #414 crash-consistency: Janitor.trash_file_in now reserves the trashinfo name, moves the file into files/ first, then writes info/NAME.trashinfo; persist() split into reserve_name+persist with backup-copy rename on ENAMETOOLONG truncation; try_trash no longer compensates (no trashinfo exists yet). Regression tests in test_put_crash_consistency.py (crash injection at fs boundary) fail on master and pass with fix; 2 tests in test_put_unwritable_trash_dir.py updated from old metadata-first invariant (documented in PR body). mypy clean. Branch trash-put-move-before-trashinfo; CI action_required (first-time contributor, maintainer approval needed)."
+      "summary": "Fixes #414 crash-consistency: Janitor.trash_file_in now reserves the trashinfo name, moves the file into files/ first, then writes info/NAME.trashinfo; persist() split into reserve_name+persist with backup-copy rename on ENAMETOOLONG truncation; try_trash no longer compensates (no trashinfo exists yet). Regression tests in test_put_crash_consistency.py (crash injection at fs boundary) fail on master and pass with fix; 2 tests in test_put_unwritable_trash_dir.py updated from old metadata-first invariant (documented in PR body). mypy clean. Branch trash-put-move-before-trashinfo; CI action_required (first-time contributor, maintainer approval needed).",
+      "last_ping": "2026-09-24"
     },
     {
       "repo": "wxt-dev/wxt",
@@ -473,10 +474,11 @@
       "number": 8699,
       "status": "open",
       "opened": "2026-09-13",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-24",
       "issue": 8642,
       "do_not_duplicate": true,
-      "summary": "Queue recovery log window/range cap fix."
+      "summary": "Queue recovery log window/range cap fix.",
+      "last_ping": "2026-09-24"
     },
     {
       "repo": "anza-xyz/kit",
@@ -1074,14 +1076,15 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-16",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-24",
       "issue": 240,
       "do_not_duplicate": true,
       "branch": "nbody-plan-openmp-guard",
       "commit": "e8390b3",
       "summary": "nbody/CMakeLists.txt now gates the BOINC mt plan class on OPENMP_FOUND AND NBODY_OPENMP instead of NBODY_OPENMP alone, matching the condition that already applies the OpenMP compile flags at line 66. Without it the binary can carry the _mt suffix while every OpenMP construct stays behind #ifdef _OPENMP and no OpenMP flags were added. The sse2 fallback is unchanged. One line in one file; no test added because the repo ctest suite covers nbody numerics and not the BOINC binary name.",
       "ci_status": "no_ci",
-      "ci_note": "Milkyway-at-home/milkywayathome_client has no .github/workflows directory, so no GitHub Actions run against this PR and head commit e8390b3 reports 0 check-runs. Only a legacy .travis.yml is present and it does not run on GitHub PRs. Do not wait on CI; a maintainer merge is the only remaining step. Verified 2026-09-16."
+      "ci_note": "Milkyway-at-home/milkywayathome_client has no .github/workflows directory, so no GitHub Actions run against this PR and head commit e8390b3 reports 0 check-runs. Only a legacy .travis.yml is present and it does not run on GitHub PRs. Do not wait on CI; a maintainer merge is the only remaining step. Verified 2026-09-16.",
+      "last_ping": "2026-09-24"
     },
     {
       "repo": "EmbarkStudios/cargo-about",
@@ -1105,14 +1108,15 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-16",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-24",
       "issue": 213,
       "do_not_duplicate": true,
       "branch": "top-level-search",
       "commit": "2201764",
       "summary": "Fixes #213 (pygbif.search has silently been institution.search since 0.6.6). pygbif/__init__.py assigned the top-level names species, search and name_suggest from the occurrences module and then ran three star-imports whose last one, from .institution import search, rebound pygbif.search to the institution search. The three clobbering imports are replaced by a single from . import literature, collection, institution, which binds the submodules without rebinding the top-level names, so pygbif.search resolves to occurrences.search again. This is option 1 from the issue and non-breaking: the public top-level names go back to their documented meaning and no name is removed. One line changed, plus a new network-free test/test-top-level-search.py asserting pygbif.search is occurrences.search and that the other searches stay in their namespaces. Fail-before was proven by running the new test against a pristine copy of the package outside the workspace rather than by stashing, which this box forbids. Head commit 2201764 is SSH signed and reported verified by GitHub.",
       "ci_status": "action_required",
-      "ci_note": "Both workflows sit at action_required, the first-contribution approval gate for fork PRs, so no check reports until a maintainer approves the run. The other open fork PR in the repo, #212, is in the same state. Not a red check; do not push again to trigger it. Verified 2026-09-16."
+      "ci_note": "Both workflows sit at action_required, the first-contribution approval gate for fork PRs, so no check reports until a maintainer approves the run. The other open fork PR in the repo, #212, is in the same state. Not a red check; do not push again to trigger it. Verified 2026-09-16.",
+      "last_ping": "2026-09-24"
     },
     {
       "repo": "hack-rpi/HackRPI-Website-2026",
@@ -1120,14 +1124,15 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-16",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-24",
       "issue": 69,
       "do_not_duplicate": true,
       "branch": "eventpage-mobile",
       "commit": "d5d5b60",
       "ci_status": "no_ci",
       "ci_note": "hack-rpi/HackRPI-Website-2026 has no .github/workflows directory, so no GitHub Actions run against this PR and head commit d5d5b60 reports 0 check-runs. npm run build passes locally (Next.js 16.2.6, 12/12 static pages generated). npx eslint cannot run on main either, before or after this change: eslint-config-next is pinned to ^0.2.4, which resolves to an unrelated legacy package with no core-web-vitals export, so eslint.config.mjs fails to load. This PR only touches CSS, which ESLint does not lint. Do not wait on CI; a maintainer merge is the only remaining step. Verified 2026-09-16.",
-      "summary": "Fixes #69 (Event page top formatted weirdly on mobile). The cover of /event switches to a vertical stack below the 860px desktop breakpoint, but my-app/app/event/event.css kept three side-by-side assumptions. .mapContainer kept width 50% and height 100vh, so on a 390px viewport it rendered as a 195x844 strip that filled the entire first screen. .coverTextContainer kept max-width 50vw, so the text panel was also half width and only started at y=844, below the fold. Each cover line is a flex row of one div per letter with the default flex-wrap nowrap, so long lines could not wrap and ran off the left edge instead: 5 of the 14 rows had a negative x, the worst being 'Participants will get wrist bands for food and activities' at x=-139. The fix is confined to event.css: below 859.98px the map becomes full width and 45vh, the text panel loses the 50vw cap, and the cover font drops to 1rem; the .lineItem base rule gains flex-wrap wrap, justify-content center and max-width 100% so rows wrap and stay centred. Measured after the change at 390x844 the map is 390x380, the text panel is 390 wide starting at y=380, and 0 of 14 rows are off screen. Desktop is byte-identical: at 1440x900 the map is still 720x900 and every cover row keeps its original position and size. Prettier was applied to the changed file only."
+      "summary": "Fixes #69 (Event page top formatted weirdly on mobile). The cover of /event switches to a vertical stack below the 860px desktop breakpoint, but my-app/app/event/event.css kept three side-by-side assumptions. .mapContainer kept width 50% and height 100vh, so on a 390px viewport it rendered as a 195x844 strip that filled the entire first screen. .coverTextContainer kept max-width 50vw, so the text panel was also half width and only started at y=844, below the fold. Each cover line is a flex row of one div per letter with the default flex-wrap nowrap, so long lines could not wrap and ran off the left edge instead: 5 of the 14 rows had a negative x, the worst being 'Participants will get wrist bands for food and activities' at x=-139. The fix is confined to event.css: below 859.98px the map becomes full width and 45vh, the text panel loses the 50vw cap, and the cover font drops to 1rem; the .lineItem base rule gains flex-wrap wrap, justify-content center and max-width 100% so rows wrap and stay centred. Measured after the change at 390x844 the map is 390x380, the text panel is 390 wide starting at y=380, and 0 of 14 rows are off screen. Desktop is byte-identical: at 1440x900 the map is still 720x900 and every cover row keeps its original position and size. Prettier was applied to the changed file only.",
+      "last_ping": "2026-09-24"
     },
     {
       "repo": "across-protocol/v5-token-pricing",
@@ -1135,12 +1140,13 @@
       "status": "open",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-24",
       "issue": 3,
       "branch": "feat/batch-the-defillama-lookups",
       "head_repo": "devtechedge/v5-token-pricing",
       "do_not_duplicate": true,
-      "summary": "Fixes #3. Adds getTokenPricesAt({ tokens, apiKeys }), batching DefiLlama historical lookups: tokens are grouped by timestamp, coin keys chunked at 100 per request, de-duplicated and issued sequentially, so the 1,696 in-scope token instances cost ~17 requests instead of 1,696. Results are aligned by index with failures attributable per chunk rather than per call, and getTokenPriceAt now routes through the same resolver as the 1-element case. A rate-limited attempt records a distinct `throttled` AttemptOutcome instead of folding into `error`. New test/batch.test.ts covers chunking, grouping, de-duplication, partial answers and the 429 fall-through to later sources. +965/-221 across 40 files."
+      "summary": "Fixes #3. Adds getTokenPricesAt({ tokens, apiKeys }), batching DefiLlama historical lookups: tokens are grouped by timestamp, coin keys chunked at 100 per request, de-duplicated and issued sequentially, so the 1,696 in-scope token instances cost ~17 requests instead of 1,696. Results are aligned by index with failures attributable per chunk rather than per call, and getTokenPriceAt now routes through the same resolver as the 1-element case. A rate-limited attempt records a distinct `throttled` AttemptOutcome instead of folding into `error`. New test/batch.test.ts covers chunking, grouping, de-duplication, partial answers and the 429 fall-through to later sources. +965/-221 across 40 files.",
+      "last_ping": "2026-09-24"
     },
     {
       "repo": "leo-aa88/reviewgate",
