@@ -729,10 +729,10 @@
     }
   ],
   "wellfound_cache": {
-    "count": 35,
+    "count": 34,
     "featured": {
-      "name": "tideway-exchange",
-      "desc": "Tideway is a paper desk for simulated digital-asset markets. Discovery, trade ticket, portfolio, lessons, and a peer desk. No live orders, custody, or deposits."
+      "name": "certifications",
+      "desc": "Verified certification archive for Dev M with 30 entries across Anthropic MCP, OpenAI agents, LangGraph deep and ambient agents, AWS, Azure AZ-900, TensorFlow, deep learning, JHU data science, IBM data science, blockchain, VR, self-driving cars, Google IT automation, six sigma and Forage, each with issuer, date, verify link and local PDF."
     },
     "fetched_at": "2026-09-25"
   }
