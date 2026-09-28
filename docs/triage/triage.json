@@ -3464,9 +3464,11 @@
     "EmbarkStudios/cargo-about": {
       "contributions": [
         319,
-        320
+        320,
+        325
       ],
-      "focus": "Rust cargo plugin that generates license listings; license resolution and cargo manifest synthesis."
+      "focus": "Rust cargo plugin that generates license listings; license resolution and cargo manifest synthesis.",
+      "note": "#325 (opened 2026-09-28, awaiting review) version-gates the ring workaround: 0.16.0 to 0.17.9 keep the LICENSE subsection clarification, 0.17.10+ use LICENSE-other-bits plus the Apache-2.0 section of LICENSE-BoringSSL. A future ring license re-layout needs another version branch; the tell is the debug log line failed to find subsection starting with."
     },
     "gbif/pygbif": {
       "contributions": [
