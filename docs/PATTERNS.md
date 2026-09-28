@@ -117,6 +117,9 @@ Companion to `SKILL.md`. Read on demand during scans and before implementing. Ev
 
 - Implement (17 Sep 2026, EmbarkStudios/cargo-about #320 vs own #319): when two open PRs touch the same file, keep the diffs on disjoint anchors with distinctly named `#[cfg(test)]` modules. #320 placed `mod synthesize_offset_tests` mid-file directly after the fixed function with a targeted `#[allow(clippy::items_after_test_module)]` (targeted allows already match repo style) while #319's `mod test` sits at end of file, so either merge order applies cleanly. The allow is load-bearing: without it the repo's own `clippy --all-targets -- -D warnings` gate fails.
 
+- Implement (28 Sep 2026, mozilla/uniffi-rs #3014): a bug triggered by hash iteration order passes or fails by luck on any single run, so a one-shot fail-before proof is not evidence either way. Rust's `RandomState` gives every new `HashMap`/`HashSet` its own seed even inside one process, so build the triggering input fresh inside a loop in the test itself and size the loop from the miss rate (the old DFS missed about 1 order in 6, so 64 fresh maps fail with near certainty). Then run the test about 10 times against the old source and 10 times against the fix and record both tallies (10/10 failed, 10/10 passed). Restore the old source with `git show HEAD:<path>` plus a scratch backup of the fixed files, never `git stash`, and `touch` the files after copying back so cargo rebuilds. Prefer a deterministic construction when the order can be injected; the loop is for when the hasher is not under test control.
+- Implement (28 Sep 2026, mozilla/uniffi-rs #3005): a `Fixes #N` commit pushed to the fork made no upstream timeline event. The issue timeline stayed empty for the roughly 10 minutes between push and open, and the first `cross-referenced` event appeared only when the PR opened. Keeping `Fixes #N` in the commit message before open is therefore fine; stripping it (as on pixi #7109) is optional caution. Observed once, re-verify.
+
 ## Post-open maintenance
 
 - A red required check can be stale rather than real. Before telling the user to do something only a human can do (sign a CLA, accept an invite), find the check's own source of truth and verify. CLA Assistant Lite is the common case: signatures live in the org's `cla-signatures` repo under the `path-to-signatures` value from `.github/workflows/cla.yml`, so read that JSON and grep for the account before asking anyone to sign (safe-global/safe-core-sdk #1426, 15 Sep 2026: the account was already in `signedContributors` and sibling PRs in the same repo passed with the identical commit author email).
@@ -206,6 +209,8 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 
 - File edits made through an agent file-edit tool rewrite an LF file as CRLF, so a one-paragraph doc change shows up as a whole-file diff with every line removed and re-added. Apply content edits inside a clone byte-exactly instead: `read_bytes()`, `.replace(old.encode("utf-8"), new.encode("utf-8"))`, `write_bytes()`, and assert the old block matched exactly once. Always confirm with `git diff --stat` before staging, because a 14-line change must not read as 2601 insertions (reviewgate #172, 17 Sep 2026). Same family as the JSON ledger rule: text mode rewrites newlines.
 
+- Linux box (28 Sep 2026): global `user.name`/`user.email` are unset, so set the identity per clone before the first commit, never globally. Upstream fork clones use `git config user.name "Dev M"` and `git config user.email "294291171+devtechedge@users.noreply.github.com"` (id from `gh api user --jq .id`). The ledger repo matches its own history instead, `Dev M <devtechedge@gmail.com>`, passed as `git -c user.name=... -c user.email=... commit`. Confirm with `git log -1 --format='%an <%ae>'` before pushing.
+
 ### Signing commits (solved 15 Sep 2026)
 
 - Symptom: with global `commit.gpgsign=true` and `gpg.format=ssh`, `git commit` dies with
@@ -251,6 +256,8 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   check-runs, so an empty `check-runs` list on the head sha means "waiting on approval",
   not "nothing is running". Check `actions/runs?head_branch=<your branch>` before drawing
   any conclusion.
+
+- An empty `check-runs` list can also mean the CI reports through the legacy commit status API (mozilla/uniffi-rs #3014, 28 Sep 2026). CircleCI does: `commits/{sha}/check-runs` returned `total_count: 0` while `commits/{sha}/status` listed five `ci/circleci: ...` contexts. For any repo without `.github/workflows`, read `commits/{sha}/status` or `gh pr view N --json statusCheckRollup` (which merges both kinds) before concluding anything, and run the base-commit comparison from SKILL.md section 6 step 10 on statuses too. CircleCI fork PR runs there started with no maintainer approval gate, so the Actions `action_required` pattern above does not carry over.
 
 ### Ledger writes (contents PUT)
 
