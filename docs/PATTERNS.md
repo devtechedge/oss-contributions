@@ -301,8 +301,8 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 - Passwordless `sudo apt-get install` works (git-lfs was installed this way). rustup honours a repo's `rust-toolchain` pin by auto-installing it on first use.
 - About 15 GB RAM with only about 3 GB free while other agents run, so cap cargo at `CARGO_BUILD_JOBS=6` or lower. A cold `cargo test -p <crate>` in the pixi workspace took about 2m15s; run long builds in the background and redirect to a log.
 - Fail-before loop without `git stash`: `git show HEAD:<path> > <path>` swaps the original in, and copying the patched file back with plain `cp` (not `cp -p`) sets a fresh mtime so cargo rebuilds; the `touch` in the uniffi-rs #3014 entry does the same explicitly (prefix-dev/pixi #7109).
-
 - `/usr/bin/cargo` (Debian 1.85.1) sits ahead of `~/.cargo/bin` on PATH, so a repo's `rust-toolchain.toml` pin is silently ignored and builds run on 1.85 (28 Sep 2026). Prefix cargo commands with `export PATH="$HOME/.cargo/bin:$PATH"` and confirm with `cargo --version`. `protoc` is not preinstalled: `sudo apt-get install -y protobuf-compiler` gives 3.21.12 at `/usr/bin/protoc` (set `PROTOC`).
+
 ### Ledger writes (contents PUT)
 
 - A `PUT` can return 409 "does not match <sha>" even when the sha was fetched minutes
