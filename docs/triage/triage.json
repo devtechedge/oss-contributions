@@ -1179,6 +1179,24 @@
       "merged": "2026-09-18",
       "merge_commit": "e80bf03abf754dd6cfdf8721350ce4a8d60f1471",
       "merged_at": "2026-09-18T07:32:50Z"
+    },
+    {
+      "repo": "prefix-dev/pixi",
+      "number": 7109,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "opened": "2026-09-28",
+      "last_checked": "2026-09-28",
+      "issue": 7090,
+      "do_not_duplicate": true,
+      "branch": "fix/pixi-git-clear-git-env",
+      "commit": "b604f82",
+      "head_repo": "devtechedge/pixi",
+      "summary": "Fixes #7090 (pixi_git inherits GIT_DIR/GIT_INDEX_FILE from git hooks, so `git init` for the cache could set core.bare=true on the user's repo). crates/pixi_git/src/git.rs gains a documented GIT_REPOSITORY_ENV_VARS const slice (GIT_DIR, GIT_WORK_TREE, GIT_INDEX_FILE, GIT_OBJECT_DIRECTORY, GIT_ALTERNATE_OBJECT_DIRECTORIES, GIT_COMMON_DIR, referencing githooks(5) and astral-sh/uv 19088) and a git_command(&Path) helper that env_removes them; all 10 git spawn sites (rev-parse x3, init, clone, reset --hard, submodule update, fetch, GitLfs probe and cmd, which covers ls-files, lfs fsck and lfs fetch) route through it. The three per-call .env_remove(GIT_DIR) and the unused pub const GIT_DIR are dropped (no other workspace users); GIT_TERMINAL_PROMPT, GIT_LFS_SKIP_SMUDGE and GIT_ALLOW_PROTOCOL untouched. New test binary crates/pixi_git/tests/git_env.rs (own binary because it sets process env) builds a repo with a linked worktree, sets the hook env, runs GitSource::fetch over file://, and asserts fetch succeeds and shared config, index and HEAD are untouched. Fail-before: case GIT_DIR+GIT_INDEX_FILE writes bare = true into the shared config (exact issue damage); case with GIT_WORK_TREE too writes core.worktree into it. Pass-after: cargo test -p pixi_git 20 passed, cargo fmt --check and clippy -p pixi_git --all-targets -D warnings clean. +186/-19 across 2 files. Commit unsigned (repo has no DCO or signing rule), author Dev M noreply. PR body carries the repo template's AI disclosure (checked, Tools: Grok 4.7), approved by Dev.",
+      "ci_status": "in_progress",
+      "ci_note": "Workflows ran without a first-contribution approval gate. As of 2026-09-28 16:25 IST: Lint Pull Requests check-title success; Backends - Conda Packages skipped (no backend change); CI in progress with 12 success (lint, cargo test ubuntu and macos, cargo rustdoc, cargo vendor, check cli docs, builds, wheel tests), 15 skipped, 3 pending (cargo test windows x64, Pytest macos aarch64, build binary windows x86_64), and 1 failure: Pytest linux x86_64, 1 failed / 706 passed, test_build_using_rattler_build_backend hit HTTP 503 from pypi.org downloading array_api_extra-0.8.0.tar.gz after retries. Infra flake unrelated to the diff (no git code path); we cannot re-run (no write access). Do not push to retrigger; mention only if a maintainer asks.",
+      "note": "Watch item: draft PR 6578 (wolfv, opened 2026-07-10, last commit 2026-07-14) replaces pixi_git with conda/rattler's rattler_git crate. rattler_git still removes only GIT_DIR (code search 2026-09-28, no GIT_INDEX_FILE), so if 6578 lands first the fix needs porting to rattler_git; offer that rather than yielding. Pre-open checks 2026-09-28: issue open, unassigned, 0 comments, empty timeline; no open PR on GIT_DIR/GIT_INDEX_FILE/hook/7090 among 166 open; no AGENTS.md, CLAUDE.md or AI policy file; no auto-close workflow (lint-pr.yml only checks semantic PR title). Commit message deliberately omits the issue number so the fork push made no cross-reference on the upstream issue before open."
     }
   ],
   "issues": [
@@ -2279,6 +2297,18 @@
       ],
       "repo": "EmbarkStudios/cargo-about",
       "status": "closed"
+    },
+    {
+      "repo": "prefix-dev/pixi",
+      "number": 7090,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        7109
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-28",
+      "note": "Claimed with PR 7109 on 2026-09-28. Opened 2026-09-24 by dboeckenhoff (NONE association, issue body notes it was drafted with AI assistance), no assignee, 0 comments. Root cause confirmed on main 154436a9 and reproduced in a test: with GIT_DIR pointing at a linked worktree's gitdir, pixi's `git init` for the cache reinitializes that gitdir and writes core.bare = true into the shared .git/config. The PyPI path was already fixed via uv 19088; this covers pixi's own conda/source git path. Related draft 6578 (rattler_git refactor) is a watch item, not a competitor."
     }
   ],
   "closed_attempts": [
@@ -3233,6 +3263,12 @@
       ],
       "focus": "TOML edit crate; newline normalization.",
       "note": "#1219 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile. Fork deleted the same day."
+    },
+    "prefix-dev/pixi": {
+      "contributions": [
+        7109
+      ],
+      "focus": "Rust package manager (conda + PyPI); pixi_git subprocess environment hygiene."
     }
   }
 }
