@@ -1313,8 +1313,8 @@
       "head_repo": "devtechedge/jsonforms",
       "summary": "Closes #2627. Adds sideEffects: false to core, react, material-renderers, vanilla-renderers, angular, angular-material and vue. vue-vanilla and vue-vuetify get [\"*.css\"] so documented CSS imports are not dropped by webpack. +9/-0 across 9 package.json files. dayjs.extend is module-scope in three files; nothing imports those modules bare. ng-packagr copies the field into lib/package.json.",
       "ci_status": "action_required",
-      "ci_note": "CI workflow completed action_required (first-contribution approval). license/cla pending until Dev signs https://cla-assistant.io/eclipsesource/jsonforms?pullRequest=2631. Netlify deploy preview was in progress at open. Do not re-push to retrigger CI.",
-      "note": "No disclosure. Repo allows tools and does not require it. Local Windows pnpm lint failed on pre-existing CRLF in untouched Vue files; CI lint is Ubuntu-only and has not run yet."
+      "ci_note": "license/cla success (CLAassistant comment 5874370895, 2026-09-28 16:37Z: all committers signed). Netlify deploy preview success. CI workflow still action_required (first-contribution approval). Do not re-push to retrigger CI.",
+      "note": "CLA signed by Dev and license/cla is success. No disclosure. Repo allows tools and does not require it. Local Windows pnpm lint failed on pre-existing CRLF in untouched Vue files; CI lint is Ubuntu-only and has not run yet."
     }
   ],
   "issues": [
