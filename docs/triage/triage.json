@@ -1185,7 +1185,7 @@
       "do_not_duplicate": true,
       "branch": "docs/hunk-entry-state",
       "commit": "58c997c",
-      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` §10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. §12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
+      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` \u00a710.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. \u00a712 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
       "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144.",
       "merged": "2026-09-19",
       "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
@@ -1262,6 +1262,23 @@
       "ci_status": "action_required",
       "ci_note": "As of 2026-09-28 ~20:05 IST: CI and CD workflow runs (event pull_request) both completed with conclusion action_required, the first-contribution approval gate on fork PRs; a maintainer must approve before any check reports. statusCheckRollup empty, mergeStateStatus UNSTABLE, mergeable MERGEABLE. No red check; do not push again to trigger it.",
       "ping_date": null
+    },
+    {
+      "repo": "EmbarkStudios/cargo-about",
+      "number": 325,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "opened": "2026-09-28",
+      "last_checked": "2026-09-28",
+      "issue": 316,
+      "do_not_duplicate": true,
+      "branch": "fix-ring-workaround-0.17.10",
+      "commit": "8c2415d",
+      "head_repo": "devtechedge/cargo-about",
+      "summary": "Fixes #316 (ring >= 0.17.10 produces many ISC entries). The ring workaround applied one clarification to every ring >= 0.16.0 and expected four subsections inside a single LICENSE file; from 0.17.10 LICENSE is a short pointer and texts live in LICENSE-other-bits (ISC) and LICENSE-BoringSSL (Apache-2.0 first). Keep the old path for 0.16.0 through 0.17.9; add a >= 0.17.10 branch with expression Apache-2.0 AND ISC, whole-file LICENSE-other-bits (sha256 f025ccfb...) and the Apache License..limitations under the License. subsection of LICENSE-BoringSSL (sha256 43070e2d...). Docs and unit tests for the version selection updated. Optional note in the PR that clarifying the whole BoringSSL file (Go/Chromium notices) can be a follow-up.",
+      "ci_status": "action_required",
+      "ci_note": "mergeable true, mergeable_state blocked. Only Mergify Merge Queue pending; statusCheckRollup null. Matches the first-contribution action_required gate on fork PRs seen for #319/#320 in this repo: a maintainer must approve the run before rust-ci.yml checks report. rust-ci.yml is the only workflow. No red check. Verified 2026-09-28."
     }
   ],
   "issues": [
@@ -2398,6 +2415,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-28",
       "note": "Claimed with PR 1190 on 2026-09-28. Opened by yurivict (FreeBSD ports maintainer), no assignee, 0 comments, empty timeline at claim time. Only open PR at the time (#1188, Rodrigo-Palma) touches nox/sessions.py and tests/test_sessions.py, not this test. Root cause is test-only: PYTHONPATH replaced instead of prepended."
+    },
+    {
+      "repo": "EmbarkStudios/cargo-about",
+      "number": 316,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        325
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-28",
+      "note": "Open bug: many ISC entries for ring >= 0.17.10. Attempted via open PR #325."
     }
   ],
   "closed_attempts": [
