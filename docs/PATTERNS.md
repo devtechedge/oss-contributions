@@ -213,7 +213,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 
 - File edits made through an agent file-edit tool rewrite an LF file as CRLF, so a one-paragraph doc change shows up as a whole-file diff with every line removed and re-added. Apply content edits inside a clone byte-exactly instead: `read_bytes()`, `.replace(old.encode("utf-8"), new.encode("utf-8"))`, `write_bytes()`, and assert the old block matched exactly once. Always confirm with `git diff --stat` before staging, because a 14-line change must not read as 2601 insertions (reviewgate #172, 17 Sep 2026). Same family as the JSON ledger rule: text mode rewrites newlines.
 
-- Linux box (28 Sep 2026): global `user.name`/`user.email` are unset, so set the identity per clone before the first commit, never globally. Upstream fork clones use `git config user.name "Dev M"` and `git config user.email "294291171+devtechedge@users.noreply.github.com"` (id from `gh api user --jq .id`). The ledger repo matches its own history instead, `Dev M <devtechedge@gmail.com>`, passed as `git -c user.name=... -c user.email=... commit`. Confirm with `git log -1 --format='%an <%ae>'` before pushing.
+- A fully qualified `owner/repo#N` in a commit pushed to the fork creates a timeline entry on the upstream issue before any PR exists (see the ledger rule below), which reads as a public claim the user has not approved. Plain `#N` from a fork did not (uniffi-rs #3005), so only the qualified form needs to stay out of commits pushed before the PR opens (28 Sep 2026, prefix-dev/pixi #7109).
 
 ### Signing commits (solved 15 Sep 2026)
 
@@ -262,6 +262,14 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   any conclusion.
 
 - An empty `check-runs` list can also mean the CI reports through the legacy commit status API (mozilla/uniffi-rs #3014, 28 Sep 2026). CircleCI does: `commits/{sha}/check-runs` returned `total_count: 0` while `commits/{sha}/status` listed five `ci/circleci: ...` contexts. For any repo without `.github/workflows`, read `commits/{sha}/status` or `gh pr view N --json statusCheckRollup` (which merges both kinds) before concluding anything, and run the base-commit comparison from SKILL.md section 6 step 10 on statuses too. CircleCI fork PR runs there started with no maintainer approval gate, so the Actions `action_required` pattern above does not carry over.
+
+### Shared Linux box (Grok agents, verified 28 Sep 2026)
+
+- The Windows items above do not apply here. `gh` is already authenticated as devtechedge (`/home/box/.config/gh/hosts.yml`, scopes gist, read:org, repo, workflow) and serves as the git credential helper for github.com, so HTTPS pushes to forks just work. Never run `gh auth login`.
+- Linux box (28 Sep 2026): global `user.name`/`user.email` are unset, so set the identity per clone before the first commit, never globally. Upstream fork clones use `git config user.name "Dev M"` and `git config user.email "294291171+devtechedge@users.noreply.github.com"` (id from `gh api user --jq .id`). The ledger repo matches its own history instead, `Dev M <devtechedge@gmail.com>`, passed as `git -c user.name=... -c user.email=... commit`. Confirm with `git log -1 --format='%an <%ae>'` before pushing.
+- Passwordless `sudo apt-get install` works (git-lfs was installed this way). rustup honours a repo's `rust-toolchain` pin by auto-installing it on first use.
+- About 15 GB RAM with only about 3 GB free while other agents run, so cap cargo at `CARGO_BUILD_JOBS=6` or lower. A cold `cargo test -p <crate>` in the pixi workspace took about 2m15s; run long builds in the background and redirect to a log.
+- Fail-before loop without `git stash`: `git show HEAD:<path> > <path>` swaps the original in, and copying the patched file back with plain `cp` (not `cp -p`) sets a fresh mtime so cargo rebuilds; the `touch` in the uniffi-rs #3014 entry does the same explicitly (prefix-dev/pixi #7109).
 
 ### Ledger writes (contents PUT)
 
