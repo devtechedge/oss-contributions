@@ -1185,7 +1185,7 @@
       "do_not_duplicate": true,
       "branch": "docs/hunk-entry-state",
       "commit": "58c997c",
-      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` \u00a710.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. \u00a712 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
+      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` §10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. §12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
       "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144.",
       "merged": "2026-09-19",
       "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
@@ -1279,6 +1279,24 @@
       "summary": "Fixes #316 (ring >= 0.17.10 produces many ISC entries). The ring workaround applied one clarification to every ring >= 0.16.0 and expected four subsections inside a single LICENSE file; from 0.17.10 LICENSE is a short pointer and texts live in LICENSE-other-bits (ISC) and LICENSE-BoringSSL (Apache-2.0 first). Keep the old path for 0.16.0 through 0.17.9; add a >= 0.17.10 branch with expression Apache-2.0 AND ISC, whole-file LICENSE-other-bits (sha256 f025ccfb...) and the Apache License..limitations under the License. subsection of LICENSE-BoringSSL (sha256 43070e2d...). Docs and unit tests for the version selection updated. Optional note in the PR that clarifying the whole BoringSSL file (Go/Chromium notices) can be a follow-up.",
       "ci_status": "success",
       "ci_note": "All rust-ci.yml checks passed on 8c2415d (Lint, Test ubuntu/macos/windows, MSRV, cargo-deny, cargo-about, Build the book, Publish Check, test_success); Release/Publish Docs skipped as expected. mergeable true, mergeable_state blocked on REVIEW_REQUIRED only. Verified 2026-09-28."
+    },
+    {
+      "repo": "open-telemetry/opentelemetry-rust",
+      "number": 3762,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "opened": "2026-09-28",
+      "last_checked": "2026-09-28",
+      "issue": 3755,
+      "do_not_duplicate": true,
+      "branch": "fix/proto-json-serde-default-3755",
+      "commit": "d01a7f6",
+      "head_repo": "devtechedge/opentelemetry-rust",
+      "summary": "Fixes #3755 (OTLP/JSON metrics that omit ProtoJSON default fields decode with Metric.data == None because the flattened Option swallows the inner error). Adds serde(default) to metrics.v1.ExponentialHistogramDataPoint, ExponentialHistogramDataPoint.Buckets, SummaryDataPoint.ValueAtQuantile and Exemplar in opentelemetry-proto/tests/grpc_build.rs, regenerated tonic metrics.v1.rs (+4 attribute lines), 3 JSON regression tests in tests/json_serde.rs using the issue payloads (fail on main, each attribute individually load-bearing), CHANGELOG vNext entry. 'Fail louder' left for a follow-up per maintainer scottgerring. +78/-0 across 4 files. Commit carries Assisted-by: Grok 4.7 (effort: high) per the OTel GenAI policy; PR body carries the same line.",
+      "ci_status": "pending",
+      "ci_note": "CI started at open with no first-contributor approval gate (Zizmor green, CI/integration/CodeQL/markdown/title runs in progress at 2026-09-28 16:07Z). EasyCLA status failure: 'Missing CLA Authorization', CLA NOT SIGNED for @devtechedge; user must sign via the EasyCLA bot link on the PR (CNCF EasyCLA, not DCO). mergeable_state blocked on CLA plus review.",
+      "note": "Follow-up candidate (found 2026-09-28, not in this PR, no issue filed): Exemplar.value oneof is not in the grpc_build.rs serde(flatten) list (only Metric.data and NumberDataPoint.value are), so OTLP/JSON asDouble/asInt on exemplars are silently ignored on decode and serialize nested under \"value\". Check against open PR 3496 (adds f64 serializers to exemplar::Value) before filing."
     }
   ],
   "issues": [
@@ -2430,6 +2448,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-28",
       "note": "Open bug: many ISC entries for ring >= 0.17.10. Attempted via open PR #325."
+    },
+    {
+      "repo": "open-telemetry/opentelemetry-rust",
+      "number": 3755,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        3762
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-28",
+      "note": "Open bug filed 2026-09-24 by brycebaril; maintainer scottgerring approved adding serde(default) now and a separate 'fail louder' PR later (2026-09-28). Attempted via open PR #3762. Open PR 3496 (NaN/Infinity serializers) touches the same generated file but is not a competitor. Follow-up candidate (found 2026-09-28, not in this PR, no issue filed): Exemplar.value oneof is not in the grpc_build.rs serde(flatten) list (only Metric.data and NumberDataPoint.value are), so OTLP/JSON asDouble/asInt on exemplars are silently ignored on decode and serialize nested under \"value\". Check against open PR 3496 (adds f64 serializers to exemplar::Value) before filing."
     }
   ],
   "closed_attempts": [
@@ -3521,6 +3551,12 @@
         1190
       ],
       "focus": "Python test automation (noxfile sessions); test suite portability for PYTHONPATH-only installs."
+    },
+    "open-telemetry/opentelemetry-rust": {
+      "contributions": [
+        3762
+      ],
+      "focus": "OpenTelemetry Rust SDK and OTLP proto crate; OTLP/JSON serde of generated tonic types. CNCF EasyCLA required (unsigned as of 2026-09-28). Org GenAI policy asks for an Assisted-by commit trailer when AI wrote the bulk."
     }
   }
 }
