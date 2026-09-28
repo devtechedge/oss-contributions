@@ -1197,6 +1197,24 @@
       "ci_status": "in_progress",
       "ci_note": "Workflows ran without a first-contribution approval gate. As of 2026-09-28 16:25 IST: Lint Pull Requests check-title success; Backends - Conda Packages skipped (no backend change); CI in progress with 12 success (lint, cargo test ubuntu and macos, cargo rustdoc, cargo vendor, check cli docs, builds, wheel tests), 15 skipped, 3 pending (cargo test windows x64, Pytest macos aarch64, build binary windows x86_64), and 1 failure: Pytest linux x86_64, 1 failed / 706 passed, test_build_using_rattler_build_backend hit HTTP 503 from pypi.org downloading array_api_extra-0.8.0.tar.gz after retries. Infra flake unrelated to the diff (no git code path); we cannot re-run (no write access). Do not push to retrigger; mention only if a maintainer asks.",
       "note": "Watch item: draft PR 6578 (wolfv, opened 2026-07-10, last commit 2026-07-14) replaces pixi_git with conda/rattler's rattler_git crate. rattler_git still removes only GIT_DIR (code search 2026-09-28, no GIT_INDEX_FILE), so if 6578 lands first the fix needs porting to rattler_git; offer that rather than yielding. Pre-open checks 2026-09-28: issue open, unassigned, 0 comments, empty timeline; no open PR on GIT_DIR/GIT_INDEX_FILE/hook/7090 among 166 open; no AGENTS.md, CLAUDE.md or AI policy file; no auto-close workflow (lint-pr.yml only checks semantic PR title). Commit message deliberately omits the issue number so the fork push made no cross-reference on the upstream issue before open."
+    },
+    {
+      "repo": "mozilla/uniffi-rs",
+      "number": 3014,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "opened": "2026-09-28",
+      "last_checked": "2026-09-28",
+      "issue": 3005,
+      "do_not_duplicate": true,
+      "branch": "fix-recursive-type-inference",
+      "commit": "7832d15",
+      "head_repo": "devtechedge/uniffi-rs",
+      "summary": "Fixes #3005 (the recursive flag on enums and records was nondeterministic, and cycles through a custom type were never found, so Swift bindings missed `indirect` and failed to compile). uniffi_bindgen/src/pipeline/general/infer_recursive_enums.rs: find_recursive_enum_names replaces the visited-skip DFS (which missed V in T -> {U, V}, U -> T, V -> U whenever T visited U first, depending on HashMap order) with an in-house Tarjan SCC pass (TarjanState struct, same generic <T: Eq + Hash + Clone> signature and HashSet<T> return), marking every node in an SCC of size > 1 plus self-edge nodes; the wrong 'visited nodes are fully explored' comment is gone and the doc comment rewritten. Both copies of type_names_in_type (pipeline and interface/mod.rs, the one Swift uses via ComponentInterface::is_recursive) gain Type::Custom { builtin, .. } => type_names_in_type(builtin). Tests: find_recursive_overlapping_cycles_is_order_independent (64 fresh HashMaps; failed 10 of 10 runs on the old code, passes 10 of 10 after), pipeline dep_graph_custom_type_propagates_dep, infer_recursive_through_custom_type (Node { W(Wrapped), Leaf } with Wrapped custom over Inner { next: Option<Box<Node>> } marks exactly Node and Inner), and interface::test::dep_graph_custom_type_propagates_dep via UDL (dictionary Inner must be declared before `[Custom] typedef Inner Wrapped;`, else 'unknown type reference: Inner'). Validation: cargo test -p uniffi_bindgen 104 + 17 passed on 1.94.0; filtered runs pass on MSRV 1.90.0; cargo fmt --check, clippy --all --all-targets -D warnings and the CI rustdoc command (-Dwarnings) clean. CHANGELOG.md What's Fixed entry added. +188/-32 across 3 files. Python NameError from sort.rs ordering deliberately out of scope. Commit unsigned (GPG encouraged, not required), author Dev M noreply (repo-local config; global git identity unset on the box). PR body approved by Dev before open; no AI mention.",
+      "ci_status": "in_progress",
+      "ci_note": "CircleCI (no GitHub Actions in the repo). Fork PR runs started without a maintainer approval gate. As of 2026-09-28 16:24 IST: Check Rust formatting success; Lint Rust Docs, Lint Rust with clippy, Rust and Foreign Language tests, and the min supported rust test job pending. Full foreign-language suite (Kotlin, Swift, Python, Ruby) was not run locally.",
+      "note": "Pre-open checks 2026-09-28: issue open, unassigned, 0 comments, empty timeline; no open PR on recursion or #3005 among the open list (nearest are bendk's #3000 custom type path resolution and #3003 custom types lowered to user types, both unrelated); no GitHub workflows, AGENTS.md, CLAUDE.md or AI policy file; docs/contributing.md asks for tests, cargo fmt and a changelog entry. Merge needs one approving review from @mozilla/uniffi-devs; outside PRs are merged by the reviewer. Issue body carries the reporter's own 'Generated with Claude Code' footer. Commit message carries Fixes #3005, so the fork push cross-referenced the issue before open."
     }
   ],
   "issues": [
@@ -2309,6 +2327,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-28",
       "note": "Claimed with PR 7109 on 2026-09-28. Opened 2026-09-24 by dboeckenhoff (NONE association, issue body notes it was drafted with AI assistance), no assignee, 0 comments. Root cause confirmed on main 154436a9 and reproduced in a test: with GIT_DIR pointing at a linked worktree's gitdir, pixi's `git init` for the cache reinitializes that gitdir and writes core.bare = true into the shared .git/config. The PyPI path was already fixed via uv 19088; this covers pixi's own conda/source git path. Related draft 6578 (rattler_git refactor) is a watch item, not a competitor."
+    },
+    {
+      "repo": "mozilla/uniffi-rs",
+      "number": 3005,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        3014
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-28",
+      "note": "Claimed with PR 3014 on 2026-09-28. Opened 2026-09-23 by neekolas (found while upgrading uniffi-bindgen-react-native to 0.32.1; body notes it was generated with Claude Code), no assignee, 0 comments. Both root causes confirmed on main 142cb3dc: visited-skip DFS in find_recursive_enum_names and missing Type::Custom arm in both copies of type_names_in_type. The Python NameError the issue also mentions (alias emitted before class in a cycle, pipeline/general/sort.rs) is a separate, unclaimed follow-up and deliberately not in 3014."
     }
   ],
   "closed_attempts": [
@@ -3269,6 +3299,12 @@
         7109
       ],
       "focus": "Rust package manager (conda + PyPI); pixi_git subprocess environment hygiene."
+    },
+    "mozilla/uniffi-rs": {
+      "contributions": [
+        3014
+      ],
+      "focus": "Rust FFI bindings generator (Kotlin, Swift, Python, Ruby); uniffi_bindgen recursive type inference."
     }
   }
 }
