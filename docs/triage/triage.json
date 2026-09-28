@@ -1295,7 +1295,7 @@
       "head_repo": "devtechedge/opentelemetry-rust",
       "summary": "Fixes #3755 (OTLP/JSON metrics that omit ProtoJSON default fields decode with Metric.data == None because the flattened Option swallows the inner error). Adds serde(default) to metrics.v1.ExponentialHistogramDataPoint, ExponentialHistogramDataPoint.Buckets, SummaryDataPoint.ValueAtQuantile and Exemplar in opentelemetry-proto/tests/grpc_build.rs, regenerated tonic metrics.v1.rs (+4 attribute lines), 3 JSON regression tests in tests/json_serde.rs using the issue payloads (fail on main, each attribute individually load-bearing), CHANGELOG vNext entry. 'Fail louder' left for a follow-up per maintainer scottgerring. +78/-0 across 4 files. Commit carries Assisted-by: Grok 4.7 (effort: high) per the OTel GenAI policy; PR body carries the same line.",
       "ci_status": "in_progress",
-      "ci_note": "Re-checked 2026-09-28 after open. Ubuntu and Windows test jobs, lint, miri, msrv (ubuntu), cargo-deny, codecov, docs, integration, title, zizmor green. test (stable, macos-latest) still in_progress at last poll. EasyCLA status failure: CLA NOT SIGNED for @devtechedge / Dev M. Agent cannot sign. Dev must open https://api.easycla.lfx.linuxfoundation.org/v2/repository-provider/github/sign/9522512/221058575/3762/#/?version=2 Do not claim signed until the check passes. mergeable_state blocked on CLA plus review.",
+      "ci_note": "Re-checked 2026-09-28 after Dev signed EasyCLA. EasyCLA status success: EasyCLA check passed. You are authorized to contribute. Ubuntu and Windows test jobs, lint, miri, msrv (ubuntu), cargo-deny, codecov, docs, integration, title, zizmor green. test (stable, macos-latest) still in_progress at this poll. mergeable_state may stay blocked until review and remaining CI finish. Do not re-sign.",
       "note": "Follow-up candidate (found 2026-09-28, not in this PR, no issue filed): Exemplar.value oneof is not in the grpc_build.rs serde(flatten) list (only Metric.data and NumberDataPoint.value are), so OTLP/JSON asDouble/asInt on exemplars are silently ignored on decode and serialize nested under \"value\". Check against open PR 3496 (adds f64 serializers to exemplar::Value) before filing."
     }
   ],
@@ -3556,7 +3556,7 @@
       "contributions": [
         3762
       ],
-      "focus": "OpenTelemetry Rust SDK and OTLP proto crate; OTLP/JSON serde of generated tonic types. CNCF EasyCLA required (unsigned as of 2026-09-28). Org GenAI policy asks for an Assisted-by commit trailer when AI wrote the bulk."
+      "focus": "OpenTelemetry Rust SDK and OTLP proto crate; OTLP/JSON serde of generated tonic types. CNCF EasyCLA signed 2026-09-28 for @devtechedge. Org GenAI policy asks for an Assisted-by commit trailer when AI wrote the bulk."
     }
   }
 }
