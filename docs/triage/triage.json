@@ -1297,6 +1297,24 @@
       "ci_status": "in_progress",
       "ci_note": "Re-checked 2026-09-28 after Dev signed EasyCLA. EasyCLA status success: EasyCLA check passed. You are authorized to contribute. Ubuntu and Windows test jobs, lint, miri, msrv (ubuntu), cargo-deny, codecov, docs, integration, title, zizmor green. test (stable, macos-latest) still in_progress at this poll. mergeable_state may stay blocked until review and remaining CI finish. Do not re-sign.",
       "note": "Follow-up candidate (found 2026-09-28, not in this PR, no issue filed): Exemplar.value oneof is not in the grpc_build.rs serde(flatten) list (only Metric.data and NumberDataPoint.value are), so OTLP/JSON asDouble/asInt on exemplars are silently ignored on decode and serialize nested under \"value\". Check against open PR 3496 (adds f64 serializers to exemplar::Value) before filing."
+    },
+    {
+      "repo": "eclipsesource/jsonforms",
+      "number": 2631,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "opened": "2026-09-28",
+      "last_checked": "2026-09-28",
+      "issue": 2627,
+      "do_not_duplicate": true,
+      "branch": "chore/declare-side-effects",
+      "commit": "9f0b2d3",
+      "head_repo": "devtechedge/jsonforms",
+      "summary": "Closes #2627. Adds sideEffects: false to core, react, material-renderers, vanilla-renderers, angular, angular-material and vue. vue-vanilla and vue-vuetify get [\"*.css\"] so documented CSS imports are not dropped by webpack. +9/-0 across 9 package.json files. dayjs.extend is module-scope in three files; nothing imports those modules bare. ng-packagr copies the field into lib/package.json.",
+      "ci_status": "action_required",
+      "ci_note": "CI workflow completed action_required (first-contribution approval). license/cla pending until Dev signs https://cla-assistant.io/eclipsesource/jsonforms?pullRequest=2631. Netlify deploy preview was in progress at open. Do not re-push to retrigger CI.",
+      "note": "No disclosure. Repo allows tools and does not require it. Local Windows pnpm lint failed on pre-existing CRLF in untouched Vue files; CI lint is Ubuntu-only and has not run yet."
     }
   ],
   "issues": [
@@ -2460,6 +2478,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-28",
       "note": "Open bug filed 2026-09-24 by brycebaril; maintainer scottgerring approved adding serde(default) now and a separate 'fail louder' PR later (2026-09-28). Attempted via open PR #3762. Open PR 3496 (NaN/Infinity serializers) touches the same generated file but is not a competitor. Follow-up candidate (found 2026-09-28, not in this PR, no issue filed): Exemplar.value oneof is not in the grpc_build.rs serde(flatten) list (only Metric.data and NumberDataPoint.value are), so OTLP/JSON asDouble/asInt on exemplars are silently ignored on decode and serialize nested under \"value\". Check against open PR 3496 (adds f64 serializers to exemplar::Value) before filing."
+    },
+    {
+      "repo": "eclipsesource/jsonforms",
+      "number": 2627,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        2631
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-28",
+      "note": "Maintainer sdirix follow-up from merged #2626, opened 2026-09-15. No comments and no assignee at claim. Attempted via #2631."
     }
   ],
   "closed_attempts": [
@@ -3557,6 +3587,12 @@
         3762
       ],
       "focus": "OpenTelemetry Rust SDK and OTLP proto crate; OTLP/JSON serde of generated tonic types. CNCF EasyCLA signed 2026-09-28 for @devtechedge. Org GenAI policy asks for an Assisted-by commit trailer when AI wrote the bulk."
+    },
+    "eclipsesource/jsonforms": {
+      "contributions": [
+        2631
+      ],
+      "focus": "JSON Schema form renderer. sideEffects declarations on the published packages."
     }
   }
 }
