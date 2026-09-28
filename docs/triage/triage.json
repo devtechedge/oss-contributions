@@ -1306,9 +1306,12 @@
       "status": "open",
       "attempted": true,
       "related_prs": [
-        6059
+        6059,
+        6099
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-28",
+      "note": "External PR #6099 by ReguiguiMohamed (not ours), opened 2026-09-26, carries Fixes #6058 and credits/builds on our closed #6059 with the same quote-only-when-normalization-changes approach plus Snowflake and ClickHouse tests. As of 2026-09-28: open, not draft, mergeable, no reviews or comments, CI workflows action_required awaiting maintainer approval. No action needed from us; #6059 stays closed, do not ping or refile."
     },
     {
       "repo": "project-akri/akri",
