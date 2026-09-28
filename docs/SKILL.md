@@ -83,6 +83,7 @@ Upstream PR work is recorded on the unified ledger repo. The README lists merged
 
 - **Verify after posting:** fetch the posted comment back from the API in the same turn and diff it against the approved text. A mis-built body posts successfully and returns 201 while carrying the wrong content, so a success response proves nothing about what landed. Case (stellar/stellar-docs#2768, 16 Sep 2026): a claim comment went out containing only a local temp file path, and the thread read as bot noise for days before it was caught and rewritten. Never report a comment as posted until the fetched body matches, and treat a body that is a path, empty, or truncated as a failed post to redo.
 - Commit signing: check the repository's contribution policy and sign commits accordingly (DCO `Signed-off-by` trailer and/or cryptographic GPG/SSH signature) before pushing. See section 6 for the passphrase-hang failure mode.
+- **Playbook edits need no approval round (standing user directive, 28 Sep 2026).** Dev prefers agents decide the details of SKILL.md and PATTERNS.md edits themselves (wording, placement, merging with or trimming against existing entries) and push them directly after the usual read-back and sync. Ask first only before public upstream posts: comments, PRs, reviews, and anything else maintainers will see.
 
 ## 3. Voice (non-negotiable)
 
