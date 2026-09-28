@@ -1185,7 +1185,7 @@
       "do_not_duplicate": true,
       "branch": "docs/hunk-entry-state",
       "commit": "58c997c",
-      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` §10.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. §12 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
+      "summary": "Docs-only follow-up to merged PR #144, from the non-blocking note on its round-6 review. `docs/DESIGN.md` \u00a710.14 \"Hunk entry state\" still described the pre-fix mechanism (two consecutive context lines that scan clean); the shipped rule also requires a code token per line and treats blank context lines as neutral. Rewrote the paragraph to match the `_CONTEXT_LINES_TO_ESTABLISH` contract in `_comment_scan.py`, including the residual case disclosed in the README. One file, 5 lines replaced by 14, no Python, no tests, no behaviour change. \u00a712 and docs/QUICKSTART.md already carry `policy.code_comments`, so that older doc nit is otherwise closed. No CHANGELOG entry: no behaviour change. Commit 58c997c is SSH-signed and verified. Awaiting leo's review.",
       "note": "Follow-up to merged PR #144. No issue: source is a review comment on #144.",
       "merged": "2026-09-19",
       "merge_commit": "df7496ece4a9e44c0a2c91b5de03905a9ae90b70",
@@ -1590,11 +1590,14 @@
       "number": 835,
       "status": "closed",
       "attempted": true,
-      "related_prs": [],
+      "related_prs": [
+        848
+      ],
       "do_not_duplicate": true,
       "do_not_refile": true,
       "closed": "2026-09-12",
-      "note": "Maintainer closed the issue after stating the problem should be addressed with React Native rather than Interceptors because Interceptors relies on the standard Response.body property. The maintainer also stated that dropping the FetchResponse wrapper would break response cloning behavior and is reconsidering React Native support. Do not pursue or refile unless upstream project direction materially changes."
+      "note": "Maintainer initially closed on 2026-09-12 as React Native's concern. On 2026-09-28 kettanaito reversed: opened+merged own #848 (fix(fetch): preserve non-compressed responses, Fixes #835, merge f6c7e42) and released v0.45.5. #848 is a maintainer PR, not ours; do not count as merged. Thank-you posted on #835 (comment 5873477343). Do not refile.",
+      "last_checked": "2026-09-28"
     },
     {
       "repo": "PyO3/maturin",
