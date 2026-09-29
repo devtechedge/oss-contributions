@@ -1387,6 +1387,24 @@
       "ci_status": "action_required",
       "ci_note": "CI run 36565890996 is action_required. A maintainer must comment /workflow-approve. Do not re-push. Do not comment. Local go test ./app ./inhibit ./api ./api/v2 passed. golangci-lint v2.13.1 fmt and run ./app clean. UI job has not run.",
       "note": "Commit 513a9c9 verified. Signed-off-by present. No AI disclosure. No comment posted. Fork stays until merge or final close."
+    },
+    {
+      "repo": "getzola/zola",
+      "number": 3293,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "unstable",
+      "opened": "2026-09-29",
+      "last_checked": "2026-09-29",
+      "issue": 3288,
+      "do_not_duplicate": true,
+      "branch": "fix/serve-error-html-escape",
+      "commit": "ec0cdd1",
+      "head_repo": "devtechedge/zola",
+      "summary": "Fixes #3288. The serve build-error overlay escaped error text before it entered the pre, so source like <img and & renders as text. Livereload, the 404 page, and CLI printing are unchanged.",
+      "ci_status": "action_required",
+      "ci_note": "Build & Test run 36579815950 is action_required (first-contribution approval). docs.yml only runs for pull requests to master, so it does not run on next. Do not re-push. Do not comment. Local test build_error_overlay_escapes_html failed before the escape and passed after.",
+      "note": "Commit ec0cdd1 verified valid. Targets next. PR template LLM line filled as Dev specified. Fetched body matched, no CR. No separate comment. Fork stays until merge or final close."
     }
   ],
   "issues": [
@@ -2622,6 +2640,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-29",
       "note": "PR #5594 opened 2026-09-29. Do not open a second fix."
+    },
+    {
+      "repo": "getzola/zola",
+      "number": 3288,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        3293
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-29",
+      "note": "PR #3293 opened 2026-09-29. Do not open a second fix."
     }
   ],
   "closed_attempts": [
@@ -3749,6 +3779,12 @@
         5594
       ],
       "focus": "Alert routing, inhibition, and notification dispatch."
+    },
+    "getzola/zola": {
+      "contributions": [
+        3293
+      ],
+      "focus": "Static site generator. Code fixes target next, not master."
     }
   }
 }
