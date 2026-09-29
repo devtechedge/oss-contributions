@@ -766,15 +766,17 @@
       "merge_commit": "37d45de9fffaac359bea15f450702d0a03a8f545",
       "issue": 5340,
       "url": "https://github.com/anchore/syft/pull/5351",
-      "languages": [],
+      "languages": [
+        "Go"
+      ],
       "org": "anchore",
       "display_name": "syft",
       "profile_title": "syft #5351",
       "ledger_logo": "https://github.com/anchore.png?size=40",
       "profile_logo": "https://github.com/anchore.png?size=48",
-      "profile_logo_alt": "syft",
+      "profile_logo_alt": "Anchore",
       "ledger_what": "uv.lock parser links each dependent to the exact locked version it names via name@version refs, so forked pandas/numpy locks produce correct SBOM relationships instead of pairing every dependent to every version.",
-      "resume_bullet": "anchore/syft #5351 (TypeScript) - uv.lock parser links each dependent to the exact locked version it names via name@version refs, so forked pandas/numpy locks produce correct SBOM relationships instead of pairing every dependent to every version. Merged Sep 2026. github.com/anchore/syft/pull/5351",
+      "resume_bullet": "anchore/syft #5351 (Go) - uv.lock parser links each dependent to the exact locked version it names via name@version refs, so forked pandas/numpy locks produce correct SBOM relationships instead of pairing every dependent to every version. Merged Sep 2026. github.com/anchore/syft/pull/5351",
       "linkedin_bullet": "anchore/syft #5351 - uv.lock parser links each dependent to the exact locked version it names via name@version refs, so forked pandas/numpy locks produce correct SBOM relationships instead of pairing every dependent to every version.",
       "profile_line": "uv.lock parser links each dependent to the exact locked version it names via name@version refs, so forked pandas/numpy locks produce correct SBOM relationships instead of pairing every dependent to every version.",
       "curated": true
