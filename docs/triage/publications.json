@@ -9,13 +9,13 @@
   },
   "repos": {
     "pnpm/pnpm": {
-      "linkedin_representative": "pnpm - Unix store path fix, lockfile false switching, range prefixes, and run bail correction."
+      "linkedin_representative": "pnpm - Unix store path fix, lockfile switch, range prefix, and bail fix."
     },
     "recharts/recharts": {
       "linkedin_representative": "Recharts - portal SVG pointer focus fix with WebKit focus ring regression coverage."
     },
     "brianc/node-postgres": {
-      "linkedin_representative": "node-postgres - Connection.sync ending semantics fix so later socket errors surface correctly."
+      "linkedin_representative": "node-postgres - Connection.sync ending fix so later socket errors surface."
     },
     "SQLMesh/sqlmesh": {
       "linkedin_representative": "SQLMesh - concurrent test construction race removal around shared execution state."
@@ -54,7 +54,7 @@
       "linkedin_representative": "ruff - PYI002 diagnostic now names the stub file context for if tests."
     },
     "EmbarkStudios/cargo-about": {
-      "linkedin_representative": "cargo-about - synthesized manifest license quote termination and insert offset fixes."
+      "linkedin_representative": "cargo-about - manifest license quote and insert offset fixes."
     },
     "stellar/js-stellar-sdk": {
       "linkedin_representative": "js-stellar-sdk - docs pipeline for migration pages, sidebar, and llms bundles."
@@ -64,6 +64,9 @@
     },
     "remix-run/remix": {
       "linkedin_representative": "remix - marker-less doctype and html markup now navigates as a document."
+    },
+    "wntrblm/nox": {
+      "linkedin_representative": "nox - script-mode test prepends the fake package to PYTHONPATH."
     }
   },
   "records": [
