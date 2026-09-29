@@ -1338,7 +1338,7 @@
       "repo": "dtolnay/typetag",
       "number": 107,
       "status": "open",
-      "mergeable": null,
+      "mergeable": true,
       "mergeable_state": null,
       "opened": "2026-09-29",
       "last_checked": "2026-09-29",
@@ -1348,8 +1348,8 @@
       "commit": "6d48d03",
       "head_repo": "devtechedge/typetag",
       "summary": "Fixes #106. Internally tagged content buffering now reports the outer serializer is_human_readable flag, so a binary format no longer writes a string and reads raw bytes. JSON still round-trips. +208/-26 across src/ser.rs and tests/test.rs. No new dependency.",
-      "ci_status": "pending",
-      "ci_note": "pre_ci passed. Test matrix pending at open (2026-09-29). Clippy and Outdated skip on pull_request.",
+      "ci_status": "green",
+      "ci_note": "All pull_request checks passed 2026-09-29 (stable, 1.88, 1.71, beta, nightly, macOS, Windows gnu/msvc, minimal, docs). Clippy and Outdated skip on pull_request.",
       "note": "Commit 6d48d03 verified valid. No disclosure. No comment posted."
     }
   ],
