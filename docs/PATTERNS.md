@@ -170,6 +170,7 @@ Each bullet is one trap. Read only the bullets whose stack matches the repo. Do 
 - Preflight (28 Sep 2026, open-telemetry/opentelemetry-rust): the AI policy can live at org level in a separate repo. `open-telemetry/community` `policies/genai.md` asks for an `Assisted-by: <model>` commit trailer when generative AI produced the bulk of a contribution, while the Rust repo's CONTRIBUTING, AGENTS.md and PR template say nothing about disclosure. For any org with a `community` or `.github` repo, search it for `genai` / AI policy before treating a repo as silent; a policy found there counts as the repo asking (SKILL.md section 5). Put the trailer in the commit before the first push so no amend or force-push is needed later.
 
 - Implement (29 Sep 2026, metrics-rs/metrics #718): an accept loop that retries on `EMFILE` is not unit-testable by exhausting the process fd table. Extract the error arm both listeners call. Skip `ConnectionAborted`, `ConnectionReset`, and `ConnectionRefused`; sleep on every other kind. Do not match `ErrorKind::TooManyOpenFiles` when MSRV is below 1.83 (that variant stabilized then); raw os error 24 still falls into the sleep arm on both the old `Uncategorized` mapping and the new kind. If `tokio` lacks `macros` and `test-util`, do not add them: a 50ms `tokio::time::timeout` around a 1s sleep fails before the fix and passes after.
+- Implement (29 Sep 2026, anchore/syft #5351): when a repo freezes its JSON schema (a new field means a version bump plus regenerated schema files), carry fix-only data on the metadata struct with `json:"-"`. The field still flows through the in-memory model for relationship pairing but never reaches serialized output, so the schema generator sees no change and the drift check passes. State the reason in the godoc comment so a reviewer does not "fix" it into a tagged field.
 
 ## Post-open maintenance
 
@@ -252,6 +253,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 - Local branches containing `/`, and `refs/remotes/*`, are never persisted here. Work on a slash-free
   local branch and push with an explicit URL plus refspec:
   `git push <url> local:refs/heads/remote/branch`.
+- `gh repo fork --clone=false` on a clone that came from upstream leaves `origin` on upstream, so the next `git push origin <branch>` dies 403. Add the fork as a named remote (`git remote add fork <fork-url>`) and push there, or clone the fork in the first place (`gh repo clone <fork>` wires origin=fork, upstream=parent). Case (29 Sep 2026, anchore/syft #5351).
 - `git push --force-with-lease` always reports "(stale info)" for a slash branch, because no
   remote-tracking ref is written. Anchor the lease by hand with the remote sha:
   `--force-with-lease=refs/heads/<branch>:<sha>`.
