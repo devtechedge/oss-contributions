@@ -1369,6 +1369,24 @@
       "ci_status": "action_required",
       "ci_note": "Rust workflow run 36565184926 is action_required (first-contribution approval). Do not re-push. Local cargo fmt clean. http-listener unit tests passed. Immediate-retry arm failed other_accept_errors_sleep_before_retry before the sleep was restored.",
       "note": "Commit 7cf8bde verified. No AI disclosure. No CLA. No comment posted."
+    },
+    {
+      "repo": "prometheus/alertmanager",
+      "number": 5594,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "opened": "2026-09-29",
+      "last_checked": "2026-09-29",
+      "issue": 5593,
+      "do_not_duplicate": true,
+      "branch": "fix/reload-inhibition-generation",
+      "commit": "513a9c9",
+      "head_repo": "devtechedge/alertmanager",
+      "summary": "Fixes #5593. Reload published the API before the new inhibitor, and the mute callback read the live pointer. The loaded inhibitor and the API callback are now published together, and the callback closes over that inhibitor.",
+      "ci_status": "action_required",
+      "ci_note": "CI run 36565890996 is action_required. A maintainer must comment /workflow-approve. Do not re-push. Do not comment. Local go test ./app ./inhibit ./api ./api/v2 passed. golangci-lint v2.13.1 fmt and run ./app clean. UI job has not run.",
+      "note": "Commit 513a9c9 verified. Signed-off-by present. No AI disclosure. No comment posted. Fork stays until merge or final close."
     }
   ],
   "issues": [
@@ -2592,6 +2610,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-29",
       "note": "PR #107 opened 2026-09-29. Do not open a second fix."
+    },
+    {
+      "repo": "prometheus/alertmanager",
+      "number": 5593,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        5594
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-29",
+      "note": "PR #5594 opened 2026-09-29. Do not open a second fix."
     }
   ],
   "closed_attempts": [
@@ -3713,6 +3743,12 @@
         718
       ],
       "focus": "Prometheus exporter for the metrics facade."
+    },
+    "prometheus/alertmanager": {
+      "contributions": [
+        5594
+      ],
+      "focus": "Alert routing, inhibition, and notification dispatch."
     }
   }
 }
