@@ -1420,8 +1420,8 @@
       "commit": "96c141e",
       "head_repo": "devtechedge/syft",
       "summary": "Fixes #5340. uv.lock forked versions now pair through name@version refs: reads the dependency entry version uv records when several versions of a name are locked, provides name plus name@version, requires the locked ref. Bare names preserved for unique locks. Markers unchanged. Poetry, pdm, pip parsers untouched. Version field is json:\"-\" so no schema bump. +130/-12 across parse_uv_lock.go, python.go, new fixture test.",
-      "ci_status": "pending",
-      "ci_note": "DCO success at open. Validations pipeline queued. Commit 96c141e verified valid. DCO Signed-off-by present. No AI disclosure. No comment posted.",
+      "ci_status": "action_required",
+      "ci_note": "DCO success. Validations, CodeQL, Validate GitHub Actions all action_required (first-contribution approval). Do not re-push. No comment.",
       "note": "Fork devtechedge/syft created 2026-09-29, lives until merge or final close. Local full python package suite has pre-existing Windows path/CRLF/docker failures unrelated to this change; all lock-parser tests pass."
     }
   ],
