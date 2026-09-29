@@ -1351,6 +1351,24 @@
       "ci_status": "green",
       "ci_note": "All pull_request checks passed 2026-09-29 (stable, 1.88, 1.71, beta, nightly, macOS, Windows gnu/msvc, minimal, docs). Clippy and Outdated skip on pull_request.",
       "note": "Commit 6d48d03 verified valid. No disclosure. PR body rewritten 29 Sep 2026 to the longer description Dev approved. Fetched body matched. No separate comment."
+    },
+    {
+      "repo": "metrics-rs/metrics",
+      "number": 718,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "opened": "2026-09-29",
+      "last_checked": "2026-09-29",
+      "issue": 717,
+      "do_not_duplicate": true,
+      "branch": "fix-accept-error-backoff",
+      "commit": "7cf8bde",
+      "head_repo": "devtechedge/metrics",
+      "summary": "Fixes #717. Accept errors other than ConnectionAborted, ConnectionReset, and ConnectionRefused log and sleep one second before the next accept, on TCP and UDS. Happy path and builder API unchanged.",
+      "ci_status": "action_required",
+      "ci_note": "Rust workflow run 36565184926 is action_required (first-contribution approval). Do not re-push. Local cargo fmt clean. http-listener unit tests passed. Immediate-retry arm failed other_accept_errors_sleep_before_retry before the sleep was restored.",
+      "note": "Commit 7cf8bde verified. No AI disclosure. No CLA. No comment posted."
     }
   ],
   "issues": [
@@ -3689,6 +3707,12 @@
         107
       ],
       "focus": "Serde trait objects."
+    },
+    "metrics-rs/metrics": {
+      "contributions": [
+        718
+      ],
+      "focus": "Prometheus exporter for the metrics facade."
     }
   }
 }
