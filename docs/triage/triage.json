@@ -1404,7 +1404,7 @@
       "summary": "Fixes #3288. The serve build-error overlay escaped error text before it entered the pre, so source like <img and & renders as text. Livereload, the 404 page, and CLI printing are unchanged.",
       "ci_status": "action_required",
       "ci_note": "Build & Test run 36579815950 is action_required (first-contribution approval). docs.yml only runs for pull requests to master, so it does not run on next. Do not re-push. Do not comment. Local test build_error_overlay_escapes_html failed before the escape and passed after.",
-      "note": "Commit ec0cdd1 verified valid. Targets next. PR template LLM line filled as Dev specified. Fetched body matched, no CR. No separate comment. Fork stays until merge or final close."
+      "note": "Commit ec0cdd1 verified valid. Targets next. Description replaced 29 Sep 2026 with the shorter body Dev approved. Fetched body matched, no CR. LLM line answers the template in a sentence. No separate comment. Fork stays until merge or final close."
     }
   ],
   "issues": [
