@@ -876,7 +876,7 @@
     {
       "repo": "AmbireTech/extension",
       "number": 29,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
       "last_checked": "2026-09-29",
       "issue": 23,
@@ -1248,10 +1248,8 @@
     {
       "repo": "wntrblm/nox",
       "number": 1190,
-      "status": "open",
-      "mergeable": true,
+      "status": "merged",
       "mergeable_state": "unstable",
-      "opened": "2026-09-28",
       "last_checked": "2026-09-29",
       "issue": 1189,
       "do_not_duplicate": true,
@@ -1261,7 +1259,10 @@
       "summary": "Fixes #1189 (tests/test_main.py::test_noxfile_script_mode fails with 'No module named nox' in FreeBSD ports). Test-only fix: the test did monkeypatch.setenv('PYTHONPATH', str(outer_packages)), replacing any existing PYTHONPATH; it now prepends the fake nox-999 dist-info dir and keeps the existing value via os.pathsep.join, with a two-line comment. Fake package stays first so the #1157 guard still holds; nox/_cli.py untouched. Real trigger: the failure only appears when the whole file runs, because earlier in-process tests leave cwd at a noxfile dir (os.chdir in nox/tasks.py:138), so the source tree is off sys.path and nox is importable only via PYTHONPATH; an isolated -k run passes even before the fix. Ports sim (py3.12 venv with runtime deps + pytest, uv pip install --no-deps --target /tmp/stage ., PYTHONPATH=/tmp/stage pytest tests/test_main.py -o addopts=): before 1 failed / 130 passed with the exact issue error, after 131 passed / 2 skipped. uvx nox -s tests-3.12 -- tests/test_main.py -k script_mode 4 passed; uvx nox -s lint (prek: ruff, ruff format, mypy, codespell, zizmor, etc.) clean. +6/-1 in 1 file. Commit unsigned (repo has no DCO or signing rule), author devtechedge <devtechedge@gmail.com>. No AI mention. No issue or PR comments posted.",
       "ci_status": "action_required",
       "ci_note": "As of 2026-09-28 ~20:05 IST: CI and CD workflow runs (event pull_request) both completed with conclusion action_required, the first-contribution approval gate on fork PRs; a maintainer must approve before any check reports. statusCheckRollup empty, mergeStateStatus UNSTABLE, mergeable MERGEABLE. No red check; do not push again to trigger it.",
-      "ping_date": null
+      "ping_date": null,
+      "merged": "2026-09-29",
+      "merge_commit": "fd98dc7c43a53211976fb675fdfb7906f5c26526",
+      "merged_at": "2026-09-29T14:54:01Z"
     },
     {
       "repo": "EmbarkStudios/cargo-about",
@@ -2554,14 +2555,14 @@
     {
       "repo": "wntrblm/nox",
       "number": 1189,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         1190
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-28",
-      "note": "Claimed with PR 1190 on 2026-09-28. Opened by yurivict (FreeBSD ports maintainer), no assignee, 0 comments, empty timeline at claim time. Only open PR at the time (#1188, Rodrigo-Palma) touches nox/sessions.py and tests/test_sessions.py, not this test. Root cause is test-only: PYTHONPATH replaced instead of prepended."
+      "last_checked": "2026-09-29",
+      "note": "Closed by merged PR #1190 (fd98dc7)."
     },
     {
       "repo": "EmbarkStudios/cargo-about",

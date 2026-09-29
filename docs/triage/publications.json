@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
   "last_updated": "2026-09-29",
-  "merged_count": 28,
+  "merged_count": 29,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -728,6 +728,28 @@
       "resume_bullet": "remix-run/remix #11877 (TypeScript) - frame.ts infers flush kind from markup when no rmx flush marker is present, treating HTML starting with a doctype or html tag as a document so renderToString output navigates correctly. Merged Sep 2026. github.com/remix-run/remix/pull/11877",
       "linkedin_bullet": "remix-run/remix #11877 - frame.ts infers flush kind from markup when no rmx flush marker is present, treating HTML starting with a doctype or html tag as a document so renderToString output navigates correctly.",
       "profile_line": "frame.ts infers flush kind from markup when no rmx flush marker is present, treating HTML starting with a doctype or html tag as a document so renderToString output navigates correctly.",
+      "curated": true
+    },
+    {
+      "id": "wntrblm/nox#1190",
+      "repo": "wntrblm/nox",
+      "number": 1190,
+      "merged": true,
+      "merged_at": "2026-09-29T14:54:01Z",
+      "merge_commit": "fd98dc7c43a53211976fb675fdfb7906f5c26526",
+      "issue": 1189,
+      "url": "https://github.com/wntrblm/nox/pull/1190",
+      "languages": [],
+      "org": "wntrblm",
+      "display_name": "nox",
+      "profile_title": "nox #1190",
+      "ledger_logo": "https://github.com/wntrblm.png?size=40",
+      "profile_logo": "https://github.com/wntrblm.png?size=48",
+      "profile_logo_alt": "nox",
+      "ledger_what": "test_noxfile_script_mode prepends the fake nox-999 package to PYTHONPATH instead of replacing it, so the subprocess keeps a staged nox importable when nox is only visible through PYTHONPATH, as in FreeBSD ports. The fake package stays first on the path, preserving the #1157 coverage.",
+      "resume_bullet": "wntrblm/nox #1190 (TypeScript) - test_noxfile_script_mode prepends the fake nox-999 package to PYTHONPATH instead of replacing it, so the subprocess keeps a staged nox importable when nox is only visible through PYTHONPATH, as in FreeBSD ports. The fake package stays first on the path, preserving the #1157 coverage. Merged Sep 2026. github.com/wntrblm/nox/pull/1190",
+      "linkedin_bullet": "wntrblm/nox #1190 - test_noxfile_script_mode prepends the fake nox-999 package to PYTHONPATH instead of replacing it, so the subprocess keeps a staged nox importable when nox is only visible through PYTHONPATH, as in FreeBSD ports. The fake package stays first on the path, preserving the #1157 coverage.",
+      "profile_line": "test_noxfile_script_mode prepends the fake nox-999 package to PYTHONPATH instead of replacing it, so the subprocess keeps a staged nox importable when nox is only visible through PYTHONPATH, as in FreeBSD ports. The fake package stays first on the path, preserving the #1157 coverage.",
       "curated": true
     }
   ],
