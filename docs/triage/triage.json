@@ -2490,6 +2490,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-28",
       "note": "Maintainer sdirix follow-up from merged #2626, opened 2026-09-15. No comments and no assignee at claim. Attempted via #2631."
+    },
+    {
+      "repo": "linebender/kurbo",
+      "number": 611,
+      "status": "open",
+      "attempted": false,
+      "related_prs": [
+        593
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-29",
+      "note": "RACED 2026-09-29 before any fork push. Issue timeline is empty and no PR mentions #611, but open PR #593 (signalwerk, 2026-07-05, mergeable, 0 comments, 0 reviews) fixes the same root cause in solve_cubic. After the y-extremum split, the falling cubic y polynomial has a cubic coefficient of about 2.8e-14. solve_cubic scales by 1/c3 and returns t=1, so winding counts the crossing at the endpoint x=10 instead of x about 15.77. #593 treats abs(c3) <= 1e-12 * max(abs(c0), abs(c1), abs(c2)) as a quadratic; that catches this case (2.8e-14 <= 6.1e-11) and the quadratic root is the y=13.6 crossing at x about 15.77. Do not open a second fix. Re-check only if #593 closes unmerged."
     }
   ],
   "closed_attempts": [
