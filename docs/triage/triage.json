@@ -1350,7 +1350,7 @@
       "summary": "Fixes #106. Internally tagged content buffering now reports the outer serializer is_human_readable flag, so a binary format no longer writes a string and reads raw bytes. JSON still round-trips. +208/-26 across src/ser.rs and tests/test.rs. No new dependency.",
       "ci_status": "green",
       "ci_note": "All pull_request checks passed 2026-09-29 (stable, 1.88, 1.71, beta, nightly, macOS, Windows gnu/msvc, minimal, docs). Clippy and Outdated skip on pull_request.",
-      "note": "Commit 6d48d03 verified valid. No disclosure. No comment posted."
+      "note": "Commit 6d48d03 verified valid. No disclosure. PR body rewritten 29 Sep 2026 to the longer description Dev approved. Fetched body matched. No separate comment."
     }
   ],
   "issues": [
