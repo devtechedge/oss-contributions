@@ -1333,6 +1333,24 @@
       "ci_status": "action_required",
       "ci_note": "CI workflow run 36548691703 is action_required (first-contribution approval). Vercel Security Review success. Do not re-push to retrigger. Local pnpm test 1307 passed, test:types passed.",
       "note": "Commit c57d432 verified. No AI disclosure. No CLA. No comment posted."
+    },
+    {
+      "repo": "dtolnay/typetag",
+      "number": 107,
+      "status": "open",
+      "mergeable": null,
+      "mergeable_state": null,
+      "opened": "2026-09-29",
+      "last_checked": "2026-09-29",
+      "issue": 106,
+      "do_not_duplicate": true,
+      "branch": "fix/internal-human-readable",
+      "commit": "6d48d03",
+      "head_repo": "devtechedge/typetag",
+      "summary": "Fixes #106. Internally tagged content buffering now reports the outer serializer is_human_readable flag, so a binary format no longer writes a string and reads raw bytes. JSON still round-trips. +208/-26 across src/ser.rs and tests/test.rs. No new dependency.",
+      "ci_status": "pending",
+      "ci_note": "pre_ci passed. Test matrix pending at open (2026-09-29). Clippy and Outdated skip on pull_request.",
+      "note": "Commit 6d48d03 verified valid. No disclosure. No comment posted."
     }
   ],
   "issues": [
@@ -2544,6 +2562,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-29",
       "note": "Open PR #214. Re-checked timeline empty and no competing PR immediately before open."
+    },
+    {
+      "repo": "dtolnay/typetag",
+      "number": 106,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        107
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-29",
+      "note": "PR #107 opened 2026-09-29. Do not open a second fix."
     }
   ],
   "closed_attempts": [
@@ -3653,6 +3683,12 @@
         214
       ],
       "focus": "Compact serializer for values JSON cannot express; stringifyAsync nested sentinel round-trip."
+    },
+    "dtolnay/typetag": {
+      "contributions": [
+        107
+      ],
+      "focus": "Serde trait objects."
     }
   }
 }
