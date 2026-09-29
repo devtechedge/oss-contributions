@@ -739,13 +739,15 @@
       "merge_commit": "fd98dc7c43a53211976fb675fdfb7906f5c26526",
       "issue": 1189,
       "url": "https://github.com/wntrblm/nox/pull/1190",
-      "languages": [],
+      "languages": [
+        "Python"
+      ],
       "org": "wntrblm",
       "display_name": "nox",
       "profile_title": "nox #1190",
       "ledger_logo": "https://github.com/wntrblm.png?size=40",
       "profile_logo": "https://github.com/wntrblm.png?size=48",
-      "profile_logo_alt": "nox",
+      "profile_logo_alt": "wntrblm",
       "ledger_what": "test_noxfile_script_mode prepends the fake nox-999 package to PYTHONPATH instead of replacing it, so the subprocess keeps a staged nox importable when nox is only visible through PYTHONPATH, as in FreeBSD ports. The fake package stays first on the path, preserving the #1157 coverage.",
       "resume_bullet": "wntrblm/nox #1190 (TypeScript) - test_noxfile_script_mode prepends the fake nox-999 package to PYTHONPATH instead of replacing it, so the subprocess keeps a staged nox importable when nox is only visible through PYTHONPATH, as in FreeBSD ports. The fake package stays first on the path, preserving the #1157 coverage. Merged Sep 2026. github.com/wntrblm/nox/pull/1190",
       "linkedin_bullet": "wntrblm/nox #1190 - test_noxfile_script_mode prepends the fake nox-999 package to PYTHONPATH instead of replacing it, so the subprocess keeps a staged nox importable when nox is only visible through PYTHONPATH, as in FreeBSD ports. The fake package stays first on the path, preserving the #1157 coverage.",
