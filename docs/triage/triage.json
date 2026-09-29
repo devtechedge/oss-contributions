@@ -1315,6 +1315,24 @@
       "ci_status": "action_required",
       "ci_note": "license/cla success (CLAassistant comment 5874370895, 2026-09-28 16:37Z: all committers signed). Netlify deploy preview success. CI workflow still action_required (first-contribution approval). Do not re-push to retrigger CI.",
       "note": "CLA signed by Dev and license/cla is success. No disclosure. Repo allows tools and does not require it. Local Windows pnpm lint failed on pre-existing CRLF in untouched Vue files; CI lint is Ubuntu-only and has not run yet."
+    },
+    {
+      "repo": "sveltejs/devalue",
+      "number": 214,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "opened": "2026-09-29",
+      "last_checked": "2026-09-29",
+      "issue": 211,
+      "do_not_duplicate": true,
+      "branch": "fix/stringify-async-nested-sentinels",
+      "commit": "c57d432",
+      "head_repo": "devtechedge/devalue",
+      "summary": "Fixes #211. Nested stringifyAsync promises of undefined, NaN, -0, Infinity, and -Infinity now inline the sentinel into the parent back-reference and drop the unused slot, so the output matches stringify. Root promise case unchanged.",
+      "ci_status": "action_required",
+      "ci_note": "CI workflow run 36548691703 is action_required (first-contribution approval). Vercel Security Review success. Do not re-push to retrigger. Local pnpm test 1307 passed, test:types passed.",
+      "note": "Commit c57d432 verified. No AI disclosure. No CLA. No comment posted."
     }
   ],
   "issues": [
@@ -2514,6 +2532,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-29",
       "note": "RACED 2026-09-29. Issue timeline empty, 0 comments, no assignee. Open PR #1664 (waywardmonkeys, COLLABORATOR, opened 2026-05-23, updated 2026-09-20, mergeable false, 3 comments, 2 review comments) is the same bug: a patchless/empty frame frees the GPU image atlas while resolver residency survives, so a later frame samples blank. Do not open a second fix. Re-check only if #1664 closes unmerged."
+    },
+    {
+      "repo": "sveltejs/devalue",
+      "number": 211,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        214
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-29",
+      "note": "Open PR #214. Re-checked timeline empty and no competing PR immediately before open."
     }
   ],
   "closed_attempts": [
@@ -3617,6 +3647,12 @@
         2631
       ],
       "focus": "JSON Schema form renderer. sideEffects declarations on the published packages."
+    },
+    "sveltejs/devalue": {
+      "contributions": [
+        214
+      ],
+      "focus": "Compact serializer for values JSON cannot express; stringifyAsync nested sentinel round-trip."
     }
   }
 }
