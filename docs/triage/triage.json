@@ -1405,6 +1405,24 @@
       "ci_status": "action_required",
       "ci_note": "Build & Test run 36579815950 is action_required (first-contribution approval). docs.yml only runs for pull requests to master, so it does not run on next. Do not re-push. Do not comment. Local test build_error_overlay_escapes_html failed before the escape and passed after.",
       "note": "Commit ec0cdd1 verified valid. Targets next. Description replaced 29 Sep 2026 with the shorter body Dev approved. Fetched body matched, no CR. LLM line answers the template in a sentence. No separate comment. Fork stays until merge or final close."
+    },
+    {
+      "repo": "anchore/syft",
+      "number": 5351,
+      "status": "open",
+      "mergeable": true,
+      "mergeable_state": "clean",
+      "opened": "2026-09-29",
+      "last_checked": "2026-09-29",
+      "issue": 5340,
+      "do_not_duplicate": true,
+      "branch": "fix/uv-lock-locked-versions",
+      "commit": "96c141e",
+      "head_repo": "devtechedge/syft",
+      "summary": "Fixes #5340. uv.lock forked versions now pair through name@version refs: reads the dependency entry version uv records when several versions of a name are locked, provides name plus name@version, requires the locked ref. Bare names preserved for unique locks. Markers unchanged. Poetry, pdm, pip parsers untouched. Version field is json:\"-\" so no schema bump. +130/-12 across parse_uv_lock.go, python.go, new fixture test.",
+      "ci_status": "pending",
+      "ci_note": "DCO success at open. Validations pipeline queued. Commit 96c141e verified valid. DCO Signed-off-by present. No AI disclosure. No comment posted.",
+      "note": "Fork devtechedge/syft created 2026-09-29, lives until merge or final close. Local full python package suite has pre-existing Windows path/CRLF/docker failures unrelated to this change; all lock-parser tests pass."
     }
   ],
   "issues": [
@@ -2652,6 +2670,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-29",
       "note": "PR #3293 opened 2026-09-29. Do not open a second fix."
+    },
+    {
+      "repo": "anchore/syft",
+      "number": 5340,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        5351
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-09-29",
+      "note": "PR #5351 opened 2026-09-29. Do not open a second fix."
     }
   ],
   "closed_attempts": [
