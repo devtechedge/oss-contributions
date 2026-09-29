@@ -12,16 +12,16 @@
       "linkedin_representative": "pnpm - Unix store path fix, lockfile switch, range prefix, and bail fix."
     },
     "recharts/recharts": {
-      "linkedin_representative": "Recharts - portal SVG pointer focus fix with WebKit focus ring regression coverage."
+      "linkedin_representative": "Recharts - portal SVG focus fix with WebKit ring coverage."
     },
     "brianc/node-postgres": {
       "linkedin_representative": "node-postgres - Connection.sync ending fix so later socket errors surface."
     },
     "SQLMesh/sqlmesh": {
-      "linkedin_representative": "SQLMesh - concurrent test construction race removal around shared execution state."
+      "linkedin_representative": "SQLMesh - test construction race fix around shared execution state."
     },
     "biomejs/biome": {
-      "linkedin_representative": "Biome - better-dom-traversing rule ported to the Rust nursery linter with tests."
+      "linkedin_representative": "Biome - dom-traversing rule ported to the Rust nursery linter."
     },
     "better-auth/better-auth": {
       "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody regression coverage lock."
@@ -30,7 +30,7 @@
       "linkedin_representative": "thirdweb - CheckoutWidget token error propagation fix."
     },
     "anza-xyz/kit": {
-      "linkedin_representative": "Anza Kit - codec documentation numeric predicate correction in the advanced example."
+      "linkedin_representative": "Anza Kit - codec docs numeric predicate fix in the advanced example."
     },
     "web-infra-dev/rspress": {
       "linkedin_representative": "Rspress - Search init race fix by awaiting FlexSearch indexing."
@@ -67,6 +67,9 @@
     },
     "wntrblm/nox": {
       "linkedin_representative": "nox - script-mode test prepends the fake package to PYTHONPATH."
+    },
+    "anchore/syft": {
+      "linkedin_representative": "syft - uv.lock dependents link to their locked version via name@version."
     }
   },
   "records": [
