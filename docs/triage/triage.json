@@ -1410,10 +1410,8 @@
     {
       "repo": "anchore/syft",
       "number": 5351,
-      "status": "open",
-      "mergeable": true,
+      "status": "merged",
       "mergeable_state": "clean",
-      "opened": "2026-09-29",
       "last_checked": "2026-09-29",
       "issue": 5340,
       "do_not_duplicate": true,
@@ -1423,7 +1421,10 @@
       "summary": "Fixes #5340. uv.lock forked versions now pair through name@version refs: reads the dependency entry version uv records when several versions of a name are locked, provides name plus name@version, requires the locked ref. Bare names preserved for unique locks. Markers unchanged. Poetry, pdm, pip parsers untouched. Version field is json:\"-\" so no schema bump. +130/-12 across parse_uv_lock.go, python.go, new fixture test.",
       "ci_status": "action_required",
       "ci_note": "DCO success. Validations, CodeQL, Validate GitHub Actions all action_required (first-contribution approval). Do not re-push. No comment.",
-      "note": "Fork devtechedge/syft created 2026-09-29, lives until merge or final close. Local full python package suite has pre-existing Windows path/CRLF/docker failures unrelated to this change; all lock-parser tests pass."
+      "note": "Fork devtechedge/syft created 2026-09-29, lives until merge or final close. Local full python package suite has pre-existing Windows path/CRLF/docker failures unrelated to this change; all lock-parser tests pass.",
+      "merged": "2026-09-29",
+      "merge_commit": "37d45de9fffaac359bea15f450702d0a03a8f545",
+      "merged_at": "2026-09-29T21:23:22Z"
     }
   ],
   "issues": [
@@ -2675,14 +2676,14 @@
     {
       "repo": "anchore/syft",
       "number": 5340,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         5351
       ],
       "do_not_duplicate": true,
       "last_checked": "2026-09-29",
-      "note": "PR #5351 opened 2026-09-29. Do not open a second fix."
+      "note": "Closed by merged PR #5351 (37d45de)."
     }
   ],
   "closed_attempts": [
@@ -3816,6 +3817,12 @@
         3293
       ],
       "focus": "Static site generator. Code fixes target next, not master."
+    },
+    "anchore/syft": {
+      "contributions": [
+        5351
+      ],
+      "focus": ""
     }
   }
 }
