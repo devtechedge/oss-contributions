@@ -269,6 +269,22 @@ The workflow:
 2. Updates `docs/triage/triage.json` (status, merge date, merge commit, last_checked, issue closure, repo contribution list)
 3. Upserts `docs/triage/publications.json` without overwriting `curated: true` copy
 4. Regenerates README in this repo plus professional docs in `devtechedge/jobsearch-private` repo root via `--private-root private`: `Devayan_Mandal-resume.txt`, `linkedin-all-details.txt`, `wellfound.txt`, `linkedin-experience-paste.txt`, and `devayan-all-details.txt` (counts, date, and MERGED_LIST, 30 Sep 2026; all other prose stays Dev's) (moved from `docs/generated/` 21 Sep 2026; `docs/generated/` no longer exists in this repo. The profile README sync renders its fragment in-memory.)
+4d. Carries the same facts into the LOCAL career-ops user layer on Windows. The GitHub targets above
+cannot reach `C:\Users\Devayan Mandal\Desktop\jobs\career-ops`, so that checkout drifts on its own.
+`scripts/sync-local-snapshot.mjs --target <career-ops root>` reads the ledger plus the private details
+file (two API calls) and patches only machine-known tokens in `cv.md`, `config/profile.yml`,
+`modes/_brief.md`, `modes/_profile.md`, `article-digest.md`, and `documents/devayan-all-details.txt`
+(count, as-of date, and the MERGED_LIST block spliced between its markers). It never overwrites a file
+and never touches prose: all six paths sit in career-ops' own `USER_PATHS`, so `node update-system.mjs`
+does not revert them. `--check` reports drift and exits 1 without writing. Scheduled by Windows Task
+Scheduler task `DevTechEdge-OssLocalSnapshot` (logon + every 4h, logs to
+`C:\Users\Devayan Mandal\osswork\logs\sync-local-snapshot.log`), wrapper
+`~/osswork/scripts/sync-local-snapshot.ps1`, which sets `APPDATA` for `gh` and exits non-zero on
+failure. Rule for this script: a replace callback rebuilds the match from its CAPTURE GROUPS, never by
+indexing the match string, and every rule set must be a fixed point (a non-idempotent rule silently
+eats text on the second run). Both mistakes happened once on 30 Sep 2026 and corrupted six files before
+an idempotence guard caught them; keep that guard.
+
 4b. Auto-patches the master resume DOCX `Devayan_Mandal.docx` in `jobsearch-private` root (moved 21 Sep 2026, decoupled 19 Sep 2026): the node sync never renders it and `validate()` does not check it, so Dev can audit and edit it in Word freely. The workflow step `scripts/sync-docx-to-private.py` (wrapping `scripts/patch-resume-docx.py --root private --lib-dir scripts/`) adds each newly merged PR in `IMPORTANCE`/`REPO_TIER` significance order with PR hyperlinks while every other byte passes through untouched. `scripts/render-resume-docx.py` stays as the ranking/condensing reference library but is never executed by the sync. Rule for future targets: same decoupling applies to any new hand-maintained binary, never wire it into the node render path.
 
 5. Updates repository About description. This only works when the `LEDGER_SYNC_TOKEN` secret exists: PATCHing a repo description is admin-level, so `secrets.GITHUB_TOKEN` fails with 403 "Resource not accessible by integration". The run still reports success and About silently goes stale (it sat at 13 while the README already said 17), so after every sync confirm the About count matches the README. Without that secret the profile README step is skipped too.
