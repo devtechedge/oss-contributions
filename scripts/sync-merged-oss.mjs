@@ -447,6 +447,11 @@ function publishLinkedin(root, recs, n, pubs, dryRun, privateRoot = null) {
   const file = privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin);
   let text = fs.readFileSync(file, "utf8");
   text = rewriteCounts(text, n);
+  const repoCount = uniqueRepos(recs).length;
+  text = text.replace(
+    /(\d+ merged upstream pull requests span [^.\n]*? across )\d+( repositories)/g,
+    `$1${repoCount}$2`,
+  );
 
   const grouped = [];
   const seen = new Set();
@@ -701,6 +706,9 @@ function validate(triage, recs, files) {
       .trim();
     if (paste.length > 1990 || paste.length < 1980) problems.push(`linkedin Experience paste=${paste.length} outside 1980-1990 window`);
   }
+  const liRepoCount = liText.match(/merged upstream pull requests span [^.\n]*? across (\d+) repositories/);
+  if (liRepoCount && Number(liRepoCount[1]) !== uniqueRepos(recs).length)
+    problems.push(`linkedin repos=${liRepoCount[1]} expected=${uniqueRepos(recs).length}`);
   const wfText = (files.find(([label]) => label === "wellfound") || [])[1] || "";
   if (wfText) {
     const bioLine = wfText.match(/BIO \(160 character limit\)\n\n([^\n]*)/);
