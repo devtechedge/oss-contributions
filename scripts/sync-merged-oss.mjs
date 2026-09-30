@@ -624,15 +624,14 @@ function publishWellfound(root, recs, n, pubs, own, dryRun, privateRoot = null) 
 }
 
 // devayan-all-details.txt is Dev's full professional picture for job applications
-// (Gemini sidebar context). Desktop copy is the editing truth; this refreshes only
-// machine-known tokens in the private repo copy: the ledger merged count and the
-// tracker count + date. Repo-name selections and all other prose stay Dev's.
+// (Gemini sidebar context). Counts, date, and the MERGED_LIST stay in sync
+// with the ledger on every merge. All other prose stays Dev's.
 const DEVAYAN_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 function fmtDay(iso) {
   const [y, m, d] = iso.split("-").map(Number);
   return `${d} ${DEVAYAN_MONTHS[m - 1]} ${y}`;
 }
-function renderDevayanDetails(prev, n) {
+function renderDevayanDetails(prev, n, recs) {
   const mergedRe = /(Merged )\d+( upstream pull requests)/;
   if (!mergedRe.test(prev)) throw new Error("devayan-details: summary count anchor not found");
   let text = prev.replace(mergedRe, `$1${n}$2`);
@@ -641,12 +640,15 @@ function renderDevayanDetails(prev, n) {
   text = text.replace(ledgerRe, `$1${n}$2`);
   const tracksRe = /(Tracks )\d+( merged pull requests across [^.\n]* as of )\d{1,2} \w+ \d{4}(\.)/;
   if (!tracksRe.test(text)) throw new Error("devayan-details: tracker count/date anchor not found");
-  return text.replace(tracksRe, `$1${n}$2${fmtDay(TODAY)}$3`);
+  text = text.replace(tracksRe, `$1${n}$2${fmtDay(TODAY)}$3`);
+  const bullets = [...recs].sort(sortLedger).map(renderResumeBullet).join("\n");
+  text = splice(text, MARK.resumeStart, MARK.resumeEnd, bullets);
+  return text;
 }
-function publishDevayanDetails(root, n, dryRun, privateRoot = null) {
+function publishDevayanDetails(root, recs, n, dryRun, privateRoot = null) {
   const file = privateOr(root, privateRoot, "docs/devayan-all-details.txt", PRIVATE_FILES.devayan);
   const prev = fs.readFileSync(file, "utf8");
-  const text = renderDevayanDetails(prev, n);
+  const text = renderDevayanDetails(prev, n, recs);
   if (dryRun) return { file, changed: text !== prev };
   return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
 }
@@ -673,7 +675,7 @@ function validate(triage, recs, files) {
   if (triageN !== n) problems.push(`triage merged=${triageN} publications=${n}`);
   // linkedin-all-details.txt no longer carries the per-PR LEDGER list (removed Sep 2026),
   // so only its merged count is checked here, not individual PR numbers.
-  const NUMBER_CHECKED = new Set(["README", "resume"]);
+  const NUMBER_CHECKED = new Set(["README", "resume", "devayan"]);
   for (const [label, text] of files) {
     const c = countIn(text);
     if (c != null && c !== n) problems.push(`${label} count=${c} expected=${n}`);
@@ -988,7 +990,7 @@ async function main() {
   writes.push(publishLinkedin(root, recs, n, pubs, args.dryRun, privateRoot));
   writes.push(publishExperiencePaste(root, args.dryRun, privateRoot));
   writes.push(publishWellfound(root, recs, n, pubs, ownRepos, args.dryRun, privateRoot));
-  writes.push(publishDevayanDetails(root, n, args.dryRun, privateRoot));
+  writes.push(publishDevayanDetails(root, recs, n, args.dryRun, privateRoot));
 
 
   // The master resume DOCX lives in jobsearch-private root, hand-maintained
