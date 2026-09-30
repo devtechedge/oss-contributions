@@ -5,8 +5,11 @@ Wraps scripts/patch-resume-docx.py: for every merged publication record missing
 from the DOCX, adds it in IMPORTANCE significance order. Then enforces the
 two-page budget (Dev, 22 Sep 2026): the OSS list holds at most MAX_SHOWN
 entries by rank_pairs order, and the "N shown here; K more merged" footer is
-rewritten from the dropped set. Idempotent, writes only when bytes change.
-Fails loudly on patch errors so the ledger never silently drifts.
+rewritten from the dropped set. Also keeps the Professional Summary count
+(`Merged N pull requests ...`) in step with publications.json merged_count
+(Dev, 30 Sep 2026): number-only swap, wording untouched. Idempotent, writes
+only when bytes change. Fails loudly on patch errors so the ledger never
+silently drifts.
 """
 from __future__ import annotations
 import argparse
@@ -56,6 +59,7 @@ def main() -> int:
 
     pubs = json.loads(pubs_path.read_text(encoding="utf-8"))
     records = pubs.get("records", [])
+    merged_n = pubs.get("merged_count") or len(records)
     by_key = {}
     for rec in records:
         by_key[f"{rec.get('repo', '')} #{rec.get('number', 0)}".lower()] = rec
@@ -166,6 +170,8 @@ def main() -> int:
         body = doc2.find(f"{{{W}}}body")
         body.remove(footer)
         print("sync-docx: footer removed (list fits)")
+    summary_changed = patch_mod.set_summary_count(doc2, merged_n)
+    print(f"sync-docx: summary_count -> {merged_n} (changed={summary_changed})")
     out = patch_mod.write_docx(docx_path, names2, zin2, doc2, rels2, raw2)
     print(f"sync-docx: trimmed={len(drop_heads)} footer_written={out}")
 

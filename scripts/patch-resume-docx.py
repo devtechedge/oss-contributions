@@ -12,6 +12,11 @@ plus scripts/sync-docx-to-private.py in CI:
       --impact "what changed, one sentence"
       --url "https://github.com/owner/repo/pull/123" [--root private]
   patch-resume-docx.py --remove --head "owner/repo #123" [--root private]
+  patch-resume-docx.py --set-count 30 [--root private]
+
+The Professional Summary line (`Merged N pull requests ...`) is kept in step
+with publications.json merged_count by --set-count, which CI runs on every
+sync (30 Sep 2026). It swaps only the number, never the wording.
 
 Ranking and condensing reuse scripts/render-resume-docx.py as a library
 (IMPORTANCE, REPO_TIER, short_line): new bullets land in significance order and
@@ -76,6 +81,7 @@ DOC_XML = "word/document.xml"
 DOC_RELS = "word/_rels/document.xml.rels"
 PULL_RE = re.compile(r"^https?://github\.com/([^/]+/[^/]+)/pull/(\d+)$")
 HEAD_RE = re.compile(r"^(\S+\s+#\d+)")
+SUMMARY_RE = re.compile(r"Merged \d+ pull requests")
 
 
 def load_render_lib(scripts_dir: Path):
@@ -310,8 +316,68 @@ def cmd_check(doc, rels):
         {"head": head, "url": targets.get(rid, ""), "text": para_text(p)}
         for p, _hl, rid, head in bullet_paragraphs(body, targets)
     ]
-    print(json.dumps({"count": len(bullets), "bullets": bullets}, indent=2))
+    summary_count = None
+    for p in body.iter(f"{{{W}}}p"):
+        t = para_text(p)
+        m = re.search(r"Merged (\d+) pull requests", t)
+        if m and "shown here" not in t:
+            summary_count = int(m.group(1))
+            break
+    print(json.dumps({"count": len(bullets), "bullets": bullets, "summary_count": summary_count}, indent=2))
     return 0
+
+
+def set_summary_count(doc, n: int) -> int:
+    """Rewrite the Professional Summary count in place, preserving runs.
+
+    Finds the paragraph reading `Merged N pull requests ...` (the footer
+    says `shown here; K more merged upstream`, so it never matches) and
+    swaps only the number inside whichever run holds it. All fonts, sizes
+    and proofing splits stay untouched. Returns the number of paragraphs
+    changed (0 or 1). Falls back to a single-run rebuild only when the
+    number is split across runs.
+    """
+    body = doc.find(f"{{{W}}}body")
+    changed = 0
+    for p in body.iter(f"{{{W}}}p"):
+        full = para_text(p)
+        if not SUMMARY_RE.search(full):
+            continue
+        if "shown here" in full:
+            continue
+        hit = False
+        for t in p.iter(f"{{{W}}}t"):
+            if t.text and re.search(r"Merged \d+ pull requests", t.text):
+                new = re.sub(
+                    r"(Merged )\d+( pull requests)",
+                    rf"\g<1>{n}\g<2>",
+                    t.text,
+                )
+                if new != t.text:
+                    t.text = new
+                    hit = True
+        if hit:
+            changed += 1
+            continue
+        # Number split across runs: rebuild the paragraph text with one
+        # run set, cloning the first run's styling. Summary carries no
+        # hyperlink, so collapsing runs is safe here.
+        runs = [r for r in p.findall(f"{{{W}}}r") if r.find(f"{{{W}}}t") is not None]
+        if not runs:
+            continue
+        new_full = re.sub(
+            r"(Merged )\d+( pull requests)", rf"\g<1>{n}\g<2>", full
+        )
+        if new_full == full:
+            continue
+        rpr = copy.deepcopy(runs[0].find(f"{{{W}}}rPr"))
+        for r in runs[1:]:
+            p.remove(r)
+        t0 = runs[0].find(f"{{{W}}}t")
+        t0.text = new_full
+        # runs beyond the first held the tail; clear them via the single run
+        changed += 1
+    return changed
 
 
 def cmd_add(args, doc, rels, lib):
@@ -402,6 +468,7 @@ def main() -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--add", action="store_true")
     ap.add_argument("--remove", action="store_true")
+    ap.add_argument("--set-count", type=int, default=None)
     ap.add_argument("--head", default="")
     ap.add_argument("--lang", default="")
     ap.add_argument("--impact", default="")
@@ -417,7 +484,13 @@ def main() -> int:
     try:
         if args.check:
             return cmd_check(doc, rels)
-        if args.add:
+        if args.set_count is not None:
+            n = args.set_count
+            if n <= 0:
+                sys.exit("patch-resume-docx: --set-count needs a positive number")
+            dirty = set_summary_count(doc, n)
+            print(f"summary_count -> {n} (changed={dirty})")
+        elif args.add:
             if not (args.head and args.lang and args.impact and args.url):
                 sys.exit("patch-resume-docx: --add needs --head, --lang, --impact, --url")
             dirty = cmd_add(args, doc, rels, lib)
