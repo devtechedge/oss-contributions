@@ -55,6 +55,7 @@ These bullets are the evidence for SKILL.md section 5. Do not copy them back int
 - Affiliation-driven picks still need the throughput gate. The 16 Sep regional scans (Capital District and Nordic institutions, per the local scan notes) produced HackRPI #75, Milkyway@home #244 and pygbif #215, all closed silent; cargo-about, from the same Nordic scan but with a 2-PR queue and a maintainer who replied within days, merged twice. Where an org is based is a tie-breaker at most, never a reason to skip a gate.
 - A declined approach rarely gets a second look. livekit/agents #7199 was reworked after the maintainer declined its first approach on a sibling thread, and the rework drew no human reply in 13 days while two sibling PRs were closed as not planned. After a maintainer turns an approach down, get agreement on the replacement in the issue before pushing it.
 - A required "LLM-generated" label is a sorting signal. crewAI's contributing guide asks for an `llm-generated` label; it was never applied and no maintainer looked at the PR. Treat repos that label AI-written PRs as low probability, on top of the disclosure rules in SKILL.md section 5 (single case, inferred).
+- A month-old outside claim answered by the maintainer fixing the issue in-house, often by running his own agent on it, is a cold-repo signal, since it shows outside PRs are not how work lands there. Re-check the repo's last 30 merges for outside authors before claiming more of its issues, and skip it at zero (drips-network/app, 4 Oct 2026).
 
 ## Implementation patterns
 
