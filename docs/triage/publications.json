@@ -24,7 +24,7 @@
       "linkedin_representative": "Biome - dom-traversing rule ported to the Rust nursery linter."
     },
     "better-auth/better-auth": {
-      "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody regression coverage lock."
+      "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody regression test."
     },
     "thirdweb-dev/js": {
       "linkedin_representative": "thirdweb - CheckoutWidget token error propagation fix."
@@ -36,19 +36,19 @@
       "linkedin_representative": "Rspress - Search init race fix by awaiting FlexSearch indexing."
     },
     "pytest-dev/pytest-env": {
-      "linkedin_representative": "pytest-env - native pytest.toml env table docs closing a README gap."
+      "linkedin_representative": "pytest-env - native pytest.toml env table docs."
     },
     "stellar/stellar-docs": {
       "linkedin_representative": "stellar-docs - memo, HTTPS scope, address conversion, and flag doc fixes."
     },
     "ssf0409/tracelens": {
-      "linkedin_representative": "tracelens - report table cell escaping for pipes, breaks, and HTML in summaries."
+      "linkedin_representative": "tracelens - report table cell escaping for pipes, breaks, and HTML."
     },
     "PyO3/maturin": {
-      "linkedin_representative": "maturin - Windows interpreter discovery fix for non-UTF-8 output with coverage."
+      "linkedin_representative": "maturin - Windows interpreter discovery fix for non-UTF-8 output."
     },
     "leo-aa88/reviewgate": {
-      "linkedin_representative": "reviewgate - code comment verbosity check computed from added patch lines only."
+      "linkedin_representative": "reviewgate - comment verbosity check counts only added patch lines."
     },
     "astral-sh/ruff": {
       "linkedin_representative": "ruff - PYI002 diagnostic now names the stub file context for if tests."
@@ -60,7 +60,7 @@
       "linkedin_representative": "js-stellar-sdk - docs pipeline for migration pages, sidebar, and llms bundles."
     },
     "mkdocstrings/python": {
-      "linkedin_representative": "python - inherited relative cross-references now anchor on the defining object."
+      "linkedin_representative": "python - inherited relative cross-refs anchor on the defining object."
     },
     "remix-run/remix": {
       "linkedin_representative": "remix - marker-less doctype and html markup now navigates as a document."
@@ -70,6 +70,9 @@
     },
     "anchore/syft": {
       "linkedin_representative": "syft - uv.lock dependents link to their locked version via name@version."
+    },
+    "open-telemetry/opentelemetry-rust": {
+      "linkedin_representative": "opentelemetry-rust - OTLP/JSON metrics omitting default fields now decode."
     }
   },
   "records": [
@@ -779,6 +782,30 @@
       "resume_bullet": "anchore/syft #5351 (Go) - uv.lock parser links each dependent to the exact locked version it names via name@version refs, so forked pandas/numpy locks produce correct SBOM relationships instead of pairing every dependent to every version. Merged Sep 2026. github.com/anchore/syft/pull/5351",
       "linkedin_bullet": "anchore/syft #5351 - uv.lock parser links each dependent to the exact locked version it names via name@version refs, so forked pandas/numpy locks produce correct SBOM relationships instead of pairing every dependent to every version.",
       "profile_line": "uv.lock parser links each dependent to the exact locked version it names via name@version refs, so forked pandas/numpy locks produce correct SBOM relationships instead of pairing every dependent to every version.",
+      "curated": true
+    },
+    {
+      "id": "open-telemetry/opentelemetry-rust#3762",
+      "repo": "open-telemetry/opentelemetry-rust",
+      "number": 3762,
+      "merged": "2026-10-03",
+      "merged_at": "2026-10-03T10:22:37Z",
+      "merge_commit": "2595432dfb31118084a913774b89dfb489389ddf",
+      "issue": 3755,
+      "url": "https://github.com/open-telemetry/opentelemetry-rust/pull/3762",
+      "languages": [
+        "Rust"
+      ],
+      "org": "open-telemetry",
+      "display_name": "opentelemetry-rust",
+      "profile_title": "opentelemetry-rust #3762",
+      "ledger_logo": "https://github.com/open-telemetry.png?size=40",
+      "profile_logo": "https://github.com/open-telemetry.png?size=48",
+      "profile_logo_alt": "OpenTelemetry",
+      "ledger_what": "Added serde(default) to the ExponentialHistogramDataPoint, Buckets, ValueAtQuantile and Exemplar types in opentelemetry-proto, so OTLP/JSON metrics that omit ProtoJSON default fields now decode instead of the flattened Metric.data silently becoming None. Covered by three JSON regression tests built from the issue payloads.",
+      "resume_bullet": "open-telemetry/opentelemetry-rust #3762 (Rust) - added serde(default) to OTLP/JSON exponential histogram, quantile and exemplar types so metrics omitting default fields decode instead of dropping data; added 3 regression tests. Merged Oct 2026. github.com/open-telemetry/opentelemetry-rust/pull/3762",
+      "linkedin_bullet": "open-telemetry/opentelemetry-rust #3762 - added serde(default) to the ExponentialHistogramDataPoint, Buckets, ValueAtQuantile and Exemplar types in opentelemetry-proto, so OTLP/JSON metrics that omit ProtoJSON default fields now decode instead of the flattened Metric.data silently becoming None.",
+      "profile_line": "added `serde(default)` to the `ExponentialHistogramDataPoint`, `Buckets`, `ValueAtQuantile` and `Exemplar` types in opentelemetry-proto, so OTLP/JSON metrics that omit ProtoJSON default fields now decode instead of the flattened `Metric.data` silently becoming `None`, with three JSON regression tests built from the issue payloads.",
       "curated": true
     }
   ],
