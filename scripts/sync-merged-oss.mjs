@@ -1030,7 +1030,17 @@ async function main() {
   report.merged_count = n;
   report.about_preview = aboutDescription(n, recs);
 
-  if (args.updateAbout && token() && !args.dryRun) {
+  // Public targets (repo About, profile README) are written only after
+  // validate() passes. A red run used to PATCH About and push the profile
+  // README before exiting, publishing the new count with an uncurated stub
+  // while README, triage and the private docs were never committed.
+  const publishPublic = report.problems.length === 0;
+  if (!publishPublic && !args.dryRun) {
+    report.about_skipped = "validate failed";
+    report.profile_readme = { skipped: "validate failed" };
+  }
+
+  if (publishPublic && args.updateAbout && token() && !args.dryRun) {
     try {
       report.about = await updateAbout(n, recs);
     } catch (err) {
@@ -1039,7 +1049,7 @@ async function main() {
     }
   }
 
-  if (!args.dryRun) {
+  if (publishPublic && !args.dryRun) {
     try {
       report.profile_readme = await publishProfileReadmeRemote(recs);
     } catch (err) {
