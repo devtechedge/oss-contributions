@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-10-04",
+  "last_updated": "2026-10-03",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -1234,7 +1234,7 @@
       "mergeable": true,
       "mergeable_state": "blocked",
       "opened": "2026-09-28",
-      "last_checked": "2026-10-04",
+      "last_checked": "2026-10-03",
       "issue": 3005,
       "do_not_duplicate": true,
       "branch": "fix-recursive-type-inference",
