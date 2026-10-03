@@ -3795,7 +3795,7 @@
       "contributions": [
         3762
       ],
-      "focus": "OpenTelemetry Rust SDK and OTLP proto crate; OTLP/JSON serde of generated tonic types. CNCF EasyCLA signed 2026-09-28 for @devtechedge. Org GenAI policy asks for an Assisted-by commit trailer when AI wrote the bulk."
+      "focus": "OpenTelemetry Rust SDK and OTLP proto crate; OTLP/JSON serde of generated tonic types. CNCF EasyCLA signed 2026-09-28 for @devtechedge. Org GenAI policy asks for an Assisted-by commit trailer when AI wrote the bulk. #3762 merged 2026-10-03 (lalitb merged, scottgerring approved). Follow-up lead: the 'fail louder' change Scott proposed on #3755 (custom deserializer so a bad flattened oneof errors instead of becoming None); check for an open PR or issue first. The Exemplar value un-nesting from the 3755-era note already landed upstream in vNext, do not redo it."
     },
     "eclipsesource/jsonforms": {
       "contributions": [
