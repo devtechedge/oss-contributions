@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-10-03",
+  "last_updated": "2026-10-04",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -1706,30 +1706,43 @@
     {
       "repo": "drips-network/app",
       "number": 1845,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
-      "do_not_duplicate": true
+      "related_prs": [
+        1972
+      ],
+      "do_not_duplicate": true,
+      "do_not_refile": true,
+      "closed": "2026-10-03",
+      "last_checked": "2026-10-04",
+      "note": "Claim comment 2026-09-03 never answered. On 2026-10-03 maintainer efstajas had in-house ryph agent (pga-ryph[bot]) open #1972 using the validatedValue approach we proposed (credited @devtechedge); merged 02c705b and issue closed same day. Maintainer PR, not ours; not counted as merged. Nothing to do."
     },
     {
       "repo": "drips-network/app",
       "number": 1509,
       "status": "open",
       "attempted": true,
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-04",
+      "note": "Claim comment 2026-09-03 unanswered after a month; repo merges no outsiders (last 30 merges all staff/bot). Do not implement without a maintainer invite."
     },
     {
       "repo": "drips-network/app",
       "number": 1576,
       "status": "open",
       "attempted": true,
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-04",
+      "note": "Claim comment 2026-09-03 unanswered after a month; repo merges no outsiders (last 30 merges all staff/bot). Do not implement without a maintainer invite."
     },
     {
       "repo": "drips-network/app",
       "number": 1500,
       "status": "open",
       "attempted": true,
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-04",
+      "note": "Claim comment 2026-09-03 unanswered after a month; repo merges no outsiders (last 30 merges all staff/bot). Do not implement without a maintainer invite."
     },
     {
       "repo": "mswjs/interceptors",
@@ -3607,7 +3620,8 @@
     },
     "drips-network/app": {
       "contributions": [],
-      "focus": "Contribution-claim workflow; currently tracked issue claims."
+      "focus": "Contribution-claim workflow; currently tracked issue claims.",
+      "note": "Effectively maintainer-only as of 2026-10-04: last 30 merged PRs are efstajas, jtourkos or pga-ryph[bot]; the maintainer fixes old bugs with his own agent. 4 claim comments from 2026-09-03 got no reply. Cold, skip in scans unless invited."
     },
     "jlowin/fastmcp": {
       "focus": "Python MCP framework; OpenAPI client serialization family raced out 2026-09-14.",
