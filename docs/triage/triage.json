@@ -114,7 +114,20 @@
       "summary": "Fixes #414 crash-consistency: Janitor.trash_file_in now reserves the trashinfo name, moves the file into files/ first, then writes info/NAME.trashinfo; persist() split into reserve_name+persist with backup-copy rename on ENAMETOOLONG truncation; try_trash no longer compensates (no trashinfo exists yet). Regression tests in test_put_crash_consistency.py (crash injection at fs boundary) fail on master and pass with fix; 2 tests in test_put_unwritable_trash_dir.py updated from old metadata-first invariant (documented in PR body). mypy clean. Branch trash-put-move-before-trashinfo; CI action_required (first-time contributor, maintainer approval needed).",
       "last_ping": "2026-09-24",
       "merged": false,
-      "note": "Closed by us 2026-09-28 (Dev, manual cleanup, no closing comment): No human reply in 14 days despite the 24 Sep ping; single-owner repo whose outside PRs take months to merge, 210-line ordering redesign nobody asked for, now conflicting. Do not ping or refile (stale as of 2026-10-04, see update). Update 2026-10-04: maintainer Andrea re-engaged on 1-2 Oct (thread comments 5940094048 and 5952399467). The reorder breaks the Trash spec rule that the trashinfo is created first with O_EXCL, so trash-put stays as is; he specced a listing-side fix instead: trash-list and trash-restore print one 'Found inconsistencies in <trash dir> check them running `trash-list --doctor`' line per trash dir instead of per-file errors, trash-list --doctor prints the per-file messages, --doctor --fix comes later. Dev replied 2026-10-04 IST (comment 5973113973) committing to exactly that scope and asking whether the summary line should go to stderr. Follow-up PR prepared on fork branch devtechedge:list-doctor-summary (2 commits, head 1c4a5dab, summary on stderr until he answers), not yet opened. Fork devtechedge/trash-cli re-created 2026-10-04 for it."
+      "note": "Closed by us 2026-09-28 (Dev, manual cleanup, no closing comment): No human reply in 14 days despite the 24 Sep ping; single-owner repo whose outside PRs take months to merge, 210-line ordering redesign nobody asked for, now conflicting. Do not ping or refile (stale as of 2026-10-04, see update). Update 2026-10-04: maintainer Andrea re-engaged on 1-2 Oct (thread comments 5940094048 and 5952399467). The reorder breaks the Trash spec rule that the trashinfo is created first with O_EXCL, so trash-put stays as is; he specced a listing-side fix instead: trash-list and trash-restore print one 'Found inconsistencies in <trash dir> check them running `trash-list --doctor`' line per trash dir instead of per-file errors, trash-list --doctor prints the per-file messages, --doctor --fix comes later. Dev replied 2026-10-04 IST (comment 5973113973) committing to exactly that scope and asking whether the summary line should go to stderr. Follow-up PR prepared on fork branch devtechedge:list-doctor-summary (2 commits, head 1c4a5dab, summary on stderr until he answers), not yet opened. Fork devtechedge/trash-cli re-created 2026-10-04 for it. Update 2026-10-04: follow-up opened as #428 (signed commits)."
+    },
+    {
+      "repo": "andreafrancia/trash-cli",
+      "number": 428,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-10-04",
+      "last_checked": "2026-10-04",
+      "issue": 414,
+      "do_not_duplicate": true,
+      "summary": "Maintainer-specced follow-up to #416 (comment 5952399467): trash-list and trash-restore print one 'Found inconsistencies in <trash dir> check them running `trash-list --doctor`' line per trash dir (stderr) instead of per-file parse errors; new trash-list --doctor prints the per-file lines. Non-.trashinfo files in info/ also counted. trash-put untouched; --fix out of scope. Branch list-doctor-summary, 2 signed commits (ca9ddf74, d23f72cf). pre-push green locally (785 tests py3.10 and py2.7, mypy both). Open question to maintainer: stderr vs stdout for summary.",
+      "merged": false,
+      "note": "Opened 2026-10-04 after Dev's reply 5973113973 on #416. Possible follow-up: ignore .DS_Store in info/ if maintainer (macOS) finds summary noisy."
     },
     {
       "repo": "wxt-dev/wxt",
