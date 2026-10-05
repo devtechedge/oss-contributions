@@ -9,13 +9,13 @@
   },
   "repos": {
     "pnpm/pnpm": {
-      "linkedin_representative": "pnpm - Unix store path fix, lockfile switch, range prefix, and bail fix."
+      "linkedin_representative": "pnpm - Unix store path, lockfile switch, range prefix, and bail fixes."
     },
     "recharts/recharts": {
       "linkedin_representative": "Recharts - portal SVG focus fix with WebKit ring coverage."
     },
     "brianc/node-postgres": {
-      "linkedin_representative": "node-postgres - Connection.sync ending fix so later socket errors surface."
+      "linkedin_representative": "node-postgres - Connection.sync ending fix so later errors surface."
     },
     "SQLMesh/sqlmesh": {
       "linkedin_representative": "SQLMesh - test construction race fix around shared execution state."
@@ -30,52 +30,79 @@
       "linkedin_representative": "thirdweb - CheckoutWidget token error propagation fix."
     },
     "anza-xyz/kit": {
-      "linkedin_representative": "Anza Kit - codec docs numeric predicate fix in the advanced example."
+      "linkedin_representative": "Anza Kit - codec docs numeric predicate fix in advanced example."
     },
     "web-infra-dev/rspress": {
-      "linkedin_representative": "Rspress - Search init race fix by awaiting FlexSearch indexing."
+      "linkedin_representative": "Rspress - Search init race fix by awaiting FlexSearch index."
     },
     "pytest-dev/pytest-env": {
       "linkedin_representative": "pytest-env - native pytest.toml env table docs."
     },
     "stellar/stellar-docs": {
-      "linkedin_representative": "stellar-docs - memo, HTTPS scope, address conversion, and flag doc fixes."
+      "linkedin_representative": "stellar-docs - memo, HTTPS scope, address conversion, and flag fixes."
     },
     "ssf0409/tracelens": {
-      "linkedin_representative": "tracelens - report table cell escaping for pipes, breaks, and HTML."
+      "linkedin_representative": "tracelens - report table cell escaping for pipes, breaks, HTML."
     },
     "PyO3/maturin": {
-      "linkedin_representative": "maturin - Windows interpreter discovery fix for non-UTF-8 output."
+      "linkedin_representative": "maturin - Windows interpreter discovery for non-UTF-8 output."
     },
     "leo-aa88/reviewgate": {
-      "linkedin_representative": "reviewgate - comment verbosity check counts only added patch lines."
+      "linkedin_representative": "reviewgate - comment verbosity check counts only added lines."
     },
     "astral-sh/ruff": {
-      "linkedin_representative": "ruff - PYI002 diagnostic now names the stub file context for if tests."
+      "linkedin_representative": "ruff - PYI002 diagnostic names the stub file context for if tests."
     },
     "EmbarkStudios/cargo-about": {
       "linkedin_representative": "cargo-about - manifest license quote and insert offset fixes."
     },
     "stellar/js-stellar-sdk": {
-      "linkedin_representative": "js-stellar-sdk - docs pipeline for migration pages, sidebar, and llms bundles."
+      "linkedin_representative": "js-stellar-sdk - docs pipeline for migration pages and llms bundles."
     },
     "mkdocstrings/python": {
-      "linkedin_representative": "python - inherited relative cross-refs anchor on the defining object."
+      "linkedin_representative": "python - inherited relative cross-refs anchor on defining object."
     },
     "remix-run/remix": {
-      "linkedin_representative": "remix - marker-less doctype and html markup now navigates as a document."
+      "linkedin_representative": "remix - marker-less doctype and html markup navigate as a document."
     },
     "wntrblm/nox": {
-      "linkedin_representative": "nox - script-mode test prepends the fake package to PYTHONPATH."
+      "linkedin_representative": "nox - script-mode test prepends fake package to PYTHONPATH."
     },
     "anchore/syft": {
-      "linkedin_representative": "syft - uv.lock dependents link to their locked version via name@version."
+      "linkedin_representative": "syft - uv.lock dependents link to locked version via name@version."
     },
     "open-telemetry/opentelemetry-rust": {
-      "linkedin_representative": "opentelemetry-rust - OTLP/JSON metrics omitting default fields now decode."
+      "linkedin_representative": "opentelemetry-rust - OTLP/JSON metrics omitting defaults now decode."
+    },
+    "mozilla/uniffi-rs": {
+      "linkedin_representative": "uniffi-rs - IndexMap DFS + Custom follow stabilizes recursive flags."
     }
   },
   "records": [
+    {
+      "id": "mozilla/uniffi-rs#3014",
+      "repo": "mozilla/uniffi-rs",
+      "number": 3014,
+      "merged": "2026-10-05",
+      "merged_at": "2026-10-05T14:30:00Z",
+      "merge_commit": "bc9fb38556d9efad4cb74a8a61b5c8a7e741fcea",
+      "issue": 3005,
+      "url": "https://github.com/mozilla/uniffi-rs/pull/3014",
+      "languages": [
+        "Rust"
+      ],
+      "org": "mozilla",
+      "display_name": "uniffi-rs",
+      "profile_title": "uniffi-rs #3014",
+      "ledger_logo": "https://github.com/mozilla.png?size=40",
+      "profile_logo": "https://github.com/mozilla.png?size=48",
+      "profile_logo_alt": "Mozilla",
+      "ledger_what": "find_recursive_enum_names walks IndexMap-backed dependency graphs and both type_names_in_type copies follow Type::Custom, so the recursive flag (and Swift indirect) is stable across builds and cycles through custom types are detected.",
+      "resume_bullet": "mozilla/uniffi-rs #3014 (Rust) - find_recursive_enum_names walks IndexMap-backed dependency graphs and both type_names_in_type copies follow Type::Custom, so the recursive flag (and Swift indirect) is stable across builds and cycles through custom types are detected. Merged Oct 2026. github.com/mozilla/uniffi-rs/pull/3014",
+      "linkedin_bullet": "mozilla/uniffi-rs #3014 - find_recursive_enum_names walks IndexMap-backed dependency graphs and both type_names_in_type copies follow Type::Custom, so the recursive flag (and Swift indirect) is stable across builds and cycles through custom types are detected.",
+      "profile_line": "`find_recursive_enum_names` walks IndexMap-backed dependency graphs and both `type_names_in_type` copies follow `Type::Custom`, so the recursive flag (and Swift indirect) is stable across builds and cycles through custom types are detected.",
+      "curated": true
+    },
     {
       "id": "pnpm/pnpm#14863",
       "repo": "pnpm/pnpm",
