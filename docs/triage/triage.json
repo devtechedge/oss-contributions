@@ -1456,6 +1456,19 @@
       "merged": "2026-09-29",
       "merge_commit": "37d45de9fffaac359bea15f450702d0a03a8f545",
       "merged_at": "2026-09-29T21:23:22Z"
+    },
+    {
+      "repo": "mozilla/sccache",
+      "number": 2881,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-10-06",
+      "last_checked": "2026-10-06",
+      "issue": 2880,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "--debug-preprocessor-cache read default_disk_cache_dir(); now reads config.fallback_cache.dir/preprocessor so SCCACHE_DIR and [cache.disk] dir are honoured. Branch fix-debug-preprocessor-cache-dir, 2 unsigned commits (test e46f739, fix 9ae3614), +81/-2. Tests: 2 in tests/sccache_args.rs + end-to-end check in system.rs test_sccache_command; fail before, pass after.",
+      "note": "Upstream main c0a78c4 red on 2 lib tests (rmeta_notification_delivery_on_rustc_miss) before this PR; PR body says so. ci, integration-tests and Benchmarks runs action_required at open (first-time contributor). xis19 refactors #2571/#2607 (dirty) touch the same line; #2571 would supersede it. No AI disclosure (AGENTS.md does not ask). Fetched body matched, no CR. No comment posted."
     }
   ],
   "issues": [
@@ -3872,6 +3885,12 @@
         5351
       ],
       "focus": ""
+    },
+    "mozilla/sccache": {
+      "contributions": [
+        2881
+      ],
+      "focus": "Shared compilation cache (C/C++/Rust); CLI and disk cache config."
     }
   }
 }
