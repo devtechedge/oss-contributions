@@ -38,7 +38,7 @@ The same workflow also runs hourly against PRs already tracked as `open` in `tri
 | --- | --- | --- |
 | Operational ledger | `docs/triage/triage.json` (oss) | GitHub merge state, merge date, merge commit, last_checked, issue closure, repo contribution list |
 | Publication copy | `docs/triage/publications.json` (oss) | Create a stub for new merged PRs. Never overwrite `curated: true` |
-| Public scoreboard | `README.md` (oss) | Merged count badge, latest date, merged table (date desc) |
+| Public scoreboard | `README.md` (oss) | Merged count badge, latest date, merged table (date desc), separate Co-authored section from `publications.json` `co_authored` |
 | Resume master | `Devayan_Mandal-resume.txt` (private root) | Count + generated merged list |
 | LinkedIn master | `linkedin-all-details.txt` (private root) | Count + generated list + representative bullets |
 | Experience paste | `linkedin-experience-paste.txt` (private root) | Derived from LinkedIn Experience block, markers stripped |
@@ -65,7 +65,7 @@ GitHub profile bio, `docs/PATTERNS.md`, `docs/SKILL.md`, `docs/releases/*`, soci
 
 Running the workflow once or ten times must produce the same files, no duplicate rows, and no commit when nothing changed.
 
-Merged count in `triage.json` == README badge == private resume == private LinkedIn == publications records. Every merged PR has a triage row, a publication record, a README row, a resume bullet, a LinkedIn bullet, a Wellfound entry, and a profile entry. If one is missing, the workflow repairs it. DOCX is validated by `patch --check`, not by count equality.
+Merged count in `triage.json` == README badge == private resume == private LinkedIn == publications records. Every count is authored merges only: triage rows with `role: "co-author"` and the `co_authored` publication records are excluded everywhere and appear only in the README Co-authored section (SKILL.md section 1). Every merged PR has a triage row, a publication record, a README row, a resume bullet, a LinkedIn bullet, a Wellfound entry, and a profile entry. If one is missing, the workflow repairs it. DOCX is validated by `patch --check`, not by count equality.
 
 Binary targets are written only when the bytes change. DOCX zip mtimes are preserved except the two rewritten parts; `write_if_changed` stops the hourly cron committing identical binaries.
 

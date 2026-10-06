@@ -58,7 +58,9 @@ def main() -> int:
     patch_mod = load_lib(oss_root / "scripts", "patch-resume-docx.py")
 
     pubs = json.loads(pubs_path.read_text(encoding="utf-8"))
-    records = pubs.get("records", [])
+    # Co-authored merges live in pubs["co_authored"] and never reach the DOCX
+    # or its count; the role filter is a guard in case one lands in records.
+    records = [r for r in pubs.get("records", []) if (r.get("role") or "author") != "co-author"]
     merged_n = pubs.get("merged_count") or len(records)
     by_key = {}
     for rec in records:

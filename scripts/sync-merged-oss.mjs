@@ -45,7 +45,20 @@ const MARK = {
   resumeEnd: "<<<END:LEDGER:MERGED_LIST>>>",
   linkedinRepStart: "<<<LEDGER:LINKEDIN_REP>>>",
   linkedinRepEnd: "<<<END:LEDGER:LINKEDIN_REP>>>",
+  coauthoredStart: "<!-- ledger:coauthored-table:start -->",
+  coauthoredEnd: "<!-- ledger:coauthored-table:end -->",
 };
+
+// Co-authored merges (6 Oct 2026): a merged PR opened by someone else counts
+// only when Dev's Co-authored-by trailer survives in the merge commit on the
+// default branch. Such a PR carries role "co-author" on its triage record and
+// its publication record lives in publications.json `co_authored`, never in
+// `records`. Missing role means "author". Co-authored merges are never part
+// of any headline merged count; the README lists them in their own section.
+const ROLE_CO_AUTHOR = "co-author";
+function isCoAuthored(rec) {
+  return (rec?.role || "author") === ROLE_CO_AUTHOR;
+}
 
 function parseArgs(argv) {
   const args = {
@@ -215,8 +228,13 @@ function defaultDisplayName(repo) {
   return known[repo] || repo.split("/")[1];
 }
 
+// Authored merges only: this is the set every headline count is built from.
 function mergedRecords(triage) {
-  return (triage.pull_requests || []).filter((p) => p.status === "merged");
+  return (triage.pull_requests || []).filter((p) => p.status === "merged" && !isCoAuthored(p));
+}
+
+function coAuthoredMergedRecords(triage) {
+  return (triage.pull_requests || []).filter((p) => p.status === "merged" && isCoAuthored(p));
 }
 
 function sortLedger(a, b) {
@@ -238,6 +256,10 @@ function sortProfile(a, b) {
 
 function findPub(pubs, repo, number) {
   return (pubs.records || []).find((r) => r.repo === repo && r.number === number);
+}
+
+function findCoAuthoredPub(pubs, repo, number) {
+  return (pubs.co_authored || []).find((r) => r.repo === repo && r.number === number);
 }
 
 function ensurePublication(pubs, facts, { summary, curated } = {}) {
@@ -311,8 +333,29 @@ function joinPubs(triage, pubs) {
     if (!rec) {
       throw new Error(`Missing publication record for ${pr.repo}#${pr.number}`);
     }
+    if (isCoAuthored(rec)) {
+      throw new Error(`${pr.repo}#${pr.number} is co-authored; its publication record belongs in co_authored, not records`);
+    }
     out.push({
       ...rec,
+      merged: rec.merged || pr.merged,
+      merged_at: rec.merged_at || pr.merged_at || (pr.merged ? `${pr.merged}T00:00:00Z` : null),
+      merge_commit: rec.merge_commit || pr.merge_commit || null,
+    });
+  }
+  return out;
+}
+
+function joinCoAuthored(triage, pubs) {
+  const out = [];
+  for (const pr of coAuthoredMergedRecords(triage)) {
+    const rec = findCoAuthoredPub(pubs, pr.repo, pr.number);
+    if (!rec) {
+      throw new Error(`Missing co_authored publication record for ${pr.repo}#${pr.number}`);
+    }
+    out.push({
+      ...rec,
+      primary_author: rec.primary_author || pr.primary_author || null,
       merged: rec.merged || pr.merged,
       merged_at: rec.merged_at || pr.merged_at || (pr.merged ? `${pr.merged}T00:00:00Z` : null),
       merge_commit: rec.merge_commit || pr.merge_commit || null,
@@ -345,6 +388,30 @@ function renderLedgerRow(rec) {
   const logo = rec.ledger_logo || `https://github.com/${orgOf(rec.repo)}.png?size=40`;
   const date = formatDisplayDate(rec.merged_at || rec.merged);
   return `| <img src="${logo}" width="18" /> [${rec.repo}](https://github.com/${rec.repo}) | [#${rec.number}](${rec.url}) | ${rec.ledger_what} | ${date} |`;
+}
+
+function renderCoAuthoredRow(rec) {
+  const logo = rec.ledger_logo || `https://github.com/${orgOf(rec.repo)}.png?size=40`;
+  const date = formatDisplayDate(rec.merged_at || rec.merged);
+  const author = rec.primary_author ? `[@${rec.primary_author}](https://github.com/${rec.primary_author})` : "";
+  return `| <img src="${logo}" width="18" /> [${rec.repo}](https://github.com/${rec.repo}) | [#${rec.number}](${rec.url}) | ${rec.ledger_what} | ${author} | ${date} |`;
+}
+
+// The whole section (heading included) sits between the coauthored markers so
+// an empty list renders nothing. Wording must never match rewriteCounts() or
+// countIn(): no digit before "merged upstream pull requests", no "merged-N".
+function renderCoAuthoredSection(coRecs) {
+  if (coRecs.length === 0) return "";
+  const rows = [...coRecs].sort(sortLedger).map(renderCoAuthoredRow).join("\n");
+  return [
+    "## 🤝 Co-authored pull requests",
+    "",
+    "Merged upstream pull requests opened by another contributor that carry my `Co-authored-by` trailer in the merged commit. They are listed for completeness and are not part of the merged count above.",
+    "",
+    "| Repo | PR | What | Author | Merged |",
+    "| --- | --- | --- | --- | --- |",
+    rows,
+  ].join("\n");
 }
 
 function renderProfileBlock(rec) {
@@ -403,7 +470,7 @@ function aboutDescription(n, recs) {
   throw new Error(`aboutDescription overflow: even minimal form is ${candidates[candidates.length - 1].length} chars (cap ${ABOUT_HARD_CAP})`);
 }
 
-function publishReadme(root, recs, n, dryRun) {
+function publishReadme(root, recs, n, dryRun, coRecs = []) {
   const file = path.join(root, "README.md");
   let text = fs.readFileSync(file, "utf8");
   text = rewriteCounts(text, n);
@@ -417,6 +484,15 @@ function publishReadme(root, recs, n, dryRun) {
       /(## ✅ Merged pull requests\n\n)([\s\S]*?)(\n## 🔀 Open pull requests)/,
       `$1${MARK.tableStart}\n${table}\n${MARK.tableEnd}$3`,
     );
+  }
+  const coSection = renderCoAuthoredSection(coRecs);
+  if (text.includes(MARK.coauthoredStart) && text.includes(MARK.coauthoredEnd)) {
+    text = splice(text, MARK.coauthoredStart, MARK.coauthoredEnd, coSection);
+  } else if (coSection) {
+    const at = text.indexOf(MARK.tableEnd);
+    if (at === -1) throw new Error("README: cannot place co-authored section without merged-table end marker");
+    const cut = at + MARK.tableEnd.length;
+    text = `${text.slice(0, cut)}\n\n${MARK.coauthoredStart}\n${coSection}\n${MARK.coauthoredEnd}${text.slice(cut)}`;
   }
   if (dryRun) return { file, changed: text !== fs.readFileSync(file, "utf8") };
   return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
@@ -673,11 +749,36 @@ function countIn(text) {
   return m ? Number(m[1]) : null;
 }
 
-function validate(triage, recs, files) {
+function validate(triage, recs, files, coRecs = []) {
   const n = recs.length;
   const triageN = mergedRecords(triage).length;
   const problems = [];
   if (triageN !== n) problems.push(`triage merged=${triageN} publications=${n}`);
+  // Co-authored merges never feed a headline count or an authored list.
+  for (const rec of recs) {
+    if (isCoAuthored(rec)) problems.push(`co-authored ${rec.repo}#${rec.number} leaked into authored records`);
+  }
+  const coTriageN = coAuthoredMergedRecords(triage).length;
+  if (coTriageN !== coRecs.length) problems.push(`triage co-authored=${coTriageN} co_authored publications=${coRecs.length}`);
+  const readmeText = (files.find(([label]) => label === "README") || [])[1] || "";
+  const tStart = readmeText.indexOf(MARK.tableStart);
+  const tEnd = readmeText.indexOf(MARK.tableEnd);
+  const mergedTable = tStart !== -1 && tEnd > tStart ? readmeText.slice(tStart, tEnd) : "";
+  const cStart = readmeText.indexOf(MARK.coauthoredStart);
+  const cEnd = readmeText.indexOf(MARK.coauthoredEnd);
+  const coTable = cStart !== -1 && cEnd > cStart ? readmeText.slice(cStart, cEnd) : "";
+  for (const rec of coRecs) {
+    if (!isCoAuthored(rec)) problems.push(`co_authored ${rec.repo}#${rec.number} missing role "${ROLE_CO_AUTHOR}"`);
+    if (!rec.primary_author) problems.push(`co_authored ${rec.repo}#${rec.number} missing primary_author`);
+    const url = `${rec.repo}/pull/${rec.number}`;
+    if (mergedTable.includes(url)) problems.push(`README merged table lists co-authored ${rec.repo}#${rec.number}`);
+    if (!coTable.includes(url)) problems.push(`README co-authored section missing ${rec.repo}#${rec.number}`);
+    for (const [label, text] of files) {
+      if (label === "README") continue;
+      if (text.includes(url) || text.includes(`${rec.repo} #${rec.number}`))
+        problems.push(`${label} lists co-authored ${rec.repo}#${rec.number}`);
+    }
+  }
   // linkedin-all-details.txt no longer carries the per-PR LEDGER list (removed Sep 2026),
   // so only its merged count is checked here, not individual PR numbers.
   const NUMBER_CHECKED = new Set(["README", "resume", "devayan"]);
@@ -779,6 +880,10 @@ async function reconcileOne(triage, pubs, ref, { summary } = {}) {
   const { owner, repoName, repo, number } = typeof ref === "string" ? parsePrRef(ref) : ref;
   if (owner === AUTHOR) {
     return { facts: { repo, number, merged: false, author: AUTHOR }, created: false, skipped: "own-repo" };
+  }
+  const tracked = (triage.pull_requests || []).find((p) => p.repo === repo && p.number === number);
+  if (isCoAuthored(tracked)) {
+    return { facts: { repo, number, merged: tracked.status === "merged" }, created: false, skipped: "co-author" };
   }
   const facts = await fetchPull(owner, repoName, number);
   if (facts.author && facts.author !== AUTHOR) {
@@ -979,6 +1084,7 @@ async function main() {
   }
 
   const recs = joinPubs(triage, pubs);
+  const coRecs = joinCoAuthored(triage, pubs);
   const n = recs.length;
   pubs.last_updated = TODAY;
   pubs.merged_count = n;
@@ -993,7 +1099,7 @@ async function main() {
 
   const privateRoot = args.privateRoot || null;
   const writes = [];
-  writes.push(publishReadme(root, recs, n, args.dryRun));
+  writes.push(publishReadme(root, recs, n, args.dryRun, coRecs));
   writes.push(publishResume(root, recs, n, args.dryRun, privateRoot));
   writes.push(publishLinkedin(root, recs, n, pubs, args.dryRun, privateRoot));
   writes.push(publishExperiencePaste(root, args.dryRun, privateRoot));
@@ -1019,7 +1125,7 @@ async function main() {
     ["wellfound", fs.readFileSync(privateOr(root, privateRoot, "docs/wellfound.txt", PRIVATE_FILES.wellfound), "utf8")],
     ["devayan", fs.readFileSync(privateOr(root, privateRoot, "docs/devayan-all-details.txt", PRIVATE_FILES.devayan), "utf8")],
   ];
-  report.problems = args.dryRun ? [] : validate(triage, recs, fileTexts);
+  report.problems = args.dryRun ? [] : validate(triage, recs, fileTexts, coRecs);
   report.files = writes.filter((w) => w.changed).map((w) => {
     if (privateRoot && w.file.startsWith(privateRoot)) {
       return `private/${path.basename(w.file)}`;
@@ -1028,6 +1134,7 @@ async function main() {
   });
   report.private_root = privateRoot ? path.basename(privateRoot) : null;
   report.merged_count = n;
+  report.co_authored = coRecs.map((r) => prKey(r.repo, r.number));
   report.about_preview = aboutDescription(n, recs);
 
   // Public targets (repo About, profile README) are written only after

@@ -79,7 +79,9 @@ function ghRaw(repo, p) {
 }
 
 function countFrom(pubs) {
-  const recs = pubs.records || [];
+  // Authored merges only: co-authored PRs live in pubs.co_authored and never
+  // count; the role filter guards against one landing in records.
+  const recs = (pubs.records || []).filter((r) => (r.role || "author") !== "co-author");
   return { merged: recs.length, repos: new Set(recs.map((r) => r.repo)).size };
 }
 

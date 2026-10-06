@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler.",
+  "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler. Co-authored merges (role co-author: opened by someone else, Dev's Co-authored-by trailer kept in the merged commit) live in co_authored and never count toward merged_count.",
   "last_updated": "2026-10-06",
   "merged_count": 32,
   "sort": {
@@ -833,6 +833,35 @@
       "resume_bullet": "open-telemetry/opentelemetry-rust #3762 (Rust) - added serde(default) to OTLP/JSON exponential histogram, quantile and exemplar types so metrics omitting default fields decode instead of dropping data; added 3 regression tests. Merged Oct 2026. github.com/open-telemetry/opentelemetry-rust/pull/3762",
       "linkedin_bullet": "open-telemetry/opentelemetry-rust #3762 - added serde(default) to the ExponentialHistogramDataPoint, Buckets, ValueAtQuantile and Exemplar types in opentelemetry-proto, so OTLP/JSON metrics that omit ProtoJSON default fields now decode instead of the flattened Metric.data silently becoming None.",
       "profile_line": "added `serde(default)` to the `ExponentialHistogramDataPoint`, `Buckets`, `ValueAtQuantile` and `Exemplar` types in opentelemetry-proto, so OTLP/JSON metrics that omit ProtoJSON default fields now decode instead of the flattened `Metric.data` silently becoming `None`, with three JSON regression tests built from the issue payloads.",
+      "curated": true
+    }
+  ],
+  "co_authored": [
+    {
+      "id": "langchain-ai/langgraphjs#2828",
+      "repo": "langchain-ai/langgraphjs",
+      "number": 2828,
+      "role": "co-author",
+      "primary_author": "byhow",
+      "adapted_from": 2803,
+      "merged": "2026-10-05",
+      "merged_at": "2026-10-05T22:10:32Z",
+      "merge_commit": "8d6e6cf169fa4750dcb33a5477a6fc65fa3d5ba8",
+      "issue": 2721,
+      "url": "https://github.com/langchain-ai/langgraphjs/pull/2828",
+      "languages": [
+        "TypeScript"
+      ],
+      "org": "langchain-ai",
+      "display_name": "LangGraph.js",
+      "profile_title": "LangGraph.js #2828",
+      "ledger_logo": "https://github.com/langchain-ai.png?size=40",
+      "profile_logo": "https://github.com/langchain-ai.png?size=48",
+      "profile_logo_alt": "LangChain",
+      "ledger_what": "Co-authored the InMemoryStore namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. The InMemory portion was carried over from my closed #2803.",
+      "resume_bullet": "langchain-ai/langgraphjs #2828 (TypeScript, co-author) - co-authored the InMemoryStore namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. The InMemory portion was carried over from my closed #2803. Merged Oct 2026. github.com/langchain-ai/langgraphjs/pull/2828",
+      "linkedin_bullet": "langchain-ai/langgraphjs #2828 (co-author) - co-authored the InMemoryStore namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. The InMemory portion was carried over from my closed #2803.",
+      "profile_line": "co-authored the `InMemoryStore` namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. The InMemory portion was carried over from my closed #2803.",
       "curated": true
     }
   ],
