@@ -47,6 +47,16 @@ This repository serves as the canonical record of upstream contribution activity
 | <img src="https://github.com/thirdweb-dev.png?size=40" width="18" /> [thirdweb-dev/js](https://github.com/thirdweb-dev/js) | [#8938](https://github.com/thirdweb-dev/js/pull/8938) | Genuine `useTokenQuery` request failures are rethrown instead of being converted into `Token Not Supported`; added regression tests and changeset. | 7 Sep 2026 |
 <!-- ledger:merged-table:end -->
 
+<!-- ledger:coauthored-table:start -->
+## 🤝 Co-authored pull requests
+
+Merged upstream pull requests opened by another contributor that carry my `Co-authored-by` trailer in the merged commit. They are listed for completeness and are not part of the merged count above.
+
+| Repo | PR | What | Author | Merged |
+| --- | --- | --- | --- | --- |
+| <img src="https://github.com/langchain-ai.png?size=40" width="18" /> [langchain-ai/langgraphjs](https://github.com/langchain-ai/langgraphjs) | [#2828](https://github.com/langchain-ai/langgraphjs/pull/2828) | Co-authored the InMemoryStore namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. The InMemory portion was carried over from my closed #2803. | [@byhow](https://github.com/byhow) | 5 Oct 2026 |
+<!-- ledger:coauthored-table:end -->
+
 ## ✍️ Selected write-ups
 
 Short technical notes on eight of the merged contributions, covering the root cause, why the obvious fix was wrong, and how each change was verified.
