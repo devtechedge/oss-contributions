@@ -1081,14 +1081,14 @@
       "status": "closed",
       "mergeable": false,
       "opened": "2026-09-14",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-06",
       "issue": 1190,
       "do_not_duplicate": true,
       "branch": "fix/allow-unsafe-custom-binary-no-warn",
       "commit": "2179c19",
       "summary": "Minimal fix for issue #1190 (console.warn on every simpleGit() construction even with unsafe.allowUnsafeCustomBinary opted in): custom-binary.plugin.ts now throws only when the flag is absent and never warns on the opted-in path; throw path byte-identical. Two unit tests in plugin.binary.spec.ts (no warn + command queued when opted in; throw without flag, no warn), proven fail-before/pass-after by stashing src only (1 failed untouched, 22 pass after). Changeset added (simple-git: patch). Repo is a yarn 4 monorepo, jest 29. Local CI replication green where runnable: yarn install/build/build:pkg, biome lint rules on changed files, full unit suite. Pre-existing red on base commit on this Windows box (identical counts with and without the fix): 6 integration suites (19 tests) and test:consumer argv-parser ESM resolution; biome formatter CRLF noise from core.autocrlf. GitHub Actions CI + Lint runs action_required pending first-contribution maintainer approval; Snyk passed. Caution: open PR #1187 (derekm, stale since 2026-08-02) proposes dropping the allowlist entirely; our PR is the minimal independently mergeable option and does not adopt that design. Maintainer steveukx 22 Sep 2026: change will be rolled into v4 release PR #1193 (touches same files); leaving open for maintainer to supersede.",
       "last_ping": "2026-09-22",
-      "note": "Closed by us 2026-09-28 (Dev, no closing comment): superseded, owner rolled the change into the v4 release (#1193, merged 2026-09-23); fork devtechedge/git-js deleted. steveukx replied 2026-09-22 that this change is rolled into the v4 release #1193, which merged 2026-09-23; #1194 is now conflicting and effectively superseded. Kept open by Dev in the 28 Sep cleanup; if it is closed, credit #1193 rather than treating it as a dormancy close.",
+      "note": "Closed by us 2026-09-28 (Dev, no closing comment): superseded, owner rolled the change into the v4 release (#1193, merged 2026-09-23); fork devtechedge/git-js deleted. steveukx replied 2026-09-22 that this change is rolled into the v4 release #1193, which merged 2026-09-23; #1194 is now conflicting and effectively superseded. 6 Oct 2026: #1193 (owner's V4 release) absorbed the change but carries no Co-authored-by trailer for Dev, so per the co-authored rule (SKILL.md section 1) it earns no credit and is not listed anywhere; this stays a closed, uncredited attempt.",
       "merged": false,
       "closed": "2026-09-28"
     },
@@ -3249,7 +3249,7 @@
     },
     {
       "repo": "steveukx/git-js",
-      "reason": "Superseded: owner rolled the change into v4 release #1193 (merged 2026-09-23); closed by us 2026-09-28.",
+      "reason": "Superseded: owner rolled the change into v4 release #1193 (merged 2026-09-23); closed by us 2026-09-28. 6 Oct 2026: #1193 carries no Co-authored-by trailer for Dev, so it earns no credit and is not listed.",
       "number": 1194
     }
   ],
@@ -3435,7 +3435,10 @@
       "contributions": [
         2803
       ],
-      "focus": "JavaScript agent graph/checkpoint stores; namespace isolation/security."
+      "focus": "JavaScript agent graph/checkpoint stores; namespace isolation/security.",
+      "co_authored": [
+        2828
+      ]
     },
     "drizzle-team/drizzle-orm": {
       "contributions": [
