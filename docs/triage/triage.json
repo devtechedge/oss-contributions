@@ -3350,6 +3350,18 @@
       "checked": "2026-09-16",
       "do_not_duplicate": true,
       "reason": "Repo-level hard gate (verified 2026-09-16): .github/workflows/agent-scan.yml runs AgentScan on pull_request_target types:[opened] with a write-capable token before any maintainer sees the PR, skipping only owner/member. Classification 'automation' or a community-flagged account gets the label 'possible bot' AND an immediate close. Observed in-repo: 30 PRs carry the label and at least 15 were closed 12-17 seconds after opening (#8482, #8474, #8465, #8435, #8414, #8394, #8383, #8358, #8348, #8347, #8346, #8341, #8333, #8332, #8331, #8330). The close fires on account signals at open, so AI disclosure in the body does not prevent it. devtechedge is already flagged by AgentScan on the same signals (volume, bulk forks, issue-to-PR in minutes). Scan does not re-fire on reopen, but SKILL.md 7 says never refile an auto-closed issue from the same account and never reply to the auto-close bot, so both branches end badly. Treat sqlfluff/sqlfluff as no-go for this account until the gate changes."
+    },
+    {
+      "repo": "TanStack/router",
+      "issue": 8306,
+      "checked": "2026-10-06",
+      "do_not_duplicate": true,
+      "related_prs": [
+        8613,
+        8576,
+        8292
+      ],
+      "reason": "Contested and owned in-house: tannerlinsley #8613 (opened 2026-10-05, cross-referenced into the issue by maintainer Sheraff), Tarekkharsa #8576 (Related: #8306), shunn2 #8292 (sibling #8233, same useSelector server-snapshot root cause). dasjideepak comment 2026-10-06 proposes a getServerSnapshot option in TanStack/store and offers PRs (soft claim, cross-repo design gate). Our earlier router PRs #8314/#8285 drew no maintainer reply. Do not claim."
     }
   ],
   "repositories": {
