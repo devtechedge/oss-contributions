@@ -8,6 +8,9 @@
     "profile": "display_name asc, number asc"
   },
   "repos": {
+    "nuxt/content": {
+      "linkedin_representative": "Nuxt Content - internal fetch body header fix for 413s."
+    },
     "pnpm/pnpm": {
       "linkedin_representative": "pnpm - Unix store path, lockfile switch, range prefix, and bail fixes."
     },
@@ -860,6 +863,30 @@
       "resume_bullet": "open-telemetry/opentelemetry-rust #3762 (Rust) - added serde(default) to OTLP/JSON exponential histogram, quantile and exemplar types so metrics omitting default fields decode instead of dropping data; added 3 regression tests. Merged Oct 2026. github.com/open-telemetry/opentelemetry-rust/pull/3762",
       "linkedin_bullet": "open-telemetry/opentelemetry-rust #3762 - added serde(default) to the ExponentialHistogramDataPoint, Buckets, ValueAtQuantile and Exemplar types in opentelemetry-proto, so OTLP/JSON metrics that omit ProtoJSON default fields now decode instead of the flattened Metric.data silently becoming None.",
       "profile_line": "added `serde(default)` to the `ExponentialHistogramDataPoint`, `Buckets`, `ValueAtQuantile` and `Exemplar` types in opentelemetry-proto, so OTLP/JSON metrics that omit ProtoJSON default fields now decode instead of the flattened `Metric.data` silently becoming `None`, with three JSON regression tests built from the issue payloads.",
+      "curated": true
+    },
+    {
+      "id": "nuxt/content#3868",
+      "repo": "nuxt/content",
+      "number": 3868,
+      "merged": "2026-10-07",
+      "merged_at": "2026-10-07T12:23:23Z",
+      "merge_commit": "ffa5ac391c0c1b91cce597155bfa85a84ed3c4b5",
+      "issue": 3866,
+      "url": "https://github.com/nuxt/content/pull/3868",
+      "languages": [
+        "TypeScript"
+      ],
+      "org": "nuxt",
+      "display_name": "Nuxt Content",
+      "profile_title": "Nuxt Content #3868",
+      "ledger_logo": "https://github.com/nuxt.png?size=40",
+      "profile_logo": "https://github.com/nuxt.png?size=48",
+      "profile_logo_alt": "Nuxt",
+      "ledger_what": "fetchContent() in Nuxt Content's runtime API no longer forwards the incoming request's content-length, transfer-encoding, content-encoding and expect headers to internal /__nuxt_content requests, so queryCollection(event, ...) after a large upload no longer trips the body size guard with a 413. Covered by a new fetchContent unit test that fails before and passes after.",
+      "resume_bullet": "nuxt/content #3868 (TypeScript) - stopped fetchContent() forwarding body headers to internal content requests so queryCollection after large uploads no longer fails with 413; added a regression test. Merged Oct 2026. github.com/nuxt/content/pull/3868",
+      "linkedin_bullet": "nuxt/content #3868 - fetchContent() no longer forwards content-length, transfer-encoding, content-encoding and expect headers to internal /__nuxt_content requests, so queryCollection(event, ...) after a large upload no longer hits a 413 from the body size guard.",
+      "profile_line": "stopped `fetchContent()` forwarding the incoming request's `content-length`, `transfer-encoding`, `content-encoding` and `expect` headers to internal `/__nuxt_content` requests, so `queryCollection(event, ...)` after a large upload no longer hits a 413, with a new unit regression test.",
       "curated": true
     }
   ],
