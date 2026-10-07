@@ -1520,6 +1520,18 @@
       "merged": false,
       "summary": "Transaction.start() now clears Connection._top_xact when BEGIN raises, so a failed BEGIN no longer turns every later conn.transaction() into a SAVEPOINT that fails with NoActiveSQLTransactionError. Branch fix-failed-begin-top-xact, 2 unsigned commits (test f895d1c, fix a7100fa), +26/-0. test_transaction_failed_begin fails before / passes after.",
       "note": "Issue filed 7 Oct by josumoreno-BP, uncontested (empty timeline), no claim comment (Fixes is the claim). No DCO/required signatures, no AI policy, no PR template. Body match verified, no CR. No comment posted. CI action_required (first-time contributor approval). Local full suite: only test_prefer_standby_picks_master_when_standby_is_down errors, same on master."
+    },
+    {
+      "repo": "apache/datafusion-sqlparser-rs",
+      "number": 2618,
+      "status": "open",
+      "opened": "2026-10-07",
+      "last_checked": "2026-10-07",
+      "issue": 2609,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "PostgreSQL: Add support for DO statement. New Statement::Do { language, code } behind Dialect::supports_do_statement() (PostgreSQL only); code must be a string literal, LANGUAGE accepted before or after it (Display normalizes to DO [LANGUAGE lang] code), duplicate LANGUAGE rejected. Branch postgres-do-statement, 1 unsigned commit 01e94ac, +108/-0 across 6 files. Full cargo test --all-features, clippy, doc, no_std checks green locally; fuzz_parse_sql and fuzz_parse_roundtrip ~150s each clean.",
+      "note": "Issue filed by jvatic, uncontested (no assignee, no comments, no cross-refs). Claim comment issuecomment-6041961694 posted and verified. AGENTS.md requires AI disclosure in PR body (included), PR title <DIALECT>: <desc>, body under 20 lines, and agents must not post reviews or review replies. Apache generative tooling Generated-by trailer is recommended only, not applied. stale.yml closes PRs after 60+7 days inactivity. GenericDialect deliberately not enabled (matches LISTEN/NOTIFY). CI action_required (first-time contributor approval)."
     }
   ],
   "issues": [
@@ -2805,6 +2817,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-09-29",
       "note": "Closed by merged PR #5351 (37d45de)."
+    },
+    {
+      "repo": "apache/datafusion-sqlparser-rs",
+      "number": 2609,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        2618
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-07",
+      "note": "PR #2618 opened 2026-10-07. Do not open a second fix."
     }
   ],
   "closed_attempts": [
@@ -3985,6 +4009,12 @@
         1387
       ],
       "focus": "asyncpg PostgreSQL driver; transaction state handling."
+    },
+    "apache/datafusion-sqlparser-rs": {
+      "contributions": [
+        2618
+      ],
+      "focus": "SQL parser; PostgreSQL dialect statement support."
     }
   }
 }
