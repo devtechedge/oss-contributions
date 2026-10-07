@@ -1486,15 +1486,15 @@
     {
       "repo": "rust-lang/rustup",
       "number": 5130,
-      "status": "open",
-      "mergeable": true,
-      "opened": "2026-10-06",
+      "status": "merged",
       "last_checked": "2026-10-07",
       "issue": 5098,
       "do_not_duplicate": true,
-      "merged": false,
+      "merged": "2026-10-07",
       "summary": "Suggest rustup +<toolchain> component remove <c> when the active toolchain lacks the component but another installed one has it. Mirrors #5094 for targets. Branch component-rm-suggest-toolchain, 2 unsigned commits (0b8c00b9 refactor, 07632461 feature), +133/-6. Closes #5098. Tests use rust-analysis so this PR does not depend on #5129.",
-      "note": "Claim comment 6017215781; rami3l green light 6018301221 asked for separate PRs. Body match verified, no CR. No comment posted. Reviewer risks: rename mismatch falls back to fuzzy hint; hint drops --target; rust-src still panics until #5129 lands."
+      "note": "Claim comment 6017215781; rami3l green light 6018301221 asked for separate PRs. Body match verified, no CR. No comment posted. Reviewer risks: rename mismatch falls back to fuzzy hint; hint drops --target; rust-src still panics until #5129 lands.",
+      "merge_commit": "4078bbbc807879142e890301d34daf60fe9ee791",
+      "merged_at": "2026-10-07T08:11:10Z"
     }
   ],
   "issues": [
