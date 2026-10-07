@@ -9,10 +9,10 @@
   },
   "repos": {
     "nuxt/content": {
-      "linkedin_representative": "Nuxt Content - internal fetch body header fix for 413s."
+      "linkedin_representative": "Nuxt Content - internal fetch 413 fix."
     },
     "pnpm/pnpm": {
-      "linkedin_representative": "pnpm - Unix store path, lockfile switch, range prefix, and bail fixes."
+      "linkedin_representative": "pnpm - store path, lockfile, range prefix, bail fixes."
     },
     "recharts/recharts": {
       "linkedin_representative": "Recharts - portal SVG focus fix with WebKit ring coverage."
@@ -24,7 +24,7 @@
       "linkedin_representative": "SQLMesh - test construction race fix on shared state."
     },
     "biomejs/biome": {
-      "linkedin_representative": "Biome - dom-traversing rule ported to the Rust nursery linter."
+      "linkedin_representative": "Biome - dom-traversing rule ported to Rust linter."
     },
     "better-auth/better-auth": {
       "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody regression test."
@@ -42,7 +42,7 @@
       "linkedin_representative": "pytest-env - native pytest.toml env table docs."
     },
     "stellar/stellar-docs": {
-      "linkedin_representative": "stellar-docs - memo, HTTPS scope, address conversion, and flag fixes."
+      "linkedin_representative": "stellar-docs - memo, HTTPS, address and flag fixes."
     },
     "ssf0409/tracelens": {
       "linkedin_representative": "tracelens - report table cell escaping for pipes, breaks, HTML."
