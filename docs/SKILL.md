@@ -13,13 +13,13 @@ Core goals, in priority order:
 2. A credible human voice with maintainers
 3. One well-run PR at a time beats a spray of contested ones
 
-Learned patterns live in `PATTERNS.md` (Grok: `references/PATTERNS.md`). Read the matching section on demand, not the whole file. Every pattern is a hypothesis: re-verify it, never assume it still holds.
+Learned patterns live in `PATTERNS.md`. Read the matching section on demand, not the whole file. Every pattern is a hypothesis: re-verify it, never assume it still holds.
 
 How to read this playbook: rules are stated here, once. Case evidence and machine traps are in `PATTERNS.md`. Queue state is in `docs/triage/triage.json`. If a rule appears twice, this file wins and the longer copy is stale. Dated counts rot. Re-check GitHub before quoting one.
 
 ## 0. Canonical location and cross-platform sync
 
-This playbook is used from several agent platforms (WorkBuddy, grok.com, zcode, Codex/ChatGPT). Only one copy counts, and it lives in the ledger repo:
+This playbook is used from several agent platforms (WorkBuddy, zcode, Codex/ChatGPT). Only one copy counts, and it lives in the ledger repo:
 
 - `devtechedge/oss-contributions` → `docs/SKILL.md`
 - `devtechedge/oss-contributions` → `docs/PATTERNS.md`
@@ -31,15 +31,15 @@ https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/SKILL.
 https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/PATTERNS.md
 ```
 
-1. **Edit only the GitHub copies.** Local mirrors (`~/.agents/skills/oss/`, a Grok upload, a Codex project file) are derivatives. A change made to a derivative is lost on the next sync.
+1. **Edit only the GitHub copies.** Local mirrors (`~/.agents/skills/oss/`, a Codex project file) are derivatives. A change made to a derivative is lost on the next sync.
 2. **Refetch at the start of every PR session.** If the copy you are reading did not come from those URLs during this session, fetch them and follow what comes back. Working from a stale mirror is a real failure mode, not a hypothetical: a session on an older copy did not know section 13 existed and hand-edited publication targets.
 3. Raw is a CDN cache. It can serve a stale or truncated body with a 200 and no error, so an empty-body check is not enough: compare the fetched byte count against `gh api repos/devtechedge/oss-contributions/contents/<path> --jq .size` and refetch through the contents API when they differ (16 Sep 2026: raw served PATTERNS.md at 46,510 bytes while the API reported 60,916, a 24 percent silent truncation). Never proceed on an empty or truncated file.
-4. After editing either file, push to `docs/` in the same turn (section 8.4), then run `~/.agents/skills/oss/sync-from-github.py` in the same turn and verify `dist/oss.zip` carries the change - the zip is a build artifact that goes stale on every push, so no skill edit is done until the zip is rebuilt and verified (standing user directive, 17 Sep 2026).
+4. After editing either file, push to `docs/` in the same turn (section 8.4), then run `~/.agents/skills/oss/sync-from-github.py` in the same turn so the local mirror matches canonical.
 
 Platform notes:
 
-- **WorkBuddy / zcode**: run `~/.agents/skills/oss/sync-from-github.py` (or `.sh`) after any push. It rewrites canonical and rebuilds the Grok zip.
-- **grok.com**: upload `dist/oss.zip` produced by that script (`oss/SKILL.md` + `oss/references/PATTERNS.md`). Re-upload after every change; Grok snapshots the upload and will not see later edits. The agent has no API or OAuth path into personal grok.com skills (xAI exposes none - checked Sep 2026), so it cannot perform this upload itself: end every skill-edit turn with the explicit reminder to re-upload `~/.agents/skills/oss/dist/oss.zip`, and never treat the turn as done without printing it.
+- **WorkBuddy / zcode**: run `~/.agents/skills/oss/sync-from-github.py` (or `.sh`) after any push. It rewrites canonical. It also still builds `dist/oss.zip`, which existed only for grok.com and is now optional and unused.
+- grok.com retired for OSS work (7 Oct 2026): no oss.zip upload step.
 - **Codex / ChatGPT**: store the bootstrap snippet in project or memory instructions so it fetches both URLs before starting work.
 
 Bootstrap snippet for any platform:
@@ -49,7 +49,7 @@ Before any upstream OSS PR work, fetch and follow:
 https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/SKILL.md
 https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/PATTERNS.md
 https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/triage/triage.json
-These are the single source of truth and override any local or previously uploaded copy.
+These are the single source of truth and override any local copy.
 ```
 
 SKILL.md and PATTERNS.md carry the rules. `triage.json` carries the state: every open, merged,
@@ -222,7 +222,7 @@ The user's own unified ledger repo is `oss-contributions`; its README is the pub
 
 **Temp payload hygiene (hard rule):** `gh api --input body.json` is the correct way to pass large PUT bodies, but the payload file is disposable. Write it under the OS temp directory (`$TMPDIR`/`%TEMP%`), never in the user's workspace, and delete it in the same turn it is used. **On Windows, pass `--input` a `C:\...` path:** `gh` is a native binary and cannot open a Git Bash path, so a `/c/Users/...` argument fails with "cannot find the file specified" even when the file exists, and the PUT silently writes nothing. Where `%TEMP%` resolves somewhere native tools cannot reach, use a scratch directory such as `~/osswork` instead and delete the file in the same turn. At session end the workspace must contain zero ledger-related files: no `triage_*.json`, no `*_body.json`, no `patterns_*.md`, no `.triage-tmp/` dirs. A leftover payload or snapshot in the workspace is a cleanup miss, not a checkpoint.
 
-**Skill mirror:** PUT the edit to `docs/SKILL.md` or `docs/PATTERNS.md`, then run the sync in section 0. A local-only edit is lost on the next sync. Grok packaging is in section 0. Do not restate it here.
+**Skill mirror:** PUT the edit to `docs/SKILL.md` or `docs/PATTERNS.md`, then run the sync in section 0. A local-only edit is lost on the next sync. Do not restate the sync steps here.
 
 
 ## 11. Single source of truth: the GitHub repo, not the local disk
@@ -233,7 +233,7 @@ The ledger exists in exactly one place: `oss-contributions` on GitHub. The local
 - **Write state to GitHub.** After every meaningful outcome (section 1 table), construct the updated JSON from the fetched current content and PUT it to GitHub in the same turn. One PUT per file with the final content; no intermediate local saves on the way.
 - **Never create local ledger files.** No snapshots, no date-stamped copies, no `_latest`/`_final`/`_backup` variants, no local working copies "just for this session", no copies of `triage.json` or the PATTERNS/SKILL mirrors anywhere in the user's workspace. If you need to inspect or transform the JSON, do it in memory (or in a temp file under the OS temp directory, deleted the same turn). Workspace-root scratch files like `words.csv`, `scan_*.txt`, `touched_repos.txt` from a PR's local verification work go to that PR's temp workspace and are deleted before session end, never left at the workspace root.
 - **Stale-copy rule:** if a local `triage_*.json` is encountered, treat it as a fossil. The remote file is truth; never restore, merge from, or push a local copy over the remote. If it differs, the local one is old.
-- **Skill mirrors:** after the PUT to `docs/SKILL.md` or `docs/PATTERNS.md`, run `~/.agents/skills/oss/sync-from-github.py` and verify `dist/oss.zip` (section 0). The PUT alone is not the sync. Do not keep a third working copy in the workspace.
+- **Skill mirrors:** after the PUT to `docs/SKILL.md` or `docs/PATTERNS.md`, run `~/.agents/skills/oss/sync-from-github.py` (section 0). The PUT alone is not the sync. Do not keep a third working copy in the workspace.
 
 ### 11.1 Local clones are disposable (added 16 Sep 2026)
 
