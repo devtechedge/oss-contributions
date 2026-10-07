@@ -1532,6 +1532,18 @@
       "merged": false,
       "summary": "PostgreSQL: Add support for DO statement. New Statement::Do { language, code } behind Dialect::supports_do_statement() (PostgreSQL only); code must be a string literal, LANGUAGE accepted before or after it (Display normalizes to DO [LANGUAGE lang] code), duplicate LANGUAGE rejected. Branch postgres-do-statement, 1 unsigned commit 01e94ac, +108/-0 across 6 files. Full cargo test --all-features, clippy, doc, no_std checks green locally; fuzz_parse_sql and fuzz_parse_roundtrip ~150s each clean.",
       "note": "Issue filed by jvatic, uncontested (no assignee, no comments, no cross-refs). Claim comment issuecomment-6041961694 posted and verified. AGENTS.md requires AI disclosure in PR body (included), PR title <DIALECT>: <desc>, body under 20 lines, and agents must not post reviews or review replies. Apache generative tooling Generated-by trailer is recommended only, not applied. stale.yml closes PRs after 60+7 days inactivity. GenericDialect deliberately not enabled (matches LISTEN/NOTIFY). CI action_required (first-time contributor approval)."
+    },
+    {
+      "repo": "proptest-rs/proptest",
+      "number": 672,
+      "status": "open",
+      "opened": "2026-10-07",
+      "last_checked": "2026-10-07",
+      "issue": 671,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "proptest-state-machine: Sequential::new_tree no longer underflows when the sampled sequence size is 0 (e.g. 0..10 size range). max_ix uses saturating_sub(1) and shrinking starts at Shrink::InitialState for an empty sequence; fixes the debug overflow panic and the release abort on VarBitSet::clear(usize::MAX). Branch fix-state-machine-empty-sequence, 2 unsigned commits (fix 0601e43, changelog link 4d2a690), +70/-4 across 2 files. 3 regression tests fail before / pass after; cargo test -p proptest-state-machine green in debug and release.",
+      "note": "Issue filed 6 Oct by oskarhane, uncontested (empty timeline, no PRs). No claim comment (Fixes is the claim), no comment posted. No AI policy, no PR template, no DCO/CLA. Body match verified, no CR. Main is not rustfmt-clean in test_zero_seen_transitions_optimization (pre-existing, left alone). CI action_required (first-time contributor approval)."
     }
   ],
   "issues": [
