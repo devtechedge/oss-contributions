@@ -1521,7 +1521,7 @@
       "do_not_duplicate": true,
       "merged": false,
       "summary": "Transaction.start() now clears Connection._top_xact when BEGIN raises, so a failed BEGIN no longer turns every later conn.transaction() into a SAVEPOINT that fails with NoActiveSQLTransactionError. Branch fix-failed-begin-top-xact, head af00698, +32/-0. Elvis asked to drop the sleep race; the test now stubs execute. test_transaction_failed_begin fails before / passes after.",
-      "note": "Issue filed 7 Oct by josumoreno-BP, uncontested, no claim comment (Fixes is the claim). No DCO/required signatures, no AI policy, no PR template. Elvis reviewed 7 Oct 18:40Z (review 5446751092) and asked to replace the sleep race with a mock. Follow-up af00698 pushed 8 Oct, signed, reply not posted yet. CI still action_required (first-time contributor approval). Local: tests.test_transaction 7 passed on Python 3.12 / Postgres 16; the new test fails on assertIsNone(_top_xact) if the clear is removed."
+      "note": "Issue filed 7 Oct by josumoreno-BP, uncontested, no claim comment (Fixes is the claim). No DCO/required signatures, no AI policy, no PR template. Elvis reviewed 7 Oct 18:40Z (review 5446751092) and asked to replace the sleep race with a mock. Follow-up af00698 pushed 8 Oct, signed. Reply posted 8 Oct as discussion_r4212255189, fetched body matches, not minimized. PR body updated the same turn to describe the mock. CI still action_required (first-time contributor approval). Local: tests.test_transaction 7 passed on Python 3.12 / Postgres 16; the new test fails on assertIsNone(_top_xact) if the clear is removed."
     },
     {
       "repo": "apache/datafusion-sqlparser-rs",
