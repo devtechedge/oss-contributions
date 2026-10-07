@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler. Co-authored merges (role co-author: opened by someone else, Dev's Co-authored-by trailer kept in the merged commit) live in co_authored and never count toward merged_count.",
-  "last_updated": "2026-10-06",
+  "last_updated": "2026-10-07",
   "merged_count": 32,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
@@ -871,6 +871,6 @@
       "name": "rustup-empty-accidental",
       "desc": "Fork of rust-lang/rustup"
     },
-    "fetched_at": "2026-10-06"
+    "fetched_at": "2026-10-07"
   }
 }
