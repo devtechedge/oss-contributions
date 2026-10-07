@@ -313,6 +313,8 @@ Both public writes run only after `validate()` passes (since 4 Oct 2026, `dc2976
 6. Validates merged counts across every publication target
 7. Commits only when something actually changed
 
+The sync updates repo text only. Live LinkedIn (About and the OSS Experience entry) and the live Wellfound profile (bio, OSS experience, achievements) never update themselves: after every green merge run, paste them from the regenerated `jobsearch-private` files (`linkedin-experience-paste.txt`, the ABOUT block of `linkedin-all-details.txt`, `wellfound.txt`), newest merge first, and confirm the live count matches the README badge. Frozen sections (Wellfound Q&A) stay untouched unless Dev decides otherwise.
+
 Canonical operational record: `docs/triage/triage.json`
 Canonical publication copy: `docs/triage/publications.json`
 Human-only: GitHub profile bio, PATTERNS.md (unless a new generalizable lesson exists), social preview. `all_repos.md` moved to `jobsearch-private` root 21 Sep 2026, still human-only and never synced.
