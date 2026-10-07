@@ -1499,17 +1499,30 @@
     {
       "repo": "nuxt/content",
       "number": 3868,
-      "status": "open",
-      "opened": "2026-10-07",
+      "status": "merged",
       "last_checked": "2026-10-07",
       "issue": 3866,
       "do_not_duplicate": true,
-      "merged": false,
+      "merged": "2026-10-07",
       "summary": "fetchContent() in src/runtime/internal/api.ts no longer forwards the incoming request's content-length, transfer-encoding, content-encoding and expect headers to internal /__nuxt_content requests, so queryCollection(event, ...) after a >600 KB upload no longer hits the 3.16.1 MAX_BODY_BYTES 413 guard; also covers the fetchDatabase sql_dump.txt GET. Branch fix/internal-fetch-body-headers, 1 unsigned commit eb2e111, +59/-0. New test/unit/fetchContent.test.ts fails before / passes after.",
-      "note": "Claim comment 6035674886 (body match verified, no CR). PR body match verified, no CR. No signing/DCO/CLA required (squash merge). No AI policy. Regression from farnabaz #3851 guard."
+      "note": "Claim comment 6035674886 (body match verified, no CR). PR body match verified, no CR. No signing/DCO/CLA required (squash merge). No AI policy. Regression from farnabaz #3851 guard.",
+      "merge_commit": "ffa5ac391c0c1b91cce597155bfa85a84ed3c4b5",
+      "merged_at": "2026-10-07T12:23:23Z"
     }
   ],
   "issues": [
+    {
+      "repo": "nuxt/content",
+      "number": 3866,
+      "status": "closed",
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-07",
+      "related_prs": [
+        3868
+      ],
+      "note": "Closed by merged PR #3868 (ffa5ac3)."
+    },
     {
       "repo": "stellar/js-stellar-sdk",
       "number": 1674,
