@@ -333,8 +333,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   workflows are still queued. Confirm with `actions/runs?head_branch=<branch>` before concluding that
   nothing is running (stellar/js-stellar-sdk #1725, 15 Sep 2026).
 - Fork PRs in some repositories run workflows only after a maintainer approves them, so every run sits
-  at `conclusion: action_required` and the PR reads `mergeable_state: blocked`. Any force-push
-  re-triggers that approval gate, which is a real cost of re-pushing an already-approved PR.
+  at `conclusion: action_required` and the PR reads `mergeable_state: blocked`. Any new push can re-trigger that approval gate, including a fast-forward merge of main, not only a force-push. That is a real cost of updating an already-approved PR.
 - Re-running a failed `pull_request` job does not test current main. `actions/checkout` with no `ref` checks out `github.sha`, and a re-run keeps the merge SHA from the original event. If main goes green after that SHA was created, the PR stays red until a new event rebuilds the merge ref (merge current main into the branch). Compare the failing job's `started_at` with the green main commit before saying a re-run will pass (mozilla/sccache #2881, 8 Oct 2026).
 - Body round-trip check: `gh api .../pulls/N --jq .body` appends a newline and GitHub may store the body without the file's final newline, so a raw byte compare can be off by one on a correct post (sccache #2881, 6 Oct 2026: 669 vs 670 bytes). Compare with trailing newlines stripped, and still fail on any `\r` or interior difference.
 - `gh search prs --limit N` returns N, not a total. Use
