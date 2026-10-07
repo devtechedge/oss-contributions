@@ -262,6 +262,7 @@ Nothing in this playbook ever said to delete a clone, so none ever was.
 - Keep all records in the same arrays and schema. Do not create separate domain-specific queue files - on GitHub or on disk.
 - Preserve existing field names and conventions. Update only affected records and keep dates/state accurate.
 - Historical portfolio documents are informational and must not override canonical triage state.
+- Diff stats in ledger copy (`+N/-M`, file count) come from `gh api repos/OWNER/REPO/pulls/N --jq '[.additions,.deletions,.changed_files]'` after the last push, never hand-summed from local commits: a follow-up commit that edits a line the PR itself added nets out against the base, so per-commit sums overcount (proptest #672, 7 Oct 2026).
 
 ## 13. Merge cascade (do not hand-edit publication targets)
 
