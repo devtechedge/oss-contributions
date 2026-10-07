@@ -1508,6 +1508,18 @@
       "note": "Claim comment 6035674886 (body match verified, no CR). PR body match verified, no CR. No signing/DCO/CLA required (squash merge). No AI policy. Regression from farnabaz #3851 guard.",
       "merge_commit": "ffa5ac391c0c1b91cce597155bfa85a84ed3c4b5",
       "merged_at": "2026-10-07T12:23:23Z"
+    },
+    {
+      "repo": "MagicStack/asyncpg",
+      "number": 1387,
+      "status": "open",
+      "opened": "2026-10-07",
+      "last_checked": "2026-10-07",
+      "issue": 1386,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "Transaction.start() now clears Connection._top_xact when BEGIN raises, so a failed BEGIN no longer turns every later conn.transaction() into a SAVEPOINT that fails with NoActiveSQLTransactionError. Branch fix-failed-begin-top-xact, 2 unsigned commits (test f895d1c, fix a7100fa), +26/-0. test_transaction_failed_begin fails before / passes after.",
+      "note": "Issue filed 7 Oct by josumoreno-BP, uncontested (empty timeline), no claim comment (Fixes is the claim). No DCO/required signatures, no AI policy, no PR template. Body match verified, no CR. No comment posted. CI action_required (first-time contributor approval). Local full suite: only test_prefer_standby_picks_master_when_standby_is_down errors, same on master."
     }
   ],
   "issues": [
@@ -3967,6 +3979,12 @@
         3868
       ],
       "focus": "Nuxt Content module; internal query API and SQL guard."
+    },
+    "MagicStack/asyncpg": {
+      "contributions": [
+        1387
+      ],
+      "focus": "asyncpg PostgreSQL driver; transaction state handling."
     }
   }
 }
