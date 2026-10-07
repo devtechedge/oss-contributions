@@ -4053,7 +4053,7 @@
       "focus": "gRPC Rust (formerly hyperium/tonic). NO-GO for new PRs per Dev 2026-10-08: maintainer says releases are irregular and the team is driving the repo toward GA, wants the public API preserved, and CONTRIBUTING.md 'Generative AI Policy' bans automated agents from publishing to GitHub. Our one approach comment on issue 2919 was flagged spam and has been deleted; fork deleted.",
       "no_go": true,
       "no_go_checked": "2026-10-08",
-      "no_go_reason": "Repo too slow to ship per maintainer (GA focus, irregular releases) and hostile to agent-published text (GenAI policy + a spam-flagged comment). No PRs from this account."
+      "no_go_reason": "Repo too slow to ship per its maintainer (GA focus, irregular Tonic releases) and its CONTRIBUTING Generative AI Policy bans automated agents from publishing to GitHub, so nothing here can be agent-posted; our one comment on issue 2919 was also flagged spam. No PRs from this account."
     }
   }
 }
