@@ -18,7 +18,7 @@
       "linkedin_representative": "node-postgres - Connection.sync ending fix so later errors surface."
     },
     "SQLMesh/sqlmesh": {
-      "linkedin_representative": "SQLMesh - test construction race fix around shared execution state."
+      "linkedin_representative": "SQLMesh - test construction race fix on shared state."
     },
     "biomejs/biome": {
       "linkedin_representative": "Biome - dom-traversing rule ported to the Rust nursery linter."
@@ -63,22 +63,49 @@
       "linkedin_representative": "python - inherited relative cross-refs anchor on defining object."
     },
     "remix-run/remix": {
-      "linkedin_representative": "remix - marker-less doctype and html markup navigate as a document."
+      "linkedin_representative": "remix - marker-less document markup navigates correctly."
     },
     "wntrblm/nox": {
       "linkedin_representative": "nox - script-mode test prepends fake package to PYTHONPATH."
     },
     "anchore/syft": {
-      "linkedin_representative": "syft - uv.lock dependents link to locked version via name@version."
+      "linkedin_representative": "syft - uv.lock dependents link to their locked version."
     },
     "open-telemetry/opentelemetry-rust": {
-      "linkedin_representative": "opentelemetry-rust - OTLP/JSON metrics omitting defaults now decode."
+      "linkedin_representative": "opentelemetry-rust - OTLP/JSON metrics decode without defaults."
     },
     "mozilla/uniffi-rs": {
-      "linkedin_representative": "uniffi-rs - IndexMap DFS + Custom follow stabilizes recursive flags."
+      "linkedin_representative": "uniffi-rs - stable recursive enum flags across builds."
+    },
+    "rust-lang/rustup": {
+      "linkedin_representative": "rustup - component remove hints another toolchain."
     }
   },
   "records": [
+    {
+      "id": "rust-lang/rustup#5130",
+      "repo": "rust-lang/rustup",
+      "number": 5130,
+      "merged": "2026-10-07",
+      "merged_at": "2026-10-07T08:11:10Z",
+      "merge_commit": "4078bbbc807879142e890301d34daf60fe9ee791",
+      "issue": 5098,
+      "url": "https://github.com/rust-lang/rustup/pull/5130",
+      "languages": [
+        "Rust"
+      ],
+      "org": "rust-lang",
+      "display_name": "rustup",
+      "profile_title": "rustup #5130",
+      "ledger_logo": "https://github.com/rust-lang.png?size=40",
+      "profile_logo": "https://github.com/rust-lang.png?size=48",
+      "profile_logo_alt": "Rust",
+      "ledger_what": "rustup component remove now suggests rerunning with rustup +<toolchain> when the active toolchain lacks the component but another installed toolchain has it, mirroring the existing target hint. A new ComponentSuggestion type in errors.rs carries the toolchain or fuzzy-match suggestion, covered by CLI tests.",
+      "resume_bullet": "rust-lang/rustup #5130 (Rust) - rustup component remove now suggests rerunning with rustup +<toolchain> when the active toolchain lacks the component but another installed toolchain has it, mirroring the existing target hint. A new ComponentSuggestion type in errors.rs carries the toolchain or fuzzy-match suggestion, covered by CLI tests. Merged Oct 2026. github.com/rust-lang/rustup/pull/5130",
+      "linkedin_bullet": "rust-lang/rustup #5130 - rustup component remove now suggests rerunning with rustup +<toolchain> when the active toolchain lacks the component but another installed toolchain has it, mirroring the existing target hint. A new ComponentSuggestion type in errors.rs carries the toolchain or fuzzy-match suggestion, covered by CLI tests.",
+      "profile_line": "`rustup component remove` now suggests rerunning with `rustup +<toolchain>` when the active toolchain lacks the component but another installed toolchain has it, mirroring the existing target hint. A new `ComponentSuggestion` type in `errors.rs` carries the toolchain or fuzzy-match suggestion, covered by CLI tests.",
+      "curated": true
+    },
     {
       "id": "mozilla/uniffi-rs#3014",
       "repo": "mozilla/uniffi-rs",
