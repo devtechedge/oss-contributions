@@ -1495,6 +1495,18 @@
       "note": "Claim comment 6017215781; rami3l green light 6018301221 asked for separate PRs. Body match verified, no CR. No comment posted. Reviewer risks: rename mismatch falls back to fuzzy hint; hint drops --target; rust-src still panics until #5129 lands.",
       "merge_commit": "4078bbbc807879142e890301d34daf60fe9ee791",
       "merged_at": "2026-10-07T08:11:10Z"
+    },
+    {
+      "repo": "nuxt/content",
+      "number": 3868,
+      "status": "open",
+      "opened": "2026-10-07",
+      "last_checked": "2026-10-07",
+      "issue": 3866,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "fetchContent() in src/runtime/internal/api.ts no longer forwards the incoming request's content-length, transfer-encoding, content-encoding and expect headers to internal /__nuxt_content requests, so queryCollection(event, ...) after a >600 KB upload no longer hits the 3.16.1 MAX_BODY_BYTES 413 guard; also covers the fetchDatabase sql_dump.txt GET. Branch fix/internal-fetch-body-headers, 1 unsigned commit eb2e111, +59/-0. New test/unit/fetchContent.test.ts fails before / passes after.",
+      "note": "Claim comment 6035674886 (body match verified, no CR). PR body match verified, no CR. No signing/DCO/CLA required (squash merge). No AI policy. Regression from farnabaz #3851 guard."
     }
   ],
   "issues": [
@@ -3936,6 +3948,12 @@
         5130
       ],
       "focus": "Rust toolchain installer; component and target error UX."
+    },
+    "nuxt/content": {
+      "contributions": [
+        3868
+      ],
+      "focus": "Nuxt Content module; internal query API and SQL guard."
     }
   }
 }
