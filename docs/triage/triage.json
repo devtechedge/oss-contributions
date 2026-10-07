@@ -2841,6 +2841,19 @@
       "do_not_duplicate": true,
       "last_checked": "2026-10-07",
       "note": "PR #2618 opened 2026-10-07. Do not open a second fix."
+    },
+    {
+      "repo": "grpc/grpc-rust",
+      "number": 2919,
+      "status": "approach_proposed",
+      "attempted": true,
+      "related_prs": [],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-07",
+      "head_repo": "devtechedge/grpc-rust",
+      "branch": "fix-custom-connector-timeout-code",
+      "commit": "0e84d75",
+      "note": "Claim/approach comment posted by Dev himself 2026-10-07 23:02 IST: https://github.com/grpc/grpc-rust/issues/2919#issuecomment-6043267063 (proposes option (b), asks if a PR against master is welcome, open to the alternative). Issue: connect timeout on a custom connector maps to Code::Unknown instead of Unavailable (filed 2026-10-07 by xchacha20-poly1305, repo formerly hyperium/tonic). Verified 2026-10-07: open, unassigned, 0 comments before ours, clean timeline, no competing PR, bug present on master 2681a7e and v0.14.x. Root cause: endpoint.rs connect_with_connector and connect_with_connector_lazy wrap service::Connector in hyper_timeout::TimeoutConnector from the outside, so its Elapsed error never becomes ConnectError and Status falls back to Unknown (built-in HttpConnector timeout sits inside and gives Unavailable). Fix (option b), pushed to fork, no PR: keep TimeoutConnector outermost and map its error with connector.map_err(ConnectError) in both functions, so the timeout still covers the TLS handshake; option (a) self.connector(TimeoutConnector::new(c)) offered as alternative since it drops TLS from the timeout. Base master (v0.14.x idle since 2026-02-19; offer a backport). +45/-0 in 2 files; two integration tests in tests/integration_tests/tests/status.rs (pending connector + 100ms connect_timeout, lazy and eager) fail on master with Unknown and pass with the fix; fmt clean, clippy on tonic + integration-tests clean (workspace clippy needs cmake for protoc-gen-rust-grpc locally). Policy: CONTRIBUTING Generative AI Policy requires all repo communication to be human-written and bans automated agents publishing to GitHub (Dev posts every comment and opens the PR himself; no disclosure required); LF GenAI policy applies; CNCF EasyCLA already signed for @devtechedge (2026-09-28); no DCO or verified signatures required; .gemini code review bot has PR-opened help/summary/review disabled; no auto-close workflows. PR body follows Google CL guide, first line Fixes #2919. Next step: wait for a maintainer reply on the approach, then Dev opens the PR himself from the pushed branch."
     }
   ],
   "closed_attempts": [
@@ -4027,6 +4040,10 @@
         2618
       ],
       "focus": "SQL parser; PostgreSQL dialect statement support."
+    },
+    "grpc/grpc-rust": {
+      "contributions": [],
+      "focus": "gRPC Rust (formerly hyperium/tonic); tonic::transport status-code mapping. CONTRIBUTING requires human-written PR text and comments and no agent publishing to GitHub; CNCF EasyCLA covers it. Issue 2919 approach proposed 2026-10-07, branch pushed to fork, PR pending maintainer agreement."
     }
   }
 }
