@@ -8,6 +8,9 @@
     "profile": "display_name asc, number asc"
   },
   "repos": {
+    "getzola/zola": {
+      "linkedin_representative": "Zola - serve error overlay HTML escape fix."
+    },
     "nuxt/content": {
       "linkedin_representative": "Nuxt Content - internal fetch 413 fix."
     },
@@ -27,13 +30,13 @@
       "linkedin_representative": "Biome - dom-traversing rule ported to Rust linter."
     },
     "better-auth/better-auth": {
-      "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody regression test."
+      "linkedin_representative": "Better Auth - phone verify OpenAPI requestBody test."
     },
     "thirdweb-dev/js": {
       "linkedin_representative": "thirdweb - CheckoutWidget token error propagation fix."
     },
     "anza-xyz/kit": {
-      "linkedin_representative": "Anza Kit - codec docs numeric predicate fix in advanced example."
+      "linkedin_representative": "Anza Kit - codec docs numeric predicate fix."
     },
     "web-infra-dev/rspress": {
       "linkedin_representative": "Rspress - Search init race fix by awaiting FlexSearch index."
@@ -54,7 +57,7 @@
       "linkedin_representative": "reviewgate - comment verbosity check counts only added lines."
     },
     "astral-sh/ruff": {
-      "linkedin_representative": "ruff - PYI002 diagnostic names the stub file context for if tests."
+      "linkedin_representative": "ruff - PYI002 diagnostic names the stub file context."
     },
     "EmbarkStudios/cargo-about": {
       "linkedin_representative": "cargo-about - manifest license quote and insert offset fixes."
@@ -887,6 +890,30 @@
       "resume_bullet": "nuxt/content #3868 (TypeScript) - stopped fetchContent() forwarding body headers to internal content requests so queryCollection after large uploads no longer fails with 413; added a regression test. Merged Oct 2026. github.com/nuxt/content/pull/3868",
       "linkedin_bullet": "nuxt/content #3868 - fetchContent() no longer forwards content-length, transfer-encoding, content-encoding and expect headers to internal /__nuxt_content requests, so queryCollection(event, ...) after a large upload no longer hits a 413 from the body size guard.",
       "profile_line": "stopped `fetchContent()` forwarding the incoming request's `content-length`, `transfer-encoding`, `content-encoding` and `expect` headers to internal `/__nuxt_content` requests, so `queryCollection(event, ...)` after a large upload no longer hits a 413, with a new unit regression test.",
+      "curated": true
+    },
+    {
+      "id": "getzola/zola#3293",
+      "repo": "getzola/zola",
+      "number": 3293,
+      "merged": "2026-10-08",
+      "merged_at": "2026-10-08T08:16:56Z",
+      "merge_commit": "7efdae79c20bcf9bfbdd52174aa2a8fbe75181e7",
+      "issue": 3288,
+      "url": "https://github.com/getzola/zola/pull/3293",
+      "languages": [
+        "Rust"
+      ],
+      "org": "getzola",
+      "display_name": "Zola",
+      "profile_title": "Zola #3293",
+      "ledger_logo": "https://github.com/getzola.png?size=40",
+      "profile_logo": "https://github.com/getzola.png?size=48",
+      "profile_logo_alt": "getzola",
+      "ledger_what": "The zola serve dev server now escapes HTML in its build-error overlay, so a build error that quotes markup, such as an img tag or an ampersand, shows as literal text instead of being parsed by the browser. The overlay renders through a Tera one_off template with autoescape on, replacing the raw format! string in error_injection_middleware.",
+      "resume_bullet": "getzola/zola #3293 (Rust) - rendered the zola serve build-error overlay through a Tera template with autoescape, so build errors that quote HTML show as text instead of being parsed by the browser. Merged Oct 2026. github.com/getzola/zola/pull/3293",
+      "linkedin_bullet": "getzola/zola #3293 - the zola serve dev server now escapes HTML in its build-error overlay, so a build error that quotes markup, such as an img tag or an ampersand, shows as literal text instead of being parsed by the browser. The overlay renders through a Tera one_off template with autoescape on.",
+      "profile_line": "the `zola serve` dev server now escapes HTML in its build-error overlay, so a build error that quotes markup, such as an `img` tag or `&`, shows as literal text instead of being parsed by the browser. The overlay renders through a Tera `one_off` template with autoescape on, replacing the raw `format!` string in `error_injection_middleware`.",
       "curated": true
     }
   ],
