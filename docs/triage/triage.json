@@ -1547,6 +1547,18 @@
       "merged": false,
       "summary": "proptest-state-machine: Sequential::new_tree no longer underflows when the sampled sequence size is 0 (e.g. 0..10 size range). max_ix uses saturating_sub(1) and shrinking starts at Shrink::InitialState for an empty sequence; fixes the debug overflow panic and the release abort on VarBitSet::clear(usize::MAX). Branch fix-state-machine-empty-sequence, 2 unsigned commits (fix 0601e43, changelog link 4d2a690), +70/-4 across 2 files. 3 regression tests fail before / pass after; cargo test -p proptest-state-machine green in debug and release.",
       "note": "Issue filed 6 Oct by oskarhane, uncontested (empty timeline, no PRs). No claim comment (Fixes is the claim), no comment posted. No AI policy, no PR template, no DCO/CLA. Body match verified, no CR. Main is not rustfmt-clean in test_zero_seen_transitions_optimization (pre-existing, left alone). CI action_required (first-time contributor approval)."
+    },
+    {
+      "repo": "LargeModGames/spotatui",
+      "number": 728,
+      "status": "open",
+      "opened": "2026-10-08",
+      "last_checked": "2026-10-08",
+      "issue": 669,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "Unknown --device name now errors instead of falling through. device_id_by_name returns the first exact-name id, or no device with name '{name}' when nothing matches, the list is empty, or the match has no id. devices() None still returns no device available. --transfer uses the same helper. Branch fix-cli-unknown-device-name, unsigned commit b2eab21. Four helper tests. Old loop kept the last duplicate name; helper keeps the first.",
+      "note": "Issue filed 29 Sep by LargeModGames, good first issue, unassigned, only the bot triage comment, no competing PR. No claim comment (Fixes is the claim). No DCO, no required signatures, no disclosure section. Body match verified, no CR. At open, prepare and Frontend were in progress. Not green yet."
     }
   ],
   "issues": [
@@ -2857,6 +2869,18 @@
       "branch": "fix-custom-connector-timeout-code",
       "commit": "0e84d75",
       "note": "Claim/approach comment posted by Dev himself 2026-10-07 23:02 IST: https://github.com/grpc/grpc-rust/issues/2919#issuecomment-6043267063 (proposes option (b), asks if a PR against master is welcome, open to the alternative). Issue: connect timeout on a custom connector maps to Code::Unknown instead of Unavailable (filed 2026-10-07 by xchacha20-poly1305, repo formerly hyperium/tonic). Verified 2026-10-07: open, unassigned, 0 comments before ours, clean timeline, no competing PR, bug present on master 2681a7e and v0.14.x. Root cause: endpoint.rs connect_with_connector and connect_with_connector_lazy wrap service::Connector in hyper_timeout::TimeoutConnector from the outside, so its Elapsed error never becomes ConnectError and Status falls back to Unknown (built-in HttpConnector timeout sits inside and gives Unavailable). Fix (option b), pushed to fork, no PR: keep TimeoutConnector outermost and map its error with connector.map_err(ConnectError) in both functions, so the timeout still covers the TLS handshake; option (a) self.connector(TimeoutConnector::new(c)) offered as alternative since it drops TLS from the timeout. Base master (v0.14.x idle since 2026-02-19; offer a backport). +45/-0 in 2 files; two integration tests in tests/integration_tests/tests/status.rs (pending connector + 100ms connect_timeout, lazy and eager) fail on master with Unknown and pass with the fix; fmt clean, clippy on tonic + integration-tests clean (workspace clippy needs cmake for protoc-gen-rust-grpc locally). Policy: CONTRIBUTING Generative AI Policy requires all repo communication to be human-written and bans automated agents publishing to GitHub (Dev posts every comment and opens the PR himself; no disclosure required); LF GenAI policy applies; CNCF EasyCLA already signed for @devtechedge (2026-09-28); no DCO or verified signatures required; .gemini code review bot has PR-opened help/summary/review disabled; no auto-close workflows. PR body follows Google CL guide, first line Fixes #2919. Next step: wait for a maintainer reply on the approach, then Dev opens the PR himself from the pushed branch."
+    },
+    {
+      "repo": "LargeModGames/spotatui",
+      "number": 669,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        728
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-08",
+      "note": "PR 728 opened 2026-10-08. Do not open a second fix. Repo asks for one good first issue at a time."
     }
   ],
   "closed_attempts": [
@@ -4057,6 +4081,12 @@
       "no_go": true,
       "no_go_checked": "2026-10-08",
       "no_go_reason": "Repo too slow to ship per its maintainer (GA focus, irregular Tonic releases) and its CONTRIBUTING Generative AI Policy bans automated agents from publishing to GitHub, so nothing here can be agent-posted; our one comment on issue 2919 was also flagged spam. No PRs from this account."
+    },
+    "LargeModGames/spotatui": {
+      "contributions": [
+        728
+      ],
+      "focus": "Spotify TUI, Amsterdam, MIT. Outside PRs welcome. One good first issue at a time. No AgentScan, no pull_request_target. Recent outside commits unsigned. Checked 8 Oct 2026."
     }
   }
 }
