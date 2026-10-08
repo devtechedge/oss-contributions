@@ -1591,6 +1591,20 @@
       "note": "Issue 638 open, unassigned, 0 comments, no competing PR at open. Approved body matched, no CR. No claim comment. CI is action_required. Socket checks passed. Full Postgres suite not run locally.",
       "ci_status": "action_required",
       "ci_note": "github-actions check suite on 74ccbfd is action_required. A maintainer has to approve the workflow. Socket Security checks passed. Not green."
+    },
+    {
+      "repo": "nelmio/NelmioApiDocBundle",
+      "number": 2827,
+      "status": "open",
+      "opened": "2026-10-08",
+      "last_checked": "2026-10-08",
+      "issue": 2805,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "OpenAPI version was dropped on the model path, so a 3.1 examples key was rejected as 3.0. OpenApiAnnotationsReader now passes the document version into validate() for schemas and properties, version-aware for swagger-php 5 vs 6. Branch fix-model-openapi-version, unsigned commit fcad933. Two regressions. Base 5.x.",
+      "note": "Issue 2805 open, unassigned, 0 comments, no competing PR at open. Approved body matched verbatim, no CR. No claim comment. Repo merges outsiders (atierant 2809, maks-oleksyuk 2810 merged 2026-10-05).",
+      "ci_status": "pending",
+      "ci_note": "PR opened this turn, checks not yet read. Re-check on maintainer relay, no polling."
     }
   ],
   "issues": [
@@ -4150,6 +4164,12 @@
         640
       ],
       "focus": "Job queue for PostgreSQL, Southampton UK, MIT. No AI policy, no AgentScan, no pull_request_target. Changesets since 8 Sep 2026. Outside code merges anavalo 622 and Steve0x2a 623 on 2026-09-08, unsigned, no Signed-off-by. Checked 8 Oct 2026."
+    },
+    "nelmio/NelmioApiDocBundle": {
+      "contributions": [
+        2827
+      ],
+      "focus": "Symfony REST API documentation bundle; OpenAPI version handling on the model path."
     }
   }
 }
