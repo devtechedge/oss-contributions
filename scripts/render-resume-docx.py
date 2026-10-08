@@ -451,6 +451,23 @@ REPO_TIER = {
     "mkdocstrings/python": 6,
     "leo-aa88/reviewgate": 6,
     "ssf0409/tracelens": 5,
+    # 8 Oct 2026 (Dev approved): tiers for the merges added after this map was
+    # written, on the scale the entries above already follow. Stars as of that
+    # day. 10: the flagship only. 9: the canonical tool or library of a large
+    # ecosystem, or an official project of a top org (pnpm 37k, ruff 50k,
+    # recharts 28k, node-postgres 13k as the canonical pg driver). 8: a widely
+    # used project from a well-known org, about 3k to 35k stars (better-auth
+    # 30k, remix 33k, maturin 5.8k under PyO3, sqlmesh 3.3k). 7: an org-backed
+    # SDK or tool under about 2.5k stars (rspress 2.3k, cargo-about 0.8k,
+    # js-stellar-sdk 0.7k, anza kit 0.7k, thirdweb 0.6k). 6: a small plugin or
+    # docs repo in an established org. 5: a small personal repo.
+    "rust-lang/rustup": 9,  # 7.1k, the official Rust toolchain installer every Rust user runs
+    "getzola/zola": 8,  # 17.5k, the leading Rust static site generator, community org
+    "anchore/syft": 8,  # 9.7k, widely used SBOM generator from Anchore
+    "mozilla/uniffi-rs": 8,  # 5.0k, Mozilla, ships in Firefox mobile; peer of maturin
+    "nuxt/content": 8,  # 3.7k, first-party Nuxt module; peer of sqlmesh
+    "open-telemetry/opentelemetry-rust": 8,  # 2.7k, official OpenTelemetry (CNCF) Rust SDK; org weight lifts it over rspress
+    "wntrblm/nox": 7,  # 1.6k, established Python test automation tool; peer of rspress
 }
 
 # Where a merge the curated list has never seen enters the ranking. Scoring it

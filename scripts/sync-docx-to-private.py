@@ -12,7 +12,8 @@ add-everything-then-trim loop re-added the dropped tail each run and the
 position tiebreak flipped the shown set between runs). Also keeps the Professional Summary count
 (`Merged N pull requests ...`) in step with publications.json merged_count
 (Dev, 30 Sep 2026): number-only swap, wording untouched. Idempotent, writes
-only when bytes change. Fails loudly on patch errors so the ledger never
+only when bytes change. Shown bullets are displayed in rank order, highest
+first. Fails loudly on patch errors so the ledger never
 silently drifts.
 """
 from __future__ import annotations
@@ -146,6 +147,31 @@ def main() -> int:
 
     # Footer: "20 shown here; K more merged upstream across LANGS."
     _data2, names2, zin2, doc2, rels2, raw2 = patch_mod.read_docx(docx_path)
+    # Display order follows rank, highest first (8 Oct 2026, Dev approved):
+    # the shown bullets are put back into the same body slots they occupy, in
+    # shown_keys order, so a hand-made order in Word does not persist. Only
+    # whole paragraphs move; their runs and wording are untouched.
+    body2 = doc2.find(f"{{{W}}}body")
+    kids = list(body2)
+    slots, by_head = [], {}
+    for idx, p in enumerate(kids):
+        if p.tag != f"{{{W}}}p":
+            continue
+        for hl in p.findall(f"{{{W}}}hyperlink"):
+            head = "".join(t.text or "" for t in hl.iter(f"{{{W}}}t")).strip()
+            if head and re.match(r"^\S+\s+#\d+$", head):
+                slots.append(idx)
+                by_head[head.lower()] = p
+                break
+    if set(by_head) != shown:
+        sys.exit("sync-docx: shown bullets do not match the ranked set, refusing to reorder")
+    current = [kids[i] for i in slots]
+    wanted = [by_head[k] for k in shown_keys]
+    reordered = current != wanted
+    for idx, p in zip(slots, wanted):
+        body2[idx] = p
+    print(f"sync-docx: display order by rank (reordered={reordered})")
+
     footer = None
     for p in doc2.find(f"{{{W}}}body").iter(f"{{{W}}}p"):
         t = "".join(x.text or "" for x in p.iter(f"{{{W}}}t"))
