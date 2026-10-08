@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-10-08",
+  "last_updated": "2026-10-09",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -306,13 +306,16 @@
     {
       "repo": "ratatui/ratatui",
       "number": 2771,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-09",
       "issue": 2767,
       "do_not_duplicate": true,
-      "summary": "portable-atomic feature forwards to ratatui-widgets; Block shadow switches Arc import for no_std targets without atomic pointers."
+      "summary": "portable-atomic feature forwards to ratatui-widgets; Block shadow switches Arc import for no_std targets without atomic pointers.",
+      "merged": false,
+      "closed": "2026-10-08",
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:12Z, no closing comment). Not a maintainer decline. joshka (MEMBER) on 2026-09-20 (comment 5751175889) verified a thumbv6m-none-eabi consumer and said the team was leaning toward this implementation over the Rc approach because it keeps Send and Sync; he asked for the widgets feature to forward ratatui-core and for a no-atomic CI check. Both were pushed 2026-09-21. nullstalgia (NONE, author of still-open 2772) confirmed the build on 2026-10-02 and objected that the 26 Sep reply restated his comment, quoting CONTRIBUTING's AI line about communicating (comment 5957736308). Dev apologised 2026-10-03 (comment 5973123854). reviewDecision stayed REVIEW_REQUIRED. CI green (40 checks). Inference: the batch followed that voice objection; joshka had not rejected the diff. Do not refile or target this repo."
     },
     {
       "repo": "SQLMesh/sqlmesh",
@@ -331,13 +334,16 @@
     {
       "repo": "project-akri/akri",
       "number": 850,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-09",
       "issue": 849,
       "do_not_duplicate": true,
-      "summary": "Config device plugin reports used virtual slots as Unhealthy so kubelet avoids slots still held during reclaim grace period."
+      "summary": "Config device plugin reports used virtual slots as Unhealthy so kubelet avoids slots still held during reclaim grace period.",
+      "merged": false,
+      "closed": "2026-10-08",
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:16Z, no closing comment). Last maintainer contact was gauravgahlot (MEMBER) on 2026-09-17 running /version patch (comment 5711216992), not a review of the approach. Dev pinned enum-ordinalize back to 4.3.2 the same day and asked for workflow approval; the test workflows never started (runs created 2026-09-17 with empty jobs, failure conclusion stamped at close). No ping was logged. By the calendar the 7-plus-7 window from 17 Sep had passed. Not superseded: fang80913's open 844 (cross-referenced 2026-10-08) says it is a different fault behind the same error string and that the two changes are complementary. Inference: stale after a version bump with no code review, ping skipped. Do not refile or target this repo."
     },
     {
       "repo": "vercel/next.js",
@@ -829,16 +835,18 @@
     {
       "repo": "safe-global/safe-docs",
       "number": 902,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-12",
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-09",
       "issue": 826,
       "do_not_duplicate": true,
       "summary": "Correct contract filename in documentation.",
       "last_updated": "2026-09-15",
       "mergeable": true,
       "mergeable_state": "blocked",
-      "note": "Approved by dasanra 2026-09-15 on a5b479d (cryptographically signed, verified, plus DCO trailer). mergeStateStatus BLOCKED on fork-only CI red: Report readability (Rebilly/lexi) and Deploy to staging both need pull-requests:write and get 403 on fork PRs; internal-branch PR 903 passed both. Do not push again without a concrete need: the main ruleset has dismiss_stale_reviews_on_push and require_last_push_approval, so any new push drops the approval the PR is waiting on."
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:11Z, no closing comment). Not a maintainer decline and not the stale-window close: dasanra (COLLABORATOR) approved twice, latest review 5209120566 on 2026-09-15, reviewDecision still APPROVED, and this PR is the named merge-wait exemption in SKILL section 7. Issue 826 is still open with 0 comments and no competing PR. The only reds are the known fork-token 403s (Deploy to staging, Report readability). Inference: swept with the other six despite the approval. Do not ping, refile, or target this repo.",
+      "merged": false,
+      "closed": "2026-10-08"
     },
     {
       "repo": "safe-global/safe-core-sdk",
@@ -1019,13 +1027,16 @@
     {
       "repo": "narwhals-dev/narwhals",
       "number": 3944,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-09-14",
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-09",
       "issue": 3932,
       "do_not_duplicate": true,
       "summary": "docs-only after maintainer review: a chDB example under a dedicated `#### chDB` section of the PyCapsule Interface entry in docs/ecosystem.md, noting that chdb.query executes and materializes the result so later ops run on the chosen backend without pushdown. FBruzzesi (2026-09-15) is ok with the docs but against adding chdb as a test dependency, so the test module, the chdb extra in pyproject.toml and the uv.lock churn were all reverted. Single commit ee2801fb, +17 in one file. Issue 3932 stays open (tests and perf check not done) so the PR says 'Towards #3932'. CI is action_required (first-contribution workflow approval), so no check is green.",
-      "notes": "scope reduced to docs-only on 2026-09-15 per FBruzzesi review comment 5677115123"
+      "notes": "scope reduced to docs-only on 2026-09-15 per FBruzzesi review comment 5677115123",
+      "merged": false,
+      "closed": "2026-10-08",
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:16Z, no closing comment). FBruzzesi (MEMBER) on 2026-09-15 (comment 5677115123) was ok with a docs example and against a chdb test dependency. Dev cut the PR to docs the same day (+17 in ecosystem.md) and replied (comment 5681466801). No maintainer follow-up in the 23 days after that, and no ping was logged, so the calendar was past the close window while the required ping was skipped. Not a decline of the remaining docs. CI never started (workflows created 2026-09-15, empty jobs). Issue 3932 is still open. Do not refile or target this repo."
     },
     {
       "repo": "mkdocstrings/python",
@@ -1241,11 +1252,11 @@
     {
       "repo": "prefix-dev/pixi",
       "number": 7109,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "mergeable_state": "blocked",
       "opened": "2026-09-28",
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-09",
       "issue": 7090,
       "do_not_duplicate": true,
       "branch": "fix/pixi-git-clear-git-env",
@@ -1254,7 +1265,9 @@
       "summary": "Fixes #7090 (pixi_git inherits GIT_DIR/GIT_INDEX_FILE from git hooks, so `git init` for the cache could set core.bare=true on the user's repo). crates/pixi_git/src/git.rs gains a documented GIT_REPOSITORY_ENV_VARS const slice (GIT_DIR, GIT_WORK_TREE, GIT_INDEX_FILE, GIT_OBJECT_DIRECTORY, GIT_ALTERNATE_OBJECT_DIRECTORIES, GIT_COMMON_DIR, referencing githooks(5) and astral-sh/uv 19088) and a git_command(&Path) helper that env_removes them; all 10 git spawn sites (rev-parse x3, init, clone, reset --hard, submodule update, fetch, GitLfs probe and cmd, which covers ls-files, lfs fsck and lfs fetch) route through it. The three per-call .env_remove(GIT_DIR) and the unused pub const GIT_DIR are dropped (no other workspace users); GIT_TERMINAL_PROMPT, GIT_LFS_SKIP_SMUDGE and GIT_ALLOW_PROTOCOL untouched. New test binary crates/pixi_git/tests/git_env.rs (own binary because it sets process env) builds a repo with a linked worktree, sets the hook env, runs GitSource::fetch over file://, and asserts fetch succeeds and shared config, index and HEAD are untouched. Fail-before: case GIT_DIR+GIT_INDEX_FILE writes bare = true into the shared config (exact issue damage); case with GIT_WORK_TREE too writes core.worktree into it. Pass-after: cargo test -p pixi_git 20 passed, cargo fmt --check and clippy -p pixi_git --all-targets -D warnings clean. +186/-19 across 2 files. Commit unsigned (repo has no DCO or signing rule), author Dev M noreply. PR body carries the repo template's AI disclosure (checked, Tools: Grok 4.7), approved by Dev.",
       "ci_status": "in_progress",
       "ci_note": "Workflows ran without a first-contribution approval gate. As of 2026-09-28 16:25 IST: Lint Pull Requests check-title success; Backends - Conda Packages skipped (no backend change); CI in progress with 12 success (lint, cargo test ubuntu and macos, cargo rustdoc, cargo vendor, check cli docs, builds, wheel tests), 15 skipped, 3 pending (cargo test windows x64, Pytest macos aarch64, build binary windows x86_64), and 1 failure: Pytest linux x86_64, 1 failed / 706 passed, test_build_using_rattler_build_backend hit HTTP 503 from pypi.org downloading array_api_extra-0.8.0.tar.gz after retries. Infra flake unrelated to the diff (no git code path); we cannot re-run (no write access). Do not push to retrigger; mention only if a maintainer asks.",
-      "note": "Watch item: draft PR 6578 (wolfv, opened 2026-07-10, last commit 2026-07-14) replaces pixi_git with conda/rattler's rattler_git crate. rattler_git still removes only GIT_DIR (code search 2026-09-28, no GIT_INDEX_FILE), so if 6578 lands first the fix needs porting to rattler_git; offer that rather than yielding. Pre-open checks 2026-09-28: issue open, unassigned, 0 comments, empty timeline; no open PR on GIT_DIR/GIT_INDEX_FILE/hook/7090 among 166 open; no AGENTS.md, CLAUDE.md or AI policy file; no auto-close workflow (lint-pr.yml only checks semantic PR title). Commit message deliberately omits the issue number so the fork push made no cross-reference on the upstream issue before open."
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:13Z, no closing comment). Not past the close window. lucascolley (MEMBER) labelled the PR bug/git/env-vars and renamed it on 2026-10-05, and on issue 7090 asked for a reproducing manifest (comment 5995924847). The issue author had not reproduced it on pixi 0.81.0. No PR review. The 2026-09-28 CI workflow failed Pytest on linux x86_64 and windows x86_64; the 5 Oct rerun was cancelled. Draft 6578 (rattler_git) is still open and was a watch item, not a competing fix. Inference: closed while a maintainer was asking for a repro, not because the approach was declined. Do not refile or target this repo.",
+      "merged": false,
+      "closed": "2026-10-08"
     },
     {
       "repo": "mozilla/uniffi-rs",
@@ -1297,11 +1310,11 @@
     {
       "repo": "EmbarkStudios/cargo-about",
       "number": 325,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "mergeable_state": "blocked",
       "opened": "2026-09-28",
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-09",
       "issue": 316,
       "do_not_duplicate": true,
       "branch": "fix-ring-workaround-0.17.10",
@@ -1309,7 +1322,10 @@
       "head_repo": "devtechedge/cargo-about",
       "summary": "Fixes #316 (ring >= 0.17.10 produces many ISC entries). The ring workaround applied one clarification to every ring >= 0.16.0 and expected four subsections inside a single LICENSE file; from 0.17.10 LICENSE is a short pointer and texts live in LICENSE-other-bits (ISC) and LICENSE-BoringSSL (Apache-2.0 first). Keep the old path for 0.16.0 through 0.17.9; add a >= 0.17.10 branch with expression Apache-2.0 AND ISC, whole-file LICENSE-other-bits (sha256 f025ccfb...) and the Apache License..limitations under the License. subsection of LICENSE-BoringSSL (sha256 43070e2d...). Docs and unit tests for the version selection updated. Optional note in the PR that clarifying the whole BoringSSL file (Go/Chromium notices) can be a follow-up.",
       "ci_status": "success",
-      "ci_note": "All rust-ci.yml checks passed on 8c2415d (Lint, Test ubuntu/macos/windows, MSRV, cargo-deny, cargo-about, Build the book, Publish Check, test_success); Release/Publish Docs skipped as expected. mergeable true, mergeable_state blocked on REVIEW_REQUIRED only. Verified 2026-09-28."
+      "ci_note": "All rust-ci.yml checks passed on 8c2415d (Lint, Test ubuntu/macos/windows, MSRV, cargo-deny, cargo-about, Build the book, Publish Check, test_success); Release/Publish Docs skipped as expected. mergeable true, mergeable_state blocked on REVIEW_REQUIRED only. Verified 2026-09-28.",
+      "merged": false,
+      "closed": "2026-10-08",
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:14Z, no closing comment). Zero issue comments, reviews, or review comments. Opened 2026-09-28, so 10 days, inside the ping window, and no ping was sent. CI green (rust-ci). Issue 316 is still open; the only comment is jalil-salame (NONE) on 2026-09-10 quoting the debug workaround miss. No competing PR. Inference: silent batch of a PR no maintainer had answered yet, not a decline. Do not refile or target this repo. Merged 319 and 320 stand."
     },
     {
       "repo": "open-telemetry/opentelemetry-rust",
@@ -1333,11 +1349,11 @@
     {
       "repo": "eclipsesource/jsonforms",
       "number": 2631,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "mergeable_state": "blocked",
       "opened": "2026-09-28",
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-09",
       "issue": 2627,
       "do_not_duplicate": true,
       "branch": "chore/declare-side-effects",
@@ -1346,7 +1362,9 @@
       "summary": "Closes #2627. Adds sideEffects: false to core, react, material-renderers, vanilla-renderers, angular, angular-material and vue. vue-vanilla and vue-vuetify get [\"*.css\"] so documented CSS imports are not dropped by webpack. +9/-0 across 9 package.json files. dayjs.extend is module-scope in three files; nothing imports those modules bare. ng-packagr copies the field into lib/package.json.",
       "ci_status": "action_required",
       "ci_note": "license/cla success (CLAassistant comment 5874370895, 2026-09-28 16:37Z: all committers signed). Netlify deploy preview success. CI workflow still action_required (first-contribution approval). Do not re-push to retrigger CI.",
-      "note": "CLA signed by Dev and license/cla is success. No disclosure. Repo allows tools and does not require it. Local Windows pnpm lint failed on pre-existing CRLF in untouched Vue files; CI lint is Ubuntu-only and has not run yet."
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:13Z, no closing comment). Not stale and not declined. Issue 2627 was opened by sdirix (MEMBER). CLA signed (comment 5874370895). First-contribution CI sat unstarted until lucas-koehler started run 36452368862 at 2026-10-08 15:46Z; the windows, ubuntu and macos jobs were green by 15:55Z, about four hours before the close. No human review of the diff. Inference: included in the batch the same afternoon CI went green. Do not refile or target this repo.",
+      "merged": false,
+      "closed": "2026-10-08"
     },
     {
       "repo": "sveltejs/devalue",
@@ -1748,7 +1766,9 @@
       "related_prs": [
         2771
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "note": "PR 2771 closed by us 2026-10-08. Issue still open upstream. Do not refile. ",
+      "last_checked": "2026-10-09"
     },
     {
       "repo": "SQLMesh/sqlmesh",
@@ -1771,7 +1791,9 @@
       "related_prs": [
         850
       ],
-      "do_not_duplicate": true
+      "do_not_duplicate": true,
+      "note": "PR 850 closed by us 2026-10-08. Issue still open upstream. Not the same bug as open PR 844. Do not refile. ",
+      "last_checked": "2026-10-09"
     },
     {
       "repo": "astral-sh/ruff",
@@ -2756,8 +2778,8 @@
         7109
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-28",
-      "note": "Claimed with PR 7109 on 2026-09-28. Opened 2026-09-24 by dboeckenhoff (NONE association, issue body notes it was drafted with AI assistance), no assignee, 0 comments. Root cause confirmed on main 154436a9 and reproduced in a test: with GIT_DIR pointing at a linked worktree's gitdir, pixi's `git init` for the cache reinitializes that gitdir and writes core.bare = true into the shared .git/config. The PyPI path was already fixed via uv 19088; this covers pixi's own conda/source git path. Related draft 6578 (rattler_git refactor) is a watch item, not a competitor."
+      "last_checked": "2026-10-09",
+      "note": "PR 7109 closed by us 2026-10-08. lucascolley (MEMBER) asked for a reproducing manifest on 2026-10-05 (comment 5995924847) and none was supplied. Issue still open. Do not refile. Claimed with PR 7109 on 2026-09-28. Opened 2026-09-24 by dboeckenhoff (NONE association, issue body notes it was drafted with AI assistance), no assignee, 0 comments. Root cause confirmed on main 154436a9 and reproduced in a test: with GIT_DIR pointing at a linked worktree's gitdir, pixi's `git init` for the cache reinitializes that gitdir and writes core.bare = true into the shared .git/config. The PyPI path was already fixed via uv 19088; this covers pixi's own conda/source git path. Related draft 6578 (rattler_git refactor) is a watch item, not a competitor."
     },
     {
       "repo": "mozilla/uniffi-rs",
@@ -2792,8 +2814,8 @@
         325
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-28",
-      "note": "Open bug: many ISC entries for ring >= 0.17.10. Attempted via open PR #325."
+      "last_checked": "2026-10-09",
+      "note": "PR 325 closed by us 2026-10-08 with no maintainer reply. Issue still open. Do not refile. Open bug: many ISC entries for ring >= 0.17.10. Attempted via open PR #325."
     },
     {
       "repo": "open-telemetry/opentelemetry-rust",
@@ -2816,8 +2838,8 @@
         2631
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-28",
-      "note": "Maintainer sdirix follow-up from merged #2626, opened 2026-09-15. No comments and no assignee at claim. Attempted via #2631."
+      "last_checked": "2026-10-09",
+      "note": "PR 2631 closed by us 2026-10-08, the afternoon CI first went green. Issue still open. Do not refile. Maintainer sdirix follow-up from merged #2626, opened 2026-09-15. No comments and no assignee at claim. Attempted via #2631."
     },
     {
       "repo": "linebender/kurbo",
@@ -2951,6 +2973,30 @@
       "do_not_duplicate": true,
       "last_checked": "2026-10-08",
       "note": "Open PR 640. No competing PR at claim."
+    },
+    {
+      "repo": "safe-global/safe-docs",
+      "number": 826,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        902
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-09",
+      "note": "PR 902 closed by us 2026-10-08 while still approved by dasanra. Issue still open, 0 comments, no competing PR. Do not refile."
+    },
+    {
+      "repo": "narwhals-dev/narwhals",
+      "number": 3932,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        3944
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-09",
+      "note": "PR 3944 closed by us 2026-10-08 after the docs-only scope cut FBruzzesi asked for on 2026-09-15. Issue still open (tests and perf check were never done). Do not refile."
     }
   ],
   "closed_attempts": [
@@ -3473,6 +3519,62 @@
       "repo": "steveukx/git-js",
       "reason": "Superseded: owner rolled the change into v4 release #1193 (merged 2026-09-23); closed by us 2026-09-28. 6 Oct 2026: #1193 carries no Co-authored-by trailer for Dev, so it earns no credit and is not listed.",
       "number": 1194
+    },
+    {
+      "repo": "safe-global/safe-docs",
+      "issue": 826,
+      "related_pr": 902,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-08 while still APPROVED and waiting on fork CI. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
+    },
+    {
+      "repo": "prefix-dev/pixi",
+      "issue": 7090,
+      "related_pr": 7109,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-08 while a maintainer was asking for a reproducing manifest. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
+    },
+    {
+      "repo": "eclipsesource/jsonforms",
+      "issue": 2627,
+      "related_pr": 2631,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-08 the afternoon first-contribution CI went green. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
+    },
+    {
+      "repo": "EmbarkStudios/cargo-about",
+      "issue": 316,
+      "related_pr": 325,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-08 with no maintainer reply and no ping. Repo is no-go for new PRs. Do not refile. Merged 319 and 320 stand.",
+      "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
+    },
+    {
+      "repo": "ratatui/ratatui",
+      "issue": 2767,
+      "related_pr": 2771,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-08 after a contributor objected to an LLM-style reply. Maintainer had not declined the diff. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
+    },
+    {
+      "repo": "project-akri/akri",
+      "issue": 849,
+      "related_pr": 850,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-08 after a version bump and no code review. Not superseded by 844. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
+    },
+    {
+      "repo": "narwhals-dev/narwhals",
+      "issue": 3932,
+      "related_pr": 3944,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-08 after the requested docs scope cut, with no second look and no ping. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
     }
   ],
   "no_go": [
@@ -3629,13 +3731,21 @@
       "contributions": [
         850
       ],
-      "focus": "Rust/Kubernetes device plugin behavior and lifecycle."
+      "focus": "Rust/Kubernetes device plugin behavior and lifecycle.",
+      "no_go": true,
+      "no_go_checked": "2026-10-09",
+      "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 850 was closed on 2026-10-08 after the 17 Sep version bump and no code review. Open 844 is a different fault, not a replacement.",
+      "note": "No further PRs per Dev 2026-10-09. 850 closed by us 2026-10-08. Do not refile or target."
     },
     "ratatui/ratatui": {
       "contributions": [
         2771
       ],
-      "focus": "Rust terminal UI; portability/no_std and atomic support."
+      "focus": "Rust terminal UI; portability/no_std and atomic support.",
+      "no_go": true,
+      "no_go_checked": "2026-10-09",
+      "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 2771 was closed on 2026-10-08 after nullstalgia objected to an LLM-style reply. joshka had been leaning toward shipping the diff and had not declined it.",
+      "note": "No further PRs per Dev 2026-10-09. 2771 closed by us 2026-10-08. Do not refile or target."
     },
     "vercel/next.js": {
       "contributions": [
@@ -3785,7 +3895,10 @@
         902
       ],
       "focus": "Safe documentation; address, signature, and deployment guidance.",
-      "note": "#905 and #904 closed by us 2026-09-23 after the 22 Sep nudge. Do not ping or refile those two. #902 stays open, approved and waiting on merge. Do not ping #902. Fork kept."
+      "note": "No further PRs per Dev 2026-10-09. 905 and 904 closed by us 2026-09-23. 902 closed by us 2026-10-08 while still approved and blocked on fork CI. Do not ping, refile, or target.",
+      "no_go": true,
+      "no_go_checked": "2026-10-09",
+      "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 902 was still approved by dasanra and blocked only on fork-token CI when it was closed in the 8 Oct silent batch. 904 and 905 were already closed on 2026-09-23."
     },
     "solana-foundation/program-examples": {
       "contributions": [
@@ -4015,7 +4128,10 @@
         325
       ],
       "focus": "Rust cargo plugin that generates license listings; license resolution and cargo manifest synthesis.",
-      "note": "#325 (opened 2026-09-28, awaiting review) version-gates the ring workaround: 0.16.0 to 0.17.9 keep the LICENSE subsection clarification, 0.17.10+ use LICENSE-other-bits plus the Apache-2.0 section of LICENSE-BoringSSL. A future ring license re-layout needs another version branch; the tell is the debug log line failed to find subsection starting with."
+      "note": "No further PRs per Dev 2026-10-09. 319 and 320 stay merged. 325 closed by us 2026-10-08 with no maintainer reply. Do not refile or target.",
+      "no_go": true,
+      "no_go_checked": "2026-10-09",
+      "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 325 was closed on 2026-10-08 with no maintainer reply. Merged 319 and 320 stay contributions."
     },
     "gbif/pygbif": {
       "contributions": [
@@ -4052,7 +4168,11 @@
       "contributions": [
         7109
       ],
-      "focus": "Rust package manager (conda + PyPI); pixi_git subprocess environment hygiene."
+      "focus": "Rust package manager (conda + PyPI); pixi_git subprocess environment hygiene.",
+      "no_go": true,
+      "no_go_checked": "2026-10-09",
+      "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 7109 was closed on 2026-10-08 while lucascolley (MEMBER) was asking for a manifest that reproduces issue 7090.",
+      "note": "No further PRs per Dev 2026-10-09. 7109 closed by us 2026-10-08. Do not refile or target."
     },
     "mozilla/uniffi-rs": {
       "contributions": [
@@ -4076,7 +4196,11 @@
       "contributions": [
         2631
       ],
-      "focus": "JSON Schema form renderer. sideEffects declarations on the published packages."
+      "focus": "JSON Schema form renderer. sideEffects declarations on the published packages.",
+      "no_go": true,
+      "no_go_checked": "2026-10-09",
+      "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 2631 was closed on 2026-10-08 about four hours after lucas-koehler started its first CI run and the three OS jobs went green.",
+      "note": "No further PRs per Dev 2026-10-09. 2631 closed by us 2026-10-08. Do not refile or target."
     },
     "sveltejs/devalue": {
       "contributions": [
@@ -4170,6 +4294,16 @@
         2827
       ],
       "focus": "Symfony REST API documentation bundle; OpenAPI version handling on the model path."
+    },
+    "narwhals-dev/narwhals": {
+      "contributions": [
+        3944
+      ],
+      "focus": "Python dataframe compatibility layer; Arrow interop docs.",
+      "no_go": true,
+      "no_go_checked": "2026-10-09",
+      "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 3944 was closed on 2026-10-08 after the docs-only cut FBruzzesi asked for, with no second look.",
+      "note": "No further PRs per Dev 2026-10-09. 3944 closed by us 2026-10-08. Do not refile or target."
     }
   }
 }
