@@ -1494,15 +1494,17 @@
     {
       "repo": "rust-lang/rustup",
       "number": 5129,
-      "status": "open",
-      "mergeable": true,
+      "status": "merged",
+      "mergeable": false,
       "opened": "2026-10-06",
-      "last_checked": "2026-10-08",
+      "last_checked": "2026-10-09",
       "issue": 5098,
       "do_not_duplicate": true,
-      "merged": false,
+      "merged": "2026-10-08",
       "summary": "Don't panic on rustup component remove rust-src when the toolchain lacks it; fall through to the normal missing-component error. Branch fix-target-less-component-rm-panic, 1 unsigned commit 403511b9, +22/-8. Found while working #5098; separate PR per rami3l. Test remove_targetless_component_not_installed fails before / passes after.",
-      "note": "No signing/DCO required (ruleset + recent history). Body match verified, no CR. No comment posted. Sibling of #5130."
+      "note": "No signing/DCO required (ruleset + recent history). Body match verified, no CR. No comment posted. Sibling of #5130. Merged by rami3l (MEMBER) at 2026-10-08T22:06:16Z; merge commit 0e3ac4af. Missed by 22:05Z sync.",
+      "merged_at": "2026-10-08T22:06:16Z",
+      "merge_commit": "0e3ac4afd0c4ea76dc2751aa632b07dfc852ca95"
     },
     {
       "repo": "rust-lang/rustup",
