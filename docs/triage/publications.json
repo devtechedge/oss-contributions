@@ -9,7 +9,7 @@
   },
   "repos": {
     "LargeModGames/spotatui": {
-      "linkedin_representative": "spotatui - unknown --device name now errors."
+      "linkedin_representative": "spotatui - --device errors and LRC tag fixes."
     },
     "getzola/zola": {
       "linkedin_representative": "Zola - serve error overlay HTML escape fix."
@@ -941,6 +941,30 @@
       "resume_bullet": "LargeModGames/spotatui #728 (Rust) - unknown --device names now error instead of playing on the saved device, using the same error --transfer already used. Merged Oct 2026. github.com/LargeModGames/spotatui/pull/728",
       "linkedin_bullet": "LargeModGames/spotatui #728 - unknown --device names now error instead of playing on the saved device. set_device used to return success when nothing matched, including an empty list. device_id_by_name now shares the no device with name error --transfer already used.",
       "profile_line": "unknown `--device` names now error instead of playing on the saved device. `set_device` used to return success when nothing matched, including an empty list. `device_id_by_name` returns the first exact-name id, or the same `no device with name` error `--transfer` already used.",
+      "curated": true
+    },
+    {
+      "id": "LargeModGames/spotatui#729",
+      "repo": "LargeModGames/spotatui",
+      "number": 729,
+      "merged": "2026-10-08",
+      "merged_at": "2026-10-08T18:20:03Z",
+      "merge_commit": "61aa5b6143783a3ef07e9a3704bc4fe334d9ad88",
+      "issue": 673,
+      "url": "https://github.com/LargeModGames/spotatui/pull/729",
+      "languages": [
+        "Rust"
+      ],
+      "org": "LargeModGames",
+      "display_name": "spotatui",
+      "profile_title": "spotatui #729",
+      "ledger_logo": "https://github.com/LargeModGames.png?size=40",
+      "profile_logo": "https://github.com/LargeModGames.png?size=48",
+      "profile_logo_alt": "LargeModGames",
+      "ledger_what": "parse_synced_lyrics now drops LRC header tags like [ar:] and [offset:+500] instead of turning them into blank lyric lines; an [offset:+500] tag had become a blank line at 8:20 that froze the highlight. One-digit fractions now read as tenths of a second, and fractions past three digits keep the first three as milliseconds.",
+      "resume_bullet": "LargeModGames/spotatui #729 (Rust) - synced-lyrics parsing now drops LRC header tags instead of showing them as blank lines that froze the highlight, and reads one-digit fractions as tenths of a second. Merged Oct 2026. github.com/LargeModGames/spotatui/pull/729",
+      "linkedin_bullet": "LargeModGames/spotatui #729 - parse_synced_lyrics now drops LRC header tags like [ar:] and [offset:+500] instead of turning them into blank lyric lines that froze the highlight, and one-digit fractions now read as tenths of a second.",
+      "profile_line": "`parse_synced_lyrics` now drops LRC header tags like `[ar:]` and `[offset:+500]` instead of turning them into blank lyric lines; an `[offset:+500]` tag had become a blank line at 8:20 that froze the highlight. One-digit fractions now read as tenths of a second, and fractions past three digits keep the first three as milliseconds.",
       "curated": true
     }
   ],

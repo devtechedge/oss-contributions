@@ -468,6 +468,7 @@ REPO_TIER = {
     "nuxt/content": 8,  # 3.7k, first-party Nuxt module; peer of sqlmesh
     "open-telemetry/opentelemetry-rust": 8,  # 2.7k, official OpenTelemetry (CNCF) Rust SDK; org weight lifts it over rspress
     "wntrblm/nox": 7,  # 1.6k, established Python test automation tool; peer of rspress
+    "largemodgames/spotatui": 6,  # 1.4k, active Rust TUI on a personal account (8 Oct 2026): more reach than the tiny personal repos at 5, no org behind it, so below nox
 }
 
 # Where a merge the curated list has never seen enters the ranking. Scoring it
