@@ -39,6 +39,7 @@ import math
 import re
 import sys
 import zipfile
+from datetime import datetime
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -487,7 +488,7 @@ def repo_name(entry: str) -> str:
     return m.group(1) if m else entry.split()[0]
 
 
-def rank_pairs(pairs):
+def rank_pairs(pairs, merged_at=None):
     """Most significant (entry, url) pairs first, ties newest-first.
 
     Entries the curated list already knows are ordered by its judgement, which
@@ -500,13 +501,35 @@ def rank_pairs(pairs):
     # capitalisation ("PyO3/maturin"), while entry_key normalises the ledger's.
     order = {key.lower(): i for i, key in enumerate(IMPORTANCE)}
 
+    # Tiebreak (8 Oct 2026). Many entries share a score: every merge into a
+    # project missing from REPO_TIER scores ENTRY_BASE + TIER_TOP, the same as
+    # IMPORTANCE position 16. Breaking those ties by input position made the
+    # DOCX top-20 path dependent, because the input is the DOCX's own bullet
+    # order and that order is rewritten by every add and trim, so the shown set
+    # flipped between runs with no new merge. When merged_at (entry key ->
+    # ISO merge time) is given, ties go newest merge first, then entry key, so
+    # the same records always rank the same way. Without it the old
+    # input-position tiebreak stands, for callers that pass pre-ordered input.
+    stamps = {k.lower(): v for k, v in (merged_at or {}).items()}
+
+    def newest_first(k):
+        v = stamps.get(k) or ""
+        try:
+            return (0, -datetime.fromisoformat(v.replace("Z", "+00:00")).timestamp())
+        except ValueError:
+            return (1, 0.0)  # undated entries after dated ties
+
     def sort_key(item):
         i, (entry, _url) = item
         k = entry_key(entry)
         if k in order:
-            return (order[k], i)
-        tier = REPO_TIER.get(repo_name(entry).lower(), 0)
-        return (ENTRY_BASE + (TIER_TOP - tier), i)
+            score = order[k]
+        else:
+            tier = REPO_TIER.get(repo_name(entry).lower(), 0)
+            score = ENTRY_BASE + (TIER_TOP - tier)
+        if merged_at is not None:
+            return (score, *newest_first(k), k, i)
+        return (score, i)
 
     return [p for _, p in sorted(enumerate(pairs), key=sort_key)]
 

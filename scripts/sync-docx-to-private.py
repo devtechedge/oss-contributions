@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Auto-patch jobsearch-private Devayan_Mandal.docx from oss publications.
 
-Wraps scripts/patch-resume-docx.py: for every merged publication record missing
-from the DOCX, adds it in IMPORTANCE significance order. Then enforces the
-two-page budget (Dev, 22 Sep 2026): the OSS list holds at most MAX_SHOWN
-entries by rank_pairs order, and the "N shown here; K more merged" footer is
-rewritten from the dropped set. Also keeps the Professional Summary count
+Wraps scripts/patch-resume-docx.py. Enforces the two-page budget (Dev, 22 Sep
+2026): every merged record is ranked once with rank_pairs (IMPORTANCE, then
+REPO_TIER, ties newest merge first, then entry key), the top MAX_SHOWN are the
+shown set, missing shown entries are added and any other bullet is removed, and
+the "N shown here; K more merged" footer is rewritten from the rest. The shown
+set depends only on publications.json, never on the DOCX's current bullet
+order, so a second run with no new merge changes nothing (8 Oct 2026: the old
+add-everything-then-trim loop re-added the dropped tail each run and the
+position tiebreak flipped the shown set between runs). Also keeps the Professional Summary count
 (`Merged N pull requests ...`) in step with publications.json merged_count
 (Dev, 30 Sep 2026): number-only swap, wording untouched. Idempotent, writes
 only when bytes change. Fails loudly on patch errors so the ledger never
@@ -77,8 +81,24 @@ def main() -> int:
         sys.exit(f"sync-docx: --check returned non-JSON: {chk.stdout[:300]}")
     have = {(b.get("head", "").lower(), b.get("url", "")) for b in existing.get("bullets", [])}
 
+    # Rank every record once. Ties break newest merge first (merged_at), so
+    # the shown set is a pure function of publications.json.
+    stamps = {k: (rec.get("merged_at") or rec.get("merged") or "") for k, rec in by_key.items()}
+    all_pairs = []
+    for rec in records:
+        head = f"{rec.get('repo', '')} #{rec.get('number', 0)}"
+        all_pairs.append((rec.get("resume_bullet") or f"{head} - ",
+                          rec.get("url", f"https://github.com/{head.replace(' #', '/pull/')}")))
+    ranked = lib.rank_pairs(all_pairs, merged_at=stamps)
+    shown_keys = [lib.entry_key(e) for e, _u in ranked[:MAX_SHOWN]]
+    shown = set(shown_keys)
+
     added = unchanged = 0
-    for rec in sorted(records, key=lambda r: (r.get("repo", ""), r.get("number", 0))):
+    # Lowest-ranked first: --add inserts before the first bullet scoring >= the
+    # new one, so adding in reverse rank order leaves equal-score adds in rank
+    # order relative to each other.
+    for key in reversed(shown_keys):
+        rec = by_key[key]
         repo = rec.get("repo", "")
         number = rec.get("number", 0)
         url = rec.get("url", f"https://github.com/{repo}/pull/{number}")
@@ -101,34 +121,22 @@ def main() -> int:
             sys.exit(f"sync-docx: --add {head} failed")
         added += 1
 
-    print(f"sync-docx: added={added} unchanged={unchanged} total={len(records)}")
+    print(f"sync-docx: added={added} unchanged={unchanged} shown={len(shown_keys)} total={len(records)}")
 
-    # Two-page budget: cap the list at MAX_SHOWN by rank order, refresh footer.
+    # Remove every bullet outside the shown set (dropped by rank, or a
+    # bullet whose record is gone). Hand wording of kept bullets is untouched.
     docx_path = patch_mod.find_docx(priv)
     _data, _names, _zin, doc, _rels, _raw = patch_mod.read_docx(docx_path)
     W = patch_mod.W
-    bullets = []
+    present = []
     for p in doc.find(f"{{{W}}}body").iter(f"{{{W}}}p"):
         for hl in p.findall(f"{{{W}}}hyperlink"):
             head = "".join(t.text or "" for t in hl.iter(f"{{{W}}}t")).strip()
             if head and re.match(r"^\S+\s+#\d+$", head):
-                text = "".join(t.text or "" for t in p.iter(f"{{{W}}}t"))
-                bullets.append((p, head))
+                present.append(head)
                 break
-    pairs = []
-    for p, head in bullets:
-        rec = by_key.get(head.lower())
-        entry = rec.get("resume_bullet", f"{head} - ") if rec else f"{head} - "
-        pairs.append((entry, rec.get("url", "") if rec else ""))
-    ranked = lib.rank_pairs(pairs)
-    # map back to heads via entry keys (heads are already "repo #num" form)
-    key_to_head = {}
-    for p, head in bullets:
-        key_to_head[head.lower()] = head
-    drop_heads = [key_to_head.get(lib.entry_key(e)) for e, _u in ranked[MAX_SHOWN:]]
+    drop_heads = [h for h in present if h.lower() not in shown]
     for head in drop_heads:
-        if head is None:
-            sys.exit("sync-docx: trim could not map a ranked entry to a bullet")
         r = run_patch(patch, "--remove", "--root", str(priv),
                       "--lib-dir", str(oss_root / "scripts"),
                       "--head", head)
