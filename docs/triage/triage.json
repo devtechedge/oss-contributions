@@ -1562,6 +1562,20 @@
       "merged_at": "2026-10-08T17:36:14Z",
       "ci_status": "merged",
       "ci_note": "Merged by LargeModGames 2026-10-08T17:36:14Z as squash 5bb415d on main. Owner approved 9 seconds before merge. CodeRabbit approval was a bot."
+    },
+    {
+      "repo": "LargeModGames/spotatui",
+      "number": 729,
+      "status": "open",
+      "opened": "2026-10-08",
+      "last_checked": "2026-10-08",
+      "issue": 673,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "LRC header tags were kept as lyric lines because unwrap_or(0) turned a bad number into 0. [offset:+500] became a blank line at 8:20 and the highlight stuck there. A non-numeric minute, second, or fraction now drops the line. One-digit fractions are tenths; a fraction past three digits keeps the first three as milliseconds, which used to be added raw. A tags-only body falls back to plain lyrics. Branch fix-lrc-header-tags, unsigned commit 3776a01. Five tests. Offset is not applied, lines are not sorted, multi-stamp lines are not expanded.",
+      "note": "Issue 673 owner-filed 2026-09-29, good first issue, no assignee, no competing PR. Opened after 728 was merged by the owner. Body match verified, no CR. No claim comment. CI still running at open.",
+      "ci_status": "pending",
+      "ci_note": "Rustfmt, prepare, and Gates ratchet passed. The rest of the matrix was still pending at open."
     }
   ],
   "issues": [
@@ -4087,7 +4101,8 @@
     },
     "LargeModGames/spotatui": {
       "contributions": [
-        728
+        728,
+        729
       ],
       "focus": "Spotify TUI, Amsterdam, MIT. Outside PRs welcome. One good first issue at a time. No AgentScan, no pull_request_target. Recent outside commits unsigned. Checked 8 Oct 2026."
     }
