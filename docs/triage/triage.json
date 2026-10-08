@@ -1558,7 +1558,7 @@
       "do_not_duplicate": true,
       "merged": false,
       "summary": "Unknown --device name now errors instead of falling through. device_id_by_name returns the first exact-name id, or no device with name '{name}' when nothing matches, the list is empty, or the match has no id. devices() None still returns no device available. --transfer uses the same helper. Branch fix-cli-unknown-device-name, unsigned commit b2eab21. Four helper tests. Old loop kept the last duplicate name; helper keeps the first.",
-      "note": "Issue filed 29 Sep by LargeModGames, good first issue, unassigned, only the bot triage comment, no competing PR. No claim comment (Fixes is the claim). No DCO, no required signatures, no disclosure section. Body match verified, no CR. At open, prepare and Frontend were in progress. Not green yet."
+      "note": "Issue filed 29 Sep by LargeModGames, good first issue, unassigned, only the bot triage comment, no competing PR. No claim comment (Fixes is the claim). No DCO, no required signatures, no disclosure section. Body match verified, no CR. CI green 8 Oct: 31 checks SUCCESS, mergeable. reviewDecision APPROVED is coderabbitai[bot] only, not a human. codecov[bot] comment notes 67% patch coverage; the check itself passed. No human review yet."
     }
   ],
   "issues": [
