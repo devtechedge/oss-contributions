@@ -2,12 +2,15 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler. Co-authored merges (role co-author: opened by someone else, Dev's Co-authored-by trailer kept in the merged commit) live in co_authored and never count toward merged_count.",
   "last_updated": "2026-10-08",
-  "merged_count": 35,
+  "merged_count": 36,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
   },
   "repos": {
+    "LargeModGames/spotatui": {
+      "linkedin_representative": "spotatui - unknown --device name now errors."
+    },
     "getzola/zola": {
       "linkedin_representative": "Zola - serve error overlay HTML escape fix."
     },
@@ -21,7 +24,7 @@
       "linkedin_representative": "Recharts - portal SVG focus fix with WebKit ring coverage."
     },
     "brianc/node-postgres": {
-      "linkedin_representative": "node-postgres - Connection.sync ending fix so later errors surface."
+      "linkedin_representative": "node-postgres - Connection.sync ending fix."
     },
     "SQLMesh/sqlmesh": {
       "linkedin_representative": "SQLMesh - test construction race fix on shared state."
@@ -63,7 +66,7 @@
       "linkedin_representative": "cargo-about - manifest license quote and insert offset fixes."
     },
     "stellar/js-stellar-sdk": {
-      "linkedin_representative": "js-stellar-sdk - docs pipeline for migration pages and llms bundles."
+      "linkedin_representative": "js-stellar-sdk - docs pipeline for migration pages."
     },
     "mkdocstrings/python": {
       "linkedin_representative": "python - inherited relative cross-refs anchor on defining object."
@@ -75,7 +78,7 @@
       "linkedin_representative": "nox - script-mode test prepends fake package to PYTHONPATH."
     },
     "anchore/syft": {
-      "linkedin_representative": "syft - uv.lock dependents link to their locked version."
+      "linkedin_representative": "syft - uv.lock dependents link to locked version."
     },
     "open-telemetry/opentelemetry-rust": {
       "linkedin_representative": "opentelemetry-rust - OTLP/JSON metrics decode without defaults."
@@ -914,6 +917,30 @@
       "resume_bullet": "getzola/zola #3293 (Rust) - rendered the zola serve build-error overlay through a Tera template with autoescape, so build errors that quote HTML show as text instead of being parsed by the browser. Merged Oct 2026. github.com/getzola/zola/pull/3293",
       "linkedin_bullet": "getzola/zola #3293 - the zola serve dev server now escapes HTML in its build-error overlay, so a build error that quotes markup, such as an img tag or an ampersand, shows as literal text instead of being parsed by the browser. The overlay renders through a Tera one_off template with autoescape on.",
       "profile_line": "the `zola serve` dev server now escapes HTML in its build-error overlay, so a build error that quotes markup, such as an `img` tag or `&`, shows as literal text instead of being parsed by the browser. The overlay renders through a Tera `one_off` template with autoescape on, replacing the raw `format!` string in `error_injection_middleware`.",
+      "curated": true
+    },
+    {
+      "id": "LargeModGames/spotatui#728",
+      "repo": "LargeModGames/spotatui",
+      "number": 728,
+      "merged": "2026-10-08",
+      "merged_at": "2026-10-08T17:36:14Z",
+      "merge_commit": "5bb415dda9e2d103677f9ddb30cb161024da4375",
+      "issue": 669,
+      "url": "https://github.com/LargeModGames/spotatui/pull/728",
+      "languages": [
+        "Rust"
+      ],
+      "org": "LargeModGames",
+      "display_name": "spotatui",
+      "profile_title": "spotatui #728",
+      "ledger_logo": "https://github.com/LargeModGames.png?size=40",
+      "profile_logo": "https://github.com/LargeModGames.png?size=48",
+      "profile_logo_alt": "LargeModGames",
+      "ledger_what": "Unknown --device names now error instead of playing on the saved device. set_device used to return success when nothing matched, including an empty list. device_id_by_name returns the first exact-name id, or the same no device with name error --transfer already used.",
+      "resume_bullet": "LargeModGames/spotatui #728 (Rust) - unknown --device names now error instead of playing on the saved device, using the same error --transfer already used. Merged Oct 2026. github.com/LargeModGames/spotatui/pull/728",
+      "linkedin_bullet": "LargeModGames/spotatui #728 - unknown --device names now error instead of playing on the saved device. set_device used to return success when nothing matched, including an empty list. device_id_by_name now shares the no device with name error --transfer already used.",
+      "profile_line": "unknown `--device` names now error instead of playing on the saved device. `set_device` used to return success when nothing matched, including an empty list. `device_id_by_name` returns the first exact-name id, or the same `no device with name` error `--transfer` already used.",
       "curated": true
     }
   ],
