@@ -1551,14 +1551,17 @@
     {
       "repo": "LargeModGames/spotatui",
       "number": 728,
-      "status": "open",
-      "opened": "2026-10-08",
+      "status": "merged",
       "last_checked": "2026-10-08",
       "issue": 669,
       "do_not_duplicate": true,
-      "merged": false,
+      "merged": "2026-10-08",
       "summary": "Unknown --device name now errors instead of falling through. device_id_by_name returns the first exact-name id, or no device with name '{name}' when nothing matches, the list is empty, or the match has no id. devices() None still returns no device available. --transfer uses the same helper. Branch fix-cli-unknown-device-name, unsigned commit b2eab21. Four helper tests. Old loop kept the last duplicate name; helper keeps the first.",
-      "note": "Issue filed 29 Sep by LargeModGames, good first issue, unassigned, only the bot triage comment, no competing PR. No claim comment (Fixes is the claim). No DCO, no required signatures, no disclosure section. Body match verified, no CR. CI green 8 Oct: 31 checks SUCCESS, mergeable. reviewDecision APPROVED is coderabbitai[bot] only, not a human. codecov[bot] comment notes 67% patch coverage; the check itself passed. No human review yet."
+      "note": "Squash 5bb415d on main. Issue 669 closed. Thank-you not posted. Fork and the Desktop checkout are still here. 673 is unblocked by the one-at-a-time rule.",
+      "merge_commit": "5bb415dda9e2d103677f9ddb30cb161024da4375",
+      "merged_at": "2026-10-08T17:36:14Z",
+      "ci_status": "merged",
+      "ci_note": "Merged by LargeModGames 2026-10-08T17:36:14Z as squash 5bb415d on main. Owner approved 9 seconds before merge. CodeRabbit approval was a bot."
     }
   ],
   "issues": [
@@ -2873,14 +2876,14 @@
     {
       "repo": "LargeModGames/spotatui",
       "number": 669,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         728
       ],
       "do_not_duplicate": true,
       "last_checked": "2026-10-08",
-      "note": "PR 728 opened 2026-10-08. Do not open a second fix. Repo asks for one good first issue at a time."
+      "note": "Closed by merged PR 728 (5bb415d) on main. One good first issue at a time is satisfied, so 673 is the queued follow-up."
     }
   ],
   "closed_attempts": [
