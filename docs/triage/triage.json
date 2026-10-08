@@ -1423,10 +1423,8 @@
     {
       "repo": "getzola/zola",
       "number": 3293,
-      "status": "open",
-      "mergeable": true,
+      "status": "merged",
       "mergeable_state": "unstable",
-      "opened": "2026-09-29",
       "last_checked": "2026-10-08",
       "issue": 3288,
       "do_not_duplicate": true,
@@ -1436,7 +1434,10 @@
       "summary": "Fixes #3288. The serve build-error overlay escaped error text before it entered the pre, so source like <img and & renders as text. Livereload, the 404 page, and CLI printing are unchanged.",
       "ci_status": "action_required",
       "ci_note": "Build & Test run 36579815950 is action_required (first-contribution approval). docs.yml only runs for pull requests to master, so it does not run on next. Do not re-push. Do not comment. Local test build_error_overlay_escapes_html failed before the escape and passed after.",
-      "note": "Commit ec0cdd1 verified valid. Targets next. Description replaced 29 Sep 2026 with the shorter body Dev approved. Fetched body matched, no CR. LLM line answers the template in a sentence. No separate comment. Fork stays until merge or final close."
+      "note": "Commit ec0cdd1 verified valid. Targets next. Description replaced 29 Sep 2026 with the shorter body Dev approved. Fetched body matched, no CR. LLM line answers the template in a sentence. No separate comment. Fork stays until merge or final close.",
+      "merged": "2026-10-08",
+      "merge_commit": "7efdae79c20bcf9bfbdd52174aa2a8fbe75181e7",
+      "merged_at": "2026-10-08T08:16:56Z"
     },
     {
       "repo": "anchore/syft",
@@ -2811,14 +2812,14 @@
     {
       "repo": "getzola/zola",
       "number": 3288,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         3293
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-29",
-      "note": "PR #3293 opened 2026-09-29. Do not open a second fix."
+      "last_checked": "2026-10-08",
+      "note": "Closed by merged PR #3293 (7efdae7)."
     },
     {
       "repo": "anchore/syft",
