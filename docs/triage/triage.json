@@ -1429,12 +1429,12 @@
       "issue": 3288,
       "do_not_duplicate": true,
       "branch": "fix/serve-error-html-escape",
-      "commit": "ec0cdd1",
+      "commit": "898cf35",
       "head_repo": "devtechedge/zola",
-      "summary": "Fixes #3288. The serve build-error overlay escaped error text before it entered the pre, so source like <img and & renders as text. Livereload, the 404 page, and CLI printing are unchanged.",
-      "ci_status": "action_required",
-      "ci_note": "Build & Test run 36579815950 is action_required (first-contribution approval). docs.yml only runs for pull requests to master, so it does not run on next. Do not re-push. Do not comment. Local test build_error_overlay_escapes_html failed before the escape and passed after.",
-      "note": "Commit ec0cdd1 verified valid. Targets next. Description replaced 29 Sep 2026 with the shorter body Dev approved. Fetched body matched, no CR. LLM line answers the template in a sentence. No separate comment. Fork stays until merge or final close.",
+      "summary": "Fixes #3288 (closing keyword does not fire on next, see issue row). The serve build-error overlay now renders through a Tera one_off template with autoescape on, replacing the raw format! string in error_injection_middleware, so error text quoting <img or & shows as literal text. The hand-rolled escape and the unit test were dropped per Keats review. +13/-3 across Cargo.lock, Cargo.toml and src/cmd/serve.rs.",
+      "ci_status": "merged",
+      "ci_note": "Merged by Keats 2026-10-08T08:16:56Z (13:46 IST) as squash 7efdae7 on next. Pre-merge Build & Test was action_required (first-contribution approval).",
+      "note": "Commits ec0cdd1, c6b95f3 (Tera autoescape per review), 898cf35 (drop test per review) squashed to 7efdae7 on next. Ledger cascade green 8 Oct 2026 (count 35). Fork devtechedge/zola is now safe to delete per fork hygiene; not deleted yet. Thank-you note not posted (needs Dev approval).",
       "merged": "2026-10-08",
       "merge_commit": "7efdae79c20bcf9bfbdd52174aa2a8fbe75181e7",
       "merged_at": "2026-10-08T08:16:56Z"
@@ -2812,14 +2812,14 @@
     {
       "repo": "getzola/zola",
       "number": 3288,
-      "status": "closed",
+      "status": "open",
       "attempted": true,
       "related_prs": [
         3293
       ],
       "do_not_duplicate": true,
       "last_checked": "2026-10-08",
-      "note": "Closed by merged PR #3293 (7efdae7)."
+      "note": "Fixed by merged PR #3293 (7efdae7) on next, but still open upstream as of 2026-10-08: closing keywords only fire on the default branch (master). Expect it to close when next lands on master or a maintainer closes it. Do not open a second fix."
     },
     {
       "repo": "anchore/syft",
