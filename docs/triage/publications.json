@@ -966,6 +966,30 @@
       "linkedin_bullet": "LargeModGames/spotatui #729 - parse_synced_lyrics now drops LRC header tags like [ar:] and [offset:+500] instead of turning them into blank lyric lines that froze the highlight, and one-digit fractions now read as tenths of a second.",
       "profile_line": "`parse_synced_lyrics` now drops LRC header tags like `[ar:]` and `[offset:+500]` instead of turning them into blank lyric lines; an `[offset:+500]` tag had become a blank line at 8:20 that froze the highlight. One-digit fractions now read as tenths of a second, and fractions past three digits keep the first three as milliseconds.",
       "curated": true
+    },
+    {
+      "id": "rust-lang/rustup#5129",
+      "repo": "rust-lang/rustup",
+      "number": 5129,
+      "merged": "2026-10-08",
+      "merged_at": "2026-10-08T22:06:16Z",
+      "merge_commit": "0e3ac4afd0c4ea76dc2751aa632b07dfc852ca95",
+      "issue": 5098,
+      "url": "https://github.com/rust-lang/rustup/pull/5129",
+      "languages": [
+        "Rust"
+      ],
+      "org": "rust-lang",
+      "display_name": "rustup",
+      "profile_title": "rustup #5129",
+      "ledger_logo": "https://github.com/rust-lang.png?size=40",
+      "profile_logo": "https://github.com/rust-lang.png?size=48",
+      "profile_logo_alt": "Rust",
+      "ledger_what": "rustup component remove no longer panics with component target should be known when removing a target-less component such as rust-src that is not installed on the active toolchain. The remove path now skips the installed-target lookup for target-less components and falls through to the normal does not contain component error, covered by a CLI regression test.",
+      "resume_bullet": "rust-lang/rustup #5129 (Rust) - rustup component remove no longer panics with component target should be known when removing a target-less component such as rust-src that is not installed on the active toolchain. The remove path now skips the installed-target lookup for target-less components and falls through to the normal does not contain component error, covered by a CLI regression test. Merged Oct 2026. github.com/rust-lang/rustup/pull/5129",
+      "linkedin_bullet": "rust-lang/rustup #5129 - rustup component remove no longer panics with component target should be known when removing a target-less component such as rust-src that is not installed on the active toolchain. The remove path now skips the installed-target lookup for target-less components and falls through to the normal does not contain component error, covered by a CLI regression test.",
+      "profile_line": "`rustup component remove` no longer panics with `component target should be known` when removing a target-less component such as `rust-src` that is not installed on the active toolchain. The remove path now skips the installed-target lookup for target-less components and falls through to the normal missing-component error, covered by a CLI regression test.",
+      "curated": true
     }
   ],
   "co_authored": [
