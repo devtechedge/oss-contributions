@@ -4012,7 +4012,7 @@
       "contributions": [
         3293
       ],
-      "focus": "Static site generator. Code fixes target next, not master."
+      "focus": "Static site generator. Code fixes target next, not master. CONTRIBUTING LLM policy: comments and PR text in your own words, LLM-sounding interactions get banned, so Dev writes or approves exact comment text before any post (checked 8 Oct 2026)."
     },
     "anchore/syft": {
       "contributions": [
