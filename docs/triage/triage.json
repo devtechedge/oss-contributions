@@ -1576,6 +1576,20 @@
       "note": "Issue 673 owner-filed 2026-09-29, good first issue, no assignee, no competing PR. Opened after 728 was merged by the owner. Approved body matched at open, no CR. CodeRabbit later appended its release-notes block; the approved text was left as posted. No claim comment. CI green.",
       "ci_status": "green",
       "ci_note": "All checks passed on 3776a01: rustfmt, gates, eight-leg check/clippy/test, macOS check+clippy, coverage, frontend, CodeRabbit. No action_required."
+    },
+    {
+      "repo": "graphile/worker",
+      "number": 640,
+      "status": "open",
+      "opened": "2026-10-08",
+      "last_checked": "2026-10-08",
+      "issue": 638,
+      "do_not_duplicate": true,
+      "merged": false,
+      "summary": "A rejected task-identifier lookup was cached for the life of the process. getTaskDetails now clears lastStr when that lookup rejects and no newer lookup has replaced it, so the next poll retries. Retry policy is unchanged. Branch fix-rejected-task-identifier-cache, unsigned commit 74ccbfd. One regression. Changeset kind-otters-task-cache.",
+      "note": "Issue 638 open, unassigned, 0 comments, no competing PR at open. Approved body matched, no CR. No claim comment. CI is action_required. Socket checks passed. Full Postgres suite not run locally.",
+      "ci_status": "action_required",
+      "ci_note": "github-actions check suite on 74ccbfd is action_required. A maintainer has to approve the workflow. Socket Security checks passed. Not green."
     }
   ],
   "issues": [
@@ -2898,6 +2912,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-10-08",
       "note": "Closed by merged PR #728 (5bb415d)."
+    },
+    {
+      "repo": "graphile/worker",
+      "number": 638,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        640
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-08",
+      "note": "Open PR 640. No competing PR at claim."
     }
   ],
   "closed_attempts": [
@@ -4105,6 +4131,12 @@
         729
       ],
       "focus": "Spotify TUI, Amsterdam, MIT. Outside PRs welcome. One good first issue at a time. No AgentScan, no pull_request_target. Recent outside commits unsigned. Checked 8 Oct 2026."
+    },
+    "graphile/worker": {
+      "contributions": [
+        640
+      ],
+      "focus": "Job queue for PostgreSQL, Southampton UK, MIT. No AI policy, no AgentScan, no pull_request_target. Changesets since 8 Sep 2026. Outside code merges anavalo 622 and Steve0x2a 623 on 2026-09-08, unsigned, no Signed-off-by. Checked 8 Oct 2026."
     }
   }
 }
