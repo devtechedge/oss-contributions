@@ -349,6 +349,7 @@ When a human maintainer merges one of our PRs, send a short thank-you note on th
 - Warm, enthusiastic, collaborative: "thanks" never "thank yous". Enthusiasm lives in the words ("so much", "genuinely fun", "a ton", "spot on"), not in punctuation: a single exclamation mark on the closing line, at most three content-tied emojis, and not every paragraph needs one. Calibrated against Dev's hand edit of the #1725 note (18 Sep 2026), which kept my words but cut nearly every ! and emoji. Say plainly the process was fun and taught us a lot. The old flat no-emoji rule for these notes is retired by standing user directive (18 Sep 2026).
 - Name the specific thing the change or the review taught us, so the note cannot read as a template.
 - Three or four sentences, one sentence per paragraph. No em dashes, no ask, no follow-up question, no residue of the submission. Do not request anything.
+- When the maintainer scoped something out at review or merge, thank them for that call too, and at most offer the left-out case as a separate issue if they want it. An offer they can ignore is not an ask, and it shows the decision was heard (spotatui 729, 8 Oct 2026).
 - One note per merged PR, posted once. Never bump a merged thread a second time.
 - Skip it when the merge came from a bot, an auto-merge queue, or was self-merged.
 - When several merges land at once, post the notes across separate turns rather than in one burst; a sudden cluster of comments on old threads reads as automation.
