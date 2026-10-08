@@ -412,6 +412,17 @@ IMPORTANCE = (
     "anza-xyz/kit #2032",
     "web-infra-dev/rspress #3678", # search initialisation race
     "stellar/js-stellar-sdk #1725", # 22 Sep 2026: wallet SDK, web3 relevance
+    # 8 Oct 2026, Dev's call: Anza Kit 2032 and Rspress 3678 outrank both
+    # spotatui merges. A REPO_TIER score lands a tier-6 repo at 10, above
+    # every hand-ranked entry from position 11 on, so hand-ranking these two
+    # here is the smallest consistent fix: spotatui keeps tier 6, the tier
+    # scale is untouched, and the tier-scored repos keep their places.
+    # Lowering spotatui to tier 3 would rank a 1.4k-star repo below tracelens
+    # (tier 5), and letting every hand-ranked entry outrank tier-scored ones
+    # would push rustup, the tier-8 repos and nox out of the top 20. They sit
+    # behind js-stellar-sdk because tier 6 ranks below Stellar's tier 7.
+    "LargeModGames/spotatui #729",  # LRC header tags no longer blank lines
+    "LargeModGames/spotatui #728",  # unknown --device name now errors
     "pnpm/pnpm #14756",
     "pytest-dev/pytest-env #262",
     "mkdocstrings/python #342",    # 22 Sep 2026: docs-toolchain cross-ref fix
