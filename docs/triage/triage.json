@@ -1628,14 +1628,14 @@
       "number": 2827,
       "status": "open",
       "opened": "2026-10-08",
-      "last_checked": "2026-10-09",
+      "last_checked": "2026-10-10",
       "issue": 2805,
       "do_not_duplicate": true,
       "merged": false,
-      "summary": "OpenAPI version was dropped on the model path, so a 3.1 examples key was rejected as 3.0. OpenApiAnnotationsReader now passes the document version into validate() for schemas and properties, version-aware for swagger-php 5 vs 6. Branch fix-model-openapi-version, unsigned commit fcad933. Two regressions. Base 5.x.",
+      "summary": "OpenAPI version was dropped on the model path, so a 3.1 examples key was rejected as 3.0. OpenApiAnnotationsReader now passes the document version into validate() for schemas and properties, version-aware for swagger-php 5 vs 6. Branch fix-model-openapi-version, unsigned commit 723a98f (fcad933 squashed with the CI fix, force-pushed with lease 2026-10-10). Two regressions. Base 5.x.",
       "note": "Issue 2805 open, unassigned, 0 comments, no competing PR at open. Approved body matched verbatim, no CR. No claim comment. Repo merges outsiders (atierant 2809, maks-oleksyuk 2810 merged 2026-10-05).",
-      "ci_status": "pending",
-      "ci_note": "PR opened this turn, checks not yet read. Re-check on maintainer relay, no polling."
+      "ci_status": "green",
+      "ci_note": "fcad933 was red on swagger-php 5.7.8/5.8.3 (Symfony 7.2 and 6.4 --prefer-lowest jobs, PHPStan): named validate(version:) arg and v6-only attribute examples in tests. 723a98f calls validate through reflection, moves test models to PHPStan-excluded fixtures, skips where attributes lack plain examples (below 6.8.1). CI run 37996953992 all 37 jobs green 2026-10-10."
     },
     {
       "repo": "ratatui/ratatui",
