@@ -306,7 +306,7 @@
     {
       "repo": "ratatui/ratatui",
       "number": 2771,
-      "status": "closed_reopen_blocked",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-09-12",
       "last_checked": "2026-10-09",
@@ -315,7 +315,7 @@
       "summary": "portable-atomic feature forwards to ratatui-widgets; Block shadow switches Arc import for no_std targets without atomic pointers.",
       "merged": false,
       "closed": "2026-10-08",
-      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:12Z, no closing comment). Not a maintainer decline. joshka (MEMBER) on 2026-09-20 (comment 5751175889) verified a thumbv6m-none-eabi consumer and said the team was leaning toward this implementation over the Rc approach because it keeps Send and Sync; he asked for the widgets feature to forward ratatui-core and for a no-atomic CI check. Both were pushed 2026-09-21. nullstalgia (NONE, author of still-open 2772) confirmed the build on 2026-10-02 and objected that the 26 Sep reply restated his comment, quoting CONTRIBUTING's AI line about communicating (comment 5957736308). Dev apologised 2026-10-03 (comment 5973123854). reviewDecision stayed REVIEW_REQUIRED. CI green (40 checks). Inference: the batch followed that voice objection; joshka had not rejected the diff. Do not refile or target this repo. 2026-10-09: joshka (MEMBER) asked why it was closed (comment 6074932844, 'probably still ok, just haven't gotten to reviewing it') and left review 5466080199 asking whether the Box erasure in Shadow::custom should be feature flagged. Dev asked to reopen. Reopen impossible because the fork was deleted on 2026-10-08; see reopen_attempt.",
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:12Z, no closing comment). Not a maintainer decline. joshka (MEMBER) on 2026-09-20 (comment 5751175889) verified a thumbv6m-none-eabi consumer and said the team was leaning toward this implementation over the Rc approach because it keeps Send and Sync; he asked for the widgets feature to forward ratatui-core and for a no-atomic CI check. Both were pushed 2026-09-21. nullstalgia (NONE, author of still-open 2772) confirmed the build on 2026-10-02 and objected that the 26 Sep reply restated his comment, quoting CONTRIBUTING's AI line about communicating (comment 5957736308). Dev apologised 2026-10-03 (comment 5973123854). reviewDecision stayed REVIEW_REQUIRED. CI green (40 checks). Inference: the batch followed that voice objection; joshka had not rejected the diff. Do not refile or target this repo. 2026-10-09: joshka (MEMBER) asked why it was closed (comment 6074932844, 'probably still ok, just haven't gotten to reviewing it') and left review 5466080199 asking whether the Box erasure in Shadow::custom should be feature flagged. Dev asked to reopen. Reopen impossible because the fork was deleted on 2026-10-08; see reopen_attempt. 2026-10-09 07:18Z: Dev-approved reply posted (issuecomment-6076332552, verified verbatim) explaining the close and pointing to the carry-over. Superseded by 2822.",
       "reopen_attempt": {
         "date": "2026-10-09",
         "authorized_by": "Dev",
@@ -324,12 +324,8 @@
         "fork_recreated": "devtechedge/ratatui 2026-10-09T07:09:47Z",
         "branch_restored": "fix/widgets-portable-atomic-forwarding at af5a53f"
       },
-      "pending_followup": {
-        "request": "joshka review 5466080199 (2026-10-09 05:31Z) on shadow.rs line 258: should this be feature flagged?",
-        "local_commit": "98595f56 (unsigned, not pushed; repo requires signed commits)",
-        "change": "Box erasure only under portable-atomic; Arc::new kept otherwise",
-        "next": "sign on Windows, push to restored branch, Dev decides on a new PR referencing 2771"
-      }
+      "superseded_by": 2822,
+      "last_ping": "2026-10-09"
     },
     {
       "repo": "SQLMesh/sqlmesh",
@@ -1637,6 +1633,28 @@
       "note": "Issue 2805 open, unassigned, 0 comments, no competing PR at open. Approved body matched verbatim, no CR. No claim comment. Repo merges outsiders (atierant 2809, maks-oleksyuk 2810 merged 2026-10-05).",
       "ci_status": "pending",
       "ci_note": "PR opened this turn, checks not yet read. Re-check on maintainer relay, no polling."
+    },
+    {
+      "repo": "ratatui/ratatui",
+      "number": 2822,
+      "status": "open",
+      "mergeable": true,
+      "opened": "2026-10-09",
+      "last_checked": "2026-10-09",
+      "issue": 2767,
+      "do_not_duplicate": true,
+      "supersedes": 2771,
+      "head": "devtechedge:fix/widgets-portable-atomic-forwarding @ 549861a",
+      "diff": [
+        33,
+        3,
+        6
+      ],
+      "ci": "green 2026-10-09 07:22Z (40 SUCCESS, Prevent Merging SKIPPED)",
+      "signed": true,
+      "last_ping": "2026-10-09",
+      "summary": "Carry-over of 2771: portable-atomic forwards to ratatui-widgets; Shadow::custom uses Box erasure only with portable-atomic (joshka review 5466080199), Arc::new otherwise.",
+      "note": "Opened by Dev 2026-10-09 07:18Z after reopen of 2771 failed (fork deleted). Body = 2771 body plus carry-over line and Box-only-with-feature note. reviewDecision REVIEW_REQUIRED; waiting on joshka. Contributor nullstalgia objected to LLM-style replies on 2771: keep any reply short and human."
     }
   ],
   "issues": [
@@ -1778,10 +1796,11 @@
       "status": "open",
       "attempted": true,
       "related_prs": [
-        2771
+        2771,
+        2822
       ],
       "do_not_duplicate": true,
-      "note": "PR 2771 closed by us 2026-10-08. Issue still open upstream. Do not refile. 2026-10-09: Dev lifted the stop for the 2771 follow-up only (joshka still interested).",
+      "note": "PR 2771 closed by us 2026-10-08. Issue still open upstream. Do not refile. 2026-10-09: Dev lifted the stop for the 2771 follow-up only (joshka still interested). 2822 opened 2026-10-09 as carry-over.",
       "last_checked": "2026-10-09"
     },
     {
@@ -3753,7 +3772,8 @@
     },
     "ratatui/ratatui": {
       "contributions": [
-        2771
+        2771,
+        2822
       ],
       "focus": "Rust terminal UI; portability/no_std and atomic support.",
       "no_go": false,
