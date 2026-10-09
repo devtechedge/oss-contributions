@@ -1637,9 +1637,7 @@
     {
       "repo": "ratatui/ratatui",
       "number": 2822,
-      "status": "open",
-      "mergeable": true,
-      "opened": "2026-10-09",
+      "status": "merged",
       "last_checked": "2026-10-09",
       "issue": 2767,
       "do_not_duplicate": true,
@@ -1654,7 +1652,10 @@
       "signed": true,
       "last_ping": "2026-10-09",
       "summary": "Carry-over of 2771: portable-atomic forwards to ratatui-widgets; Shadow::custom uses Box erasure only with portable-atomic (joshka review 5466080199), Arc::new otherwise.",
-      "note": "Opened by Dev 2026-10-09 07:18Z after reopen of 2771 failed (fork deleted). Body = 2771 body plus carry-over line and Box-only-with-feature note. reviewDecision REVIEW_REQUIRED; waiting on joshka. Contributor nullstalgia objected to LLM-style replies on 2771: keep any reply short and human."
+      "note": "Opened by Dev 2026-10-09 07:18Z after reopen of 2771 failed (fork deleted). Body = 2771 body plus carry-over line and Box-only-with-feature note. reviewDecision REVIEW_REQUIRED; waiting on joshka. Contributor nullstalgia objected to LLM-style replies on 2771: keep any reply short and human.",
+      "merged": "2026-10-09",
+      "merge_commit": "91dc40fae41d802a9683f799eae81ac4f43df313",
+      "merged_at": "2026-10-09T07:42:38Z"
     }
   ],
   "issues": [
@@ -1793,14 +1794,14 @@
     {
       "repo": "ratatui/ratatui",
       "number": 2767,
-      "status": "open",
+      "status": "closed",
       "attempted": true,
       "related_prs": [
         2771,
         2822
       ],
       "do_not_duplicate": true,
-      "note": "PR 2771 closed by us 2026-10-08. Issue still open upstream. Do not refile. 2026-10-09: Dev lifted the stop for the 2771 follow-up only (joshka still interested). 2822 opened 2026-10-09 as carry-over.",
+      "note": "Closed by merged PR #2822 (91dc40f).",
       "last_checked": "2026-10-09"
     },
     {
