@@ -3591,7 +3591,7 @@
       "related_pr": 2771,
       "do_not_refile": true,
       "reason": "Closed by us 2026-10-08 after a contributor objected to an LLM-style reply. Maintainer had not declined the diff. Repo is no-go. Do not refile.",
-      "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
+      "note": "ratatui no-go was lifted on 2026-10-09 for the #2771 follow-up only (scan gate stays on); #2771 superseded by #2822."
     },
     {
       "repo": "project-akri/akri",
