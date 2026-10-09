@@ -223,6 +223,8 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - Post-open (6 Oct 2026, langgraphjs 2803): a friendly carry-forward PR is still a competitor. 2825 and 2828 were opened by another contributor on 10 and 11 Sep, three days before our 2803 was closed (14 Sep) "in favor of" them, and our 11 Sep reply offered to rebase or close 2803 in favor of 2828. There was never a window after the close: authorship was decided when the carry-forward appeared and we offered to stand down.
 - Co-author credit needs a well-formed trailer on an email linked to the account (6 Oct 2026, langgraphjs 2828, squash 8d6e6cf). The PR body carried a broken copy (`Co-authored-by: Dev M`, then a markdown mailto link to the noreply address on the next line), which parses as nothing. Credit came only from `Co-authored-by: Dev M <devtechedge@gmail.com>` in commit 5a7dea5, which GitHub's squash carried below the `---------` line.
 
+- Deleting a fork makes every closed PR from it permanently non-reopenable (ratatui 2771, 9 Oct 2026). The reopen call returns 422 "The repository that submitted this pull request has been deleted", and recreating the fork and pushing the branch at the original head SHA does not help, because the PR stays bound to the deleted repo id. A maintainer can still show interest after the close, so before fork cleanup read each closed-unmerged PR for a human OWNER, MEMBER or COLLABORATOR comment or review after the close. Recovery path: fetch `refs/pull/N/head` from upstream (it survives fork deletion), push it to a recreated fork branch, apply the requested change on top, and open a new PR whose body carries the old one forward with one line naming it.
+
 ## Reading PR state and nudging
 
 - A hand-off's "no maintainer contact" or "bot review only" line is the most rot-prone field in any summary, and it can be wrong within minutes of being written (16 Sep 2026: a hand-off prepared at 22:45 IST listed `stellar/js-stellar-sdk` #1723 and #1725 as bot-only, but a maintainer had approved #1725 at 17:09 UTC and closed #1723 at 17:14 UTC, minutes earlier, and the same session had already pushed follow-up commits to #1725).
@@ -236,6 +238,7 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - CONTRIBUTING's stated base branch can contradict practice. `safe-global/safe-core-sdk` says branch from `development`, yet all 18 recent human merges targeted `main`. The converse also holds: the default branch is not always the code-PR base. If CONTRIBUTING names another branch and recent outside code merges use it, open there and confirm the bug on both (getzola/zola, 29 Sep 2026: default `master`, development on `next`, outside fix #3283 merged to `next`). Check `baseRefName` on recent merged PRs before choosing or retargeting a base.
 - Not every comment authored by a human account is a human reply. In `stellar/stellar-docs` an automated verifier ("Raven", `stellar-experimental/stellar-raven`) posts through the real maintainer account `kalepail`, and the text reads like a person wrote it: "Raven independently verified this fix on ...", a paragraph of checks, and an "[Original finding]" link into a separate org.
 - A single polite comment per PR thread is the right response to a green, mergeable PR with no maintainer contact after about a week, and it beats closing. Collaborators are auto-subscribed to repository notifications, so no `@`-mention is needed, and naming the wrong owner is worse than naming none. One sentence per paragraph, varied openings across the batch, no apology, and close by offering a concrete concession (retarget it, split the diff, land a smaller part of it).
+- Check `author_association` before treating an objection as the maintainers' stance (ratatui 2771, 9 Oct 2026). The objection that led to the close came from an outside contributor (`NONE`) who authored the competing PR, and a MEMBER later asked why it was closed and reviewed it. An objection from `NONE` or `CONTRIBUTOR` is input, not a verdict: weigh it, but do not close or concede scope on it without a human OWNER, MEMBER or COLLABORATOR saying the same.
 
 ### A comment can be spam-flagged invisibly (8 Oct 2026, grpc/grpc-rust #2919)
 
@@ -344,6 +347,8 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   with zero output on a valid SSH signature. Check the object with
   `git cat-file commit <sha> | grep -q '^gpgsig'` and confirm on the API (`pulls/N/commits` gives
   `commit.verification.verified`).
+
+- Box-made commit for a repo that requires verified commits (ratatui 2822, 9 Oct 2026): the box has no signing key, so do not push from it. `git format-patch -1` on the box, CopyFromBox the patch to the Windows laptop, `git am -c commit.gpgsign=false <patch>` in a clone on the PR branch, then `sign_commit.py <sha> refs/heads/<branch> <pubkey>` and push. The signed sha differs from the box sha, so treat the box commit as superseded and confirm `commit.verification.verified` on `pulls/N/commits` before reporting.
 
 ### CI and API reads that mislead
 
