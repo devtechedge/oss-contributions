@@ -1652,10 +1652,12 @@
       "signed": true,
       "last_ping": "2026-10-09",
       "summary": "Carry-over of 2771: portable-atomic forwards to ratatui-widgets; Shadow::custom uses Box erasure only with portable-atomic (joshka review 5466080199), Arc::new otherwise.",
-      "note": "Opened by Dev 2026-10-09 07:18Z after reopen of 2771 failed (fork deleted). Body = 2771 body plus carry-over line and Box-only-with-feature note. reviewDecision REVIEW_REQUIRED; waiting on joshka. Contributor nullstalgia objected to LLM-style replies on 2771: keep any reply short and human.",
+      "note": "Opened by Dev 2026-10-09 07:18Z after reopen of 2771 failed (fork deleted). Body = 2771 body plus carry-over line and Box-only-with-feature note. reviewDecision REVIEW_REQUIRED; waiting on joshka. Contributor nullstalgia objected to LLM-style replies on 2771: keep any reply short and human. MERGED 2026-10-09T07:42:38Z by joshka (MEMBER), after his APPROVED review at 07:38:37Z; he merged main into the branch first. Merge commit 91dc40f, final diff 33/3/6 (incl. no-atomic CI check). Issue 2767 closed by the merge. Sync merged OSS run 37900861925 green (curated record pre-seeded, REPO_TIER 8, LinkedIn rep trims for paste window). Fork devtechedge/ratatui deleted 2026-10-09 after merge (no open PR from it; 2771 already non-reopenable).",
       "merged": "2026-10-09",
       "merge_commit": "91dc40fae41d802a9683f799eae81ac4f43df313",
-      "merged_at": "2026-10-09T07:42:38Z"
+      "merged_at": "2026-10-09T07:42:38Z",
+      "merged_by": "joshka",
+      "fork_deleted": "2026-10-09"
     }
   ],
   "issues": [
