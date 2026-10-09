@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-10-09",
+  "last_updated": "2026-10-10",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -309,13 +309,13 @@
       "status": "closed",
       "mergeable": true,
       "opened": "2026-09-12",
-      "last_checked": "2026-10-09",
+      "last_checked": "2026-10-10",
       "issue": 2767,
-      "do_not_duplicate": true,
+      "do_not_duplicate": false,
       "summary": "portable-atomic feature forwards to ratatui-widgets; Block shadow switches Arc import for no_std targets without atomic pointers.",
       "merged": false,
       "closed": "2026-10-08",
-      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:12Z, no closing comment). Not a maintainer decline. joshka (MEMBER) on 2026-09-20 (comment 5751175889) verified a thumbv6m-none-eabi consumer and said the team was leaning toward this implementation over the Rc approach because it keeps Send and Sync; he asked for the widgets feature to forward ratatui-core and for a no-atomic CI check. Both were pushed 2026-09-21. nullstalgia (NONE, author of still-open 2772) confirmed the build on 2026-10-02 and objected that the 26 Sep reply restated his comment, quoting CONTRIBUTING's AI line about communicating (comment 5957736308). Dev apologised 2026-10-03 (comment 5973123854). reviewDecision stayed REVIEW_REQUIRED. CI green (40 checks). Inference: the batch followed that voice objection; joshka had not rejected the diff. Do not refile or target this repo. 2026-10-09: joshka (MEMBER) asked why it was closed (comment 6074932844, 'probably still ok, just haven't gotten to reviewing it') and left review 5466080199 asking whether the Box erasure in Shadow::custom should be feature flagged. Dev asked to reopen. Reopen impossible because the fork was deleted on 2026-10-08; see reopen_attempt. 2026-10-09 07:18Z: Dev-approved reply posted (issuecomment-6076332552, verified verbatim) explaining the close and pointing to the carry-over. Superseded by 2822.",
+      "note": "Closed by us 2026-10-08 (Dev, silent batch 20:12Z, no closing comment). Not a maintainer decline. joshka (MEMBER) on 2026-09-20 (comment 5751175889) verified a thumbv6m-none-eabi consumer and said the team was leaning toward this implementation over the Rc approach because it keeps Send and Sync; he asked for the widgets feature to forward ratatui-core and for a no-atomic CI check. Both were pushed 2026-09-21. nullstalgia (NONE, author of still-open 2772) confirmed the build on 2026-10-02 and objected that the 26 Sep reply restated his comment, quoting CONTRIBUTING's AI line about communicating (comment 5957736308). Dev apologised 2026-10-03 (comment 5973123854). reviewDecision stayed REVIEW_REQUIRED. CI green (40 checks). Inference: the batch followed that voice objection; joshka had not rejected the diff. Do not refile or target this repo. 2026-10-09: joshka (MEMBER) asked why it was closed (comment 6074932844, 'probably still ok, just haven't gotten to reviewing it') and left review 5466080199 asking whether the Box erasure in Shadow::custom should be feature flagged. Dev asked to reopen. Reopen impossible because the fork was deleted on 2026-10-08; see reopen_attempt. 2026-10-09 07:18Z: Dev-approved reply posted (issuecomment-6076332552, verified verbatim) explaining the close and pointing to the carry-over. Superseded by 2822. 2026-10-09 16:44Z: competitor 2772 (nullstalgia, NONE) closed unmerged by its author in favor of 2822; race over, do_not_duplicate cleared.",
       "reopen_attempt": {
         "date": "2026-10-09",
         "authorized_by": "Dev",
@@ -325,7 +325,10 @@
         "branch_restored": "fix/widgets-portable-atomic-forwarding at af5a53f"
       },
       "superseded_by": 2822,
-      "last_ping": "2026-10-09"
+      "last_ping": "2026-10-09",
+      "competing_prs": [
+        2772
+      ]
     },
     {
       "repo": "SQLMesh/sqlmesh",
@@ -1638,7 +1641,7 @@
       "repo": "ratatui/ratatui",
       "number": 2822,
       "status": "merged",
-      "last_checked": "2026-10-09",
+      "last_checked": "2026-10-10",
       "issue": 2767,
       "do_not_duplicate": true,
       "supersedes": 2771,
@@ -1652,7 +1655,7 @@
       "signed": true,
       "last_ping": "2026-10-09",
       "summary": "Carry-over of 2771: portable-atomic forwards to ratatui-widgets; Shadow::custom uses Box erasure only with portable-atomic (joshka review 5466080199), Arc::new otherwise.",
-      "note": "Opened by Dev 2026-10-09 07:18Z after reopen of 2771 failed (fork deleted). Body = 2771 body plus carry-over line and Box-only-with-feature note. reviewDecision REVIEW_REQUIRED; waiting on joshka. Contributor nullstalgia objected to LLM-style replies on 2771: keep any reply short and human. MERGED 2026-10-09T07:42:38Z by joshka (MEMBER), after his APPROVED review at 07:38:37Z; he merged main into the branch first. Merge commit 91dc40f, final diff 33/3/6 (incl. no-atomic CI check). Issue 2767 closed by the merge. Sync merged OSS run 37900861925 green (curated record pre-seeded, REPO_TIER 8, LinkedIn rep trims for paste window). Fork devtechedge/ratatui deleted 2026-10-09 after merge (no open PR from it; 2771 already non-reopenable).",
+      "note": "Opened by Dev 2026-10-09 07:18Z after reopen of 2771 failed (fork deleted). Body = 2771 body plus carry-over line and Box-only-with-feature note. reviewDecision REVIEW_REQUIRED; waiting on joshka. Contributor nullstalgia objected to LLM-style replies on 2771: keep any reply short and human. MERGED 2026-10-09T07:42:38Z by joshka (MEMBER), after his APPROVED review at 07:38:37Z; he merged main into the branch first. Merge commit 91dc40f, final diff 33/3/6 (incl. no-atomic CI check). Issue 2767 closed by the merge. Sync merged OSS run 37900861925 green (curated record pre-seeded, REPO_TIER 8, LinkedIn rep trims for paste window). Fork devtechedge/ratatui deleted 2026-10-09 after merge (no open PR from it; 2771 already non-reopenable). Post-merge 2026-10-09 16:43Z: nullstalgia (NONE) commented glad it merged and apologized for earlier frustration (issuecomment-6085203225), then closed 2772 in favor of 2822. 2026-10-09 19:46Z: joshka (MEMBER) replied no problems, bullish on AI-assisted comms if it starts with respect for the receiver, friction as mutual learning, and disagrees with a hard-line no-AI-text policy (issuecomment-6088077109). No reply needed; nothing posted by us.",
       "merged": "2026-10-09",
       "merge_commit": "91dc40fae41d802a9683f799eae81ac4f43df313",
       "merged_at": "2026-10-09T07:42:38Z",
@@ -3782,7 +3785,7 @@
       "no_go": false,
       "no_go_checked": "2026-10-09",
       "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 2771 was closed on 2026-10-08 after nullstalgia objected to an LLM-style reply. joshka had been leaning toward shipping the diff and had not declined it. Lifted by Dev 2026-10-09 only to carry 2771 forward after joshka asked about the close; agent_scan_gate stays on, no new targets in this repo.",
-      "note": "No further PRs per Dev 2026-10-09. 2771 closed by us 2026-10-08. Do not refile or target.",
+      "note": "No further PRs per Dev 2026-10-09. 2771 closed by us 2026-10-08. Do not refile or target. 2026-10-10: joshka (MEMBER) stated on 2822 (issuecomment-6088077109) that AI-assisted comms are reasonable when they respect the receiver and he does not back a hard-line no-AI-text policy. Still keep replies short and human. Competitor 2772 closed 2026-10-09.",
       "agent_scan_gate": true
     },
     "vercel/next.js": {
