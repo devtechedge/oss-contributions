@@ -321,6 +321,7 @@ See `docs/SYNC.md`.
 - Before deleting: no open PR from that fork, no branch holding our work, no local clone that depends on it.
 - `compare` `ahead_by > 0` does not prove a branch is ours (fork carries upstream branches). Prefer fork `created_at` vs `pushed_at` gap (branch author fields are empty). For a real gap, confirm triage records a dead end before deleting.
 - Upstream keeps commits of open/closed PRs after fork deletion. Only never-opened fork pushes are at risk: check for a local clone first.
+- Deleting a fork makes its closed PRs permanently non-reopenable. Before deleting, read each closed-unmerged PR from it: keep the fork and ask Dev if a human OWNER, MEMBER or COLLABORATOR engaged with it, or if we closed it on a non-maintainer's objection. If a maintainer asks after the fork is gone, recover with a new PR from `refs/pull/N/head` (PATTERNS.md Post-open maintenance).
 - Delete in batches of about ten; confirm open PR count unchanged after each batch.
 - `gh repo delete` needs `delete_repo` scope (`gh auth refresh -s delete_repo`, interactive).
 - Pruning also blunts bulk-fork account flags and keeps owned repos visible on the profile.
