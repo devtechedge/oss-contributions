@@ -300,6 +300,13 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 - `git push --force-with-lease` always reports "(stale info)" for a slash branch, because no
   remote-tracking ref is written. Anchor the lease by hand with the remote sha:
   `--force-with-lease=refs/heads/<branch>:<sha>`.
+
+- A branch whose `branch.<name>.remote` is a bare URL never gets a remote-tracking ref:
+  `git fetch` writes only `FETCH_HEAD`, so `@{u}` does not resolve and `git status` cannot
+  show that the checkout has fallen behind. Compare local HEAD to the PR head
+  (`gh pr view N -R OWNER/REPO --json headRefOid`) instead, fast-forward with
+  `git merge --ff-only FETCH_HEAD`, and add the fork as a named remote so ahead/behind is
+  visible from then on.
 - Wrecked `.git` repair (the worktree is always safe): `mv .git .git.broken`, then
   `git clone --no-checkout <fork> ../tmp && mv ../tmp/.git .git`, re-add the remotes and fetch,
   `git symbolic-ref HEAD refs/heads/<slash-free>`, `git reset --mixed <sha>`.
