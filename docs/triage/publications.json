@@ -42,7 +42,7 @@
       "linkedin_representative": "Anza Kit - codec docs numeric predicate fix."
     },
     "web-infra-dev/rspress": {
-      "linkedin_representative": "Rspress - Search init race fix by awaiting FlexSearch index."
+      "linkedin_representative": "Rspress - Search init race fix."
     },
     "pytest-dev/pytest-env": {
       "linkedin_representative": "pytest-env - native pytest.toml env table docs."
@@ -75,7 +75,7 @@
       "linkedin_representative": "remix - marker-less document markup navigates correctly."
     },
     "wntrblm/nox": {
-      "linkedin_representative": "nox - script-mode test prepends fake package to PYTHONPATH."
+      "linkedin_representative": "nox - script-mode PYTHONPATH test fix."
     },
     "anchore/syft": {
       "linkedin_representative": "syft - uv.lock dependents link to locked version."
@@ -88,6 +88,9 @@
     },
     "rust-lang/rustup": {
       "linkedin_representative": "rustup - component remove hints another toolchain."
+    },
+    "ratatui/ratatui": {
+      "linkedin_representative": "Ratatui - portable-atomic for no-atomic targets."
     }
   },
   "records": [
@@ -989,6 +992,30 @@
       "resume_bullet": "rust-lang/rustup #5129 (Rust) - rustup component remove no longer panics with component target should be known when removing a target-less component such as rust-src that is not installed on the active toolchain. The remove path now skips the installed-target lookup for target-less components and falls through to the normal does not contain component error, covered by a CLI regression test. Merged Oct 2026. github.com/rust-lang/rustup/pull/5129",
       "linkedin_bullet": "rust-lang/rustup #5129 - rustup component remove no longer panics with component target should be known when removing a target-less component such as rust-src that is not installed on the active toolchain. The remove path now skips the installed-target lookup for target-less components and falls through to the normal does not contain component error, covered by a CLI regression test.",
       "profile_line": "`rustup component remove` no longer panics with `component target should be known` when removing a target-less component such as `rust-src` that is not installed on the active toolchain. The remove path now skips the installed-target lookup for target-less components and falls through to the normal missing-component error, covered by a CLI regression test.",
+      "curated": true
+    },
+    {
+      "id": "ratatui/ratatui#2822",
+      "repo": "ratatui/ratatui",
+      "number": 2822,
+      "merged": "2026-10-09",
+      "merged_at": "2026-10-09T07:42:38Z",
+      "merge_commit": "91dc40fae41d802a9683f799eae81ac4f43df313",
+      "issue": 2767,
+      "url": "https://github.com/ratatui/ratatui/pull/2822",
+      "languages": [
+        "Rust"
+      ],
+      "org": "ratatui",
+      "display_name": "Ratatui",
+      "profile_title": "Ratatui #2822",
+      "ledger_logo": "https://github.com/ratatui.png?size=40",
+      "profile_logo": "https://github.com/ratatui.png?size=48",
+      "profile_logo_alt": "Ratatui",
+      "ledger_what": "The portable-atomic feature now forwards to ratatui-widgets, so no-atomic targets like the RP2040 build. Before, ratatui-widgets imported alloc::sync::Arc unconditionally and thumbv6m-none-eabi builds failed with E0432 even with the feature on; Shadow::custom now uses portable-atomic-util's Arc, erasing the effect type through a Box only under the feature, and a new CI check builds the no-atomic target.",
+      "resume_bullet": "ratatui/ratatui #2822 (Rust) - portable-atomic now forwards to ratatui-widgets, so no-atomic targets like the RP2040 build; Shadow::custom uses portable-atomic-util's Arc with Box erasure only under the feature, and a new CI check builds thumbv6m-none-eabi. Merged Oct 2026. github.com/ratatui/ratatui/pull/2822",
+      "linkedin_bullet": "ratatui/ratatui #2822 - portable-atomic now forwards to ratatui-widgets, so no-atomic targets like the RP2040 build; Shadow::custom uses portable-atomic-util's Arc with Box erasure only under the feature, and a new CI check builds thumbv6m-none-eabi.",
+      "profile_line": "The `portable-atomic` feature now forwards to `ratatui-widgets`, so no-atomic targets like the RP2040 (`thumbv6m-none-eabi`) build instead of failing on `alloc::sync::Arc`. `Shadow::custom` uses `portable-atomic-util`'s `Arc` and erases the effect type through a `Box` only under the feature, and a new CI check builds the no-atomic target.",
       "curated": true
     }
   ],
