@@ -1680,7 +1680,8 @@
       ],
       "summary": "Empty-pattern split followed Regex::split, so boundary empties shifted later indexes. split_to_array now follows Spark 4.2 UTF8String.split: one code point per element, a positive limit keeps the tail, and an empty input stays a one-element array. Non-empty patterns are unchanged.",
       "note": "Issue 2744 was open and unassigned, with only an acknowledgement from linhr and no competing PR. Approved body matched after the first post dropped inline code marks; no claim comment. Commit 566c838 is verified. Package clippy with -D warnings passed. Probe skipped until opening was approved. Draft PR 1486 does not touch spark_split.rs.",
-      "ci_status": "pending"
+      "ci_status": "action_required",
+      "ci_note": "Title validation passed (run 38096493644, on open and on the body edit). Rust Lint, Python Lint, Gold Data, and Build are action_required, waiting on a maintainer to approve workflows from this fork. Repeat contributors' pull_request runs do execute, so this is the first-contribution approval gate, not a failing job."
     }
   ],
   "issues": [
