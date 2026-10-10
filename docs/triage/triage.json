@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-10-10",
+  "last_updated": "2026-10-11",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -1661,6 +1661,26 @@
       "merged_at": "2026-10-09T07:42:38Z",
       "merged_by": "joshka",
       "fork_deleted": "2026-10-09"
+    },
+    {
+      "repo": "lakehq/sail",
+      "number": 2766,
+      "status": "open",
+      "opened": "2026-10-11",
+      "last_checked": "2026-10-11",
+      "issue": 2744,
+      "do_not_duplicate": true,
+      "merged": false,
+      "signed": true,
+      "head": "devtechedge:fix/spark-split-empty-pattern @ 566c838",
+      "diff": [
+        95,
+        0,
+        2
+      ],
+      "summary": "Empty-pattern split followed Regex::split, so boundary empties shifted later indexes. split_to_array now follows Spark 4.2 UTF8String.split: one code point per element, a positive limit keeps the tail, and an empty input stays a one-element array. Non-empty patterns are unchanged.",
+      "note": "Issue 2744 was open and unassigned, with only an acknowledgement from linhr and no competing PR. Approved body matched after the first post dropped inline code marks; no claim comment. Commit 566c838 is verified. Package clippy with -D warnings passed. Probe skipped until opening was approved. Draft PR 1486 does not touch spark_split.rs.",
+      "ci_status": "pending"
     }
   ],
   "issues": [
@@ -3036,6 +3056,18 @@
       "do_not_duplicate": true,
       "last_checked": "2026-10-09",
       "note": "PR 3944 closed by us 2026-10-08 after the docs-only scope cut FBruzzesi asked for on 2026-09-15. Issue still open (tests and perf check were never done). Do not refile."
+    },
+    {
+      "repo": "lakehq/sail",
+      "number": 2744,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        2766
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-11",
+      "note": "Open fix is PR 2766. Do not open a second PR on this issue."
     }
   ],
   "closed_attempts": [
@@ -4345,6 +4377,12 @@
       "no_go_checked": "2026-10-09",
       "no_go_reason": "Dev 2026-10-09: no further PRs in this repo. 3944 was closed on 2026-10-08 after the docs-only cut FBruzzesi asked for, with no second look.",
       "note": "No further PRs per Dev 2026-10-09. 3944 closed by us 2026-10-08. Do not refile or target."
+    },
+    "lakehq/sail": {
+      "contributions": [
+        2766
+      ],
+      "focus": "Spark-compatible computation framework in Rust."
     }
   }
 }
