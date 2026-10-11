@@ -245,6 +245,7 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - Not every comment authored by a human account is a human reply. In `stellar/stellar-docs` an automated verifier ("Raven", `stellar-experimental/stellar-raven`) posts through the real maintainer account `kalepail`, and the text reads like a person wrote it: "Raven independently verified this fix on ...", a paragraph of checks, and an "[Original finding]" link into a separate org.
 - A single polite comment per PR thread is the right response to a green, mergeable PR with no maintainer contact after about a week, and it beats closing. Collaborators are auto-subscribed to repository notifications, so no `@`-mention is needed, and naming the wrong owner is worse than naming none. One sentence per paragraph, varied openings across the batch, no apology, and close by offering a concrete concession (retarget it, split the diff, land a smaller part of it).
 - Check `author_association` before treating an objection as the maintainers' stance (ratatui 2771, 9 Oct 2026). The objection that led to the close came from an outside contributor (`NONE`) who authored the competing PR, and a MEMBER later asked why it was closed and reviewed it. An objection from `NONE` or `CONTRIBUTOR` is input, not a verdict: weigh it, but do not close or concede scope on it without a human OWNER, MEMBER or COLLABORATOR saying the same. The same holds for AI-assisted comms: a maintainer's own stated stance outranks a non-maintainer's objection (ratatui 2822, 10 Oct 2026: after merge the objector apologized and closed the competing PR, and a MEMBER said AI-assisted comms are fine when they respect the receiver and rejected a hard-line no-AI-text policy). Still keep replies short and human.
+- Review threads survive a force push. Inline comments and our replies keep their thread. `line: null` with `original_line` set only means the thread is outdated because the code under it changed, which is expected once the nit is fixed. Confirm the reply ids still appear in `pulls/N/comments` after a re-sign push.
 
 ### A comment can be spam-flagged invisibly (8 Oct 2026, grpc/grpc-rust #2919)
 
@@ -294,6 +295,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   reported 60,916, a 24 percent silent truncation that looked like a normal successful fetch. Compare
   the fetched byte count against `gh api repos/devtechedge/oss-contributions/contents/<path> --jq .size`
   and refetch through the contents API whenever the two differ.
+- Laptop PowerShell: `2>/dev/null` fails because there is no `/dev/null`. Use `2>$null`. `Remove-Item -Recurse` on a folder fails while the shell's cwd is inside it, so `Set-Location` out of it first.
 
 ### Git landmines
 
@@ -356,6 +358,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   `commit.verification.verified`).
 
 - Box-made commit for a repo that requires verified commits (ratatui 2822, 9 Oct 2026): the box has no signing key, so do not push from it. `git format-patch -1` on the box, CopyFromBox the patch to the Windows laptop, `git am -c commit.gpgsign=false <patch>` in a clone on the PR branch, then `sign_commit.py <sha> refs/heads/<branch> <pubkey>` and push. The signed sha differs from the box sha, so treat the box commit as superseded and confirm `commit.verification.verified` on `pulls/N/commits` before reporting.
+- Unsigned now, re-sign later (11 Oct 2026): when Dev is away from the laptop and approves a box push to a repo with no `required_signatures` rule and no approval on the PR, push the unsigned fast-forward. To re-sign later on the laptop: shallow clone the fork branch into `%TEMP%`, run `sign_commit.py <sha> refs/heads/<branch> <pubkey>` on each unsigned commit, then `git push --force-with-lease=refs/heads/<branch>:<old sha>`. Check `verified` on every PR commit afterwards. If a human approval exists or the ruleset dismisses stale reviews, ask before the force push.
 
 ### CI and API reads that mislead
 
@@ -393,6 +396,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 - cargo-fuzz (7 Oct 2026, sqlparser-rs PR 2618): needs `rustup toolchain install nightly --profile minimal`, `cargo install cargo-fuzz`, and `sudo apt-get install -y g++` (libfuzzer-sys fails with `failed to find tool "c++"`; only gcc is preinstalled). For a bounded run, copy the seed dir to `/tmp`, add seeds for the new syntax there, and pass `-- -max_total_time=150` per target, so the repo tree stays clean.
 - Toolchain and build deps (6 Oct 2026, rust-lang/rustup #5098): the box default rustc was 1.91 while the repo needed 1.95 or newer and carried no toolchain pin. Run `rustup override set stable` inside the clone, never `rustup default`, because the default is shared by every agent on the box (`rustup override list` shows what is set).
 - Workspace-wide CI lint on the box (7 Oct 2026, grpc/grpc-rust #2919): `cargo clippy --workspace` died in build scripts that compile C++ (`protoc-gen-rust-grpc` runs cmake; `examples` then needs that plugin), which CI restores from a cache step.
+- `make` is not preinstalled (11 Oct 2026). Rust workspaces that vendor OpenSSL (`openssl-src`) fail with `Command 'make' not found`, and prost build scripts need `protoc`. Run `sudo apt-get update` then `sudo apt-get install -y make protobuf-compiler` before the first cargo build.
 
 ### Ledger writes (contents PUT)
 
