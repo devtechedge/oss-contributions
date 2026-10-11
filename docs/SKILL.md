@@ -19,7 +19,7 @@ How to read this playbook: rules are stated here, once. Case evidence and machin
 
 ## 0. Canonical location and cross-platform sync
 
-This playbook is used from several agent platforms (WorkBuddy, zcode, Codex/ChatGPT). Only one copy counts, and it lives in the ledger repo:
+This playbook is used from several agent platforms (zcode, Codex/ChatGPT). Only one copy counts, and it lives in the ledger repo:
 
 - `devtechedge/oss-contributions` → `docs/SKILL.md`
 - `devtechedge/oss-contributions` → `docs/PATTERNS.md`
@@ -34,11 +34,11 @@ https://raw.githubusercontent.com/devtechedge/oss-contributions/main/docs/PATTER
 1. **Edit only the GitHub copies.** Local mirrors (`~/.agents/skills/oss/`, a Codex project file) are derivatives. A change made to a derivative is lost on the next sync.
 2. **Refetch at the start of every PR session.** If the copy you are reading did not come from those URLs during this session, fetch them and follow what comes back. Working from a stale mirror is a real failure mode (a session on an older copy missed section 13 and hand-edited publication targets).
 3. Raw is a CDN cache. It can serve a stale or truncated body with a 200 and no error. Compare the fetched byte count against `gh api repos/devtechedge/oss-contributions/contents/<path> --jq .size` and refetch through the contents API when they differ. Never proceed on an empty or truncated file.
-4. After editing either file, push to `docs/` in the same turn (section 8.4), then run `~/.agents/skills/oss/sync-from-github.py` with no flags in the same turn so the local mirror matches canonical. A plain run rewrites canonical plus the WorkBuddy, Codex and OpenCode mirrors; `--no-zip` is a no-op. After an intentional distillation push that shrinks a file by more than 25%, add `--force` (refused unless the fetched size equals the contents API size).
+4. After editing either file, push to `docs/` in the same turn (section 8.4), then run `~/.agents/skills/oss/sync-from-github.py` with no flags in the same turn so the local mirror matches canonical. A plain run rewrites canonical plus the Codex and OpenCode mirrors; `--no-zip` is a no-op. After an intentional distillation push that shrinks a file by more than 25%, add `--force` (refused unless the fetched size equals the contents API size).
 
 Platform notes:
 
-- **WorkBuddy / zcode**: run `~/.agents/skills/oss/sync-from-github.py` (or `.sh`) after any push. It rewrites the local skill mirror.
+- **zcode**: run `~/.agents/skills/oss/sync-from-github.py` (or `.sh`) after any push. It rewrites the local skill mirror.
 - **Codex / ChatGPT**: store the bootstrap snippet in project or memory instructions so it fetches both URLs before starting work.
 
 Bootstrap snippet for any platform:

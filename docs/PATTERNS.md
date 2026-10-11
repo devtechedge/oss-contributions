@@ -283,8 +283,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
   wanted 1. Pin lookup: `awk '/^name = "ruff"$/{p=1} p' uv.lock`.
 - `uv` and long `pytest` runs get SIGTERMed under the sandbox. Re-run with the sandbox off and
   redirect to a file; piping to `tail` loses everything when the command is killed.
-- Python `os.remove()` is intercepted by the WorkBuddy shim and raises `OSError: SHFileOperationW`.
-  Delete scratch files with bash `rm -f`.
+- Delete scratch files with bash `rm -f`.
 - No `cmake`, `gcc`, or `make` on this box (16 Sep 2026). For a CMake-only change, download the
   Kitware release zip (`cmake-<ver>-windows-x86_64.zip`) and unzip to `~/osswork` with Python
   `zipfile`; a 46 MB zip takes longer than the 120s default, so pass an explicit `timeout`.
@@ -453,16 +452,8 @@ Point-in-time counts rot by design. Do not store saturation tallies here. Read l
 
 ## Build and tooling traps (this machine)
 
-- `CODEBUDDY_SAFE_DELETE_ENABLED=0` turns off the agent's safe-delete shim for
-  one command. Set it for `next build`, which deletes files under `.next` and
-  otherwise dies during "Finalizing page optimization" with
-  `[safe-delete][SAFE_DELETE_BULK_CONFIRM_REQUIRED]` (the guard allows 50
-  deletions per turn). Also set it for `npm install` runs that fail with
-  `[safe-delete] ... genie-trash ETIMEDOUT`, because a half-finished cleanup
-  leaves `node_modules` missing packages and the next build then fails on
-  `MODULE_NOT_FOUND`. Scope it to the single command, never export it.
 - Prefer `mv` over `rm` for build output (`.next`, `out`, `target`): renaming
-  never trips the delete guard. Do not delete what you can move aside.
+  never trips a delete guard. Do not delete what you can move aside.
 - Next.js `output: "export"` with the default tsconfig: the second
   `next build` fails typecheck because tsc type-checks the generated `.tsx`
   files under `out/`. Move `out/` aside before rebuilding. The first build
