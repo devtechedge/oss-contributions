@@ -92,6 +92,7 @@ Upstream PR work is recorded on the unified ledger repo. The README lists merged
 - Vary the opening across a batch. Comments to the same maintainer must not share an opening line or template.
 - **One sentence per line in comments.** Exactly one sentence per paragraph with a blank line between. No wall-of-text blocks.
 - **A bit detailed, not an essay.** Name the function, what went wrong, what changed, and how you checked it. Too thin and too long both fail.
+- Do not open by confessing an unrun local build, or by offering a second implementation in the same body. The check in the diff is the proof. A machine gap stays in private chat.
 - Prefer `Fixes #N` / `Closes #N` when the change fully resolves the issue.
 - When the PR covers only part of the issue, write `Partially addresses #N` or `Part of #N`, never a closing keyword. Ledger copy follows the final upstream body; re-read at merge.
 - Informal tone is reserved for private chat with the user; all public text follows this section.
