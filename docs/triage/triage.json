@@ -1665,7 +1665,7 @@
     {
       "repo": "lakehq/sail",
       "number": 2766,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-10-11",
       "last_checked": "2026-10-11",
       "issue": 2744,
@@ -1681,7 +1681,10 @@
       "summary": "Empty-pattern split followed Regex::split, so boundary empties shifted later indexes. split_to_array now follows Spark 4.2 UTF8String.split: one code point per element, a positive limit keeps the tail, and an empty input stays a one-element array. Non-empty patterns are unchanged.",
       "note": "Issue 2744 was open and unassigned, with only an acknowledgement from linhr and no competing PR. Approved body matched after the first post dropped inline code marks; no claim comment. Commit 566c838 is verified. Package clippy with -D warnings passed. Probe skipped until opening was approved. Draft PR 1486 does not touch spark_split.rs.",
       "ci_status": "action_required",
-      "ci_note": "Title validation passed (run 38096493644, on open and on the body edit). Rust Lint, Python Lint, Gold Data, and Build are action_required, waiting on a maintainer to approve workflows from this fork. Repeat contributors' pull_request runs do execute, so this is the first-contribution approval gate, not a failing job."
+      "ci_note": "Title validation passed (run 38096493644, on open and on the body edit). Rust Lint, Python Lint, Gold Data, and Build are action_required, waiting on a maintainer to approve workflows from this fork. Repeat contributors' pull_request runs do execute, so this is the first-contribution approval gate, not a failing job.",
+      "closed": "2026-10-11",
+      "closed_by": "linhr",
+      "close_note": "Closed by maintainer without merge 2026-10-11. Repo and org now no-go."
     },
     {
       "repo": "dyne/frei0r",
@@ -3718,6 +3721,14 @@
       "do_not_refile": true,
       "reason": "Closed by us 2026-10-08 after the requested docs scope cut, with no second look and no ping. Repo is no-go. Do not refile.",
       "note": "Dev closed the PR on 2026-10-08 in a silent batch (20:11-20:16Z), no closing comment. Repo no_go set the same day."
+    },
+    {
+      "repo": "lakehq/sail",
+      "issue": 2744,
+      "related_pr": 2766,
+      "do_not_refile": true,
+      "reason": "maintainer hostile to contributions; do not target",
+      "note": "Closed by maintainer linhr 2026-10-11."
     }
   ],
   "no_go": [
@@ -4454,13 +4465,33 @@
       "contributions": [
         2766
       ],
-      "focus": "Spark-compatible computation framework in Rust."
+      "focus": "Spark-compatible computation framework in Rust.",
+      "no_go": true,
+      "no_go_checked": "2026-10-11",
+      "no_go_reason": "maintainer hostile to contributions; do not target",
+      "note": "No further PRs per Dev 2026-10-11. 2766 closed by maintainer linhr (LakeSail co-founder/CTO) on 2026-10-11. Do not refile or target. Org-wide block: see lakehq/* entry."
     },
     "dyne/frei0r": {
       "contributions": [
         314
       ],
       "focus": "Portable video plugins; cairo plugins must not write a const input frame."
+    },
+    "lakehq/*": {
+      "contributions": [],
+      "focus": "LakeSail org (all repositories).",
+      "no_go": true,
+      "no_go_checked": "2026-10-11",
+      "no_go_reason": "maintainer hostile to contributions; do not target",
+      "note": "Org-level block per Dev 2026-10-11; maintainer linhr controls this org. Applies to every lakehq repo."
+    },
+    "linhr/*": {
+      "contributions": [],
+      "focus": "Personal repositories of linhr (LakeSail maintainer).",
+      "no_go": true,
+      "no_go_checked": "2026-10-11",
+      "no_go_reason": "maintainer hostile to contributions; do not target",
+      "note": "Account-level block per Dev 2026-10-11. Applies to every linhr repo."
     }
   }
 }
