@@ -123,6 +123,21 @@ function writeIfChanged(file, next) {
   return true;
 }
 
+// On Windows these docs come back from a git checkout as CRLF, while the spliced
+// regions the renderers inject are written as bare LF, so a single file ends up
+// holding both. Every anchor used by the renderers is LF-only, so a CRLF file makes
+// them all fail. Normalise on read, then write back with the EOL the file already
+// had so the file does not churn between runs.
+function readDoc(file) {
+  const raw = fs.readFileSync(file, "utf8");
+  return { raw, crlf: raw.includes("\r\n"), text: raw.replace(/\r\n/g, "\n") };
+}
+
+function writeDoc(file, text, crlf) {
+  const body = text.endsWith("\n") ? text : text + "\n";
+  return writeIfChanged(file, crlf ? body.replace(/\n/g, "\r\n") : body);
+}
+
 function prKey(repo, number) {
   return `${repo}#${number}`;
 }
@@ -472,7 +487,8 @@ function aboutDescription(n, recs) {
 
 function publishReadme(root, recs, n, dryRun, coRecs = []) {
   const file = path.join(root, "README.md");
-  let text = fs.readFileSync(file, "utf8");
+  const { raw, crlf, text: doc } = readDoc(file);
+  let text = doc;
   text = rewriteCounts(text, n);
   text = text.replace(/\*\*Latest update:\*\* [^\n]+/, `**Latest update:** ${formatDisplayDate(TODAY)}`);
   const rows = [...recs].sort(sortLedger).map(renderLedgerRow).join("\n");
@@ -494,13 +510,14 @@ function publishReadme(root, recs, n, dryRun, coRecs = []) {
     const cut = at + MARK.tableEnd.length;
     text = `${text.slice(0, cut)}\n\n${MARK.coauthoredStart}\n${coSection}\n${MARK.coauthoredEnd}${text.slice(cut)}`;
   }
-  if (dryRun) return { file, changed: text !== fs.readFileSync(file, "utf8") };
-  return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
+  if (dryRun) return { file, changed: text !== raw };
+  return { file, changed: writeDoc(file, text, crlf) };
 }
 
 function publishResume(root, recs, n, dryRun, privateRoot = null) {
   const file = privateOr(root, privateRoot, "docs/Devayan_Mandal-resume.txt", PRIVATE_FILES.resume);
-  let text = fs.readFileSync(file, "utf8");
+  const { raw, crlf, text: doc } = readDoc(file);
+  let text = doc;
   text = rewriteCounts(text, n);
   const bullets = [...recs].sort(sortLedger).map(renderResumeBullet).join("\n");
   try {
@@ -508,11 +525,11 @@ function publishResume(root, recs, n, dryRun, privateRoot = null) {
   } catch {
     text = text.replace(
       /(Merged upstream:\n)([\s\S]*?)(\n\nActive upstream engineering spans)/,
-      `$1${MARK.resumeStart}\n${bullets}\n${MARK.resumeEnd}$3`,
+      `      $1${MARK.resumeStart}\n${bullets}\n${MARK.resumeEnd}$3`,
     );
   }
-  if (dryRun) return { file, changed: text !== fs.readFileSync(file, "utf8") };
-  return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
+  if (dryRun) return { file, changed: text !== raw };
+  return { file, changed: writeDoc(file, text, crlf) };
 }
 
 function defaultLinkedinRep(rec) {
@@ -521,7 +538,8 @@ function defaultLinkedinRep(rec) {
 
 function publishLinkedin(root, recs, n, pubs, dryRun, privateRoot = null) {
   const file = privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin);
-  let text = fs.readFileSync(file, "utf8");
+  const { raw, crlf, text: doc } = readDoc(file);
+  let text = doc;
   text = rewriteCounts(text, n);
   const repoCount = uniqueRepos(recs).length;
   text = text.replace(
@@ -554,17 +572,19 @@ function publishLinkedin(root, recs, n, pubs, dryRun, privateRoot = null) {
   } catch {
     text = text.replace(
       /(Representative work:\n\n)([\s\S]*?)(\n\nActive contribution areas include)/,
-      `$1${MARK.linkedinRepStart}\n${grouped.join("\n\n")}\n${MARK.linkedinRepEnd}$3`,
+      `      $1${MARK.linkedinRepStart}\n${grouped.join("\n\n")}\n${MARK.linkedinRepEnd}$3`,
     );
   }
 
-  if (dryRun) return { file, changed: text !== fs.readFileSync(file, "utf8") };
-  return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
+  if (dryRun) return { file, changed: text !== raw };
+  return { file, changed: writeDoc(file, text, crlf) };
 }
 
 function publishExperiencePaste(root, dryRun, privateRoot = null) {
   const src = privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin);
-  const text = fs.readFileSync(src, "utf8");
+  // Normalised so a CRLF source cannot smuggle stray \r into the paste and inflate
+  // the length counted against LinkedIn's Experience cap below.
+  const text = readDoc(src).text;
   const expHead = text.indexOf("2. Open-Source Software Contributor");
   const descHead = expHead === -1 ? -1 : text.indexOf("DESCRIPTION", expHead);
   const bodyHead = descHead === -1 ? -1 : text.indexOf("\n", descHead) + 1;
@@ -668,6 +688,17 @@ function renderWellfound(text, recs, n, pubs, own) {
   const achRe = /Getting \d+ pull requests merged/;
   if (!achRe.test(text)) throw new Error("wellfound: achievements anchor not found");
   text = text.replace(achRe, `Getting ${n} pull requests merged`);
+  // The Q&A prose is hand-written but still quotes the merged count. Regenerate it
+  // here so it cannot drift from the bio, description and achievements above.
+  const qaAnchors = [
+    [/That is \d+ merged upstream PRs plus/, `That is ${n} merged upstream PRs plus`],
+    [/That bet compounds: \d+ upstream merges so far/, `That bet compounds: ${n} upstream merges so far`],
+    [/My bar is the same: \d+ upstream merges and counting/, `My bar is the same: ${n} upstream merges and counting`],
+  ];
+  for (const [re, next] of qaAnchors) {
+    if (!re.test(text)) throw new Error(`wellfound: Q&A anchor not found: ${re}`);
+    text = text.replace(re, next);
+  }
   if (own && own.count) {
     const expRe = /open-sourced \d+ repositories/;
     if (!expRe.test(text)) throw new Error("wellfound: own-repo count anchor not found");
@@ -698,10 +729,10 @@ async function fetchOwnRepos() {
 
 function publishWellfound(root, recs, n, pubs, own, dryRun, privateRoot = null) {
   const file = privateOr(root, privateRoot, "docs/wellfound.txt", PRIVATE_FILES.wellfound);
-  const prev = fs.readFileSync(file, "utf8");
+  const { raw, crlf, text: prev } = readDoc(file);
   const text = renderWellfound(prev, recs, n, pubs, own);
   if (dryRun) return { file, changed: text !== prev };
-  return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
+  return { file, changed: writeDoc(file, text, crlf) };
 }
 
 // devayan-all-details.txt is Dev's full professional picture for job applications
@@ -728,10 +759,10 @@ function renderDevayanDetails(prev, n, recs) {
 }
 function publishDevayanDetails(root, recs, n, dryRun, privateRoot = null) {
   const file = privateOr(root, privateRoot, "docs/devayan-all-details.txt", PRIVATE_FILES.devayan);
-  const prev = fs.readFileSync(file, "utf8");
+  const { raw, crlf, text: prev } = readDoc(file);
   const text = renderDevayanDetails(prev, n, recs);
   if (dryRun) return { file, changed: text !== prev };
-  return { file, changed: writeIfChanged(file, text.endsWith("\n") ? text : text + "\n") };
+  return { file, changed: writeDoc(file, text, crlf) };
 }
 
 function escapeHtml(s) {
@@ -1118,12 +1149,15 @@ async function main() {
     writes.push({ file: pubsPath, changed: writeJson(pubsPath, pubs) });
   }
 
+  // Normalised, so the validators measure the same bytes the publishers wrote. A raw
+  // read sees CRLF working-tree files and inflates every length check against the
+  // character caps below.
   const fileTexts = [
-    ["README", fs.readFileSync(path.join(root, "README.md"), "utf8")],
-    ["resume", fs.readFileSync(privateOr(root, privateRoot, "docs/Devayan_Mandal-resume.txt", PRIVATE_FILES.resume), "utf8")],
-    ["linkedin", fs.readFileSync(privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin), "utf8")],
-    ["wellfound", fs.readFileSync(privateOr(root, privateRoot, "docs/wellfound.txt", PRIVATE_FILES.wellfound), "utf8")],
-    ["devayan", fs.readFileSync(privateOr(root, privateRoot, "docs/devayan-all-details.txt", PRIVATE_FILES.devayan), "utf8")],
+    ["README", readDoc(path.join(root, "README.md")).text],
+    ["resume", readDoc(privateOr(root, privateRoot, "docs/Devayan_Mandal-resume.txt", PRIVATE_FILES.resume)).text],
+    ["linkedin", readDoc(privateOr(root, privateRoot, "docs/linkedin-all-details.txt", PRIVATE_FILES.linkedin)).text],
+    ["wellfound", readDoc(privateOr(root, privateRoot, "docs/wellfound.txt", PRIVATE_FILES.wellfound)).text],
+    ["devayan", readDoc(privateOr(root, privateRoot, "docs/devayan-all-details.txt", PRIVATE_FILES.devayan)).text],
   ];
   report.problems = args.dryRun ? [] : validate(triage, recs, fileTexts, coRecs);
   report.files = writes.filter((w) => w.changed).map((w) => {

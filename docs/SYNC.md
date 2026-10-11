@@ -72,3 +72,27 @@ Binary targets are written only when the bytes change. DOCX zip mtimes are prese
 ## Curated copy
 
 Machine metadata (merge SHA, dates, URLs) comes from GitHub. Human-quality impact sentences live in `publications.json` with `curated: true`. Pass `--summary` on first ingest, or edit the record once. Later runs leave that prose alone.
+
+## Traps found 12 Oct 2026
+
+All four were real defects and all are fixed. Read this section before trusting a green
+`--dry-run` or a `files: []` result.
+
+- **`--dry-run` skips validation entirely.** `report.problems = args.dryRun ? [] : validate(...)`.
+  A clean dry run proves nothing about the invariants, because none were checked. Always
+  run for real and read `problems`. During this repair a dry run reported `ok: true` three
+  times in a row while every real run threw.
+- **The validator and the publishers must read through the same EOL normalisation.** They
+  disagreed once and the validator reported a phantom `paste=2053` on bytes the publisher
+  had just written as 1989. Any length check against a character cap is only meaningful if
+  it reads the same way the writer wrote.
+- **`renderWellfound` never regenerated the Q&A block.** Three hand-written Q&A answers
+  kept a stale merged count while the bio on the same page was correct. Anchors are
+  per-section; a hand-written section quoting a generated number needs its own.
+- **The LinkedIn Experience paste is entry 2's description including the entire 28-bullet
+  ledger list.** Only the `<<<LEDGER...>>>` marker lines are filtered out, not the bullets
+  between them. The accepted window is 1980-1990, roughly ten characters wide, so almost any
+  edit to that block breaks it. Length is measured after `.replace(/\n{3,}/g, "\n\n").trim()`,
+  so blank-line layout changes the number.
+
+The general lesson is in `docs/PATTERNS.md` under "Build and tooling traps (this machine)".

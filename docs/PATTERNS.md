@@ -476,3 +476,23 @@ Point-in-time counts rot by design. Do not store saturation tallies here. Read l
 - Rust host `x86_64-pc-windows-gnu` fails to link build scripts with `unable to find library -lgcc` and `-lgcc_eh` when PATH `gcc` is LLVM-MinGW, which has no libgcc (29 Sep 2026). Passing `-L` after `-l` does not help lld. Copy `libunwind.a` to `libgcc.a` and `libgcc_eh.a` in that mingw's `x86_64-w64-mingw32/lib`. WSL with no `cc` and no passwordless sudo is not a fallback. Switching the cargo target to `x86_64-pc-windows-gnullvm` does not fix host build scripts, which still link as gnu.
 - Windows cargo stale fingerprint (17 Sep 2026, cargo-about #320): after restoring a source file with Copy-Item, bump LastWriteTime before `cargo test`. The copy can land with a timestamp cargo's fingerprint treats as unchanged, so the test binary is stale and fail-before/after signals silently invert. Touching the file forced a rebuild and flipped both regression tests from red to green with no content change.
 - Parent-process guards walk the full ancestor chain (17 Sep 2026, cargo-about #320): `is_powershell_parent` climbs every ancestor, so launching the test binary from WSL bash still trips the guard when the WSL session itself was spawned from pwsh - the suite only runs green under a tree rooted outside pwsh.
+- A Windows checkout makes every LF-anchored regex in a read-modify-write script fail
+  at once (12 Oct 2026, sync-merged-oss.mjs). git checks out CRLF here, and these docs
+  are worse than uniformly CRLF: hand-written prose is CRLF while the spliced regions
+  the script injects are bare LF, so one file holds both. Any anchor containing `\n`
+  then misses, and five publishers plus every character-cap validator threw at the same
+  time (`BIO anchor not found`, `paste outside 1980-1990 window`). Normalise on read
+  (`raw.replace(/\r\n/g, "\n")`), remember whether the file was CRLF, and write back in
+  the EOL the file already had. A `text=auto` entry does not repair an already-mixed
+  working tree.
+- A stray `\r` that survives a slice inflates every `.length` measured downstream, so the
+  defect shows up as a content problem instead of a measurement one. The LinkedIn
+  Experience paste reported 1999 characters against a 1990 cap, and the obvious fix was to
+  delete nine characters of Dev's copy. The real length was 1989 and no word was cut: the
+  entire overflow was carriage returns. When a script reports a length or cap violation on
+  prose the user wrote, confirm what is being counted before touching their words.
+- A generator that rewrites some sections and leaves others alone drifts silently
+  (12 Oct 2026). `renderWellfound` regenerated the bio, description, merged list,
+  achievements and repo count, but not the Q&A block, so three hand-written answers froze
+  at `25 merged upstream PRs` while the bio read 39 on the same page. Any hand-written
+  section that quotes a generated number needs an anchor of its own.
