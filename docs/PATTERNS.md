@@ -44,6 +44,7 @@ Read on demand. Do not load this whole file into a scan.
 - Scan (8 Oct 2026): a scheduled stale workflow is not an account scanner. A `stale.yml` on a daily cron with `days-before-stale` of 90 does not close a new fork PR. Only a workflow that runs at PR open and closes in seconds is the section 5 no-go. Read `on:` before skipping the repo.
 - Scan (8 Oct 2026): a maintainer telling an outsider not to open a PR on a related issue is a skip for that bug family, even when the sibling issue has an empty timeline. Do not treat the empty sibling as uncontested.
 - Scan (8 Oct 2026): an owner-filed feature issue is not an invite when CONTRIBUTING says wait for agreement before coding. If that owner just merged the adjacent change, assume they may take the next one. Post an approach and wait, or skip. A good-first issue that already names the files, the helper, the tests, and a Done when list, with an empty timeline, can outrank a same-day bug. Same-day bugs in repos that merge outsiders within hours already had a cross-referenced PR and zero comments.
+- Scan (11 Oct 2026): some maintainers read high monthly PR volume on the public profile as automation and close on that basis, even when CONTRIBUTING has no volume or AI rule. Pace external PRs across the month. Before targeting a repo, search its closed issues and PRs for maintainer remarks about AI or PR volume and skip if found. When quoting merged counts publicly, use external-only merged (exclude own repos).
 
 ### Merge-probability priors (from cleanup evidence; re-check, not laws)
 
