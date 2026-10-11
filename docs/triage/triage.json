@@ -4469,7 +4469,7 @@
       "no_go": true,
       "no_go_checked": "2026-10-11",
       "no_go_reason": "maintainer hostile to contributions; do not target",
-      "note": "No further PRs per Dev 2026-10-11. 2766 closed by maintainer linhr (LakeSail co-founder/CTO) on 2026-10-11. Do not refile or target. Org-wide block: see lakehq/* entry."
+      "note": "No further PRs per Dev 2026-10-11. 2766 closed by maintainer linhr (LakeSail co-founder/CTO) on 2026-10-11. Do not refile or target. Org-wide block: see lakehq/* entry. Maintainer replied and locked thread 2026-10-11; no AUP issue per maintainer."
     },
     "dyne/frei0r": {
       "contributions": [
