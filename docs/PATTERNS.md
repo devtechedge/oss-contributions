@@ -14,6 +14,7 @@ Read on demand. Do not load this whole file into a scan.
 - Policy-first waits are common (version/peer semantics). Keep a light watch and do not code early.
 - Hot repos race fast - every fresh typeorm and sqlalchemy bug checked in the 11 Sep 2026 scan already had 1-2 open PRs. Treat a repo with several same-week open PRs per issue as raced and deprioritize.
 - Issue-number search is not a competing-PR check. A query for the issue number can return an unrelated closed PR. Use the issue timeline, then read open PRs that touch the same function (29 Sep 2026).
+- A search for two ordinary words across open PRs can match bot test-report comments and look like a competitor. Confirm from the issue timeline and from changed filenames.
 - Race check, all miss modes. An empty timeline is not a clear field. Keyword-scan open PR titles: fastmcp #5099 fixed #5098 with zero cross-referenced events (13 Sep 2026). Read any open PR that touches the same function even when the title lacks the issue number (linebender/kurbo #611 was the same bug as open #593, 29 Sep 2026). Read the reporter's own open PRs (several Sept 2026 bugs were self-raced within a day).
 - A maintainer actively re-testing with the reporter (repro in dispute) means hands off until triage concludes. A "limitation by design" or semantics verdict in comments closes the issue for PR purposes; skip it.
 - Soft claims ("I'd like to work on this", unassigned, no PR) are not owned, but do not race them; re-check after ~7 days and take it only if no PR appeared.
@@ -260,7 +261,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 - `gh` needs `export APPDATA='C:\Users\Devayan Mandal\AppData\Roaming'` first, in backslash form
   only: the `/c/...` form makes gh report "not logged in". Config sits at
   `...\AppData\Roaming\GitHub CLI\hosts.yml`. Never "fix" auth with `gh auth login`.
-- PowerShell 7 strips quotes from native-command arguments, so `gh pr create --title` fails or posts the wrong title when the title contains `--word` (the word is parsed as a gh flag). Write the create payload as JSON with Python (`newline='\n'`, no `\r`) and `gh api --method POST repos/OWNER/REPO/pulls --input` a `C:\...` path. The same shell eats backticks in inline Python, so a PR body with inline code has to be a file, not a `-c` string.
+- PowerShell 7 strips quotes from native-command arguments, so `gh pr create --title` fails or posts the wrong title when the title contains `--word` (the word is parsed as a gh flag). Write the create payload as JSON with Python (`newline='\n'`, no `\r`) and `gh api --method POST repos/OWNER/REPO/pulls --input` a `C:\...` path. The same shell eats backticks in inline Python, so a PR body with inline code has to be a file, not a `-c` string. An expandable PowerShell here-string eats those backticks before Python writes the file. Use the write tool or a literal here-string.
 - Yarn 4 is often absent from PATH. Use the binary named in `.yarnrc.yml` `yarnPath` (`.yarn/releases/yarn-*.cjs` via `node`) rather than a global `yarn`. Node 24 ran a repo whose `.nvmrc` said 20 (graphile/worker 640, 8 Oct 2026).
 - Never `base64 -w0`: it silently writes empty stdout on this box, and that has pushed 0-byte files
   to a default branch. Use Python `base64` and verify the result with
