@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-10-12",
+  "last_updated": "2026-10-13",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -1560,12 +1560,14 @@
       "number": 2618,
       "status": "open",
       "opened": "2026-10-07",
-      "last_checked": "2026-10-12",
+      "last_checked": "2026-10-13",
       "issue": 2609,
       "do_not_duplicate": true,
       "merged": false,
-      "summary": "PostgreSQL: Add support for DO statement. New Statement::Do { language, code } behind Dialect::supports_do_statement() (PostgreSQL only); code must be a string literal, LANGUAGE accepted before or after it (Display normalizes to DO [LANGUAGE lang] code), duplicate LANGUAGE rejected. Branch postgres-do-statement, 1 unsigned commit 01e94ac, +108/-0 across 6 files. Full cargo test --all-features, clippy, doc, no_std checks green locally; fuzz_parse_sql and fuzz_parse_roundtrip ~150s each clean.",
-      "note": "Issue filed by jvatic, uncontested (no assignee, no comments, no cross-refs). Claim comment issuecomment-6041961694 posted and verified. AGENTS.md requires AI disclosure in PR body (included), PR title <DIALECT>: <desc>, body under 20 lines, and agents must not post reviews or review replies. Apache generative tooling Generated-by trailer is recommended only, not applied. stale.yml closes PRs after 60+7 days inactivity. GenericDialect deliberately not enabled (matches LISTEN/NOTIFY). CI action_required (first-time contributor approval)."
+      "summary": "PostgreSQL DO statement: Statement::Do(DoStatement) with language + code behind Dialect::supports_do_statement() (PostgreSQL only); LANGUAGE before/after; Display normalizes; duplicate LANGUAGE rejected. Three verified commits on postgres-do-statement: 55068ab (feature), 0198d07 (5 fuzz seeds), f58b626 (DoStatement named struct + Display/From/Spanned + test).",
+      "note": "Issue 2609 by jvatic, uncontested at open. AGENTS.md: AI disclosure in PR body, agents must not post review replies (Dev posts). LucaCappelletti94 (author_association CONTRIBUTOR, de facto maintainer by merged_by) asked for fuzz seeds then DoStatement refactor; Dev replied issuecomment-6128758509 and discussion_r4251293534. Awaiting Luca's next review. Apache Generated-by trailer recommended only, not applied. stale.yml 60+7. CI action_required (first-time contributor).",
+      "head": "devtechedge:postgres-do-statement @ f58b626",
+      "signed": true
     },
     {
       "repo": "proptest-rs/proptest",
@@ -1712,22 +1714,22 @@
       "number": 8666,
       "status": "open",
       "opened": "2026-10-11",
-      "last_checked": "2026-10-12",
+      "last_checked": "2026-10-13",
       "issue": 8664,
       "do_not_duplicate": true,
       "merged": false,
       "signed": true,
-      "head": "devtechedge:fix-laravel-nullable-belongsto @ f6995ca",
-      "base": "5.0",
+      "head": "devtechedge:fix-laravel-nullable-belongsto @ d66a171",
+      "base": "4.4",
       "diff": [
         7,
         247,
         0
       ],
       "summary": "Laravel optional BelongsTo with a nullable foreign key now accepts explicit null on POST/PATCH. EloquentPropertyMetadataFactory marks the relation nullable when its FK column is nullable; PersistProcessor dissociates a present null BelongsTo/MorphTo and unsets the raw attribute before save. Omitted key leaves relation unchanged.",
-      "note": "Issue 8664 open, unassigned, no cross-reference or competing PR at open. Approved body matched on readback (trailing newline only). No comment posted. Commit verified. Issue8664Test failed before fix, passed after on PHP 8.4 (3 tests, 13 assertions). Opened after the original session died on an auth error.",
-      "ci_status": "pending",
-      "ci_note": "At open: 6 passed, 0 failed, 109 pending."
+      "note": "Issue 8664. soyuka (MEMBER) CHANGES_REQUESTED ~20:10 IST 12 Oct; review email to devtechedge arrived ~22:52 IST (~2h40m delay). soyuka rebased onto 4.4. Open with soyuka: MorphTo test fixture choice and changelog wording (CHANGELOG generated from commit headlines). Failing checks: PHPStan AbstractItemNormalizer (SerializerInterface::normalize; Symfony 8.1 CI; unrelated) and codecov patch/project (uncovered MorphTo). Nothing of ours minimized.",
+      "ci_status": "failing",
+      "ci_note": "PHPStan red upstream-shaped (AbstractItemNormalizer); codecov wants MorphTo coverage."
     },
     {
       "repo": "moonrepo/moon",
@@ -4423,7 +4425,8 @@
       "contributions": [
         2618
       ],
-      "focus": "SQL parser; PostgreSQL dialect statement support."
+      "focus": "SQL parser; PostgreSQL dialect statement support.",
+      "note": "Effective maintainer signal: LucaCappelletti94 merged most recent PRs despite author_association CONTRIBUTOR; prefer merged_by over association labels."
     },
     "grpc/grpc-rust": {
       "contributions": [],
