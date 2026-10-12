@@ -181,6 +181,7 @@ No babysitting: never set up a watch, cron, listener, or poll loop on a PR. GitH
 - "Please sign your commit": if API shows `verified: true`, the ask is satisfied; no reply. If not, only the user can re-sign.
 - Closing our own open PR is a last resort, and never for an approved one. Re-read `reviewDecision`, last human comments/reviews, and recent merges from the API before any close (handoff summaries rot). Prefer one polite nudge over closing a green mergeable PR with no contact after about a week; get per-PR approval before any close.
 - Auto-close: mark Closed (not merged), never refile from the same account, never reply to the bot.
+- **Stale "No jobs were run" emails.** GitHub can deliver "Run failed ... No jobs were run" mail days or weeks after the run. Before blaming maintainers or re-pushing, run `gh api repos/OWNER/REPO/actions/runs?head_sha=SHA` and check `actor`, `triggering_actor`, `created_at`, and `run_attempt`.
 - **Silence and dormancy (7 + 7 days):** activity is a human other than us, or a code-review bot. CI/deploy/changeset/codecov/CLA/Vercel/Netlify do not count; our own comments do not reset the clock. After 7 days silence: one ping through the gate. After 7 more: close with one short sentence through the gate, not silently and not in a same-day burst. Absolute exemptions: already approved by a human and only waiting on merge, or a human still actively reviewing. One follow-up per PR ceiling.
 - **Ping craft:** at least five sentences, gentle, concrete about files, root cause, tests, and the linked issue. One sentence per paragraph, blank lines, hyphen never em dash. Post via `--body-file`, fetch back. Space a batch about one minute apart. Log `last_ping` in triage the same turn.
 
@@ -293,6 +294,7 @@ Every merged PR gets real impact prose, never a one-line restatement of its titl
 - **Set `curated: true` when writing it.** Check the flag on every newly merged record.
 - Fill `ledger_what`, `profile_line`, `resume_bullet`, `linkedin_bullet` consistently.
 - `profile_logo_alt` must not repeat the visible title; use the org or product name.
+- Match the actual PR title. Never describe a docs-only or test-only PR as a fix, and never claim tests a PR does not add.
 - **No em dashes** in generated copy. Separator is a plain hyphen. Check the whole `publications.json` tree, including `repos[].linkedin_representative`.
 - After any sync, check `languages` on the new record (empty falls back to a wrong language). Prefer pre-seeding the full curated record before the first dispatch (PATTERNS.md Ledger publication).
 - **After hand-fixing a record, re-run Sync merged OSS.** Curated copy is left alone, so re-running is safe.
