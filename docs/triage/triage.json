@@ -1738,11 +1738,11 @@
       "issue": 2758,
       "do_not_duplicate": true,
       "merged": false,
-      "signed": true,
-      "head": "devtechedge:fix-interrupt-exit-code @ 0292559",
+      "signed": false,
+      "head": "devtechedge:fix-interrupt-exit-code @ 439079e",
       "base": "master",
       "summary": "moon run interrupted by SIGINT/SIGTERM mid-task now marks the in-flight job failed (not skipped) and exits 128+signal (130/143). Not-yet-started tasks stay skipped; SIGTERM prints (terminated).",
-      "note": "Issue 2758 open, unassigned, no cross-reference or competing PR at open. Approved body matched on readback (trailing newline only). No comment posted. Commit verified. Linux Docker signal test: SIGINT 130, SIGTERM 143, summary not skipped; clippy clean. Opened after original session died on an auth error. 11 Oct: Miles Johnson (milesj, COLLABORATOR) review 5481919251 asked to seed exit_code from session.exit_code instead of the early return. Pushed f27f8d3 (unsigned, Dev approved from phone, fast-forward). Replied on thread (discussion_r4240405692), readback matched. Local clippy clean, signal tests 2/2.",
+      "note": "Issue 2758 open, unassigned, no cross-reference or competing PR at open. Approved body matched on readback (trailing newline only). No comment posted. Commit verified. Linux Docker signal test: SIGINT 130, SIGTERM 143, summary not skipped; clippy clean. Opened after original session died on an auth error. 11 Oct: Miles Johnson (milesj, COLLABORATOR) review 5481919251 asked to seed exit_code from session.exit_code instead of the early return. Pushed f27f8d3 (unsigned, Dev approved from phone, fast-forward). Replied on thread (discussion_r4240405692), readback matched. Local clippy clean, signal tests 2/2. 12 Oct: Miles review asked to drop the signal slot. Pushed 439079e (unsigned, box, fast-forward; no required_signatures ruleset): removed the Mutex slot, single branch awaits the monitor task whenever the token is cancelled. fmt, clippy -D warnings clean, signal tests 5/5 unit + 2/2 CLI. No reply posted yet (draft pending Dev approval).",
       "ci_status": "action_required"
     }
   ],
