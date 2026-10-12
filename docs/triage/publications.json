@@ -1049,10 +1049,10 @@
     }
   ],
   "wellfound_cache": {
-    "count": 33,
+    "count": 34,
     "featured": {
-      "name": "certifications",
-      "desc": "Verified certification archive for Dev M with 30 entries across Anthropic MCP, OpenAI agents, LangGraph deep and ambient agents, AWS, Azure AZ-900, TensorFlow, deep learning, JHU data science, IBM data science, blockchain, VR, self-driving cars, Google IT automation, six sigma and Forage, each with issuer, date, verify link and local PDF."
+      "name": "daily-ai",
+      "desc": "Daily AI by Dev: a public archive of short 60 to 90 second videos on AI tools, LLMs, coding agents and new AI drops. Each entry embeds the video right in the README with a one-line takeaway, newest first. Covers model launches like StepFun Step 5 and DeepSeek, agent harnesses, context and output limits, plus hands-on tool tests on camera."
     },
     "fetched_at": "2026-10-12"
   }
