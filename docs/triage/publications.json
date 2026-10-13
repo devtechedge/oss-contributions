@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler. Co-authored merges (role co-author: opened by someone else, Dev's Co-authored-by trailer kept in the merged commit) live in co_authored and never count toward merged_count.",
   "last_updated": "2026-10-13",
-  "merged_count": 39,
+  "merged_count": 40,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
     "profile": "display_name asc, number asc"
@@ -21,7 +21,7 @@
       "linkedin_representative": "pnpm - store path, lockfile, range prefix, bail fixes."
     },
     "recharts/recharts": {
-      "linkedin_representative": "Recharts - portal SVG focus fix with WebKit ring coverage."
+      "linkedin_representative": "Recharts - portal SVG focus fix."
     },
     "brianc/node-postgres": {
       "linkedin_representative": "node-postgres - Connection.sync ending fix."
@@ -51,7 +51,7 @@
       "linkedin_representative": "stellar-docs - memo, HTTPS, address and flag fixes."
     },
     "ssf0409/tracelens": {
-      "linkedin_representative": "tracelens - report table cell escaping for pipes, breaks, HTML."
+      "linkedin_representative": "tracelens - report table cell escaping."
     },
     "PyO3/maturin": {
       "linkedin_representative": "maturin - Windows interpreter discovery for non-UTF-8 output."
@@ -1031,7 +1031,7 @@
       "issue": 2758,
       "url": "https://github.com/moonrepo/moon/pull/2759",
       "languages": [
-          "Rust"
+        "Rust"
       ],
       "org": "moonrepo",
       "display_name": "moon",
