@@ -1714,7 +1714,7 @@
       "number": 8666,
       "status": "open",
       "opened": "2026-10-11",
-      "last_checked": "2026-10-14",
+      "last_checked": "2026-10-13",
       "issue": 8664,
       "do_not_duplicate": true,
       "merged": false,
@@ -1734,21 +1734,34 @@
     {
       "repo": "moonrepo/moon",
       "number": 2759,
-      "status": "open",
-      "opened": "2026-10-11",
-      "last_checked": "2026-10-14",
+      "status": "merged",
+      "last_checked": "2026-10-13",
       "issue": 2758,
       "do_not_duplicate": true,
-      "merged": false,
+      "merged": "2026-10-13",
       "signed": true,
       "head": "devtechedge:fix-interrupt-exit-code @ 9e03ff6",
       "base": "master",
       "summary": "moon run interrupted by SIGINT/SIGTERM mid-task now marks the in-flight job failed (not skipped) and exits 128+signal (130/143). Not-yet-started tasks stay skipped; SIGTERM prints (terminated).",
       "note": "Issue 2758 open, unassigned, no cross-reference or competing PR at open. Approved body matched on readback (trailing newline only). No comment posted. Commit verified. Linux Docker signal test: SIGINT 130, SIGTERM 143, summary not skipped; clippy clean. Opened after original session died on an auth error. 11 Oct: Miles Johnson (milesj, COLLABORATOR) review 5481919251 asked to seed exit_code from session.exit_code instead of the early return. Pushed f27f8d3 (unsigned, Dev approved from phone, fast-forward). Replied on thread (discussion_r4240405692), readback matched. Local clippy clean, signal tests 2/2. 12 Oct: Miles review asked to drop the signal slot. Pushed 439079e (unsigned, box, fast-forward; no required_signatures ruleset): removed the Mutex slot, single branch awaits the monitor task whenever the token is cancelled. fmt, clippy -D warnings clean, signal tests 5/5 unit + 2/2 CLI. No reply posted yet (draft pending Dev approval). 12 Oct: 439079e re-signed on laptop as 9e03ff6 (same tree, force-with-lease, Dev approved); all 3 commits verified. Reply posted 2026-10-12 (discussion_r4243923948, reply to 4243788976), readback matched. Waiting on maintainer CI approval and review. 13 Oct: CI failures were nodejs.org Node 24 download timeouts on small depot runners, not the PR; a fork contributor cannot re-run, and pushing a commit triggers runs that need maintainer approval. Dev pushed test-hardening commit 62737b7; moon comment issuecomment-6142785734 asked to approve workflows. Merged 2026-10-13T18:33:22Z (00:03 IST 14 Oct) by milesj, merge commit 756b43e, diff 262/13/6. Publication record pre-seeded curated before the Sync merged OSS dispatch.",
-      "ci_status": "action_required"
+      "ci_status": "action_required",
+      "merge_commit": "756b43e3ce7259d04d02add860972d9aea631b8a",
+      "merged_at": "2026-10-13T18:33:22Z"
     }
   ],
   "issues": [
+    {
+      "repo": "moonrepo/moon",
+      "number": 2758,
+      "status": "closed",
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-13",
+      "related_prs": [
+        2759
+      ],
+      "note": "Closed by merged PR #2759 (756b43e)."
+    },
     {
       "repo": "LargeModGames/spotatui",
       "number": 673,
@@ -4495,6 +4508,12 @@
       "no_go_checked": "2026-10-11",
       "no_go_reason": "maintainer hostile to contributions; do not target",
       "note": "Account-level block per Dev 2026-10-11. Applies to every linhr repo."
+    },
+    "moonrepo/moon": {
+      "contributions": [
+        2759
+      ],
+      "focus": ""
     }
   }
 }
