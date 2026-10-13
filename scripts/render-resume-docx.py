@@ -480,6 +480,7 @@ REPO_TIER = {
     "open-telemetry/opentelemetry-rust": 8,  # 2.7k, official OpenTelemetry (CNCF) Rust SDK; org weight lifts it over rspress
     "wntrblm/nox": 7,  # 1.6k, established Python test automation tool; peer of rspress
     "ratatui/ratatui": 8,  # 22.9k, the leading Rust TUI library, community org (9 Oct 2026); peer of zola
+    "moonrepo/moon": 8,  # 4.1k, moonrepo's Rust monorepo build system and task runner, org-backed (14 Oct 2026); peer of sqlmesh
     "largemodgames/spotatui": 6,  # 1.4k, active Rust TUI on a personal account (8 Oct 2026): more reach than the tiny personal repos at 5, no org behind it, so below nox
 }
 

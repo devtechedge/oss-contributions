@@ -91,6 +91,9 @@
     },
     "ratatui/ratatui": {
       "linkedin_representative": "Ratatui - portable-atomic for no-atomic targets."
+    },
+    "moonrepo/moon": {
+      "linkedin_representative": "moon - exit 130/143 on interrupted tasks."
     }
   },
   "records": [
@@ -1016,6 +1019,30 @@
       "resume_bullet": "ratatui/ratatui #2822 (Rust) - portable-atomic now forwards to ratatui-widgets, so no-atomic targets like the RP2040 build; Shadow::custom uses portable-atomic-util's Arc with Box erasure only under the feature, and a new CI check builds thumbv6m-none-eabi. Merged Oct 2026. github.com/ratatui/ratatui/pull/2822",
       "linkedin_bullet": "ratatui/ratatui #2822 - portable-atomic now forwards to ratatui-widgets, so no-atomic targets like the RP2040 build; Shadow::custom uses portable-atomic-util's Arc with Box erasure only under the feature, and a new CI check builds thumbv6m-none-eabi.",
       "profile_line": "The `portable-atomic` feature now forwards to `ratatui-widgets`, so no-atomic targets like the RP2040 (`thumbv6m-none-eabi`) build instead of failing on `alloc::sync::Arc`. `Shadow::custom` uses `portable-atomic-util`'s `Arc` and erases the effect type through a `Box` only under the feature, and a new CI check builds the no-atomic target.",
+      "curated": true
+    },
+    {
+      "id": "moonrepo/moon#2759",
+      "repo": "moonrepo/moon",
+      "number": 2759,
+      "merged": "2026-10-13",
+      "merged_at": "2026-10-13T18:33:22Z",
+      "merge_commit": "756b43e3ce7259d04d02add860972d9aea631b8a",
+      "issue": 2758,
+      "url": "https://github.com/moonrepo/moon/pull/2759",
+      "languages": [
+          "Rust"
+      ],
+      "org": "moonrepo",
+      "display_name": "moon",
+      "profile_title": "moon #2759",
+      "ledger_logo": "https://github.com/moonrepo.png?size=40",
+      "profile_logo": "https://github.com/moonrepo.png?size=48",
+      "profile_logo_alt": "moonrepo",
+      "ledger_what": "moon run now exits 130 on SIGINT and 143 on SIGTERM when a signal interrupts a running task, instead of exiting 0. The in-flight job is finished as a failed run rather than skipped, so wrappers like `timeout 600 moon run app:test && deploy` no longer treat an interrupt as success; tasks that had not started stay skipped, and new CLI tests send both signals to a running task.",
+      "resume_bullet": "moonrepo/moon #2759 (Rust) - moon run now exits 130/143 when SIGINT or SIGTERM interrupts a running task instead of 0, marking the in-flight job failed rather than skipped, with new CLI signal tests. Merged Oct 2026. github.com/moonrepo/moon/pull/2759",
+      "linkedin_bullet": "moonrepo/moon #2759 - moon run now exits 130/143 when SIGINT or SIGTERM interrupts a running task instead of 0, marking the in-flight job failed rather than skipped, with new CLI signal tests.",
+      "profile_line": "`moon run` now exits 130 on SIGINT and 143 on SIGTERM when a signal interrupts a running task, instead of exiting 0. The in-flight job is a failed run rather than skipped, so `timeout ... moon run ... && deploy` no longer treats an interrupt as success, and new CLI tests cover both signals.",
       "curated": true
     }
   ],
