@@ -1780,6 +1780,31 @@
       "note": "Issue 849 open, unassigned, 0 comments, timeline only labeled, no competing fix PR at open. Approved body matched on readback (trailing newline only). No claim comment. Probe skipped until opening was approved. Commit unsigned (no box key); upstream main mixes verified and unsigned. CI ci+autofix.ci both action_required on fork PR (maintainer approval gate; non-actionable).",
       "ci_status": "action_required",
       "ci_note": "Fork pull_request workflows ci and autofix.ci completed with conclusion action_required (awaiting maintainer approval to run). Same pattern as other first-fork PRs; leave alone per playbook 6.9."
+    },
+    {
+      "repo": "nitrojs/nitro",
+      "number": 4782,
+      "status": "open",
+      "opened": "2026-10-15",
+      "last_checked": "2026-10-15",
+      "issue": 4754,
+      "do_not_duplicate": true,
+      "merged": false,
+      "signed": false,
+      "head": "devtechedge:fix/externals-skip-resolve-chain @ 4084c36",
+      "base": "v2",
+      "diff": [
+        111,
+        6,
+        2
+      ],
+      "related_prs": [
+        4752,
+        4766
+      ],
+      "reply_comment": "https://github.com/nitrojs/nitro/issues/4754#issuecomment-6176239083",
+      "summary": "node-externals resolves explicit externals and traceInclude entries with tryResolve first so commonjs no longer loads (or bundles) external graphs. Partial fix: Windows separator part left to 4752/4766; implicit exports-subpath reverse mapping unchanged.",
+      "note": "No maintainer sign-off on the approach yet (only reporter Waleed-KH, association NONE); Dev chose to open anyway on 2026-10-15. Reporter offered to test on Windows and Linux."
     }
   ],
   "issues": [
