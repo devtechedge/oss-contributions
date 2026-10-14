@@ -251,6 +251,7 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - Co-author credit needs a well-formed trailer on an email linked to the account (6 Oct 2026, langgraphjs 2828, squash 8d6e6cf). The PR body carried a broken copy (`Co-authored-by: Dev M`, then a markdown mailto link to the noreply address on the next line), which parses as nothing. Credit came only from `Co-authored-by: Dev M <devtechedge@gmail.com>` in commit 5a7dea5, which GitHub's squash carried below the `---------` line.
 
 - Deleting a fork makes every closed PR from it permanently non-reopenable (ratatui 2771, 9 Oct 2026). The reopen call returns 422 "The repository that submitted this pull request has been deleted", and recreating the fork and pushing the branch at the original head SHA does not help, because the PR stays bound to the deleted repo id. A maintainer can still show interest after the close, so before fork cleanup read each closed-unmerged PR for a human OWNER, MEMBER or COLLABORATOR comment or review after the close. Recovery path: fetch `refs/pull/N/head` from upstream (it survives fork deletion), push it to a recreated fork branch, apply the requested change on top, and open a new PR whose body carries the old one forward with one line naming it.
+- After a squash merge the fork branch shows `diverged` with `ahead_by > 0` forever, since its commits never land upstream as-is (api-platform/core 8666, 14 Oct 2026). For fork deletion, the PR's `merged: true` is the proof the branch is done; do not read the compare as unmerged work.
 
 ## Reading PR state and nudging
 
@@ -274,6 +275,7 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - `isMinimized` is GraphQL-only and does not ride along on the connections an agent already reads. REST exposes a `minimized` key on the comment object, but in this case it came back null while the comment was in fact minimized, so REST is not the reliable read.
 - Scope the finding before reacting, and keep the reaction about exposure rather than offence. Here it was 1 minimized comment of 209 on the account, every other comment posted that day was clean, and it was the only minimized comment in the repo's last 20 issues, so it was isolated rather than an account pattern. Who did it is often unknowable: GitHub's own spam detection minimizes without any human action, and if a maintainer did it, they may never say so.
 - After the author deletes a flagged comment, check what the thread looks like for the next reader. Deleting it did not restore the status quo: the maintainer's reply remained as the only comment, so its middle paragraph referred to "the proposal here" with no proposal above it, and the thread now read as an unsolicited policy reminder. That is cosmetic and needs no repair, but an agent should notice it and should not volunteer an explanation in the thread.
+- A maintainer pushing commits to our branch (rebase, an extra test, a changelog line) means they are carrying it to merge, even while their own CHANGES_REQUESTED review stays undismissed (api-platform/core 8666, 13-14 Oct 2026: soyuka pushed two commits, never re-reviewed, then squash-merged). No ping is due, and fetch before any push of ours so their commits are not overwritten.
 
 ## Environment, git and signing (this machine)
 
@@ -479,6 +481,8 @@ Point-in-time counts rot by design. Do not store saturation tallies here. Read l
 
 - Wellfound Lattice experience line `open-sourced N repositories` is the public active own-repo count from `fetchOwnRepos` / `wellfound_cache` (non-fork, non-archived, public), not the merged-PR badge. Verified 14 Oct 2026 at 34 (42 non-fork minus 6 private minus 2 archived; private-inclusive would be 40). Do not "correct" it to the merged count.
 - When Dev says he already hand-edited a live LinkedIn or Wellfound field, stop immediately. Do not re-paste. Only record any new layout or count rule he just set (14 Oct 2026).
+- A maintainer's `Co-authored-by` on the squash of our PR does not change our role (api-platform/core 8666, 14 Oct 2026: soyuka's trailer on c33a566). The record stays authored and counts in the headline total; `role: "co-author"` is only for PRs someone else opened.
+- Read `stargazers_count` before assigning `REPO_TIER`; a guessed star count put API Platform core at 8 (about 9k) when it had 2.6k, which is tier 7 on the documented scale (14 Oct 2026).
 
 ## Build and tooling traps (this machine)
 
