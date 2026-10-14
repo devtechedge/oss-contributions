@@ -94,6 +94,9 @@
     },
     "moonrepo/moon": {
       "linkedin_representative": "moon - exit 130/143 on interrupted tasks."
+    },
+    "api-platform/core": {
+      "linkedin_representative": "API Platform - nullable Laravel BelongsTo."
     }
   },
   "records": [
@@ -1043,6 +1046,30 @@
       "resume_bullet": "moonrepo/moon #2759 (Rust) - moon run now exits 130/143 when SIGINT or SIGTERM interrupts a running task instead of 0, marking the in-flight job failed rather than skipped, with new CLI signal tests. Merged Oct 2026. github.com/moonrepo/moon/pull/2759",
       "linkedin_bullet": "moonrepo/moon #2759 - moon run now exits 130/143 when SIGINT or SIGTERM interrupts a running task instead of 0, marking the in-flight job failed rather than skipped, with new CLI signal tests.",
       "profile_line": "`moon run` now exits 130 on SIGINT and 143 on SIGTERM when a signal interrupts a running task, instead of exiting 0. The in-flight job is a failed run rather than skipped, so `timeout ... moon run ... && deploy` no longer treats an interrupt as success, and new CLI tests cover both signals.",
+      "curated": true
+    },
+    {
+      "id": "api-platform/core#8666",
+      "repo": "api-platform/core",
+      "number": 8666,
+      "merged": "2026-10-14",
+      "merged_at": "2026-10-14T05:41:31Z",
+      "merge_commit": "c33a5667470b38b3c1f2c79b6c332f251387f203",
+      "issue": 8664,
+      "url": "https://github.com/api-platform/core/pull/8666",
+      "languages": [
+        "PHP"
+      ],
+      "org": "api-platform",
+      "display_name": "API Platform",
+      "profile_title": "API Platform #8666",
+      "ledger_logo": "https://github.com/api-platform.png?size=40",
+      "profile_logo": "https://github.com/api-platform.png?size=48",
+      "profile_logo_alt": "API Platform",
+      "ledger_what": "API Platform's Laravel integration now accepts an explicit null on an optional BelongsTo relation whose foreign key is nullable, instead of returning a 500 on POST and PATCH. EloquentPropertyMetadataFactory marks the relation nullable from its foreign key column, and PersistProcessor dissociates a null BelongsTo or MorphTo before save, with tests for both relation types.",
+      "resume_bullet": "api-platform/core #8666 (PHP) - Laravel optional BelongsTo relations with a nullable foreign key now accept explicit null on POST/PATCH instead of a 500, via nullable relation metadata and dissociate() before save, with BelongsTo and MorphTo tests. Merged Oct 2026. github.com/api-platform/core/pull/8666",
+      "linkedin_bullet": "api-platform/core #8666 - Laravel optional BelongsTo relations with a nullable foreign key now accept explicit null on POST/PATCH instead of a 500, with BelongsTo and MorphTo tests.",
+      "profile_line": "An optional Laravel `BelongsTo` with a nullable foreign key now accepts an explicit null on POST and PATCH instead of a 500. The relation is marked nullable from its foreign key column, and a null `BelongsTo` or `MorphTo` is dissociated before save.",
       "curated": true
     }
   ],

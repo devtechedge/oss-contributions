@@ -482,6 +482,7 @@ REPO_TIER = {
     "ratatui/ratatui": 8,  # 22.9k, the leading Rust TUI library, community org (9 Oct 2026); peer of zola
     "moonrepo/moon": 8,  # 4.1k, moonrepo's Rust monorepo build system and task runner, org-backed (14 Oct 2026); peer of sqlmesh
     "largemodgames/spotatui": 6,  # 1.4k, active Rust TUI on a personal account (8 Oct 2026): more reach than the tiny personal repos at 5, no org behind it, so below nox
+    "api-platform/core": 7,  # 2.6k, API Platform core, org-backed PHP API framework for Symfony and Laravel (14 Oct 2026)
 }
 
 # Where a merge the curated list has never seen enters the ranking. Scoring it
