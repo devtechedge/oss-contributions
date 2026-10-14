@@ -172,6 +172,10 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - Newsfragments are `newsfragments/<PR>.<type>.md` and need the PR number, so add them in a second commit after opening.
 - AI policy (Contributing.md): no raw AI output, no AI-generated solutions on easy or Good First Issue issues, the contributor must be able to explain and own the code, disclosure preferred. The PR template says no unsolicited AI-generated PRs, so get a maintainer OK on the issue before opening.
 
+- Review (14 Oct 2026, sqlparser-rs PR 2618): parser repos with one big `Statement` enum expect every new variant as a named struct, `Statement::X(XStatement)` with `Display`, `From<XStatement> for Statement` and a `Spanned` impl plus a span test. Build that shape in the first push; an inline-field variant cost a full review round.
+- Implement (14 Oct 2026, sqlparser-rs PR 2618): when syntax takes a string-literal code body, accept every string token kind the tokenizer emits (single-quoted, `UnicodeStringLiteral` `U&'...'`, `EscapedStringLiteral` `E'...'`, dollar-quoted), and add a `verified_stmt` test per kind; the server accepts them all, so missing one is a reviewer-found bug.
+- Checks gate the push: chain `cargo fmt --check && cargo clippy ... -D warnings && cargo test && git push`, so a red check stops the push. Lint red that also fails on clean upstream main (newer toolchain lints) is pre-existing: report it, and fix it only with Dev's OK, as its own commit separate from the feature.
+
 ### TypeScript / JavaScript
 
 - Implement: jest.spyOn accumulates call history across tests in the same file when an earlier test fails before its `mockRestore()`: the next `jest.spyOn(console, 'warn')` returns the same mock with the failed test's calls still counted, so a clean test reports phantom "Received number of calls: 1".
