@@ -3190,6 +3190,19 @@
       "last_checked": "2026-10-14",
       "approach_comment": "https://github.com/jd/tenacity/issues/756#issuecomment-6160521785",
       "note": "Approach proposed 14 Oct 2026: sibling protocol _RetryDecoratedMethod[S,P,R] with self-typed __get__ overloads dropping a type[T] first param (fixes mypy/pyright rejecting @classmethod + @retry after f4a31e1). Local branch fix/756-classmethod-retry-typing (b7944a8, not pushed): pytest 187 passed, mypy strict clean, pyright 12 errors vs 13 baseline. Diff 188 lines (over ~150 soft cap), 3 overload-overlap ignores + 1 pyright reportInvalidTypeVarUse ignore. Wait for jd; open PR only after Dev approves."
+    },
+    {
+      "repo": "unjs/unstorage",
+      "number": 849,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-14",
+      "head_repo": "devtechedge/unstorage",
+      "branch": "fix/fs-rethrow-unexpected-errors",
+      "commit": "d7b7b26",
+      "note": "FIX READY 2026-10-14, PR not opened (awaiting Dev approval). Issue filed 2026-10-14 by aa-ndrej, unassigned, 0 comments, timeline has only a labeled event, no competing open PR (open PRs touching node-fs.ts: 832 ENOTDIR on setItem, 820 getKeys pruning; overlap only, not competitors). Root cause: ignoreNotfound/ignoreExists in src/drivers/utils/node-fs.ts return err instead of throwing, so .catch() resolves unlink/readFile/stat/readdir and ensuredir with the Error. Fix throws unless ENOENT/EISDIR (ignoreNotfound) or EEXIST (ignoreExists). Only fs and fs-lite import the helper. Added 9 tests in test/drivers/fs.test.ts and fs-lite.test.ts (vi.spyOn fsPromises EACCES): 7 failed before the fix, all pass after. Full pnpm test green after pnpm build (tsc needs dist for self-imports, CI builds first): 708 passed, 223 skipped. Diff 3 files +98/-5. Commit unsigned (shared Linux box, no key); main has a mix of verified and unsigned commits and no ruleset seen. No CONTRIBUTING/AI policy file in repo. Node 22 via n at ~/.n/bin needed (pnpm 11 rejects box Node 20)."
     }
   ],
   "closed_attempts": [
