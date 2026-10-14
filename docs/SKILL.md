@@ -127,6 +127,10 @@ Hard gates:
 - **Contribution policy satisfied:** CLA, signed commits, required labels, repo accepting PRs. Check triage for existing foundation CLA signatures before scoring CLA as friction. Read root `AI_POLICY.md`, `AGENTS.md`, `CLAUDE.md`, and org `community` / `.github` repos for GenAI rules. A ban on agent-created PRs is an account-integrity hard gate (record no-go; human opens with required disclosure). Evidence: PATTERNS.md.
 - **AI disclosure is mandatory-only, never volunteered.** With no policy requiring it, say nothing about AI anywhere. Disclose only exactly what a required policy or PR-template disclosure section asks for; leave template sections as placeholders for Dev to fill. A model id alone is not an answer. A policy that forbids automated agents from publishing to GitHub means the agent stops at a pushed fork branch plus drafts; Dev posts and opens. Cases: PATTERNS.md Scan-time / Preflight.
 - **No design or policy gate pending.** If semantics need agreement, comment the approach and wait. Soft "consider discussing first" with no semantics dispute: implement to a pushed fork branch, post an approach comment in section 3 tone, record `approach_proposed`, open only after maintainer reply or Dev's call.
+- **Never previously attempted by us:** check `triage.json`, the `oss-contributions` ledger, and `gh search prs --author devtechedge` plus `gh search issues --author devtechedge` for the repo and issue before scoring.
+- **Discuss-before-PR CONTRIBUTING is a hard gate.** When CONTRIBUTING requires discussing an approach before a PR, draft the approach comment first (through the comment approval gate) and open nothing until a maintainer replies.
+- **Reproduce before picking.** A pick is not GO until the bug reproduces on the default branch. For typing bugs, reproduce under every checker the repo supports (for example mypy and pyright), since a regression can show in only one.
+- **Rebase risk:** list other open PRs touching the same files; heavy overlap lowers merge likelihood even without a competing fix.
 - **"Hidden as spam" is an account-level hazard.** Check `isMinimized` / `minimizedReason` via GraphQL before reporting a comment as fine (REST can lie). On spam minimize: never repost, never edit to slip past, never appeal in-thread, never send more agent-shaped text in that repo. Full reads and false-clean traps: PATTERNS.md Reading PR state.
 
 Freshness and aliveness:
@@ -136,6 +140,8 @@ Freshness and aliveness:
 - Issue is recent: prefer days to a few weeks (roughly 6 weeks or less). Sort by newest at discovery.
 
 Sizing and tilt:
+
+- Dev's default hunt filter (apply unless he overrides that turn): tier 2/3 repos, non-web3, not huge competitive repos, maintainers American or Western European (verify via GitHub profile location and company, not guesswork), issue fresh (this week or month), no competing PRs, assignees, or claims, and high merge likelihood from recent outside-PR merge speed.
 
 - Always skip: contested issues, archived repos, vague design features, and repeat AgentScan auto-close targets from the same account on the same issue.
 - Prefer small and mid-size repos. Judge open-PR queue against outside-merge throughput. Tiny repos qualify only when the owner filed the issue and has merged an outside PR recently. Skip event, hackathon, bounty, and never-merged-an-outsider repos. Cases: PATTERNS.md.
@@ -153,6 +159,8 @@ Scan mechanics (when asked to scan for N targets):
 - A `cross-referenced` event pointing at a foreign repo (out-of-range numbers, 404) is noise.
 - An open refactor that only touches the same line as a side effect is not a competitor: proceed, keep the diff minimal, record overlap in triage.
 - Every scan re-verifies the existing candidate queue before adding names. Stamp verification dates.
+- Keep a screening log: every excluded candidate with a one-clause reason (competition, low outside-merge rate, maintainer location). Record it in triage or the daily log so the next scan does not re-screen it.
+- **Pick deliverable:** each pick is a standalone briefing of about 1000 words, pasteable into a fresh agent session: issue link and summary, repro steps and result, root-cause hypothesis and files, gates checked with evidence, CONTRIBUTING requirements, competing or overlapping PRs, and suggested next step. One pick per briefing.
 - A `Potential AI issue` label on an issue we claimed means follow-ups must be extra precise and human.
 
 ## 6. Shipping steps
