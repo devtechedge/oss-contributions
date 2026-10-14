@@ -3166,6 +3166,16 @@
       "do_not_duplicate": true,
       "last_checked": "2026-10-11",
       "note": "Open fix is PR 314. Do not open a second PR on this issue."
+    },
+    {
+      "repo": "jd/tenacity",
+      "number": 756,
+      "status": "approach_proposed",
+      "attempted": true,
+      "related_prs": [],
+      "last_checked": "2026-10-14",
+      "approach_comment": "https://github.com/jd/tenacity/issues/756#issuecomment-6160521785",
+      "note": "Approach proposed 14 Oct 2026: sibling protocol _RetryDecoratedMethod[S,P,R] with self-typed __get__ overloads dropping a type[T] first param (fixes mypy/pyright rejecting @classmethod + @retry after f4a31e1). Local branch fix/756-classmethod-retry-typing (b7944a8, not pushed): pytest 187 passed, mypy strict clean, pyright 12 errors vs 13 baseline. Diff 188 lines (over ~150 soft cap), 3 overload-overlap ignores + 1 pyright reportInvalidTypeVarUse ignore. Wait for jd; open PR only after Dev approves."
     }
   ],
   "closed_attempts": [
