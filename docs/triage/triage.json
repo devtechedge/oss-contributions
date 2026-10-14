@@ -1757,6 +1757,28 @@
       "ci_status": "action_required",
       "merge_commit": "756b43e3ce7259d04d02add860972d9aea631b8a",
       "merged_at": "2026-10-13T18:33:22Z"
+    },
+    {
+      "repo": "unjs/unstorage",
+      "number": 850,
+      "status": "open",
+      "opened": "2026-10-14",
+      "last_checked": "2026-10-14",
+      "issue": 849,
+      "do_not_duplicate": true,
+      "merged": false,
+      "signed": false,
+      "head": "devtechedge:fix/fs-rethrow-unexpected-errors @ d7b7b26",
+      "base": "main",
+      "diff": [
+        98,
+        5,
+        3
+      ],
+      "summary": "ignoreNotfound/ignoreExists in node-fs.ts now throw unexpected errors instead of returning them, so fs/fs-lite unlink/readFile/stat/readdir/ensuredir reject on EACCES and similar instead of resolving with the Error. ENOENT/EISDIR and EEXIST still resolve as before. Nine spyOn EACCES tests across fs and fs-lite.",
+      "note": "Issue 849 open, unassigned, 0 comments, timeline only labeled, no competing fix PR at open. Approved body matched on readback (trailing newline only). No claim comment. Probe skipped until opening was approved. Commit unsigned (no box key); upstream main mixes verified and unsigned. CI ci+autofix.ci both action_required on fork PR (maintainer approval gate; non-actionable).",
+      "ci_status": "action_required",
+      "ci_note": "Fork pull_request workflows ci and autofix.ci completed with conclusion action_required (awaiting maintainer approval to run). Same pattern as other first-fork PRs; leave alone per playbook 6.9."
     }
   ],
   "issues": [
@@ -3196,13 +3218,15 @@
       "number": 849,
       "status": "open",
       "attempted": true,
-      "related_prs": [],
+      "related_prs": [
+        850
+      ],
       "do_not_duplicate": true,
       "last_checked": "2026-10-14",
       "head_repo": "devtechedge/unstorage",
       "branch": "fix/fs-rethrow-unexpected-errors",
       "commit": "d7b7b26",
-      "note": "FIX READY 2026-10-14, PR not opened (awaiting Dev approval). Issue filed 2026-10-14 by aa-ndrej, unassigned, 0 comments, timeline has only a labeled event, no competing open PR (open PRs touching node-fs.ts: 832 ENOTDIR on setItem, 820 getKeys pruning; overlap only, not competitors). Root cause: ignoreNotfound/ignoreExists in src/drivers/utils/node-fs.ts return err instead of throwing, so .catch() resolves unlink/readFile/stat/readdir and ensuredir with the Error. Fix throws unless ENOENT/EISDIR (ignoreNotfound) or EEXIST (ignoreExists). Only fs and fs-lite import the helper. Added 9 tests in test/drivers/fs.test.ts and fs-lite.test.ts (vi.spyOn fsPromises EACCES): 7 failed before the fix, all pass after. Full pnpm test green after pnpm build (tsc needs dist for self-imports, CI builds first): 708 passed, 223 skipped. Diff 3 files +98/-5. Commit unsigned (shared Linux box, no key); main has a mix of verified and unsigned commits and no ruleset seen. No CONTRIBUTING/AI policy file in repo. Node 22 via n at ~/.n/bin needed (pnpm 11 rejects box Node 20)."
+      "note": "Opened PR #850 on 2026-10-14 from fork branch fix/fs-rethrow-unexpected-errors @ d7b7b26 (unsigned; shared Linux box). Approved body matched on readback (trailing newline only from gh --jq). CI workflows ci + autofix.ci both conclusion action_required on the fork PR (fork workflows need maintainer approval; leave alone). No competing PR at open; timeline still only labeled. Overlap: open PRs 832 and 820 also touch node-fs.ts. Local pnpm test green after build: 708 passed / 223 skipped. Diff +98/-5 across 3 files."
     }
   ],
   "closed_attempts": [
