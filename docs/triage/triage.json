@@ -1573,8 +1573,8 @@
       "do_not_duplicate": true,
       "merged": false,
       "summary": "PostgreSQL DO statement: Statement::Do(DoStatement) with language + code behind Dialect::supports_do_statement() (PostgreSQL only); LANGUAGE before/after; Display normalizes; duplicate LANGUAGE rejected. Three verified commits on postgres-do-statement: 55068ab (feature), 0198d07 (5 fuzz seeds), f58b626 (DoStatement named struct + Display/From/Spanned + test).",
-      "note": "Issue 2609 by jvatic, uncontested at open. AGENTS.md: AI disclosure in PR body, agents must not post review replies (Dev posts). LucaCappelletti94 (author_association CONTRIBUTOR, de facto maintainer by merged_by) asked for fuzz seeds then DoStatement refactor; Dev replied issuecomment-6128758509 and discussion_r4251293534. Awaiting Luca's next review. Apache Generated-by trailer recommended only, not applied. stale.yml 60+7. CI action_required (first-time contributor).",
-      "head": "devtechedge:postgres-do-statement @ f58b626",
+      "note": "Issue 2609 by jvatic, uncontested at open. AGENTS.md: AI disclosure in PR body, agents must not post review replies (Dev posts). LucaCappelletti94 (author_association CONTRIBUTOR, de facto maintainer by merged_by) asked for fuzz seeds then DoStatement refactor; Dev replied issuecomment-6128758509 and discussion_r4251293534. Update 2026-10-14: Dev approved a force-push of a rebase onto main at dacdbc99; head moved from f58b6264 to adc68d1b, resolving the conflict with #2619 in tests/sqlparser_common.rs (both tests kept). PR is MERGEABLE, waiting on Luca's next review round. Apache Generated-by trailer recommended only, not applied. stale.yml 60+7. CI action_required (first-time contributor).",
+      "head": "devtechedge:postgres-do-statement @ adc68d1b",
       "signed": true
     },
     {
