@@ -1721,11 +1721,10 @@
       "repo": "api-platform/core",
       "number": 8666,
       "status": "merged",
-      "opened": "2026-10-11",
       "last_checked": "2026-10-14",
       "issue": 8664,
       "do_not_duplicate": true,
-      "merged": true,
+      "merged": "2026-10-14",
       "signed": true,
       "head": "devtechedge:fix-laravel-nullable-belongsto @ 6d3e26c",
       "base": "5.0",
@@ -1761,6 +1760,18 @@
     }
   ],
   "issues": [
+    {
+      "repo": "api-platform/core",
+      "number": 8664,
+      "status": "closed",
+      "attempted": true,
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-14",
+      "related_prs": [
+        8666
+      ],
+      "note": "Closed by merged PR #8666 (c33a566)."
+    },
     {
       "repo": "moonrepo/moon",
       "number": 2758,
@@ -4581,6 +4592,12 @@
     "moonrepo/moon": {
       "contributions": [
         2759
+      ],
+      "focus": ""
+    },
+    "api-platform/core": {
+      "contributions": [
+        8666
       ],
       "focus": ""
     }
