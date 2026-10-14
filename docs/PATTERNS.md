@@ -81,6 +81,9 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 
 ### General / preflight
 
+- Preflight: a plausible mechanism in an issue (for example a resolver plugin re-entering another plugin's load) can be blocked on the target branch by a guard the reporter's stack bypasses (bundler skip lists reset when an outer plugin rewrites the id). Build the minimal repro on the target branch before writing the fix; a test written after the fix that also passes without it proves nothing. When it will not reproduce, ask for a repro or a resolve-chain probe in the approach comment and hold.
+- Preflight: a second, unrelated bug found while reproducing goes in the approach comment as a side note and its own issue, not into the fix PR.
+
 - General: first contribution to a repo puts workflow runs in `action_required` until a maintainer approves them. That is non-actionable like Vercel authorize: report it, wait, do not reopen or poke.
 - General: when a maintainer-filed issue carries a concrete suggested API shape, that is a pre-agreed design - implement exactly that shape and no design gate is pending. Re-read the issue body at implementation time, not just the hunt summary: bodies get edited and expanded after filing. On an otherwise uncontested field, the PR itself carrying `Fixes #N` is a sufficient claim - a separate claim comment burns the comment-approval gate for nothing.
 - General: verify claims from the data-bearing endpoint, not list endpoints. `pulls?state=closed` reported `merged: null` for a PR that the single-PR endpoint showed as merged; confirm merge state from the detail endpoint before writing a ledger row or a claim in chat.
@@ -163,6 +166,8 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - Implement: jest.spyOn accumulates call history across tests in the same file when an earlier test fails before its `mockRestore()`: the next `jest.spyOn(console, 'warn')` returns the same mock with the failed test's calls still counted, so a clean test reports phantom "Received number of calls: 1".
 - Repo restructuring invalidates memory of paths: steveukx/git-js (14 Sep 2026) is now a yarn 4 workspaces monorepo (library in `simple-git/`, test-utils in `packages/test-utils`, root scripts delegate via `workspaces foreach`) even though older task notes say "src/ and jest" - still jest 29, but grep from the root and resolve the package layout at clone time, never from notes.
 - Implement: repos with cspell (or a similar spelling gate) check test strings too - a proper noun used as test data (browser names, nicknames) fails CI's word list; add it to the repo's own words file alphabetically rather than rewording the test. Also: in bun+buildc monorepos, run vitest through the package's own wrapper (`bun run buildc --deps-only -- vitest run <files>`) so sibling workspace deps are built first; a bare `vitest run` fails on unbuilt siblings.
+
+- Implement: monorepos built with unbuild often need `pnpm stub` (or the repo's `stub`/`dev:prepare` script) before tests can import workspace packages; a fresh clone fails test imports until it runs.
 
 ### Python
 
