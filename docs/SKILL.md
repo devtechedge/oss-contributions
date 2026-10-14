@@ -337,3 +337,12 @@ See `docs/SYNC.md`.
 - Delete in batches of about ten; confirm open PR count unchanged after each batch.
 - `gh repo delete` needs `delete_repo` scope (`gh auth refresh -s delete_repo`, interactive).
 - Pruning also blunts bulk-fork account flags and keeps owned repos visible on the profile.
+
+## 17. Hunt heuristics and per-PR handoff
+
+- Classify each pick at hunt time: **direct fix** (bounded bug, clear expected behavior, e.g. a helper that returns where it should throw) vs **design-gated** (soundness/UB, semantics choice, API shape). Record the mode in triage and in the handoff.
+- Design-gated: draft an approach comment first; implement on the fork branch in parallel; open the PR only after a maintainer reply or Dev's explicit decision.
+- AI-contribution policy (CONTRIBUTING, PR template): record it in the brief, Dev owns the diff and every public sentence, and prefer the design-gated flow (maintainer-solicited) so it is never an unsolicited AI PR.
+- Handoff to a per-PR session (section 4.2) must be self-contained: playbook bootstrap URLs, issue URL, root cause with file/line refs at a pinned commit SHA (line numbers rot), fix sketch, tests (mocked errors are fine for small helpers), contribution rules, gates (timeline re-check, comment/PR approval, AI-policy ownership), mode, and the first deliverable expected.
+- The per-PR session re-checks the issue timeline as its very first action; hours pass between hunt and handoff, and fast repos move.
+- Two per-PR sessions at once need Dev's explicit go (section 4.1). Dev explicitly asking for a second session for a second target counts as that go.
