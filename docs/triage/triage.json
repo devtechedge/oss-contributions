@@ -1382,7 +1382,7 @@
     {
       "repo": "sveltejs/devalue",
       "number": 214,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "mergeable_state": "blocked",
       "opened": "2026-09-29",
@@ -1395,12 +1395,14 @@
       "summary": "Fixes #211. Nested stringifyAsync promises of undefined, NaN, -0, Infinity, and -Infinity now inline the sentinel into the parent back-reference and drop the unused slot, so the output matches stringify. Root promise case unchanged.",
       "ci_status": "action_required",
       "ci_note": "CI workflow run 36548691703 is action_required (first-contribution approval). Vercel Security Review success. Do not re-push to retrigger. Local pnpm test 1307 passed, test:types passed.",
-      "note": "Commit c57d432 verified. No AI disclosure. No CLA. No comment posted."
+      "note": "Commit c57d432 verified. No AI disclosure. No CLA. No comment posted. Closed by us 2026-10-14 (Dev judged maintainers unlikely to merge). Repo is no-go. Do not refile or target.",
+      "merged": false,
+      "closed": "2026-10-14"
     },
     {
       "repo": "dtolnay/typetag",
       "number": 107,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "mergeable_state": "clean",
       "opened": "2026-09-29",
@@ -1413,12 +1415,14 @@
       "summary": "Fixes #106. Internally tagged content buffering now reports the outer serializer is_human_readable flag, so a binary format no longer writes a string and reads raw bytes. JSON still round-trips. +208/-26 across src/ser.rs and tests/test.rs. No new dependency.",
       "ci_status": "green",
       "ci_note": "All pull_request checks passed 2026-09-29 (stable, 1.88, 1.71, beta, nightly, macOS, Windows gnu/msvc, minimal, docs). Clippy and Outdated skip on pull_request.",
-      "note": "Commit 6d48d03 verified valid. No disclosure. PR body rewritten 29 Sep 2026 to the longer description Dev approved. Fetched body matched. No separate comment."
+      "note": "Commit 6d48d03 verified valid. No disclosure. PR body rewritten 29 Sep 2026 to the longer description Dev approved. Fetched body matched. No separate comment. Closed by us 2026-10-14 (Dev judged maintainers unlikely to merge). Repo is no-go. Do not refile or target.",
+      "merged": false,
+      "closed": "2026-10-14"
     },
     {
       "repo": "metrics-rs/metrics",
       "number": 718,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "mergeable_state": "blocked",
       "opened": "2026-09-29",
@@ -1431,12 +1435,14 @@
       "summary": "Fixes #717. Accept errors other than ConnectionAborted, ConnectionReset, and ConnectionRefused log and sleep one second before the next accept, on TCP and UDS. Happy path and builder API unchanged.",
       "ci_status": "action_required",
       "ci_note": "Rust workflow run 36565184926 is action_required (first-contribution approval). Do not re-push. Local cargo fmt clean. http-listener unit tests passed. Immediate-retry arm failed other_accept_errors_sleep_before_retry before the sleep was restored.",
-      "note": "Commit 7cf8bde verified. No AI disclosure. No CLA. No comment posted."
+      "note": "Commit 7cf8bde verified. No AI disclosure. No CLA. No comment posted. Closed by us 2026-10-14 (Dev judged maintainers unlikely to merge). Repo is no-go. Do not refile or target.",
+      "merged": false,
+      "closed": "2026-10-14"
     },
     {
       "repo": "prometheus/alertmanager",
       "number": 5594,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "mergeable_state": "blocked",
       "opened": "2026-09-29",
@@ -1449,7 +1455,9 @@
       "summary": "Fixes #5593. Reload published the API before the new inhibitor, and the mute callback read the live pointer. The loaded inhibitor and the API callback are now published together, and the callback closes over that inhibitor.",
       "ci_status": "action_required",
       "ci_note": "CI run 36565890996 is action_required. A maintainer must comment /workflow-approve. Do not re-push. Do not comment. Local go test ./app ./inhibit ./api ./api/v2 passed. golangci-lint v2.13.1 fmt and run ./app clean. UI job has not run.",
-      "note": "Commit 513a9c9 verified. Signed-off-by present. No AI disclosure. No comment posted. Fork stays until merge or final close."
+      "note": "Commit 513a9c9 verified. Signed-off-by present. No AI disclosure. No comment posted. Fork stays until merge or final close. Closed by us 2026-10-14 (Dev judged maintainers unlikely to merge). Repo is no-go. Do not refile or target.",
+      "merged": false,
+      "closed": "2026-10-14"
     },
     {
       "repo": "getzola/zola",
@@ -3011,8 +3019,8 @@
         214
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-29",
-      "note": "Open PR #214. Re-checked timeline empty and no competing PR immediately before open."
+      "last_checked": "2026-10-14",
+      "note": "PR 214 closed by us 2026-10-14 (Dev judged maintainers unlikely to merge). Do not refile."
     },
     {
       "repo": "dtolnay/typetag",
@@ -3023,8 +3031,8 @@
         107
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-29",
-      "note": "PR #107 opened 2026-09-29. Do not open a second fix."
+      "last_checked": "2026-10-14",
+      "note": "PR 107 closed by us 2026-10-14 (Dev judged maintainers unlikely to merge). Do not refile."
     },
     {
       "repo": "prometheus/alertmanager",
@@ -3035,8 +3043,8 @@
         5594
       ],
       "do_not_duplicate": true,
-      "last_checked": "2026-09-29",
-      "note": "PR #5594 opened 2026-09-29. Do not open a second fix."
+      "last_checked": "2026-10-14",
+      "note": "PR 5594 closed by us 2026-10-14 (Dev judged maintainers unlikely to merge). Do not refile."
     },
     {
       "repo": "getzola/zola",
@@ -3744,6 +3752,38 @@
       "do_not_refile": true,
       "reason": "maintainer hostile to contributions; do not target",
       "note": "Closed by maintainer linhr 2026-10-11."
+    },
+    {
+      "repo": "prometheus/alertmanager",
+      "issue": 5593,
+      "related_pr": 5594,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-14: Dev judged maintainers unlikely to merge. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-14."
+    },
+    {
+      "repo": "metrics-rs/metrics",
+      "issue": 717,
+      "related_pr": 718,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-14: Dev judged maintainers unlikely to merge. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-14."
+    },
+    {
+      "repo": "dtolnay/typetag",
+      "issue": 106,
+      "related_pr": 107,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-14: Dev judged maintainers unlikely to merge. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-14."
+    },
+    {
+      "repo": "sveltejs/devalue",
+      "issue": 211,
+      "related_pr": 214,
+      "do_not_refile": true,
+      "reason": "Closed by us 2026-10-14: Dev judged maintainers unlikely to merge. Repo is no-go. Do not refile.",
+      "note": "Dev closed the PR on 2026-10-14."
     }
   ],
   "no_go": [
@@ -4377,25 +4417,41 @@
       "contributions": [
         214
       ],
-      "focus": "Compact serializer for values JSON cannot express; stringifyAsync nested sentinel round-trip."
+      "focus": "Compact serializer for values JSON cannot express; stringifyAsync nested sentinel round-trip.",
+      "no_go": true,
+      "no_go_checked": "2026-10-14",
+      "no_go_reason": "Dev 2026-10-14: Dev judged maintainers unlikely to merge; no further PRs in this repo. 214 closed by us 2026-10-14.",
+      "note": "No further PRs per Dev 2026-10-14. 214 closed by us 2026-10-14. Do not refile or target."
     },
     "dtolnay/typetag": {
       "contributions": [
         107
       ],
-      "focus": "Serde trait objects."
+      "focus": "Serde trait objects.",
+      "no_go": true,
+      "no_go_checked": "2026-10-14",
+      "no_go_reason": "Dev 2026-10-14: Dev judged maintainers unlikely to merge; no further PRs in this repo. 107 closed by us 2026-10-14.",
+      "note": "No further PRs per Dev 2026-10-14. 107 closed by us 2026-10-14. Do not refile or target."
     },
     "metrics-rs/metrics": {
       "contributions": [
         718
       ],
-      "focus": "Prometheus exporter for the metrics facade."
+      "focus": "Prometheus exporter for the metrics facade.",
+      "no_go": true,
+      "no_go_checked": "2026-10-14",
+      "no_go_reason": "Dev 2026-10-14: Dev judged maintainers unlikely to merge; no further PRs in this repo. 718 closed by us 2026-10-14.",
+      "note": "No further PRs per Dev 2026-10-14. 718 closed by us 2026-10-14. Do not refile or target."
     },
     "prometheus/alertmanager": {
       "contributions": [
         5594
       ],
-      "focus": "Alert routing, inhibition, and notification dispatch."
+      "focus": "Alert routing, inhibition, and notification dispatch.",
+      "no_go": true,
+      "no_go_checked": "2026-10-14",
+      "no_go_reason": "Dev 2026-10-14: Dev judged maintainers unlikely to merge; no further PRs in this repo. 5594 closed by us 2026-10-14.",
+      "note": "No further PRs per Dev 2026-10-14. 5594 closed by us 2026-10-14. Do not refile or target."
     },
     "getzola/zola": {
       "contributions": [
