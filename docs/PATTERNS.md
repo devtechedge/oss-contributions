@@ -162,6 +162,16 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - Implement (7 Oct 2026, proptest #672): a regression test for a crash in a shrinking or minimizing path (property-testing shrinkers, fuzz minimizers, delta debugging) must use a property that fails, so the shrinker actually runs; a passing end-to-end test never reaches the crash.
 - Implement (7 Oct 2026, proptest #672): for Rust integer underflow or overflow, prove fail-before in both debug and `--release` and name both in the PR body. Debug panics on the arithmetic, while release wraps silently and can surface as a different crash downstream (here a multi-exabyte allocation abort), which is the symptom users on release builds actually see.
 
+#### PyO3 (PyO3/pyo3, Oct 2026)
+
+- Scan (14 Oct 2026, 6526): a fresh report from a non-maintainer with 0 comments and a clean timeline was a duplicate of an older open issue (5714) with long maintainer discussion that had already floated the same fix direction. Our approach comment drew `Duplicate of #5714` from a maintainer about 40 minutes later. The timeline check could not catch it; a keyword search of issues (open and closed) for the symptom would have.
+- UI tests use `ui_test`, not trybuild. Bless with `UI_TEST=bless cargo test --test test_compile_error`; nox is not needed for that. The `.stderr` files include rustc source line numbers, so they are brittle across toolchains: bless on the toolchain CI uses (stable).
+- A UI test for a post-monomorphization const error must instantiate the type (for example `py.get_type::<T>()`). With an empty `main` the const is never evaluated and the file compiles.
+- On the box the default rustup toolchain is nightly. Nightly rustfmt and clippy fail on untouched main (`cfg_select!` formatting, pyo3-ffi doc lints); CI runs fmt, clippy, and UI tests on stable. Use `cargo +stable` and compare against a clean worktree of main.
+- A new const assert in the pyclass layout (`BASIC_SIZE`) broke an existing in-tree test (`src/impl_/introspection.rs`, `repr(align(128))`). Only `--lib` tests found it.
+- Newsfragments are `newsfragments/<PR>.<type>.md` and need the PR number, so add them in a second commit after opening.
+- AI policy (Contributing.md): no raw AI output, no AI-generated solutions on easy or Good First Issue issues, the contributor must be able to explain and own the code, disclosure preferred. The PR template says no unsolicited AI-generated PRs, so get a maintainer OK on the issue before opening.
+
 ### TypeScript / JavaScript
 
 - Implement: jest.spyOn accumulates call history across tests in the same file when an earlier test fails before its `mockRestore()`: the next `jest.spyOn(console, 'warn')` returns the same mock with the failed test's calls still counted, so a clean test reports phantom "Received number of calls: 1".

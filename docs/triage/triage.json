@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_updated": "2026-10-14",
+  "last_updated": "2026-10-15",
   "purpose": "Canonical conversational gateway and operational memory for autonomous agents scanning, triaging, implementing, and tracking all upstream OSS contributions.",
   "agent_directive": {
     "read_first": true,
@@ -3227,6 +3227,20 @@
       "branch": "fix/fs-rethrow-unexpected-errors",
       "commit": "d7b7b26",
       "note": "Opened PR #850 on 2026-10-14 from fork branch fix/fs-rethrow-unexpected-errors @ d7b7b26 (unsigned; shared Linux box). Approved body matched on readback (trailing newline only from gh --jq). CI workflows ci + autofix.ci both conclusion action_required on the fork PR (fork workflows need maintainer approval; leave alone). No competing PR at open; timeline still only labeled. Overlap: open PRs 832 and 820 also touch node-fs.ts. Local pnpm test green after build: 708 passed / 223 skipped. Diff +98/-5 across 3 files."
+    },
+    {
+      "repo": "PyO3/pyo3",
+      "number": 5714,
+      "status": "approach_proposed",
+      "attempted": true,
+      "related_prs": [],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-15",
+      "approach_comment": "https://github.com/PyO3/pyo3/issues/5714#issuecomment-6172264628",
+      "head_repo": "devtechedge/pyo3",
+      "branch": "pyclass-overalign-reject",
+      "commit": "ad40ea69",
+      "note": "Over-aligned pyclass (repr(align(N)) above what the Python allocator guarantees) gives a misaligned pointer, which is UB. We first picked 6526 (filed 2026-10-14 by acshi, a non-maintainer) and posted an approach there; maintainer bschoenmaeckers replied 'Duplicate of #5714' about 40 min later. 5714 is the older open canonical issue with maintainer discussion (alex, davidhewitt, lukaslueg) where alex had floated refusing large-alignment structs. Pivoted: approach comment on 5714 links the fork branch and asks whether a PR is welcome; one-line courtesy note on 6526 points to 5714. As of 2026-10-15, 6526 is still open (not formally closed) and 5714 is open with no maintainer reply to ours. Fix on fork: compile-time const assert in the pyclass layout BASIC_SIZE; adjusted the existing src/impl_/introspection.rs repr(align(128)) test that the assert broke. Check fmt/clippy/UI tests with cargo +stable (box default nightly is red on untouched main). Newsfragment needs the PR number, so add it after opening. Policy: Contributing.md AI rules (no raw AI output, must own the code, disclosure preferred) and the PR template forbids unsolicited AI-generated PRs. PR held until a maintainer OKs it on 5714."
     }
   ],
   "closed_attempts": [
@@ -4636,6 +4650,10 @@
       "contributions": [
         8666
       ],
+      "focus": ""
+    },
+    "PyO3/pyo3": {
+      "contributions": [],
       "focus": ""
     }
   }
