@@ -95,7 +95,7 @@ Upstream PR work is recorded on the unified ledger repo. The README lists merged
 - **A bit detailed, not an essay.** Name the function, what went wrong, what changed, and how you checked it. Too thin and too long both fail.
 - Do not open by confessing an unrun local build, or by offering a second implementation in the same body. The check in the diff is the proof. A machine gap stays in private chat.
 - Prefer `Fixes #N` / `Closes #N` when the change fully resolves the issue.
-- When the PR covers only part of the issue, write `Partially addresses #N` or `Part of #N`, never a closing keyword. Ledger copy follows the final upstream body; re-read at merge.
+- When the PR covers only part of the issue, write `Partially addresses #N` or `Part of #N`, never a closing keyword (GitHub links `Resolves #N (partially)` as closing despite the parenthesis). Ledger copy follows the final upstream body; re-read at merge.
 - Informal tone is reserved for private chat with the user; all public text follows this section.
 - Enforcement note: some machines carry a PreToolUse hook that hard-blocks inline `gh` comment bodies containing emojis or em/en dashes. That hook is stricter than this section. If it fires on a permitted emoji, update the hook. Bodies via `--body-file` are not checked by the hook, so apply this section manually there.
 
@@ -187,7 +187,7 @@ No babysitting: never set up a watch, cron, listener, or poll loop on a PR. GitH
 - When the user relays PR activity, read current state once. Treat bots as no-ops for action (may surface to user). Confirm `merged` before thank-you or ledger merge writes.
 - **`reviewDecision` is not a person.** Require a human OWNER, MEMBER, or COLLABORATOR in `pulls/N/reviews` before saying only a merge is left or treating CHANGES_REQUESTED as work. Bot approval is not a reason to close; bot change request is not a reason to push. Evidence: PATTERNS.md Reading PR state.
 - A CodeRabbit walkthrough issue comment is not the review. Walkthrough checkboxes are bot UI: do not open a PR from them, do not reply.
-- **Agreement from a non-maintainer is not sign-off.** A reporter or outside commenter agreeing with the approach does not clear a discuss-first or approach gate. Check `author_association` for OWNER, MEMBER, or COLLABORATOR.
+- **Agreement from a non-maintainer is not sign-off.** A reporter or outside commenter agreeing with the approach does not clear a discuss-first or approach gate. Check `author_association` for OWNER, MEMBER, or COLLABORATOR. This holds when the user relays "the maintainer got back": open the comment and check its `author_association` before treating it as sign-off; if it is not a maintainer, say so and let the user decide.
 - **Marked duplicate or closed after we commented:** move the proposal to the canonical issue (link the fork branch, ask whether a PR along those lines is welcome) and leave a one-line courtesy note on the original pointing there. Do not repost the full proposal on the original. Re-key the triage entry to the canonical issue.
 - Act only on human maintainer or collaborator responses: safe in-scope fixes push to the same branch; replies go through the comment approval gate.
 - "Please sign your commit": if API shows `verified: true`, the ask is satisfied; no reply. If not, only the user can re-sign.
