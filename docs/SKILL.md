@@ -91,7 +91,7 @@ Upstream PR work is recorded on the unified ledger repo. The README lists merged
 - **Write as Dev, a person, not as a model.** If a draft could be swapped onto another PR by changing the names, rewrite it. Never put an experience in his mouth that he did not have; say what he investigated or reproduced instead.
 - Emojis are allowed in moderation when replying to people: one or two per comment, varied and relevant. **Never prayer hands.** Do not stack emoji runs, and do not open or close with an emoji every time.
 - Vary the opening across a batch. Comments to the same maintainer must not share an opening line or template.
-- **One sentence per line in comments.** Exactly one sentence per paragraph with a blank line between. No wall-of-text blocks.
+- **One sentence per line in all maintainer-facing text.** This covers issue comments and approach replies, PR comments, reviews, pings, thank-yous and PR bodies alike. Exactly one sentence or point per paragraph with a blank line between. No wall-of-text blocks. Check the draft for this before showing it to Dev, not after he corrects it (an issue reply drafted as one dense paragraph had to be redone, jd/tenacity 756, Oct 2026).
 - **A bit detailed, not an essay.** Name the function, what went wrong, what changed, and how you checked it. Too thin and too long both fail.
 - Do not open by confessing an unrun local build, or by offering a second implementation in the same body. The check in the diff is the proof. A machine gap stays in private chat.
 - Prefer `Fixes #N` / `Closes #N` when the change fully resolves the issue.
