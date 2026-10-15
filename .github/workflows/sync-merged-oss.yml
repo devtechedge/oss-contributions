@@ -33,10 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout ledger
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Checkout private jobsearch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: devtechedge/jobsearch-private
           path: private
