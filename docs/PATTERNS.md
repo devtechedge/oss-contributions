@@ -198,6 +198,7 @@ Each bullet is one trap. Read only the subsection whose stack matches the repo.
 - Implement: when a repo documents a formatter that CI does not run (pygbif asks for Black but its workflows only run pytest), match the style of the repo's existing files rather than the newest formatter. Black 26.x reformats this repo's own untouched test files (it wants a blank line after the module docstring), so a "black --check" failure on a brand new file is tool drift, not a defect in the new file. Confirm by running the check on an untouched file first.
 - Implement (28 Sep 2026, wntrblm/nox #1189): fail-before recipe for "passes in the dev venv, fails in distro packaging". Distro builds stage the package into a directory and import it through PYTHONPATH, with no editable install and no dev extras.
 - Implement (28 Sep 2026, wntrblm/nox #1189): a test that sets a path-list variable (PYTHONPATH, PATH, LD_LIBRARY_PATH) with `monkeypatch.setenv` must prepend, not replace: `monkeypatch.setenv("PYTHONPATH", os.pathsep.join(filter(None, [str(own_dir), os.environ.get("PYTHONPATH")])))`. Keep the test's own entry first so it still shadows whatever the environment supplies; replacing drops the only import path some environments have.
+- Typing fixes where CI runs mypy but not pyright (15 Oct 2026, jd/tenacity 759): run pyright inside the project env (`uv run --with pyright pyright ...`), not bare `uvx pyright`, which cannot see pytest/trio and floods missing-import noise. Compare error sets against a `git worktree` of the base (strip line numbers) rather than totals: a lower count can still hide a new error, e.g. one new overload-overlap replacing three old ones. For fail-before, copy only the new test file into the base worktree and run both checkers.
 
 ### Git, lockfiles, and rebases
 
@@ -334,7 +335,7 @@ Windows-specific items as informational. Re-verify anything that carries a date.
 - Local branches containing `/`, and `refs/remotes/*`, are never persisted here. Work on a slash-free
   local branch and push with an explicit URL plus refspec:
   `git push <url> local:refs/heads/remote/branch`.
-- `gh repo fork --clone=false` on a clone that came from upstream leaves `origin` on upstream, so the next `git push origin <branch>` dies 403. Add the fork as a named remote (`git remote add fork <fork-url>`) and push there, or clone the fork in the first place (`gh repo clone <fork>` wires origin=fork, upstream=parent). Case (29 Sep 2026, anchore/syft #5351).
+- `gh repo fork --clone=false` on a clone that came from upstream leaves `origin` on upstream, so the next `git push origin <branch>` dies 403. Add the fork as a named remote (`git remote add fork <fork-url>`) and push there, or clone the fork in the first place (`gh repo clone <fork>` wires origin=fork, upstream=parent). Case (29 Sep 2026, anchore/syft #5351). `gh repo fork --remote` on such a clone can also create the fork yet add no remote (15 Oct 2026, jd/tenacity): always check `git remote -v` before pushing.
 - `git push --force-with-lease` always reports "(stale info)" for a slash branch, because no
   remote-tracking ref is written. Anchor the lease by hand with the remote sha:
   `--force-with-lease=refs/heads/<branch>:<sha>`.
