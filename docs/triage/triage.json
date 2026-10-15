@@ -1805,6 +1805,28 @@
       "reply_comment": "https://github.com/nitrojs/nitro/issues/4754#issuecomment-6176239083",
       "summary": "node-externals resolves explicit externals and traceInclude entries with tryResolve first so commonjs no longer loads (or bundles) external graphs. Partial fix: Windows separator part left to 4752/4766; implicit exports-subpath reverse mapping unchanged.",
       "note": "No maintainer sign-off on the approach yet (only reporter Waleed-KH, association NONE); Dev chose to open anyway on 2026-10-15. Reporter offered to test on Windows and Linux."
+    },
+    {
+      "repo": "jd/tenacity",
+      "number": 759,
+      "status": "open",
+      "opened": "2026-10-15",
+      "last_checked": "2026-10-15",
+      "issue": 756,
+      "do_not_duplicate": true,
+      "merged": false,
+      "signed": false,
+      "head": "devtechedge:fix/756-classmethod-retry-typing @ b7944a8",
+      "base": "main",
+      "diff": [
+        188,
+        1,
+        4
+      ],
+      "related_prs": [],
+      "approach_comment": "https://github.com/jd/tenacity/issues/756#issuecomment-6160521785",
+      "summary": "Extra retry overload for callables with a first positional param returns _RetryDecoratedMethod[S,P,R], whose self-typed __get__ drops a type[T] first param so @classmethod + @retry type-checks under mypy and pyright again; typing only, no runtime change. assert_type regression tests sync and async, reno note.",
+      "note": "Opened without jd sign-off on the approach comment; Dev's call 2026-10-15. CI all green on b7944a8 (no first-contributor approval gate). Fork devtechedge/tenacity created 2026-10-15 for this PR. Trade-off stated in body: plain function with first param type[X] stored on a class type-checks as bound."
     }
   ],
   "issues": [
@@ -3232,12 +3254,15 @@
     {
       "repo": "jd/tenacity",
       "number": 756,
-      "status": "approach_proposed",
+      "status": "open",
       "attempted": true,
-      "related_prs": [],
-      "last_checked": "2026-10-14",
+      "related_prs": [
+        759
+      ],
+      "last_checked": "2026-10-15",
       "approach_comment": "https://github.com/jd/tenacity/issues/756#issuecomment-6160521785",
-      "note": "Approach proposed 14 Oct 2026: sibling protocol _RetryDecoratedMethod[S,P,R] with self-typed __get__ overloads dropping a type[T] first param (fixes mypy/pyright rejecting @classmethod + @retry after f4a31e1). Local branch fix/756-classmethod-retry-typing (b7944a8, not pushed): pytest 187 passed, mypy strict clean, pyright 12 errors vs 13 baseline. Diff 188 lines (over ~150 soft cap), 3 overload-overlap ignores + 1 pyright reportInvalidTypeVarUse ignore. Wait for jd; open PR only after Dev approves."
+      "note": "Approach proposed 14 Oct 2026: sibling protocol _RetryDecoratedMethod[S,P,R] with self-typed __get__ overloads dropping a type[T] first param (fixes mypy/pyright rejecting @classmethod + @retry after f4a31e1). Local branch fix/756-classmethod-retry-typing (b7944a8, not pushed): pytest 187 passed, mypy strict clean, pyright 12 errors vs 13 baseline. Diff 188 lines (over ~150 soft cap), 3 overload-overlap ignores + 1 pyright reportInvalidTypeVarUse ignore. No maintainer reply on the approach (only reporter mnakama, association NONE); Dev chose to open on 2026-10-15 as PR 759.",
+      "do_not_duplicate": true
     },
     {
       "repo": "unjs/unstorage",
