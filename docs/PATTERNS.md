@@ -75,6 +75,7 @@ When Dev closes several own PRs in one burst and marks repos `no_go`, record the
 - A contributor rejecting the voice is not a maintainer rejecting the diff. Stop posting paraphrases where CONTRIBUTING forbids it; do not close a PR a MEMBER is leaning toward unless Dev says so.
 - Same error string is not the same bug. Do not yield to a cross-reference whose body says the changes are complementary.
 - Live repo names for the batch live only in triage `no_go` flags, not here.
+- Scan (16 Oct 2026, mid-size hunt): most fresh issues in mid-size repos already have the reporter's own PR, linked within hours, often the same day. Scan many repos with one core REST call each (`issues?since=...`, filter on `created_at`, no assignee), then read the timeline only for survivors. Do not use the search API for bulk discovery, because it hit the secondary rate limit after two queries. Also exclude: a reporter line "happy to open a PR" (a soft claim, especially under a strict AI policy such as python-attrs), Gerrit-merged repos (sqlalchemy/alembic: every outside GitHub PR shows closed-unmerged, so merge odds cannot be read from GitHub), repos whose only active merger (`merged_by`) has no verifiable location, and issues already fixed on main by a recent merge (grep the cited line before scoring). Keep repos with an open overlapping PR on the same file as runners-up only.
 
 ## Implementation patterns
 
