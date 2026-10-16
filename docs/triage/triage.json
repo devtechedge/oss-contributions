@@ -1722,7 +1722,7 @@
       "repo": "api-platform/core",
       "number": 8666,
       "status": "merged",
-      "last_checked": "2026-10-14",
+      "last_checked": "2026-10-16",
       "issue": 8664,
       "do_not_duplicate": true,
       "merged": "2026-10-14",
@@ -1735,7 +1735,7 @@
         0
       ],
       "summary": "Laravel optional BelongsTo with a nullable foreign key now accepts explicit null on POST/PATCH. EloquentPropertyMetadataFactory marks the relation nullable when its FK column is nullable; PersistProcessor dissociates a present null BelongsTo/MorphTo and unsets the raw attribute before save. Omitted key leaves relation unchanged.",
-      "note": "Issue 8664. soyuka (MEMBER) CHANGES_REQUESTED ~20:10 IST 12 Oct; review email to devtechedge arrived ~22:52 IST (~2h40m delay). soyuka rebased onto 4.4. Open with soyuka: MorphTo test fixture choice and changelog wording (CHANGELOG generated from commit headlines). Failing checks: PHPStan AbstractItemNormalizer (SerializerInterface::normalize; Symfony 8.1 CI; unrelated) and codecov patch/project (uncovered MorphTo). Nothing of ours minimized. 13 Oct: soyuka merged upstream 5.0 into the branch and pushed 085ee44 (morphTo null test) and 6d3e26c (changelog note), resolving both open points. Dev posted thanks (issuecomment-6148964460, 15:22Z). 14 Oct check: still OPEN, soyuka CHANGES_REQUESTED review (12 Oct) not yet dismissed or re-reviewed; no human activity after our thanks. Waiting on soyuka re-review; no ping due (human actively reviewing). 14 Oct: MERGED 05:41:31Z (11:11 IST) by soyuka into 5.0, squash c33a566. Issue 8664 still open (5.0 is not the default branch, so no auto-close). Thank-you comment pending Dev approval; fork devtechedge/core deletion pending.",
+      "note": "Issue 8664. soyuka (MEMBER) CHANGES_REQUESTED ~20:10 IST 12 Oct; review email to devtechedge arrived ~22:52 IST (~2h40m delay). soyuka rebased onto 4.4. Open with soyuka: MorphTo test fixture choice and changelog wording (CHANGELOG generated from commit headlines). Failing checks: PHPStan AbstractItemNormalizer (SerializerInterface::normalize; Symfony 8.1 CI; unrelated) and codecov patch/project (uncovered MorphTo). Nothing of ours minimized. 13 Oct: soyuka merged upstream 5.0 into the branch and pushed 085ee44 (morphTo null test) and 6d3e26c (changelog note), resolving both open points. Dev posted thanks (issuecomment-6148964460, 15:22Z). 14 Oct check: still OPEN, soyuka CHANGES_REQUESTED review (12 Oct) not yet dismissed or re-reviewed; no human activity after our thanks. Waiting on soyuka re-review; no ping due (human actively reviewing). 14 Oct: MERGED 05:41:31Z (11:11 IST) by soyuka into 5.0, squash c33a566. Issue 8664 still open (5.0 is not the default branch, so no auto-close). Thank-you comment pending Dev approval; fork devtechedge/core deletion pending. 16 Oct: fix released in api-platform/core v5.0.4; soyuka closed issue #8664 on 2026-10-16.",
       "ci_status": "merged",
       "ci_note": "Merged by soyuka (MEMBER) as squash c33a566 into 5.0; commit keeps Co-authored-by soyuka.",
       "merged_at": "2026-10-14T05:41:31Z",
@@ -1878,7 +1878,7 @@
       "status": "closed",
       "attempted": true,
       "do_not_duplicate": true,
-      "last_checked": "2026-10-14",
+      "last_checked": "2026-10-16",
       "related_prs": [
         8666
       ],
