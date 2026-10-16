@@ -1848,6 +1848,27 @@
       "related_prs": [],
       "summary": "function-component-definition no longer autofixes a FunctionDeclaration into an arrow/function-expression const when the declared variable has a reference earlier in the source (e.g. export default memo(Item) above function Item), which turned hoisting into a TDZ ReferenceError; the report is unchanged. Guard isUsedBeforeDeclaration in getFixer via getScope from lib/util/eslint. RuleTester invalid cases with output: null (issue repro for arrow-function and function-expression, plain call) plus a fixed control, across parsers.all; CHANGELOG Fixed entry with #4054.",
       "note": "Opened 2026-10-16 with Dev's approval, no approach comment (bug label, 0 comments, no competing PR at open). Fork devtechedge/eslint-plugin-react created 2026-10-16 for this PR. Default branch is master, not main. maintainerCanModify true (require-allow-edits check). Single commit; CHANGELOG NNNN replaced with 4054 by amend + force-push of our own branch right after opening. Local npm test green (18116 passing, tsc clean); 92 CI checks pending at open. Trade-off stated in body: any earlier reference blocks the fix, even inside a deferred function body. Maintainer and merger: ljharb."
+    },
+    {
+      "repo": "nushell/reedline",
+      "number": 1256,
+      "status": "open",
+      "opened": "2026-10-16",
+      "last_checked": "2026-10-16",
+      "issue": 1255,
+      "do_not_duplicate": true,
+      "merged": false,
+      "signed": false,
+      "head": "devtechedge:fix/vi-append-repaint @ 5d989ff",
+      "base": "main",
+      "diff": [
+        26,
+        9,
+        2
+      ],
+      "related_prs": [],
+      "summary": "Vi normal-mode a, A and I now repaint the mode indicator when entering insert mode even if the cursor move is Inapplicable (cursor already at line end/start), a regression since #1208 where a no-op move suppressed the repaint. Adds ReedlineEvent::Repaint to the EnterViAppend, AppendToEnd and PrependToStart event lists in src/edit_mode/vi/command.rs; three parser tests in src/edit_mode/vi/parser.rs.",
+      "note": "Opened 2026-10-16 ~21:52 IST from the Linux box. Fork devtechedge/reedline created for this PR. Commit unsigned (box has no signing key; repo has no verified-commit requirement observed). First-time contributor, so CI likely action_required until a maintainer approves. Local env: 2 pre-existing clippy warnings on newer nightly (examples/auto_pairs.rs:47, src/engine.rs:4041), 6 painter tests fail on unmodified main too (env), cargo-nextest not installed. cargo fmt also reformatted pre-existing src/history/file_backed.rs; reverted, not in diff. Session skipped the playbook bootstrap fetch; ledger updated afterwards. maintainerCanModify true."
     }
   ],
   "issues": [
