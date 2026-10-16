@@ -1833,21 +1833,21 @@
       "number": 4054,
       "status": "open",
       "opened": "2026-10-16",
-      "last_checked": "2026-10-16",
+      "last_checked": "2026-10-17",
       "issue": 4053,
       "do_not_duplicate": true,
       "merged": false,
       "signed": true,
-      "head": "devtechedge:fix-4053-hoisted @ 5f86864",
+      "head": "devtechedge:fix-4053-hoisted @ 89ef46c",
       "base": "master",
       "diff": [
-        93,
+        103,
         1,
         3
       ],
       "related_prs": [],
       "summary": "function-component-definition no longer autofixes a FunctionDeclaration into an arrow/function-expression const when the declared variable has a reference earlier in the source (e.g. export default memo(Item) above function Item), which turned hoisting into a TDZ ReferenceError; the report is unchanged. Guard isUsedBeforeDeclaration in getFixer via getScope from lib/util/eslint. RuleTester invalid cases with output: null (issue repro for arrow-function and function-expression, plain call) plus a fixed control, across parsers.all; CHANGELOG Fixed entry with #4054.",
-      "note": "Opened 2026-10-16 with Dev's approval, no approach comment (bug label, 0 comments, no competing PR at open). Fork devtechedge/eslint-plugin-react created 2026-10-16 for this PR. Default branch is master, not main. maintainerCanModify true (require-allow-edits check). Single commit; CHANGELOG NNNN replaced with 4054 by amend + force-push of our own branch right after opening. Local npm test green (18116 passing, tsc clean); 92 CI checks pending at open. Trade-off stated in body: any earlier reference blocks the fix, even inside a deferred function body. Maintainer and merger: ljharb. Re-signed 2026-10-16 on the laptop (git-bundle-resign, sign_commit.py): 8d9b79f -> 5f86864, tree b81319b identical, force-with-lease; verified true; CI restarted."
+      "note": "Opened 2026-10-16 with Dev's approval, no approach comment (bug label, 0 comments, no competing PR at open). Fork devtechedge/eslint-plugin-react created 2026-10-16 for this PR. Default branch is master, not main. maintainerCanModify true (require-allow-edits check). Single commit; CHANGELOG NNNN replaced with 4054 by amend + force-push of our own branch right after opening. Local npm test green (18116 passing, tsc clean); 92 CI checks pending at open. Trade-off stated in body: any earlier reference blocks the fix, even inside a deferred function body. Maintainer and merger: ljharb. Re-signed 2026-10-16 on the laptop (git-bundle-resign, sign_commit.py): 8d9b79f -> 5f86864, tree b81319b identical, force-with-lease; verified true; CI restarted. 2026-10-17: codecov/patch (68%, 7 lines in the findDeclaredVariable fallback) fixed by walking to the root scope and searching down (old-ESLint context.getScope compat) plus one nested-scope RuleTester case; codecov/project drop was upload noise (2 of 24 sessions). Coverage fold squashed into the single commit, re-signed on laptop 5f86864e -> 89ef46c5 (tree 3c8b11e3, parent bd381cdb), force-with-lease pushed with Dev approval; verified true."
     },
     {
       "repo": "nushell/reedline",
