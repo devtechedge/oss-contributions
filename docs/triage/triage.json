@@ -1827,6 +1827,27 @@
       "approach_comment": "https://github.com/jd/tenacity/issues/756#issuecomment-6160521785",
       "summary": "Extra retry overload for callables with a first positional param returns _RetryDecoratedMethod[S,P,R], whose self-typed __get__ drops a type[T] first param so @classmethod + @retry type-checks under mypy and pyright again; typing only, no runtime change. assert_type regression tests sync and async, reno note.",
       "note": "Opened without jd sign-off on the approach comment; Dev's call 2026-10-15. CI all green on b7944a8 (no first-contributor approval gate). Fork devtechedge/tenacity created 2026-10-15 for this PR. Trade-off stated in body: plain function with first param type[X] stored on a class type-checks as bound."
+    },
+    {
+      "repo": "jsx-eslint/eslint-plugin-react",
+      "number": 4054,
+      "status": "open",
+      "opened": "2026-10-16",
+      "last_checked": "2026-10-16",
+      "issue": 4053,
+      "do_not_duplicate": true,
+      "merged": false,
+      "signed": false,
+      "head": "devtechedge:fix-4053-hoisted @ 8d9b79f",
+      "base": "master",
+      "diff": [
+        93,
+        1,
+        3
+      ],
+      "related_prs": [],
+      "summary": "function-component-definition no longer autofixes a FunctionDeclaration into an arrow/function-expression const when the declared variable has a reference earlier in the source (e.g. export default memo(Item) above function Item), which turned hoisting into a TDZ ReferenceError; the report is unchanged. Guard isUsedBeforeDeclaration in getFixer via getScope from lib/util/eslint. RuleTester invalid cases with output: null (issue repro for arrow-function and function-expression, plain call) plus a fixed control, across parsers.all; CHANGELOG Fixed entry with #4054.",
+      "note": "Opened 2026-10-16 with Dev's approval, no approach comment (bug label, 0 comments, no competing PR at open). Fork devtechedge/eslint-plugin-react created 2026-10-16 for this PR. Default branch is master, not main. maintainerCanModify true (require-allow-edits check). Single commit; CHANGELOG NNNN replaced with 4054 by amend + force-push of our own branch right after opening. Local npm test green (18116 passing, tsc clean); 92 CI checks pending at open. Trade-off stated in body: any earlier reference blocks the fix, even inside a deferred function body. Maintainer and merger: ljharb."
     }
   ],
   "issues": [
@@ -3292,6 +3313,18 @@
       "branch": "pyclass-overalign-reject",
       "commit": "ad40ea69",
       "note": "Over-aligned pyclass (repr(align(N)) above what the Python allocator guarantees) gives a misaligned pointer, which is UB. We first picked 6526 (filed 2026-10-14 by acshi, a non-maintainer) and posted an approach there; maintainer bschoenmaeckers replied 'Duplicate of #5714' about 40 min later. 5714 is the older open canonical issue with maintainer discussion (alex, davidhewitt, lukaslueg) where alex had floated refusing large-alignment structs. Pivoted: approach comment on 5714 links the fork branch and asks whether a PR is welcome; one-line courtesy note on 6526 points to 5714. As of 2026-10-15, 6526 is still open (not formally closed) and 5714 is open with no maintainer reply to ours. Fix on fork: compile-time const assert in the pyclass layout BASIC_SIZE; adjusted the existing src/impl_/introspection.rs repr(align(128)) test that the assert broke. Check fmt/clippy/UI tests with cargo +stable (box default nightly is red on untouched main). Newsfragment needs the PR number, so add it after opening. Policy: Contributing.md AI rules (no raw AI output, must own the code, disclosure preferred) and the PR template forbids unsolicited AI-generated PRs. PR held until a maintainer OKs it on 5714."
+    },
+    {
+      "repo": "jsx-eslint/eslint-plugin-react",
+      "number": 4053,
+      "status": "open",
+      "attempted": true,
+      "related_prs": [
+        4054
+      ],
+      "do_not_duplicate": true,
+      "last_checked": "2026-10-16",
+      "note": "Filed 2026-10-16 by andreww2012 (label bug): function-component-definition autofix turns a hoisted function declaration used before its definition into a const in the TDZ. Opened PR 4054 the same day (no-autofix guard, report unchanged)."
     }
   ],
   "closed_attempts": [
