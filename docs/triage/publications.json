@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "purpose": "Curated publication copy for merged upstream PRs. Machine metadata lives in triage.json; this file is the human-quality prose consumed by README, resume, LinkedIn, and the profile README. Records with curated=true are never overwritten by the reconciler. Co-authored merges (role co-author: opened by someone else, Dev's Co-authored-by trailer kept in the merged commit) live in co_authored and never count toward merged_count.",
-  "last_updated": "2026-10-16",
+  "last_updated": "2026-10-17",
   "merged_count": 41,
   "sort": {
     "ledger": "merged_at desc, repo asc, number desc",
@@ -1108,6 +1108,6 @@
       "name": "daily-ai",
       "desc": "Daily AI by Dev: a public archive of short 60 to 90 second videos on AI tools, LLMs, coding agents and new AI drops. Each entry embeds the video right in the README with a one-line takeaway, newest first. Covers model launches like StepFun Step 5 and DeepSeek, agent harnesses, context and output limits, plus hands-on tool tests on camera."
     },
-    "fetched_at": "2026-10-16"
+    "fetched_at": "2026-10-17"
   }
 }
