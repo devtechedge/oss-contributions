@@ -70,16 +70,16 @@ Merged upstream pull requests opened by another contributor that carry my `Co-au
 
 Short technical notes on eight of the merged contributions, covering the root cause, why the obvious fix was wrong, and how each change was verified.
 
-- [Sync is not a disconnect](docs/writeups/node-postgres-3772-sync-is-not-a-disconnect.md) - node-postgres #3772
-- [A package manager that cannot print its own version](docs/writeups/pnpm-14863-store-dir-panic-on-unix.md) - pnpm #14863
-- [pnpm update ate your caret](docs/writeups/pnpm-14756-update-ate-the-caret.md) - pnpm #14756
-- [A focus ring that traced the shape of a bar](docs/writeups/recharts-7805-pointer-focus-rings.md) - recharts #7805
-- [A catch block that returned nothing](docs/writeups/thirdweb-js-8938-catch-block-returned-nothing.md) - thirdweb-dev/js #8938
-- [Search that says "no results" while it is still indexing](docs/writeups/rspress-3678-await-search-indexing.md) - rspress #3678
-- [Build the tests before the workers race](docs/writeups/sqlmesh-6040-build-tests-off-worker-threads.md) - SQLMesh #6040
-- [useBetterDomTraversing, and knowing what not to autofix](docs/writeups/biome-11667-use-better-dom-traversing.md) - Biome #11667
+- Sync is not a disconnect - node-postgres #3772
+- A package manager that cannot print its own version - pnpm #14863
+- pnpm update ate your caret - pnpm #14756
+- A focus ring that traced the shape of a bar - recharts #7805
+- A catch block that returned nothing - thirdweb-dev/js #8938
+- Search that says "no results" while it is still indexing - rspress #3678
+- Build the tests before the workers race - SQLMesh #6040
+- useBetterDomTraversing, and knowing what not to autofix - Biome #11667
 
-Full index: [docs/writeups](docs/writeups/README.md).
+Operational documentation is maintained privately.
 
 ## 🔀 Open pull requests
 
