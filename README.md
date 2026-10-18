@@ -79,8 +79,6 @@ Short technical notes on eight of the merged contributions, covering the root ca
 - Build the tests before the workers race - SQLMesh #6040
 - useBetterDomTraversing, and knowing what not to autofix - Biome #11667
 
-Operational documentation is maintained privately.
-
 ## 🔀 Open pull requests
 
 Open work is not enumerated here. Contributions are reviewed upstream on their own timelines, and a long-running PR says more about the upstream queue than about the change. This ledger lists merged contributions only; work in flight is visible on my GitHub profile and in each upstream repository.

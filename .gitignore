@@ -10,6 +10,6 @@ node_modules/
 # Word owner lock files (auto-created while a .docx is open; never commit)
 ~$*
 
-# Operational docs and scripts live in a private repo; never recommit them here
+# Local working copies; not tracked here
 /docs/
 /scripts/
