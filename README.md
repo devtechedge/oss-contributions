@@ -63,7 +63,7 @@ Merged upstream pull requests opened by another contributor that carry my `Co-au
 
 | Repo | PR | What | Author | Merged |
 | --- | --- | --- | --- | --- |
-| <img src="https://github.com/langchain-ai.png?size=40" width="18" /> [langchain-ai/langgraphjs](https://github.com/langchain-ai/langgraphjs) | [#2828](https://github.com/langchain-ai/langgraphjs/pull/2828) | Co-authored the InMemoryStore namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. The InMemory portion was carried over from my closed #2803. | [@byhow](https://github.com/byhow) | 5 Oct 2026 |
+| <img src="https://github.com/langchain-ai.png?size=40" width="18" /> [langchain-ai/langgraphjs](https://github.com/langchain-ai/langgraphjs) | [#2828](https://github.com/langchain-ai/langgraphjs/pull/2828) | Co-authored the InMemoryStore namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. | [@byhow](https://github.com/byhow) | 5 Oct 2026 |
 <!-- ledger:coauthored-table:end -->
 
 ## 🧭 Engineering focus
