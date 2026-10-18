@@ -42,6 +42,13 @@ jobs:
           path: private
           token: ${{ secrets.LEDGER_SYNC_TOKEN }}
 
+      - name: Checkout private operational files
+        uses: actions/checkout@v4
+        with:
+          repository: devtechedge/oss-contributions-private
+          path: private-oss
+          token: ${{ secrets.LEDGER_SYNC_TOKEN }}
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -67,7 +74,7 @@ jobs:
           INPUT_DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
           set -euo pipefail
-          ARGS=(--update-about --private-root private)
+          ARGS=(--root . --ops-root private-oss --update-about --private-root private)
           if [ -n "${INPUT_PR}" ]; then
             ARGS+=(--pr "${INPUT_PR}")
           fi
@@ -77,14 +84,14 @@ jobs:
           if [ "${INPUT_DRY_RUN}" = "true" ]; then
             ARGS+=(--dry-run)
           fi
-          node scripts/sync-merged-oss.mjs "${ARGS[@]}" | tee /tmp/sync-report.json
+          node private-oss/scripts/sync-merged-oss.mjs "${ARGS[@]}" | tee /tmp/sync-report.json
           echo "new_merged=$(node -p "JSON.parse(require('fs').readFileSync('/tmp/sync-report.json','utf8')).merged.length")" >> "$GITHUB_OUTPUT"
 
       - name: Auto-patch private DOCX
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           set -euo pipefail
-          python scripts/sync-docx-to-private.py --oss-root . --private-root private
+          python private-oss/scripts/sync-docx-to-private.py --oss-root . --ops-root private-oss --private-root private
 
       - name: Commit ledger if changed
         if: ${{ github.event.inputs.dry_run != 'true' }}
@@ -95,7 +102,7 @@ jobs:
           # Professional docs moved to jobsearch-private 21 Sep 2026 and are
           # never staged here: resume txt, DOCX, all_repos, linkedin, wellfound,
           # generated paste. DOCX patch runs explicitly in the step above.
-          git add README.md docs/triage/triage.json docs/triage/publications.json || true
+          git add README.md || true
           if git diff --cached --quiet; then
             echo "No ledger file changes"
           else
@@ -118,6 +125,35 @@ jobs:
               fi
             done
           fi
+
+      - name: Commit operational files if changed
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+          cd private-oss
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/triage/triage.json docs/triage/publications.json || true
+          if git diff --cached --quiet; then
+            echo "No operational file changes"
+            exit 0
+          fi
+          git commit -m "chore(ledger): sync merged OSS publications"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:main"; then
+              echo "Pushed operational files on attempt ${attempt}"
+              exit 0
+            fi
+            echo "Push rejected on attempt ${attempt}; rebasing onto latest main"
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "::error::rebase conflict while syncing operational files; inspect the run and rerun"
+              exit 1
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "::error::could not push operational files after 3 attempts"
+          exit 1
 
       - name: Commit private docs if changed
         if: ${{ github.event.inputs.dry_run != 'true' }}
