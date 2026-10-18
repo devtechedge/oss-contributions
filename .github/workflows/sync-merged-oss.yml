@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       pr:
-        description: "Optional PR to force-reconcile (owner/repo#number), e.g. pnpm/pnpm#14863"
+        description: "Optional PR to force-reconcile, owner/repo and number"
         required: false
         type: string
       summary:
@@ -35,18 +35,18 @@ jobs:
       - name: Checkout ledger
         uses: actions/checkout@v4
 
-      - name: Checkout private jobsearch
+      - name: Checkout sources
         uses: actions/checkout@v4
         with:
-          repository: devtechedge/jobsearch-private
-          path: private
+          repository: devtechedge/${{ secrets.JOBSEARCH_REPO_NAME }}
+          path: sources-a
           token: ${{ secrets.LEDGER_SYNC_TOKEN }}
 
-      - name: Checkout private operational files
+      - name: Checkout sources
         uses: actions/checkout@v4
         with:
           repository: devtechedge/${{ secrets.OSS_OPS_REPO_NAME }}
-          path: private-oss
+          path: sources-b
           token: ${{ secrets.LEDGER_SYNC_TOKEN }}
 
       - name: Setup Node
@@ -63,18 +63,13 @@ jobs:
         id: reconcile
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # PAT. Needed for three things secrets.GITHUB_TOKEN cannot do:
-          # push the merged list into the profile repo (devtechedge/devtechedge),
-          # PATCH this repo's About description (admin-level),
-          # and read/write devtechedge/jobsearch-private (a separate private repo).
-          # If unset, profile + About steps are skipped; private write fails loudly.
           LEDGER_SYNC_TOKEN: ${{ secrets.LEDGER_SYNC_TOKEN }}
           INPUT_PR: ${{ github.event.inputs.pr || github.event.client_payload.pr || '' }}
           INPUT_SUMMARY: ${{ github.event.inputs.summary || github.event.client_payload.summary || '' }}
           INPUT_DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
           set -euo pipefail
-          ARGS=(--root . --ops-root private-oss --update-about --private-root private)
+          ARGS=(--root . --ops-root sources-b --update-about --private-root sources-a)
           if [ -n "${INPUT_PR}" ]; then
             ARGS+=(--pr "${INPUT_PR}")
           fi
@@ -84,105 +79,26 @@ jobs:
           if [ "${INPUT_DRY_RUN}" = "true" ]; then
             ARGS+=(--dry-run)
           fi
-          node private-oss/scripts/sync-merged-oss.mjs "${ARGS[@]}" | tee /tmp/sync-report.json
+          node sources-b/scripts/sync-merged-oss.mjs "${ARGS[@]}" > /tmp/sync-report.json
           echo "new_merged=$(node -p "JSON.parse(require('fs').readFileSync('/tmp/sync-report.json','utf8')).merged.length")" >> "$GITHUB_OUTPUT"
 
-      - name: Auto-patch private DOCX
+      - name: Patch documents
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           set -euo pipefail
-          python private-oss/scripts/sync-docx-to-private.py --oss-root . --ops-root private-oss --private-root private
+          python sources-b/scripts/sync-docx-to-private.py --oss-root . --ops-root sources-b --private-root sources-a > /tmp/docx-sync.txt
 
       - name: Commit ledger if changed
         if: ${{ github.event.inputs.dry_run != 'true' }}
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Professional docs moved to jobsearch-private 21 Sep 2026 and are
-          # never staged here: resume txt, DOCX, all_repos, linkedin, wellfound,
-          # generated paste. DOCX patch runs explicitly in the step above.
-          git add README.md || true
-          if git diff --cached --quiet; then
-            echo "No ledger file changes"
-          else
-            git commit -m "chore(ledger): sync merged OSS publications"
-            for attempt in 1 2 3; do
-              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
-                echo "Pushed ledger on attempt ${attempt}"
-                break
-              fi
-              echo "Push rejected on attempt ${attempt}; rebasing onto latest ${GITHUB_REF_NAME}"
-              if ! git pull --rebase origin "${GITHUB_REF_NAME}"; then
-                git rebase --abort || true
-                echo "::error::rebase conflict while syncing ledger; inspect the run and rerun"
-                exit 1
-              fi
-              sleep $((attempt * 5))
-              if [ "${attempt}" = "3" ]; then
-                echo "::error::could not push ledger after 3 attempts"
-                exit 1
-              fi
-            done
-          fi
+        run: node sources-b/scripts/commit-sync-tree.mjs ledger .
 
-      - name: Commit operational files if changed
+      - name: Commit source updates if changed
         if: ${{ github.event.inputs.dry_run != 'true' }}
-        run: |
-          set -euo pipefail
-          cd private-oss
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/triage/triage.json docs/triage/publications.json || true
-          if git diff --cached --quiet; then
-            echo "No operational file changes"
-            exit 0
-          fi
-          git commit -m "chore(ledger): sync merged OSS publications"
-          for attempt in 1 2 3; do
-            if git push origin "HEAD:main"; then
-              echo "Pushed operational files on attempt ${attempt}"
-              exit 0
-            fi
-            echo "Push rejected on attempt ${attempt}; rebasing onto latest main"
-            if ! git pull --rebase origin main; then
-              git rebase --abort || true
-              echo "::error::rebase conflict while syncing operational files; inspect the run and rerun"
-              exit 1
-            fi
-            sleep $((attempt * 5))
-          done
-          echo "::error::could not push operational files after 3 attempts"
-          exit 1
+        run: node sources-b/scripts/commit-sync-tree.mjs ops sources-b
 
-      - name: Commit private docs if changed
+      - name: Commit source updates if changed
         if: ${{ github.event.inputs.dry_run != 'true' }}
-        run: |
-          set -euo pipefail
-          cd private
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Devayan_Mandal-resume.txt linkedin-all-details.txt wellfound.txt linkedin-experience-paste.txt devayan-all-details.txt Devayan_Mandal.docx || true
-          if git diff --cached --quiet; then
-            echo "No private doc changes"
-            exit 0
-          fi
-          git commit -m "chore(private): sync merged OSS publications"
-          for attempt in 1 2 3; do
-            if git push origin "HEAD:main"; then
-              echo "Pushed private on attempt ${attempt}"
-              exit 0
-            fi
-            echo "Push rejected on attempt ${attempt}; rebasing onto latest main"
-            if ! git pull --rebase origin main; then
-              git rebase --abort || true
-              echo "::error::rebase conflict while syncing private docs; inspect the run and rerun"
-              exit 1
-            fi
-            sleep $((attempt * 5))
-          done
-          echo "::error::could not push private docs after 3 attempts"
-          exit 1
+        run: node sources-b/scripts/commit-sync-tree.mjs career sources-a
 
       - name: Notify site on new merges
         if: ${{ steps.reconcile.outputs.new_merged != '0' && github.event.inputs.dry_run != 'true' }}
@@ -196,4 +112,3 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/devtechedge/devtechedge.github.io/dispatches \
             -d '{"event_type":"oss-stats-refresh"}'
-          echo "Dispatched oss-stats-refresh to devtechedge.github.io"

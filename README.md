@@ -6,7 +6,7 @@ Public ledger of **upstream open-source contributions**.
 
 **Latest update:** 18 Oct 2026
 
-This repository serves as the canonical record of upstream contribution activity: identifying worthwhile issues, tracking claims and active pull requests, preserving implementation and review outcomes, and maintaining an auditable history of merged, closed, and declined work.
+This repository serves as the canonical record of upstream contribution activity: identifying worthwhile issues, preserving implementation and review outcomes, and maintaining an auditable history of merged work.
 
 ## ✅ Merged pull requests
 
@@ -65,23 +65,6 @@ Merged upstream pull requests opened by another contributor that carry my `Co-au
 | --- | --- | --- | --- | --- |
 | <img src="https://github.com/langchain-ai.png?size=40" width="18" /> [langchain-ai/langgraphjs](https://github.com/langchain-ai/langgraphjs) | [#2828](https://github.com/langchain-ai/langgraphjs/pull/2828) | Co-authored the InMemoryStore namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. The InMemory portion was carried over from my closed #2803. | [@byhow](https://github.com/byhow) | 5 Oct 2026 |
 <!-- ledger:coauthored-table:end -->
-
-## ✍️ Selected write-ups
-
-Short technical notes on eight of the merged contributions, covering the root cause, why the obvious fix was wrong, and how each change was verified.
-
-- Sync is not a disconnect - node-postgres #3772
-- A package manager that cannot print its own version - pnpm #14863
-- pnpm update ate your caret - pnpm #14756
-- A focus ring that traced the shape of a bar - recharts #7805
-- A catch block that returned nothing - thirdweb-dev/js #8938
-- Search that says "no results" while it is still indexing - rspress #3678
-- Build the tests before the workers race - SQLMesh #6040
-- useBetterDomTraversing, and knowing what not to autofix - Biome #11667
-
-## 🔀 Open pull requests
-
-Open work is not enumerated here. Contributions are reviewed upstream on their own timelines, and a long-running PR says more about the upstream queue than about the change. This ledger lists merged contributions only; work in flight is visible on my GitHub profile and in each upstream repository.
 
 ## 🧭 Engineering focus
 
