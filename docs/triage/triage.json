@@ -135,7 +135,7 @@
     {
       "repo": "andreafrancia/trash-cli",
       "number": 428,
-      "status": "open",
+      "status": "closed",
       "mergeable": true,
       "opened": "2026-10-04",
       "last_checked": "2026-10-18",
@@ -143,7 +143,8 @@
       "do_not_duplicate": true,
       "summary": "Maintainer-specced follow-up to #416 (comment 5952399467): trash-list and trash-restore print one 'Found inconsistencies in <trash dir> check them running `trash-list --doctor`' line per trash dir (stderr) instead of per-file parse errors; new trash-list --doctor prints the per-file lines. Non-.trashinfo files in info/ also counted. trash-put untouched; --fix out of scope. Branch list-doctor-summary, 2 signed commits (ca9ddf74, d23f72cf). pre-push green locally (785 tests py3.10 and py2.7, mypy both). Open question to maintainer: stderr vs stdout for summary.",
       "merged": false,
-      "note": "Opened 2026-10-04 after Dev's reply 5973113973 on #416. Possible follow-up: ignore .DS_Store in info/ if maintainer (macOS) finds summary noisy."
+      "note": "Opened 2026-10-04 after Dev's reply 5973113973 on #416. Possible follow-up: ignore .DS_Store in info/ if maintainer (macOS) finds summary noisy.",
+      "closed": "2026-10-18"
     },
     {
       "repo": "wxt-dev/wxt",
@@ -1583,14 +1584,15 @@
     {
       "repo": "proptest-rs/proptest",
       "number": 672,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-10-07",
       "last_checked": "2026-10-18",
       "issue": 671,
       "do_not_duplicate": true,
       "merged": false,
       "summary": "proptest-state-machine: Sequential::new_tree no longer underflows when the sampled sequence size is 0 (e.g. 0..10 size range). max_ix uses saturating_sub(1) and shrinking starts at Shrink::InitialState for an empty sequence; fixes the debug overflow panic and the release abort on VarBitSet::clear(usize::MAX). Branch fix-state-machine-empty-sequence, 2 unsigned commits (fix 0601e43, changelog link 4d2a690), +70/-4 across 2 files. 3 regression tests fail before / pass after; cargo test -p proptest-state-machine green in debug and release.",
-      "note": "Issue filed 6 Oct by oskarhane, uncontested (empty timeline, no PRs). No claim comment (Fixes is the claim), no comment posted. No AI policy, no PR template, no DCO/CLA. Body match verified, no CR. Main is not rustfmt-clean in test_zero_seen_transitions_optimization (pre-existing, left alone). CI action_required (first-time contributor approval)."
+      "note": "Issue filed 6 Oct by oskarhane, uncontested (empty timeline, no PRs). No claim comment (Fixes is the claim), no comment posted. No AI policy, no PR template, no DCO/CLA. Body match verified, no CR. Main is not rustfmt-clean in test_zero_seen_transitions_optimization (pre-existing, left alone). CI action_required (first-time contributor approval).",
+      "closed": "2026-10-18"
     },
     {
       "repo": "LargeModGames/spotatui",
@@ -1625,7 +1627,7 @@
     {
       "repo": "graphile/worker",
       "number": 640,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-10-08",
       "last_checked": "2026-10-18",
       "issue": 638,
@@ -1634,12 +1636,13 @@
       "summary": "A rejected task-identifier lookup was cached for the life of the process. getTaskDetails now clears lastStr when that lookup rejects and no newer lookup has replaced it, so the next poll retries. Retry policy is unchanged. Branch fix-rejected-task-identifier-cache, unsigned commit 74ccbfd. One regression. Changeset kind-otters-task-cache.",
       "note": "Issue 638 open, unassigned, 0 comments, no competing PR at open. Approved body matched, no CR. No claim comment. CI is action_required. Socket checks passed. Full Postgres suite not run locally.",
       "ci_status": "action_required",
-      "ci_note": "github-actions check suite on 74ccbfd is action_required. A maintainer has to approve the workflow. Socket Security checks passed. Not green."
+      "ci_note": "github-actions check suite on 74ccbfd is action_required. A maintainer has to approve the workflow. Socket Security checks passed. Not green.",
+      "closed": "2026-10-18"
     },
     {
       "repo": "nelmio/NelmioApiDocBundle",
       "number": 2827,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-10-08",
       "last_checked": "2026-10-18",
       "issue": 2805,
@@ -1648,7 +1651,8 @@
       "summary": "OpenAPI version was dropped on the model path, so a 3.1 examples key was rejected as 3.0. OpenApiAnnotationsReader now passes the document version into validate() for schemas and properties, version-aware for swagger-php 5 vs 6. Branch fix-model-openapi-version, unsigned commit 723a98f (fcad933 squashed with the CI fix, force-pushed with lease 2026-10-10). Two regressions. Base 5.x.",
       "note": "Issue 2805 open, unassigned, 0 comments, no competing PR at open. Approved body matched verbatim, no CR. No claim comment. Repo merges outsiders (atierant 2809, maks-oleksyuk 2810 merged 2026-10-05).",
       "ci_status": "green",
-      "ci_note": "fcad933 was red on swagger-php 5.7.8/5.8.3 (Symfony 7.2 and 6.4 --prefer-lowest jobs, PHPStan): named validate(version:) arg and v6-only attribute examples in tests. 723a98f calls validate through reflection, moves test models to PHPStan-excluded fixtures, skips where attributes lack plain examples (below 6.8.1). CI run 37996953992 all 37 jobs green 2026-10-10."
+      "ci_note": "fcad933 was red on swagger-php 5.7.8/5.8.3 (Symfony 7.2 and 6.4 --prefer-lowest jobs, PHPStan): named validate(version:) arg and v6-only attribute examples in tests. 723a98f calls validate through reflection, moves test models to PHPStan-excluded fixtures, skips where attributes lack plain examples (below 6.8.1). CI run 37996953992 all 37 jobs green 2026-10-10.",
+      "closed": "2026-10-18"
     },
     {
       "repo": "ratatui/ratatui",
@@ -1702,7 +1706,7 @@
     {
       "repo": "dyne/frei0r",
       "number": 314,
-      "status": "open",
+      "status": "closed",
       "opened": "2026-10-11",
       "last_checked": "2026-10-18",
       "issue": 309,
@@ -1718,7 +1722,8 @@
       "summary": "cairogradient, cairoblend, and cairoaffineblend premultiplied the caller's const input in place. Those updates now copy the written frame first. A non-opaque pixel check fails if f0r_update or f0r_update2 changes the input bytes.",
       "note": "Issue 309 was open and unassigned, with an empty timeline and no competing PR. Approved body matched exactly. No claim comment. Commit 20b65ab is verified. The new check failed on the unfixed plugins and passed after the copy. Probe skipped until opening was approved.",
       "ci_status": "action_required",
-      "ci_note": "Conventional Commits passed. Test and Website are action_required, waiting on a maintainer to approve workflows from this fork. That is the first-contribution approval gate, not a failing job."
+      "ci_note": "Conventional Commits passed. Test and Website are action_required, waiting on a maintainer to approve workflows from this fork. That is the first-contribution approval gate, not a failing job.",
+      "closed": "2026-10-18"
     },
     {
       "repo": "api-platform/core",
