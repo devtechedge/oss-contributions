@@ -65,6 +65,7 @@ Merged upstream pull requests opened by another contributor that carry my `Co-au
 
 | Repo | PR | What | Author | Merged |
 | --- | --- | --- | --- | --- |
+| <img src="https://github.com/safe-global.png?size=40" width="18" /> [safe-global/safe-wallet-monorepo](https://github.com/safe-global/safe-wallet-monorepo) | [#9169](https://github.com/safe-global/safe-wallet-monorepo/pull/9169) | Co-authored the Safe signer recipient hint: AddressBookInput now checks the entered address against the current Safe owners and says "This is a signer of this Safe" instead of "This is an unknown address" when the recipient is a signer who is not in the address book. | [@compojoom](https://github.com/compojoom) | 19 Oct 2026 |
 | <img src="https://github.com/langchain-ai.png?size=40" width="18" /> [langchain-ai/langgraphjs](https://github.com/langchain-ai/langgraphjs) | [#2828](https://github.com/langchain-ai/langgraphjs/pull/2828) | Co-authored the InMemoryStore namespace isolation fix: searches now return only the exact namespace and its descendants instead of sibling namespaces that share a character prefix, and colon aliases are rejected on search, write and direct batch calls. | [@byhow](https://github.com/byhow) | 5 Oct 2026 |
 <!-- ledger:coauthored-table:end -->
 
